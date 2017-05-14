@@ -2,6 +2,7 @@
   "name": "jcm2018",
   "version": "1.0.0",
   "description": "Jirkovský crossmarathon",
+  "readme": "README.md",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --compilers js:babel-core/register --recursive --require ./test/test_helper.js",
