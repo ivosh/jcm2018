@@ -1,31 +1,20 @@
 {
   "name": "jcm2018",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Jirkovský crossmarathon",
-  "readme": "README.md",
-  "main": "index.js",
-  "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --compilers js:babel-core/register --recursive --require ./test/test_helper.js",
-    "test:watch": "npm run test -- --watch"
-  },
   "keywords": [],
   "author": "Ivo Raisr",
   "email": "ivosh@ivosh.net",
   "license": "MIT",
-  "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.24.1",
-    "babel-preset-latest": "^6.24.1",
-    "chai": "^3.5.0",
-    "chai-immutable": "^1.6.0",
-    "mocha": "^3.4.1"
-  },
-  "babel": {
-    "presets": [
-      "latest"
-    ]
-  },
   "dependencies": {
-    "immutable": "^3.8.1"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-scripts": "1.0.14"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
