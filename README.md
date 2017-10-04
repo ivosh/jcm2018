@@ -1,3 +1,6 @@
-# Jirkovský crossmarathon [![Build Status](https://travis-ci.org/facebookincubator/create-react-app.svg?branch=master)](https://travis-ci.org/facebookincubator/create-react-app)[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![Build Status](https://api.travis-ci.org/ivosh/jcm2018.svg?branch=master)](https://travis-ci.org/ivosh/jcm2018)
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+
+# Jirkovský crossmarathon
 
 Nová implementace systému pro správu účastníků a výsledků pro rok 2018.
