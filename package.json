@@ -15,8 +15,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "prettier": "prettier --write '{src,__{tests,mocks}__}/**/*.js'"
+    "coverage": "react-scripts test --env=jsdom --coverage",
+    "prettier": "prettier --write '{src,__{tests,mocks}__}/**/*.js'",
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
     "eslint-plugin-prettier": "^2.3.1",
