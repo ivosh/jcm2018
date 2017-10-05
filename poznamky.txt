@@ -1,0 +1,6 @@
+https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md
+https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#integrating-with-an-api-backend
+https://www.fullstackreact.com/articles/using-create-react-app-with-a-server/
+https://www.fullstackreact.com/articles/deploying-a-react-app-with-a-server/
+https://github.com/FullstackTypeScript/redux-bootstrap-example
+https://react-bootstrap.github.io/components.html

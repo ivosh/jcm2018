@@ -7,7 +7,9 @@
   "email": "ivosh@ivosh.net",
   "license": "MIT",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "react": "^16.0.0",
+    "react-bootstrap": "^0.31.3",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.14"
   },
@@ -17,10 +19,13 @@
     "test": "react-scripts test --env=jsdom",
     "coverage": "react-scripts test --env=jsdom --coverage",
     "prettier": "prettier --write '{src,__{tests,mocks}__}/**/*.js'",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "clean": "rm -rf coverage",
+    "clobber": "rm -rf coverage node_modules"
   },
   "devDependencies": {
     "eslint-plugin-prettier": "^2.3.1",
     "prettier": "^1.7.4"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }
