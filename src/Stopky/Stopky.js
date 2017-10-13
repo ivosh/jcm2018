@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Grid, Navbar, Jumbotron, Button } from 'react-bootstrap';
 import logo from './logo.svg';
-import './App.css';
+import './Stopky.css';
 
-class App extends Component {
+class Stopky extends Component {
   render() {
     return (
       <div>
@@ -11,7 +11,7 @@ class App extends Component {
           <Grid>
             <Navbar.Header>
               <Navbar.Brand>
-                <a href="/">React App</a>
+                <a href="/">Stopky</a>
               </Navbar.Brand>
               <Navbar.Toggle />
             </Navbar.Header>
@@ -20,7 +20,7 @@ class App extends Component {
         <Jumbotron>
           <Grid>
             <h1>
-              <img src={logo} className="App-logo" alt="logo" />Welcome to React
+              <img src={logo} className="Stopky-logo" alt="logo" />Welcome to React
             </h1>
             <p>
               <Button
@@ -39,4 +39,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Stopky;
