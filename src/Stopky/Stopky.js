@@ -4,7 +4,12 @@ import logo from './logo.svg';
 import './Stopky.css';
 
 class Stopky extends Component {
-  render() {
+  constructor(props) {
+    super(props);
+    this.state = { date: new Date() };
+  }
+
+  render = () => {
     return (
       <div>
         <Navbar inverse fixedTop>
@@ -36,6 +41,18 @@ class Stopky extends Component {
         </Jumbotron>
       </div>
     );
+  };
+
+  componentDidMount() {
+    this.timerID = setInterval(() => this.tick(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  tick() {
+    this.setState({ date: new Date() });
   }
 }
 
