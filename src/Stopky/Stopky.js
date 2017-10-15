@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
+import moment from 'moment';
 import './Stopky.css';
 import { stopkyStart, stopkyStop } from './StopkyActions';
 import Displej from './Displej';
@@ -47,13 +48,16 @@ class Stopky extends Component {
       secs = '--';
       subsecs = '--';
     } else {
-      let diff = new Date(this.state.current.getTime() - state.base.getTime());
-      console.log(diff);
-      hours = diff.getHours().toString();
-      mins = diff.getMinutes().toString();
-      secs = diff.getSeconds().toString();
-      subsecs = diff.getMilliseconds().toString();
-      subsecs = subsecs.slice(0, 2);
+      let duration = moment.duration(this.state.current.getTime() - state.base.getTime());
+      hours = duration.hours().toString();
+      mins = duration.minutes().toString();
+      secs = duration.seconds().toString();
+      subsecs = duration.milliseconds().toString();
+      if (subsecs.length < 2) {
+        subsecs = subsecs + '0';
+      } else {
+        subsecs = subsecs.slice(0, 2);
+      }
     }
 
     return (
