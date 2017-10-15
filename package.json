@@ -8,10 +8,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url" : "https://github.com/ivosh/jcm2018.git"
+    "url": "https://github.com/ivosh/jcm2018.git"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.3",
     "react-dom": "^16.0.0",
