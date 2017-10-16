@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 import './Displej.css';
 
 const Displej = ({ duration }) => {
@@ -13,7 +12,13 @@ const Displej = ({ duration }) => {
   } else {
     hours = duration.hours().toString();
     mins = duration.minutes().toString();
+    if (mins.length < 2) {
+      mins = '0' + mins;
+    }
     secs = duration.seconds().toString();
+    if (secs.length < 2) {
+      secs = '0' + secs;
+    }
     subsecs = duration.milliseconds().toString();
     if (subsecs.length < 2) {
       subsecs = subsecs + '0';

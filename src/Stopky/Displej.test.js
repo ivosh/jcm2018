@@ -10,5 +10,5 @@ it('počáteční stav', () => {
 
 it('po startu', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Displej duration={moment.duration("1:43:52.13")} />, div);
+  ReactDOM.render(<Displej duration={moment.duration('1:43:52.13')} />, div);
 });
