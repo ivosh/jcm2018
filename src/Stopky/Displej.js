@@ -1,8 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import './Displej.css';
 
-const Displej = ({ hours, mins, secs, subsecs }) => {
+const Displej = ({ duration }) => {
+  let hours, mins, secs, subsecs;
+  if (duration === null) {
+    hours = '-';
+    mins = '--';
+    secs = '--';
+    subsecs = '--';
+  } else {
+    hours = duration.hours().toString();
+    mins = duration.minutes().toString();
+    secs = duration.seconds().toString();
+    subsecs = duration.milliseconds().toString();
+    if (subsecs.length < 2) {
+      subsecs = subsecs + '0';
+    } else {
+      subsecs = subsecs.slice(0, 2);
+    }
+  }
+
   return (
     <span className="Displej">
       <span className="Displej-segment">{hours}</span>
@@ -17,10 +36,7 @@ const Displej = ({ hours, mins, secs, subsecs }) => {
 };
 
 Displej.propTypes = {
-  hours: PropTypes.string.isRequired,
-  mins: PropTypes.string.isRequired,
-  secs: PropTypes.string.isRequired,
-  subsecs: PropTypes.string.isRequired
+  duration: PropTypes.object
 };
 
 export default Displej;

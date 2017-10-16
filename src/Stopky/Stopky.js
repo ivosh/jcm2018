@@ -41,28 +41,14 @@ class Stopky extends Component {
     const { store } = this.context;
     const state = store.getState();
 
-    let hours, mins, secs, subsecs;
-    if (state.base === null) {
-      hours = '-';
-      mins = '--';
-      secs = '--';
-      subsecs = '--';
-    } else {
-      let duration = moment.duration(this.state.current.getTime() - state.base.getTime());
-      hours = duration.hours().toString();
-      mins = duration.minutes().toString();
-      secs = duration.seconds().toString();
-      subsecs = duration.milliseconds().toString();
-      if (subsecs.length < 2) {
-        subsecs = subsecs + '0';
-      } else {
-        subsecs = subsecs.slice(0, 2);
-      }
+    let duration = null;
+    if (state.base !== null) {
+      duration = moment.duration(this.state.current.getTime() - state.base.getTime());
     }
 
     return (
       <div className="Stopky">
-        <Displej hours={hours} mins={mins} secs={secs} subsecs={subsecs} />
+        <Displej duration={duration} />
         <Button bsStyle="success" onClick={() => this.start()}>
           Start
         </Button>
