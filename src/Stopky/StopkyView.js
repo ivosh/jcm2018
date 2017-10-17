@@ -13,6 +13,12 @@ export class StopkyView extends Component {
     this.state = { current: new Date() };
   }
 
+  componentDidMount() {
+    if (this.props.running) {
+      this.timerID = setInterval(() => this.tick(), ONE_TICK);
+    }
+  }
+
   componentWillUnmount() {
     this.stop();
   }
@@ -35,20 +41,26 @@ export class StopkyView extends Component {
   }
 
   render = () => {
+    const props = this.props;
+
     let duration = null;
-    if (this.props.base !== null) {
-      duration = moment.duration(this.state.current.getTime() - this.props.base.getTime());
+    if (props.base !== null) {
+      duration = moment.duration(this.state.current.getTime() - props.base.getTime());
     }
 
     return (
-      <div className="Stopky">
-        <Displej duration={duration} />
-        <Button bsStyle="success" onClick={() => this.start()}>
-          Start
-        </Button>
-        <Button bsStyle="danger" onClick={() => this.stop()}>
-          Stop
-        </Button>
+      <div className="StopkyView">
+        <div className="StopkyView-mezera">
+          <Displej duration={duration} />
+        </div>
+        <div>
+          <Button bsStyle="success" disabled={props.startDisabled} onClick={() => this.start()}>
+            Start
+          </Button>{' '}
+          <Button bsStyle="danger" disabled={props.stopDisabled} onClick={() => this.stop()}>
+            Stop
+          </Button>
+        </div>
       </div>
     );
   };

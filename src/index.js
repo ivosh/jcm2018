@@ -5,11 +5,11 @@ import { createStore } from 'redux';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import App from './App';
-import stopkyReducer from './Stopky/stopkyReducer';
+import appReducer from './appReducer';
 import registerServiceWorker from './registerServiceWorker';
 
 let store = createStore(
-  stopkyReducer /* preloadedState, */,
+  appReducer /* preloadedState, */,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
