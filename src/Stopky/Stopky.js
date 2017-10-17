@@ -5,8 +5,8 @@ import { stopkyStart, stopkyStop } from './StopkyActions';
 const mapStateToProps = state => ({
   base: state.stopky.base,
   running: state.stopky.running,
-  startDisabled: state.stopky.running === true,
-  stopDisabled: state.stopky.running === false
+  startEnabled: state.stopky.running === false,
+  stopEnabled: state.stopky.running === true
 });
 
 const mapDispatchToProps = dispatch => {

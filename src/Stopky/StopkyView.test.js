@@ -8,7 +8,14 @@ const fakeStopAction = () => ({});
 it('před startem', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <StopkyView base={null} startAction={fakeStartAction} stopAction={fakeStopAction} />,
+    <StopkyView
+      running={false}
+      base={null}
+      startAction={fakeStartAction}
+      stopAction={fakeStopAction}
+      startEnabled={true}
+      stopEnabled={false}
+    />,
     div
   );
 });
@@ -16,7 +23,29 @@ it('před startem', () => {
 it('po startu', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <StopkyView base={new Date()} startAction={fakeStartAction} stopAction={fakeStopAction} />,
+    <StopkyView
+      running={true}
+      base={new Date()}
+      startAction={fakeStartAction}
+      stopAction={fakeStopAction}
+      startEnabled={false}
+      stopEnabled={true}
+    />,
+    div
+  );
+});
+
+it('po stopce', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(
+    <StopkyView
+      running={false}
+      base={new Date()}
+      startAction={fakeStartAction}
+      stopAction={fakeStopAction}
+      startEnabled={true}
+      stopEnabled={false}
+    />,
     div
   );
 });

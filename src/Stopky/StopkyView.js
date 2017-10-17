@@ -54,10 +54,10 @@ export class StopkyView extends Component {
           <Displej duration={duration} />
         </div>
         <div>
-          <Button bsStyle="success" disabled={props.startDisabled} onClick={() => this.start()}>
+          <Button bsStyle="success" disabled={!props.startEnabled} onClick={() => this.start()}>
             Start
           </Button>{' '}
-          <Button bsStyle="danger" disabled={props.stopDisabled} onClick={() => this.stop()}>
+          <Button bsStyle="danger" disabled={!props.stopEnabled} onClick={() => this.stop()}>
             Stop
           </Button>
         </div>
@@ -69,7 +69,9 @@ export class StopkyView extends Component {
 StopkyView.propTypes = {
   base: PropTypes.object,
   startAction: PropTypes.func.isRequired,
-  stopAction: PropTypes.func.isRequired
+  stopAction: PropTypes.func.isRequired,
+  startEnabled: PropTypes.bool.isRequired,
+  stopEnabled: PropTypes.bool.isRequired
 };
 
 export default StopkyView;
