@@ -1,31 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { convertDuration } from '../Util';
 import './Displej.css';
 
 const Displej = ({ duration }) => {
-  let hours, mins, secs, subsecs;
-  if (duration === null) {
-    hours = '-';
-    mins = '--';
-    secs = '--';
-    subsecs = '--';
-  } else {
-    hours = duration.hours().toString();
-    mins = duration.minutes().toString();
-    if (mins.length < 2) {
-      mins = '0' + mins;
-    }
-    secs = duration.seconds().toString();
-    if (secs.length < 2) {
-      secs = '0' + secs;
-    }
-    subsecs = duration.milliseconds().toString();
-    if (subsecs.length < 2) {
-      subsecs = subsecs + '0';
-    } else {
-      subsecs = subsecs.slice(0, 2);
-    }
-  }
+  let { hours, mins, secs, subsecs } = convertDuration(duration);
 
   return (
     <span className="Displej">

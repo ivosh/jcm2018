@@ -30,14 +30,19 @@ export class StopkyView extends Component {
   start() {
     this.timerID = setInterval(() => this.tick(), ONE_TICK);
 
-    this.props.startAction(new Date());
+    this.props.onStart(new Date());
+  }
+
+  mezicas() {
+    const duration = moment.duration(this.state.current.getTime() - this.props.base.getTime());
+    this.props.onMezicas(duration);
   }
 
   stop() {
     clearInterval(this.timerID);
     this.timerID = null;
 
-    this.props.stopAction();
+    this.props.onStop();
   }
 
   render = () => {
@@ -57,6 +62,9 @@ export class StopkyView extends Component {
           <Button bsStyle="success" disabled={!props.startEnabled} onClick={() => this.start()}>
             Start
           </Button>{' '}
+          <Button bsStyle="info" disabled={!props.mezicasEnabled} onClick={() => this.mezicas()}>
+            Mezičas
+          </Button>{' '}
           <Button bsStyle="danger" disabled={!props.stopEnabled} onClick={() => this.stop()}>
             Stop
           </Button>
@@ -68,10 +76,12 @@ export class StopkyView extends Component {
 
 StopkyView.propTypes = {
   base: PropTypes.object,
-  startAction: PropTypes.func.isRequired,
-  stopAction: PropTypes.func.isRequired,
   startEnabled: PropTypes.bool.isRequired,
-  stopEnabled: PropTypes.bool.isRequired
+  mezicasEnabled: PropTypes.bool.isRequired,
+  stopEnabled: PropTypes.bool.isRequired,
+  onStart: PropTypes.func.isRequired,
+  onStop: PropTypes.func.isRequired,
+  onMezicas: PropTypes.func.isRequired
 };
 
 export default StopkyView;
