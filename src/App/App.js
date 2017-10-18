@@ -1,6 +1,7 @@
 import React from 'react';
-import { Grid, Navbar, Jumbotron, Button } from 'react-bootstrap';
-import Stopky from './Stopky/Stopky';
+import { Grid, Navbar, Jumbotron } from 'react-bootstrap';
+import Stopky from '../Stopky/Stopky';
+import Mezicasy from '../Mezicasy/Mezicasy';
 import './App.css';
 import logo from './logo.svg';
 
@@ -20,19 +21,10 @@ const App = () => {
       <Jumbotron>
         <Grid>
           <h1>
-            <img src={logo} className="App-logo" alt="logo" />Welcome to React
+            <img src={logo} className="App-logo" alt="logo" />Pracoviště časoměřiče
           </h1>
-          <p>
-            <Button
-              bsStyle="success"
-              bsSize="large"
-              href="http://react-bootstrap.github.io/components.html"
-              target="_blank"
-            >
-              View React Bootstrap Docs
-            </Button>
-          </p>
           <Stopky />
+          <Mezicasy />
         </Grid>
       </Jumbotron>
     </div>
