@@ -1,22 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { StopkyView } from './StopkyView';
+import { Stopky } from './Stopky';
 
 const fakeOnStart = base => ({});
-const fakeOnMezicas = duration => ({});
+const fakeOnAddMezicas = duration => ({});
 const fakeOnStop = () => ({});
 
 it('před startem', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <StopkyView
+    <Stopky
       running={false}
       base={null}
       startEnabled={true}
       mezicasEnabled={false}
       stopEnabled={false}
       onStart={fakeOnStart}
-      onMezicas={fakeOnMezicas}
+      onAddMezicas={fakeOnAddMezicas}
       onStop={fakeOnStop}
     />,
     div
@@ -26,14 +26,14 @@ it('před startem', () => {
 it('po startu', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <StopkyView
+    <Stopky
       running={true}
       base={new Date()}
       startEnabled={false}
       mezicasEnabled={true}
       stopEnabled={true}
       onStart={fakeOnStart}
-      onMezicas={fakeOnMezicas}
+      onAddMezicas={fakeOnAddMezicas}
       onStop={fakeOnStop}
     />,
     div
@@ -43,14 +43,14 @@ it('po startu', () => {
 it('po stopce', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <StopkyView
+    <Stopky
       running={false}
       base={new Date()}
       startEnabled={true}
       mezicasEnabled={false}
       stopEnabled={false}
       onStart={fakeOnStart}
-      onMezicas={fakeOnMezicas}
+      onAddMezicas={fakeOnAddMezicas}
       onStop={fakeOnStop}
     />,
     div
