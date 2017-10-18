@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'react-bootstrap';
+import { Button, ButtonToolbar } from 'react-bootstrap';
 import moment from 'moment';
 import './Stopky.css';
 import Displej from './Displej';
@@ -34,7 +34,8 @@ export class Stopky extends Component {
   }
 
   mezicas() {
-    const duration = moment.duration(this.state.current.getTime() - this.props.base.getTime());
+    const current = new Date();
+    const duration = moment.duration(current.getTime() - this.props.base.getTime());
     this.props.onAddMezicas(duration);
   }
 
@@ -59,15 +60,17 @@ export class Stopky extends Component {
           <Displej duration={duration} />
         </div>
         <div>
-          <Button bsStyle="success" disabled={!props.startEnabled} onClick={() => this.start()}>
-            Start
-          </Button>{' '}
-          <Button bsStyle="info" disabled={!props.mezicasEnabled} onClick={() => this.mezicas()}>
-            Mezičas
-          </Button>{' '}
-          <Button bsStyle="danger" disabled={!props.stopEnabled} onClick={() => this.stop()}>
-            Stop
-          </Button>
+          <ButtonToolbar>
+            <Button bsStyle="success" disabled={!props.startEnabled} onClick={() => this.start()}>
+              Start
+            </Button>
+            <Button bsStyle="info" disabled={!props.mezicasEnabled} onClick={() => this.mezicas()}>
+              Mezičas
+            </Button>
+            <Button bsStyle="danger" disabled={!props.stopEnabled} onClick={() => this.stop()}>
+              Stop
+            </Button>
+          </ButtonToolbar>
         </div>
       </div>
     );

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Table } from 'react-bootstrap';
+import './Mezicasy.css';
 import Mezicas from './Mezicas';
 
 const generateList = (mezicasyIn, onRemoveMezicas) => {
@@ -21,11 +22,12 @@ const generateList = (mezicasyIn, onRemoveMezicas) => {
 };
 
 const Mezicasy = ({ mezicasy, onRemoveMezicas }) => (
-  <Table>
+  <Table className="Mezicasy">
     <thead>
       <tr>
         <th>#</th>
         <th>mezičas</th>
+        <th />
       </tr>
     </thead>
     <tbody>{generateList(mezicasy, onRemoveMezicas)}</tbody>
