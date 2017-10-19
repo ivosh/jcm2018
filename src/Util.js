@@ -30,3 +30,13 @@ export const convertDuration = duration => {
 
   return { hours, mins, secs, subsecs };
 };
+
+export const dokoncenoStr = dokonceno => {
+  if (dokonceno === true) {
+    return ['dokonceno', 'dokončeno'];
+  } else if (dokonceno === false) {
+    return ['nedokonceno', 'nedokončeno'];
+  } else {
+    return ['na-trase', 'na trase'];
+  }
+};

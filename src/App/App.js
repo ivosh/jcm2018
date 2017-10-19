@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Panel } from 'react-bootstrap';
 import StopkyConnected from '../Stopky/StopkyConnected';
 import MezicasyConnected from '../Mezicasy/MezicasyConnected';
+import StartujiciConnected from '../Startujici/StartujiciConnected';
 import './App.css';
 import logo from './logo.svg';
 
@@ -14,6 +15,7 @@ const App = ({ onAddMezicas }) => {
       </h1>
       <Panel>
         <StopkyConnected onAddMezicas={onAddMezicas} />
+        <StartujiciConnected />
         <MezicasyConnected />
       </Panel>
     </div>

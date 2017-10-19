@@ -4,23 +4,6 @@ import { Table } from 'react-bootstrap';
 import './Mezicasy.css';
 import Mezicas from './Mezicas';
 
-const generateList = (mezicasyIn, onRemoveMezicas) => {
-  let mezicasyOut = [];
-  for (let i = 0; i < mezicasyIn.length; i++) {
-    const mezicasIn = mezicasyIn[i];
-
-    mezicasyOut.push(
-      <Mezicas
-        key={mezicasIn.id}
-        poradi={i + 1}
-        duration={mezicasIn.duration}
-        onClick={() => onRemoveMezicas(mezicasIn.id)}
-      />
-    );
-  }
-  return mezicasyOut;
-};
-
 const Mezicasy = ({ mezicasy, onRemoveMezicas }) => (
   <Table className="Mezicasy">
     <thead>
@@ -30,7 +13,16 @@ const Mezicasy = ({ mezicasy, onRemoveMezicas }) => (
         <th />
       </tr>
     </thead>
-    <tbody>{generateList(mezicasy, onRemoveMezicas)}</tbody>
+    <tbody>
+      {mezicasy.map((mezicas, index) => (
+        <Mezicas
+          key={mezicas.id}
+          poradi={index + 1}
+          duration={mezicas.duration}
+          onClick={() => onRemoveMezicas(mezicas.id)}
+        />
+      ))}
+    </tbody>
   </Table>
 );
 

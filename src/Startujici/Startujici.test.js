@@ -1,16 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import 'bootstrap/dist/css/bootstrap.css';
 import moment from 'moment';
-import registerServiceWorker from './registerServiceWorker';
-import AppConnected from './App/AppConnected';
-import appReducer from './App/appReducer';
-import './index.css';
+import Startujici from './Startujici';
 
-const preloadedState = {
-  startujici: [
+it('žádný startující', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<Startujici startujici={[]} />, div);
+});
+
+it('jeden startující', () => {
+  const startujici = [
+    { id: 0, cislo: 1, dokonceno: null },
+    { id: 1, cislo: 3, dokonceno: null },
+    { id: 10, cislo: 7, dokonceno: true, duration: moment.duration('PT4H15M32.45S') },
+    { id: 2, cislo: 25, dokonceno: false }
+  ];
+  const div = document.createElement('div');
+  ReactDOM.render(<Startujici startujici={startujici} />, div);
+});
+
+it('třináct startujících', () => {
+  const startujici = [
     { id: 0, cislo: 7, dokonceno: null },
     { id: 1, cislo: 4, dokonceno: null },
     { id: 10, cislo: 16, dokonceno: true, duration: moment.duration('PT4H15M32.45S') },
@@ -30,19 +40,7 @@ const preloadedState = {
     { id: 58, cislo: 30, dokonceno: null },
     { id: 15, cislo: 23, dokonceno: true, duration: moment.duration('PT3H27M42.38S') },
     { id: 59, cislo: 26, dokonceno: null }
-  ]
-};
-
-let store = createStore(
-  appReducer,
-  preloadedState,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-
-ReactDOM.render(
-  <Provider store={store}>
-    <AppConnected />
-  </Provider>,
-  document.getElementById('root')
-);
-registerServiceWorker();
+  ];
+  const div = document.createElement('div');
+  ReactDOM.render(<Startujici startujici={startujici} />, div);
+});

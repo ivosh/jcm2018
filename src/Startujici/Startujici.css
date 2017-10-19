@@ -1,0 +1,23 @@
+.Startujici-table {
+  margin-top: 2ex;
+  table-layout: fixed;
+  width: 1px;
+}
+
+.Startujici-dokonceno, .Startujici-na-trase, .Startujici-nedokonceno {
+  width: 2em;
+  height: 2em;
+  text-align: center;
+}
+
+.Startujici-dokonceno {
+  background-color: #60c860;
+}
+
+.Startujici-na-trase {
+  background-color: #70a5ed;
+}
+
+.Startujici-nedokonceno {
+  background-color: #9ec49e;
+}
