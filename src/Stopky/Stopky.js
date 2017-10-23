@@ -13,38 +13,38 @@ export class Stopky extends Component {
     this.state = { current: new Date() };
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     if (this.props.running) {
       this.timerID = setInterval(() => this.tick(), ONE_TICK);
     }
-  }
+  };
 
-  componentWillUnmount() {
+  componentWillUnmount = () => {
     this.stop();
-  }
+  };
 
-  tick() {
+  tick = () => {
     this.setState({ current: new Date() });
-  }
+  };
 
-  start() {
+  start = () => {
     this.timerID = setInterval(() => this.tick(), ONE_TICK);
 
     this.props.onStart(new Date());
-  }
+  };
 
-  mezicas() {
+  mezicas = () => {
     const current = new Date();
     const duration = moment.duration(current.getTime() - this.props.base.getTime());
     this.props.onAddMezicas(duration);
-  }
+  };
 
-  stop() {
+  stop = () => {
     clearInterval(this.timerID);
     this.timerID = null;
 
     this.props.onStop();
-  }
+  };
 
   render = () => {
     const props = this.props;
