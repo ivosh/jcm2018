@@ -31,8 +31,9 @@ const Startujici = ({ startujici }) => (
       <tbody>{generateTable(startujici)}</tbody>
     </Table>
     <div>
-      {dokoncenoArr.map(item => (
-        <span className={'Startujici-' + dokoncenoStr(item)[0] + ' Startujici-legenda'}>
+      <span>legenda:</span>
+      {dokoncenoArr.map((item, index) => (
+        <span key={index} className={'Startujici-' + dokoncenoStr(item)[0] + ' Startujici-legenda'}>
           {dokoncenoStr(item)[1]}
         </span>
       ))}
