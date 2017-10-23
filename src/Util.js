@@ -31,6 +31,8 @@ export const convertDuration = duration => {
   return { hours, mins, secs, subsecs };
 };
 
+export const dokoncenoArr = [true, false, null];
+
 export const dokoncenoStr = dokonceno => {
   if (dokonceno === true) {
     return ['dokonceno', 'dokončeno'];

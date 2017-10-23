@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Table } from 'react-bootstrap';
-import { dokoncenoStr } from '../Util';
+import { dokoncenoArr, dokoncenoStr } from '../Util';
 import './Startujici.css';
 
 const Jeden = ({ cislo, dokonceno }) => {
@@ -26,9 +26,18 @@ const generateTable = startujici => {
 };
 
 const Startujici = ({ startujici }) => (
-  <Table className="Startujici-table" bordered condensed striped>
-    <tbody>{generateTable(startujici)}</tbody>
-  </Table>
+  <div>
+    <Table className="Startujici-table" bordered condensed striped>
+      <tbody>{generateTable(startujici)}</tbody>
+    </Table>
+    <div>
+      {dokoncenoArr.map(item => (
+        <span className={'Startujici-' + dokoncenoStr(item)[0] + ' Startujici-legenda'}>
+          {dokoncenoStr(item)[1]}
+        </span>
+      ))}
+    </div>
+  </div>
 );
 
 Startujici.propTypes = {

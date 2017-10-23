@@ -1,7 +1,8 @@
 .Startujici-table {
-  margin-top: 2ex;
+  margin-top: 3ex;
+  margin-bottom: 1ex;
   table-layout: fixed;
-  width: 1px;
+  width: 1px; /* table occupies a minimum width possible */
 }
 
 .Startujici-dokonceno, .Startujici-na-trase, .Startujici-nedokonceno {
@@ -20,4 +21,10 @@
 
 .Startujici-nedokonceno {
   background-color: #9ec49e;
+}
+
+.Startujici-legenda {
+  margin-right: 1em;
+  padding: 2px;
+  border: 1px solid black;
 }
