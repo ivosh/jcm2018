@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`jeden mezičas 1`] = `
+<table
+  className="Mezicasy table"
+>
+  <thead>
+    <tr>
+      <th>
+        #
+      </th>
+      <th>
+        mezičas
+      </th>
+      <th />
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        1
+        .
+      </td>
+      <td>
+        0
+        :
+        00
+        :
+        00
+        ,
+        23
+      </td>
+      <td>
+        <button
+          className="btn btn-xs btn-danger"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          x
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`tři mezičasy 1`] = `
+<table
+  className="Mezicasy table"
+>
+  <thead>
+    <tr>
+      <th>
+        #
+      </th>
+      <th>
+        mezičas
+      </th>
+      <th />
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        1
+        .
+      </td>
+      <td>
+        0
+        :
+        00
+        :
+        00
+        ,
+        23
+      </td>
+      <td>
+        <button
+          className="btn btn-xs btn-danger"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          x
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        2
+        .
+      </td>
+      <td>
+        0
+        :
+        00
+        :
+        00
+        ,
+        56
+      </td>
+      <td>
+        <button
+          className="btn btn-xs btn-danger"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          x
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        3
+        .
+      </td>
+      <td>
+        0
+        :
+        00
+        :
+        09
+        ,
+        02
+      </td>
+      <td>
+        <button
+          className="btn btn-xs btn-danger"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          x
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`žádný mezičas 1`] = `
+<table
+  className="Mezicasy table"
+>
+  <thead>
+    <tr>
+      <th>
+        #
+      </th>
+      <th>
+        mezičas
+      </th>
+      <th />
+    </tr>
+  </thead>
+  <tbody />
+</table>
+`;

@@ -1,11 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer';
 import moment from 'moment';
 import Startujici from './Startujici';
 
 it('žádný startující', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Startujici startujici={[]} />, div);
+  const component = renderer.create(<Startujici startujici={[]} />);
+  expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('jeden startující', () => {
@@ -15,8 +15,9 @@ it('jeden startující', () => {
     { id: 10, cislo: 7, dokonceno: true, duration: moment.duration('PT4H15M32.45S') },
     { id: 2, cislo: 25, dokonceno: false }
   ];
-  const div = document.createElement('div');
-  ReactDOM.render(<Startujici startujici={startujici} />, div);
+
+  const component = renderer.create(<Startujici startujici={startujici} />);
+  expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('třináct startujících', () => {
@@ -41,6 +42,7 @@ it('třináct startujících', () => {
     { id: 15, cislo: 23, dokonceno: true, duration: moment.duration('PT3H27M42.38S') },
     { id: 59, cislo: 26, dokonceno: null }
   ];
-  const div = document.createElement('div');
-  ReactDOM.render(<Startujici startujici={startujici} />, div);
+
+  const component = renderer.create(<Startujici startujici={startujici} />);
+  expect(component.toJSON()).toMatchSnapshot();
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer';
 import { Stopky } from './Stopky';
 
 const fakeOnStart = base => ({});
@@ -7,8 +7,7 @@ const fakeOnAddMezicas = duration => ({});
 const fakeOnStop = () => ({});
 
 it('před startem', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(
+  const component = renderer.create(
     <Stopky
       running={false}
       base={null}
@@ -18,14 +17,13 @@ it('před startem', () => {
       onStart={fakeOnStart}
       onAddMezicas={fakeOnAddMezicas}
       onStop={fakeOnStop}
-    />,
-    div
+    />
   );
+  expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('po startu', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(
+  const component = renderer.create(
     <Stopky
       running={true}
       base={new Date()}
@@ -35,14 +33,13 @@ it('po startu', () => {
       onStart={fakeOnStart}
       onAddMezicas={fakeOnAddMezicas}
       onStop={fakeOnStop}
-    />,
-    div
+    />
   );
+  expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('po stopce', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(
+  const component = renderer.create(
     <Stopky
       running={false}
       base={new Date()}
@@ -52,7 +49,7 @@ it('po stopce', () => {
       onStart={fakeOnStart}
       onAddMezicas={fakeOnAddMezicas}
       onStop={fakeOnStop}
-    />,
-    div
+    />
   );
+  expect(component.toJSON()).toMatchSnapshot();
 });

@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`po startu 1`] = `
+<span
+  className="Displej"
+>
+  <span
+    className="Displej-segment"
+  >
+    1
+  </span>
+  :
+  <span
+    className="Displej-segment"
+  >
+    43
+  </span>
+  :
+  <span
+    className="Displej-segment"
+  >
+    52
+  </span>
+  ,
+  <span
+    className="Displej-segment"
+  >
+    13
+  </span>
+</span>
+`;
+
+exports[`počáteční stav 1`] = `
+<span
+  className="Displej"
+>
+  <span
+    className="Displej-segment"
+  >
+    -
+  </span>
+  :
+  <span
+    className="Displej-segment"
+  >
+    --
+  </span>
+  :
+  <span
+    className="Displej-segment"
+  >
+    --
+  </span>
+  ,
+  <span
+    className="Displej-segment"
+  >
+    --
+  </span>
+</span>
+`;

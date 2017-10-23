@@ -1,14 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer';
 import moment from 'moment';
 import Displej from './Displej';
 
 it('počáteční stav', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Displej duration={null} />, div);
+  const component = renderer.create(<Displej duration={null} />);
+  expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('po startu', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Displej duration={moment.duration('1:43:52.13')} />, div);
+  const component = renderer.create(<Displej duration={moment.duration('1:43:52.13')} />);
+  expect(component.toJSON()).toMatchSnapshot();
 });

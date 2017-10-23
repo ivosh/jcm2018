@@ -1,19 +1,23 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer';
 import moment from 'moment';
 import Mezicasy from './Mezicasy';
 
 const fakeOnRemoveMezicas = () => {};
 
 it('žádný mezičas', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Mezicasy mezicasy={[]} onRemoveMezicas={fakeOnRemoveMezicas} />, div);
+  const component = renderer.create(
+    <Mezicasy mezicasy={[]} onRemoveMezicas={fakeOnRemoveMezicas} />
+  );
+  expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('jeden mezičas', () => {
   const mezicasy = [{ id: 0, duration: moment.duration(234) }];
-  const div = document.createElement('div');
-  ReactDOM.render(<Mezicasy mezicasy={mezicasy} onRemoveMezicas={fakeOnRemoveMezicas} />, div);
+  const component = renderer.create(
+    <Mezicasy mezicasy={mezicasy} onRemoveMezicas={fakeOnRemoveMezicas} />
+  );
+  expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('tři mezičasy', () => {
@@ -22,6 +26,8 @@ it('tři mezičasy', () => {
     { id: 1, duration: moment.duration(567) },
     { id: 2, duration: moment.duration(9024) }
   ];
-  const div = document.createElement('div');
-  ReactDOM.render(<Mezicasy mezicasy={mezicasy} onRemoveMezicas={fakeOnRemoveMezicas} />, div);
+  const component = renderer.create(
+    <Mezicasy mezicasy={mezicasy} onRemoveMezicas={fakeOnRemoveMezicas} />
+  );
+  expect(component.toJSON()).toMatchSnapshot();
 });
