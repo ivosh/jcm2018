@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Startujici from './Startujici';
 
 const mapStateToProps = state => ({
-  startujici: state.startujici.sort((a, b) => {
+  startujici: state.startujici.slice().sort((a, b) => {
     return a.cislo - b.cislo;
   })
 });
