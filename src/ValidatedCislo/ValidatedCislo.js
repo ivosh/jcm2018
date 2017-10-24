@@ -50,7 +50,7 @@ export class ValidatedCislo extends Component {
   };
 
   render = () => (
-    <Form inline onSubmit={this.handleSubmit}>
+    <Form inline onSubmit={this.handleSubmit} autoComplete="off">
       <FormGroup controlId="validatedCislo" validationState={this.validationState()} bsSize="small">
         <FormControl
           type="text"

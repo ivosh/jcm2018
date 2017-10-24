@@ -2,6 +2,7 @@
 
 exports[`dva startující na trase 1`] = `
 <form
+  autoComplete="off"
   className="form-inline"
   onSubmit={[Function]}
 >
@@ -22,6 +23,7 @@ exports[`dva startující na trase 1`] = `
 
 exports[`žádní startující 1`] = `
 <form
+  autoComplete="off"
   className="form-inline"
   onSubmit={[Function]}
 >
