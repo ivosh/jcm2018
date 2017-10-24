@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 import { convertDuration } from '../Util';
 
-const Mezicas = ({ poradi, duration, onClick }) => {
+const Mezicas = ({ poradi, duration, cislo, onClick }) => {
   let { hours, mins, secs, subsecs } = convertDuration(duration);
 
   return (
@@ -21,6 +21,7 @@ const Mezicas = ({ poradi, duration, onClick }) => {
         {','}
         {subsecs}
       </td>
+      <td>{cislo}</td>
       <td>
         <Button bsStyle="danger" bsSize="xsmall" onClick={onClick}>
           x
@@ -33,6 +34,7 @@ const Mezicas = ({ poradi, duration, onClick }) => {
 Mezicas.propTypes = {
   poradi: PropTypes.number.isRequired,
   duration: PropTypes.object.isRequired,
+  cislo: PropTypes.node.isRequired,
   onClick: PropTypes.func.isRequired
 };
 

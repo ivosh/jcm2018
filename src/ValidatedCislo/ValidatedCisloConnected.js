@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ValidatedCislo from './ValidatedCislo';
 import { removeMezicas } from '../Mezicasy/MezicasyActions';
@@ -20,9 +21,11 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   }
 });
 
-App.propTypes = {
+const ValidatedCisloConnected = connect(mapStateToProps, mapDispatchToProps)(ValidatedCislo);
+
+ValidatedCisloConnected.propTypes = {
   mezicasId: PropTypes.number.isRequired,
   duration: PropTypes.object.isRequired
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ValidatedCislo);
+export default ValidatedCisloConnected;

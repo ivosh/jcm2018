@@ -10,18 +10,26 @@ const Mezicasy = ({ mezicasy, onRemoveMezicas }) => (
       <tr>
         <th>#</th>
         <th>mezičas</th>
+        <th>číslo</th>
         <th />
       </tr>
     </thead>
     <tbody>
-      {mezicasy.map((mezicas, index) => (
-        <Mezicas
-          key={mezicas.id}
-          poradi={index + 1}
-          duration={mezicas.duration}
-          onClick={() => onRemoveMezicas(mezicas.id)}
-        />
-      ))}
+      {mezicasy.map((mezicas, index) => {
+        const Cislo = mezicas.cisloClass;
+
+        return (
+          <Mezicas
+            key={index}
+            poradi={index + 1}
+            duration={mezicas.duration}
+            cislo={
+              <Cislo mezicasId={mezicas.id} duration={mezicas.duration} cislo={mezicas.cislo} />
+            }
+            onClick={() => onRemoveMezicas(mezicas.id)}
+          />
+        );
+      })}
     </tbody>
   </Table>
 );
@@ -30,7 +38,8 @@ Mezicasy.propTypes = {
   mezicasy: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      duration: PropTypes.object.isRequired
+      duration: PropTypes.object.isRequired,
+      cisloClass: PropTypes.func.isRequired
     }).isRequired
   ).isRequired,
   onRemoveMezicas: PropTypes.func.isRequired

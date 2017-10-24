@@ -10,7 +10,7 @@ it('jeden mezičas', () => {
   const component = renderer.create(
     <Table>
       <tbody>
-        <Mezicas poradi={1} duration={moment.duration(34536)} onClick={fakeOnClick} />
+        <Mezicas poradi={1} duration={moment.duration(34536)} cislo="" onClick={fakeOnClick} />
       </tbody>
     </Table>
   );
@@ -21,9 +21,9 @@ it('tři mezičasy', () => {
   const component = renderer.create(
     <Table>
       <tbody>
-        <Mezicas poradi={1} duration={moment.duration(34536)} onClick={fakeOnClick} />
-        <Mezicas poradi={2} duration={moment.duration(3453678)} onClick={fakeOnClick} />
-        <Mezicas poradi={3} duration={moment.duration(345369874)} onClick={fakeOnClick} />
+        <Mezicas poradi={1} duration={moment.duration(34536)} cislo="" onClick={fakeOnClick} />
+        <Mezicas poradi={2} duration={moment.duration(3453678)} cislo="" onClick={fakeOnClick} />
+        <Mezicas poradi={3} duration={moment.duration(345369874)} cislo="" onClick={fakeOnClick} />
       </tbody>
     </Table>
   );

@@ -49,25 +49,19 @@ export class ValidatedCislo extends Component {
     }
   };
 
-  render = () => {
-    return (
-      <Form inline onSubmit={this.handleSubmit} className="ValidatedCislo-form">
-        <FormGroup
-          controlId="validatedCislo"
-          validationState={this.validationState()}
-          bsSize="small"
-        >
-          <FormControl
-            type="text"
-            value={this.state.cislo}
-            placeholder=""
-            onChange={this.handleChange}
-          />
-          <FormControl.Feedback />
-        </FormGroup>
-      </Form>
-    );
-  };
+  render = () => (
+    <Form inline onSubmit={this.handleSubmit} className="ValidatedCislo-form">
+      <FormGroup controlId="validatedCislo" validationState={this.validationState()} bsSize="small">
+        <FormControl
+          type="text"
+          value={this.state.cislo}
+          placeholder=""
+          onChange={this.handleChange}
+        />
+        <FormControl.Feedback />
+      </FormGroup>
+    </Form>
+  );
 }
 
 ValidatedCislo.propTypes = {

@@ -12,6 +12,9 @@ exports[`jeden mezičas 1`] = `
       <th>
         mezičas
       </th>
+      <th>
+        číslo
+      </th>
       <th />
     </tr>
   </thead>
@@ -29,6 +32,9 @@ exports[`jeden mezičas 1`] = `
         00
         ,
         23
+      </td>
+      <td>
+        <span />
       </td>
       <td>
         <button
@@ -57,6 +63,9 @@ exports[`tři mezičasy 1`] = `
       <th>
         mezičas
       </th>
+      <th>
+        číslo
+      </th>
       <th />
     </tr>
   </thead>
@@ -74,6 +83,9 @@ exports[`tři mezičasy 1`] = `
         00
         ,
         23
+      </td>
+      <td>
+        <span />
       </td>
       <td>
         <button
@@ -101,6 +113,9 @@ exports[`tři mezičasy 1`] = `
         56
       </td>
       <td>
+        <span />
+      </td>
+      <td>
         <button
           className="btn btn-xs btn-danger"
           disabled={false}
@@ -124,6 +139,9 @@ exports[`tři mezičasy 1`] = `
         09
         ,
         02
+      </td>
+      <td>
+        <span />
       </td>
       <td>
         <button
@@ -151,6 +169,9 @@ exports[`žádný mezičas 1`] = `
       </th>
       <th>
         mezičas
+      </th>
+      <th>
+        číslo
       </th>
       <th />
     </tr>
