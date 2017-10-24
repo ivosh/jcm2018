@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Panel } from 'react-bootstrap';
 import StopkyConnected from '../Stopky/StopkyConnected';
-import MezicasyConnected from '../Mezicasy/MezicasyConnected';
 import StartujiciConnected from '../Startujici/StartujiciConnected';
+import MezicasyConnected from '../Mezicasy/MezicasyConnected';
 import './App.css';
 import logo from './logo.svg';
 

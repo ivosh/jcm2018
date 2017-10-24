@@ -14,16 +14,18 @@ export class ValidatedCislo extends Component {
 
   findStartujici = () => {
     const cislo = parseInt(this.state.cislo, 10);
-    const startujici = this.props.startujici;
+    if (isNaN(cislo)) {
+      return undefined;
+    }
 
-    return startujici.find(startujici => {
+    return this.props.startujici.find(startujici => {
       return startujici.cislo === cislo;
     });
   };
 
   validationState = () => {
     if (this.state.cislo === '') {
-      return 'success';
+      return null;
     }
 
     const startujici = this.findStartujici();
@@ -43,16 +45,13 @@ export class ValidatedCislo extends Component {
   handleSubmit = event => {
     event.preventDefault();
     if (this.validationState() === 'success') {
-      const startujici = this.findStartujici();
-      if (startujici !== undefined) {
-        console.log('dispatch the action: ' + this.findStartujici().id);
-      }
+      this.props.onCisloSubmitted(this.findStartujici().id);
     }
   };
 
   render = () => {
     return (
-      <Form inline onSubmit={this.handleSubmit}>
+      <Form inline onSubmit={this.handleSubmit} className="ValidatedCislo-form">
         <FormGroup
           controlId="validatedCislo"
           validationState={this.validationState()}
@@ -61,9 +60,8 @@ export class ValidatedCislo extends Component {
           <FormControl
             type="text"
             value={this.state.cislo}
-            placeholder="startovní číslo"
+            placeholder=""
             onChange={this.handleChange}
-            className="ValidatedCislo-input"
           />
           <FormControl.Feedback />
         </FormGroup>
@@ -79,7 +77,8 @@ ValidatedCislo.propTypes = {
       cislo: PropTypes.number.isRequired,
       dokonceno: PropTypes.bool
     }).isRequired
-  ).isRequired
+  ).isRequired,
+  onCisloSubmitted: PropTypes.func.isRequired
 };
 
 export default ValidatedCislo;

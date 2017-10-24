@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dva startující na trase 1`] = `
+<form
+  className="ValidatedCislo-form form-inline"
+  onSubmit={[Function]}
+>
+  <div
+    className="form-group form-group-sm has-feedback"
+  >
+    <input
+      className="form-control"
+      id="validatedCislo"
+      onChange={[Function]}
+      placeholder=""
+      type="text"
+      value=""
+    />
+  </div>
+</form>
+`;
+
+exports[`žádní startující 1`] = `
+<form
+  className="ValidatedCislo-form form-inline"
+  onSubmit={[Function]}
+>
+  <div
+    className="form-group form-group-sm has-feedback"
+  >
+    <input
+      className="form-control"
+      id="validatedCislo"
+      onChange={[Function]}
+      placeholder=""
+      type="text"
+      value=""
+    />
+  </div>
+</form>
+`;
