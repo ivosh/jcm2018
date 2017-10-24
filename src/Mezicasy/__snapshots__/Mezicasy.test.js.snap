@@ -43,7 +43,9 @@ exports[`jeden mezičas 1`] = `
           onClick={[Function]}
           type="button"
         >
-          x
+          <span
+            className="glyphicon glyphicon-remove"
+          />
         </button>
       </td>
     </tr>
@@ -94,7 +96,9 @@ exports[`tři mezičasy 1`] = `
           onClick={[Function]}
           type="button"
         >
-          x
+          <span
+            className="glyphicon glyphicon-remove"
+          />
         </button>
       </td>
     </tr>
@@ -122,7 +126,9 @@ exports[`tři mezičasy 1`] = `
           onClick={[Function]}
           type="button"
         >
-          x
+          <span
+            className="glyphicon glyphicon-remove"
+          />
         </button>
       </td>
     </tr>
@@ -150,7 +156,9 @@ exports[`tři mezičasy 1`] = `
           onClick={[Function]}
           type="button"
         >
-          x
+          <span
+            className="glyphicon glyphicon-remove"
+          />
         </button>
       </td>
     </tr>

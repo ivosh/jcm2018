@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'react-bootstrap';
+import { Button, Glyphicon } from 'react-bootstrap';
 import { convertDuration } from '../Util';
 
 const Mezicas = ({ poradi, duration, cislo, onClick }) => {
@@ -24,7 +24,7 @@ const Mezicas = ({ poradi, duration, cislo, onClick }) => {
       <td>{cislo}</td>
       <td>
         <Button bsStyle="danger" bsSize="xsmall" onClick={onClick}>
-          x
+          <Glyphicon glyph="remove" />
         </Button>
       </td>
     </tr>
