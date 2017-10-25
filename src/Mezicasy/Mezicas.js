@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import momentPropTypes from 'react-moment-proptypes';
 import { Button, Glyphicon } from 'react-bootstrap';
 import { convertDuration } from '../Util';
 
@@ -33,7 +34,7 @@ const Mezicas = ({ poradi, duration, cislo, onClick }) => {
 
 Mezicas.propTypes = {
   poradi: PropTypes.number.isRequired,
-  duration: PropTypes.object.isRequired,
+  duration: momentPropTypes.momentDurationObj.isRequired,
   cislo: PropTypes.node.isRequired,
   onClick: PropTypes.func.isRequired
 };

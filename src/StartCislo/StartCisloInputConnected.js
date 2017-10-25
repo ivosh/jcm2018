@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import momentPropTypes from 'react-moment-proptypes';
 import StartCisloInput from './StartCisloInput';
 import { removeMezicas } from '../Mezicasy/MezicasyActions';
 import { dokonceno } from '../Startujici/StartujiciActions';
@@ -25,7 +26,7 @@ const StartCisloInputConnected = connect(mapStateToProps, mapDispatchToProps)(St
 
 StartCisloInputConnected.propTypes = {
   mezicasId: PropTypes.number.isRequired,
-  duration: PropTypes.object.isRequired
+  duration: momentPropTypes.momentDurationObj.isRequired
 };
 
 export default StartCisloInputConnected;

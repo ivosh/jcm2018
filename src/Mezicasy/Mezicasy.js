@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import momentPropTypes from 'react-moment-proptypes';
 import { Table } from 'react-bootstrap';
 import './Mezicasy.css';
 import Mezicas from './Mezicas';
@@ -38,7 +39,7 @@ Mezicasy.propTypes = {
   mezicasy: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      duration: PropTypes.object.isRequired,
+      duration: momentPropTypes.momentDurationObj.isRequired,
       cisloClass: PropTypes.func.isRequired
     }).isRequired
   ).isRequired,

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import momentPropTypes from 'react-moment-proptypes';
 import { Table } from 'react-bootstrap';
 import { dokoncenoArr, dokoncenoStr } from '../Util';
 import './Startujici.css';
@@ -47,7 +48,7 @@ Startujici.propTypes = {
       id: PropTypes.number.isRequired,
       cislo: PropTypes.number.isRequired,
       dokonceno: PropTypes.bool,
-      duration: PropTypes.object
+      duration: momentPropTypes.momentDurationObj
     }).isRequired
   ).isRequired
 };
