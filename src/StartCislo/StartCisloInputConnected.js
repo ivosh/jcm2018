@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import ValidatedCislo from './ValidatedCislo';
+import StartCisloInput from './StartCisloInput';
 import { removeMezicas } from '../Mezicasy/MezicasyActions';
 import { dokonceno } from '../Startujici/StartujiciActions';
 
@@ -21,11 +21,11 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   }
 });
 
-const ValidatedCisloConnected = connect(mapStateToProps, mapDispatchToProps)(ValidatedCislo);
+const StartCisloInputConnected = connect(mapStateToProps, mapDispatchToProps)(StartCisloInput);
 
-ValidatedCisloConnected.propTypes = {
+StartCisloInputConnected.propTypes = {
   mezicasId: PropTypes.number.isRequired,
   duration: PropTypes.object.isRequired
 };
 
-export default ValidatedCisloConnected;
+export default StartCisloInputConnected;

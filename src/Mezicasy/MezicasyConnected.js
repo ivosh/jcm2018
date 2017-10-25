@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ValidatedCisloConnected from '../ValidatedCislo/ValidatedCisloConnected';
+import StartCisloInputConnected from '../StartCislo/StartCisloInputConnected';
 import Mezicasy from './Mezicasy';
 import { removeMezicas } from './MezicasyActions';
 
@@ -20,11 +20,10 @@ export const computeMezicasy = state => {
   });
 
   const mezicasy = state.mezicasy.map(mezicas => {
-    return { ...mezicas, cisloClass: ValidatedCisloConnected };
+    return { ...mezicas, cisloClass: StartCisloInputConnected };
   });
 
   let dohromady = startujici.concat(mezicasy);
-  console.log(dohromady);
   return dohromady.sort((a, b) => {
     return a.duration.valueOf() - b.duration.valueOf();
   });

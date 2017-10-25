@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Form, FormGroup, FormControl } from 'react-bootstrap';
-import './ValidatedCislo.css';
+import './StartCisloInput.css';
 
-export class ValidatedCislo extends Component {
+export class StartCisloInput extends Component {
   constructor(props) {
     super(props);
     this.state = { cislo: '' };
@@ -64,7 +64,7 @@ export class ValidatedCislo extends Component {
   );
 }
 
-ValidatedCislo.propTypes = {
+StartCisloInput.propTypes = {
   startujici: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -75,4 +75,4 @@ ValidatedCislo.propTypes = {
   onCisloSubmitted: PropTypes.func.isRequired
 };
 
-export default ValidatedCislo;
+export default StartCisloInput;
