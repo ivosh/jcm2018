@@ -1,10 +1,8 @@
-import React from 'react';
 import { connect } from 'react-redux';
+import StartCisloBox from '../StartCislo/StartCisloBox';
 import StartCisloInputConnected from '../StartCislo/StartCisloInputConnected';
 import Mezicasy from './Mezicasy';
 import { removeMezicas } from './MezicasyActions';
-
-const Span = props => <span>{props.cislo}</span>;
 
 export const computeMezicasy = state => {
   const na_trase = state.startujici.filter(startujici => {
@@ -15,7 +13,7 @@ export const computeMezicasy = state => {
       id: startujici.id,
       duration: startujici.duration,
       cislo: startujici.cislo,
-      cisloClass: Span
+      cisloClass: StartCisloBox
     };
   });
 
