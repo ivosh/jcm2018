@@ -7,6 +7,7 @@ import moment from 'moment';
 import registerServiceWorker from './registerServiceWorker';
 import AppConnected from './App/AppConnected';
 import appReducer from './App/appReducer';
+import { setHighestMezicasId } from './Mezicasy/MezicasyActions';
 import './index.css';
 
 const preloadedState = {
@@ -32,6 +33,16 @@ const preloadedState = {
     { id: 59, cislo: 26, dokonceno: null }
   ]
 };
+
+let highestId = 0;
+if (preloadedState.mezicasy) {
+  preloadedState.mezicasy.forEach(mezicas => {
+    if (mezicas.id > highestId) {
+      highestId = mezicas.id;
+    }
+  });
+}
+setHighestMezicasId(highestId);
 
 let store = createStore(
   appReducer,
