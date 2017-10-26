@@ -33,8 +33,11 @@ const Startujici = ({ startujici }) => (
     </Table>
     <div>
       <span>legenda:</span>
-      {dokoncenoArr.map((item, index) => (
-        <span key={index} className={'Startujici-' + dokoncenoStr(item)[0] + ' Startujici-legenda'}>
+      {dokoncenoArr.map(item => (
+        <span
+          key={dokoncenoStr(item)[0]}
+          className={'Startujici-' + dokoncenoStr(item)[0] + ' Startujici-legenda'}
+        >
           {dokoncenoStr(item)[1]}
         </span>
       ))}

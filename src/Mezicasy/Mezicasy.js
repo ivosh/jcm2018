@@ -21,7 +21,7 @@ const Mezicasy = ({ mezicasy }) => (
 
         return (
           <Mezicas
-            key={index}
+            key={mezicas.duration}
             poradi={index + 1}
             duration={mezicas.duration}
             cislo={
