@@ -61,13 +61,13 @@ export class Stopky extends Component {
         </div>
         <div>
           <ButtonToolbar>
-            <Button bsStyle="success" disabled={!props.startEnabled} onClick={() => this.start()}>
+            <Button bsStyle="success" disabled={!props.startEnabled} onClick={this.start}>
               Start
             </Button>
-            <Button bsStyle="info" disabled={!props.mezicasEnabled} onClick={() => this.mezicas()}>
+            <Button bsStyle="info" disabled={!props.mezicasEnabled} onClick={this.mezicas}>
               Mezičas
             </Button>
-            <Button bsStyle="danger" disabled={!props.stopEnabled} onClick={() => this.stop()}>
+            <Button bsStyle="danger" disabled={!props.stopEnabled} onClick={this.stop}>
               Stop
             </Button>
           </ButtonToolbar>
