@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import StartCisloBox from '../StartCislo/StartCisloBox';
 import StartCisloInputConnected from '../StartCislo/StartCisloInputConnected';
 import Mezicasy from './Mezicasy';
-import { removeMezicas } from './MezicasyActions';
+import { addMezicas, removeMezicas } from './MezicasyActions';
+import { naTrase } from '../Startujici/StartujiciActions';
 
 export const computeMezicasy = state => {
   const na_trase = state.startujici.filter(startujici => {
@@ -34,7 +35,23 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   onRemoveMezicas: id => {
     dispatch(removeMezicas(id));
+  },
+  onRemoveCislo: (id, duration) => {
+    dispatch(naTrase(id));
+    dispatch(addMezicas(duration));
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Mezicasy);
+const mergeProps = (stateProps, dispatchProps) => ({
+  mezicasy: stateProps.mezicasy.map(mezicas => {
+    return {
+      ...mezicas,
+      onRemove: () =>
+        mezicas.cislo
+          ? dispatchProps.onRemoveCislo(mezicas.id, mezicas.duration)
+          : dispatchProps.onRemoveMezicas(mezicas.id)
+    };
+  })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Mezicasy);

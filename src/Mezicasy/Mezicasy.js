@@ -5,7 +5,7 @@ import { Table } from 'react-bootstrap';
 import './Mezicasy.css';
 import Mezicas from './Mezicas';
 
-const Mezicasy = ({ mezicasy, onRemoveMezicas }) => (
+const Mezicasy = ({ mezicasy }) => (
   <Table className="Mezicasy">
     <thead>
       <tr>
@@ -27,7 +27,7 @@ const Mezicasy = ({ mezicasy, onRemoveMezicas }) => (
             cislo={
               <Cislo mezicasId={mezicas.id} duration={mezicas.duration} cislo={mezicas.cislo} />
             }
-            onClick={() => onRemoveMezicas(mezicas.id)}
+            onClick={mezicas.onRemove}
           />
         );
       })}
@@ -40,10 +40,11 @@ Mezicasy.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       duration: momentPropTypes.momentDurationObj.isRequired,
-      cisloClass: PropTypes.func.isRequired
+      cislo: PropTypes.number,
+      cisloClass: PropTypes.func.isRequired,
+      onRemove: PropTypes.func.isRequired
     }).isRequired
-  ).isRequired,
-  onRemoveMezicas: PropTypes.func.isRequired
+  ).isRequired
 };
 
 export default Mezicasy;
