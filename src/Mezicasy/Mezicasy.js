@@ -38,7 +38,7 @@ const Mezicasy = ({ mezicasy }) => (
 Mezicasy.propTypes = {
   mezicasy: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      id: PropTypes.number.isRequired,
       duration: momentPropTypes.momentDurationObj.isRequired,
       cislo: PropTypes.number,
       cisloClass: PropTypes.func.isRequired,

@@ -67,7 +67,7 @@ export class StartCisloInput extends Component {
 StartCisloInput.propTypes = {
   startujici: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      id: PropTypes.number.isRequired,
       cislo: PropTypes.number.isRequired,
       dokonceno: PropTypes.bool
     }).isRequired

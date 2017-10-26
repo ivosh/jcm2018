@@ -33,7 +33,7 @@ const Mezicas = ({ poradi, duration, cislo, onClick }) => {
 };
 
 Mezicas.propTypes = {
-  poradi: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  poradi: PropTypes.number.isRequired,
   duration: momentPropTypes.momentDurationObj.isRequired,
   cislo: PropTypes.node.isRequired,
   onClick: PropTypes.func.isRequired

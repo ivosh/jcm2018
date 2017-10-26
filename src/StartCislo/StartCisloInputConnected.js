@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 const StartCisloInputConnected = connect(mapStateToProps, mapDispatchToProps)(StartCisloInput);
 
 StartCisloInputConnected.propTypes = {
-  mezicasId: PropTypes.string.isRequired,
+  mezicasId: PropTypes.number.isRequired,
   duration: momentPropTypes.momentDurationObj.isRequired
 };
 

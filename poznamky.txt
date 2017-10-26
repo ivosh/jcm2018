@@ -3,4 +3,3 @@ https://github.com/facebookincubator/create-react-app/blob/master/packages/react
 https://www.fullstackreact.com/articles/using-create-react-app-with-a-server/
 https://www.fullstackreact.com/articles/deploying-a-react-app-with-a-server/
 https://react-bootstrap.github.io/components.html
-https://facebook.github.io/jest/docs/en/manual-mocks.html
