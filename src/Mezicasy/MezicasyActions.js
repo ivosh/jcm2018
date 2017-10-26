@@ -1,7 +1,8 @@
-let nextMezicasId = 0;
+import uuid from 'js-uuid';
+
 export const addMezicas = duration => ({
   type: 'ADD_MEZICAS',
-  id: nextMezicasId++,
+  id: uuid.v4(),
   duration: duration
 });
 
