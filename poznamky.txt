@@ -5,3 +5,14 @@ https://www.fullstackreact.com/articles/deploying-a-react-app-with-a-server/
 https://react-bootstrap.github.io/components.html
 https://www.andrewhfarmer.com/component-communication/
 https://reactjs.org/docs/refs-and-the-dom.html
+
+
+Integration with heroku:
+~~~~~~~~~~~~~~~~~~~~~~~~
+https://github.com/mars/heroku-cra-node
+https://blog.heroku.com/deploying-react-with-zero-configuration
+
+heroku plugins:install heroku-cli-static
+
+git remote add heroku https://git.heroku.com/jcm2018.git
+heroku buildpacks:set https://github.com/hone/heroku-buildpack-static
