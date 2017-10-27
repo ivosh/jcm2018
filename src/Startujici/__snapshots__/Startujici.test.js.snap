@@ -9,21 +9,25 @@ exports[`jeden startující 1`] = `
       <tr>
         <td
           className="Startujici-na-trase"
+          onClick={[Function]}
         >
           1
         </td>
         <td
           className="Startujici-na-trase"
+          onClick={[Function]}
         >
           3
         </td>
         <td
           className="Startujici-dokonceno"
+          onClick={[Function]}
         >
           7
         </td>
         <td
           className="Startujici-nedokonceno"
+          onClick={[Function]}
         >
           25
         </td>
@@ -62,51 +66,61 @@ exports[`třináct startujících 1`] = `
       <tr>
         <td
           className="Startujici-na-trase"
+          onClick={[Function]}
         >
           7
         </td>
         <td
           className="Startujici-na-trase"
+          onClick={[Function]}
         >
           4
         </td>
         <td
           className="Startujici-dokonceno"
+          onClick={[Function]}
         >
           16
         </td>
         <td
           className="Startujici-nedokonceno"
+          onClick={[Function]}
         >
           25
         </td>
         <td
           className="Startujici-dokonceno"
+          onClick={[Function]}
         >
           9
         </td>
         <td
           className="Startujici-dokonceno"
+          onClick={[Function]}
         >
           15
         </td>
         <td
           className="Startujici-nedokonceno"
+          onClick={[Function]}
         >
           1
         </td>
         <td
           className="Startujici-na-trase"
+          onClick={[Function]}
         >
           8
         </td>
         <td
           className="Startujici-na-trase"
+          onClick={[Function]}
         >
           59
         </td>
         <td
           className="Startujici-na-trase"
+          onClick={[Function]}
         >
           43
         </td>
@@ -114,46 +128,55 @@ exports[`třináct startujících 1`] = `
       <tr>
         <td
           className="Startujici-nedokonceno"
+          onClick={[Function]}
         >
           42
         </td>
         <td
           className="Startujici-dokonceno"
+          onClick={[Function]}
         >
           33
         </td>
         <td
           className="Startujici-nedokonceno"
+          onClick={[Function]}
         >
           21
         </td>
         <td
           className="Startujici-dokonceno"
+          onClick={[Function]}
         >
           24
         </td>
         <td
           className="Startujici-na-trase"
+          onClick={[Function]}
         >
           25
         </td>
         <td
           className="Startujici-na-trase"
+          onClick={[Function]}
         >
           22
         </td>
         <td
           className="Startujici-na-trase"
+          onClick={[Function]}
         >
           30
         </td>
         <td
           className="Startujici-dokonceno"
+          onClick={[Function]}
         >
           23
         </td>
         <td
           className="Startujici-na-trase"
+          onClick={[Function]}
         >
           26
         </td>

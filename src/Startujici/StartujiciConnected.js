@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Startujici from './Startujici';
 
@@ -7,4 +8,10 @@ const mapStateToProps = state => ({
   })
 });
 
-export default connect(mapStateToProps, null)(Startujici);
+const StartujiciConnected = connect(mapStateToProps, null)(Startujici);
+
+StartujiciConnected.propTypes = {
+  onStartujiciClick: PropTypes.func.isRequired
+};
+
+export default StartujiciConnected;

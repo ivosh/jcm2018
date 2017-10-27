@@ -3,3 +3,5 @@ https://github.com/facebookincubator/create-react-app/blob/master/packages/react
 https://www.fullstackreact.com/articles/using-create-react-app-with-a-server/
 https://www.fullstackreact.com/articles/deploying-a-react-app-with-a-server/
 https://react-bootstrap.github.io/components.html
+https://www.andrewhfarmer.com/component-communication/
+https://reactjs.org/docs/refs-and-the-dom.html

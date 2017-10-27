@@ -5,31 +5,40 @@ import { Table } from 'react-bootstrap';
 import { dokoncenoArr, dokoncenoStr } from '../Util';
 import './Startujici.css';
 
-const Jeden = ({ cislo, dokonceno }) => {
-  return <td className={'Startujici-' + dokoncenoStr(dokonceno)[0]}>{cislo}</td>;
+const Jeden = ({ cislo, dokonceno, onClick }) => {
+  return (
+    <td className={'Startujici-' + dokoncenoStr(dokonceno)[0]} onClick={onClick}>
+      {cislo}
+    </td>
+  );
 };
 
 Jeden.propTypes = {
   cislo: PropTypes.number.isRequired,
-  dokonceno: PropTypes.bool
+  dokonceno: PropTypes.bool,
+  onClick: PropTypes.func.isRequired
 };
 
 const STARTUJICICH_NA_RADKU = 10;
-const generateTable = startujici => {
+const generateTable = (startujici, onStartujiciClick) => {
   let rows = [];
   while (startujici.length > 0) {
     rows.push(startujici.splice(0, STARTUJICICH_NA_RADKU));
   }
 
   return rows.map((row, index) => (
-    <tr key={index}>{row.map(jeden => <Jeden key={jeden.id} {...jeden} />)}</tr>
+    <tr key={index}>
+      {row.map(jeden => (
+        <Jeden key={jeden.id} {...jeden} onClick={() => onStartujiciClick(jeden.id)} />
+      ))}
+    </tr>
   ));
 };
 
-const Startujici = ({ startujici }) => (
+const Startujici = ({ startujici, onStartujiciClick }) => (
   <div>
     <Table className="Startujici-table" bordered condensed striped>
-      <tbody>{generateTable(startujici)}</tbody>
+      <tbody>{generateTable(startujici, onStartujiciClick)}</tbody>
     </Table>
     <div>
       <span>legenda:</span>
@@ -53,7 +62,8 @@ Startujici.propTypes = {
       dokonceno: PropTypes.bool,
       duration: momentPropTypes.momentDurationObj
     }).isRequired
-  ).isRequired
+  ).isRequired,
+  onStartujiciClick: PropTypes.func.isRequired
 };
 
 export default Startujici;

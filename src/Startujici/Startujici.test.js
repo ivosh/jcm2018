@@ -3,8 +3,12 @@ import renderer from 'react-test-renderer';
 import moment from 'moment';
 import Startujici from './Startujici';
 
+const fakeOnStartujiciClick = () => {};
+
 it('žádný startující', () => {
-  const component = renderer.create(<Startujici startujici={[]} />);
+  const component = renderer.create(
+    <Startujici startujici={[]} onStartujiciClick={fakeOnStartujiciClick} />
+  );
   expect(component.toJSON()).toMatchSnapshot();
 });
 
@@ -16,7 +20,9 @@ it('jeden startující', () => {
     { id: 2, cislo: 25, dokonceno: false }
   ];
 
-  const component = renderer.create(<Startujici startujici={startujici} />);
+  const component = renderer.create(
+    <Startujici startujici={startujici} onStartujiciClick={fakeOnStartujiciClick} />
+  );
   expect(component.toJSON()).toMatchSnapshot();
 });
 
@@ -43,6 +49,8 @@ it('třináct startujících', () => {
     { id: 59, cislo: 26, dokonceno: null }
   ];
 
-  const component = renderer.create(<Startujici startujici={startujici} />);
+  const component = renderer.create(
+    <Startujici startujici={startujici} onStartujiciClick={fakeOnStartujiciClick} />
+  );
   expect(component.toJSON()).toMatchSnapshot();
 });
