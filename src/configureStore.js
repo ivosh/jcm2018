@@ -26,21 +26,22 @@ const preloadedState = {
   ]
 };
 
-const configureStore = () => {
-  let highestId = 0;
-  if (preloadedState.mezicasy) {
-    preloadedState.mezicasy.forEach(mezicas => {
+const configureStore = (initialState = preloadedState) => {
+  if (initialState.mezicasy) {
+    let highestId = 0;
+
+    initialState.mezicasy.forEach(mezicas => {
       if (mezicas.id > highestId) {
         highestId = mezicas.id;
       }
     });
-  }
 
-  setHighestMezicasId(highestId);
+    setHighestMezicasId(highestId);
+  }
 
   return createStore(
     appReducer,
-    preloadedState,
+    initialState,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
 };
