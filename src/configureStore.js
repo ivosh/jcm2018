@@ -2,7 +2,7 @@ import { createStore } from 'redux';
 import appReducer from './App/appReducer';
 import { setHighestMezicasId } from './Mezicasy/MezicasyActions';
 
-const preloadedState = {
+const demoStartujiciState = {
   startujici: [
     { id: 0, cislo: 7, dokonceno: null },
     { id: 1, cislo: 4, dokonceno: null },
@@ -26,7 +26,33 @@ const preloadedState = {
   ]
 };
 
-const configureStore = (initialState = preloadedState) => {
+const loadState = () => {
+  try {
+    const serializedState = localStorage.getItem('state');
+    if (serializedState === null) {
+      return undefined;
+    }
+    return JSON.parse(serializedState);
+  } catch (err) {
+    console.log('Problem while loading app state from the local storage', err);
+  }
+};
+
+const saveState = state => {
+  try {
+    const serializedState = JSON.stringify(state);
+    localStorage.setItem('state', serializedState);
+  } catch (err) {
+    console.log('Problem while storing app state to the local storage', err);
+  }
+};
+
+const configureStore = (initialState = loadState()) => {
+  if (initialState === undefined) {
+    initialState = {};
+  }
+  initialState.startujici = demoStartujiciState.startujici;
+
   if (initialState.mezicasy) {
     let highestId = 0;
 
@@ -39,11 +65,18 @@ const configureStore = (initialState = preloadedState) => {
     setHighestMezicasId(highestId);
   }
 
-  return createStore(
+  const store = createStore(
     appReducer,
     initialState,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
+
+  store.subscribe(() => {
+    const state = store.getState();
+    saveState({ stopky: state.stopky, mezicasy: state.mezicasy });
+  });
+
+  return store;
 };
 
 export default configureStore;
