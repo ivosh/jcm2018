@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export const initialState = [];
 
 const mezicasyReducer = (state = initialState, action) => {
@@ -8,9 +10,10 @@ const mezicasyReducer = (state = initialState, action) => {
         id: action.id,
         duration: action.duration
       });
+
       /* Keep the array sorted, although with a terrible asymptomatic complexity. */
       return newState.sort((a, b) => {
-        return a.duration.valueOf() - b.duration.valueOf();
+        return moment.duration(a.duration).valueOf() - moment.duration(b.duration).valueOf();
       });
     case 'REMOVE_MEZICAS':
       const idx = state.findIndex(element => {

@@ -3,11 +3,17 @@ export const setHighestMezicasId = highestId => {
   nextMezicasId = highestId + 1;
 };
 
-export const addMezicas = duration => ({
-  type: 'ADD_MEZICAS',
-  id: nextMezicasId++,
-  duration: duration
-});
+export const addMezicas = duration => {
+  if (duration.toJSON) {
+    duration = duration.toJSON();
+  }
+
+  return {
+    type: 'ADD_MEZICAS',
+    id: nextMezicasId++,
+    duration: duration
+  };
+};
 
 export const removeMezicas = id => ({
   type: 'REMOVE_MEZICAS',

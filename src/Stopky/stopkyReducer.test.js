@@ -11,22 +11,25 @@ it('na začátku', () => {
 });
 
 it('po startu', () => {
+  const now = new Date();
   const stateBefore = { running: false, base: null };
-  const stateAfter = { running: true, base: new Date() };
+  const stateAfter = { running: true, base: now.toJSON() };
   deepFreeze(stateBefore);
 
-  expect(stopkyReducer(stateBefore, stopkyStart(stateAfter.base))).toEqual(stateAfter);
+  expect(stopkyReducer(stateBefore, stopkyStart(now))).toEqual(stateAfter);
 });
 
 it('dvakrát start', () => {
-  const stateBefore = { running: true, base: new Date() };
+  const now = new Date();
+  const stateBefore = { running: true, base: now.toJSON() };
   deepFreeze(stateBefore);
 
-  expect(stopkyReducer(stateBefore, stopkyStart(new Date()))).toBe(stateBefore);
+  expect(stopkyReducer(stateBefore, stopkyStart(now))).toBe(stateBefore);
 });
 
 it('po stopce', () => {
-  const stateBefore = { running: true, base: new Date() };
+  const now = new Date();
+  const stateBefore = { running: true, base: now.toJSON() };
   deepFreeze(stateBefore);
 
   const stateAfter = stopkyReducer(stateBefore, stopkyStop());
@@ -35,7 +38,8 @@ it('po stopce', () => {
 });
 
 it('dvakrát stop', () => {
-  const stateBefore = { running: false, base: new Date() };
+  const now = new Date();
+  const stateBefore = { running: false, base: now.toJSON() };
   deepFreeze(stateBefore);
 
   const stateAfter = stopkyReducer(stateBefore, stopkyStop());
@@ -44,7 +48,8 @@ it('dvakrát stop', () => {
 });
 
 it('po restartu', () => {
-  const stateBefore = { running: false, base: new Date() };
+  const now = new Date();
+  const stateBefore = { running: false, base: now.toJSON() };
   deepFreeze(stateBefore);
 
   const stateAfter = stopkyReducer(stateBefore, stopkyStart(new Date()));

@@ -78,7 +78,7 @@ export class Stopky extends Component {
 }
 
 Stopky.propTypes = {
-  base: PropTypes.object,
+  base: PropTypes.instanceOf(Date),
   startEnabled: PropTypes.bool.isRequired,
   mezicasEnabled: PropTypes.bool.isRequired,
   stopEnabled: PropTypes.bool.isRequired,

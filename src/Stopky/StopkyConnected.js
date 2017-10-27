@@ -4,7 +4,7 @@ import Stopky from './Stopky';
 import { stopkyStart, stopkyStop } from './StopkyActions';
 
 const mapStateToProps = state => ({
-  base: state.stopky.base,
+  base: new Date(state.stopky.base),
   running: state.stopky.running,
   startEnabled: state.stopky.running === false,
   mezicasEnabled: state.stopky.running === true,

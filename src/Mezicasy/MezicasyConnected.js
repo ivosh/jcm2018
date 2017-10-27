@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import moment from 'moment';
 import StartCisloBox from '../StartCislo/StartCisloBox';
 import StartCisloInputConnected from '../StartCislo/StartCisloInputConnected';
 import Mezicasy from './Mezicasy';
@@ -12,14 +13,18 @@ export const computeMezicasy = state => {
   const startujici = na_trase.map(startujici => {
     return {
       id: startujici.id,
-      duration: startujici.duration,
+      duration: moment.duration(startujici.duration),
       cislo: startujici.cislo,
       cisloClass: StartCisloBox
     };
   });
 
   const mezicasy = state.mezicasy.map(mezicas => {
-    return { ...mezicas, cisloClass: StartCisloInputConnected };
+    return {
+      ...mezicas,
+      duration: moment.duration(mezicas.duration),
+      cisloClass: StartCisloInputConnected
+    };
   });
 
   let dohromady = startujici.concat(mezicasy);

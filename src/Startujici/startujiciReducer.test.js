@@ -26,10 +26,7 @@ it('jeden byl na trase a dokončil', () => {
     { id: 1, cislo: 42, dokonceno: null },
     { id: 2, cislo: 12, dokonceno: null }
   ];
-  const stateAfter = [
-    stateBefore[0],
-    { id: 2, cislo: 12, dokonceno: true, duration: moment.duration(2432) }
-  ];
+  const stateAfter = [stateBefore[0], { id: 2, cislo: 12, dokonceno: true, duration: 'PT2.432S' }];
   deepFreeze(stateBefore);
 
   expect(startujiciReducer(stateBefore, dokonceno(2, moment.duration(2432)))).toEqual(stateAfter);

@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { addMezicas } from './Mezicasy/MezicasyActions';
 import configureStore from './configureStore';
 
@@ -7,7 +8,7 @@ it('configure store', () => {
 });
 
 it('configure store with preloaded state', () => {
-  const preloadedState = { mezicasy: [{ id: 10 }] };
+  const preloadedState = { mezicasy: [{ id: 10, duration: 'PT3M25.306S' }] };
   let store = configureStore(preloadedState);
-  expect(addMezicas(null).id).toEqual(11);
+  expect(addMezicas(moment.duration(4365)).id).toEqual(11);
 });

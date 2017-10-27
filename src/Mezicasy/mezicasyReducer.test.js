@@ -12,7 +12,7 @@ it('na začátku', () => {
 
 it('přidej jeden', () => {
   const stateBefore = [];
-  const stateAfter = [{ id: 0, duration: moment.duration(12601) }];
+  const stateAfter = [{ id: 0, duration: 'PT12.601S' }];
   deepFreeze(stateBefore);
 
   expect(mezicasyReducer(stateBefore, addMezicas(moment.duration('PT12.601S')))).toEqual(
@@ -21,40 +21,31 @@ it('přidej jeden', () => {
 });
 
 it('přidej další', () => {
-  const stateBefore = [{ id: 0, duration: moment.duration('PT5.4S') }];
-  const stateAfter = [stateBefore[0], { id: 1, duration: moment.duration('PT12.601S') }];
+  const stateBefore = [{ id: 0, duration: 'PT5.4S' }];
+  const stateAfter = [stateBefore[0], { id: 1, duration: 'PT12.601S' }];
   deepFreeze(stateBefore);
 
   expect(mezicasyReducer(stateBefore, addMezicas(moment.duration(12601)))).toEqual(stateAfter);
 });
 
 it('měj mezičasy seřazené I.', () => {
-  const stateBefore = [
-    { id: 0, duration: moment.duration('PT4.950S') },
-    { id: 1, duration: moment.duration('PT12.101S') }
-  ];
-  const stateAfter = [stateBefore[0], { id: 2, duration: moment.duration(5600) }, stateBefore[1]];
+  const stateBefore = [{ id: 0, duration: 'PT4.950S' }, { id: 1, duration: 'PT12.101S' }];
+  const stateAfter = [stateBefore[0], { id: 2, duration: 'PT5.6S' }, stateBefore[1]];
   deepFreeze(stateBefore);
 
   expect(mezicasyReducer(stateBefore, addMezicas(moment.duration('PT5.600S')))).toEqual(stateAfter);
 });
 
 it('měj mezičasy seřazené II.', () => {
-  const stateBefore = [
-    { id: 0, duration: moment.duration(435) },
-    { id: 1, duration: moment.duration(678) }
-  ];
-  const stateAfter = [{ id: 3, duration: moment.duration(123) }, stateBefore[0], stateBefore[1]];
+  const stateBefore = [{ id: 0, duration: 'PT0.435S' }, { id: 1, duration: 'PT0.678S' }];
+  const stateAfter = [{ id: 3, duration: 'PT0.123S' }, stateBefore[0], stateBefore[1]];
   deepFreeze(stateBefore);
 
   expect(mezicasyReducer(stateBefore, addMezicas(moment.duration(123)))).toEqual(stateAfter);
 });
 
 it('vyndej první', () => {
-  const stateBefore = [
-    { id: 0, duration: moment.duration(124) },
-    { id: 1, duration: moment.duration(456) }
-  ];
+  const stateBefore = [{ id: 0, duration: 'PT0.124S' }, { id: 1, duration: 'PT0.456S' }];
   const stateAfter = [stateBefore[1]];
   deepFreeze(stateBefore);
 
@@ -62,10 +53,7 @@ it('vyndej první', () => {
 });
 
 it('vyndej neexistující', () => {
-  const stateBefore = [
-    { id: 0, duration: moment.duration(123) },
-    { id: 2, duration: moment.duration(456) }
-  ];
+  const stateBefore = [{ id: 0, duration: 'PT0.123S' }, { id: 2, duration: 'PT0.456S' }];
   const stateAfter = [stateBefore[0], stateBefore[1]];
   deepFreeze(stateBefore);
 
