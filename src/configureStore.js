@@ -18,7 +18,7 @@ const demoStartujiciState = {
     { id: 10, cislo: 33, dokonceno: null },
     { id: 7, cislo: 21, dokonceno: false },
     { id: 13, cislo: 24, dokonceno: null },
-    { id: 34, cislo: 25, dokonceno: null },
+    { id: 34, cislo: 27, dokonceno: null },
     { id: 14, cislo: 22, dokonceno: null },
     { id: 58, cislo: 30, dokonceno: null },
     { id: 15, cislo: 23, dokonceno: null },
