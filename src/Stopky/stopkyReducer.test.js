@@ -52,7 +52,7 @@ it('po restartu', () => {
   const stateBefore = { running: false, base: now.toJSON() };
   deepFreeze(stateBefore);
 
-  const stateAfter = stopkyReducer(stateBefore, stopkyStart(new Date()));
+  const stateAfter = stopkyReducer(stateBefore, stopkyStart(new Date(now.getTime() + 10)));
   expect(stateAfter.running).toBe(true);
-  expect(stateAfter.base).not.toBe(stateBefore.base);
+  expect(new Date(stateAfter.base).getTime()).toBeGreaterThan(new Date(stateBefore.base).getTime());
 });
