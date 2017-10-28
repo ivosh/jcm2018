@@ -4,7 +4,7 @@ import Startujici from './Startujici';
 import { getStartujiciSorted } from './startujiciReducer';
 
 const mapStateToProps = state => {
-  return { startujici: getStartujiciSorted(state.startujiciReducer) };
+  return { startujici: getStartujiciSorted(state.startujici) };
 };
 
 const StartujiciConnected = connect(mapStateToProps, null)(Startujici);
