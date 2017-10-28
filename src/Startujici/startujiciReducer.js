@@ -58,3 +58,17 @@ export const getStartujiciWithoutDuration = state => {
     return { id: startujici.id, cislo: startujici.cislo, dokonceno: startujici.dokonceno };
   });
 };
+
+export const getStartujiciSorted = state => {
+  const serazeni = state.slice().sort((a, b) => {
+    return a.cislo - b.cislo;
+  });
+
+  return serazeni.map(startujici => {
+    if (startujici.duration) {
+      return { ...startujici, duration: moment.duration(startujici.duration) };
+    } else {
+      return startujici;
+    }
+  });
+};
