@@ -1,6 +1,9 @@
 import deepFreeze from 'deep-freeze';
 import moment from 'moment';
-import startujiciReducer, { getDokoncenoWithCisloClass } from './startujiciReducer';
+import startujiciReducer, {
+  getDokoncenoWithCisloClass,
+  getStartujiciWithoutDuration
+} from './startujiciReducer';
 import { dokonceno, naTrase, nedokonceno } from './StartujiciActions';
 
 it('na začátku', () => {
@@ -71,9 +74,18 @@ it('getDokoncenoWithCisloClass', () => {
     { id: 2, cislo: 12, dokonceno: true, duration: 'PT0.045S' }
   ];
   deepFreeze(state);
-  const selected = [
-    { id: 2, cislo: 12, duration: moment.duration(45), cisloClass: 'hah' }
-  ];
+  const selected = [{ id: 2, cislo: 12, duration: moment.duration(45), cisloClass: 'hah' }];
 
   expect(getDokoncenoWithCisloClass(state, 'hah')).toEqual(selected);
+});
+
+it('getStartujiciWithoutDuration', () => {
+  const state = [
+    { id: 1, cislo: 42, dokonceno: null },
+    { id: 2, cislo: 12, dokonceno: true, duration: 'PT0.045S' }
+  ];
+  deepFreeze(state);
+  const selected = [{ id: 1, cislo: 42, dokonceno: null }, { id: 2, cislo: 12, dokonceno: true }];
+
+  expect(getStartujiciWithoutDuration(state)).toEqual(selected);
 });

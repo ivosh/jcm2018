@@ -52,3 +52,9 @@ export const getDokoncenoWithCisloClass = (state, cisloClass) => {
     };
   });
 };
+
+export const getStartujiciWithoutDuration = state => {
+  return state.map(startujici => {
+    return { id: startujici.id, cislo: startujici.cislo, dokonceno: startujici.dokonceno };
+  });
+};

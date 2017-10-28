@@ -4,15 +4,10 @@ import momentPropTypes from 'react-moment-proptypes';
 import StartCisloInput from './StartCisloInput';
 import { removeMezicas } from '../Mezicasy/MezicasyActions';
 import { dokonceno } from '../Startujici/StartujiciActions';
-
-const mapStartujici = startujici => {
-  return startujici.map(startujici => {
-    return { id: startujici.id, cislo: startujici.cislo, dokonceno: startujici.dokonceno };
-  });
-};
+import { getStartujiciWithoutDuration } from '../Startujici/startujiciReducer';
 
 const mapStateToProps = state => ({
-  startujici: mapStartujici(state.startujici)
+  startujici: getStartujiciWithoutDuration(state.startujici)
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
