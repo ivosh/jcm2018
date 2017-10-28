@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-export const initialState = [];
+const initialState = [];
 
 const mezicasyReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -30,3 +30,13 @@ const mezicasyReducer = (state = initialState, action) => {
 };
 
 export default mezicasyReducer;
+
+export const getMezicasyWithCisloClass = (state, cisloClass) => {
+  return state.map(mezicas => {
+    return {
+      ...mezicas,
+      duration: moment.duration(mezicas.duration),
+      cisloClass: cisloClass
+    };
+  });
+};

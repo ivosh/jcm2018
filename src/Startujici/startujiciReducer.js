@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export const initialState = [];
 
 const updateItemInArray = (array, itemId, updateItemCallback) => {
@@ -35,3 +37,18 @@ const startujiciReducer = (state = initialState, action) => {
 };
 
 export default startujiciReducer;
+
+export const getDokoncenoWithCisloClass = (state, cisloClass) => {
+  const na_trase = state.filter(startujici => {
+    return startujici.dokonceno === true;
+  });
+
+  return na_trase.map(startujici => {
+    return {
+      id: startujici.id,
+      duration: moment.duration(startujici.duration),
+      cislo: startujici.cislo,
+      cisloClass: cisloClass
+    };
+  });
+};

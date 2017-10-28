@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import moment from 'moment';
-import mezicasyReducer from './mezicasyReducer';
+import mezicasyReducer, { getMezicasyWithCisloClass } from './mezicasyReducer';
 import { addMezicas, removeMezicas } from './MezicasyActions';
 
 it('na začátku', () => {
@@ -58,4 +58,15 @@ it('vyndej neexistující', () => {
   deepFreeze(stateBefore);
 
   expect(mezicasyReducer(stateBefore, removeMezicas(1))).toEqual(stateAfter);
+});
+
+it('getMezicasyWithCisloClass', () => {
+  const state = [{ id: 0, duration: 'PT0.123S' }, { id: 2, duration: 'PT0.456S' }];
+  const selected = [
+    { id: 0, duration: moment.duration('PT0.123S'), cisloClass: 'huh' },
+    { id: 2, duration: moment.duration('PT0.456S'), cisloClass: 'huh' }
+  ];
+  deepFreeze(state);
+
+  expect(getMezicasyWithCisloClass(state, 'huh')).toEqual(selected);
 });
