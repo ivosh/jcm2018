@@ -20,7 +20,12 @@ export class Stopky extends Component {
   };
 
   componentWillUnmount = () => {
-    this.stop();
+    this.stopTimer();
+  };
+
+  stopTimer = () => {
+    clearInterval(this.timerID);
+    this.timerID = null;
   };
 
   tick = () => {
@@ -40,8 +45,7 @@ export class Stopky extends Component {
   };
 
   stop = () => {
-    clearInterval(this.timerID);
-    this.timerID = null;
+    this.stopTimer();
 
     this.props.onStop();
   };
