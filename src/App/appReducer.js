@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import startujiciReducer from '../Startujici/startujiciReducer';
-import casomericReducer from './casomericReducer';
+import startujiciReducer from '../casomeric/Startujici/startujiciReducer';
+import casomericReducer from '../casomeric/Casomeric/casomericReducer';
 
 const appReducer = combineReducers({
   casomeric: casomericReducer,

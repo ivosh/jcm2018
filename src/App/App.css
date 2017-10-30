@@ -1,7 +1,11 @@
 .App-header {
   font-size: large;
-  color: rgb(150, 150, 150);
+  color: rgb(170, 170, 170);
   background-color: rgb(51, 51, 51);
+}
+
+.App-link {
+  padding-left: 1em;
 }
 
 .App-logo {

@@ -4,30 +4,23 @@ import { Panel } from 'react-bootstrap';
 import StopkyConnected from '../Stopky/StopkyConnected';
 import StartujiciConnected from '../Startujici/StartujiciConnected';
 import MezicasyConnected from '../Mezicasy/MezicasyConnected';
-import './App.css';
-import logo from './logo.svg';
 
-class App extends Component {
+class Casomeric extends Component {
   scrollToMezicas = startujiciId => {
     /* Does nothing at the moment. Some day will hopefully does. */
   };
 
   render = () => (
-    <div>
-      <h1 className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />Pracoviště časoměřiče
-      </h1>
-      <Panel>
-        <StopkyConnected onAddMezicas={this.props.onAddMezicas} />
-        <StartujiciConnected onStartujiciClick={this.scrollToMezicas} />
-        <MezicasyConnected />
-      </Panel>
-    </div>
+    <Panel>
+      <StopkyConnected onAddMezicas={this.props.onAddMezicas} />
+      <StartujiciConnected onStartujiciClick={this.scrollToMezicas} />
+      <MezicasyConnected />
+    </Panel>
   );
 }
 
-App.propTypes = {
+Casomeric.propTypes = {
   onAddMezicas: PropTypes.func.isRequired
 };
 
-export default App;
+export default Casomeric;

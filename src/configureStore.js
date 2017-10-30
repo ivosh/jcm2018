@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import appReducer from './casomeric/App/appReducer';
+import appReducer from './App/appReducer';
 import { setHighestMezicasId } from './casomeric/Mezicasy/MezicasyActions';
 
 const demoStartujiciState = {

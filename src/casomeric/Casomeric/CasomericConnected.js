@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import App from './App';
+import Casomeric from './Casomeric';
 import { addMezicas } from '../Mezicasy/MezicasyActions';
 
 const mapDispatchToProps = dispatch => ({
@@ -8,4 +8,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(undefined, mapDispatchToProps)(App);
+export default connect(undefined, mapDispatchToProps)(Casomeric);
