@@ -68,8 +68,13 @@ export class Stopky extends Component {
             <Button bsStyle="success" disabled={!props.startEnabled} onClick={this.start}>
               Start
             </Button>
-            <Button bsStyle="info" disabled={!props.mezicasEnabled} onClick={this.mezicas}>
-              Mezičas
+            <Button
+              bsStyle="info"
+              disabled={!props.mezicasEnabled}
+              onClick={this.mezicas}
+              accessKey="m"
+            >
+              Mezičas (Alt-m)
             </Button>
             <Button bsStyle="danger" disabled={!props.stopEnabled} onClick={this.stop}>
               Stop
