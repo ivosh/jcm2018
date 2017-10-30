@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { addMezicas } from './Mezicasy/MezicasyActions';
+import { addMezicas } from './casomeric/Mezicasy/MezicasyActions';
 import configureStore from './configureStore';
 
 it('configure store', () => {

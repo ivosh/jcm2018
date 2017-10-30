@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.css';
 import registerServiceWorker from './registerServiceWorker';
 import configureStore from './configureStore';
-import AppConnected from './App/AppConnected';
+import AppConnected from './casomeric/App/AppConnected';
 import './index.css';
 
 let store = configureStore();

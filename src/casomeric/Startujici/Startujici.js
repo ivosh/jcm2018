@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import momentPropTypes from 'react-moment-proptypes';
 import { Table } from 'react-bootstrap';
-import { dokoncenoArr, dokoncenoStr } from '../Util';
+import { dokoncenoArr, dokoncenoStr } from '../../Util';
 import './Startujici.css';
 
 const Jeden = ({ cislo, dokonceno, onClick }) => {
