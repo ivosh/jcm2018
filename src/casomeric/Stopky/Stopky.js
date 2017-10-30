@@ -58,6 +58,7 @@ export class Stopky extends Component {
       duration = moment.duration(this.state.current.getTime() - props.base.getTime());
     }
 
+    /* eslint-disable jsx-a11y/no-access-key */
     return (
       <div className="Stopky">
         <div className="Stopky-mezera">
@@ -83,6 +84,7 @@ export class Stopky extends Component {
         </div>
       </div>
     );
+    /* eslint-enable jsx-a11y/no-access-key */
   };
 }
 
