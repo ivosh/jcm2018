@@ -53,10 +53,10 @@ const configureStore = (initialState = loadState()) => {
   }
   initialState.startujici = demoStartujiciState.startujici;
 
-  if (initialState.mezicasy) {
+  if (initialState.casomeric && initialState.casomeric.mezicasy) {
     let highestId = 0;
 
-    initialState.mezicasy.forEach(mezicas => {
+    initialState.casomeric.mezicasy.forEach(mezicas => {
       if (mezicas.id > highestId) {
         highestId = mezicas.id;
       }
@@ -73,7 +73,9 @@ const configureStore = (initialState = loadState()) => {
 
   store.subscribe(() => {
     const state = store.getState();
-    saveState({ stopky: state.stopky, mezicasy: state.mezicasy });
+    saveState({
+      casomeric: { stopky: state.casomeric.stopky, mezicasy: state.casomeric.mezicasy }
+    });
   });
 
   return store;

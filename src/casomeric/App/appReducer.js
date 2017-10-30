@@ -1,11 +1,9 @@
 import { combineReducers } from 'redux';
-import mezicasyReducer from '../Mezicasy/mezicasyReducer';
-import stopkyReducer from '../Stopky/stopkyReducer';
 import startujiciReducer from '../Startujici/startujiciReducer';
+import casomericReducer from './casomericReducer';
 
 const appReducer = combineReducers({
-  stopky: stopkyReducer,
-  mezicasy: mezicasyReducer,
+  casomeric: casomericReducer,
   startujici: startujiciReducer
 });
 

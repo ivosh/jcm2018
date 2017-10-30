@@ -9,7 +9,7 @@ import { getMezicasyWithCisloClass } from './mezicasyReducer';
 
 export const computeMezicasy = state => {
   const startujici = getDokoncenoWithCisloClass(state.startujici, StartCisloBox);
-  const mezicasy = getMezicasyWithCisloClass(state.mezicasy, StartCisloInputConnected);
+  const mezicasy = getMezicasyWithCisloClass(state.casomeric.mezicasy, StartCisloInputConnected);
 
   let dohromady = startujici.concat(mezicasy);
   return dohromady.sort((a, b) => {
