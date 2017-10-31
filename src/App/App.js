@@ -11,11 +11,9 @@ const App = () => (
   <div>
     <Navbar inverse>
       <Navbar.Header>
-        <Navbar.Brand>
-          <img src={logo} className="App-logo" alt="logo" />
-        </Navbar.Brand>
+        <img src={logo} className="App-logo" alt="logo" />
       </Navbar.Header>
-      <Nav>
+      <Nav className="App-Nav">
         <LinkContainer to="/casomeric">
           <NavItem eventKey={1}>Časoměřič</NavItem>
         </LinkContainer>
