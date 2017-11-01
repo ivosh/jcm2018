@@ -2,3 +2,6 @@ language: node_js
 node_js:
   - "node"
   - "8"
+install:
+  - npm install
+  - cd ui && npm install && npm install --only=dev --no-shrinkwrap
