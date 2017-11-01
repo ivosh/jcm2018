@@ -19,9 +19,11 @@
   ],
   "scripts": {
     "start": "node server",
-    "prettier": "prettier --write '{server,__{tests,mocks}__}/**/*.js'",
-    "clean": "rm -rf coverage",
-    "clobber": "rm -rf coverage node_modules"
+    "test": "cd ui && npm test",
+    "prettier": "prettier --write '{server,__{tests,mocks}__}/**/*.js' && cd ui/ && npm run prettier",
+    "clean": "rm -rf coverage && cd ui/ && npm run clean",
+    "clobber": "rm -rf coverage node_modules && cd ui/ && npm run clobber",
+    "heroku-postbuild": "cd ui/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "dependencies": {
     "async-file": "^2.0.2",
