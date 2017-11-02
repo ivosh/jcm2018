@@ -3,6 +3,7 @@
 [![server devDependencies](https://david-dm.org/ivosh/jcm2018/dev-status.svg)](https://david-dm.org/ivosh/jcm2018?type=dev)
 [![UI dependencies](https://david-dm.org/ivosh/jcm2018/status.svg?path=ui)](https://david-dm.org/ivosh/jcm2018?path=ui)
 [![UI devDependencies](https://david-dm.org/ivosh/jcm2018/dev-status.svg?path=ui)](https://david-dm.org/ivosh/jcm2018?type=dev&path=ui)
+[![codecov](https://codecov.io/gh/ivosh/jcm2018/branch/master/graph/badge.svg)](https://codecov.io/gh/ivosh/jcm2018)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 # Jirkovský crossmarathon
