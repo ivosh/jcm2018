@@ -23,7 +23,7 @@
     "test:server": "NODE_ENV=test LOG_LEVEL=error jest --env=node server --",
     "prettier": "prettier --write 'server/**/*.js' && cd ui/ && npm run prettier && cd ..",
     "coverage": "NODE_ENV=test LOG_LEVEL=error jest --env=node --coverage server && cd ui/ && npm run coverage && cd ..",
-    "coverage:report": "npm run coverage && codecov && cd ui/ && codecov && cd ..",
+    "coverage:report": "npm run coverage && codecov",
     "clean": "rm -rf coverage && cd ui/ && npm run clean && cd ..",
     "clobber": "rm -rf coverage node_modules && cd ui/ && npm run clobber && cd ..",
     "heroku-postbuild": "cd ui/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build && cd .."
