@@ -19,12 +19,12 @@
   ],
   "scripts": {
     "start": "node server",
-    "test": "NODE_ENV=test jest --env=node server && cd ui && npm test",
+    "test": "NODE_ENV=test jest --env=node server && cd ui/ && npm test && cd ..",
     "test-server": "NODE_ENV=test LOG_LEVEL=fatal jest --env=node server",
-    "prettier": "prettier --write 'server/**/*.js' && cd ui/ && npm run prettier",
-    "clean": "rm -rf coverage && cd ui/ && npm run clean",
-    "clobber": "rm -rf coverage node_modules && cd ui/ && npm run clobber",
-    "heroku-postbuild": "cd ui/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "prettier": "prettier --write 'server/**/*.js' && cd ui/ && npm run prettier && cd ..",
+    "clean": "rm -rf coverage && cd ui/ && npm run clean && cd ..",
+    "clobber": "rm -rf coverage node_modules && cd ui/ && npm run clobber && cd ..",
+    "heroku-postbuild": "cd ui/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build && cd .."
   },
   "dependencies": {
     "async-file": "^2.0.2",
