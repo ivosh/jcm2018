@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "async-file": "^2.0.2",
+    "heroku-logger": "^0.3.0",
     "node": "^8.8.1",
     "websocket": "^1.0.25"
   },

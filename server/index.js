@@ -2,6 +2,7 @@
 
 const fs = require("async-file");
 const http = require("http");
+const logger = require('heroku-logger');
 const path = require("path");
 const url = require("url");
 const WebSocketServer = require("websocket").server;
@@ -11,35 +12,7 @@ const STATIC_ASSETS_PATH = "../ui/build";
 const INITIAL_FILE = "index.html";
 process.title = "jcm2018-server";
 
-const streamFile = async (filename, response) => {
-  const file = path.resolve(__dirname, STATIC_ASSETS_PATH, filename);
-
-  let fd;
-  try {
-    fd = await fs.open(file, "r");
-  } catch (err) {
-    if (err.code === "ENOENT") {
-      return false;
-    }
-
-    console.error(
-      new Date().toISOString(),
-      `Problem while opening ${file}: ${err.message}`
-    );
-    throw err;
-  }
-
-  let stats;
-  try {
-    stats = await fs.fstat(fd);
-  } catch (err) {
-    console.error(
-      new Date().toISOString(),
-      `Problem while gettting stats for ${file}: ${err.message}`
-    );
-    throw err;
-  }
-
+const pickContentType = extension => {
   const contentTypes = {
     ".css": "text/css",
     ".eot": "application/vnd.ms-fontobject",
@@ -53,11 +26,38 @@ const streamFile = async (filename, response) => {
     ".woff": "application/font-woff",
     ".woff2": "application/font-woff2"
   };
+
+  return contentTypes[extension];
+};
+
+const streamFile = async (filename, response) => {
+  const file = path.resolve(__dirname, STATIC_ASSETS_PATH, filename);
+
+  let fd;
+  try {
+    fd = await fs.open(file, "r");
+  } catch (err) {
+    if (err.code === "ENOENT") {
+      return false;
+    }
+
+    logger.error(`Problem while opening ${file}: ${err.message}`);
+    throw err;
+  }
+
+  let stats;
+  try {
+    stats = await fs.fstat(fd);
+  } catch (err) {
+    logger.error(`Problem while gettting stats for ${file}: ${err.message}`);
+    throw err;
+  }
+
   const ext = path.extname(file);
-  const contentType = contentTypes[ext];
+  const contentType = pickContentType(ext);
   if (contentType === undefined) {
     const message = `Unrecognized extension ${ext} for ${file}`;
-    console.error(new Date().toISOString(), message);
+    logger.fatal(message);
     throw new Error(message);
   }
 
@@ -68,19 +68,13 @@ const streamFile = async (filename, response) => {
 
   let rs = fs.createReadStream(undefined, { fd: fd });
   rs.on("error", err => {
-    console.error(
-      new Date().toISOString(),
-      `Problem while reading ${file}: ${err.message}`
-    );
+    logger.error(`Problem while reading ${file}: ${err.message}`);
     rs.end();
     response.statusCode = 500;
     response.end();
   });
 
-  console.log(
-    new Date().toISOString(),
-    `Streaming file ${file} of size ${stats.size} with content type ${contentType}.`
-  );
+  logger.info(`Streaming file ${file} of size ${stats.size} with content type ${contentType}.`);
   rs.pipe(response);
 
   return true;
@@ -93,20 +87,17 @@ const streamRequest = async (pathname, response) => {
     handled = await streamFile(INITIAL_FILE, response);
     if (!handled) {
       const message = `Failed to serve ${INITIAL_FILE}.`;
-      console.error(new Date().toISOString(), message);
+      logger.fatal(message);
       throw new Error(message);
     }
   }
 };
 
 let server = http.createServer((request, response) => {
-  console.log(new Date().toISOString(), `Request for ${request.url}.`);
+  logger.info(`HTTP request for ${request.url}.`);
 
   response.on("error", err => {
-    console.error(
-      new Date().toISOString(),
-      `Problem while writing HTTP response: ${err.message}`
-    );
+    logger.error(`Problem while writing HTTP response: ${err.message}`);
     response.end();
   });
 
@@ -128,7 +119,7 @@ let server = http.createServer((request, response) => {
 });
 
 server.listen(PORT, () => {
-  console.log(new Date().toISOString(), `Server is listening on port ${PORT}.`);
+  logger.info(`Server is listening on port ${PORT}.`);
 });
 
 let ws = new WebSocketServer({
@@ -145,37 +136,27 @@ const originAllowed = origin => {
 ws.on("request", request => {
   if (!originAllowed(request.origin)) {
     request.reject(401);
-    console.log(
-      new Date().toISOString(),
-      `Connection for origin ${request.origin} rejected.`
-    );
+    logger.warn(`Connection for origin ${request.origin} rejected.`);
     return;
   }
 
   let connection = request.accept("jcm2018", request.origin);
-  console.log(
-    new Date().toISOString(),
-    `Connection for origin ${request.origin} accepted.`
-  );
+  logger.debug(`Connection for origin ${request.origin} accepted.`);
 
   connection.on("message", message => {
     if (message.type != "utf8") {
       connection.drop(connection.CLOSE_REASON_INVALID_DATA);
-      console.log(
-        new Date().toISOString(),
-        `Message with unknown type ${message.type}.`
-      );
+      logger.error(`Message with unknown type ${message.type}.`);
       return;
     }
 
-    console.log(new Date().toISOString(), `Received: ${message.utf8Data}`);
-    connection.sendUTF("Hello from WS server: [" + message.utf8Data + "]");
+    logger.debug(`Received: ${message.utf8Data}`);
+    const response = "Hello from WS server: [" + message.utf8Data + "]";
+    connection.sendUTF(response);
+    logger.debug(`Responded: ${response.utf8Data}`);
   });
 
   connection.on("close", (reasonCode, description) => {
-    console.log(
-      new Date().toISOString(),
-      `Connection ${connection.remoteAddress} disconnected with ${reasonCode}: ${description}.`
-    );
+    logger.info(`Connection ${connection.remoteAddress} disconnected with ${reasonCode}: ${description}.`);
   });
 });
