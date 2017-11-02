@@ -61,7 +61,7 @@ const streamFile = async (filename, response) => {
   const contentType = pickContentType(ext);
   if (contentType === undefined) {
     const message = `Unrecognized extension ${ext} for ${file}`;
-    logger.fatal(message);
+    logger.error(message);
     throw new Error(message);
   }
 
@@ -93,7 +93,7 @@ const streamRequest = async (pathname, response) => {
     handled = await streamFile(INITIAL_FILE, response);
     if (!handled) {
       const message = `Failed to serve ${INITIAL_FILE}.`;
-      logger.fatal(message);
+      logger.error(message);
       throw new Error(message);
     }
   }
