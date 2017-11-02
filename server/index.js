@@ -2,7 +2,7 @@
 
 const fs = require("async-file");
 const http = require("http");
-const logger = require('heroku-logger');
+const logger = require("heroku-logger");
 const path = require("path");
 const url = require("url");
 const WebSocketServer = require("websocket").server;
@@ -28,6 +28,13 @@ const pickContentType = extension => {
   };
 
   return contentTypes[extension];
+};
+
+const responseAbend = (response, message) => {
+  response.set("Content-Type", "text/plain");
+  response.statusCode = 500;
+  response.send(`Internal error: ${message}`);
+  response.end();
 };
 
 const streamFile = async (filename, response) => {
@@ -68,13 +75,15 @@ const streamFile = async (filename, response) => {
 
   let rs = fs.createReadStream(undefined, { fd: fd });
   rs.on("error", err => {
-    logger.error(`Problem while reading ${file}: ${err.message}`);
     rs.end();
-    response.statusCode = 500;
-    response.end();
+    const message = `Problem while reading ${file}: ${err.message}`;
+    logger.error(message);
+    responseAbend(response, message);
   });
 
-  logger.info(`Streaming file ${file} of size ${stats.size} with content type ${contentType}.`);
+  logger.info(
+    `Streaming file ${file} of size ${stats.size} with content type ${contentType}.`
+  );
   rs.pipe(response);
 
   return true;
@@ -97,8 +106,9 @@ let server = http.createServer((request, response) => {
   logger.info(`HTTP request for ${request.url}.`);
 
   response.on("error", err => {
-    logger.error(`Problem while writing HTTP response: ${err.message}`);
-    response.end();
+    const message = `Problem while writing HTTP response: ${err.message}`;
+    logger.error(message);
+    responseAbend(response, message);
   });
 
   if (request.url.startsWith("/api")) {
@@ -114,7 +124,11 @@ let server = http.createServer((request, response) => {
       pathname = INITIAL_FILE;
     }
 
-    streamRequest(pathname, response).then();
+    try {
+      streamRequest(pathname, response).then();
+    } catch (err) {
+      responseAbend(response, err.message);
+    }
   }
 });
 
@@ -157,6 +171,8 @@ ws.on("request", request => {
   });
 
   connection.on("close", (reasonCode, description) => {
-    logger.info(`Connection ${connection.remoteAddress} disconnected with ${reasonCode}: ${description}.`);
+    logger.info(
+      `Connection ${connection.remoteAddress} disconnected with ${reasonCode}: ${description}.`
+    );
   });
 });
