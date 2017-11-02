@@ -22,7 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "coverage": "react-scripts test --env=jsdom --coverage",
-    "prettier": "prettier --write '{src,__{tests,mocks}__}/**/*.js'",
+    "prettier": "prettier --write 'src/**/*.js'",
     "eject": "react-scripts eject",
     "clean": "rm -rf coverage",
     "clobber": "rm -rf coverage node_modules"
