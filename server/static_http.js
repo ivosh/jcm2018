@@ -1,34 +1,34 @@
-"use strict";
+'use strict';
 
-const fs = require("async-file");
-const logger = require("heroku-logger");
-const http = require("http");
-const path = require("path");
-const url = require("url");
+const fs = require('async-file');
+const logger = require('heroku-logger');
+const http = require('http');
+const path = require('path');
+const url = require('url');
 
-const STATIC_ASSETS_PATH = "../ui/build";
-const INITIAL_FILE = "index.html";
+const STATIC_ASSETS_PATH = '../ui/build';
+const INITIAL_FILE = 'index.html';
 
 const pickContentType = extension => {
   const contentTypes = {
-    ".css": "text/css",
-    ".eot": "application/vnd.ms-fontobject",
-    ".html": "text/html",
-    ".ico": "image/x-icon",
-    ".js": "text/javascript",
-    ".json": "application/json",
-    ".map": "application/json",
-    ".svg": "image/svg+xml",
-    ".ttf": "application/font-ttf",
-    ".woff": "application/font-woff",
-    ".woff2": "application/font-woff2"
+    '.css': 'text/css',
+    '.eot': 'application/vnd.ms-fontobject',
+    '.html': 'text/html',
+    '.ico': 'image/x-icon',
+    '.js': 'text/javascript',
+    '.json': 'application/json',
+    '.map': 'application/json',
+    '.svg': 'image/svg+xml',
+    '.ttf': 'application/font-ttf',
+    '.woff': 'application/font-woff',
+    '.woff2': 'application/font-woff2'
   };
 
   return contentTypes[extension];
 };
 
 const responseAbend = (response, message) => {
-  response.set("Content-Type", "text/plain");
+  response.set('Content-Type', 'text/plain');
   response.statusCode = 500;
   response.send(`Internal error: ${message}`);
   response.end();
@@ -39,9 +39,9 @@ const streamFile = async (filename, response) => {
 
   let fd;
   try {
-    fd = await fs.open(file, "r");
+    fd = await fs.open(file, 'r');
   } catch (err) {
-    if (err.code === "ENOENT") {
+    if (err.code === 'ENOENT') {
       return false;
     }
 
@@ -66,21 +66,19 @@ const streamFile = async (filename, response) => {
   }
 
   response.writeHead(200, {
-    "Content-Type": contentType,
-    "Content-Length": stats.size
+    'Content-Type': contentType,
+    'Content-Length': stats.size
   });
 
   let rs = fs.createReadStream(undefined, { fd: fd });
-  rs.on("error", err => {
+  rs.on('error', err => {
     rs.end();
     const message = `Problem while reading ${file}: ${err.message}`;
     logger.error(message);
     responseAbend(response, message);
   });
 
-  logger.info(
-    `Streaming file ${file} of size ${stats.size} with content type ${contentType}.`
-  );
+  logger.info(`Streaming file ${file} of size ${stats.size} with content type ${contentType}.`);
   rs.pipe(response);
 
   return true;
@@ -102,22 +100,22 @@ const streamRequest = async (pathname, response) => {
 let server = http.createServer((request, response) => {
   logger.info(`HTTP request for ${request.url}.`);
 
-  response.on("error", err => {
+  response.on('error', err => {
     const message = `Problem while writing HTTP response: ${err.message}`;
     logger.error(message);
     responseAbend(response, message);
   });
 
-  if (request.url.startsWith("/api")) {
-    response.set("Content-Type", "application/json");
+  if (request.url.startsWith('/api')) {
+    response.set('Content-Type', 'application/json');
     response.send('{ "message" : "Hello from the API server!" }');
     response.end();
   } else {
     let pathname = url.parse(request.url).pathname;
-    if (pathname[0] === "/") {
+    if (pathname[0] === '/') {
       pathname = pathname.substring(1);
     }
-    if (pathname === "") {
+    if (pathname === '') {
       pathname = INITIAL_FILE;
     }
 
