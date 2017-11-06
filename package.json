@@ -20,9 +20,9 @@
   "scripts": {
     "start": "node server",
     "test": "npm run test:server && cd ui/ && npm test && cd ..",
-    "test:server": "NODE_ENV=test LOG_LEVEL=error jest --env=node server --",
-    "prettier": "prettier --write 'server/**/*.js' && cd ui/ && npm run prettier && cd ..",
-    "coverage": "NODE_ENV=test LOG_LEVEL=error jest --env=node --coverage server && cd ui/ && npm run coverage && cd ..",
+    "test:server": "NODE_ENV=test LOG_LEVEL=error jest --env=node model server --",
+    "prettier": "prettier --write '{config,model,server}/**/*.js' && cd ui/ && npm run prettier && cd ..",
+    "coverage": "NODE_ENV=test LOG_LEVEL=error jest --env=node --coverage model server && cd ui/ && npm run coverage && cd ..",
     "coverage:report": "npm run coverage && codecov",
     "clean": "rm -rf coverage && cd ui/ && npm run clean && cd ..",
     "clobber": "rm -rf coverage node_modules && cd ui/ && npm run clobber && cd ..",
@@ -31,6 +31,7 @@
   "dependencies": {
     "async-file": "^2.0.2",
     "heroku-logger": "^0.3.0",
+    "mongoose": "^4.13.0",
     "node": "^8.9.0",
     "websocket": "^1.0.25"
   },
