@@ -8,7 +8,7 @@ const Ucast = require('./Ucast');
 mongoose.Promise = global.Promise;
 
 beforeAll(async () => {
-  let connection = await mongoose.connect(config.db_uri, { useMongoClient: true });
+  const connection = await mongoose.connect(config.db_uri, { useMongoClient: true });
   await connection.db.dropDatabase();
 });
 
@@ -21,7 +21,7 @@ it('env is test', () => {
 });
 
 it('vytvoř minimální účast', async () => {
-  let ucast = new Ucast({
+  const ucast = new Ucast({
     ucastnikId: 1,
     rok: 2017,
     udaje: {
@@ -34,6 +34,6 @@ it('vytvoř minimální účast', async () => {
   });
   await ucast.save();
 
-  const ucasti = await Ucast.find({}, {'_id': 0});
+  const ucasti = await Ucast.find({}, { _id: 0 });
   expect(ucasti).toMatchSnapshot();
 });

@@ -70,7 +70,7 @@ const streamFile = async (filename, response) => {
     'Content-Length': stats.size
   });
 
-  let rs = fs.createReadStream(undefined, { fd: fd });
+  const rs = fs.createReadStream(undefined, { fd });
   rs.on('error', err => {
     rs.end();
     const message = `Problem while reading ${file}: ${err.message}`;
@@ -97,7 +97,7 @@ const streamRequest = async (pathname, response) => {
   }
 };
 
-let server = http.createServer((request, response) => {
+const server = http.createServer((request, response) => {
   logger.info(`HTTP request for ${request.url}.`);
 
   response.on('error', err => {
@@ -111,7 +111,7 @@ let server = http.createServer((request, response) => {
     response.send('{ "message" : "Hello from the API server!" }');
     response.end();
   } else {
-    let pathname = url.parse(request.url).pathname;
+    let { pathname } = url.parse(request.url);
     if (pathname[0] === '/') {
       pathname = pathname.substring(1);
     }
