@@ -1,10 +1,11 @@
 https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md
-https://www.fullstackreact.com/articles/using-create-react-app-with-a-server/
-https://www.fullstackreact.com/articles/deploying-a-react-app-with-a-server/
 https://react-bootstrap.github.io/components.html
 https://www.andrewhfarmer.com/component-communication/
+https://medium.com/@baphemot/understanding-reactjs-component-life-cycle-823a640b3e8d
 https://reactjs.org/docs/refs-and-the-dom.html
 
+http://adrianmejia.com/blog/2014/10/01/creating-a-restful-api-tutorial-with-nodejs-and-mongodb/
+https://medium.com/@baphemot/intro-to-debugging-reactjs-applications-67cf7a50b3dd
 
 Integration with heroku:
 ~~~~~~~~~~~~~~~~~~~~~~~~
