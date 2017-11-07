@@ -1,38 +1,25 @@
 'use strict';
 
 const http = require('http');
-const WebSocketServer = require('websocket').server;
 const W3CWebSocket = require('websocket').w3cwebsocket;
 const WebSocketAsPromised = require('websocket-as-promised');
-const processMessage = require('.');
+const createWsServer = require('../ws_server');
 
+const PORT = 5600;
 const httpServer = http.createServer();
+createWsServer({ httpServer });
 
-const wsServer = new WebSocketServer({ httpServer, closeTimeout: 1000 });
-wsServer.on('request', request => {
-  const connection = request.accept('jcm2018', request.origin);
-
-  connection.on('message', async message => {
-    if (message.type !== 'utf8') {
-      connection.drop(connection.CLOSE_REASON_INVALID_DATA);
-      return;
-    }
-
-    await processMessage(connection, message);
-  });
-});
-
-const wsClient = new WebSocketAsPromised('ws://localhost:5600/', {
+const wsClient = new WebSocketAsPromised(`ws://localhost:${PORT}/`, {
   createWebSocket: url => new W3CWebSocket(url, 'jcm2018'),
   packMessage: data => JSON.stringify(data),
   unpackMessage: message => JSON.parse(message),
   attachRequestId: (data, requestId) => ({ ...data, requestId }),
   extractRequestId: data => data && data.requestId,
-  timeout: 1000
+  timeout: 5000
 });
 
 beforeAll(async () => {
-  httpServer.listen(5600);
+  httpServer.listen(PORT);
   await wsClient.open();
 });
 
