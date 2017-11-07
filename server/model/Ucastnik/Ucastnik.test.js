@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 const config = require('../../config/config');
-const Ucast = require('./Ucast');
+const Ucastnik = require('./Ucastnik');
 
 /* Use native ES6 promises. */
 mongoose.Promise = global.Promise;
@@ -20,9 +20,8 @@ it('env is test', () => {
   expect(process.env.NODE_ENV).toEqual('test');
 });
 
-it('vytvoř minimální účast', async () => {
-  const ucast = new Ucast({
-    ucastnikId: 1,
+it('vytvoř účastníka s minimální účastí', async () => {
+  const ucast = {
     rok: 2017,
     udaje: {
       prijmeni: 'Balabák',
@@ -31,9 +30,12 @@ it('vytvoř minimální účast', async () => {
       pohlavi: 'muz',
       obec: 'Ostrava'
     }
-  });
-  await ucast.save();
+  };
 
-  const ucasti = await Ucast.find({}, { _id: 0 });
-  expect(ucasti).toMatchSnapshot();
+  const ucastnik = new Ucastnik();
+  ucastnik.ucasti.push(ucast);
+  await ucastnik.save();
+
+  const ucastnici = await Ucastnik.find({}, { _id: 0 });
+  expect(ucastnici).toMatchSnapshot();
 });

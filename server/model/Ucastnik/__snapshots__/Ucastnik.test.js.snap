@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`vytvoř účastníka s minimální účastí 1`] = `
+Array [
+  Object {
+    "__v": 0,
+    "ucasti": Array [
+      Object {
+        "rok": 2017,
+        "udaje": Object {
+          "jmeno": "Roman",
+          "narozeni": Object {
+            "rok": 1956,
+          },
+          "obec": "Ostrava",
+          "pohlavi": "muz",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+      },
+    ],
+  },
+]
+`;
