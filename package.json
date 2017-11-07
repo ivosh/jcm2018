@@ -21,9 +21,9 @@
     "start": "node server",
     "test": "npm run test:server && cd ui/ && npm test && cd ..",
     "test:server": "NODE_ENV=test LOG_LEVEL=error jest --env=node server --",
-    "prettier": "prettier --write 'server/**/*.js' && cd ui/ && npm run prettier && cd ..",
-    "lint": "eslint server",
-    "coverage": "NODE_ENV=test LOG_LEVEL=error jest --env=node --coverage server && cd ui/ && npm run coverage && cd ..",
+    "prettier": "prettier --write '{common,server}/**/*.js' && cd ui/ && npm run prettier && cd ..",
+    "lint": "eslint common server",
+    "coverage": "NODE_ENV=test LOG_LEVEL=error jest --env=node --coverage common server && cd ui/ && npm run coverage && cd ..",
     "coverage:report": "npm run coverage && codecov",
     "clean": "rm -rf coverage && cd ui/ && npm run clean && cd ..",
     "clobber": "rm -rf coverage node_modules && cd ui/ && npm run clobber && cd ..",
@@ -34,7 +34,8 @@
     "heroku-logger": "^0.3.0",
     "mongoose": "^4.13.0",
     "node": "^8.9.0",
-    "websocket": "^1.0.25"
+    "websocket": "^1.0.25",
+    "websocket-as-promised": "^0.6.0"
   },
   "devDependencies": {
     "codecov": "^3.0.0",
