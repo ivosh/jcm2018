@@ -43,7 +43,7 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "jest": "^21.2.1",
-    "prettier": "^1.7.4",
+    "prettier": "^1.8.1",
     "supertest": "^3.0.0"
   },
   "jest": {
