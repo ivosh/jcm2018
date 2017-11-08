@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`basic connectivity 1`] = `
+Object {
+  "code": "unrecognized action",
+}
+`;
+
 exports[`unparsable message 1`] = `
 Object {
   "code": "unparsable message",

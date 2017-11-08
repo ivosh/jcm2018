@@ -2,9 +2,10 @@
 
 const mongoose = require('mongoose');
 const Actions = require('../../../common');
+const config = require('../../config');
 const createWsServer = require('../../ws_server');
 const createWsClient = require('./../ws_client');
-const config = require('../../config');
+const Ucastnik = require('../../model/Ucastnik/Ucastnik');
 
 /* Use native ES6 promises. */
 mongoose.Promise = global.Promise;
@@ -36,8 +37,14 @@ it('vytvoř minimálního účastníka', async () => {
     pohlavi: 'muz',
     obec: 'Ostrava 1'
   };
+
   const { requestId, ...response } = await wsClient.sendRequest(
     Actions.createUcast({ rok: 2017, udaje })
   );
+  expect(response.response.id).not.toBeNull();
+  response.response.id = '---';
   expect(response).toMatchSnapshot();
+
+  const ucastnici = await Ucastnik.find({}, { _id: 0 });
+  expect(ucastnici).toMatchSnapshot();
 });

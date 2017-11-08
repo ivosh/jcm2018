@@ -22,7 +22,8 @@ afterEach(() => {
 });
 
 it('basic connectivity', async () => {
-  await wsClient.sendRequest({});
+  const { requestId, ...response } = await wsClient.sendRequest({});
+  expect(response).toMatchSnapshot();
 });
 
 it('unparsable message', async done => {

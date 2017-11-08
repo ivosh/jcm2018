@@ -4,7 +4,30 @@ exports[`vytvoř minimálního účastníka 1`] = `
 Object {
   "code": "ok",
   "response": Object {
-    "id": "5a037f5160598f2d408eebb9",
+    "id": "---",
   },
 }
+`;
+
+exports[`vytvoř minimálního účastníka 2`] = `
+Array [
+  Object {
+    "__v": 0,
+    "ucasti": Array [
+      Object {
+        "rok": 2017,
+        "udaje": Object {
+          "jmeno": "František",
+          "narozeni": Object {
+            "rok": 1953,
+          },
+          "obec": "Ostrava 1",
+          "pohlavi": "muz",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+      },
+    ],
+  },
+]
 `;

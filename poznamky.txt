@@ -3,6 +3,7 @@ https://react-bootstrap.github.io/components.html
 https://www.andrewhfarmer.com/component-communication/
 https://medium.com/@baphemot/understanding-reactjs-component-life-cycle-823a640b3e8d
 https://reactjs.org/docs/refs-and-the-dom.html
+https://github.com/theturtle32/WebSocket-Node/tree/master/docs
 
 http://adrianmejia.com/blog/2014/10/01/creating-a-restful-api-tutorial-with-nodejs-and-mongodb/
 https://medium.com/@baphemot/intro-to-debugging-reactjs-applications-67cf7a50b3dd
@@ -10,9 +11,5 @@ https://medium.com/@baphemot/intro-to-debugging-reactjs-applications-67cf7a50b3d
 Integration with heroku:
 ~~~~~~~~~~~~~~~~~~~~~~~~
 https://github.com/mars/heroku-cra-node
-https://github.com/mars/create-react-app-buildpack
-
 heroku plugins:install heroku-cli-static
-
 git remote add heroku https://git.heroku.com/jcm2018.git
-heroku buildpacks:set https://github.com/mars/create-react-app-buildpack.git
