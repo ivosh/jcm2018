@@ -10,7 +10,7 @@ const Ucastnik = require('../../model/Ucastnik/Ucastnik');
 /* Use native ES6 promises. */
 mongoose.Promise = global.Promise;
 
-const port = 5600;
+const port = 5601;
 const wsServer = createWsServer({});
 const wsClient = createWsClient({ port });
 
