@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`vytvoř minimálního účastníka 1`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "id": "5a037f5160598f2d408eebb9",
+  },
+}
+`;

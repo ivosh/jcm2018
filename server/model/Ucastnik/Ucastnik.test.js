@@ -1,7 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const config = require('../../config/config');
+const config = require('../../config');
 const Ucastnik = require('./Ucastnik');
 
 /* Use native ES6 promises. */

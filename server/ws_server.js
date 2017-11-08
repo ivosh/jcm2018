@@ -1,14 +1,19 @@
 'use strict';
 
+const http = require('http');
 const logger = require('heroku-logger');
 const WebSocketServer = require('websocket').server;
 const processMessage = require('./api');
 
 const createWsServer = ({ httpServer, originAllowed }) => {
+  const wsHttpServer = httpServer || http.createServer(); // for testing
+
   const ws = new WebSocketServer({
-    httpServer,
+    httpServer: wsHttpServer,
     autoAcceptConnections: false
   });
+
+  ws.httpServer = () => wsHttpServer;
 
   ws.on('request', request => {
     if (originAllowed && !originAllowed(request.origin)) {
