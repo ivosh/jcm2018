@@ -18,3 +18,11 @@ it('get /manifest.json', async () => {
   expect(response.statusCode).toBe(200);
   expect(typeof response.body).toBe('object');
 });
+
+it('get /nonexistent => index.html', async () => {
+  const response = await request(server).get('/nonexistent');
+
+  expect(response.statusCode).toBe(200);
+  expect(typeof response.text).toBe('string');
+  expect(response.text.length).toBeGreaterThan(0);
+});
