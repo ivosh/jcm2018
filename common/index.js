@@ -7,7 +7,8 @@ const FIND_UCAST_BY_UCASTNIK = 'find_ucast_by_ucastnik';
 const CODE_OK = 'ok';
 const CODE_ALREADY_EXISTING = 'již existuje';
 const CODE_NONEXISTING = 'neexistuje';
-const CODE_UNPARSABLE_MESSAGE = 'unparsable message';
+const CODE_UNFULFILLED_REQUEST = 'unfulfilled request';
+const CODE_UNPARSEABLE_MESSAGE = 'unparseable message';
 const CODE_UNRECOGNIZED_ACTION = 'unrecognized action';
 
 const createUcast = ({ id, rok, udaje, prihlaska }) => ({
@@ -27,7 +28,8 @@ module.exports = {
   CODE_OK,
   CODE_ALREADY_EXISTING,
   CODE_NONEXISTING,
-  CODE_UNPARSABLE_MESSAGE,
+  CODE_UNFULFILLED_REQUEST,
+  CODE_UNPARSEABLE_MESSAGE,
   CODE_UNRECOGNIZED_ACTION,
   createUcast,
   findAllUcastnici

@@ -3,12 +3,13 @@
 exports[`basic connectivity 1`] = `
 Object {
   "code": "unrecognized action",
+  "status": "neznámá akce ''",
 }
 `;
 
 exports[`unparsable message 1`] = `
 Object {
-  "code": "unparsable message",
+  "code": "unparseable message",
   "requestId": null,
 }
 `;

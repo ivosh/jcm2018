@@ -1,11 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`vytvoř dvě účasti 1`] = `
+Object {
+  "code": "ok",
+  "status": "nová účast uložena v pořádku",
+}
+`;
+
+exports[`vytvoř dvě účasti 2`] = `
+Array [
+  Object {
+    "__v": 1,
+    "ucasti": Array [
+      Object {
+        "rok": 2017,
+        "udaje": Object {
+          "jmeno": "František",
+          "narozeni": Object {
+            "rok": 1953,
+          },
+          "obec": "Ostrava 1",
+          "pohlavi": "muz",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+      },
+      Object {
+        "rok": 2018,
+        "udaje": Object {
+          "jmeno": "František",
+          "narozeni": Object {
+            "rok": 1953,
+          },
+          "obec": "Ostrava 2",
+          "pohlavi": "muz",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+      },
+    ],
+  },
+]
+`;
+
 exports[`vytvoř minimálního účastníka 1`] = `
 Object {
   "code": "ok",
   "response": Object {
     "id": "---",
   },
+  "status": "nový účastník uložen v pořádku",
 }
 `;
 
