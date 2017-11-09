@@ -19,8 +19,8 @@
   ],
   "scripts": {
     "start": "node server",
-    "test": "npm run test:server && cd ui/ && npm test && cd ..",
-    "test:server": "NODE_ENV=test LOG_LEVEL=error jest --env=node server --",
+    "test": "npm run test:server -- && cd ui/ && npm test && cd ..",
+    "test:server": "NODE_ENV=test LOG_LEVEL=error jest --env=node --runInBand server",
     "prettier": "prettier --write '{common,server}/**/*.js' && cd ui/ && npm run prettier && cd ..",
     "lint": "eslint common server",
     "coverage": "NODE_ENV=test LOG_LEVEL=error jest --env=node --coverage common server && cd ui/ && npm run coverage && cd ..",
