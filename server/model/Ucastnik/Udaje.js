@@ -18,7 +18,7 @@ const UdajeSchema = new mongoose.Schema(
     email: { type: String },
     telefon: { type: String }
   },
-  { _id: false }
+  { _id: false, bufferCommands: false }
 );
 
 module.exports = UdajeSchema;

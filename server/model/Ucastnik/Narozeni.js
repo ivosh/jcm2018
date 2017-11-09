@@ -8,7 +8,7 @@ const NarozeniSchema = new mongoose.Schema(
     mesic: { type: Number },
     rok: { type: Number, required: true }
   },
-  { _id: false }
+  { _id: false, bufferCommands: false }
 );
 
 module.exports = NarozeniSchema;

@@ -10,7 +10,7 @@ const UcastSchema = new mongoose.Schema(
     udaje: { type: UdajeSchema, required: true },
     prihlaska: { type: PrihlaskaSchema }
   },
-  { _id: false }
+  { _id: false, bufferCommands: false }
 );
 
 module.exports = UcastSchema;

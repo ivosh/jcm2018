@@ -8,7 +8,7 @@ const PrihlaskaSchema = new mongoose.Schema(
     kategorie: { type: String, required: true }, // bude {type: Schema.ObjectId, ref: 'Kategorie'}
     zaplaceno: { type: Number }
   },
-  { _id: false }
+  { _id: false, bufferCommands: false }
 );
 
 module.exports = PrihlaskaSchema;
