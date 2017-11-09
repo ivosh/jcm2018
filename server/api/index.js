@@ -11,8 +11,7 @@ const processRequest = async ({ action, request }) => {
     [Actions.FIND_ALL_UCASTNICI]: async req => findAllUcastnici(req),
     default: () => ({
       code: Actions.CODE_UNRECOGNIZED_ACTION,
-      status: `neznámá akce ${action}`,
-      response: undefined
+      status: `neznámá akce '${action || ''}'`
     })
   };
 
@@ -21,8 +20,8 @@ const processRequest = async ({ action, request }) => {
   return processMessageAction(request);
 };
 
-const sendResponse = ({ connection, code, response, requestId }) => {
-  const data = { code, response, requestId };
+const sendResponse = ({ connection, code, status, response, requestId }) => {
+  const data = { code, status, response, requestId };
   const json = JSON.stringify(data);
   connection.sendUTF(json);
   logger.debug(`Responded: ${json}`);
@@ -33,14 +32,23 @@ const processMessage = async (connection, message) => {
 
   try {
     const { action, request, requestId } = JSON.parse(message.utf8Data);
-    const { code, response } = await processRequest({ action, request });
-    sendResponse({ connection, code, response, requestId });
+    try {
+      const { code, status, response } = await processRequest({ action, request });
+      sendResponse({ connection, code, status, response, requestId });
+    } catch (err) {
+      logger.warn(`Failed to process the API request: ${err.message}`);
+      sendResponse({
+        connection,
+        code: Actions.CODE_UNFULFILLED_REQUEST,
+        status: err.message,
+        requestId: null
+      });
+    }
   } catch (err) {
-    logger.warn(`Cannot parse >${message.utf8Data}< as JSON.`);
+    logger.warn(`Cannot parse '${message.utf8Data}' as JSON.`);
     sendResponse({
       connection,
-      code: Actions.CODE_UNPARSABLE_MESSAGE,
-      response: undefined,
+      code: Actions.CODE_UNPARSEABLE_MESSAGE,
       requestId: null
     });
   }

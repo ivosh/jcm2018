@@ -28,7 +28,7 @@ const createUcast = async ({ id, rok, udaje, prihlaska }) => {
     logger.debug(`Creating new ucast ${rok} for ucastnik id ${id}`);
     ucastnik.ucasti.push({ rok, udaje, prihlaska });
     await ucastnik.save();
-    return { code: Actions.CODE_OK, response: 'nová účast uložena v pořádku' };
+    return { code: Actions.CODE_OK, status: 'nová účast uložena v pořádku' };
   }
 
   return { code: Actions.CODE_NONEXISTING, status: `účastník s id ${id} neexistuje` };
