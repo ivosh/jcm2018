@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 const config = require('../../config');
-const Ucastnik = require('./Ucastnik');
+const Ucastnik = require('./index.js');
 
 /* Use native ES6 promises. */
 mongoose.Promise = global.Promise;

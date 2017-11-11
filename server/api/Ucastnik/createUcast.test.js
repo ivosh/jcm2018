@@ -5,7 +5,7 @@ const Actions = require('../../../common');
 const config = require('../../config');
 const createWsServer = require('../../ws_server');
 const createWsClient = require('./../ws_client');
-const Ucastnik = require('../../model/Ucastnik/Ucastnik');
+const Ucastnik = require('../../model/Ucastnik');
 
 /* Use native ES6 promises. */
 mongoose.Promise = global.Promise;
