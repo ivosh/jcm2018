@@ -3,7 +3,7 @@
 const db = require('../../db');
 const Actions = require('../../../common');
 const createWsServer = require('../../ws_server');
-const createWsClient = require('./../ws_client');
+const createWsClient = require('./../createWsClient');
 const Ucastnik = require('../../model/Ucastnik');
 
 const port = 5601;

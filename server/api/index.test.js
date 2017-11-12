@@ -2,7 +2,7 @@
 
 const db = require('../db');
 const createWsServer = require('../ws_server');
-const createWsClient = require('./ws_client');
+const createWsClient = require('./createWsClient');
 
 const port = 5600;
 const wsServer = createWsServer({});
