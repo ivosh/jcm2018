@@ -1,7 +1,7 @@
 'use strict';
 
 const request = require('supertest');
-const server = require('./static_http');
+const server = require('./staticHttpServer');
 
 it('get /', async () => {
   const response = await request(server).get('/');

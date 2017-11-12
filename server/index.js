@@ -2,7 +2,7 @@
 
 const logger = require('heroku-logger');
 const db = require('./db');
-const httpServer = require('./static_http');
+const staticHttpServer = require('./staticHttpServer');
 const createWsServer = require('./createWsServer');
 
 const PORT = Number(process.env.PORT || 4000);
@@ -10,7 +10,7 @@ process.title = 'jcm2018-server';
 
 db.connect();
 
-httpServer.listen(PORT, () => {
+staticHttpServer.listen(PORT, () => {
   logger.info(`Server is listening on port ${PORT}.`);
 });
 
@@ -20,4 +20,4 @@ const originAllowed = origin => {
   return true;
 };
 
-createWsServer({ httpServer, originAllowed });
+createWsServer({ staticHttpServer, originAllowed });
