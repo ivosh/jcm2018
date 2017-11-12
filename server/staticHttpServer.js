@@ -107,9 +107,10 @@ const server = http.createServer((request, response) => {
   });
 
   if (request.url.startsWith('/api')) {
-    response.set('Content-Type', 'application/json');
-    response.send('{ "message" : "Hello from the API server!" }');
-    response.end();
+    response.setHeader('Content-Type', 'application/json');
+    response.write('{ "message" : "Hello from the API server!" }', () => {
+      response.end();
+    });
   } else {
     let { pathname } = url.parse(request.url);
     if (pathname[0] === '/') {
