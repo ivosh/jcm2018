@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`findAllUcastnici 1`] = `
+Object {
+  "code": "ok",
+  "response": Array [
+    Object {
+      "__v": 0,
+      "_id": "---",
+      "ucasti": Array [
+        Object {
+          "rok": 2017,
+          "udaje": Object {
+            "jmeno": "Roman",
+            "narozeni": Object {
+              "rok": 1956,
+            },
+            "obec": "Ostrava 1",
+            "pohlavi": "muz",
+            "prijmeni": "Balabák",
+            "stat": "Česká republika",
+          },
+        },
+        Object {
+          "rok": 2018,
+          "udaje": Object {
+            "jmeno": "Roman",
+            "narozeni": Object {
+              "rok": 1956,
+            },
+            "obec": "Ostrava 2",
+            "pohlavi": "muz",
+            "prijmeni": "Balabák",
+            "stat": "Česká republika",
+          },
+        },
+      ],
+    },
+    Object {
+      "__v": 0,
+      "_id": "---",
+      "ucasti": Array [
+        Object {
+          "rok": 2016,
+          "udaje": Object {
+            "jmeno": "Zdeňka",
+            "narozeni": Object {
+              "den": 7,
+              "mesic": 12,
+              "rok": 1966,
+            },
+            "obec": "Kladno",
+            "pohlavi": "zena",
+            "prijmeni": "Sukdoláková",
+            "stat": "Česká republika",
+          },
+        },
+        Object {
+          "rok": 2017,
+          "udaje": Object {
+            "jmeno": "Zdeňka",
+            "narozeni": Object {
+              "den": 7,
+              "mesic": 12,
+              "rok": 1966,
+            },
+            "obec": "Kladno",
+            "pohlavi": "zena",
+            "prijmeni": "Primasová",
+            "stat": "Česká republika",
+          },
+        },
+      ],
+    },
+  ],
+}
+`;
