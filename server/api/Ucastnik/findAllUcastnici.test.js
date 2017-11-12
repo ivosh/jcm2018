@@ -1,13 +1,9 @@
 'use strict';
 
-const mongoose = require('mongoose');
+const db = require('../../db');
 const Actions = require('../../../common');
 const createWsServer = require('../../ws_server');
 const createWsClient = require('../ws_client');
-const config = require('../../config');
-
-/* Use native ES6 promises. */
-mongoose.Promise = global.Promise;
 
 const port = 5602;
 const wsServer = createWsServer({});
@@ -17,15 +13,14 @@ beforeAll(async () => {
   wsServer.httpServer().listen(port);
   await wsClient.open();
 
-  const connection = await mongoose.connect(config.db_uri, { useMongoClient: true });
-  await connection.db.dropDatabase();
+  await db.dropDatabase();
 });
 
 afterAll(async () => {
   await wsClient.close();
   wsServer.httpServer().close();
 
-  await mongoose.disconnect();
+  await db.disconnect();
 });
 
 it('findAllUcastnici', async () => {

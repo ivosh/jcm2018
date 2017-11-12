@@ -1,19 +1,14 @@
 'use strict';
 
-const mongoose = require('mongoose');
-const config = require('../../config');
+const db = require('../../db');
 const Ucastnik = require('./index.js');
 
-/* Use native ES6 promises. */
-mongoose.Promise = global.Promise;
-
 beforeAll(async () => {
-  const connection = await mongoose.connect(config.db_uri, { useMongoClient: true });
-  await connection.db.dropDatabase();
+  await db.dropDatabase();
 });
 
 afterAll(async () => {
-  await mongoose.disconnect();
+  await db.disconnect();
 });
 
 it('env is test', () => {

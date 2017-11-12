@@ -1,14 +1,10 @@
 'use strict';
 
-const mongoose = require('mongoose');
+const db = require('../../db');
 const Actions = require('../../../common');
-const config = require('../../config');
 const createWsServer = require('../../ws_server');
 const createWsClient = require('./../ws_client');
 const Ucastnik = require('../../model/Ucastnik');
-
-/* Use native ES6 promises. */
-mongoose.Promise = global.Promise;
 
 const port = 5601;
 const wsServer = createWsServer({});
@@ -18,15 +14,14 @@ beforeAll(async () => {
   wsServer.httpServer().listen(port);
   await wsClient.open();
 
-  const connection = await mongoose.connect(config.db_uri, { useMongoClient: true });
-  await connection.db.dropDatabase();
+  await db.dropDatabase();
 });
 
 afterAll(async () => {
   await wsClient.close();
   wsServer.httpServer().close();
 
-  await mongoose.disconnect();
+  await db.disconnect();
 });
 
 it('vytvoř minimálního účastníka', async () => {

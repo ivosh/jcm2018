@@ -1,5 +1,6 @@
 'use strict';
 
+const db = require('../db');
 const createWsServer = require('../ws_server');
 const createWsClient = require('./ws_client');
 
@@ -10,11 +11,13 @@ const wsClient = createWsClient({ port });
 beforeAll(async () => {
   wsServer.httpServer().listen(port);
   await wsClient.open();
+  await db.connect();
 });
 
 afterAll(async () => {
   await wsClient.close();
   wsServer.httpServer().close();
+  await db.disconnect();
 });
 
 afterEach(() => {

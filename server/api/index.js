@@ -1,11 +1,19 @@
 'use strict';
 
 const logger = require('heroku-logger');
-const Actions = require('../../common/index.js');
+const Actions = require('../../common');
+const db = require('../db');
 const createUcast = require('./Ucastnik/createUcast');
 const findAllUcastnici = require('./Ucastnik/findAllUcastnici');
 
 const processRequest = async ({ action, request }) => {
+  if (!db.isConnected()) {
+    return {
+      code: Actions.CODE_DB_DISCONNECTED,
+      status: 'Není připojeno k databázi'
+    };
+  }
+
   const actions = {
     [Actions.CREATE_UCAST]: async req => createUcast(req),
     [Actions.FIND_ALL_UCASTNICI]: async req => findAllUcastnici(req),
@@ -36,7 +44,7 @@ const processMessage = async (connection, message) => {
       const { code, status, response } = await processRequest({ action, request });
       sendResponse({ connection, code, status, response, requestId });
     } catch (err) {
-      logger.warn(`Failed to process the API request: ${err.message}`);
+      logger.warn(`Failed to process the API request: ${err}`);
       sendResponse({
         connection,
         code: Actions.CODE_UNFULFILLED_REQUEST,
