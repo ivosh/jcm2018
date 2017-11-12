@@ -12,28 +12,30 @@ class DB {
     const { uri, ...configOptions } = config.db;
     this.options = { ...configOptions, useMongoClient: true };
 
-    const connection = await mongoose.connect(uri, this.options);
-    connection.on('error', this.onError);
+    await this.reconnect();
   }
 
-  onError(err) {
+  async reconnect() {
+    try {
+      await mongoose.connect(config.db.uri, this.options);
+      logger.info('Connected to the DB');
+    } catch (err) {
+      this.handleError(err);
+    }
+  }
+
+  handleError(err) {
     /* If first connect fails because mongod is down, try again later.
-         This is only needed for the first connect, not for runtime reconnects.
-         See: https://github.com/Automattic/mongoose/issues/5169 */
+       This is only needed for the first connect, not for runtime reconnects.
+       See: https://github.com/Automattic/mongoose/issues/5169 */
     if (err.message && err.message.match(/failed to connect to server .* on first connect/)) {
       logger.error(`Failed to connect to the DB: ${err}`);
 
       // Wait for a bit, then try to connect again.
-      setTimeout(() => {
+      setTimeout(async () => {
         logger.debug('Retrying first connect to the DB...');
-        const connection = mongoose.connect(config.db.uri, this.options).catch(() => {});
-        // Why the empty catch?
-        // Well, errors thrown by connect() will also be passed to .on('error'),
-        // so we can handle them there, no need to log anything in the catch here.
-        // But we still need this empty catch to avoid unhandled promise rejections.
-
-        connection.on('error', this.onError);
-      }, 5 * 1000);
+        await this.reconnect();
+      }, config.db.reconnectInterval);
     } else {
       // Some other error occurred. Log it.
       logger.error(`DB problem: ${err}`);

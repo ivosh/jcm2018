@@ -6,6 +6,7 @@ const FIND_UCAST_BY_UCASTNIK = 'find_ucast_by_ucastnik';
 
 const CODE_OK = 'ok';
 const CODE_ALREADY_EXISTING = 'již existuje';
+const CODE_DB_DISCONNECTED = 'nepřipojeno k databázi';
 const CODE_NONEXISTING = 'neexistuje';
 const CODE_UNFULFILLED_REQUEST = 'unfulfilled request';
 const CODE_UNPARSEABLE_MESSAGE = 'unparseable message';
@@ -27,6 +28,7 @@ module.exports = {
   FIND_UCAST_BY_UCASTNIK,
   CODE_OK,
   CODE_ALREADY_EXISTING,
+  CODE_DB_DISCONNECTED,
   CODE_NONEXISTING,
   CODE_UNFULFILLED_REQUEST,
   CODE_UNPARSEABLE_MESSAGE,
