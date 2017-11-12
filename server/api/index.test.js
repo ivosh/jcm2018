@@ -1,7 +1,7 @@
 'use strict';
 
 const db = require('../db');
-const createWsServer = require('../ws_server');
+const createWsServer = require('../createWsServer');
 const createWsClient = require('./createWsClient');
 
 const port = 5600;
