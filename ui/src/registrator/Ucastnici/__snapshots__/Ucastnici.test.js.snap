@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dva účastníci 1`] = `
+<ul
+  className="Ucastnici"
+>
+  <li>
+    Balabák
+     
+    Roman
+     
+    1956
+  </li>
+  <li>
+    Sukdoláková
+     
+    Martina
+     
+    1963
+  </li>
+</ul>
+`;
+
+exports[`žádný účastník 1`] = `
+<div
+  className="Ucastnici"
+>
+  žádný účastník
+</div>
+`;
