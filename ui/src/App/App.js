@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import CasomericConnected from '../casomeric/Casomeric/CasomericConnected';
+import UcastniciConnected from '../registrator/Ucastnici/UcastniciConnected';
 import Registrace from '../registrator/Registrace/Registrace';
 import './App.css';
 import logo from './logo.svg';
@@ -17,8 +18,11 @@ const App = () => (
         <LinkContainer to="/casomeric">
           <NavItem eventKey={1}>Časoměřič</NavItem>
         </LinkContainer>
+        <LinkContainer to="/ucastnici">
+          <NavItem eventKey={2}>Účastníci</NavItem>
+        </LinkContainer>
         <LinkContainer to="/registrace">
-          <NavItem eventKey={2}>Registrace</NavItem>
+          <NavItem eventKey={3}>Registrace</NavItem>
         </LinkContainer>
       </Nav>
     </Navbar>
@@ -26,6 +30,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={CasomericConnected} />
         <Route path="/casomeric" component={CasomericConnected} />
+        <Route path="/ucastnici" component={UcastniciConnected} />
         <Route path="/registrace" component={Registrace} />
         <Redirect to="/" />
       </Switch>

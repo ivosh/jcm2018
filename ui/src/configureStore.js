@@ -1,4 +1,5 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
 import appReducer from './App/appReducer';
 import { setHighestMezicasId } from './casomeric/Mezicasy/MezicasyActions';
 
@@ -47,7 +48,7 @@ const saveState = state => {
   }
 };
 
-const configureStore = (initialState = loadState()) => {
+const configureStore = (wsClient, initialState = loadState()) => {
   if (initialState === undefined) {
     initialState = {};
   }
@@ -65,10 +66,11 @@ const configureStore = (initialState = loadState()) => {
     setHighestMezicasId(highestId);
   }
 
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(
     appReducer,
     initialState,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    composeEnhancers(applyMiddleware(thunk.withExtraArgument(wsClient)))
   );
 
   store.subscribe(() => {
