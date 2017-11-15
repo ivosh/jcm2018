@@ -49,7 +49,7 @@ const processMessage = async (connection, message) => {
         connection,
         code: Actions.CODE_UNFULFILLED_REQUEST,
         status: err.message,
-        requestId: null
+        requestId
       });
     }
   } catch (err) {

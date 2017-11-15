@@ -78,9 +78,9 @@ it('findAllUcastnici', async () => {
   await ucastnik2.save();
 
   const { requestId, ...response } = await wsClient.sendRequest(Actions.findAllUcastnici());
-  expect(response.response[0]._id).not.toBeNull();
-  expect(response.response[1]._id).not.toBeNull();
-  response.response[0]._id = '---';
-  response.response[1]._id = '---';
+  expect(response.response[0].id).not.toBeNull();
+  expect(response.response[1].id).not.toBeNull();
+  response.response[0].id = '---';
+  response.response[1].id = '---';
   expect(response).toMatchSnapshot();
 });

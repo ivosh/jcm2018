@@ -6,7 +6,7 @@ Object {
   "response": Array [
     Object {
       "__v": 0,
-      "_id": "---",
+      "id": "---",
       "ucasti": Array [
         Object {
           "rok": 2017,
@@ -38,7 +38,7 @@ Object {
     },
     Object {
       "__v": 0,
-      "_id": "---",
+      "id": "---",
       "ucasti": Array [
         Object {
           "rok": 2016,

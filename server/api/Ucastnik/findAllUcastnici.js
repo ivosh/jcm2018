@@ -4,7 +4,12 @@ const Actions = require('../../../common');
 const Ucastnik = require('../../model/Ucastnik');
 
 const findAllUcastnici = async () => {
-  const ucastnici = await Ucastnik.find();
+  const found = await Ucastnik.find().lean();
+  const ucastnici = found.map(ucastnik => {
+    const { _id, ...withoutId } = ucastnik;
+    return { id: _id, ...withoutId };
+  });
+
   return { code: Actions.CODE_OK, status: undefined, response: ucastnici };
 };
 
