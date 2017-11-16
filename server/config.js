@@ -7,6 +7,13 @@ const config = {
     poolSize: 10 // Maintain up to 10 database connections.
   }
 };
-config.db.uri = env === 'production' ? process.env.DB : 'mongodb://localhost/jcm2018';
+
+if (env === 'production') {
+  config.db.uri = process.env.DB;
+} else if (env === 'test') {
+  config.db.uri = 'mongodb://localhost/jcm2018-test';
+} else {
+  config.db.uri = 'mongodb://localhost/jcm2018-dev';
+}
 
 module.exports = config;
