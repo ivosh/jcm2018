@@ -35,7 +35,8 @@
     "mongoose": "^4.13.3",
     "node": "^8.9.0",
     "websocket": "^1.0.25",
-    "websocket-as-promised": "^0.6.0"
+    "websocket-as-promised": "^0.6.0",
+    "xml2js": "^0.4.19"
   },
   "devDependencies": {
     "codecov": "^3.0.0",
