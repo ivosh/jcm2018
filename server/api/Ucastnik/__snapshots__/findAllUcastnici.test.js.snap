@@ -9,6 +9,7 @@ Object {
       "id": "---",
       "ucasti": Array [
         Object {
+          "platby": Array [],
           "rok": 2017,
           "udaje": Object {
             "jmeno": "Roman",
@@ -22,6 +23,7 @@ Object {
           },
         },
         Object {
+          "platby": Array [],
           "rok": 2018,
           "udaje": Object {
             "jmeno": "Roman",
@@ -41,6 +43,7 @@ Object {
       "id": "---",
       "ucasti": Array [
         Object {
+          "platby": Array [],
           "rok": 2016,
           "udaje": Object {
             "jmeno": "Zdeňka",
@@ -56,6 +59,7 @@ Object {
           },
         },
         Object {
+          "platby": Array [],
           "rok": 2017,
           "udaje": Object {
             "jmeno": "Zdeňka",

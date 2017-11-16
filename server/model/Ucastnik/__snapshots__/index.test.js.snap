@@ -6,6 +6,7 @@ Array [
     "__v": 0,
     "ucasti": Array [
       Object {
+        "platby": Array [],
         "rok": 2017,
         "udaje": Object {
           "jmeno": "Roman",

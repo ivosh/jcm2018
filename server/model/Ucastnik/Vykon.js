@@ -2,13 +2,13 @@
 
 const mongoose = require('mongoose');
 
-const PrihlaskaSchema = new mongoose.Schema(
+const VykonSchema = new mongoose.Schema(
   {
-    datum: { type: Date, required: true },
     kategorie: { type: String, required: true }, // bude {type: Schema.ObjectId, ref: 'Kategorie'}
-    startCislo: { type: Number }
+    dokonceno: { type: Boolean },
+    cas: { type: String }
   },
   { _id: false, bufferCommands: false }
 );
 
-module.exports = PrihlaskaSchema;
+module.exports = VykonSchema;
