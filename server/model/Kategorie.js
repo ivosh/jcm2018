@@ -12,8 +12,7 @@ const KategorieSchema = new mongoose.Schema(
     pohlavi: { type: String, enum: ['muz', 'zena'] },
     minVek: { type: Number },
     maxVek: { type: Number },
-    presnyVek: { type: Boolean },
-    maStartCislo: { type: Boolean, required: true }
+    presnyVek: { type: Boolean }
   },
   { bufferCommands: false, usePushEach: true }
 );

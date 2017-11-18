@@ -10,19 +10,22 @@ Array [
         "kategorie": Array [
           Object {
             "__v": 0,
-            "maStartCislo": true,
             "maxVek": 49,
             "minVek": 40,
             "pohlavi": "zena",
             "typ": "maraton",
           },
         ],
+        "maStartCisla": true,
         "startCisla": "1-100",
-        "startovnePredem": 150,
-        "startvneNaMiste": 200,
+        "startovne": Object {
+          "naMiste": 200,
+          "predem": 150,
+        },
         "typ": "maraton",
       },
     ],
+    "rok": 2017,
     "ubytovani": Array [],
   },
 ]
@@ -38,7 +41,6 @@ Array [
         "kategorie": Array [
           Object {
             "__v": 0,
-            "maStartCislo": true,
             "maxVek": 49,
             "minVek": 40,
             "pohlavi": "zena",
@@ -46,19 +48,22 @@ Array [
           },
           Object {
             "__v": 0,
-            "maStartCislo": true,
             "maxVek": 59,
             "minVek": 50,
             "pohlavi": "zena",
             "typ": "maraton",
           },
         ],
+        "maStartCisla": true,
         "startCisla": "1-100",
-        "startovnePredem": 150,
-        "startvneNaMiste": 200,
+        "startovne": Object {
+          "naMiste": 200,
+          "predem": 150,
+        },
         "typ": "maraton",
       },
     ],
+    "rok": 2017,
     "ubytovani": Array [
       Object {
         "den": "pátek",

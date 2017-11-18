@@ -1,6 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
+const Startovne = require('./Startovne');
 
 const TypKategorieSchema = new mongoose.Schema(
   {
@@ -10,9 +11,9 @@ const TypKategorieSchema = new mongoose.Schema(
       required: true
     },
     kategorie: [{ type: mongoose.Schema.ObjectId, ref: 'Kategorie', unique: true }],
+    maStartCisla: { type: Boolean, required: true },
     startCisla: { type: String },
-    startovnePredem: { type: Number, required: true },
-    startvneNaMiste: { type: Number, required: true }
+    startovne: { type: Startovne, required: true }
   },
   { _id: false, bufferCommands: false }
 );

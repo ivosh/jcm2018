@@ -6,6 +6,7 @@ const Ubytovani = require('./Ubytovani');
 
 const RocnikSchema = new mongoose.Schema(
   {
+    rok: { type: Number, required: true },
     datum: { type: Date, required: true },
     kategorie: { type: [TypKategorie], required: true },
     ubytovani: { type: [Ubytovani], default: null }
