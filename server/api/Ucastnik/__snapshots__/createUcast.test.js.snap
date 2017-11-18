@@ -15,6 +15,7 @@ Array [
       Object {
         "platby": Array [],
         "rok": 2017,
+        "ubytovani": Array [],
         "udaje": Object {
           "jmeno": "František",
           "narozeni": Object {
@@ -29,6 +30,7 @@ Array [
       Object {
         "platby": Array [],
         "rok": 2018,
+        "ubytovani": Array [],
         "udaje": Object {
           "jmeno": "František",
           "narozeni": Object {
@@ -63,6 +65,7 @@ Array [
       Object {
         "platby": Array [],
         "rok": 2017,
+        "ubytovani": Array [],
         "udaje": Object {
           "jmeno": "František",
           "narozeni": Object {

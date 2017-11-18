@@ -14,7 +14,7 @@ const UcastSchema = new mongoose.Schema(
     prihlaska: { type: PrihlaskaSchema },
     vykon: { type: VykonSchema },
     platby: { type: [PlatbaSchema], default: null },
-    ubytovani: { type: UbytovaniSchema },
+    ubytovani: { type: [UbytovaniSchema], default: null },
     poznamka: { type: String }
   },
   { _id: false, bufferCommands: false }

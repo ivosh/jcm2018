@@ -1,5 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`přihlaš účastníka 1`] = `
+Array [
+  Object {
+    "__v": 0,
+    "ucasti": Array [
+      Object {
+        "platby": Array [],
+        "poznamka": "první přihlášená",
+        "prihlaska": Object {
+          "datum": 2017-11-18T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "maStartCislo": true,
+            "maxVek": 49,
+            "minVek": 40,
+            "pohlavi": "zena",
+            "typ": "maraton",
+          },
+          "startCislo": 44,
+        },
+        "rok": 2017,
+        "ubytovani": Array [],
+        "udaje": Object {
+          "adresa": "Za Kohoutem 194/2",
+          "email": "sk@nudle.cz",
+          "jmeno": "Šárka",
+          "klub": "SK Nudle",
+          "narozeni": Object {
+            "den": 7,
+            "mesic": 12,
+            "rok": 1977,
+          },
+          "obec": "Třebechovice pod Orebem",
+          "pohlavi": "zena",
+          "prijmeni": "Ženíšková",
+          "psc": "312 78",
+          "stat": "Česká republika",
+          "telefon": "732 187 987",
+        },
+      },
+    ],
+  },
+]
+`;
+
 exports[`vytvoř účastníka s minimální účastí 1`] = `
 Array [
   Object {
@@ -8,6 +53,43 @@ Array [
       Object {
         "platby": Array [],
         "rok": 2017,
+        "ubytovani": Array [],
+        "udaje": Object {
+          "jmeno": "Roman",
+          "narozeni": Object {
+            "rok": 1956,
+          },
+          "obec": "Ostrava",
+          "pohlavi": "muz",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+      },
+    ],
+  },
+]
+`;
+
+exports[`účastník zaplatil ubytování 1`] = `
+Array [
+  Object {
+    "__v": 1,
+    "ucasti": Array [
+      Object {
+        "platby": Array [
+          Object {
+            "castka": 50,
+            "datum": 2017-11-19T00:00:00.000Z,
+            "typ": "hotově",
+          },
+        ],
+        "rok": 2016,
+        "ubytovani": Array [
+          Object {
+            "den": "pátek",
+            "prihlaseno": true,
+          },
+        ],
         "udaje": Object {
           "jmeno": "Roman",
           "narozeni": Object {

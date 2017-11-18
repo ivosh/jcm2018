@@ -5,8 +5,7 @@ const mongoose = require('mongoose');
 const UbytovaniSchema = new mongoose.Schema(
   {
     den: { type: String, enum: ['pátek', 'sobota'], required: true },
-    prihlaseno: { type: Boolean },
-    absolvovano: { type: Boolean }
+    poplatek: { type: Number, required: true }
   },
   { _id: false, bufferCommands: false }
 );
