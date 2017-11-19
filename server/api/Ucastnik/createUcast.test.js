@@ -29,7 +29,7 @@ it('vytvoř minimálního účastníka', async () => {
     prijmeni: 'Balabák',
     jmeno: 'František',
     narozeni: { rok: 1953 },
-    pohlavi: 'muz',
+    pohlavi: 'muž',
     obec: 'Ostrava 1'
   };
 
@@ -51,7 +51,7 @@ it('vytvoř dvě účasti', async () => {
     prijmeni: 'Balabák',
     jmeno: 'František',
     narozeni: { rok: 1953 },
-    pohlavi: 'muz',
+    pohlavi: 'muž',
     obec: 'Ostrava 1'
   };
   const udaje2 = { ...udaje1, obec: 'Ostrava 2' };

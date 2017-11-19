@@ -23,7 +23,7 @@ it('vytvoř účastníka s minimální účastí', async () => {
       prijmeni: 'Balabák',
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
-      pohlavi: 'muz',
+      pohlavi: 'muž',
       obec: 'Ostrava'
     }
   };
@@ -41,7 +41,7 @@ it('vytvoř účastníka s minimální účastí', async () => {
 it('přihlaš účastníka', async () => {
   const kategorie = new Kategorie({
     typ: 'maraton',
-    pohlavi: 'zena',
+    pohlavi: 'žena',
     minVek: 40,
     maxVek: 49,
     maStartCislo: true
@@ -54,7 +54,7 @@ it('přihlaš účastníka', async () => {
       prijmeni: 'Ženíšková',
       jmeno: 'Šárka',
       narozeni: { den: 7, mesic: 12, rok: 1977 },
-      pohlavi: 'zena',
+      pohlavi: 'žena',
       adresa: 'Za Kohoutem 194/2',
       obec: 'Třebechovice pod Orebem',
       psc: '312 78',
@@ -91,7 +91,7 @@ it('účastník zaplatil ubytování', async () => {
       prijmeni: 'Balabák',
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
-      pohlavi: 'muz',
+      pohlavi: 'muž',
       obec: 'Ostrava'
     }
   };

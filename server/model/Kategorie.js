@@ -9,7 +9,7 @@ const KategorieSchema = new mongoose.Schema(
       enum: ['maraton', 'půlmaraton', 'cyklo', 'koloběžka', 'pěší'],
       required: true
     },
-    pohlavi: { type: String, enum: ['muz', 'zena'] },
+    pohlavi: { type: String, enum: ['muž', 'žena'] },
     minVek: { type: Number },
     maxVek: { type: Number },
     presnyVek: { type: Boolean }

@@ -11,7 +11,6 @@ const TypKategorieSchema = new mongoose.Schema(
       required: true
     },
     kategorie: [{ type: mongoose.Schema.ObjectId, ref: 'Kategorie', unique: true }],
-    maStartCisla: { type: Boolean, required: true },
     startCisla: { type: String },
     startovne: { type: Startovne, required: true }
   },

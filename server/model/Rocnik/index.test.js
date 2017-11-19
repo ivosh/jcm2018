@@ -15,7 +15,7 @@ afterAll(async () => {
 it('vytvoř ročník s jednou kategorií', async () => {
   const kategorie = new Kategorie({
     typ: 'maraton',
-    pohlavi: 'zena',
+    pohlavi: 'žena',
     minVek: 40,
     maxVek: 49
   });
@@ -25,7 +25,6 @@ it('vytvoř ročník s jednou kategorií', async () => {
   rocnik.kategorie.push({
     typ: 'maraton',
     kategorie: [kategorie.id],
-    maStartCisla: true,
     startCisla: '1-100',
     startovne: { predem: 150, naMiste: 200 }
   });
@@ -40,14 +39,14 @@ it('vytvoř ročník s jednou kategorií', async () => {
 it('vytvoř ročník s ubytováním', async () => {
   const kategorie1 = new Kategorie({
     typ: 'maraton',
-    pohlavi: 'zena',
+    pohlavi: 'žena',
     minVek: 40,
     maxVek: 49
   });
   await kategorie1.save();
   const kategorie2 = new Kategorie({
     typ: 'maraton',
-    pohlavi: 'zena',
+    pohlavi: 'žena',
     minVek: 50,
     maxVek: 59
   });
@@ -57,7 +56,6 @@ it('vytvoř ročník s ubytováním', async () => {
   rocnik.kategorie.push({
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id],
-    maStartCisla: true,
     startCisla: '1-100',
     startovne: { predem: 150, naMiste: 200 }
   });

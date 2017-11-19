@@ -8,7 +8,7 @@ const UdajeSchema = new mongoose.Schema(
     prijmeni: { type: String, required: true },
     jmeno: { type: String, required: true },
     narozeni: { type: NarozeniSchema, required: true },
-    pohlavi: { type: String, enum: ['muz', 'zena'], required: true },
+    pohlavi: { type: String, enum: ['muž', 'žena'], required: true },
     adresa: { type: String },
     cislo: { type: String },
     obec: { type: String, required: true },

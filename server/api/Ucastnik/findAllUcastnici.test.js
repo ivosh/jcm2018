@@ -32,7 +32,7 @@ it('findAllUcastnici', async () => {
         prijmeni: 'Balabák',
         jmeno: 'Roman',
         narozeni: { rok: 1956 },
-        pohlavi: 'muz',
+        pohlavi: 'muž',
         obec: 'Ostrava 1'
       }
     },
@@ -42,7 +42,7 @@ it('findAllUcastnici', async () => {
         prijmeni: 'Balabák',
         jmeno: 'Roman',
         narozeni: { rok: 1956 },
-        pohlavi: 'muz',
+        pohlavi: 'muž',
         obec: 'Ostrava 2'
       }
     }
@@ -58,7 +58,7 @@ it('findAllUcastnici', async () => {
         prijmeni: 'Sukdoláková',
         jmeno: 'Zdeňka',
         narozeni: { den: 7, mesic: 12, rok: 1966 },
-        pohlavi: 'zena',
+        pohlavi: 'žena',
         obec: 'Kladno'
       }
     },
@@ -68,7 +68,7 @@ it('findAllUcastnici', async () => {
         prijmeni: 'Primasová',
         jmeno: 'Zdeňka',
         narozeni: { den: 7, mesic: 12, rok: 1966 },
-        pohlavi: 'zena',
+        pohlavi: 'žena',
         obec: 'Kladno'
       }
     }
