@@ -1,7 +1,7 @@
 'use strict';
 
 const db = require('../../db');
-const Kategorie = require('../Kategorie.js');
+const Kategorie = require('../Kategorie');
 const Rocnik = require('./index.js');
 
 beforeAll(async () => {
@@ -16,8 +16,7 @@ it('vytvoř ročník s jednou kategorií', async () => {
   const kategorie = new Kategorie({
     typ: 'maraton',
     pohlavi: 'žena',
-    minVek: 40,
-    maxVek: 49
+    vek: { min: 40, max: 49 }
   });
   await kategorie.save();
 
@@ -40,15 +39,13 @@ it('vytvoř ročník s ubytováním', async () => {
   const kategorie1 = new Kategorie({
     typ: 'maraton',
     pohlavi: 'žena',
-    minVek: 40,
-    maxVek: 49
+    vek: { min: 40, max: 49 }
   });
   await kategorie1.save();
   const kategorie2 = new Kategorie({
     typ: 'maraton',
     pohlavi: 'žena',
-    minVek: 50,
-    maxVek: 59
+    vek: { min: 50, max: 59 }
   });
   await kategorie2.save();
 

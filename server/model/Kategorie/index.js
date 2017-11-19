@@ -1,6 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
+const VekSchema = require('./Vek');
 
 const KategorieSchema = new mongoose.Schema(
   {
@@ -10,9 +11,7 @@ const KategorieSchema = new mongoose.Schema(
       required: true
     },
     pohlavi: { type: String, enum: ['muž', 'žena'] },
-    minVek: { type: Number },
-    maxVek: { type: Number },
-    presnyVek: { type: Boolean }
+    vek: { type: VekSchema }
   },
   { bufferCommands: false, usePushEach: true }
 );

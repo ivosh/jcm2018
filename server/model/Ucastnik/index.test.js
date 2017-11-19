@@ -1,7 +1,7 @@
 'use strict';
 
 const db = require('../../db');
-const Kategorie = require('../Kategorie.js');
+const Kategorie = require('../Kategorie');
 const Ucastnik = require('./index.js');
 
 beforeAll(async () => {
@@ -42,8 +42,7 @@ it('přihlaš účastníka', async () => {
   const kategorie = new Kategorie({
     typ: 'maraton',
     pohlavi: 'žena',
-    minVek: 40,
-    maxVek: 49,
+    vek: { min: 40, max: 49 },
     maStartCislo: true
   });
   await kategorie.save();

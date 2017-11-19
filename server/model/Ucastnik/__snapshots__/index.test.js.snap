@@ -12,10 +12,12 @@ Array [
           "datum": 2017-11-18T00:00:00.000Z,
           "kategorie": Object {
             "__v": 0,
-            "maxVek": 49,
-            "minVek": 40,
             "pohlavi": "žena",
             "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
           },
           "startCislo": 44,
         },

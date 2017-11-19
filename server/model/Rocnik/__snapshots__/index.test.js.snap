@@ -10,10 +10,12 @@ Array [
         "kategorie": Array [
           Object {
             "__v": 0,
-            "maxVek": 49,
-            "minVek": 40,
             "pohlavi": "žena",
             "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
           },
         ],
         "startCisla": "1-100",
@@ -40,17 +42,21 @@ Array [
         "kategorie": Array [
           Object {
             "__v": 0,
-            "maxVek": 49,
-            "minVek": 40,
             "pohlavi": "žena",
             "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
           },
           Object {
             "__v": 0,
-            "maxVek": 59,
-            "minVek": 50,
             "pohlavi": "žena",
             "typ": "maraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
           },
         ],
         "startCisla": "1-100",
