@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { naTrase } from '../Startujici/StartujiciActions';
 import { getDokoncenoWithCisloClass } from '../Startujici/startujiciReducer';
 import StartCisloBox from '../StartCislo/StartCisloBox';
-import StartCisloInputConnected from '../StartCislo/StartCisloInputConnected';
+import StartCisloInputConnected from '../StartCislo/StartCisloInputContainer';
 import Mezicasy from './Mezicasy';
 import { addMezicas, removeMezicas } from './MezicasyActions';
 import { getMezicasyWithCisloClass } from './mezicasyReducer';

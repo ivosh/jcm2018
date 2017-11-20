@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Panel } from 'react-bootstrap';
-import StopkyConnected from '../Stopky/StopkyConnected';
-import StartujiciConnected from '../Startujici/StartujiciConnected';
-import MezicasyConnected from '../Mezicasy/MezicasyConnected';
+import StopkyConnected from '../Stopky/StopkyContainer';
+import StartujiciConnected from '../Startujici/StartujiciContainer';
+import MezicasyConnected from '../Mezicasy/MezicasyContainer';
 
 class Casomeric extends Component {
   scrollToMezicas = startujiciId => {
