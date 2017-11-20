@@ -93,6 +93,7 @@ const processKategorie = async (typ, xmlKategorie) => {
 const processKategorieList = async (typ, xmlKategorieList) => {
   if (xmlKategorieList && xmlKategorieList.length > 0) {
     const kategorie = [];
+    // TODO: This should be eventually rewritten with async iteration: for await (const x of xy).
     // eslint-disable-next-line no-restricted-syntax
     for (const xmlKategorie of xmlKategorieList) {
       // eslint-disable-next-line no-await-in-loop
@@ -145,6 +146,7 @@ const processRocnik = async xmlRocnik => {
 
 /* Process rocniky sequentially so that Kategorie can be unique. */
 const processRocniky = async rocniky => {
+  // TODO: This should be eventually rewritten with async iteration: for await (const x of xy).
   // eslint-disable-next-line no-restricted-syntax
   for (const rocnik of rocniky) {
     // eslint-disable-next-line no-await-in-loop
