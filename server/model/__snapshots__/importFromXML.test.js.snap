@@ -1,0 +1,474 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`naimportuj ročník 1`] = `
+Array [
+  Object {
+    "__v": 0,
+    "datum": 2017-06-10T00:00:00.000Z,
+    "kategorie": Array [
+      Object {
+        "kategorie": Array [
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 39,
+              "min": 18,
+            },
+          },
+        ],
+        "startCisla": "1-100",
+        "startovne": Object {
+          "naMiste": 200,
+          "predem": 150,
+        },
+        "typ": "maraton",
+      },
+    ],
+    "rok": 2017,
+    "ubytovani": Array [],
+  },
+]
+`;
+
+exports[`naimportuj ročníky 1`] = `
+Array [
+  Object {
+    "__v": 0,
+    "datum": 2017-06-10T00:00:00.000Z,
+    "kategorie": Array [
+      Object {
+        "kategorie": Array [
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 39,
+              "min": 18,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 150,
+              "min": 60,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 39,
+              "min": 18,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 150,
+              "min": 60,
+            },
+          },
+        ],
+        "startCisla": "1-100",
+        "startovne": Object {
+          "naMiste": 200,
+          "predem": 150,
+        },
+        "typ": "maraton",
+      },
+      Object {
+        "kategorie": Array [
+          Object {
+            "__v": 0,
+            "typ": "cyklo",
+            "vek": Object {
+              "max": 17,
+              "min": 16,
+              "presne": true,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "cyklo",
+            "vek": Object {
+              "max": 35,
+              "min": 18,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "cyklo",
+            "vek": Object {
+              "max": 45,
+              "min": 36,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "cyklo",
+            "vek": Object {
+              "max": 150,
+              "min": 46,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "cyklo",
+            "vek": Object {
+              "max": 35,
+              "min": 18,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "cyklo",
+            "vek": Object {
+              "max": 45,
+              "min": 36,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "cyklo",
+            "vek": Object {
+              "max": 150,
+              "min": 46,
+            },
+          },
+        ],
+        "startCisla": "1-150",
+        "startovne": Object {
+          "naMiste": 200,
+          "predem": 150,
+        },
+        "typ": "cyklo",
+      },
+      Object {
+        "kategorie": Array [
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "koloběžka",
+            "vek": Object {
+              "max": 150,
+              "min": 18,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "koloběžka",
+            "vek": Object {
+              "max": 150,
+              "min": 18,
+            },
+          },
+        ],
+        "startCisla": "90-100",
+        "startovne": Object {
+          "naMiste": 200,
+          "predem": 150,
+        },
+        "typ": "koloběžka",
+      },
+      Object {
+        "kategorie": Array [
+          Object {
+            "__v": 0,
+            "typ": "pěší",
+          },
+        ],
+        "startovne": Object {
+          "naMiste": 25,
+          "predem": 25,
+        },
+        "typ": "pěší",
+      },
+    ],
+    "rok": 2017,
+    "ubytovani": Array [
+      Object {
+        "den": "pátek",
+        "poplatek": 50,
+      },
+    ],
+  },
+  Object {
+    "__v": 0,
+    "datum": 2018-06-09T00:00:00.000Z,
+    "kategorie": Array [
+      Object {
+        "kategorie": Array [
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 39,
+              "min": 18,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 69,
+              "min": 60,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 150,
+              "min": 70,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 39,
+              "min": 18,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 69,
+              "min": 60,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 150,
+              "min": 70,
+            },
+          },
+        ],
+        "startCisla": "1-100",
+        "startovne": Object {
+          "naMiste": 250,
+          "predem": 200,
+        },
+        "typ": "maraton",
+      },
+      Object {
+        "kategorie": Array [
+          Object {
+            "__v": 0,
+            "typ": "cyklo",
+            "vek": Object {
+              "max": 17,
+              "min": 16,
+              "presne": true,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "cyklo",
+            "vek": Object {
+              "max": 35,
+              "min": 18,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "cyklo",
+            "vek": Object {
+              "max": 45,
+              "min": 36,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "cyklo",
+            "vek": Object {
+              "max": 150,
+              "min": 46,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "cyklo",
+            "vek": Object {
+              "max": 35,
+              "min": 18,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "cyklo",
+            "vek": Object {
+              "max": 45,
+              "min": 36,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "cyklo",
+            "vek": Object {
+              "max": 150,
+              "min": 46,
+            },
+          },
+        ],
+        "startCisla": "1-150",
+        "startovne": Object {
+          "naMiste": 250,
+          "predem": 200,
+        },
+        "typ": "cyklo",
+      },
+      Object {
+        "kategorie": Array [
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "koloběžka",
+            "vek": Object {
+              "max": 150,
+              "min": 18,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "koloběžka",
+            "vek": Object {
+              "max": 150,
+              "min": 18,
+            },
+          },
+        ],
+        "startCisla": "90-100",
+        "startovne": Object {
+          "naMiste": 250,
+          "predem": 200,
+        },
+        "typ": "koloběžka",
+      },
+      Object {
+        "kategorie": Array [
+          Object {
+            "__v": 0,
+            "typ": "pěší",
+          },
+        ],
+        "startovne": Object {
+          "naMiste": 30,
+          "predem": 30,
+        },
+        "typ": "pěší",
+      },
+    ],
+    "rok": 2018,
+    "ubytovani": Array [
+      Object {
+        "den": "pátek",
+        "poplatek": 50,
+      },
+    ],
+  },
+]
+`;
