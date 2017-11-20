@@ -1,8 +1,8 @@
 'use strict';
 
 const db = require('../../db');
-const Kategorie = require('../Kategorie');
-const Ucastnik = require('./index.js');
+const Kategorie = require('../Kategorie/Kategorie');
+const Ucastnik = require('./Ucastnik');
 
 beforeAll(async () => {
   await db.dropDatabase();

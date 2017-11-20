@@ -3,7 +3,7 @@
 const http = require('http');
 const logger = require('heroku-logger');
 const WebSocketServer = require('websocket').server;
-const processMessage = require('./api');
+const processMessage = require('./api/api');
 
 const createWsServer = ({ httpServer, originAllowed }) => {
   const wsHttpServer = httpServer || http.createServer(); // for testing

@@ -4,9 +4,9 @@ const fs = require('fs');
 const util = require('util');
 const xml2js = require('xml2js');
 const db = require('../db');
-const Kategorie = require('./Kategorie');
-const Rocnik = require('./Rocnik');
-const Ucastnik = require('./Ucastnik');
+const Kategorie = require('./Kategorie/Kategorie');
+const Rocnik = require('./Rocnik/Rocnik');
+const Ucastnik = require('./Ucastnik/Ucastnik');
 
 const processPohlavi = pohlavi => {
   if (pohlavi === 'muz') {
@@ -277,7 +277,7 @@ const importFromXML = async fileOrData => {
 
   const result = await util.promisify(parser.parseString)(data);
   await processRocniky(result.jcm.rocnik);
-  //  await processUcastnici(result.jcm.ucastnici[0].ucastnik);
+  // await processUcastnici(result.jcm.ucastnici[0].ucastnik);
 };
 
 module.exports = importFromXML;

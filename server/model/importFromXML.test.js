@@ -3,9 +3,9 @@
 const util = require('util');
 const db = require('../db');
 const importFromXML = require('./importFromXML');
-const Kategorie = require('./Kategorie');
-const Rocnik = require('./Rocnik');
-const Ucastnik = require('./Ucastnik');
+const Kategorie = require('./Kategorie/Kategorie');
+const Rocnik = require('./Rocnik/Rocnik');
+const Ucastnik = require('./Ucastnik/Ucastnik');
 
 beforeAll(async () => {
   await db.dropDatabase();
@@ -665,6 +665,157 @@ it('naimportuj účastníka', async () => {
   const xml = `
   <?xml version="1.0" encoding="UTF-8"?>
   <jcm>
+    <rocnik rok="2003">
+      <datum>2003-06-07</datum>
+      <typKategorie typ="beh">
+        <kategorie pohlavi="muz" minVek="18" maxVek="30"/>
+        <kategorie pohlavi="muz" minVek="31" maxVek="40"/>
+        <kategorie pohlavi="muz" minVek="41" maxVek="150"/>
+        <kategorie pohlavi="zena" minVek="18" maxVek="30"/>
+        <kategorie pohlavi="zena" minVek="31" maxVek="40"/>
+        <kategorie pohlavi="zena" minVek="41" maxVek="150"/>
+        <startCisla>41-190</startCisla>
+        <startovne predem="95" naMiste="95"/>
+      </typKategorie>
+      <typKategorie typ="cyklo">
+        <startCisla>71-220</startCisla>
+        <startovne predem="95" naMiste="95"/>
+      </typKategorie>
+    </rocnik>
+    <rocnik rok="2004">
+      <datum>2004-06-05</datum>
+      <typKategorie typ="beh">
+        <kategorie pohlavi="muz" minVek="18" maxVek="30"/>
+        <kategorie pohlavi="muz" minVek="31" maxVek="40"/>
+        <kategorie pohlavi="muz" minVek="41" maxVek="150"/>
+        <kategorie pohlavi="zena" minVek="18" maxVek="30"/>
+        <kategorie pohlavi="zena" minVek="31" maxVek="40"/>
+        <kategorie pohlavi="zena" minVek="41" maxVek="150"/>
+        <startCisla>1-150</startCisla>
+        <startovne predem="95" naMiste="95"/>
+      </typKategorie>
+      <typKategorie typ="cyklo">
+        <startCisla>41-190</startCisla>
+        <startovne predem="95" naMiste="95"/>
+      </typKategorie>
+      <typKategorie typ="pesi">
+        <startovne predem="25" naMiste="25"/>
+      </typKategorie>
+    </rocnik>
+    <rocnik rok="2005">
+      <datum>2005-06-04</datum>
+      <typKategorie typ="beh">
+        <kategorie pohlavi="muz" minVek="18" maxVek="30"/>
+        <kategorie pohlavi="muz" minVek="31" maxVek="40"/>
+        <kategorie pohlavi="muz" minVek="41" maxVek="150"/>
+        <kategorie pohlavi="zena" minVek="18" maxVek="30"/>
+        <kategorie pohlavi="zena" minVek="31" maxVek="40"/>
+        <kategorie pohlavi="zena" minVek="41" maxVek="150"/>
+        <startCisla>1-150</startCisla>
+        <startovne predem="95" naMiste="95"/>
+      </typKategorie>
+      <typKategorie typ="cyklo">
+        <kategorie pohlavi="muz" minVek="18" maxVek="35"/>
+        <kategorie pohlavi="muz" minVek="36" maxVek="150"/>
+        <kategorie pohlavi="zena" minVek="18" maxVek="35"/>
+        <kategorie pohlavi="zena" minVek="36" maxVek="150"/>
+        <startCisla>1-150</startCisla>
+        <startovne predem="95" naMiste="95"/>
+      </typKategorie>
+      <typKategorie typ="pesi">
+        <startovne predem="25" naMiste="25"/>
+      </typKategorie>
+      <ubytovaniPaSo>30</ubytovaniPaSo>
+    </rocnik>
+    <rocnik rok="2008">
+      <datum>2008-06-07</datum>
+      <typKategorie typ="beh">
+        <kategorie pohlavi="muz" minVek="18" maxVek="39"/>
+        <kategorie pohlavi="muz" minVek="40" maxVek="49"/>
+        <kategorie pohlavi="muz" minVek="50" maxVek="59"/>
+        <kategorie pohlavi="muz" minVek="60" maxVek="150"/>
+        <kategorie pohlavi="zena" minVek="18" maxVek="39"/>
+        <kategorie pohlavi="zena" minVek="40" maxVek="49"/>
+        <kategorie pohlavi="zena" minVek="50" maxVek="59"/>
+        <kategorie pohlavi="zena" minVek="60" maxVek="150"/>
+        <startCisla>1-150</startCisla>
+        <startovne predem="95" naMiste="110"/>
+      </typKategorie>
+      <typKategorie typ="cyklo">
+        <kategorie pohlavi="muz" minVek="18" maxVek="35"/>
+        <kategorie pohlavi="muz" minVek="36" maxVek="45"/>
+        <kategorie pohlavi="muz" minVek="46" maxVek="150"/>
+        <kategorie pohlavi="zena" minVek="18" maxVek="35"/>
+        <kategorie pohlavi="zena" minVek="36" maxVek="45"/>
+        <kategorie pohlavi="zena" minVek="46" maxVek="150"/>
+        <startCisla>1-150</startCisla>
+        <startovne predem="95" naMiste="110"/>
+      </typKategorie>
+      <typKategorie typ="pesi">
+        <startovne predem="25" naMiste="25"/>
+      </typKategorie>
+      <ubytovaniPaSo>30</ubytovaniPaSo>
+    </rocnik>
+    <rocnik rok="2013">
+      <datum>2013-06-08</datum>
+      <typKategorie typ="beh">
+        <kategorie pohlavi="muz" minVek="18" maxVek="39"/>
+        <kategorie pohlavi="muz" minVek="40" maxVek="49"/>
+        <kategorie pohlavi="muz" minVek="50" maxVek="59"/>
+        <kategorie pohlavi="muz" minVek="60" maxVek="150"/>
+        <kategorie pohlavi="zena" minVek="18" maxVek="39"/>
+        <kategorie pohlavi="zena" minVek="40" maxVek="49"/>
+        <kategorie pohlavi="zena" minVek="50" maxVek="59"/>
+        <kategorie pohlavi="zena" minVek="60" maxVek="150"/>
+        <startCisla>60-100 40-49 20 24-25 34 21-23 26-33 35-39 50-59 160 195-196 199</startCisla>
+        <startovne predem="130" naMiste="150"/>
+      </typKategorie>
+      <typKategorie typ="cyklo">
+        <kategorie minVek="16" maxVek="17" presnyVek="true"/>
+        <kategorie pohlavi="muz" minVek="18" maxVek="35"/>
+        <kategorie pohlavi="muz" minVek="36" maxVek="45"/>
+        <kategorie pohlavi="muz" minVek="46" maxVek="150"/>
+        <kategorie pohlavi="zena" minVek="18" maxVek="35"/>
+        <kategorie pohlavi="zena" minVek="36" maxVek="45"/>
+        <kategorie pohlavi="zena" minVek="46" maxVek="150"/>
+        <startCisla>1-150</startCisla>
+        <startovne predem="130" naMiste="150"/>
+      </typKategorie>
+      <typKategorie typ="pesi">
+        <startovne predem="25" naMiste="25"/>
+      </typKategorie>
+      <ubytovaniPaSo>30</ubytovaniPaSo>
+    </rocnik>
+    <rocnik rok="2014">
+      <datum>2014-06-14</datum>
+      <typKategorie typ="beh">
+        <kategorie pohlavi="muz" minVek="18" maxVek="39"/>
+        <kategorie pohlavi="muz" minVek="40" maxVek="49"/>
+        <kategorie pohlavi="muz" minVek="50" maxVek="59"/>
+        <kategorie pohlavi="muz" minVek="60" maxVek="150"/>
+        <kategorie pohlavi="zena" minVek="18" maxVek="39"/>
+        <kategorie pohlavi="zena" minVek="40" maxVek="49"/>
+        <kategorie pohlavi="zena" minVek="50" maxVek="59"/>
+        <kategorie pohlavi="zena" minVek="60" maxVek="150"/>
+        <startCisla>1-100</startCisla>
+        <startovne predem="130" naMiste="150"/>
+      </typKategorie>
+      <typKategorie typ="cyklo">
+        <kategorie minVek="16" maxVek="17" presnyVek="true"/>
+        <kategorie pohlavi="muz" minVek="18" maxVek="35"/>
+        <kategorie pohlavi="muz" minVek="36" maxVek="45"/>
+        <kategorie pohlavi="muz" minVek="46" maxVek="150"/>
+        <kategorie pohlavi="zena" minVek="18" maxVek="35"/>
+        <kategorie pohlavi="zena" minVek="36" maxVek="45"/>
+        <kategorie pohlavi="zena" minVek="46" maxVek="150"/>
+        <startCisla>1-150</startCisla>
+        <startovne predem="130" naMiste="150"/>
+      </typKategorie>
+      <typKategorie typ="pesi">
+        <startovne predem="25" naMiste="25"/>
+      </typKategorie>
+      <ubytovaniPaSo>50</ubytovaniPaSo>
+    </rocnik>
     <ucastnici>
       <ucastnik id="38">
         <udaje>

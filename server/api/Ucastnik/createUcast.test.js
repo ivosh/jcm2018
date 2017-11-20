@@ -1,10 +1,10 @@
 'use strict';
 
 const db = require('../../db');
-const Actions = require('../../../common');
+const Actions = require('../../../common/common');
 const createWsServer = require('../../createWsServer');
 const createWsClient = require('./../createWsClient');
-const Ucastnik = require('../../model/Ucastnik');
+const Ucastnik = require('../../model/Ucastnik/Ucastnik');
 
 const port = 5601;
 const wsServer = createWsServer({});

@@ -1,8 +1,8 @@
 'use strict';
 
 const logger = require('heroku-logger');
-const Actions = require('../../../common');
-const Ucastnik = require('../../model/Ucastnik');
+const Actions = require('../../../common/common');
+const Ucastnik = require('../../model/Ucastnik/Ucastnik');
 
 const createUcast = async ({ id, rok, udaje, prihlaska }) => {
   if (id === undefined) {
