@@ -36,6 +36,7 @@ const loadState = () => {
     return JSON.parse(serializedState);
   } catch (err) {
     console.log('Problem while loading app state from the local storage', err);
+    return undefined;
   }
 };
 
@@ -48,10 +49,8 @@ const saveState = state => {
   }
 };
 
-const configureStore = (wsClient, initialState = loadState()) => {
-  if (initialState === undefined) {
-    initialState = {};
-  }
+const configureStore = (wsClient, initialStateParam = loadState()) => {
+  const initialState = initialStateParam || {};
   initialState.startujici = demoStartujiciState.startujici;
 
   if (initialState.casomeric && initialState.casomeric.mezicasy) {
@@ -66,6 +65,7 @@ const configureStore = (wsClient, initialState = loadState()) => {
     setHighestMezicasId(highestId);
   }
 
+  // eslint-disable-next-line no-underscore-dangle
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(
     appReducer,

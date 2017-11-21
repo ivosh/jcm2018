@@ -14,7 +14,9 @@ const store = configureStore(wsClient);
 
 try {
   wsClient.connect();
-} catch (err) {}
+} catch (err) {
+  // Silently ignore any errors. They should have been dispatched from WsClient anyway.
+}
 
 ReactDOM.render(
   <Provider store={store}>

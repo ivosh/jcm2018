@@ -24,7 +24,7 @@
     "test": "react-scripts test --env=jsdom",
     "coverage": "react-scripts test --env=jsdom --coverage",
     "prettier": "prettier --write 'src/**/*.js'",
-    "lint": "eslint --config ../.eslintrc src",
+    "lint": "eslint --config ../.eslintrc --ignore-pattern src/registerServiceWorker.js src",
     "eject": "react-scripts eject",
     "clean": "rm -rf coverage",
     "clobber": "rm -rf coverage node_modules"

@@ -9,7 +9,7 @@ class Ucastnici extends Component {
   };
 
   render = () => {
-    const ucastnici = this.props.ucastnici;
+    const { ucastnici } = this.props;
 
     if (ucastnici.length === 0) {
       return <div className="Ucastnici">žádný účastník</div>;
