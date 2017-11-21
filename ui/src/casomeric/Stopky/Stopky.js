@@ -7,7 +7,7 @@ import Displej from './Displej';
 
 const ONE_TICK = 100; // milliseconds
 
-export class Stopky extends Component {
+class Stopky extends Component {
   constructor(props) {
     super(props);
     this.state = { current: new Date() };
@@ -51,7 +51,7 @@ export class Stopky extends Component {
   };
 
   render = () => {
-    const props = this.props;
+    const { props } = this;
 
     let duration = null;
     if (props.base !== null) {
@@ -90,6 +90,7 @@ export class Stopky extends Component {
 
 Stopky.propTypes = {
   base: PropTypes.instanceOf(Date),
+  running: PropTypes.bool.isRequired,
   startEnabled: PropTypes.bool.isRequired,
   mezicasEnabled: PropTypes.bool.isRequired,
   stopEnabled: PropTypes.bool.isRequired,

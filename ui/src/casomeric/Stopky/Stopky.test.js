@@ -1,9 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { Stopky } from './Stopky';
+import Stopky from './Stopky';
 
-const fakeOnStart = base => ({});
-const fakeOnAddMezicas = duration => ({});
+const fakeOnStart = () => ({});
+const fakeOnAddMezicas = () => ({});
 const fakeOnStop = () => ({});
 
 it('před startem', () => {

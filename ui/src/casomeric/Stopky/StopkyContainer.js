@@ -21,10 +21,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   onAddMezicas: ownProps.onAddMezicas
 });
 
-const StopkyConnected = connect(mapStateToProps, mapDispatchToProps)(Stopky);
+const StopkyContainer = connect(mapStateToProps, mapDispatchToProps)(Stopky);
 
-StopkyConnected.propTypes = {
+StopkyContainer.propTypes = {
   onAddMezicas: PropTypes.func.isRequired
 };
 
-export default StopkyConnected;
+export default StopkyContainer;
