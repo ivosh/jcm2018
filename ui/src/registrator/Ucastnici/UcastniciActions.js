@@ -32,13 +32,11 @@ const normalizeUcastnici = json => {
   return { allIds, byIds };
 };
 
-export const receiveUcastnici = json => {
-  return {
-    type: 'RECEIVE_UCASTNICI',
-    ucastnici: normalizeUcastnici(json),
-    receivedAt: Date.now()
-  };
-};
+export const receiveUcastnici = json => ({
+  type: 'RECEIVE_UCASTNICI',
+  ucastnici: normalizeUcastnici(json),
+  receivedAt: Date.now()
+});
 
 export const fetchUcastnici = () => async (dispatch, getState, wsClient) => {
   dispatch(requestUcastnici());

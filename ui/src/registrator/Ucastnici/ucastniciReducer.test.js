@@ -76,7 +76,7 @@ it('po načtení účastníků', () => {
     byIds: {
       '6f09b1fd371dec1e99b7e1c9': {
         roky: [2016],
-        '2016': {
+        2016: {
           udaje: {
             prijmeni: 'Sukdoláková',
             jmeno: 'Martina',
@@ -89,7 +89,7 @@ it('po načtení účastníků', () => {
       },
       '5a09b1fd371dec1e99b7e1c9': {
         roky: [2018, 2017],
-        '2018': {
+        2018: {
           udaje: {
             prijmeni: 'Balabák',
             jmeno: 'Roman',
@@ -99,7 +99,7 @@ it('po načtení účastníků', () => {
             stat: 'Česká republika'
           }
         },
-        '2017': {
+        2017: {
           udaje: {
             prijmeni: 'Balabák',
             jmeno: 'Roman',
@@ -123,7 +123,7 @@ it('getUcastniciOverviewSorted()', () => {
     byIds: {
       '6f09b1fd371dec1e99b7e1c9': {
         roky: [2016],
-        '2016': {
+        2016: {
           udaje: {
             prijmeni: 'Sukdoláková',
             jmeno: 'Martina',
@@ -136,7 +136,7 @@ it('getUcastniciOverviewSorted()', () => {
       },
       '5a09b1fd371dec1e99b7e1c9': {
         roky: [2018, 2017],
-        '2018': {
+        2018: {
           udaje: {
             prijmeni: 'Balabák',
             jmeno: 'Roman',
@@ -146,7 +146,7 @@ it('getUcastniciOverviewSorted()', () => {
             stat: 'Česká republika'
           }
         },
-        '2017': {
+        2017: {
           udaje: {
             prijmeni: 'Balabák',
             jmeno: 'Roman',
