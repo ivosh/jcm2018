@@ -1,5 +1,8 @@
 export const convertDuration = duration => {
-  let hours, mins, secs, subsecs;
+  let hours;
+  let mins;
+  let secs;
+  let subsecs;
   if (duration === null) {
     hours = '-';
     mins = '--';
@@ -10,19 +13,19 @@ export const convertDuration = duration => {
 
     mins = duration.minutes().toString();
     if (mins.length < 2) {
-      mins = '0' + mins;
+      mins = `0${mins}`;
     }
 
     secs = duration.seconds().toString();
     if (secs.length < 2) {
-      secs = '0' + secs;
+      secs = `0${secs}`;
     }
 
     subsecs = duration.milliseconds().toString();
     if (subsecs.length === 1) {
       subsecs = '00'; // forget rounding
     } else if (subsecs.length === 2) {
-      subsecs = '0' + subsecs.slice(0, 1); // forget rounding
+      subsecs = `0${subsecs.slice(0, 1)}`; // forget rounding
     } else {
       subsecs = subsecs.slice(0, 2);
     }
@@ -38,7 +41,6 @@ export const dokoncenoStr = dokonceno => {
     return ['dokonceno', 'dokončeno'];
   } else if (dokonceno === false) {
     return ['nedokonceno', 'nedokončeno'];
-  } else {
-    return ['na-trase', 'na trase'];
   }
+  return ['na-trase', 'na trase'];
 };
