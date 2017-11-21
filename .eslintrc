@@ -18,6 +18,10 @@
 
   extends: [ 'eslint:recommended', 'airbnb-base', 'plugin:react/recommended' ],
 
+  globals: {
+    WebSocket: true
+  },
+
   rules: {
     'indent': ['error', 2],
 

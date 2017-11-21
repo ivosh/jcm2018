@@ -9,7 +9,7 @@ class WsClient {
 
   connect = async () => {
     const ws = new WebSocketAsPromised(this.url, {
-      createWebSocket: url => new WebSocket(this.url, 'jcm2018'),
+      createWebSocket: () => new WebSocket(this.url, 'jcm2018'),
       packMessage: data => JSON.stringify(data),
       unpackMessage: message => JSON.parse(message),
       attachRequestId: (data, requestId) => ({ ...data, requestId }),
@@ -40,29 +40,28 @@ class WsClient {
   };
 
   sendRequest = data => {
-    const ws = this.ws;
+    const { ws } = this;
     if (ws) {
       return ws.sendRequest(data);
-    } else {
-      return Promise.reject('Nepřipojeno.');
     }
+    return Promise.reject(new Error('Nepřipojeno.'));
   };
 
   close = (code, reason) => {
     this.forcedClose = true;
-    const ws = this.ws;
+    const { ws } = this;
     if (ws) {
       return ws.close(code, reason);
-    } else {
-      Promise.resolve('Již zavřeno.');
     }
+    return Promise.resolve('Již zavřeno.');
   };
 
   refresh = () => {
-    const ws = this.ws;
+    const { ws } = this;
     if (ws) {
       return ws.close();
     }
+    return Promise.resolve();
   };
 }
 
