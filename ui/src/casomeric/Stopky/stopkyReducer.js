@@ -12,9 +12,8 @@ const stopkyReducer = (state = initialState, action) => {
           running: true,
           base: action.base
         };
-      } else {
-        return state;
       }
+      return state;
     case 'STOPKY_STOP':
       return {
         ...state,
