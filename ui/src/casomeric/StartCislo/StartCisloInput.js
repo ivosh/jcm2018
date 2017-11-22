@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Form, FormGroup, FormControl } from 'react-bootstrap';
 import './StartCisloInput.css';
 
-export class StartCisloInput extends Component {
+class StartCisloInput extends Component {
   constructor(props) {
     super(props);
     this.state = { cislo: '' };
@@ -14,13 +14,11 @@ export class StartCisloInput extends Component {
 
   findStartujici = () => {
     const cislo = parseInt(this.state.cislo, 10);
-    if (isNaN(cislo)) {
+    if (Number.isNaN(cislo)) {
       return undefined;
     }
 
-    return this.props.startujici.find(startujici => {
-      return startujici.cislo === cislo;
-    });
+    return this.props.startujici.find(startujici => startujici.cislo === cislo);
   };
 
   validationState = () => {
@@ -33,9 +31,8 @@ export class StartCisloInput extends Component {
       return 'error';
     } else if (startujici.dokonceno === null) {
       return 'success';
-    } else {
-      return 'warning';
     }
+    return 'warning';
   };
 
   handleChange = event => {

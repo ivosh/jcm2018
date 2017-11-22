@@ -17,11 +17,11 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   }
 });
 
-const StartCisloInputConnected = connect(mapStateToProps, mapDispatchToProps)(StartCisloInput);
+const StartCisloInputContainer = connect(mapStateToProps, mapDispatchToProps)(StartCisloInput);
 
-StartCisloInputConnected.propTypes = {
+StartCisloInputContainer.propTypes = {
   mezicasId: PropTypes.number.isRequired,
   duration: momentPropTypes.momentDurationObj.isRequired
 };
 
-export default StartCisloInputConnected;
+export default StartCisloInputContainer;

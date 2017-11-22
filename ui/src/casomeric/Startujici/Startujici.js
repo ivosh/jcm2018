@@ -5,13 +5,11 @@ import { Table } from 'react-bootstrap';
 import { dokoncenoArr, dokoncenoStr } from '../../Util';
 import './Startujici.css';
 
-const Jeden = ({ cislo, dokonceno, onClick }) => {
-  return (
-    <td className={'Startujici-' + dokoncenoStr(dokonceno)[0]} onClick={onClick}>
-      {cislo}
-    </td>
-  );
-};
+const Jeden = ({ cislo, dokonceno, onClick }) => (
+  <td className={`Startujici-${dokoncenoStr(dokonceno)[0]}`} onClick={onClick}>
+    {cislo}
+  </td>
+);
 
 Jeden.propTypes = {
   cislo: PropTypes.number.isRequired,
@@ -21,7 +19,7 @@ Jeden.propTypes = {
 
 const STARTUJICICH_NA_RADKU = 10;
 const generateTable = (startujici, onStartujiciClick) => {
-  let rows = [];
+  const rows = [];
   while (startujici.length > 0) {
     rows.push(startujici.splice(0, STARTUJICICH_NA_RADKU));
   }
@@ -45,7 +43,7 @@ const Startujici = ({ startujici, onStartujiciClick }) => (
       {dokoncenoArr.map(item => (
         <span
           key={dokoncenoStr(item)[0]}
-          className={'Startujici-' + dokoncenoStr(item)[0] + ' Startujici-legenda'}
+          className={`Startujici-${dokoncenoStr(item)[0]} Startujici-legenda`}
         >
           {dokoncenoStr(item)[1]}
         </span>
