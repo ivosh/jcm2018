@@ -45,6 +45,7 @@ const processMessage = async (connection, message) => {
       sendResponse({ connection, code, status, response, requestId });
     } catch (err) {
       logger.warn(`Failed to process the API request: ${err}`);
+      logger.debug(err);
       sendResponse({
         connection,
         code: Actions.CODE_UNFULFILLED_REQUEST,

@@ -20,53 +20,44 @@ it('nic se nestalo 2', () => {
 it('po načtení účastníků', () => {
   const json = {
     code: 'ok',
-    response: [
-      {
-        id: '6f09b1fd371dec1e99b7e1c9',
-        __v: 0,
-        ucasti: [
-          {
-            rok: 2016,
-            udaje: {
-              prijmeni: 'Sukdoláková',
-              jmeno: 'Martina',
-              narozeni: { rok: 1963 },
-              pohlavi: 'zena',
-              obec: 'Zlín',
-              stat: 'Česká republika'
-            }
+    response: {
+      '6f09b1fd371dec1e99b7e1c9': {
+        roky: [2016],
+        2016: {
+          udaje: {
+            prijmeni: 'Sukdoláková',
+            jmeno: 'Martina',
+            narozeni: { rok: 1963 },
+            pohlavi: 'zena',
+            obec: 'Zlín',
+            stat: 'Česká republika'
           }
-        ]
+        }
       },
-      {
-        id: '5a09b1fd371dec1e99b7e1c9',
-        __v: 0,
-        ucasti: [
-          {
-            rok: 2017,
-            udaje: {
-              prijmeni: 'Balabák',
-              jmeno: 'Roman',
-              narozeni: { rok: 1956 },
-              pohlavi: 'muz',
-              obec: 'Ostrava 1',
-              stat: 'Česká republika'
-            }
-          },
-          {
-            rok: 2018,
-            udaje: {
-              prijmeni: 'Balabák',
-              jmeno: 'Roman',
-              narozeni: { rok: 1956 },
-              pohlavi: 'muz',
-              obec: 'Ostrava 2',
-              stat: 'Česká republika'
-            }
+      '5a09b1fd371dec1e99b7e1c9': {
+        roky: [2018, 2017],
+        2017: {
+          udaje: {
+            prijmeni: 'Balabák',
+            jmeno: 'Roman',
+            narozeni: { rok: 1956 },
+            pohlavi: 'muz',
+            obec: 'Ostrava 1',
+            stat: 'Česká republika'
           }
-        ]
+        },
+        2018: {
+          udaje: {
+            prijmeni: 'Balabák',
+            jmeno: 'Roman',
+            narozeni: { rok: 1956 },
+            pohlavi: 'muz',
+            obec: 'Ostrava 2',
+            stat: 'Česká republika'
+          }
+        }
       }
-    ],
+    },
     requestId: '0.9310306652587377'
   };
 

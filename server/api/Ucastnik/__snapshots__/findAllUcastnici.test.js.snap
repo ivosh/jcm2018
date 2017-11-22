@@ -3,83 +3,80 @@
 exports[`findAllUcastnici 1`] = `
 Object {
   "code": "ok",
-  "response": Array [
-    Object {
-      "__v": 0,
-      "id": "---",
-      "ucasti": Array [
-        Object {
-          "platby": Array [],
-          "rok": 2017,
-          "ubytovani": Array [],
-          "udaje": Object {
-            "jmeno": "Roman",
-            "narozeni": Object {
-              "rok": 1956,
-            },
-            "obec": "Ostrava 1",
-            "pohlavi": "muž",
-            "prijmeni": "Balabák",
-            "stat": "Česká republika",
+  "response": Object {
+    "id1": Object {
+      "2017": Object {
+        "platby": Array [],
+        "ubytovani": Array [],
+        "udaje": Object {
+          "jmeno": "Roman",
+          "narozeni": Object {
+            "rok": 1956,
           },
+          "obec": "Ostrava 1",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
         },
-        Object {
-          "platby": Array [],
-          "rok": 2018,
-          "ubytovani": Array [],
-          "udaje": Object {
-            "jmeno": "Roman",
-            "narozeni": Object {
-              "rok": 1956,
-            },
-            "obec": "Ostrava 2",
-            "pohlavi": "muž",
-            "prijmeni": "Balabák",
-            "stat": "Česká republika",
+      },
+      "2018": Object {
+        "platby": Array [],
+        "ubytovani": Array [],
+        "udaje": Object {
+          "jmeno": "Roman",
+          "narozeni": Object {
+            "rok": 1956,
           },
+          "obec": "Ostrava 2",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
         },
+      },
+      "roky": Array [
+        2018,
+        2017,
       ],
     },
-    Object {
-      "__v": 0,
-      "id": "---",
-      "ucasti": Array [
-        Object {
-          "platby": Array [],
-          "rok": 2016,
-          "ubytovani": Array [],
-          "udaje": Object {
-            "jmeno": "Zdeňka",
-            "narozeni": Object {
-              "den": 7,
-              "mesic": 12,
-              "rok": 1966,
-            },
-            "obec": "Kladno",
-            "pohlavi": "žena",
-            "prijmeni": "Sukdoláková",
-            "stat": "Česká republika",
+    "id2": Object {
+      "2016": Object {
+        "platby": Array [],
+        "ubytovani": Array [],
+        "udaje": Object {
+          "jmeno": "Zdeňka",
+          "narozeni": Object {
+            "den": 7,
+            "mesic": 12,
+            "rok": 1966,
           },
+          "obec": "Kladno",
+          "pohlavi": "žena",
+          "prijmeni": "Sukdoláková",
+          "stat": "Česká republika",
         },
-        Object {
-          "platby": Array [],
-          "rok": 2017,
-          "ubytovani": Array [],
-          "udaje": Object {
-            "jmeno": "Zdeňka",
-            "narozeni": Object {
-              "den": 7,
-              "mesic": 12,
-              "rok": 1966,
-            },
-            "obec": "Kladno",
-            "pohlavi": "žena",
-            "prijmeni": "Primasová",
-            "stat": "Česká republika",
+      },
+      "2017": Object {
+        "platby": Array [],
+        "ubytovani": Array [],
+        "udaje": Object {
+          "jmeno": "Zdeňka",
+          "narozeni": Object {
+            "den": 7,
+            "mesic": 12,
+            "rok": 1966,
           },
+          "obec": "Kladno",
+          "pohlavi": "žena",
+          "prijmeni": "Primasová",
+          "stat": "Česká republika",
         },
+      },
+      "roky": Array [
+        2017,
+        2016,
       ],
     },
-  ],
+  },
+  "status": undefined,
 }
 `;

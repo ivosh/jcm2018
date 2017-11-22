@@ -2,32 +2,9 @@ const requestUcastnici = () => ({
   type: 'REQUEST_UCASTNICI'
 });
 
-const normalizeUcastnik = json => {
-  const roky = [];
-  const ucasti = {};
-
-  json.ucasti.forEach(ucast => {
-    const { rok, ...ucastBezRoku } = ucast;
-    roky.push(rok);
-    ucasti[rok] = ucastBezRoku;
-  });
-
-  // První element je vždycky nejvyšší rok.
-  roky.sort((a, b) => b - a);
-
-  return { roky, ucasti };
-};
-
 const normalizeUcastnici = json => {
-  const allIds = [];
-  const byIds = {};
-
-  json.response.forEach(ucastnik => {
-    allIds.push(ucastnik.id);
-
-    const { roky, ucasti } = normalizeUcastnik(ucastnik);
-    byIds[ucastnik.id] = { roky, ...ucasti };
-  });
+  const byIds = json.response;
+  const allIds = Object.keys(byIds);
 
   return { allIds, byIds };
 };

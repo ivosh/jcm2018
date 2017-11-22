@@ -77,10 +77,16 @@ it('findAllUcastnici', async () => {
   const ucastnik2 = new Ucastnik({ ucasti: ucasti2 });
   await ucastnik2.save();
 
-  const { requestId, ...response } = await wsClient.sendRequest(Actions.findAllUcastnici());
-  expect(response.response[0].id).not.toBeNull();
-  expect(response.response[1].id).not.toBeNull();
-  response.response[0].id = '---';
-  response.response[1].id = '---';
-  expect(response).toMatchSnapshot();
+  const { code, status, requestId, response, ...theRest } = await wsClient.sendRequest(
+    Actions.findAllUcastnici()
+  );
+  expect(theRest).toEqual({});
+  const ids = Object.keys(response);
+  expect(ids.length).toEqual(2);
+
+  expect({
+    code,
+    status,
+    response: { id1: response[ids[0]], id2: response[ids[1]] }
+  }).toMatchSnapshot();
 });

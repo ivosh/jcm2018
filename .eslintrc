@@ -35,6 +35,9 @@
 
     // Do not warn about: 'use strict' is unnecessary inside of modules.
     // NodeJS does not support ES6 modules with import/export, yet.
-    'strict': 0
+    'strict': 0,
+
+    // Allow mongoose's _id.
+    'no-underscore-dangle': [2, { 'allow': ['_id'] }]
   }
 }
