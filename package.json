@@ -35,6 +35,7 @@
     "async-file": "^2.0.2",
     "heroku-logger": "^0.3.0",
     "mongoose": "^4.13.3",
+    "mongoose-unique-array": "^0.2.0",
     "node": "^8.9.0",
     "websocket": "^1.0.25",
     "websocket-as-promised": "^0.6.0",
