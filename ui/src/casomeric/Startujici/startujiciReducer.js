@@ -20,17 +20,23 @@ const updateItemInArray = (array, itemId, updateItemCallback) => {
 const startujiciReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'DOKONCENO':
-      return updateItemInArray(state, action.id, startujici => {
-        return { ...startujici, dokonceno: true, duration: action.duration };
-      });
+      return updateItemInArray(state, action.id, startujici => ({
+        ...startujici,
+        dokonceno: true,
+        duration: action.duration
+      }));
     case 'NA_TRASE':
-      return updateItemInArray(state, action.id, startujici => {
-        return { ...startujici, dokonceno: null, duration: undefined };
-      });
+      return updateItemInArray(state, action.id, startujici => ({
+        ...startujici,
+        dokonceno: null,
+        duration: undefined
+      }));
     case 'NEDOKONCENO':
-      return updateItemInArray(state, action.id, startujici => {
-        return { ...startujici, dokonceno: false, duration: null };
-      });
+      return updateItemInArray(state, action.id, startujici => ({
+        ...startujici,
+        dokonceno: false,
+        duration: null
+      }));
     default:
       return state;
   }
@@ -39,36 +45,30 @@ const startujiciReducer = (state = initialState, action) => {
 export default startujiciReducer;
 
 export const getDokoncenoWithCisloClass = (state, cisloClass) => {
-  const na_trase = state.filter(startujici => {
-    return startujici.dokonceno === true;
-  });
+  const naTrase = state.filter(startujici => startujici.dokonceno === true);
 
-  return na_trase.map(startujici => {
-    return {
-      id: startujici.id,
-      duration: moment.duration(startujici.duration),
-      cislo: startujici.cislo,
-      cisloClass: cisloClass
-    };
-  });
+  return naTrase.map(startujici => ({
+    id: startujici.id,
+    duration: moment.duration(startujici.duration),
+    cislo: startujici.cislo,
+    cisloClass
+  }));
 };
 
-export const getStartujiciWithoutDuration = state => {
-  return state.map(startujici => {
-    return { id: startujici.id, cislo: startujici.cislo, dokonceno: startujici.dokonceno };
-  });
-};
+export const getStartujiciWithoutDuration = state =>
+  state.map(startujici => ({
+    id: startujici.id,
+    cislo: startujici.cislo,
+    dokonceno: startujici.dokonceno
+  }));
 
 export const getStartujiciSorted = state => {
-  const serazeni = state.slice().sort((a, b) => {
-    return a.cislo - b.cislo;
-  });
+  const serazeni = state.slice().sort((a, b) => a.cislo - b.cislo);
 
   return serazeni.map(startujici => {
     if (startujici.duration) {
       return { ...startujici, duration: moment.duration(startujici.duration) };
-    } else {
-      return startujici;
     }
+    return startujici;
   });
 };

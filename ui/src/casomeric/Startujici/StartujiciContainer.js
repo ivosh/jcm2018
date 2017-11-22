@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import Startujici from './Startujici';
 import { getStartujiciSorted } from './startujiciReducer';
 
-const mapStateToProps = state => {
-  return { startujici: getStartujiciSorted(state.startujici) };
-};
+const mapStateToProps = state => ({
+  startujici: getStartujiciSorted(state.startujici)
+});
 
-const StartujiciConnected = connect(mapStateToProps, null)(Startujici);
+const StartujiciContainer = connect(mapStateToProps, null)(Startujici);
 
-StartujiciConnected.propTypes = {
+StartujiciContainer.propTypes = {
   onStartujiciClick: PropTypes.func.isRequired
 };
 
-export default StartujiciConnected;
+export default StartujiciContainer;

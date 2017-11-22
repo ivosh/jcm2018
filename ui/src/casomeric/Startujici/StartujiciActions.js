@@ -1,21 +1,15 @@
-export const dokonceno = (id, duration) => {
-  if (duration.toJSON) {
-    duration = duration.toJSON();
-  }
-
-  return {
-    type: 'DOKONCENO',
-    id: id,
-    duration: duration
-  };
-};
+export const dokonceno = (id, duration) => ({
+  type: 'DOKONCENO',
+  id,
+  duration: duration.toJSON ? duration.toJSON() : duration
+});
 
 export const naTrase = id => ({
   type: 'NA_TRASE',
-  id: id
+  id
 });
 
 export const nedokonceno = id => ({
   type: 'NEDOKONCENO',
-  id: id
+  id
 });

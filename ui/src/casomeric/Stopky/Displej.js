@@ -4,7 +4,7 @@ import { convertDuration } from '../../Util';
 import './Displej.css';
 
 const Displej = ({ duration }) => {
-  let { hours, mins, secs, subsecs } = convertDuration(duration);
+  const { hours, mins, secs, subsecs } = convertDuration(duration);
 
   return (
     <span className="Displej">
