@@ -7,7 +7,7 @@ const demoStartujiciState = {
   startujici: [
     { id: 0, cislo: 7, dokonceno: null },
     { id: 1, cislo: 4, dokonceno: null },
-    { id: 10, cislo: 16, dokonceno: null },
+    { id: 17, cislo: 16, dokonceno: null },
     { id: 2, cislo: 25, dokonceno: false },
     { id: 3, cislo: 9, dokonceno: null },
     { id: 12, cislo: 15, dokonceno: null },
