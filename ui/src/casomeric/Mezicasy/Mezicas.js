@@ -5,7 +5,7 @@ import { Button, Glyphicon } from 'react-bootstrap';
 import { convertDuration } from '../../Util';
 
 const Mezicas = ({ poradi, duration, cislo, onClick }) => {
-  let { hours, mins, secs, subsecs } = convertDuration(duration);
+  const { hours, mins, secs, subsecs } = convertDuration(duration);
 
   return (
     <tr>

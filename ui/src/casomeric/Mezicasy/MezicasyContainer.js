@@ -11,10 +11,8 @@ export const computeMezicasy = state => {
   const startujici = getDokoncenoWithCisloClass(state.startujici, StartCisloBox);
   const mezicasy = getMezicasyWithCisloClass(state.casomeric.mezicasy, StartCisloInputConnected);
 
-  let dohromady = startujici.concat(mezicasy);
-  return dohromady.sort((a, b) => {
-    return a.duration.valueOf() - b.duration.valueOf();
-  });
+  const dohromady = startujici.concat(mezicasy);
+  return dohromady.sort((a, b) => a.duration.valueOf() - b.duration.valueOf());
 };
 
 const mapStateToProps = state => ({
@@ -33,12 +31,12 @@ const mapDispatchToProps = dispatch => ({
 
 const mergeProps = (stateProps, dispatchProps) => ({
   mezicasy: stateProps.mezicasy.map(mezicas => {
+    const onRemove = mezicas.cislo
+      ? dispatchProps.onRemoveCislo(mezicas.id, mezicas.duration)
+      : dispatchProps.onRemoveMezicas(mezicas.id);
     return {
       ...mezicas,
-      onRemove: () =>
-        mezicas.cislo
-          ? dispatchProps.onRemoveCislo(mezicas.id, mezicas.duration)
-          : dispatchProps.onRemoveMezicas(mezicas.id)
+      onRemove: () => onRemove
     };
   })
 });

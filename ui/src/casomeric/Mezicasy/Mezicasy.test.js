@@ -1,10 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import renderer from 'react-test-renderer';
 import moment from 'moment';
 import Mezicasy from './Mezicasy';
 
 const fakeOnRemove = () => {};
 const FakeCislo = props => <span>{props.cislo}</span>;
+FakeCislo.propTypes = {
+  cislo: PropTypes.number
+};
 
 it('žádný mezičas', () => {
   const component = renderer.create(<Mezicasy mezicasy={[]} cisloClass={FakeCislo} />);
