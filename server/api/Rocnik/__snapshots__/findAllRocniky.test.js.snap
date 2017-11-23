@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`findAllRocniky 1`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "2017": Object {
+      "datum": "2017-06-10T00:00:00.000Z",
+      "id": "---r1",
+      "kategorie": Object {
+        "maraton": Object {
+          "startCisla": "1-100",
+          "startovne": Object {
+            "naMiste": 200,
+            "predem": 150,
+          },
+          "žena": Array [
+            Object {
+              "id": "---k1",
+              "pohlavi": "žena",
+              "typ": "maraton",
+              "vek": Object {
+                "max": 49,
+                "min": 40,
+              },
+            },
+            Object {
+              "id": "---k2",
+              "pohlavi": "žena",
+              "typ": "maraton",
+              "vek": Object {
+                "max": 59,
+                "min": 50,
+              },
+            },
+          ],
+        },
+      },
+      "ubytovani": Object {
+        "pátek": 50,
+        "sobota": 60,
+      },
+    },
+    "2018": Object {
+      "datum": "2018-06-08T00:00:00.000Z",
+      "id": "---r2",
+      "kategorie": Object {
+        "maraton": Object {
+          "startCisla": "5-95",
+          "startovne": Object {
+            "naMiste": 250,
+            "predem": 200,
+          },
+          "žena": Array [
+            Object {
+              "id": "---k3",
+              "pohlavi": "žena",
+              "typ": "maraton",
+              "vek": Object {
+                "max": 49,
+                "min": 40,
+              },
+            },
+            Object {
+              "id": "---k4",
+              "pohlavi": "žena",
+              "typ": "maraton",
+              "vek": Object {
+                "max": 59,
+                "min": 50,
+              },
+            },
+          ],
+        },
+        "půlmaraton": Object {
+          "muž": Array [
+            Object {
+              "id": "---k5",
+              "pohlavi": "muž",
+              "typ": "půlmaraton",
+              "vek": Object {
+                "max": 59,
+                "min": 50,
+              },
+            },
+          ],
+          "startCisla": "100-199",
+          "startovne": Object {
+            "naMiste": 250,
+            "predem": 200,
+          },
+          "žena": Array [
+            Object {
+              "id": "---k6",
+              "pohlavi": "žena",
+              "typ": "půlmaraton",
+              "vek": Object {
+                "max": 49,
+                "min": 40,
+              },
+            },
+            Object {
+              "id": "---k7",
+              "pohlavi": "žena",
+              "typ": "půlmaraton",
+              "vek": Object {
+                "max": 59,
+                "min": 50,
+              },
+            },
+          ],
+        },
+      },
+      "ubytovani": Object {
+        "pátek": 60,
+      },
+    },
+  },
+}
+`;

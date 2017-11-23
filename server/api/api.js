@@ -4,6 +4,7 @@ const logger = require('heroku-logger');
 const Actions = require('../../common/common');
 const db = require('../db');
 const createUcast = require('./Ucastnik/createUcast');
+const findAllRocniky = require('./Rocnik/findAllRocniky');
 const findAllUcastnici = require('./Ucastnik/findAllUcastnici');
 
 const processRequest = async ({ action, request }) => {
@@ -16,6 +17,7 @@ const processRequest = async ({ action, request }) => {
 
   const actions = {
     [Actions.CREATE_UCAST]: async req => createUcast(req),
+    [Actions.FIND_ALL_ROCNIKY]: async req => findAllRocniky(req),
     [Actions.FIND_ALL_UCASTNICI]: async req => findAllUcastnici(req),
     default: () => ({
       code: Actions.CODE_UNRECOGNIZED_ACTION,

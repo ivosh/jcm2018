@@ -1,6 +1,7 @@
 'use strict';
 
 const CREATE_UCAST = 'create_ucast';
+const FIND_ALL_ROCNIKY = 'find_all_rocniky';
 const FIND_ALL_UCASTNICI = 'find_all_ucastnici';
 const FIND_UCAST_BY_UCASTNIK = 'find_ucast_by_ucastnik';
 
@@ -17,6 +18,11 @@ const createUcast = ({ id, rok, udaje, prihlaska }) => ({
   request: { id, rok, udaje, prihlaska }
 });
 
+const findAllRocniky = () => ({
+  action: FIND_ALL_ROCNIKY,
+  request: undefined
+});
+
 const findAllUcastnici = () => ({
   action: FIND_ALL_UCASTNICI,
   request: undefined
@@ -24,6 +30,7 @@ const findAllUcastnici = () => ({
 
 module.exports = {
   CREATE_UCAST,
+  FIND_ALL_ROCNIKY,
   FIND_ALL_UCASTNICI,
   FIND_UCAST_BY_UCASTNIK,
   CODE_OK,
@@ -34,5 +41,6 @@ module.exports = {
   CODE_UNPARSEABLE_MESSAGE,
   CODE_UNRECOGNIZED_ACTION,
   createUcast,
+  findAllRocniky,
   findAllUcastnici
 };
