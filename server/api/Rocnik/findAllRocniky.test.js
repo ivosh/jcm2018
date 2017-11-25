@@ -61,6 +61,8 @@ it('findAllRocniky', async () => {
     vek: { min: 50, max: 59 }
   });
   await kategorie5.save();
+  const kategorie6 = new Kategorie({ typ: 'pěší' });
+  await kategorie6.save();
 
   const rocnik1 = new Rocnik({ rok: 2017, datum: '2017-06-10' });
   rocnik1.kategorie.push({
@@ -86,6 +88,11 @@ it('findAllRocniky', async () => {
     startCisla: '100-199',
     startovne: { predem: 200, naMiste: 250 }
   });
+  rocnik2.kategorie.push({
+    typ: 'pěší',
+    kategorie: [kategorie6.id],
+    startovne: { predem: 25, naMiste: 25 }
+  });
   rocnik2.ubytovani.push({ den: 'pátek', poplatek: 60 });
   await rocnik2.save();
 
@@ -100,6 +107,7 @@ it('findAllRocniky', async () => {
   checkAndReplaceId(response.response[2018].kategorie['půlmaraton']['muž'][0], '---k5');
   checkAndReplaceId(response.response[2018].kategorie['půlmaraton']['žena'][0], '---k6');
   checkAndReplaceId(response.response[2018].kategorie['půlmaraton']['žena'][1], '---k7');
+  checkAndReplaceId(response.response[2018].kategorie['pěší'], '---k8');
 
   expect(response).toMatchSnapshot();
 

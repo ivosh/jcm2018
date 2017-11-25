@@ -72,6 +72,14 @@ Object {
             },
           ],
         },
+        "pěší": Object {
+          "id": "---k8",
+          "startovne": Object {
+            "naMiste": 25,
+            "predem": 25,
+          },
+          "typ": "pěší",
+        },
         "půlmaraton": Object {
           "muž": Array [
             Object {

@@ -5,6 +5,9 @@ const Actions = require('../../../common/common');
 const Ucastnik = require('../../model/Ucastnik/Ucastnik');
 
 const createUcast = async ({ id, rok, udaje, prihlaska }) => {
+  // :TODO: zkontrolovat kategorii (tzn. znovu ji vybrat oproti typu)
+  // :TODO: zkontrolovat mladistveho
+  // :TODO: zkontrolovat vyplnene cele narozeni pokud je vybrana kategorie vek.presne
   if (id === undefined) {
     logger.debug('Creating brand new ucastnik');
     const ucastnik = new Ucastnik();
