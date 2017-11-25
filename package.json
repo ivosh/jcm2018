@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "start": "node server/server.js",
-    "test:server": "NODE_ENV=test LOG_LEVEL=error jest --env=node --runInBand server",
+    "test:server": "NODE_ENV=test LOG_LEVEL=error jest --env=node --runInBand common server",
     "test": "npm run test:server -- && cd ui/ && npm test && cd ..",
     "prettier:server": "prettier --write '{common,server}/**/*.js'",
     "prettier": "npm run prettier:server && cd ui/ && npm run prettier && cd ..",
