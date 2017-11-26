@@ -25,10 +25,53 @@ Object {
 }
 `;
 
+exports[`findKategorie() - junior a cyklo přesný věk - mladistvý - těsně na hranici 1`] = `
+Object {
+  "code": "ok",
+  "kategorie": Object {
+    "id": "2345",
+    "pohlavi": "muž",
+    "vek": Object {
+      "max": 29,
+      "min": 18,
+    },
+  },
+}
+`;
+
+exports[`findKategorie() - junior a cyklo přesný věk - mladistvý - těsně za hranicí 1`] = `
+Object {
+  "code": "ok",
+  "kategorie": Object {
+    "id": "2345",
+    "pohlavi": "muž",
+    "vek": Object {
+      "max": 29,
+      "min": 18,
+    },
+  },
+}
+`;
+
 exports[`findKategorie() - junior a cyklo přesný věk - mladistvý 1`] = `
 Object {
   "code": "účastník potřebuje souhlas zákonného zástupce",
   "kategorie": null,
+}
+`;
+
+exports[`findKategorie() - junior a cyklo přesný věk - mladistvý s potvrzením - těsně před hranicí 1`] = `
+Object {
+  "code": "ok",
+  "kategorie": Object {
+    "id": "1234",
+    "pohlavi": "muž",
+    "vek": Object {
+      "max": 17,
+      "min": 16,
+      "presne": true,
+    },
+  },
 }
 `;
 

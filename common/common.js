@@ -8,7 +8,6 @@ const FIND_UCAST_BY_UCASTNIK = 'find_ucast_by_ucastnik';
 const CODE_OK = 'ok';
 const CODE_ALREADY_EXISTING = 'již existuje';
 const CODE_DB_DISCONNECTED = 'nepřipojeno k databázi';
-const CODE_JDE_DO_STARSI_KATEGORIE = 'jde do starší kategorie';
 const CODE_MLADISTVY_UCASTNIK = 'účastník potřebuje souhlas zákonného zástupce';
 const CODE_NONEXISTING = 'neexistuje';
 const CODE_UNFULFILLED_REQUEST = 'unfulfilled request';
@@ -30,27 +29,14 @@ const findAllUcastnici = () => ({
   request: undefined
 });
 
-const zkontrolujVek = (kategorie, { datum, narozeni, mladistvyPotvrzen }) => {
+const zkontrolujMladistvy = (kategorie, { datum, narozeni, mladistvyPotvrzen }) => {
   if (!kategorie.vek) {
     return { kategorie, code: CODE_OK };
   }
 
-  if (kategorie.vek.presne) {
-    const horniHranice = new Date(
-      narozeni.rok + kategorie.vek.max,
-      (narozeni.mesic || 1) - 1,
-      narozeni.den || 0
-    );
-    if (horniHranice >= datum) {
-      return { kategorie: null, code: CODE_JDE_DO_STARSI_KATEGORIE };
-    }
-  }
-
   const PLNOLETOST = 18;
   const plnoletost = new Date(
-    narozeni.rok + PLNOLETOST,
-    (narozeni.mesic || 1) - 1,
-    narozeni.den || 0
+    Date.UTC(narozeni.rok + PLNOLETOST, (narozeni.mesic || 1) - 1, narozeni.den || 0)
   );
   if (plnoletost > datum && !mladistvyPotvrzen) {
     return { kategorie: null, code: CODE_MLADISTVY_UCASTNIK };
@@ -58,6 +44,22 @@ const zkontrolujVek = (kategorie, { datum, narozeni, mladistvyPotvrzen }) => {
 
   return { kategorie, code: CODE_OK };
 };
+
+const filtrujPodleVeku = (kategorie, { rok, datum, narozeni }) =>
+  kategorie.filter(item => {
+    if (item.vek.presne) {
+      const horniHranice = new Date(
+        Date.UTC(narozeni.rok + item.vek.max + 1, (narozeni.mesic || 1) - 1, narozeni.den || 0)
+      );
+      if (horniHranice < datum) {
+        return true;
+      }
+      return false;
+    }
+
+    const vek = rok - narozeni.rok;
+    return item.vek.min <= vek && vek <= item.vek.max;
+  });
 
 const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyPotvrzen }) => {
   const rocnik = rocniky[rok];
@@ -76,7 +78,7 @@ const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyPotvrzen
 
   if (!typKategorie['muž'] && !typKategorie['žena']) {
     // jediná kategorie
-    return zkontrolujVek(typKategorie, { datum: rocnik.datum, narozeni, mladistvyPotvrzen });
+    return zkontrolujMladistvy(typKategorie, { datum: rocnik.datum, narozeni, mladistvyPotvrzen });
   }
 
   const spravnePohlavi = typKategorie[pohlavi];
@@ -89,30 +91,34 @@ const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyPotvrzen
   }
 
   if (spravnePohlavi.length === 1) {
-    return zkontrolujVek(spravnePohlavi[0], { datum: rocnik.datum, narozeni, mladistvyPotvrzen });
-  }
-
-  let vek = rok - narozeni.rok;
-  const kategorieList = spravnePohlavi.filter(item => item.vek.min <= vek && vek <= item.vek.max);
-  if (kategorieList.length === 1) {
-    const { kategorie, code } = zkontrolujVek(kategorieList[0], {
+    return zkontrolujMladistvy(spravnePohlavi[0], {
       datum: rocnik.datum,
       narozeni,
       mladistvyPotvrzen
     });
-    if (code === CODE_JDE_DO_STARSI_KATEGORIE) {
-      vek += 1;
-      const starsiKategorie = spravnePohlavi.filter(
-        item => item.vek.min <= vek && vek <= item.vek.max
-      );
-      return { kategorie: starsiKategorie[0], code: CODE_OK };
-    }
-    return { kategorie, code };
   }
 
-  if (kategorieList.length === 0) {
-    if (vek < spravnePohlavi[0].vek.min) {
-      return zkontrolujVek(spravnePohlavi[0], { datum: rocnik.datum, narozeni, mladistvyPotvrzen });
+  const vek = rok - narozeni.rok;
+  const spravnyVek = filtrujPodleVeku(spravnePohlavi, { rok, datum: rocnik.datum, narozeni });
+  if (spravnyVek.length === 2 && spravnyVek[0].vek.presne) {
+    spravnyVek.pop();
+  }
+
+  if (spravnyVek.length === 1) {
+    return zkontrolujMladistvy(spravnyVek[0], {
+      datum: rocnik.datum,
+      narozeni,
+      mladistvyPotvrzen
+    });
+  }
+
+  if (spravnyVek.length === 0) {
+    if (vek <= spravnePohlavi[0].vek.max) {
+      return zkontrolujMladistvy(spravnePohlavi[0], {
+        datum: rocnik.datum,
+        narozeni,
+        mladistvyPotvrzen
+      });
     }
     return { kategorie: spravnePohlavi[spravnePohlavi.length - 1], code: CODE_OK };
   }
