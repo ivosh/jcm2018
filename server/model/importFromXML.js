@@ -218,9 +218,10 @@ const processPrihlaska = async (rocniky, xmlPrihlaska, xmlUcast, rok, pohlavi, n
     throw new Error(`${code} - ${status}`);
   }
 
+  // ISO 8601 date-only strings are treated as UTC, not local.
   const datum = (xmlPrihlaska && new Date(xmlPrihlaska.datum[0])) || rocniky[rok].datum;
   return {
-    datum, // ISO 8601 date-only strings are treated as UTC, not local.
+    datum,
     kategorie: kategorie.id
   };
 };
@@ -253,6 +254,18 @@ const vytvorUbytovaniUcastnika = (prihlaska, ucast) => {
   return list.length > 0 ? list : undefined;
 };
 
+const vytvorPlatbu = (ucast, datum, typ = 'hotově') => {
+  const platba = {
+    castka: ucast.zaplaceno[0],
+    datum,
+    typ
+  };
+  if (ucast.sponzor) {
+    platba.poznamka = ucast.sponzor[0];
+  }
+  return platba;
+};
+
 const processZajem = async (rocniky, zajem, udaje) => {
   const rok = zajem.rok[0];
   const ucast = { rok, udaje };
@@ -269,11 +282,15 @@ const processZajem = async (rocniky, zajem, udaje) => {
   }
 
   const ubytovani = vytvorUbytovaniUcastnika(
-    (zajem.prihlaska && zajem.prihlaska[0]) || undefined,
-    (zajem.ucast && zajem.ucast[0]) || undefined
+    zajem.prihlaska && zajem.prihlaska[0],
+    zajem.ucast && zajem.ucast[0]
   );
   if (ubytovani) {
     ucast.ubytovani = ubytovani;
+  }
+
+  if (zajem.ucast && zajem.ucast[0]) {
+    ucast.platby = [vytvorPlatbu(zajem.ucast[0], rocniky[rok].datum)];
   }
 
   if (zajem.poznamka) {

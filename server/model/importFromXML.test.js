@@ -867,7 +867,7 @@ it('naimportuj účastníka', async () => {
             <ubytovaniSoNe/>
           </prihlaska>
           <ucast>
-            <zaplaceno>95</zaplaceno>
+            <zaplaceno>0</zaplaceno>
             <startCislo>3</startCislo>
             <ubytovaniPaSo/>
             <vykon>
@@ -875,6 +875,7 @@ it('naimportuj účastníka', async () => {
               <dokonceno>true</dokonceno>
               <cas>PT6H44M45.1S</cas>
             </vykon>
+            <sponzor>manželka pořadatele</sponzor>
           </ucast>
         </zajem>
         <zajem rok="2013">
