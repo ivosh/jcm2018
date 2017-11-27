@@ -1,6 +1,5 @@
 'use strict';
 
-const util = require('util');
 const db = require('../db');
 const importFromXML = require('./importFromXML');
 const Kategorie = require('./Kategorie/Kategorie');
@@ -660,7 +659,6 @@ it('naimportuj všechny ročníky', async () => {
   await Kategorie.remove({});
 });
 
-/*
 it('naimportuj účastníka', async () => {
   const xml = `
   <?xml version="1.0" encoding="UTF-8"?>
@@ -668,12 +666,8 @@ it('naimportuj účastníka', async () => {
     <rocnik rok="2003">
       <datum>2003-06-07</datum>
       <typKategorie typ="beh">
-        <kategorie pohlavi="muz" minVek="18" maxVek="30"/>
-        <kategorie pohlavi="muz" minVek="31" maxVek="40"/>
-        <kategorie pohlavi="muz" minVek="41" maxVek="150"/>
-        <kategorie pohlavi="zena" minVek="18" maxVek="30"/>
-        <kategorie pohlavi="zena" minVek="31" maxVek="40"/>
-        <kategorie pohlavi="zena" minVek="41" maxVek="150"/>
+        <kategorie pohlavi="muz"/>
+        <kategorie pohlavi="zena"/>
         <startCisla>41-190</startCisla>
         <startovne predem="95" naMiste="95"/>
       </typKategorie>
@@ -821,7 +815,7 @@ it('naimportuj účastníka', async () => {
         <udaje>
           <jmeno>Václav</jmeno>
           <prijmeni>Pěnička</prijmeni>
-          <narozen>1954-12-10</narozen>
+          <narozen>1974-12-10</narozen>
           <pohlavi>muz</pohlavi>
           <adresa>17. listopadu 1314</adresa>
           <mesto>Kroměříž</mesto>
@@ -901,7 +895,7 @@ it('naimportuj účastníka', async () => {
         <zajem rok="2014">
           <prihlaska>
             <datum>2014-06-09</datum>
-            <kategorie>beh</kategorie>
+            <kategorie>pesi</kategorie>
             <ubytovaniPaSo/>
           </prihlaska>
         </zajem>
@@ -910,8 +904,8 @@ it('naimportuj účastníka', async () => {
   </jcm>`;
   await importFromXML(xml);
 
-  const ucastnici = await Ucastnik.find({}, { _id: 0 }).lean();
+  const ucastnici = await Ucastnik.find({}, { _id: 0 })
+    .populate('ucasti.prihlaska.kategorie', { _id: 0 })
+    .lean();
   expect(ucastnici).toMatchSnapshot();
-  console.log(util.inspect(ucastnici, false, null));
 });
-*/

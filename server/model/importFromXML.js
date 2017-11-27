@@ -3,10 +3,23 @@
 const fs = require('fs');
 const util = require('util');
 const xml2js = require('xml2js');
+const common = require('../../common/common');
 const db = require('../db');
+const findAllRocniky = require('../api/Rocnik/findAllRocniky');
 const Kategorie = require('./Kategorie/Kategorie');
 const Rocnik = require('./Rocnik/Rocnik');
 const Ucastnik = require('./Ucastnik/Ucastnik');
+
+const convertNazevTypuKategorie = nazev => {
+  if (nazev === 'beh') {
+    return 'maraton';
+  } else if (nazev === 'kolobezka') {
+    return 'koloběžka';
+  } else if (nazev === 'pesi') {
+    return 'pěší';
+  }
+  return nazev;
+};
 
 const processPohlavi = pohlavi => {
   if (pohlavi === 'muz') {
@@ -15,8 +28,7 @@ const processPohlavi = pohlavi => {
     return 'žena';
   }
 
-  console.assert(false, 'Co to je za pohlavi?');
-  return null;
+  throw new Error(`Co to je za pohlaví? ${pohlavi}`);
 };
 
 const vytvorUbytovaniRocniku = rocnik => {
@@ -48,15 +60,15 @@ const najdiCiUlozKategorii = async kategorie => {
   }
 
   const nalezene = await Kategorie.find(query);
-  // console.log(new Date(), 'Hledana ', query, ' nalezena ', nalezene);
   if (nalezene.length > 0) {
-    console.assert(nalezene.length === 1, 'No co to je?');
+    if (nalezene.length > 1) {
+      throw new Error('Nalezl jsem více než jednu kategorii?');
+    }
     return nalezene[0].id;
   }
 
   const ulozena = new Kategorie(kategorie);
   await ulozena.save();
-  //  console.log(new Date(), 'Ulozena ', ulozena);
   return ulozena.id;
 };
 
@@ -107,15 +119,7 @@ const processKategorieList = async (typ, xmlKategorieList) => {
 };
 
 const processTypKategorie = async xmlTyp => {
-  let [nazev] = xmlTyp.typ;
-  if (nazev === 'beh') {
-    nazev = 'maraton';
-  } else if (nazev === 'kolobezka') {
-    nazev = 'koloběžka';
-  } else if (nazev === 'pesi') {
-    nazev = 'pěší';
-  }
-
+  const nazev = convertNazevTypuKategorie(xmlTyp.typ[0]);
   const [predem] = xmlTyp.startovne[0].predem;
   const [naMiste] = xmlTyp.startovne[0].naMiste;
   const kategorie = await processKategorieList(nazev, xmlTyp.kategorie);
@@ -154,7 +158,18 @@ const processRocniky = async rocniky => {
   }
 };
 
-const processNarozeni = narozeni => {};
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+const processNarozeni = narozeni => {
+  if (narozeni.length === 4) {
+    return { rok: narozeni };
+  }
+
+  const matcher = /(\d{4})-(\d{1,2})-(\d{1,2})$/;
+  const result = matcher.exec(narozeni);
+
+  return { rok: result[1], mesic: result[2], den: result[3] };
+};
 
 const processUdaje = udaje => {
   const ret = {
@@ -190,10 +205,25 @@ const processUdaje = udaje => {
   return ret;
 };
 
-const processPrihlaska = prihlaska => ({
-  datum: new Date(prihlaska.datum[0]),
-  kategorie: prihlaska.kategorie[0] // :TODO: spravna kategorie?!?
-});
+const processPrihlaska = async (rocniky, xmlPrihlaska, xmlUcast, rok, pohlavi, narozeni) => {
+  const typ = (xmlPrihlaska && xmlPrihlaska.kategorie[0]) || xmlUcast.vykon[0].kategorie[0];
+  const { kategorie, code, status } = common.findKategorie(rocniky, {
+    rok,
+    typ: convertNazevTypuKategorie(typ),
+    pohlavi,
+    narozeni,
+    mladistvyPotvrzen: true
+  });
+  if (code !== common.CODE_OK) {
+    throw new Error(`${code} - ${status}`);
+  }
+
+  const datum = (xmlPrihlaska && new Date(xmlPrihlaska.datum[0])) || rocniky[rok].datum;
+  return {
+    datum, // ISO 8601 date-only strings are treated as UTC, not local.
+    kategorie: kategorie.id
+  };
+};
 
 const vytvorUbytovaniUcastnika = (prihlaska, ucast) => {
   const list = [];
@@ -223,44 +253,51 @@ const vytvorUbytovaniUcastnika = (prihlaska, ucast) => {
   return list.length > 0 ? list : undefined;
 };
 
-const processZajmy = (zajmy, udaje) => {
-  const ucasti = zajmy.map(zajem => {
-    const rok = zajem.rok[0];
-    const ucast = { rok, udaje };
+const processZajem = async (rocniky, zajem, udaje) => {
+  const rok = zajem.rok[0];
+  const ucast = { rok, udaje };
 
-    if (zajem.prihlaska) {
-      ucast.prihlaska = processPrihlaska(zajem.prihlaska[0]);
-    }
-
-    const ubytovani = vytvorUbytovaniUcastnika(
-      (zajem.prihlaska && zajem.prihlaska[0]) || undefined,
-      (zajem.ucast && zajem.ucast[0]) || undefined
+  if (zajem.prihlaska || zajem.ucast) {
+    ucast.prihlaska = await processPrihlaska(
+      rocniky,
+      zajem.prihlaska && zajem.prihlaska[0],
+      zajem.ucast && zajem.ucast[0],
+      rok,
+      udaje.pohlavi,
+      udaje.narozeni
     );
-    if (ubytovani) {
-      ucast.ubytovani = ubytovani;
-    }
+  }
 
-    if (zajem.poznamka) {
-      const [poznamka] = zajem.poznamka;
-      ucast.poznamka = poznamka;
-    }
+  const ubytovani = vytvorUbytovaniUcastnika(
+    (zajem.prihlaska && zajem.prihlaska[0]) || undefined,
+    (zajem.ucast && zajem.ucast[0]) || undefined
+  );
+  if (ubytovani) {
+    ucast.ubytovani = ubytovani;
+  }
 
-    return ucast;
-  });
+  if (zajem.poznamka) {
+    const [poznamka] = zajem.poznamka;
+    ucast.poznamka = poznamka;
+  }
 
-  // console.log(util.inspect(ucasti, false, null));
+  return ucast;
 };
 
-const processUcastnik = ucastnik => {
+const processZajmy = async (rocniky, zajmy, udaje) =>
+  Promise.all(zajmy.map(async zajem => processZajem(rocniky, zajem, udaje)));
+
+const processUcastnik = async (rocniky, ucastnik) => {
   const udaje = processUdaje(ucastnik.udaje[0]);
   if (ucastnik.zajem) {
-    processZajmy(ucastnik.zajem, udaje);
+    const ucastnikDB = new Ucastnik();
+    ucastnikDB.ucasti = await processZajmy(rocniky, ucastnik.zajem, udaje);
+    await ucastnikDB.save();
   }
 };
 
-const processUcastnici = async ucastnici => {
-  const hotovi = ucastnici.map(ucastnik => processUcastnik(ucastnik));
-};
+const processUcastnici = async (rocniky, ucastnici) =>
+  Promise.all(ucastnici.map(async ucastnik => processUcastnik(rocniky, ucastnik)));
 
 const importFromXML = async fileOrData => {
   await db.dropDatabase();
@@ -277,7 +314,14 @@ const importFromXML = async fileOrData => {
 
   const result = await util.promisify(parser.parseString)(data);
   await processRocniky(result.jcm.rocnik);
-  // await processUcastnici(result.jcm.ucastnici[0].ucastnik);
+
+  if (result.jcm.ucastnici) {
+    const { code, status, response } = await findAllRocniky();
+    if (code !== common.CODE_OK) {
+      throw new Error(`${code} - ${status}`);
+    }
+    await processUcastnici(response, result.jcm.ucastnici[0].ucastnik);
+  }
 };
 
 module.exports = importFromXML;

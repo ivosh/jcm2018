@@ -3379,3 +3379,222 @@ Array [
   },
 ]
 `;
+
+exports[`naimportuj účastníka 1`] = `
+Array [
+  Object {
+    "__v": 0,
+    "ucasti": Array [
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2003-06-07T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+          },
+        },
+        "rok": 2003,
+        "ubytovani": Array [],
+        "udaje": Object {
+          "adresa": "17. listopadu 1314",
+          "jmeno": "Václav",
+          "klub": "SK Nudle",
+          "narozeni": Object {
+            "den": 10,
+            "mesic": 12,
+            "rok": 1974,
+          },
+          "obec": "Kroměříž",
+          "pohlavi": "muž",
+          "prijmeni": "Pěnička",
+          "psc": "597 01",
+          "stat": "Česká republika",
+          "telefon": "678 412 745",
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2004-06-05T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 30,
+              "min": 18,
+            },
+          },
+        },
+        "rok": 2004,
+        "ubytovani": Array [],
+        "udaje": Object {
+          "adresa": "17. listopadu 1314",
+          "jmeno": "Václav",
+          "klub": "SK Nudle",
+          "narozeni": Object {
+            "den": 10,
+            "mesic": 12,
+            "rok": 1974,
+          },
+          "obec": "Kroměříž",
+          "pohlavi": "muž",
+          "prijmeni": "Pěnička",
+          "psc": "597 01",
+          "stat": "Česká republika",
+          "telefon": "678 412 745",
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2005-06-04T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 40,
+              "min": 31,
+            },
+          },
+        },
+        "rok": 2005,
+        "ubytovani": Array [
+          Object {
+            "absolvovano": true,
+            "den": "pátek",
+          },
+        ],
+        "udaje": Object {
+          "adresa": "17. listopadu 1314",
+          "jmeno": "Václav",
+          "klub": "SK Nudle",
+          "narozeni": Object {
+            "den": 10,
+            "mesic": 12,
+            "rok": 1974,
+          },
+          "obec": "Kroměříž",
+          "pohlavi": "muž",
+          "prijmeni": "Pěnička",
+          "psc": "597 01",
+          "stat": "Česká republika",
+          "telefon": "678 412 745",
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2008-04-01T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 39,
+              "min": 18,
+            },
+          },
+        },
+        "rok": 2008,
+        "ubytovani": Array [
+          Object {
+            "absolvovano": true,
+            "den": "pátek",
+            "prihlaseno": true,
+          },
+          Object {
+            "den": "sobota",
+            "prihlaseno": true,
+          },
+        ],
+        "udaje": Object {
+          "adresa": "17. listopadu 1314",
+          "jmeno": "Václav",
+          "klub": "SK Nudle",
+          "narozeni": Object {
+            "den": 10,
+            "mesic": 12,
+            "rok": 1974,
+          },
+          "obec": "Kroměříž",
+          "pohlavi": "muž",
+          "prijmeni": "Pěnička",
+          "psc": "597 01",
+          "stat": "Česká republika",
+          "telefon": "678 412 745",
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2013-06-04T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 39,
+              "min": 18,
+            },
+          },
+        },
+        "rok": 2013,
+        "ubytovani": Array [],
+        "udaje": Object {
+          "adresa": "17. listopadu 1314",
+          "jmeno": "Václav",
+          "klub": "SK Nudle",
+          "narozeni": Object {
+            "den": 10,
+            "mesic": 12,
+            "rok": 1974,
+          },
+          "obec": "Kroměříž",
+          "pohlavi": "muž",
+          "prijmeni": "Pěnička",
+          "psc": "597 01",
+          "stat": "Česká republika",
+          "telefon": "678 412 745",
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2014-06-09T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "typ": "pěší",
+          },
+        },
+        "rok": 2014,
+        "ubytovani": Array [
+          Object {
+            "den": "pátek",
+            "prihlaseno": true,
+          },
+        ],
+        "udaje": Object {
+          "adresa": "17. listopadu 1314",
+          "jmeno": "Václav",
+          "klub": "SK Nudle",
+          "narozeni": Object {
+            "den": 10,
+            "mesic": 12,
+            "rok": 1974,
+          },
+          "obec": "Kroměříž",
+          "pohlavi": "muž",
+          "prijmeni": "Pěnička",
+          "psc": "597 01",
+          "stat": "Česká republika",
+          "telefon": "678 412 745",
+        },
+      },
+    ],
+  },
+]
+`;
