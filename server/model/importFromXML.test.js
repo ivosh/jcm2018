@@ -810,6 +810,36 @@ it('naimportuj účastníka', async () => {
       </typKategorie>
       <ubytovaniPaSo>50</ubytovaniPaSo>
     </rocnik>
+    <rocnik rok="2015">
+      <datum>2015-06-13</datum>
+      <typKategorie typ="beh">
+        <kategorie pohlavi="muz" minVek="18" maxVek="39"/>
+        <kategorie pohlavi="muz" minVek="40" maxVek="49"/>
+        <kategorie pohlavi="muz" minVek="50" maxVek="59"/>
+        <kategorie pohlavi="muz" minVek="60" maxVek="150"/>
+        <kategorie pohlavi="zena" minVek="18" maxVek="39"/>
+        <kategorie pohlavi="zena" minVek="40" maxVek="49"/>
+        <kategorie pohlavi="zena" minVek="50" maxVek="59"/>
+        <kategorie pohlavi="zena" minVek="60" maxVek="150"/>
+        <startCisla>1-100</startCisla>
+        <startovne predem="130" naMiste="150"/>
+      </typKategorie>
+      <typKategorie typ="cyklo">
+        <kategorie minVek="16" maxVek="17" presnyVek="true"/>
+        <kategorie pohlavi="muz" minVek="18" maxVek="35"/>
+        <kategorie pohlavi="muz" minVek="36" maxVek="45"/>
+        <kategorie pohlavi="muz" minVek="46" maxVek="150"/>
+        <kategorie pohlavi="zena" minVek="18" maxVek="35"/>
+        <kategorie pohlavi="zena" minVek="36" maxVek="45"/>
+        <kategorie pohlavi="zena" minVek="46" maxVek="150"/>
+        <startCisla>1-150</startCisla>
+        <startovne predem="130" naMiste="150"/>
+      </typKategorie>
+      <typKategorie typ="pesi">
+        <startovne predem="25" naMiste="25"/>
+      </typKategorie>
+      <ubytovaniPaSo>50</ubytovaniPaSo>
+    </rocnik>
     <ucastnici>
       <ucastnik id="38">
         <udaje>
@@ -852,6 +882,7 @@ it('naimportuj účastníka', async () => {
             <zaplaceno>95</zaplaceno>
             <startCislo>11</startCislo>
             <ubytovaniPaSo/>
+            <ubytovaniSoNe/>
             <vykon>
               <kategorie>beh</kategorie>
               <dokonceno>true</dokonceno>
@@ -900,6 +931,23 @@ it('naimportuj účastníka', async () => {
             <ubytovaniPaSo/>
           </prihlaska>
         </zajem>
+        <zajem rok="2015">
+          <prihlaska>
+            <datum>2015-03-02</datum>
+            <kategorie>pesi</kategorie>
+            <ubytovaniPaSo/>
+          </prihlaska>
+          <ucast>
+            <zaplaceno>150</zaplaceno>
+            <startCislo>34</startCislo>
+            <ubytovaniPaSo/>
+            <vykon>
+              <kategorie>beh</kategorie>
+              <dokonceno>false</dokonceno>
+            </vykon>
+          </ucast>
+          <poznamka>pravděpodobně poslední běh</poznamka>
+        </zajem>
       </ucastnik>
     </ucastnici>
   </jcm>`;
@@ -907,6 +955,7 @@ it('naimportuj účastníka', async () => {
 
   const ucastnici = await Ucastnik.find({}, { _id: 0 })
     .populate('ucasti.prihlaska.kategorie', { _id: 0 })
+    .populate('ucasti.vykon.kategorie', { _id: 0 })
     .lean();
   expect(ucastnici).toMatchSnapshot();
 });

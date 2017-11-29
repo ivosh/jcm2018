@@ -3419,6 +3419,16 @@ Array [
           "stat": "Česká republika",
           "telefon": "678 412 745",
         },
+        "vykon": Object {
+          "cas": "PT5H51M59.0S",
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+          },
+          "startCislo": 46,
+        },
       },
       Object {
         "platby": Array [
@@ -3458,6 +3468,20 @@ Array [
           "stat": "Česká republika",
           "telefon": "678 412 745",
         },
+        "vykon": Object {
+          "cas": "PT5H34M54.0S",
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 30,
+              "min": 18,
+            },
+          },
+          "startCislo": 11,
+        },
       },
       Object {
         "platby": Array [
@@ -3485,6 +3509,10 @@ Array [
             "absolvovano": true,
             "den": "pátek",
           },
+          Object {
+            "absolvovano": true,
+            "den": "sobota",
+          },
         ],
         "udaje": Object {
           "adresa": "17. listopadu 1314",
@@ -3501,6 +3529,20 @@ Array [
           "psc": "597 01",
           "stat": "Česká republika",
           "telefon": "678 412 745",
+        },
+        "vykon": Object {
+          "cas": "PT6H51M58.0S",
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 40,
+              "min": 31,
+            },
+          },
+          "startCislo": 11,
         },
       },
       Object {
@@ -3552,6 +3594,20 @@ Array [
           "stat": "Česká republika",
           "telefon": "678 412 745",
         },
+        "vykon": Object {
+          "cas": "PT6H44M45.1S",
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 39,
+              "min": 18,
+            },
+          },
+          "startCislo": 3,
+        },
       },
       Object {
         "platby": Array [
@@ -3591,6 +3647,20 @@ Array [
           "stat": "Česká republika",
           "telefon": "678 412 745",
         },
+        "vykon": Object {
+          "cas": "PT7H33M46.24S",
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 39,
+              "min": 18,
+            },
+          },
+          "startCislo": 68,
+        },
       },
       Object {
         "platby": Array [],
@@ -3623,6 +3693,60 @@ Array [
           "psc": "597 01",
           "stat": "Česká republika",
           "telefon": "678 412 745",
+        },
+      },
+      Object {
+        "platby": Array [
+          Object {
+            "castka": 150,
+            "datum": 2015-06-13T00:00:00.000Z,
+            "typ": "hotově",
+          },
+        ],
+        "poznamka": "pravděpodobně poslední běh",
+        "prihlaska": Object {
+          "datum": 2015-03-02T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "typ": "pěší",
+          },
+        },
+        "rok": 2015,
+        "ubytovani": Array [
+          Object {
+            "absolvovano": true,
+            "den": "pátek",
+            "prihlaseno": true,
+          },
+        ],
+        "udaje": Object {
+          "adresa": "17. listopadu 1314",
+          "jmeno": "Václav",
+          "klub": "SK Nudle",
+          "narozeni": Object {
+            "den": 10,
+            "mesic": 12,
+            "rok": 1974,
+          },
+          "obec": "Kroměříž",
+          "pohlavi": "muž",
+          "prijmeni": "Pěnička",
+          "psc": "597 01",
+          "stat": "Česká republika",
+          "telefon": "678 412 745",
+        },
+        "vykon": Object {
+          "dokonceno": false,
+          "kategorie": Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          "startCislo": 34,
         },
       },
     ],

@@ -205,7 +205,7 @@ const processUdaje = udaje => {
   return ret;
 };
 
-const processPrihlaska = async (rocniky, xmlPrihlaska, xmlUcast, rok, pohlavi, narozeni) => {
+const processPrihlaska = (rocniky, xmlPrihlaska, xmlUcast, rok, pohlavi, narozeni) => {
   const typ = (xmlPrihlaska && xmlPrihlaska.kategorie[0]) || xmlUcast.vykon[0].kategorie[0];
   const { kategorie, code, status } = common.findKategorie(rocniky, {
     rok,
@@ -224,6 +224,40 @@ const processPrihlaska = async (rocniky, xmlPrihlaska, xmlUcast, rok, pohlavi, n
     datum,
     kategorie: kategorie.id
   };
+};
+
+const processVykon = (rocniky, xmlUcast, xmlVykon, rok, pohlavi, narozeni) => {
+  const typ = convertNazevTypuKategorie(xmlVykon.kategorie[0]);
+  const { kategorie, code, status } = common.findKategorie(rocniky, {
+    rok,
+    typ,
+    pohlavi,
+    narozeni,
+    mladistvyPotvrzen: true
+  });
+  if (code !== common.CODE_OK) {
+    throw new Error(`${code} - ${status}`);
+  }
+
+  return {
+    kategorie: kategorie.id,
+    startCislo: xmlUcast.startCislo[0],
+    dokonceno: xmlVykon.dokonceno && xmlVykon.dokonceno[0],
+    cas: xmlVykon.cas && xmlVykon.cas[0]
+  };
+};
+
+const vytvorPlatbu = (ucast, datum, typ = 'hotově') => {
+  const platba = {
+    castka: ucast.zaplaceno[0],
+    datum,
+    typ
+  };
+  if (ucast.sponzor) {
+    const [sponzor] = ucast.sponzor;
+    platba.poznamka = sponzor;
+  }
+  return platba;
 };
 
 const vytvorUbytovaniUcastnika = (prihlaska, ucast) => {
@@ -254,27 +288,26 @@ const vytvorUbytovaniUcastnika = (prihlaska, ucast) => {
   return list.length > 0 ? list : undefined;
 };
 
-const vytvorPlatbu = (ucast, datum, typ = 'hotově') => {
-  const platba = {
-    castka: ucast.zaplaceno[0],
-    datum,
-    typ
-  };
-  if (ucast.sponzor) {
-    platba.poznamka = ucast.sponzor[0];
-  }
-  return platba;
-};
-
 const processZajem = async (rocniky, zajem, udaje) => {
   const rok = zajem.rok[0];
   const ucast = { rok, udaje };
 
   if (zajem.prihlaska || zajem.ucast) {
-    ucast.prihlaska = await processPrihlaska(
+    ucast.prihlaska = processPrihlaska(
       rocniky,
       zajem.prihlaska && zajem.prihlaska[0],
       zajem.ucast && zajem.ucast[0],
+      rok,
+      udaje.pohlavi,
+      udaje.narozeni
+    );
+  }
+
+  if (zajem.ucast) {
+    ucast.vykon = processVykon(
+      rocniky,
+      zajem.ucast[0],
+      zajem.ucast[0].vykon[0],
       rok,
       udaje.pohlavi,
       udaje.narozeni
