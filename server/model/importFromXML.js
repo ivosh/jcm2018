@@ -239,12 +239,22 @@ const processVykon = (rocniky, xmlUcast, xmlVykon, rok, pohlavi, narozeni) => {
     throw new Error(`${code} - ${status}`);
   }
 
-  return {
+  const vykon = {
     kategorie: kategorie.id,
-    startCislo: xmlUcast.startCislo[0],
-    dokonceno: xmlVykon.dokonceno && xmlVykon.dokonceno[0],
-    cas: xmlVykon.cas && xmlVykon.cas[0]
+    dokonceno: xmlVykon.dokonceno && xmlVykon.dokonceno[0]
   };
+
+  if (xmlUcast.startCislo) {
+    const [startCislo] = xmlUcast.startCislo;
+    vykon.startCislo = startCislo;
+  }
+
+  if (xmlVykon.cas) {
+    const [cas] = xmlVykon.cas;
+    vykon.cas = cas;
+  }
+
+  return vykon;
 };
 
 const vytvorPlatbu = (ucast, datum, typ = 'hotově') => {
@@ -349,17 +359,14 @@ const processUcastnik = async (rocniky, ucastnik) => {
 const processUcastnici = async (rocniky, ucastnici) =>
   Promise.all(ucastnici.map(async ucastnik => processUcastnik(rocniky, ucastnik)));
 
-const importFromXML = async fileOrData => {
+const importFromXML = async ({ file, data }) => {
   await db.dropDatabase();
 
   const parser = new xml2js.Parser({ mergeAttrs: true });
 
-  let data = null;
-  try {
-    await util.promisify(fs.open)(fileOrData, 'r');
-    data = await util.promisify(fs.readFile)(fileOrData, 'utf8');
-  } catch (err) {
-    data = fileOrData;
+  if (file) {
+    // eslint-disable-next-line no-param-reassign
+    data = await util.promisify(fs.readFile)(file, 'utf8');
   }
 
   const result = await util.promisify(parser.parseString)(data);

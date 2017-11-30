@@ -27,7 +27,7 @@ it('naimportuj ročník', async () => {
       </typKategorie>
     </rocnik>
   </jcm>`;
-  await importFromXML(xml);
+  await importFromXML({ data: xml });
 
   const rocniky = await Rocnik.find({}, { _id: 0 })
     .populate('kategorie.kategorie', { _id: 0 })
@@ -117,7 +117,7 @@ it('naimportuj dva ročníky', async () => {
       <ubytovaniPaSo>50</ubytovaniPaSo>
     </rocnik>
   </jcm>`;
-  await importFromXML(xml);
+  await importFromXML({ data: xml });
 
   const rocniky = await Rocnik.find({}, { _id: 0 })
     .populate('kategorie.kategorie', { _id: 0 })
@@ -635,7 +635,7 @@ it('naimportuj všechny ročníky', async () => {
       <ubytovaniPaSo>50</ubytovaniPaSo>
     </rocnik>
   </jcm>`;
-  await importFromXML(xml);
+  await importFromXML({ data: xml });
 
   const rocniky = await Rocnik.find({}, { _id: 0 })
     .populate('kategorie.kategorie', { _id: 0 })
@@ -951,7 +951,7 @@ it('naimportuj účastníka', async () => {
       </ucastnik>
     </ucastnici>
   </jcm>`;
-  await importFromXML(xml);
+  await importFromXML({ data: xml });
 
   const ucastnici = await Ucastnik.find({}, { _id: 0 })
     .populate('ucasti.prihlaska.kategorie', { _id: 0 })
