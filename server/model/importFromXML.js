@@ -356,8 +356,8 @@ const importFromXML = async fileOrData => {
 
   let data = null;
   try {
-    await util.promisify(fs.open(fileOrData, 'r'));
-    data = await util.promisify(fs.readFile(fileOrData, 'utf8'));
+    await util.promisify(fs.open)(fileOrData, 'r');
+    data = await util.promisify(fs.readFile)(fileOrData, 'utf8');
   } catch (err) {
     data = fileOrData;
   }
