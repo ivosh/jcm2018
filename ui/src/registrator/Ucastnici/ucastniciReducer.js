@@ -25,13 +25,14 @@ export const getUcastniciOverviewSorted = ({ allIds, byIds }) => {
     });
   });
 
+  const collator = new Intl.Collator('cs');
   return ucastnici.sort((a, b) => {
-    const prijmeniCmp = a.prijmeni.localeCompare(b, 'cs');
+    const prijmeniCmp = collator.compare(a.prijmeni, b.prijmeni);
     if (prijmeniCmp !== 0) {
       return prijmeniCmp;
     }
 
-    const jmenoCmp = a.jmeno.localeCompare(b, 'cs');
+    const jmenoCmp = collator.compare(a.jmeno, b.jmeno);
     if (jmenoCmp !== 0) {
       return jmenoCmp;
     }
