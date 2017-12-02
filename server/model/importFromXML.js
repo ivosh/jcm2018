@@ -171,38 +171,38 @@ const processNarozeni = narozeni => {
   return { rok: result[1], mesic: result[2], den: result[3] };
 };
 
-const processUdaje = udaje => {
-  const ret = {
-    prijmeni: udaje.prijmeni[0],
-    jmeno: udaje.jmeno[0],
-    narozeni: processNarozeni(udaje.narozen[0]),
-    pohlavi: processPohlavi(udaje.pohlavi[0]),
-    obec: udaje.mesto[0],
-    stat: udaje.stat[0]
+const processUdaje = xmlUdaje => {
+  const udaje = {
+    prijmeni: xmlUdaje.prijmeni[0],
+    jmeno: xmlUdaje.jmeno[0],
+    narozeni: processNarozeni(xmlUdaje.narozen[0]),
+    pohlavi: processPohlavi(xmlUdaje.pohlavi[0]),
+    obec: xmlUdaje.mesto[0],
+    stat: xmlUdaje.stat[0]
   };
 
-  if (udaje.adresa) {
-    const [adresa] = udaje.adresa;
-    ret.adresa = adresa;
+  if (xmlUdaje.adresa) {
+    const [adresa] = xmlUdaje.adresa;
+    udaje.adresa = adresa;
   }
-  if (udaje.PSC) {
-    const [psc] = udaje.PSC;
-    ret.psc = psc;
+  if (xmlUdaje.PSC) {
+    const [psc] = xmlUdaje.PSC;
+    udaje.psc = psc;
   }
-  if (udaje.klub) {
-    const [klub] = udaje.klub;
-    ret.klub = klub;
+  if (xmlUdaje.klub) {
+    const [klub] = xmlUdaje.klub;
+    udaje.klub = klub;
   }
-  if (udaje.email[0]) {
-    const [email] = udaje.email;
-    ret.email = email;
+  if (xmlUdaje.email && xmlUdaje.email[0]) {
+    const [email] = xmlUdaje.email;
+    udaje.email = email;
   }
-  if (udaje.telefon[0]) {
-    const [telefon] = udaje.telefon;
-    ret.telefon = telefon;
+  if (xmlUdaje.telefon && xmlUdaje.telefon[0]) {
+    const [telefon] = xmlUdaje.telefon;
+    udaje.telefon = telefon;
   }
 
-  return ret;
+  return udaje;
 };
 
 const processPrihlaska = (rocniky, xmlPrihlaska, xmlUcast, rok, pohlavi, narozeni) => {
@@ -352,11 +352,12 @@ const processUcastnik = async (rocniky, ucastnik) => {
   if (ucastnik.zajem) {
     const ucastnikDB = new Ucastnik();
     ucastnikDB.ucasti = await processZajmy(rocniky, ucastnik.zajem, udaje);
-    await ucastnikDB.save();
+    return ucastnikDB.save();
   }
+  return Promise.resolve();
 };
 
-const processUcastnici = async (rocniky, ucastnici) =>
+const processUcastniky = async (rocniky, ucastnici) =>
   Promise.all(ucastnici.map(async ucastnik => processUcastnik(rocniky, ucastnik)));
 
 const importFromXML = async ({ file, data }) => {
@@ -377,7 +378,7 @@ const importFromXML = async ({ file, data }) => {
     if (code !== common.CODE_OK) {
       throw new Error(`${code} - ${status}`);
     }
-    await processUcastnici(response, result.jcm.ucastnici[0].ucastnik);
+    await processUcastniky(response, result.jcm.ucastnici[0].ucastnik);
   }
 };
 

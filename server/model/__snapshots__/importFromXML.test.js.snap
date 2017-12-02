@@ -441,6 +441,115 @@ Array [
 ]
 `;
 
+exports[`naimportuj dva účastníky 1`] = `
+Array [
+  Object {
+    "__v": 0,
+    "ucasti": Array [
+      Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": 2015-06-13T00:00:00.000Z,
+            "typ": "hotově",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": 2015-06-13T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "typ": "pěší",
+          },
+        },
+        "rok": 2015,
+        "ubytovani": Array [],
+        "udaje": Object {
+          "email": "sk@s.cz",
+          "jmeno": "Karel",
+          "klub": "KB Kudla",
+          "narozeni": Object {
+            "den": 4,
+            "mesic": 2,
+            "rok": 1979,
+          },
+          "obec": "Chrášťany",
+          "pohlavi": "žena",
+          "prijmeni": "Mašle",
+          "psc": "356 01",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "typ": "pěší",
+          },
+        },
+      },
+    ],
+  },
+  Object {
+    "__v": 0,
+    "ucasti": Array [
+      Object {
+        "platby": Array [
+          Object {
+            "castka": 150,
+            "datum": 2015-06-13T00:00:00.000Z,
+            "typ": "hotově",
+          },
+        ],
+        "poznamka": "pravděpodobně poslední běh",
+        "prihlaska": Object {
+          "datum": 2015-03-02T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "typ": "pěší",
+          },
+        },
+        "rok": 2015,
+        "ubytovani": Array [
+          Object {
+            "absolvovano": true,
+            "den": "pátek",
+            "prihlaseno": true,
+          },
+        ],
+        "udaje": Object {
+          "adresa": "17. listopadu 1314",
+          "jmeno": "Václav",
+          "klub": "SK Nudle",
+          "narozeni": Object {
+            "den": 10,
+            "mesic": 12,
+            "rok": 1974,
+          },
+          "obec": "Kroměříž",
+          "pohlavi": "muž",
+          "prijmeni": "Pěnička",
+          "psc": "597 01",
+          "stat": "Česká republika",
+          "telefon": "678 412 745",
+        },
+        "vykon": Object {
+          "dokonceno": false,
+          "kategorie": Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          "startCislo": 34,
+        },
+      },
+    ],
+  },
+]
+`;
+
 exports[`naimportuj ročník 1`] = `
 Array [
   Object {

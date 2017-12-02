@@ -959,3 +959,103 @@ it('naimportuj účastníka', async () => {
     .lean();
   expect(ucastnici).toMatchSnapshot();
 });
+
+it('naimportuj dva účastníky', async () => {
+  const xml = `
+  <?xml version="1.0" encoding="UTF-8"?>
+  <jcm>
+    <rocnik rok="2015">
+      <datum>2015-06-13</datum>
+      <typKategorie typ="beh">
+        <kategorie pohlavi="muz" minVek="18" maxVek="39"/>
+        <kategorie pohlavi="muz" minVek="40" maxVek="49"/>
+        <kategorie pohlavi="muz" minVek="50" maxVek="59"/>
+        <kategorie pohlavi="muz" minVek="60" maxVek="150"/>
+        <kategorie pohlavi="zena" minVek="18" maxVek="39"/>
+        <kategorie pohlavi="zena" minVek="40" maxVek="49"/>
+        <kategorie pohlavi="zena" minVek="50" maxVek="59"/>
+        <kategorie pohlavi="zena" minVek="60" maxVek="150"/>
+        <startCisla>1-100</startCisla>
+        <startovne predem="130" naMiste="150"/>
+      </typKategorie>
+      <typKategorie typ="cyklo">
+        <kategorie minVek="16" maxVek="17" presnyVek="true"/>
+        <kategorie pohlavi="muz" minVek="18" maxVek="35"/>
+        <kategorie pohlavi="muz" minVek="36" maxVek="45"/>
+        <kategorie pohlavi="muz" minVek="46" maxVek="150"/>
+        <kategorie pohlavi="zena" minVek="18" maxVek="35"/>
+        <kategorie pohlavi="zena" minVek="36" maxVek="45"/>
+        <kategorie pohlavi="zena" minVek="46" maxVek="150"/>
+        <startCisla>1-150</startCisla>
+        <startovne predem="130" naMiste="150"/>
+      </typKategorie>
+      <typKategorie typ="pesi">
+        <startovne predem="25" naMiste="25"/>
+      </typKategorie>
+      <ubytovaniPaSo>50</ubytovaniPaSo>
+    </rocnik>
+    <ucastnici>
+      <ucastnik id="38">
+        <udaje>
+          <jmeno>Václav</jmeno>
+          <prijmeni>Pěnička</prijmeni>
+          <narozen>1974-12-10</narozen>
+          <pohlavi>muz</pohlavi>
+          <adresa>17. listopadu 1314</adresa>
+          <mesto>Kroměříž</mesto>
+          <PSC>597 01</PSC>
+          <stat>Česká republika</stat>
+          <klub>SK Nudle</klub>
+          <telefon>678 412 745</telefon>
+          <email/>
+        </udaje>
+        <zajem rok="2015">
+          <prihlaska>
+            <datum>2015-03-02</datum>
+            <kategorie>pesi</kategorie>
+            <ubytovaniPaSo/>
+          </prihlaska>
+          <ucast>
+            <zaplaceno>150</zaplaceno>
+            <startCislo>34</startCislo>
+            <ubytovaniPaSo/>
+            <vykon>
+              <kategorie>beh</kategorie>
+              <dokonceno>false</dokonceno>
+            </vykon>
+          </ucast>
+          <poznamka>pravděpodobně poslední běh</poznamka>
+        </zajem>
+      </ucastnik>
+      <ucastnik id="54">
+        <udaje>
+          <jmeno>Karel</jmeno>
+          <prijmeni>Mašle</prijmeni>
+          <narozen>1979-2-4</narozen>
+          <pohlavi>zena</pohlavi>
+          <mesto>Chrášťany</mesto>
+          <PSC>356 01</PSC>
+          <stat>Česká republika</stat>
+          <klub>KB Kudla</klub>
+          <email>sk@s.cz</email>
+        </udaje>
+        <zajem rok="2015">
+          <ucast>
+            <zaplaceno>200</zaplaceno>
+            <vykon>
+              <kategorie>pesi</kategorie>
+              <dokonceno>true</dokonceno>
+            </vykon>
+          </ucast>
+        </zajem>
+      </ucastnik>
+    </ucastnici>
+  </jcm>`;
+  await importFromXML({ data: xml });
+
+  const ucastnici = await Ucastnik.find({}, { _id: 0 })
+    .populate('ucasti.prihlaska.kategorie', { _id: 0 })
+    .populate('ucasti.vykon.kategorie', { _id: 0 })
+    .lean();
+  expect(ucastnici).toMatchSnapshot();
+});
