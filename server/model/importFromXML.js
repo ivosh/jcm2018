@@ -352,9 +352,8 @@ const processUcastnik = async (rocniky, ucastnik) => {
   if (ucastnik.zajem) {
     const ucastnikDB = new Ucastnik();
     ucastnikDB.ucasti = await processZajmy(rocniky, ucastnik.zajem, udaje);
-    return ucastnikDB.save();
+    await ucastnikDB.save();
   }
-  return Promise.resolve();
 };
 
 const processUcastniky = async (rocniky, ucastnici) =>
