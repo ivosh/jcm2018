@@ -12,12 +12,8 @@ const mapStateToProps = ({ casomeric }) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onStart: base => {
-    dispatch(stopkyStart(base));
-  },
-  onStop: () => {
-    dispatch(stopkyStop());
-  },
+  onStart: base => dispatch(stopkyStart(base)),
+  onStop: () => dispatch(stopkyStop()),
   onAddMezicas: ownProps.onAddMezicas
 });
 

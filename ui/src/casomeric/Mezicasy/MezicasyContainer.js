@@ -20,10 +20,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onRemoveMezicas: id => {
+  onRemoveMezicas: ({ id }) => {
     dispatch(removeMezicas(id));
   },
-  onRemoveCislo: (id, duration) => {
+  onRemoveCislo: ({ id, duration }) => {
     dispatch(naTrase(id));
     dispatch(addMezicas(duration));
   }
@@ -31,12 +31,10 @@ const mapDispatchToProps = dispatch => ({
 
 const mergeProps = (stateProps, dispatchProps) => ({
   mezicasy: stateProps.mezicasy.map(mezicas => {
-    const onRemove = mezicas.cislo
-      ? dispatchProps.onRemoveCislo(mezicas.id, mezicas.duration)
-      : dispatchProps.onRemoveMezicas(mezicas.id);
+    const onRemove = mezicas.cislo ? dispatchProps.onRemoveCislo : dispatchProps.onRemoveMezicas;
     return {
       ...mezicas,
-      onRemove: () => onRemove
+      onRemove: () => onRemove(mezicas)
     };
   })
 });
