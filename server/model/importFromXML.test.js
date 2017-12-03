@@ -1057,5 +1057,6 @@ it('naimportuj dva účastníky', async () => {
     .populate('ucasti.prihlaska.kategorie', { _id: 0 })
     .populate('ucasti.vykon.kategorie', { _id: 0 })
     .lean();
+  ucastnici.sort((a, b) => a.ucasti[0].udaje.prijmeni.localeCompare(b.ucasti[0].udaje.prijmeni));
   expect(ucastnici).toMatchSnapshot();
 });
