@@ -3,7 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import CasomericConnected from '../casomeric/Casomeric/CasomericContainer';
-import UcastniciConnected from '../registrator/Ucastnici/UcastniciContainer';
+import UcastniciConnected from '../Ucastnici/UcastniciContainer';
 import Registrace from '../registrator/Registrace/Registrace';
 import './App.css';
 import logo from './logo.svg';

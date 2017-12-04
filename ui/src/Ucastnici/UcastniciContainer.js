@@ -3,8 +3,8 @@ import Ucastnici from './Ucastnici';
 import { fetchUcastnici } from './UcastniciActions';
 import { getUcastniciOverviewSorted } from './ucastniciReducer';
 
-const mapStateToProps = ({ registrator }) => ({
-  ucastnici: getUcastniciOverviewSorted(registrator.ucastnici)
+const mapStateToProps = ({ ucastnici }) => ({
+  ucastnici: getUcastniciOverviewSorted(ucastnici)
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,8 +1,5 @@
 import { combineReducers } from 'redux';
-import ucastniciReducer from './Ucastnici/ucastniciReducer';
 
-const registratorReducer = combineReducers({
-  ucastnici: ucastniciReducer
-});
+const registratorReducer = combineReducers({});
 
 export default registratorReducer;
