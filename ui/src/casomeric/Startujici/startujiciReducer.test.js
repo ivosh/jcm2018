@@ -5,7 +5,7 @@ import startujiciReducer, {
   getStartujiciWithoutDuration,
   getStartujiciSorted
 } from './startujiciReducer';
-import { dokonceno, naTrase, nedokonceno } from './StartujiciActions';
+import { startujiciDokonceno, startujiciNaTrase, startujiciNedokonceno } from './StartujiciActions';
 
 it('na začátku', () => {
   const stateBefore = undefined;
@@ -33,7 +33,9 @@ it('jeden byl na trase a dokončil', () => {
   const stateAfter = [stateBefore[0], { id: 2, cislo: 12, dokonceno: true, duration: 'PT2.432S' }];
   deepFreeze(stateBefore);
 
-  expect(startujiciReducer(stateBefore, dokonceno(2, moment.duration(2432)))).toEqual(stateAfter);
+  expect(startujiciReducer(stateBefore, startujiciDokonceno(2, moment.duration(2432)))).toEqual(
+    stateAfter
+  );
 });
 
 it('jeden byl na trase a nedokončil', () => {
@@ -44,7 +46,7 @@ it('jeden byl na trase a nedokončil', () => {
   const stateAfter = [stateBefore[0], { id: 2, cislo: 12, dokonceno: false, duration: null }];
   deepFreeze(stateBefore);
 
-  expect(startujiciReducer(stateBefore, nedokonceno(2))).toEqual(stateAfter);
+  expect(startujiciReducer(stateBefore, startujiciNedokonceno(2))).toEqual(stateAfter);
 });
 
 it('jeden téměř dokončil ale je zase na trase', () => {
@@ -55,7 +57,7 @@ it('jeden téměř dokončil ale je zase na trase', () => {
   const stateAfter = [stateBefore[0], { id: 2, cislo: 12, dokonceno: null, duration: undefined }];
   deepFreeze(stateBefore);
 
-  expect(startujiciReducer(stateBefore, naTrase(2))).toEqual(stateAfter);
+  expect(startujiciReducer(stateBefore, startujiciNaTrase(2))).toEqual(stateAfter);
 });
 
 it('jeden nedokončil ale je zase na trase', () => {
@@ -66,7 +68,7 @@ it('jeden nedokončil ale je zase na trase', () => {
   const stateAfter = [stateBefore[0], { id: 2, cislo: 12, dokonceno: null }];
   deepFreeze(stateBefore);
 
-  expect(startujiciReducer(stateBefore, naTrase(2))).toEqual(stateAfter);
+  expect(startujiciReducer(stateBefore, startujiciNaTrase(2))).toEqual(stateAfter);
 });
 
 it('getDokoncenoWithCisloClass', () => {

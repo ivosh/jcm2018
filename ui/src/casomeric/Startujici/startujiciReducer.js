@@ -19,19 +19,19 @@ const updateItemInArray = (array, itemId, updateItemCallback) => {
 
 const startujiciReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'DOKONCENO':
+    case 'STARTUJICI_DOKONCENO':
       return updateItemInArray(state, action.id, startujici => ({
         ...startujici,
         dokonceno: true,
         duration: action.duration
       }));
-    case 'NA_TRASE':
+    case 'STARTUJICI_NA_TRASE':
       return updateItemInArray(state, action.id, startujici => ({
         ...startujici,
         dokonceno: null,
         duration: undefined
       }));
-    case 'NEDOKONCENO':
+    case 'STARTUJICI_NEDOKONCENO':
       return updateItemInArray(state, action.id, startujici => ({
         ...startujici,
         dokonceno: false,

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { naTrase } from '../Startujici/StartujiciActions';
+import { startujiciNaTrase } from '../Startujici/StartujiciActions';
 import { getDokoncenoWithCisloClass } from '../Startujici/startujiciReducer';
 import StartCisloBox from '../StartCislo/StartCisloBox';
 import StartCisloInputConnected from '../StartCislo/StartCisloInputContainer';
@@ -24,7 +24,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(removeMezicas(id));
   },
   onRemoveCislo: ({ id, duration }) => {
-    dispatch(naTrase(id));
+    dispatch(startujiciNaTrase(id));
     dispatch(addMezicas(duration));
   }
 });

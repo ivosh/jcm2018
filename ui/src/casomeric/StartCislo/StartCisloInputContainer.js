@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import momentPropTypes from 'react-moment-proptypes';
 import StartCisloInput from './StartCisloInput';
 import { removeMezicas } from '../Mezicasy/MezicasyActions';
-import { dokonceno } from '../Startujici/StartujiciActions';
+import { startujiciDokonceno } from '../Startujici/StartujiciActions';
 import { getStartujiciWithoutDuration } from '../Startujici/startujiciReducer';
 
 const mapStateToProps = state => ({
@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onCisloSubmitted: startujiciId => {
     dispatch(removeMezicas(ownProps.mezicasId));
-    dispatch(dokonceno(startujiciId, ownProps.duration));
+    dispatch(startujiciDokonceno(startujiciId, ownProps.duration));
   }
 });
 
