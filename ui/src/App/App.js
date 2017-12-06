@@ -2,8 +2,8 @@ import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import CasomericConnected from '../casomeric/Casomeric/CasomericContainer';
-import UcastniciConnected from '../Ucastnici/UcastniciContainer';
+import CasomericContainer from '../casomeric/Casomeric/CasomericContainer';
+import UcastniciContainer from '../Ucastnici/UcastniciContainer';
 import Registrace from '../registrator/Registrace/Registrace';
 import './App.css';
 import logo from './logo.svg';
@@ -28,9 +28,9 @@ const App = () => (
     </Navbar>
     <main>
       <Switch>
-        <Route exact path="/" component={CasomericConnected} />
-        <Route path="/casomeric" component={CasomericConnected} />
-        <Route path="/ucastnici" component={UcastniciConnected} />
+        <Route exact path="/" component={CasomericContainer} />
+        <Route path="/casomeric" component={CasomericContainer} />
+        <Route path="/ucastnici" component={UcastniciContainer} />
         <Route path="/registrace" component={Registrace} />
         <Redirect to="/" />
       </Switch>

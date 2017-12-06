@@ -13,6 +13,6 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-const UcastniciConnected = connect(mapStateToProps, mapDispatchToProps)(Ucastnici);
+const UcastniciContainer = connect(mapStateToProps, mapDispatchToProps)(Ucastnici);
 
-export default UcastniciConnected;
+export default UcastniciContainer;
