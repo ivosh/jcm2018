@@ -67,6 +67,9 @@ export const narozeniSortMethod = (a, b, desc = false) => {
   return desc ? -1 : +1;
 };
 
+const collator = new Intl.Collator('cs');
+export const csStringSortMethod = (a, b) => collator.compare(a, b);
+
 export const getUcastniciOverviewSorted = ({ allIds, byIds }) => {
   const ucastnici = [];
   allIds.forEach(id => {
@@ -81,14 +84,13 @@ export const getUcastniciOverviewSorted = ({ allIds, byIds }) => {
     });
   });
 
-  const collator = new Intl.Collator('cs');
   return ucastnici.sort((a, b) => {
-    const prijmeniCmp = collator.compare(a.prijmeni, b.prijmeni);
+    const prijmeniCmp = csStringSortMethod(a.prijmeni, b.prijmeni);
     if (prijmeniCmp !== 0) {
       return prijmeniCmp;
     }
 
-    const jmenoCmp = collator.compare(a.jmeno, b.jmeno);
+    const jmenoCmp = csStringSortMethod(a.jmeno, b.jmeno);
     if (jmenoCmp !== 0) {
       return jmenoCmp;
     }

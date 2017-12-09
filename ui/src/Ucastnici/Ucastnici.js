@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactTable from 'react-table';
 import PropTypes from 'prop-types';
 import 'react-table/react-table.css';
-import { narozeniSortMethod } from './ucastniciReducer';
+import { csStringSortMethod, narozeniSortMethod } from './ucastniciReducer';
 import './Ucastnici.css';
 
 const NarozeniRenderer = row => {
@@ -32,11 +32,13 @@ class Ucastnici extends Component {
     const columns = [
       {
         Header: 'Příjmení',
-        accessor: 'prijmeni'
+        accessor: 'prijmeni',
+        sortMethod: csStringSortMethod
       },
       {
         Header: 'Jméno',
-        accessor: 'jmeno'
+        accessor: 'jmeno',
+        sortMethod: csStringSortMethod
       },
       {
         Header: 'Narození',

@@ -59,10 +59,12 @@ exports[`dva účastníci 1`] = `
       Object {
         "Header": "Příjmení",
         "accessor": "prijmeni",
+        "sortMethod": [Function],
       },
       Object {
         "Header": "Jméno",
         "accessor": "jmeno",
+        "sortMethod": [Function],
       },
       Object {
         "Cell": [Function],
