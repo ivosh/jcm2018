@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`po startu 1`] = `
+exports[`snapshort po startu 1`] = `
 <div
   className="Stopky"
 >
@@ -70,77 +70,7 @@ exports[`po startu 1`] = `
 </div>
 `;
 
-exports[`po stopce 1`] = `
-<div
-  className="Stopky"
->
-  <div
-    className="Stopky-mezera"
-  >
-    <span
-      className="Displej"
-    >
-      <span
-        className="Displej-segment"
-      >
-        0
-      </span>
-      :
-      <span
-        className="Displej-segment"
-      >
-        00
-      </span>
-      :
-      <span
-        className="Displej-segment"
-      >
-        00
-      </span>
-      ,
-      <span
-        className="Displej-segment"
-      >
-        00
-      </span>
-    </span>
-  </div>
-  <div>
-    <div
-      className="btn-toolbar"
-      role="toolbar"
-    >
-      <button
-        className="btn btn-success"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
-      >
-        Start
-      </button>
-      <button
-        accessKey="m"
-        className="btn btn-info"
-        disabled={true}
-        onClick={[Function]}
-        type="button"
-      >
-        Mezičas (Alt-m)
-      </button>
-      <button
-        className="btn btn-danger"
-        disabled={true}
-        onClick={[Function]}
-        type="button"
-      >
-        Stop
-      </button>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`před startem 1`] = `
+exports[`snapshot před startem 1`] = `
 <div
   className="Stopky"
 >
