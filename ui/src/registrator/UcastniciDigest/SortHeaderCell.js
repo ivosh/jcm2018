@@ -26,7 +26,7 @@ class SortHeaderCell extends Component {
 
 SortHeaderCell.propTypes = {
   onSortDirChange: PropTypes.func.isRequired,
-  sortDir: PropTypes.string,
+  sortDir: PropTypes.oneOf([SortDirTypes.NONE, SortDirTypes.ASC, SortDirTypes.DESC]),
   children: PropTypes.node
 };
 
