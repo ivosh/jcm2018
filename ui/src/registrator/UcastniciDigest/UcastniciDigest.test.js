@@ -1,13 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import Ucastnici from './Ucastnici';
+import UcastniciDigest from './UcastniciDigest';
 
 const fakeFetchUcastnici = () => {};
 
 it('žádný účastník', () => {
   const wrapper = shallow(
-    <Ucastnici
+    <UcastniciDigest
       ucastnici={[]}
       fetchUcastnici={fakeFetchUcastnici}
       containerWidth={500}
@@ -34,7 +34,7 @@ it('dva účastníci', () => {
   ];
 
   const wrapper = shallow(
-    <Ucastnici
+    <UcastniciDigest
       ucastnici={ucastnici}
       fetchUcastnici={fakeFetchUcastnici}
       containerWidth={500}

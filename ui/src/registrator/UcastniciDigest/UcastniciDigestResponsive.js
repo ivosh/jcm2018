@@ -1,17 +1,17 @@
 import Dimensions from 'react-dimensions';
 import PropTypes from 'prop-types';
-import Ucastnici from './Ucastnici';
+import UcastniciDigest from './UcastniciDigest';
 
-const UcastniciResponsive = Dimensions({
+const UcastniciDigestResponsive = Dimensions({
   getHeight: () => window.innerHeight - 100,
   getWidth: () => window.innerWidth - 100,
   containerStyle: {
     paddingLeft: '30px',
     paddingRight: '50px'
   }
-})(Ucastnici);
+})(UcastniciDigest);
 
-UcastniciResponsive.propTypes = {
+UcastniciDigestResponsive.propTypes = {
   ucastnici: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -23,4 +23,4 @@ UcastniciResponsive.propTypes = {
   fetchUcastnici: PropTypes.func.isRequired
 };
 
-export default UcastniciResponsive;
+export default UcastniciDigestResponsive;

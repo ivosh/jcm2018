@@ -1,8 +1,5 @@
 import deepFreeze from 'deep-freeze';
-import ucastniciReducer, {
-  getUcastniciOverviewSorted,
-  narozeniSortMethod
-} from './ucastniciReducer';
+import ucastniciReducer, { getUcastniciDigestSorted, narozeniSortMethod } from './ucastniciReducer';
 import { receiveUcastnici } from './UcastniciActions';
 
 const narozeniSortMethodDescending = (a, b) => narozeniSortMethod(a, b, true);
@@ -205,7 +202,7 @@ it('narozeniSort(desc=true) - prázdný měsíc a den', () => {
   ]);
 });
 
-it('getUcastniciOverviewSorted()', () => {
+it('getUcastniciDigestSorted()', () => {
   const state = {
     allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
     byIds: {
@@ -263,5 +260,5 @@ it('getUcastniciOverviewSorted()', () => {
   ];
   deepFreeze(state);
 
-  expect(getUcastniciOverviewSorted(state)).toEqual(selected);
+  expect(getUcastniciDigestSorted(state)).toEqual(selected);
 });

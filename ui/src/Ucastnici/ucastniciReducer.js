@@ -70,7 +70,7 @@ export const narozeniSortMethod = (a, b, desc = false) => {
 const collator = new Intl.Collator('cs');
 export const csStringSortMethod = (a, b) => collator.compare(a, b);
 
-export const getUcastniciOverviewSorted = ({ allIds, byIds }) => {
+export const getUcastniciDigestSorted = ({ allIds, byIds }) => {
   const ucastnici = [];
   allIds.forEach(id => {
     const ucastnik = byIds[id];

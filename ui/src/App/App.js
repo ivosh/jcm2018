@@ -3,7 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import CasomericContainer from '../casomeric/Casomeric/CasomericContainer';
-import UcastniciContainer from '../Ucastnici/UcastniciContainer';
+import UcastniciDigestContainer from '../registrator/UcastniciDigest/UcastniciDigestContainer';
 import Registrace from '../registrator/Registrace/Registrace';
 import './App.css';
 import logo from './logo.svg';
@@ -30,7 +30,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={CasomericContainer} />
         <Route path="/casomeric" component={CasomericContainer} />
-        <Route path="/ucastnici" component={UcastniciContainer} />
+        <Route path="/ucastnici" component={UcastniciDigestContainer} />
         <Route path="/registrace" component={Registrace} />
         <Redirect to="/" />
       </Switch>

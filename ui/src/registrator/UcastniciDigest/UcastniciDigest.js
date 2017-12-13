@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Cell, Column, Table } from 'fixed-data-table-2';
 import 'fixed-data-table-2/dist/fixed-data-table.css';
 import SortHeaderCell from './SortHeaderCell';
-import './Ucastnici.css';
 
 // TODO: extend from React.PureComponent and implement render?
 const TextCell = ({ data, rowIndex, columnKey }) => <Cell>{data[rowIndex][columnKey]}</Cell>;
@@ -20,7 +19,7 @@ TextCell.propTypes = {
   columnKey: PropTypes.string
 };
 
-class Ucastnici extends Component {
+class UcastniciDigest extends Component {
   constructor(props) {
     super(props);
 
@@ -77,7 +76,7 @@ class Ucastnici extends Component {
   };
 }
 
-Ucastnici.propTypes = {
+UcastniciDigest.propTypes = {
   ucastnici: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -91,4 +90,4 @@ Ucastnici.propTypes = {
   containerHeight: PropTypes.number.isRequired
 };
 
-export default Ucastnici;
+export default UcastniciDigest;
