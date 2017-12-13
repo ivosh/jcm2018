@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Ucastnici from './Ucastnici';
+import UcastniciResponsive from './UcastniciResponsive';
 import { fetchUcastnici } from './UcastniciActions';
 import { getUcastniciOverviewSorted } from './ucastniciReducer';
 
@@ -13,6 +13,6 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-const UcastniciContainer = connect(mapStateToProps, mapDispatchToProps)(Ucastnici);
+const UcastniciContainer = connect(mapStateToProps, mapDispatchToProps)(UcastniciResponsive);
 
 export default UcastniciContainer;

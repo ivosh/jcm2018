@@ -1,177 +1,143 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`dva účastníci 1`] = `
-<ReactTable
-  AggregatedComponent={[Function]}
-  ExpanderComponent={[Function]}
-  FilterComponent={[Function]}
-  LoadingComponent={[Function]}
-  NoDataComponent={[Function]}
-  PadRowComponent={[Function]}
-  PaginationComponent={[Function]}
-  PivotValueComponent={[Function]}
-  ResizerComponent={[Function]}
-  TableComponent={[Function]}
-  TbodyComponent={[Function]}
-  TdComponent={[Function]}
-  TfootComponent={[Function]}
-  ThComponent={[Function]}
-  TheadComponent={[Function]}
-  TrComponent={[Function]}
-  TrGroupComponent={[Function]}
-  aggregatedKey="_aggregated"
-  className="-striped -highlight"
-  collapseOnDataChange={true}
-  collapseOnPageChange={true}
-  collapseOnSortingChange={true}
-  column={
-    Object {
-      "Aggregated": undefined,
-      "Cell": undefined,
-      "Expander": undefined,
-      "Filter": undefined,
-      "Footer": undefined,
-      "Header": undefined,
-      "Pivot": undefined,
-      "PivotValue": undefined,
-      "aggregate": undefined,
-      "className": "",
-      "filterAll": false,
-      "filterMethod": undefined,
-      "filterable": undefined,
-      "footerClassName": "",
-      "footerStyle": Object {},
-      "getFooterProps": [Function],
-      "getHeaderProps": [Function],
-      "getProps": [Function],
-      "headerClassName": "",
-      "headerStyle": Object {},
-      "minWidth": 100,
-      "resizable": undefined,
-      "show": true,
-      "sortMethod": undefined,
-      "sortable": undefined,
-      "style": Object {},
-    }
-  }
-  columns={
-    Array [
-      Object {
-        "Header": "Příjmení",
-        "accessor": "prijmeni",
-        "sortMethod": [Function],
-      },
-      Object {
-        "Header": "Jméno",
-        "accessor": "jmeno",
-        "sortMethod": [Function],
-      },
-      Object {
-        "Cell": [Function],
-        "Header": "Narození",
-        "accessor": "narozeni",
-        "sortMethod": [Function],
-      },
-    ]
-  }
+<FixedDataTable
   data={
     Array [
       Object {
         "id": "5a09b1fd371dec1e99b7e1c9",
         "jmeno": "Roman",
-        "narozeni": Object {
-          "rok": 1956,
-        },
+        "narozeni": "1956",
         "prijmeni": "Balabák",
       },
       Object {
         "id": "6f09b1fd371dec1e99b7e1c9",
         "jmeno": "Martina",
-        "narozeni": Object {
-          "den": 7,
-          "mesic": 12,
-          "rok": 1963,
-        },
+        "narozeni": "7. 12. 1963",
         "prijmeni": "Sukdoláková",
       },
     ]
   }
-  defaultExpanded={Object {}}
-  defaultFilterMethod={[Function]}
-  defaultFiltered={Array []}
-  defaultPageSize={2}
-  defaultResized={Array []}
-  defaultSortDesc={false}
-  defaultSortMethod={[Function]}
-  defaultSorted={Array []}
-  expanderDefaults={
-    Object {
-      "filterable": false,
-      "resizable": false,
-      "sortable": false,
-      "width": 35,
+  footerHeight={0}
+  groupHeaderHeight={0}
+  headerHeight={50}
+  height={500}
+  keyboardPageEnabled={true}
+  keyboardScrollEnabled={true}
+  rowHeight={50}
+  rowsCount={2}
+  showScrollbarX={true}
+  showScrollbarY={true}
+  stopScrollPropagation={false}
+  touchScrollEnabled={false}
+  width={500}
+>
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
     }
-  }
-  filterable={false}
-  freezeWhenExpanded={false}
-  getLoadingProps={[Function]}
-  getNoDataProps={[Function]}
-  getPaginationProps={[Function]}
-  getProps={[Function]}
-  getResizerProps={[Function]}
-  getTableProps={[Function]}
-  getTbodyProps={[Function]}
-  getTdProps={[Function]}
-  getTfootProps={[Function]}
-  getTfootTdProps={[Function]}
-  getTfootTrProps={[Function]}
-  getTheadFilterProps={[Function]}
-  getTheadFilterThProps={[Function]}
-  getTheadFilterTrProps={[Function]}
-  getTheadGroupProps={[Function]}
-  getTheadGroupThProps={[Function]}
-  getTheadGroupTrProps={[Function]}
-  getTheadProps={[Function]}
-  getTheadThProps={[Function]}
-  getTheadTrProps={[Function]}
-  getTrGroupProps={[Function]}
-  getTrProps={[Function]}
-  groupedByPivotKey="_groupedByPivot"
-  indexKey="_index"
-  loading={false}
-  loadingText="Loading..."
-  nestingLevelKey="_nestingLevel"
-  nextText="Next"
-  noDataText="No rows found"
-  ofText="of"
-  onFetchData={[Function]}
-  originalKey="_original"
-  pageSizeOptions={
-    Array [
-      5,
-      10,
-      20,
-      25,
-      50,
-      100,
-    ]
-  }
-  pageText="Page"
-  pivotDefaults={Object {}}
-  pivotIDKey="_pivotID"
-  pivotValKey="_pivotVal"
-  previousText="Previous"
-  resizable={true}
-  rowsText="rows"
-  showPageJump={true}
-  showPageSizeOptions={true}
-  showPagination={false}
-  showPaginationBottom={true}
-  showPaginationTop={false}
-  sortable={true}
-  style={Object {}}
-  subRowsKey="_subRows"
-/>
+    columnKey="prijmeni"
+    fixed={false}
+    fixedRight={false}
+    header={
+      <SortHeaderCell
+        onSortChange={[Function]}
+      >
+        příjmení
+      </SortHeaderCell>
+    }
+    key="prijmeni"
+    width={100}
+  />
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
+    }
+    columnKey="jmeno"
+    fixed={false}
+    fixedRight={false}
+    header={
+      <SortHeaderCell
+        onSortChange={[Function]}
+      >
+        jméno
+      </SortHeaderCell>
+    }
+    key="jmeno"
+    width={100}
+  />
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
+    }
+    columnKey="narozeni"
+    fixed={false}
+    fixedRight={false}
+    header={
+      <SortHeaderCell
+        onSortChange={[Function]}
+      >
+        narození
+      </SortHeaderCell>
+    }
+    key="narozeni"
+    width={100}
+  />
+</FixedDataTable>
 `;
 
 exports[`žádný účastník 1`] = `

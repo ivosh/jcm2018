@@ -252,13 +252,13 @@ it('getUcastniciOverviewSorted()', () => {
       id: '5a09b1fd371dec1e99b7e1c9',
       prijmeni: 'Balabák',
       jmeno: 'Roman',
-      narozeni: { rok: 1956 }
+      narozeni: '1956'
     },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
-      narozeni: { rok: 1963, mesic: 12, den: 7 }
+      narozeni: '7. 12. 1963'
     }
   ];
   deepFreeze(state);

@@ -84,7 +84,7 @@ export const getUcastniciOverviewSorted = ({ allIds, byIds }) => {
     });
   });
 
-  return ucastnici.sort((a, b) => {
+  const sorted = ucastnici.sort((a, b) => {
     const prijmeniCmp = csStringSortMethod(a.prijmeni, b.prijmeni);
     if (prijmeniCmp !== 0) {
       return prijmeniCmp;
@@ -96,5 +96,11 @@ export const getUcastniciOverviewSorted = ({ allIds, byIds }) => {
     }
 
     return narozeniSortMethod(a, b);
+  });
+
+  return sorted.map(ucastnik => {
+    const { narozeni, ...ostatek } = ucastnik;
+    const { den, mesic, rok } = narozeni;
+    return { ...ostatek, narozeni: mesic && den ? `${den}. ${mesic}. ${rok}` : `${rok}` };
   });
 };
