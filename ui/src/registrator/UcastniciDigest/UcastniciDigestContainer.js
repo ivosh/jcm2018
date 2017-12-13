@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import UcastniciDigestResponsive from './UcastniciDigestResponsive';
+import UcastniciDigest from './UcastniciDigest';
 import { fetchUcastnici } from '../../Ucastnici/UcastniciActions';
 import { getUcastniciDigestSorted } from './ucastniciDigestReducer';
 import sortDirChange from './UcastniciDigestActions';
@@ -19,8 +20,11 @@ const mapDispatchToProps = dispatch => ({
   onSortDirChange: sortColumn => dispatch(sortDirChange(sortColumn))
 });
 
-const UcastniciDigestContainer = connect(mapStateToProps, mapDispatchToProps)(
-  UcastniciDigestResponsive
-);
+const UcastniciDigestContainer = connect(mapStateToProps, mapDispatchToProps)(UcastniciDigest);
+
+UcastniciDigestContainer.propTypes = {
+  containerWidth: PropTypes.number.isRequired,
+  containerHeight: PropTypes.number.isRequired
+};
 
 export default UcastniciDigestContainer;
