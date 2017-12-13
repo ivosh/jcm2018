@@ -12,7 +12,7 @@ const UcastniciDigestResponsive = Dimensions({
 })(UcastniciDigest);
 
 UcastniciDigestResponsive.propTypes = {
-  ucastnici: PropTypes.arrayOf(
+  ucastniciDigest: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       prijmeni: PropTypes.string.isRequired,
@@ -20,7 +20,10 @@ UcastniciDigestResponsive.propTypes = {
       narozeni: PropTypes.string.isRequired
     }).isRequired
   ).isRequired,
-  fetchUcastnici: PropTypes.func.isRequired
+  sortColumn: PropTypes.string,
+  sortDir: PropTypes.string,
+  fetchUcastnici: PropTypes.func.isRequired,
+  onSortDirChange: PropTypes.func.isRequired
 };
 
 export default UcastniciDigestResponsive;

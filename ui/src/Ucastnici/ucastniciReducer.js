@@ -70,37 +70,16 @@ export const narozeniSortMethod = (a, b, desc = false) => {
 const collator = new Intl.Collator('cs');
 export const csStringSortMethod = (a, b) => collator.compare(a, b);
 
-export const getUcastniciDigestSorted = ({ allIds, byIds }) => {
-  const ucastnici = [];
-  allIds.forEach(id => {
-    const ucastnik = byIds[id];
-    const posledniUcast = ucastnik[ucastnik.roky[0]];
+export const prijmeniJmenoNarozeniSortMethod = (a, b) => {
+  const prijmeniCmp = csStringSortMethod(a.prijmeni, b.prijmeni);
+  if (prijmeniCmp !== 0) {
+    return prijmeniCmp;
+  }
 
-    ucastnici.push({
-      id,
-      prijmeni: posledniUcast.udaje.prijmeni,
-      jmeno: posledniUcast.udaje.jmeno,
-      narozeni: posledniUcast.udaje.narozeni
-    });
-  });
+  const jmenoCmp = csStringSortMethod(a.jmeno, b.jmeno);
+  if (jmenoCmp !== 0) {
+    return jmenoCmp;
+  }
 
-  const sorted = ucastnici.sort((a, b) => {
-    const prijmeniCmp = csStringSortMethod(a.prijmeni, b.prijmeni);
-    if (prijmeniCmp !== 0) {
-      return prijmeniCmp;
-    }
-
-    const jmenoCmp = csStringSortMethod(a.jmeno, b.jmeno);
-    if (jmenoCmp !== 0) {
-      return jmenoCmp;
-    }
-
-    return narozeniSortMethod(a, b);
-  });
-
-  return sorted.map(ucastnik => {
-    const { narozeni, ...ostatek } = ucastnik;
-    const { den, mesic, rok } = narozeni;
-    return { ...ostatek, narozeni: mesic && den ? `${den}. ${mesic}. ${rok}` : `${rok}` };
-  });
+  return narozeniSortMethod(a.narozeni, b.narozeni);
 };

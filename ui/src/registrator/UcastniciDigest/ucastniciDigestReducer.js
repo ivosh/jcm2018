@@ -1,3 +1,9 @@
+import {
+  csStringSortMethod,
+  narozeniSortMethod,
+  prijmeniJmenoNarozeniSortMethod
+} from '../../Ucastnici/ucastniciReducer';
+
 export const SortDirTypes = { NONE: 'none', ASC: 'asc', DESC: 'desc' };
 
 const reverseSortDirType = sortDirType => {
@@ -29,3 +35,36 @@ const ucastniciDigestReducer = (state = initialState, action) => {
 };
 
 export default ucastniciDigestReducer;
+
+export const getUcastniciDigestSorted = ({ allIds, byIds, sortColumn, sortDir }) => {
+  const ucastnici = [];
+  allIds.forEach(id => {
+    const ucastnik = byIds[id];
+    const posledniUcast = ucastnik[ucastnik.roky[0]];
+
+    ucastnici.push({
+      id,
+      prijmeni: posledniUcast.udaje.prijmeni,
+      jmeno: posledniUcast.udaje.jmeno,
+      narozeni: posledniUcast.udaje.narozeni
+    });
+  });
+
+  const sortMethods = {
+    prijmeni: (a, b) => csStringSortMethod(a.prijmeni, b.prijmeni),
+    jmeno: (a, b) => csStringSortMethod(a.jmeno, b.jmeno),
+    narozeni: (a, b) => narozeniSortMethod(a.narozeni, b.narozeni)
+  };
+
+  const sortMethod = sortMethods[sortColumn] || prijmeniJmenoNarozeniSortMethod;
+  const sorted = ucastnici.sort(sortMethod);
+  if (sortDir === SortDirTypes.DESC) {
+    sorted.reverse();
+  }
+
+  return sorted.map(ucastnik => {
+    const { narozeni, ...ostatek } = ucastnik;
+    const { den, mesic, rok } = narozeni;
+    return { ...ostatek, narozeni: mesic && den ? `${den}. ${mesic}. ${rok}` : `${rok}` };
+  });
+};

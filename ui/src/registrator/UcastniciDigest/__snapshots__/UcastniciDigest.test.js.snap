@@ -36,6 +36,7 @@ exports[`dva účastníci 1`] = `
     allowCellsRecycling={false}
     cell={
       <TextCell
+        columnKey="prijmeni"
         data={
           Array [
             Object {
@@ -59,7 +60,9 @@ exports[`dva účastníci 1`] = `
     fixedRight={false}
     header={
       <SortHeaderCell
-        onSortChange={[Function]}
+        columnKey="prijmeni"
+        onSortDirChange={[Function]}
+        sortDir="none"
       >
         příjmení
       </SortHeaderCell>
@@ -71,6 +74,7 @@ exports[`dva účastníci 1`] = `
     allowCellsRecycling={false}
     cell={
       <TextCell
+        columnKey="jmeno"
         data={
           Array [
             Object {
@@ -94,7 +98,9 @@ exports[`dva účastníci 1`] = `
     fixedRight={false}
     header={
       <SortHeaderCell
-        onSortChange={[Function]}
+        columnKey="jmeno"
+        onSortDirChange={[Function]}
+        sortDir="none"
       >
         jméno
       </SortHeaderCell>
@@ -106,6 +112,7 @@ exports[`dva účastníci 1`] = `
     allowCellsRecycling={false}
     cell={
       <TextCell
+        columnKey="narozeni"
         data={
           Array [
             Object {
@@ -129,7 +136,9 @@ exports[`dva účastníci 1`] = `
     fixedRight={false}
     header={
       <SortHeaderCell
-        onSortChange={[Function]}
+        columnKey="narozeni"
+        onSortDirChange={[Function]}
+        sortDir="none"
       >
         narození
       </SortHeaderCell>

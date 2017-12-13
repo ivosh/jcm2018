@@ -1,5 +1,5 @@
 import deepFreeze from 'deep-freeze';
-import ucastniciReducer, { getUcastniciDigestSorted, narozeniSortMethod } from './ucastniciReducer';
+import ucastniciReducer, { narozeniSortMethod } from './ucastniciReducer';
 import { receiveUcastnici } from './UcastniciActions';
 
 const narozeniSortMethodDescending = (a, b) => narozeniSortMethod(a, b, true);
@@ -200,65 +200,4 @@ it('narozeniSort(desc=true) - prázdný měsíc a den', () => {
     { rok: 1978, mesic: 8, den: 6 },
     { rok: 1978, mesic: 8, den: 7 }
   ]);
-});
-
-it('getUcastniciDigestSorted()', () => {
-  const state = {
-    allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
-    byIds: {
-      '6f09b1fd371dec1e99b7e1c9': {
-        roky: [2016],
-        2016: {
-          udaje: {
-            prijmeni: 'Sukdoláková',
-            jmeno: 'Martina',
-            narozeni: { rok: 1963, mesic: 12, den: 7 },
-            pohlavi: 'zena',
-            obec: 'Zlín',
-            stat: 'Česká republika'
-          }
-        }
-      },
-      '5a09b1fd371dec1e99b7e1c9': {
-        roky: [2018, 2017],
-        2018: {
-          udaje: {
-            prijmeni: 'Balabák',
-            jmeno: 'Roman',
-            narozeni: { rok: 1956 },
-            pohlavi: 'muz',
-            obec: 'Ostrava 2',
-            stat: 'Česká republika'
-          }
-        },
-        2017: {
-          udaje: {
-            prijmeni: 'Balabák',
-            jmeno: 'Roman',
-            narozeni: { rok: 1957 },
-            pohlavi: 'muz',
-            obec: 'Ostrava 1',
-            stat: 'Česká republika'
-          }
-        }
-      }
-    }
-  };
-  const selected = [
-    {
-      id: '5a09b1fd371dec1e99b7e1c9',
-      prijmeni: 'Balabák',
-      jmeno: 'Roman',
-      narozeni: '1956'
-    },
-    {
-      id: '6f09b1fd371dec1e99b7e1c9',
-      prijmeni: 'Sukdoláková',
-      jmeno: 'Martina',
-      narozeni: '7. 12. 1963'
-    }
-  ];
-  deepFreeze(state);
-
-  expect(getUcastniciDigestSorted(state)).toEqual(selected);
 });

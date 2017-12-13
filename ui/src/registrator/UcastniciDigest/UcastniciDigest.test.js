@@ -3,13 +3,12 @@ import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import UcastniciDigest from './UcastniciDigest';
 
-const fakeFetchUcastnici = () => {};
-
 it('žádný účastník', () => {
   const wrapper = shallow(
     <UcastniciDigest
-      ucastnici={[]}
-      fetchUcastnici={fakeFetchUcastnici}
+      ucastniciDigest={[]}
+      fetchUcastnici={jest.fn()}
+      onSortDirChange={jest.fn()}
       containerWidth={500}
       containerHeight={500}
     />
@@ -18,7 +17,7 @@ it('žádný účastník', () => {
 });
 
 it('dva účastníci', () => {
-  const ucastnici = [
+  const ucastniciDigest = [
     {
       id: '5a09b1fd371dec1e99b7e1c9',
       prijmeni: 'Balabák',
@@ -35,8 +34,9 @@ it('dva účastníci', () => {
 
   const wrapper = shallow(
     <UcastniciDigest
-      ucastnici={ucastnici}
-      fetchUcastnici={fakeFetchUcastnici}
+      ucastniciDigest={ucastniciDigest}
+      fetchUcastnici={jest.fn()}
+      onSortDirChange={jest.fn()}
       containerWidth={500}
       containerHeight={500}
     />
