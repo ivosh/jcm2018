@@ -20,11 +20,11 @@ exports[`dva účastníci 1`] = `
   }
   footerHeight={0}
   groupHeaderHeight={0}
-  headerHeight={50}
+  headerHeight={35}
   height={500}
   keyboardPageEnabled={true}
   keyboardScrollEnabled={true}
-  rowHeight={50}
+  rowHeight={35}
   rowsCount={2}
   showScrollbarX={true}
   showScrollbarY={true}

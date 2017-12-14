@@ -50,8 +50,8 @@ class UcastniciDigest extends Component {
         // :TODO: highlight currently hovered row
         data={ucastniciDigest}
         rowsCount={ucastniciDigest.length}
-        rowHeight={50}
-        headerHeight={50}
+        rowHeight={35}
+        headerHeight={35}
         width={containerWidth}
         height={containerHeight}
         keyboardScrollEnabled

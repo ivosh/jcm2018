@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Cell } from 'fixed-data-table-2';
 import { SortDirTypes } from './ucastniciDigestReducer';
+import './SortHeaderCell.css';
 
 const sortDirs = {};
 sortDirs[SortDirTypes.NONE] = '';
