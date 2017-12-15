@@ -21,13 +21,15 @@ exports[`renders 1`] = `
       className={null}
       style={
         Object {
-          "paddingLeft": "30px",
-          "paddingRight": "50px",
+          "border": 0,
+          "height": "100%",
+          "padding": 0,
+          "width": "100%",
         }
       }
     >
       <Connect(UcastniciDigest)
-        containerHeight={668}
+        containerHeight={648}
         containerWidth={924}
         store={
           Object {
@@ -42,7 +44,7 @@ exports[`renders 1`] = `
         updateDimensions={[Function]}
       >
         <UcastniciDigest
-          containerHeight={668}
+          containerHeight={648}
           containerWidth={924}
           fetchUcastnici={[Function]}
           onSortDirChange={[Function]}

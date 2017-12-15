@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import UcastniciDigest from './UcastniciDigest';
 import { fetchUcastnici } from '../../Ucastnici/UcastniciActions';
 import { getUcastniciDigestSorted } from './ucastniciDigestReducer';
-import sortDirChange from './UcastniciDigestActions';
+import { sortDirChange } from './UcastniciDigestActions';
 
 const mapStateToProps = ({ ucastnici, registrator }) => {
   const { sortColumn, sortDir } = registrator.ucastniciDigest;

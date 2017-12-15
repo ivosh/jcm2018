@@ -3,7 +3,7 @@ import ucastniciDigestReducer, {
   SortDirTypes,
   getUcastniciDigestSorted
 } from './ucastniciDigestReducer';
-import sortDirChange from './UcastniciDigestActions';
+import { filterChange, sortDirChange } from './UcastniciDigestActions';
 
 it('na začátku', () => {
   const stateBefore = undefined;
@@ -11,30 +11,39 @@ it('na začátku', () => {
   const stateAfter = ucastniciDigestReducer(stateBefore, {});
   expect(stateAfter.sortColumn).toBe(undefined);
   expect(stateAfter.sortDir).toEqual(SortDirTypes.NONE);
+  expect(stateAfter.filter).toEqual('');
 });
 
 it('řadit dle příjmení vzestupně', () => {
-  const stateBefore = { sortColumn: undefined, sortDir: SortDirTypes.NONE };
-  const stateAfter = { sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC };
+  const stateBefore = { sortColumn: undefined, sortDir: SortDirTypes.NONE, filter: '' };
+  const stateAfter = { sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC, filter: '' };
   deepFreeze(stateBefore);
 
   expect(ucastniciDigestReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
 });
 
 it('řadit dle příjmení sestupně', () => {
-  const stateBefore = { sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC };
-  const stateAfter = { sortColumn: 'prijmeni', sortDir: SortDirTypes.DESC };
+  const stateBefore = { sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC, filter: '' };
+  const stateAfter = { sortColumn: 'prijmeni', sortDir: SortDirTypes.DESC, filter: '' };
   deepFreeze(stateBefore);
 
   expect(ucastniciDigestReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
 });
 
 it('řadit dle jména vzestupně', () => {
-  const stateBefore = { sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC };
-  const stateAfter = { sortColumn: 'jmeno', sortDir: SortDirTypes.ASC };
+  const stateBefore = { sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC, filter: '' };
+  const stateAfter = { sortColumn: 'jmeno', sortDir: SortDirTypes.ASC, filter: '' };
   deepFreeze(stateBefore);
 
   expect(ucastniciDigestReducer(stateBefore, sortDirChange('jmeno'))).toEqual(stateAfter);
+});
+
+it('filtrovat na dvě písmena', () => {
+  const stateBefore = { sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC, filter: '' };
+  const stateAfter = { sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC, filter: 'kl' };
+  deepFreeze(stateBefore);
+
+  expect(ucastniciDigestReducer(stateBefore, filterChange('Kl'))).toEqual(stateAfter);
 });
 
 it('getUcastniciDigestSorted() by default', () => {
@@ -83,7 +92,8 @@ it('getUcastniciDigestSorted() by default', () => {
     registrator: {
       ucastniciDigest: {
         sortColumn: undefined,
-        sortDir: undefined
+        sortDir: undefined,
+        filter: ''
       }
     }
   };
@@ -155,7 +165,8 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
     registrator: {
       ucastniciDigest: {
         sortColumn: 'prijmeni',
-        sortDir: SortDirTypes.DESC
+        sortDir: SortDirTypes.DESC,
+        filter: ''
       }
     }
   };
@@ -227,7 +238,8 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
     registrator: {
       ucastniciDigest: {
         sortColumn: 'narozeni',
-        sortDir: SortDirTypes.DESC
+        sortDir: SortDirTypes.DESC,
+        filter: ''
       }
     }
   };
@@ -238,6 +250,73 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
       jmeno: 'Martina',
       narozeni: '7. 12. 1963'
     },
+    {
+      id: '5a09b1fd371dec1e99b7e1c9',
+      prijmeni: 'Balabák',
+      jmeno: 'Roman',
+      narozeni: '1956'
+    }
+  ];
+  deepFreeze(state);
+
+  const { ucastnici, registrator } = state;
+  expect(getUcastniciDigestSorted({ ...ucastnici, ...registrator.ucastniciDigest })).toEqual(
+    selected
+  );
+});
+
+it('getUcastniciDigestSorted() filtrováno na r', () => {
+  const state = {
+    ucastnici: {
+      allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
+      byIds: {
+        '6f09b1fd371dec1e99b7e1c9': {
+          roky: [2016],
+          2016: {
+            udaje: {
+              prijmeni: 'Sukdoláková',
+              jmeno: 'Martina',
+              narozeni: { rok: 1963, mesic: 12, den: 7 },
+              pohlavi: 'zena',
+              obec: 'Zlín',
+              stat: 'Česká republika'
+            }
+          }
+        },
+        '5a09b1fd371dec1e99b7e1c9': {
+          roky: [2018, 2017],
+          2018: {
+            udaje: {
+              prijmeni: 'Balabák',
+              jmeno: 'Roman',
+              narozeni: { rok: 1956 },
+              pohlavi: 'muz',
+              obec: 'Ostrava 2',
+              stat: 'Česká republika'
+            }
+          },
+          2017: {
+            udaje: {
+              prijmeni: 'Balabák',
+              jmeno: 'Roman',
+              narozeni: { rok: 1957 },
+              pohlavi: 'muz',
+              obec: 'Ostrava 1',
+              stat: 'Česká republika'
+            }
+          }
+        }
+      }
+    },
+    registrator: {
+      ucastniciDigest: {
+        sortColumn: undefined,
+        sortDir: undefined,
+        filter: 'r'
+      }
+    }
+  };
+  const selected = [
     {
       id: '5a09b1fd371dec1e99b7e1c9',
       prijmeni: 'Balabák',

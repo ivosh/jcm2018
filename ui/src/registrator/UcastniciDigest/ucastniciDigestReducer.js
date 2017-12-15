@@ -19,7 +19,8 @@ const reverseSortDirType = sortDirType => {
 
 export const initialState = {
   sortColumn: undefined,
-  sortDir: SortDirTypes.NONE
+  sortDir: SortDirTypes.NONE,
+  filter: ''
 };
 
 const ucastniciDigestReducer = (state = initialState, action) => {
@@ -29,6 +30,8 @@ const ucastniciDigestReducer = (state = initialState, action) => {
         return { ...state, sortColumn: action.sortColumn, sortDir: SortDirTypes.ASC };
       }
       return { ...state, sortDir: reverseSortDirType(state.sortDir) };
+    case 'UCASTNICI_DIGEST_FILTER_CHANGE':
+      return { ...state, filter: action.filter.toLowerCase() };
     default:
       return state;
   }
@@ -36,18 +39,24 @@ const ucastniciDigestReducer = (state = initialState, action) => {
 
 export default ucastniciDigestReducer;
 
-export const getUcastniciDigestSorted = ({ allIds, byIds, sortColumn, sortDir }) => {
+export const getUcastniciDigestSorted = ({ allIds, byIds, sortColumn, sortDir, filter }) => {
   const ucastnici = [];
   allIds.forEach(id => {
     const ucastnik = byIds[id];
     const posledniUcast = ucastnik[ucastnik.roky[0]];
+    const { udaje } = posledniUcast;
 
-    ucastnici.push({
-      id,
-      prijmeni: posledniUcast.udaje.prijmeni,
-      jmeno: posledniUcast.udaje.jmeno,
-      narozeni: posledniUcast.udaje.narozeni
-    });
+    if (
+      udaje.prijmeni.toLowerCase().startsWith(filter) ||
+      udaje.jmeno.toLowerCase().startsWith(filter)
+    ) {
+      ucastnici.push({
+        id,
+        prijmeni: udaje.prijmeni,
+        jmeno: udaje.jmeno,
+        narozeni: udaje.narozeni
+      });
+    }
   });
 
   const sortMethods = {

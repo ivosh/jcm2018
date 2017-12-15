@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<div
+  className="UcastniciDigestFilterable_div"
+>
+  <DebounceInput
+    className="UcastniciDigestFilterable_input"
+    debounceTimeout={500}
+    element="input"
+    forceNotifyByEnter={true}
+    forceNotifyOnBlur={true}
+    minLength={0}
+    onChange={[Function]}
+    placeholder="Filter na příjmení a jméno"
+    type="text"
+  />
+  <DimensionsHOC />
+</div>
+`;

@@ -51,7 +51,9 @@ beforeEach(() => {
         }
       }
     },
-    registrator: { ucastniciDigest: { sortColumn: 'prijmeni', sortDir: SortDirTypes.DESC } }
+    registrator: {
+      ucastniciDigest: { sortColumn: 'prijmeni', sortDir: SortDirTypes.DESC, filter: '' }
+    }
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
