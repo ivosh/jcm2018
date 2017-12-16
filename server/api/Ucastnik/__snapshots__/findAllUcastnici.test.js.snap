@@ -18,6 +18,12 @@ Object {
           "prijmeni": "Balabák",
           "stat": "Česká republika",
         },
+        "vykon": Object {
+          "cas": "PT1H25M32.6S",
+          "dokonceno": true,
+          "kategorie": "k1",
+          "startCislo": 34,
+        },
       },
       "2018": Object {
         "platby": Array [],
@@ -31,6 +37,11 @@ Object {
           "pohlavi": "muž",
           "prijmeni": "Balabák",
           "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": false,
+          "kategorie": "k1",
+          "startCislo": 15,
         },
       },
       "roky": Array [
@@ -54,6 +65,12 @@ Object {
           "prijmeni": "Sukdoláková",
           "stat": "Česká republika",
         },
+        "vykon": Object {
+          "cas": "PT3H42M32.6S",
+          "dokonceno": true,
+          "kategorie": "k2",
+          "startCislo": 11,
+        },
       },
       "2017": Object {
         "platby": Array [],
@@ -69,6 +86,12 @@ Object {
           "pohlavi": "žena",
           "prijmeni": "Primasová",
           "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H8M23.7S",
+          "dokonceno": true,
+          "kategorie": "k2",
+          "startCislo": 7,
         },
       },
       "roky": Array [
