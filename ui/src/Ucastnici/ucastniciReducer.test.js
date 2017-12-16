@@ -33,6 +33,12 @@ it('po načtení účastníků', () => {
             pohlavi: 'zena',
             obec: 'Zlín',
             stat: 'Česká republika'
+          },
+          vykon: {
+            kategorie: '5a71b1fd45754c1e99b7e1bc',
+            startCislo: 11,
+            dokonceno: true,
+            cas: 'PT3H42M32.6S'
           }
         }
       },
@@ -46,6 +52,12 @@ it('po načtení účastníků', () => {
             pohlavi: 'muz',
             obec: 'Ostrava 1',
             stat: 'Česká republika'
+          },
+          vykon: {
+            kategorie: '5a71b1fd371dec1e99b7e1bc',
+            startCislo: 34,
+            dokonceno: true,
+            cas: 'PT1H25M32.6S'
           }
         },
         2018: {
@@ -56,6 +68,11 @@ it('po načtení účastníků', () => {
             pohlavi: 'muz',
             obec: 'Ostrava 2',
             stat: 'Česká republika'
+          },
+          vykon: {
+            kategorie: '5a71b1fd371dec1e99b7e1bc',
+            startCislo: 15,
+            dokonceno: false
           }
         }
       }
@@ -77,6 +94,12 @@ it('po načtení účastníků', () => {
             pohlavi: 'zena',
             obec: 'Zlín',
             stat: 'Česká republika'
+          },
+          vykon: {
+            kategorie: '5a71b1fd45754c1e99b7e1bc',
+            startCislo: 11,
+            dokonceno: true,
+            cas: 'PT3H42M32.6S'
           }
         }
       },
@@ -90,6 +113,11 @@ it('po načtení účastníků', () => {
             pohlavi: 'muz',
             obec: 'Ostrava 2',
             stat: 'Česká republika'
+          },
+          vykon: {
+            kategorie: '5a71b1fd371dec1e99b7e1bc',
+            startCislo: 15,
+            dokonceno: false
           }
         },
         2017: {
@@ -100,6 +128,12 @@ it('po načtení účastníků', () => {
             pohlavi: 'muz',
             obec: 'Ostrava 1',
             stat: 'Česká republika'
+          },
+          vykon: {
+            kategorie: '5a71b1fd371dec1e99b7e1bc',
+            startCislo: 34,
+            dokonceno: true,
+            cas: 'PT1H25M32.6S'
           }
         }
       }
