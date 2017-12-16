@@ -20,6 +20,7 @@ beforeEach(() => {
 });
 
 it('maps state and dispatch to props', () => {
+  expect(wrapper.props().filter).toEqual('');
   expect(wrapper.props().onFilterChange).toBeTruthy();
 });
 

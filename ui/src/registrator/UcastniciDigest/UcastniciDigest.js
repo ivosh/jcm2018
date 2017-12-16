@@ -61,6 +61,8 @@ class UcastniciDigest extends Component {
           <Column
             key={column.key}
             columnKey={column.key}
+            width={column.width}
+            flexGrow={1}
             header={
               <SortHeaderCell
                 columnKey={column.key}
@@ -71,7 +73,6 @@ class UcastniciDigest extends Component {
               </SortHeaderCell>
             }
             cell={<TextCell columnKey={column.key} data={ucastniciDigest} />}
-            width={column.width}
           />
         ))}
       </Table>

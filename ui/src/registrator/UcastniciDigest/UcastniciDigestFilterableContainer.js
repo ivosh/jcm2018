@@ -2,13 +2,16 @@ import { connect } from 'react-redux';
 import UcastniciDigestFilterable from './UcastniciDigestFilterable';
 import { filterChange } from './UcastniciDigestActions';
 
+const mapStateToProps = ({ registrator }) => {
+  const { filter } = registrator.ucastniciDigest;
+  return { filter };
+};
+
 const mapDispatchToProps = dispatch => ({
   onFilterChange: filter => dispatch(filterChange(filter))
 });
 
-/* Redux state 'filter' is not mapped to props deliberately: UcastniciDigestFilterable does not
-   want to preserve its state accross updates. */
-const UcastniciDigestFilterableContainer = connect(null, mapDispatchToProps)(
+const UcastniciDigestFilterableContainer = connect(mapStateToProps, mapDispatchToProps)(
   UcastniciDigestFilterable
 );
 

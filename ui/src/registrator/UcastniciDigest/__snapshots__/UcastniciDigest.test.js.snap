@@ -58,6 +58,7 @@ exports[`dva účastníci 1`] = `
     columnKey="prijmeni"
     fixed={false}
     fixedRight={false}
+    flexGrow={1}
     header={
       <SortHeaderCell
         columnKey="prijmeni"
@@ -96,6 +97,7 @@ exports[`dva účastníci 1`] = `
     columnKey="jmeno"
     fixed={false}
     fixedRight={false}
+    flexGrow={1}
     header={
       <SortHeaderCell
         columnKey="jmeno"
@@ -134,6 +136,7 @@ exports[`dva účastníci 1`] = `
     columnKey="narozeni"
     fixed={false}
     fixedRight={false}
+    flexGrow={1}
     header={
       <SortHeaderCell
         columnKey="narozeni"

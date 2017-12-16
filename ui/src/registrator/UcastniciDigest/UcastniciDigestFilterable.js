@@ -4,12 +4,13 @@ import DebounceInput from 'react-debounce-input';
 import UcastniciDigestResponsive from './UcastniciDigestResponsive';
 import './UcastniciDigestFilterable.css';
 
-const UcastniciDigestFilterable = ({ onFilterChange }) => (
+const UcastniciDigestFilterable = ({ filter, onFilterChange }) => (
   <div className="UcastniciDigestFilterable_div">
     <DebounceInput
       className="UcastniciDigestFilterable_input"
       minLength={0}
       debounceTimeout={500}
+      value={filter}
       placeholder="Filter na příjmení a jméno"
       onChange={e => onFilterChange(e.target.value)}
     />
@@ -18,6 +19,7 @@ const UcastniciDigestFilterable = ({ onFilterChange }) => (
 );
 
 UcastniciDigestFilterable.propTypes = {
+  filter: PropTypes.string,
   onFilterChange: PropTypes.func.isRequired
 };
 
