@@ -12,7 +12,7 @@ exports[`renders 1`] = `
     forceNotifyOnBlur={true}
     minLength={0}
     onChange={[Function]}
-    placeholder="Filter na příjmení a jméno"
+    placeholder="Filtr na příjmení a jméno"
     type="text"
   />
   <DimensionsHOC />

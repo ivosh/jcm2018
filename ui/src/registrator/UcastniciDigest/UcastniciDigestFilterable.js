@@ -11,7 +11,7 @@ const UcastniciDigestFilterable = ({ filter, onFilterChange }) => (
       minLength={0}
       debounceTimeout={500}
       value={filter}
-      placeholder="Filter na příjmení a jméno"
+      placeholder="Filtr na příjmení a jméno"
       onChange={e => onFilterChange(e.target.value)}
     />
     <UcastniciDigestResponsive />
