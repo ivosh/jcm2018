@@ -2,9 +2,11 @@ import WebSocketAsPromised from 'websocket-as-promised';
 
 class WsClient {
   // TODO: port from common
-  constructor({ host = 'localhost', port = 4000 } = {}) {
+  constructor({ host = 'localhost', port = 4000, onConnect, onClose } = {}) {
     this.url = `ws://${host}:${port}/`;
     this.reconnectInterval = 2 * 1000;
+    this.onConnectCallback = onConnect;
+    this.onCloseCallback = onClose;
   }
 
   connect = async () => {
@@ -19,24 +21,36 @@ class WsClient {
 
     try {
       await ws.open();
-      console.log('WebSocket client connected');
+      if (this.onConnectCallback) {
+        this.onConnectCallback();
+      }
     } catch (err) {
-      this.handleClose();
+      this.retryConnect();
     }
 
     ws.onClose.addListener(this.handleClose);
     this.ws = ws;
   };
 
-  handleClose = () => {
-    console.log('WebSocket client connect retry');
+  isConnected = () => {
+    const { ws } = this;
+    return ws ? ws.isOpened : false;
+  };
 
+  retryConnect = () => {
+    console.log('WebSocket client connect retry');
     this.ws = null;
-    if (this.forcedClose) {
-      return;
+    setTimeout(this.connect, this.reconnectInterval);
+  };
+
+  handleClose = () => {
+    this.ws = null;
+
+    if (this.onCloseCallback) {
+      this.onCloseCallback();
     }
 
-    setTimeout(this.connect, this.reconnectInterval);
+    this.retryConnect();
   };
 
   sendRequest = data => {
@@ -48,7 +62,6 @@ class WsClient {
   };
 
   close = (code, reason) => {
-    this.forcedClose = true;
     const { ws } = this;
     if (ws) {
       return ws.close(code, reason);
