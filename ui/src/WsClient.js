@@ -1,12 +1,24 @@
 import WebSocketAsPromised from 'websocket-as-promised';
+import Channel from 'chnl';
 
+/**
+ * Usage:
+ * const wsClient = new WsClient({ onConnect, onClose });
+ * await wsClient.connect();
+ * const response = await wsClient.sendRequest({ your: 'request' });
+ * await wsClient.close();
+ */
 class WsClient {
   // TODO: port from common
   constructor({ host = 'localhost', port = 4000, onConnect, onClose } = {}) {
     this.url = `ws://${host}:${port}/`;
     this.reconnectInterval = 2 * 1000;
+    this.sendTimeout = 10 * 1000;
     this.onConnectCallback = onConnect;
     this.onCloseCallback = onClose;
+    this.channel = new Channel();
+    this.channel.addListener(this.onRequestAvailable);
+    this.channel.mute({ accumulate: true });
   }
 
   connect = async () => {
@@ -21,15 +33,20 @@ class WsClient {
 
     try {
       await ws.open();
-      if (this.onConnectCallback) {
-        this.onConnectCallback();
-      }
     } catch (err) {
       this.retryConnect();
+      return Promise.resolve('Connect retry scheduled.');
     }
 
     ws.onClose.addListener(this.handleClose);
     this.ws = ws;
+    this.channel.unmute();
+
+    if (this.onConnectCallback) {
+      this.onConnectCallback();
+    }
+
+    return Promise.resolve('Connected.');
   };
 
   isConnected = () => {
@@ -38,13 +55,13 @@ class WsClient {
   };
 
   retryConnect = () => {
-    console.log('WebSocket client connect retry');
+    console.log('WebSocket client connect retry.');
     this.ws = null;
     setTimeout(this.connect, this.reconnectInterval);
   };
 
   handleClose = () => {
-    this.ws = null;
+    this.channel.mute({ accumulate: true });
 
     if (this.onCloseCallback) {
       this.onCloseCallback();
@@ -53,12 +70,27 @@ class WsClient {
     this.retryConnect();
   };
 
-  sendRequest = data => {
+  onRequestAvailable = async request => {
     const { ws } = this;
     if (ws) {
-      return ws.sendRequest(data);
+      const response = await ws.sendRequest(request.data);
+      request.resolve(response);
+      return;
     }
-    return Promise.reject(new Error('Nepřipojeno.'));
+    // WsClient se mezitím odpojil. Naplánuj znovu.
+    this.channel.dispatch(request);
+  };
+
+  sendRequest = async data => {
+    let request = { data };
+    const promise = new Promise((resolve, reject) => {
+      request = { ...request, resolve, reject };
+    });
+    request = { ...request, promise };
+
+    setTimeout(() => request.reject(new Error('Request send timeout.')), this.sendTimeout);
+    this.channel.dispatch(request);
+    return request.promise;
   };
 
   close = (code, reason) => {
@@ -72,9 +104,9 @@ class WsClient {
   refresh = () => {
     const { ws } = this;
     if (ws) {
-      return ws.close();
+      return ws.close(); // Triggers ws.onClose listener => this.handleClose().
     }
-    return Promise.resolve();
+    return Promise.resolve('Zatím nepřipojeno.');
   };
 }
 

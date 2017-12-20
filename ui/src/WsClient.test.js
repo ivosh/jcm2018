@@ -5,9 +5,12 @@ const PORT = 4001;
 
 let mockServer;
 let wsClient;
-beforeEach(() => {
+const createServer = () => {
   mockServer = new Server(`ws://localhost:${PORT}`);
-});
+  // Sends the same message unmodified back to the client.
+  mockServer.on('message', message => mockServer.send(message));
+};
+beforeEach(() => createServer());
 
 afterEach(async () => {
   await wsClient.close();
@@ -59,5 +62,12 @@ it('reconnects', async done => {
   await mockServer.close();
   expect(wsClient.isConnected()).toEqual(false);
 
-  mockServer = new Server(`ws://localhost:${PORT}`);
+  createServer();
+});
+
+it('sends a request', async () => {
+  wsClient = new WsClient({ port: PORT });
+  await wsClient.connect();
+  const response = await wsClient.sendRequest({ zprava: 'Tohle.' });
+  expect(response).toBeTruthy();
 });
