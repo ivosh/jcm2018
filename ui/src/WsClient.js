@@ -21,7 +21,7 @@ class WsClient {
     this.channel.mute({ accumulate: true });
   }
 
-  connect = async () => {
+  connectPrivate = async request => {
     const ws = new WebSocketAsPromised(this.url, {
       createWebSocket: () => new WebSocket(this.url, 'jcm2018'),
       packMessage: data => JSON.stringify(data),
@@ -34,8 +34,8 @@ class WsClient {
     try {
       await ws.open();
     } catch (err) {
-      this.retryConnect();
-      return Promise.resolve('Connect retry scheduled.');
+      this.retryConnect(request);
+      return;
     }
 
     ws.onClose.addListener(this.handleClose);
@@ -46,7 +46,17 @@ class WsClient {
       this.onConnectCallback();
     }
 
-    return Promise.resolve('Connected.');
+    request.resolve('Connected.');
+  };
+
+  connect = () => {
+    let request = {};
+    const promise = new Promise((resolve, reject) => {
+      request = { ...request, resolve, reject };
+    });
+
+    this.connectPrivate(request);
+    return promise;
   };
 
   isConnected = () => {
@@ -54,10 +64,10 @@ class WsClient {
     return ws ? ws.isOpened : false;
   };
 
-  retryConnect = () => {
+  retryConnect = request => {
     console.log('WebSocket client connect retry.');
     this.ws = null;
-    setTimeout(this.connect, this.reconnectInterval);
+    setTimeout(() => this.connectPrivate(request), this.reconnectInterval);
   };
 
   handleClose = () => {
@@ -67,7 +77,8 @@ class WsClient {
       this.onCloseCallback();
     }
 
-    this.retryConnect();
+    const request = { resolve: () => {}, reject: () => {} };
+    this.retryConnect(request);
   };
 
   onRequestAvailable = async request => {
@@ -86,11 +97,10 @@ class WsClient {
     const promise = new Promise((resolve, reject) => {
       request = { ...request, resolve, reject };
     });
-    request = { ...request, promise };
 
     setTimeout(() => request.reject(new Error('Request send timeout.')), this.sendTimeout);
     this.channel.dispatch(request);
-    return request.promise;
+    return promise;
   };
 
   close = (code, reason) => {

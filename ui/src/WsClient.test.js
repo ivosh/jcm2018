@@ -65,6 +65,17 @@ it('reconnects', async done => {
   createServer();
 });
 
+it('connects after server start', async () => {
+  await mockServer.stop();
+  wsClient = new WsClient({ port: PORT });
+  const promise = wsClient.connect();
+  expect(wsClient.isConnected()).toEqual(false);
+
+  createServer();
+  await promise;
+  expect(wsClient.isConnected()).toEqual(true);
+});
+
 it('sends a request', async () => {
   wsClient = new WsClient({ port: PORT });
   await wsClient.connect();
