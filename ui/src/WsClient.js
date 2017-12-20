@@ -110,14 +110,6 @@ class WsClient {
     }
     return Promise.resolve('Již zavřeno.');
   };
-
-  refresh = () => {
-    const { ws } = this;
-    if (ws) {
-      return ws.close(); // Triggers ws.onClose listener => this.handleClose().
-    }
-    return Promise.resolve('Zatím nepřipojeno.');
-  };
 }
 
 export default WsClient;
