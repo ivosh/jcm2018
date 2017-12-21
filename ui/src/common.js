@@ -8,7 +8,6 @@
    cp common/common.js ui/src/common.js
    ./node_modules/jscodeshift/bin/jscodeshift.sh -t node_modules/5to6-codemod/transforms/exports.js ui/src/common.js
    ./node_modules/jscodeshift/bin/jscodeshift.sh -t node_modules/5to6-codemod/transforms/named-export-generation.js ui/src/common.js
-   diff -u common/common.js ui/src/common.js
  */
 
 const PORT = 4000;
@@ -143,7 +142,7 @@ const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyPotvrzen
   };
 };
 
-module.exports = {
+const exported = {
   PORT,
   CREATE_UCAST,
   FIND_ALL_ROCNIKY,
@@ -162,3 +161,6 @@ module.exports = {
   findAllUcastnici,
   findKategorie
 };
+
+export default exported;
+export { PORT, CREATE_UCAST, FIND_ALL_ROCNIKY, FIND_ALL_UCASTNICI, FIND_UCAST_BY_UCASTNIK, CODE_OK, CODE_ALREADY_EXISTING, CODE_DB_DISCONNECTED, CODE_MLADISTVY_UCASTNIK, CODE_NONEXISTING, CODE_UNFULFILLED_REQUEST, CODE_UNPARSEABLE_MESSAGE, CODE_UNRECOGNIZED_ACTION, createUcast, findAllRocniky, findAllUcastnici, findKategorie };
