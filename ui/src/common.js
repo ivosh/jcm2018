@@ -1,5 +1,3 @@
-'use strict';
-
 /* This file is present two times in the project repository:
    - common/common.js in CommonJS format (understood by Node JS)
    - ui/src/common.js in ES6 format (as required by create-react-app scripts)
