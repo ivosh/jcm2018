@@ -1,11 +1,12 @@
 'use strict';
 
 const logger = require('heroku-logger');
+const common = require('../common/common');
 const db = require('./db');
 const httpServer = require('./staticHttpServer');
 const createWsServer = require('./createWsServer');
 
-const PORT = Number(process.env.PORT || 4000);
+const PORT = Number(process.env.PORT || common.PORT);
 process.title = 'jcm2018-server';
 
 db.connect();

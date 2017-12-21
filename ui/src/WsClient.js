@@ -1,5 +1,6 @@
 import WebSocketAsPromised from 'websocket-as-promised';
 import Channel from 'chnl';
+import { PORT } from './common';
 
 /**
  * Usage:
@@ -9,8 +10,7 @@ import Channel from 'chnl';
  * await wsClient.close();
  */
 class WsClient {
-  // TODO: port from common
-  constructor({ host = 'localhost', port = 4000, onConnect, onClose } = {}) {
+  constructor({ host = 'localhost', port = PORT, onConnect, onClose } = {}) {
     this.url = `ws://${host}:${port}/`;
     this.reconnectInterval = 2 * 1000;
     this.sendTimeout = 10 * 1000;
