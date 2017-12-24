@@ -2,7 +2,7 @@ import {
   csStringSortMethod,
   narozeniSortMethod,
   prijmeniJmenoNarozeniSortMethod
-} from '../../Ucastnici/ucastniciReducer';
+} from '../../ucastnici/ucastniciReducer';
 
 export const SortDirTypes = { NONE: 'none', ASC: 'asc', DESC: 'desc' };
 

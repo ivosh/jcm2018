@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import UcastniciDigest from './UcastniciDigest';
-import { fetchUcastnici } from '../../Ucastnici/UcastniciActions';
+import { fetchUcastnici } from '../../ucastnici/ucastniciActions';
 import { getUcastniciDigestSorted } from './ucastniciDigestReducer';
 import { sortDirChange } from './UcastniciDigestActions';
 

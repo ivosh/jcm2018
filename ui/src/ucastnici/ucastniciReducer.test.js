@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import ucastniciReducer, { narozeniSortMethod } from './ucastniciReducer';
-import { receiveUcastnici } from './UcastniciActions';
+import { receiveUcastnici } from './ucastniciActions';
 
 const narozeniSortMethodDescending = (a, b) => narozeniSortMethod(a, b, true);
 
