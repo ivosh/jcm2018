@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.css';
 import registerServiceWorker from './registerServiceWorker';
@@ -14,7 +14,10 @@ const wsClient = new WsClient();
 const store = configureStore(wsClient);
 
 wsClient.setCallbacks({
-  onConnect: () => store.dispatch(websocketConnected()),
+  onConnect: () => {
+    store.dispatch(websocketConnected());
+    // store.dispatch(fetchRocniky());
+  },
   onClose: () => store.dispatch(websocketDisconnected())
 });
 
@@ -26,10 +29,14 @@ try {
   // Silently ignore any errors. They should have been dispatched from WsClient anyway.
 }
 
+/* Render a pathless <Route> so that 'location' is automatically injected as a 'prop'
+   into AppContainer and causes re-render on location change. See:
+   https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/blocked-updates.md
+ */
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <AppContainer />
+      <Route component={AppContainer} />
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')
