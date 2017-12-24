@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import appReducer from './App/appReducer';
+import { websocketConnected, websocketDisconnected } from './App/AppActions';
 import { setHighestMezicasId } from './casomeric/Mezicasy/MezicasyActions';
 
 const demoStartujiciState = {
@@ -49,6 +50,24 @@ const saveState = state => {
   }
 };
 
+const setupWsClient = (wsClient, store) => {
+  wsClient.setCallbacks({
+    onConnect: () => {
+      store.dispatch(websocketConnected());
+      // store.dispatch(fetchRocniky());
+    },
+    onClose: () => store.dispatch(websocketDisconnected())
+  });
+
+  try {
+    /* Start asynchronous connect to the websocket server.
+     WsClient will retry indefinitely if the connection cannot be established. */
+    wsClient.connect();
+  } catch (err) {
+    // Silently ignore any errors. They should have been dispatched from WsClient anyway.
+  }
+};
+
 const configureStore = (wsClient, initialStateParam = loadState()) => {
   const initialState = initialStateParam || {};
   initialState.startujici = demoStartujiciState.startujici;
@@ -79,6 +98,10 @@ const configureStore = (wsClient, initialStateParam = loadState()) => {
       casomeric: { stopky: state.casomeric.stopky, mezicasy: state.casomeric.mezicasy }
     });
   });
+
+  if (wsClient) {
+    setupWsClient(wsClient, store);
+  }
 
   return store;
 };

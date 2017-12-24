@@ -29,7 +29,7 @@ test('navigates to /casomeric by default', () => {
 test('navigates correctly to /registrace', () => {
   const wrapper = mount(
     <Provider store={store}>
-      <MemoryRouter initialEntries={[ '/registrace' ]} >
+      <MemoryRouter initialEntries={['/registrace']}>
         <Route component={AppContainer} />
       </MemoryRouter>
     </Provider>
