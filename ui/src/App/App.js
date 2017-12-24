@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -8,11 +9,11 @@ import Registrace from '../registrator/Registrace/Registrace';
 import './App.css';
 import logo from './logo.svg';
 
-const App = () => (
+const App = ({ connected }) => (
   <div>
     <Navbar inverse>
       <Navbar.Header>
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className={connected ? 'App-logo-animated' : 'App-logo'} alt="logo" />
       </Navbar.Header>
       <Nav className="App-Nav">
         <LinkContainer to="/casomeric">
@@ -37,5 +38,9 @@ const App = () => (
     </main>
   </div>
 );
+
+App.propTypes = {
+  connected: PropTypes.bool.isRequired
+};
 
 export default App;

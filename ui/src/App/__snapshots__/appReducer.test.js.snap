@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`na začátku 1`] = `
+Object {
+  "casomeric": Object {
+    "mezicasy": Array [],
+    "stopky": Object {
+      "base": null,
+      "running": false,
+    },
+  },
+  "connected": false,
+  "registrator": Object {
+    "ucastniciDigest": Object {
+      "filter": "",
+      "sortColumn": undefined,
+      "sortDir": "none",
+    },
+  },
+  "startujici": Array [],
+  "ucastnici": Object {
+    "allIds": Array [],
+    "byIds": Object {},
+  },
+}
+`;
+
+exports[`websocket connected 1`] = `
+Object {
+  "casomeric": Object {
+    "mezicasy": Array [],
+    "stopky": Object {
+      "base": null,
+      "running": false,
+    },
+  },
+  "connected": true,
+  "registrator": Object {
+    "ucastniciDigest": Object {
+      "filter": "",
+      "sortColumn": undefined,
+      "sortDir": "none",
+    },
+  },
+  "startujici": Array [],
+  "ucastnici": Object {
+    "allIds": Array [],
+    "byIds": Object {},
+  },
+}
+`;
+
+exports[`websocket disconnected 1`] = `
+Object {
+  "casomeric": Object {
+    "mezicasy": Array [],
+    "stopky": Object {
+      "base": null,
+      "running": false,
+    },
+  },
+  "connected": false,
+  "registrator": Object {
+    "ucastniciDigest": Object {
+      "filter": "",
+      "sortColumn": undefined,
+      "sortDir": "none",
+    },
+  },
+  "startujici": Array [],
+  "ucastnici": Object {
+    "allIds": Array [],
+    "byIds": Object {},
+  },
+}
+`;

@@ -14,8 +14,7 @@ class WsClient {
     this.url = `ws://${host}:${port}/`;
     this.reconnectInterval = 2 * 1000;
     this.sendTimeout = 10 * 1000;
-    this.onConnectCallback = onConnect;
-    this.onCloseCallback = onClose;
+    this.setCallbacks({ onConnect, onClose });
     this.channel = new Channel();
     this.channel.addListener(this.onRequestAvailable);
     this.channel.mute({ accumulate: true });
@@ -79,6 +78,11 @@ class WsClient {
 
     const request = { resolve: () => {}, reject: () => {} };
     this.retryConnect(request);
+  };
+
+  setCallbacks = ({ onConnect, onClose }) => {
+    this.onConnectCallback = onConnect;
+    this.onCloseCallback = onClose;
   };
 
   onRequestAvailable = async request => {

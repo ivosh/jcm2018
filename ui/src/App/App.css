@@ -8,9 +8,12 @@
   font-size: 110%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
+.App-logo, .App-logo-animated {
   height: 50px;
+}
+
+.App-logo-animated {
+  animation: App-logo-spin infinite 20s linear;
 }
 
 @keyframes App-logo-spin {
