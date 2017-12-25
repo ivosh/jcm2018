@@ -1,3 +1,5 @@
+import { findAllUcastnici } from '../common';
+
 const requestUcastnici = () => ({
   type: 'REQUEST_UCASTNICI'
 });
@@ -19,7 +21,7 @@ export const fetchUcastnici = () => async (dispatch, getState, wsClient) => {
   dispatch(requestUcastnici());
 
   try {
-    const response = await wsClient.sendRequest({ action: 'find_all_ucastnici' }); // TODO: from common.findAllUcastnici
+    const response = await wsClient.sendRequest(findAllUcastnici());
     dispatch(receiveUcastnici(response));
   } catch (err) {
     console.log(`Chyba u wsClienta: ${err}`);
