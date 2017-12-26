@@ -6,16 +6,9 @@ exports[`renders 1`] = `
   width={500}
 >
   <DimensionsHOC
-    store={
-      Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      }
-    }
+    fetchUcastnici={[Function]}
+    onSortDirChange={[Function]}
+    ucastniciDigest={Array []}
   >
     <div
       className={null}
@@ -28,67 +21,20 @@ exports[`renders 1`] = `
         }
       }
     >
-      <Connect(UcastniciDigest)
-        containerHeight={648}
+      <UcastniciDigest
+        containerHeight={638}
         containerWidth={924}
-        store={
-          Object {
-            "clearActions": [Function],
-            "dispatch": [Function],
-            "getActions": [Function],
-            "getState": [Function],
-            "replaceReducer": [Function],
-            "subscribe": [Function],
-          }
-        }
+        fetchUcastnici={[Function]}
+        onSortDirChange={[Function]}
+        ucastniciDigest={Array []}
         updateDimensions={[Function]}
       >
-        <UcastniciDigest
-          containerHeight={648}
-          containerWidth={924}
-          fetchUcastnici={[Function]}
-          onSortDirChange={[Function]}
-          store={
-            Object {
-              "clearActions": [Function],
-              "dispatch": [Function],
-              "getActions": [Function],
-              "getState": [Function],
-              "replaceReducer": [Function],
-              "subscribe": [Function],
-            }
-          }
-          storeSubscription={
-            Subscription {
-              "listeners": Object {
-                "clear": [Function],
-                "get": [Function],
-                "notify": [Function],
-                "subscribe": [Function],
-              },
-              "onStateChange": [Function],
-              "parentSub": undefined,
-              "store": Object {
-                "clearActions": [Function],
-                "dispatch": [Function],
-                "getActions": [Function],
-                "getState": [Function],
-                "replaceReducer": [Function],
-                "subscribe": [Function],
-              },
-              "unsubscribe": [Function],
-            }
-          }
-          ucastniciDigest={Array []}
-          updateDimensions={[Function]}
+        <div
+          className="Ucastnici"
         >
-          <div
-            className="Ucastnici"
-          >
-            žádný účastník
-          </div>
-        </UcastniciDigest>
-      </Connect(UcastniciDigest)>
+          žádný účastník
+        </div>
+      </UcastniciDigest>
     </div>
   </DimensionsHOC>
 </div>

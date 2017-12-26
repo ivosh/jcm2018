@@ -1,15 +1,15 @@
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import UcastniciDigest from './UcastniciDigest';
+import UcastniciDigestFilterable from './UcastniciDigestFilterable';
 import { fetchUcastnici } from '../../ucastnici/ucastniciActions';
 import { getUcastniciDigestSorted } from './ucastniciDigestReducer';
-import { sortDirChange } from './UcastniciDigestActions';
+import { filterChange, sortDirChange } from './UcastniciDigestActions';
 
 const mapStateToProps = ({ ucastnici, registrator }) => {
-  const { sortColumn, sortDir } = registrator.ucastniciDigest;
+  const { filter, sortColumn, sortDir } = registrator.ucastniciDigest;
 
   return {
     ucastniciDigest: getUcastniciDigestSorted({ ...ucastnici, ...registrator.ucastniciDigest }),
+    filter,
     sortColumn,
     sortDir
   };
@@ -17,14 +17,12 @@ const mapStateToProps = ({ ucastnici, registrator }) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchUcastnici: () => dispatch(fetchUcastnici()),
+  onFilterChange: filter => dispatch(filterChange(filter)),
   onSortDirChange: sortColumn => dispatch(sortDirChange(sortColumn))
 });
 
-const UcastniciDigestContainer = connect(mapStateToProps, mapDispatchToProps)(UcastniciDigest);
-
-UcastniciDigestContainer.propTypes = {
-  containerWidth: PropTypes.number.isRequired,
-  containerHeight: PropTypes.number.isRequired
-};
+const UcastniciDigestContainer = connect(mapStateToProps, mapDispatchToProps)(
+  UcastniciDigestFilterable
+);
 
 export default UcastniciDigestContainer;

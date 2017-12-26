@@ -1,9 +1,19 @@
+import PropTypes from 'prop-types';
 import Dimensions from 'react-dimensions';
-import UcastniciDigestContainer from './UcastniciDigestContainer';
+import UcastniciDigest from './UcastniciDigest';
 
 const UcastniciDigestResponsive = Dimensions({
-  getHeight: () => window.innerHeight - 120,
+  getHeight: () => window.innerHeight - 130,
   getWidth: () => window.innerWidth - 100
-})(UcastniciDigestContainer);
+})(UcastniciDigest);
+
+// ucastniciDigest are simple pass-through from UcastniciDigestContainer.
+UcastniciDigestResponsive.propTypes = {
+  sortColumn: PropTypes.string,
+  sortDir: PropTypes.string,
+  ucastniciDigest: PropTypes.array.isRequired,
+  fetchUcastnici: PropTypes.func.isRequired,
+  onSortDirChange: PropTypes.func.isRequired
+};
 
 export default UcastniciDigestResponsive;

@@ -65,6 +65,7 @@ beforeEach(() => {
 it('maps state and dispatch to props', () => {
   expect(wrapper.props().ucastniciDigest).toBeTruthy();
   expect(wrapper.props().ucastniciDigest).toMatchSnapshot();
+  expect(wrapper.props().filter).toEqual('');
   expect(wrapper.props().sortColumn).toEqual('prijmeni');
   expect(wrapper.props().sortDir).toEqual('desc');
 });
@@ -75,5 +76,14 @@ it('maps onSortDirChange to dispatch sortDirChange action', () => {
   expect(store.dispatch).toHaveBeenCalledWith({
     type: 'UCASTNICI_DIGEST_SORT_DIR_CHANGE',
     sortColumn: 'jmeno'
+  });
+});
+
+it('maps onFilterChange to dispatch sortDirChange action', () => {
+  wrapper.props().onFilterChange('Kl');
+
+  expect(store.dispatch).toHaveBeenCalledWith({
+    type: 'UCASTNICI_DIGEST_FILTER_CHANGE',
+    filter: 'Kl'
   });
 });
