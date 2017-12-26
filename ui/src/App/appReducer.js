@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import startujiciReducer from '../casomeric/Startujici/startujiciReducer';
 import casomericReducer from '../casomeric/Casomeric/casomericReducer';
 import registratorReducer from '../registrator/registratorReducer';
+import rocnikyReducer from '../rocniky/rocnikyReducer';
 import ucastniciReducer from '../ucastnici/ucastniciReducer';
 
 const connected = (state = false, action) => {
@@ -19,6 +20,7 @@ const appReducer = combineReducers({
   casomeric: casomericReducer,
   startujici: startujiciReducer,
   registrator: registratorReducer,
+  rocniky: rocnikyReducer,
   ucastnici: ucastniciReducer,
   connected
 });

@@ -17,6 +17,10 @@ Object {
       "sortDir": "none",
     },
   },
+  "rocniky": Object {
+    "rocniky": Object {},
+    "roky": Array [],
+  },
   "startujici": Array [],
   "ucastnici": Object {
     "allIds": Array [],
@@ -42,6 +46,10 @@ Object {
       "sortDir": "none",
     },
   },
+  "rocniky": Object {
+    "rocniky": Object {},
+    "roky": Array [],
+  },
   "startujici": Array [],
   "ucastnici": Object {
     "allIds": Array [],
@@ -66,6 +74,10 @@ Object {
       "sortColumn": undefined,
       "sortDir": "none",
     },
+  },
+  "rocniky": Object {
+    "rocniky": Object {},
+    "roky": Array [],
   },
   "startujici": Array [],
   "ucastnici": Object {
