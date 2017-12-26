@@ -1,6 +1,7 @@
 'use strict';
 
 const Actions = require('../../../common/common');
+const Kategorie = require('../../model/Kategorie/Kategorie');
 const Rocnik = require('../../model/Rocnik/Rocnik');
 
 const normalizeUbytovani = ubytovani => {
