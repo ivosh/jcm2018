@@ -18,6 +18,11 @@ export const receiveRocniky = json => ({
 });
 
 export const fetchRocniky = () => async (dispatch, getState, wsClient) => {
+  const state = getState();
+  if (state.rocniky && state.rocniky.roky && state.rocniky.roky.length > 0) {
+    return; // Use cached value.
+  }
+
   dispatch(requestRocniky());
 
   try {

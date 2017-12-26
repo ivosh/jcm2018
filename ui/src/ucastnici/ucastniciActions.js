@@ -1,4 +1,5 @@
 import { CODE_OK, findAllUcastnici } from '../common';
+import { fetchRocniky } from '../rocniky/rocnikyActions';
 
 const requestUcastnici = () => ({
   type: 'REQUEST_UCASTNICI'
@@ -19,6 +20,8 @@ export const receiveUcastnici = json => ({
 
 export const fetchUcastnici = () => async (dispatch, getState, wsClient) => {
   dispatch(requestUcastnici());
+
+  await dispatch(fetchRocniky());
 
   try {
     const response = await wsClient.sendRequest(findAllUcastnici());

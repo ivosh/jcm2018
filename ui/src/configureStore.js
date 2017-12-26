@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import appReducer from './App/appReducer';
 import { websocketConnected, websocketDisconnected } from './App/AppActions';
+import { fetchRocniky } from './rocniky/rocnikyActions';
 import { setHighestMezicasId } from './casomeric/Mezicasy/MezicasyActions';
 
 const demoStartujiciState = {
@@ -54,7 +55,9 @@ const setupWsClient = (wsClient, store) => {
   wsClient.setCallbacks({
     onConnect: () => {
       store.dispatch(websocketConnected());
-      // store.dispatch(fetchRocniky());
+      /* Fetch ročníky. They will get usefull in the whole app. However individual actions
+         must not rely on this alone - they need to use: await dispatch(fetchRocniky()). */
+      store.dispatch(fetchRocniky());
     },
     onClose: () => store.dispatch(websocketDisconnected())
   });
