@@ -1,4 +1,4 @@
-import { findAllRocniky } from '../common';
+import { CODE_OK, findAllRocniky } from '../common';
 
 const requestRocniky = () => ({
   type: 'REQUEST_ROCNIKY'
@@ -22,7 +22,12 @@ export const fetchRocniky = () => async (dispatch, getState, wsClient) => {
 
   try {
     const response = await wsClient.sendRequest(findAllRocniky());
-    dispatch(receiveRocniky(response));
+    if (response.code === CODE_OK) {
+      dispatch(receiveRocniky(response));
+    } else {
+      console.log(`Chyba u wsClienta: ${response.code} ${response.status}`);
+      // TODO: dispatch error somehow
+    }
   } catch (err) {
     console.log(`Chyba u wsClienta: ${err}`);
     // TODO: dispatch error somehow
