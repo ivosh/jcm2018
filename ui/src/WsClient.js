@@ -110,6 +110,7 @@ class WsClient {
   close = (code, reason) => {
     const { ws } = this;
     if (ws) {
+      this.ws = null;
       return ws.close(code, reason);
     }
     return Promise.resolve('Již zavřeno.');
