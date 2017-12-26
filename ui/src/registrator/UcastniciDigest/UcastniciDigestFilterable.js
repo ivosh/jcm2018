@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Badge } from 'react-bootstrap';
 import DebounceInput from 'react-debounce-input';
 import UcastniciDigestResponsive from './UcastniciDigestResponsive';
 import './UcastniciDigestFilterable.css';
@@ -14,6 +15,9 @@ const UcastniciDigestFilterable = ({ filter, onFilterChange, ...props }) => (
       placeholder="Filtr na příjmení a jméno"
       onChange={e => onFilterChange(e.target.value)}
     />
+    <span className="UcastniciDigestFilterable_span">
+      Celkem: <Badge>{props.ucastniciDigest.length}</Badge>
+    </span>
     <UcastniciDigestResponsive {...props} />
   </div>
 );
