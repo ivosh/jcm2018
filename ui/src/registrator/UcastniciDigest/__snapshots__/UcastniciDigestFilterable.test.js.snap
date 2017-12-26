@@ -15,6 +15,17 @@ exports[`renders 1`] = `
     placeholder="Filtr na příjmení a jméno"
     type="text"
   />
+  <span
+    className="UcastniciDigestFilterable_span"
+  >
+    Celkem: 
+    <Badge
+      bsClass="badge"
+      pullRight={false}
+    >
+      0
+    </Badge>
+  </span>
   <DimensionsHOC
     fetchUcastnici={[Function]}
     onSortDirChange={[Function]}
