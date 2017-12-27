@@ -1,5 +1,3 @@
-'use strict';
-
 /* This file is present two times in the project repository:
    - common/common.test.js in CommonJS format (understood by Node JS)
    - ui/src/common.test.js in ES6 format (as required by create-react-app scripts)
@@ -11,7 +9,7 @@
    diff -u common/__snapshots__/common.test.js.snap ui/src/__snapshots__/common.test.js.snap
  */
 
-const { findKategorie } = require('./common');
+import { findKategorie } from './common';
 
 it('findKategorie() - ročník neexistuje', () => {
   const rocniky = {};

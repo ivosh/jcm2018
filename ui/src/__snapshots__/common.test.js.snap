@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`findKategorie() - jedna kategorie pro pohlaví 1`] = `
+Object {
+  "code": "ok",
+  "kategorie": Object {
+    "id": "3456",
+    "pohlavi": "žena",
+    "typ": "koloběžka",
+    "vek": Object {
+      "max": 150,
+      "min": 18,
+    },
+  },
+}
+`;
+
+exports[`findKategorie() - jedna kategorie pro typ 1`] = `
+Object {
+  "code": "ok",
+  "kategorie": Object {
+    "id": "1234",
+    "typ": "pěší",
+  },
+}
+`;
+
+exports[`findKategorie() - junior a cyklo přesný věk - mladistvý - těsně na hranici 1`] = `
+Object {
+  "code": "ok",
+  "kategorie": Object {
+    "id": "2345",
+    "pohlavi": "muž",
+    "vek": Object {
+      "max": 29,
+      "min": 18,
+    },
+  },
+}
+`;
+
+exports[`findKategorie() - junior a cyklo přesný věk - mladistvý - těsně za hranicí 1`] = `
+Object {
+  "code": "ok",
+  "kategorie": Object {
+    "id": "2345",
+    "pohlavi": "muž",
+    "vek": Object {
+      "max": 29,
+      "min": 18,
+    },
+  },
+}
+`;
+
+exports[`findKategorie() - junior a cyklo přesný věk - mladistvý 1`] = `
+Object {
+  "code": "účastník potřebuje souhlas zákonného zástupce",
+  "kategorie": null,
+}
+`;
+
+exports[`findKategorie() - junior a cyklo přesný věk - mladistvý s potvrzením - těsně před hranicí 1`] = `
+Object {
+  "code": "ok",
+  "kategorie": Object {
+    "id": "1234",
+    "pohlavi": "muž",
+    "vek": Object {
+      "max": 17,
+      "min": 16,
+      "presne": true,
+    },
+  },
+}
+`;
+
+exports[`findKategorie() - junior a cyklo přesný věk - mladistvý s potvrzením 1`] = `
+Object {
+  "code": "ok",
+  "kategorie": Object {
+    "id": "1234",
+    "pohlavi": "muž",
+    "vek": Object {
+      "max": 17,
+      "min": 16,
+      "presne": true,
+    },
+  },
+}
+`;
+
+exports[`findKategorie() - mladistvá pro koloběžku 1`] = `
+Object {
+  "code": "účastník potřebuje souhlas zákonného zástupce",
+  "kategorie": null,
+}
+`;
+
+exports[`findKategorie() - mladistvý pro maraton/věk 1`] = `
+Object {
+  "code": "účastník potřebuje souhlas zákonného zástupce",
+  "kategorie": null,
+}
+`;
+
+exports[`findKategorie() - nejmladší věková kategorie 1`] = `
+Object {
+  "code": "ok",
+  "kategorie": Object {
+    "id": "1234",
+    "vek": Object {
+      "max": 39,
+      "min": 30,
+    },
+  },
+}
+`;
+
+exports[`findKategorie() - nejstarší věková kategorie 1`] = `
+Object {
+  "code": "ok",
+  "kategorie": Object {
+    "id": "3456",
+    "vek": Object {
+      "max": 60,
+      "min": 59,
+    },
+  },
+}
+`;
+
+exports[`findKategorie() - pohlaví neexistuje 1`] = `
+Object {
+  "code": "neexistuje",
+  "kategorie": null,
+  "status": "Kategorie 'půlmaraton' v roce 2018 neexistuje pro pohlaví 'muž'.",
+}
+`;
+
+exports[`findKategorie() - ročník neexistuje 1`] = `
+Object {
+  "code": "neexistuje",
+  "kategorie": null,
+  "status": "Ročník pro 2018 neexistuje.",
+}
+`;
+
+exports[`findKategorie() - správná věková kategorie 1`] = `
+Object {
+  "code": "ok",
+  "kategorie": Object {
+    "id": "2345",
+    "vek": Object {
+      "max": 59,
+      "min": 50,
+    },
+  },
+}
+`;
+
+exports[`findKategorie() - typ kategorie neexistuje 1`] = `
+Object {
+  "code": "neexistuje",
+  "kategorie": null,
+  "status": "Kategorie 'maraton' v roce 2018 neexistuje.",
+}
+`;
