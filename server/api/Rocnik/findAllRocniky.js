@@ -1,9 +1,20 @@
 'use strict';
 
 const Actions = require('../../../common/common');
-const Rocnik = require('../../model/Rocnik/Rocnik');
-// eslint-disable-next-line no-unused-vars
 const Kategorie = require('../../model/Kategorie/Kategorie');
+const Rocnik = require('../../model/Rocnik/Rocnik');
+
+const normalizeKategorie = kategorie => {
+  const normalized = {};
+
+  kategorie.forEach(element => {
+    const { __v, _id, ...kategorieBezRoku } = element;
+    const id = _id;
+    normalized[id] = { id, ...kategorieBezRoku };
+  });
+
+  return normalized;
+};
 
 const normalizeUbytovani = ubytovani => {
   const normalized = {};
@@ -16,7 +27,7 @@ const normalizeUbytovani = ubytovani => {
   return normalized;
 };
 
-const normalizeKategorie = kategorieList => {
+const normalizeKategorieProTyp = kategorieList => {
   let normalized = {};
 
   kategorieList.forEach(element => {
@@ -40,7 +51,7 @@ const normalizeTypyKategorii = typyKategorii => {
 
   typyKategorii.forEach(element => {
     const { kategorie, typ, ...typBezKategorii } = element;
-    const typKategorie = { ...normalizeKategorie(kategorie), ...typBezKategorii };
+    const typKategorie = { ...normalizeKategorieProTyp(kategorie), ...typBezKategorii };
     normalized[typ] = typKategorie;
   });
 
@@ -69,12 +80,16 @@ const normalizeRocniky = rocniky => {
 };
 
 const findAllRocniky = async () => {
-  const found = await Rocnik.find()
+  const kategorie = await Kategorie.find().lean();
+  const rocniky = await Rocnik.find()
     .populate('kategorie.kategorie')
     .lean();
-  const rocniky = normalizeRocniky(found);
 
-  return { code: Actions.CODE_OK, status: undefined, response: rocniky };
+  return {
+    code: Actions.CODE_OK,
+    status: undefined,
+    response: { kategorie: normalizeKategorie(kategorie), rocniky: normalizeRocniky(rocniky) }
+  };
 };
 
 module.exports = findAllRocniky;

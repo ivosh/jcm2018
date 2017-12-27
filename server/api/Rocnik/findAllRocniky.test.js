@@ -25,9 +25,10 @@ afterAll(async () => {
   await db.disconnect();
 });
 
-const checkAndReplaceId = (obj, newId) => {
-  expect(obj.id).toBeTruthy();
-  obj.id = newId; // eslint-disable-line no-param-reassign
+const checkAndReplaceId = (obj, ids) => {
+  const { id } = obj;
+  expect(id).toBeTruthy();
+  obj.id = ids[id]; // eslint-disable-line no-param-reassign
 };
 
 it('findAllRocniky', async () => {
@@ -97,19 +98,33 @@ it('findAllRocniky', async () => {
   await rocnik2.save();
 
   const { requestId, ...response } = await wsClient.sendRequest(Actions.findAllRocniky());
-  checkAndReplaceId(response.response[2017], '---r1');
-  checkAndReplaceId(response.response[2018], '---r2');
+  const { kategorie, rocniky } = response.response;
 
-  checkAndReplaceId(response.response[2017].kategorie.maraton['žena'][0], '---k1');
-  checkAndReplaceId(response.response[2017].kategorie.maraton['žena'][1], '---k2');
-  checkAndReplaceId(response.response[2018].kategorie.maraton['žena'][0], '---k3');
-  checkAndReplaceId(response.response[2018].kategorie.maraton['žena'][1], '---k4');
-  checkAndReplaceId(response.response[2018].kategorie['půlmaraton']['muž'][0], '---k5');
-  checkAndReplaceId(response.response[2018].kategorie['půlmaraton']['žena'][0], '---k6');
-  checkAndReplaceId(response.response[2018].kategorie['půlmaraton']['žena'][1], '---k7');
-  checkAndReplaceId(response.response[2018].kategorie['pěší'], '---k8');
+  const ids = {};
+  let current = 1;
+  Object.keys(kategorie).forEach(id => {
+    ids[id] = `---k${current}`;
+    current += 1;
+
+    const element = kategorie[id];
+    element.id = ids[id];
+    delete kategorie[id];
+    kategorie[ids[id]] = element;
+  });
+
+  rocniky[2017].id = '---r1';
+  rocniky[2018].id = '---r2';
+  checkAndReplaceId(rocniky[2017].kategorie.maraton['žena'][0], ids);
+  checkAndReplaceId(rocniky[2017].kategorie.maraton['žena'][1], ids);
+  checkAndReplaceId(rocniky[2018].kategorie.maraton['žena'][0], ids);
+  checkAndReplaceId(rocniky[2018].kategorie.maraton['žena'][1], ids);
+  checkAndReplaceId(rocniky[2018].kategorie['půlmaraton']['muž'][0], ids);
+  checkAndReplaceId(rocniky[2018].kategorie['půlmaraton']['žena'][0], ids);
+  checkAndReplaceId(rocniky[2018].kategorie['půlmaraton']['žena'][1], ids);
+  checkAndReplaceId(rocniky[2018].kategorie['pěší'], ids);
 
   expect(response).toMatchSnapshot();
 
+  await Kategorie.remove({});
   await Rocnik.remove({});
 });
