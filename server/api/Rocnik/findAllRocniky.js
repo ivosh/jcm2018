@@ -1,8 +1,9 @@
 'use strict';
 
 const Actions = require('../../../common/common');
-const Kategorie = require('../../model/Kategorie/Kategorie');
 const Rocnik = require('../../model/Rocnik/Rocnik');
+// eslint-disable-next-line no-unused-vars
+const Kategorie = require('../../model/Kategorie/Kategorie');
 
 const normalizeUbytovani = ubytovani => {
   const normalized = {};
