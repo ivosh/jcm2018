@@ -1,4 +1,4 @@
-export const initialState = { rocniky: {}, roky: [] };
+export const initialState = { byRoky: {}, roky: [] };
 
 const rocnikyReducer = (state = initialState, action) => {
   switch (action.type) {

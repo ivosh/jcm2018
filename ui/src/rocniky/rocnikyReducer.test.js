@@ -6,11 +6,11 @@ it('nic se nestalo 1', () => {
   const stateBefore = undefined;
 
   const stateAfter = rocnikyReducer(stateBefore, {});
-  expect(stateAfter).toEqual({ rocniky: {}, roky: [] });
+  expect(stateAfter).toEqual({ byRoky: {}, roky: [] });
 });
 
 it('nic se nestalo 2', () => {
-  const stateBefore = { rocniky: { 2017: { datum: '2017-06-10' } }, roky: [2017] };
+  const stateBefore = { byRoky: { 2017: { datum: '2017-06-10' } }, roky: [2017] };
   const stateAfter = { ...stateBefore };
   deepFreeze(stateBefore);
 
@@ -144,8 +144,8 @@ it('po načtení ročníků', () => {
     requestId: '0.9310306652587377'
   };
 
-  const stateBefore = { rocniky: {}, roky: [] };
-  const stateAfter = { rocniky: { ...json.response }, roky: [2017, 2018] };
+  const stateBefore = { byRoky: {}, roky: [] };
+  const stateAfter = { byRoky: { ...json.response }, roky: [2017, 2018] };
   deepFreeze(stateBefore);
 
   expect(rocnikyReducer(stateBefore, receiveRocniky(json))).toEqual(stateAfter);

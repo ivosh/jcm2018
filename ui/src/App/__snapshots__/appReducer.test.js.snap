@@ -18,7 +18,7 @@ Object {
     },
   },
   "rocniky": Object {
-    "rocniky": Object {},
+    "byRoky": Object {},
     "roky": Array [],
   },
   "startujici": Array [],
@@ -47,7 +47,7 @@ Object {
     },
   },
   "rocniky": Object {
-    "rocniky": Object {},
+    "byRoky": Object {},
     "roky": Array [],
   },
   "startujici": Array [],
@@ -76,7 +76,7 @@ Object {
     },
   },
   "rocniky": Object {
-    "rocniky": Object {},
+    "byRoky": Object {},
     "roky": Array [],
   },
   "startujici": Array [],

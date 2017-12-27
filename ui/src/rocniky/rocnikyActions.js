@@ -5,10 +5,10 @@ const requestRocniky = () => ({
 });
 
 const normalizeRocniky = json => {
-  const rocniky = json.response;
-  const roky = Object.keys(rocniky).map(value => parseInt(value, 10));
+  const byRoky = json.response;
+  const roky = Object.keys(byRoky).map(value => parseInt(value, 10));
 
-  return { rocniky, roky };
+  return { byRoky, roky };
 };
 
 export const receiveRocniky = json => ({

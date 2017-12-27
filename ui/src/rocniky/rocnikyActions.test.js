@@ -155,7 +155,7 @@ it('fetchRocniky() should dispatch two successful actions if rocniky not cached'
   expect(actions[0]).toEqual({ type: 'REQUEST_ROCNIKY' });
   expect(actions[1]).toEqual(
     expect.objectContaining({
-      data: { rocniky: successfulResponse.response, roky: [2017, 2018] },
+      data: { byRoky: successfulResponse.response, roky: [2017, 2018] },
       type: 'RECEIVE_ROCNIKY'
     })
   );
