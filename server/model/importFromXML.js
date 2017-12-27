@@ -118,6 +118,16 @@ const processKategorieList = async (typ, xmlKategorieList) => {
   return [await najdiCiUlozKategorii({ typ })];
 };
 
+const processStartCisla = xmlStartCisla => {
+  const content = typeof xmlStartCisla === 'string' ? xmlStartCisla : xmlStartCisla._;
+  const rozsahy = content.split(' ');
+  const startCisla = { rozsahy };
+  if (xmlStartCisla.barva) {
+    startCisla.barva = xmlStartCisla.barva;
+  }
+  return startCisla;
+};
+
 const processTypKategorie = async xmlTyp => {
   const nazev = convertNazevTypuKategorie(xmlTyp.typ[0]);
   const [predem] = xmlTyp.startovne[0].predem;
@@ -128,8 +138,7 @@ const processTypKategorie = async xmlTyp => {
 
   if (xmlTyp.startCisla) {
     typ.maStartCisla = true;
-    const [startCisla] = xmlTyp.startCisla;
-    typ.startCisla = startCisla;
+    typ.startCisla = processStartCisla(xmlTyp.startCisla[0]);
   }
 
   return typ;

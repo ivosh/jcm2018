@@ -81,7 +81,15 @@ Array [
             },
           },
         ],
-        "startCisla": "1-100",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "40-100",
+            "24",
+            "30",
+            "35",
+            "37-39",
+          ],
+        },
         "startovne": Object {
           "naMiste": 200,
           "predem": 150,
@@ -154,7 +162,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 200,
           "predem": 150,
@@ -182,7 +194,11 @@ Array [
             },
           },
         ],
-        "startCisla": "90-100",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "90-100",
+          ],
+        },
         "startovne": Object {
           "naMiste": 200,
           "predem": 150,
@@ -308,12 +324,104 @@ Array [
             },
           },
         ],
-        "startCisla": "1-100",
+        "startCisla": Object {
+          "barva": "cervena",
+          "rozsahy": Array [
+            "1-100",
+          ],
+        },
         "startovne": Object {
           "naMiste": 250,
           "predem": 200,
         },
         "typ": "maraton",
+      },
+      Object {
+        "kategorie": Array [
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 39,
+              "min": 18,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 150,
+              "min": 60,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 39,
+              "min": 18,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 150,
+              "min": 60,
+            },
+          },
+        ],
+        "startCisla": Object {
+          "barva": "cerna",
+          "rozsahy": Array [
+            "1-100",
+          ],
+        },
+        "startovne": Object {
+          "naMiste": 250,
+          "predem": 200,
+        },
+        "typ": "půlmaraton",
       },
       Object {
         "kategorie": Array [
@@ -381,7 +489,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 250,
           "predem": 200,
@@ -409,7 +521,11 @@ Array [
             },
           },
         ],
-        "startCisla": "90-100",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "100-90",
+          ],
+        },
         "startovne": Object {
           "naMiste": 250,
           "predem": 200,
@@ -568,7 +684,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-100",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-100",
+          ],
+        },
         "startovne": Object {
           "naMiste": 200,
           "predem": 150,
@@ -645,7 +765,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 95,
           "predem": 95,
@@ -717,7 +841,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 95,
           "predem": 95,
@@ -731,7 +859,11 @@ Array [
             "typ": "cyklo",
           },
         ],
-        "startCisla": "51-200",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "51-200",
+          ],
+        },
         "startovne": Object {
           "naMiste": 95,
           "predem": 95,
@@ -803,7 +935,11 @@ Array [
             },
           },
         ],
-        "startCisla": "41-190",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "41-190",
+          ],
+        },
         "startovne": Object {
           "naMiste": 95,
           "predem": 95,
@@ -817,7 +953,11 @@ Array [
             "typ": "cyklo",
           },
         ],
-        "startCisla": "71-220",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "71-220",
+          ],
+        },
         "startovne": Object {
           "naMiste": 95,
           "predem": 95,
@@ -889,7 +1029,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 95,
           "predem": 95,
@@ -903,7 +1047,11 @@ Array [
             "typ": "cyklo",
           },
         ],
-        "startCisla": "41-190",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "41-190",
+          ],
+        },
         "startovne": Object {
           "naMiste": 95,
           "predem": 95,
@@ -988,7 +1136,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 95,
           "predem": 95,
@@ -1034,7 +1186,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 95,
           "predem": 95,
@@ -1142,7 +1298,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 110,
           "predem": 95,
@@ -1206,7 +1366,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 110,
           "predem": 95,
@@ -1314,7 +1478,11 @@ Array [
             },
           },
         ],
-        "startCisla": "51-200",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "51-200",
+          ],
+        },
         "startovne": Object {
           "naMiste": 110,
           "predem": 95,
@@ -1378,7 +1546,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 110,
           "predem": 95,
@@ -1490,7 +1662,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 110,
           "predem": 95,
@@ -1554,7 +1730,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 110,
           "predem": 95,
@@ -1662,7 +1842,11 @@ Array [
             },
           },
         ],
-        "startCisla": "45-194",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "45-194",
+          ],
+        },
         "startovne": Object {
           "naMiste": 140,
           "predem": 120,
@@ -1726,7 +1910,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 140,
           "predem": 120,
@@ -1834,7 +2022,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 140,
           "predem": 120,
@@ -1907,7 +2099,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 140,
           "predem": 120,
@@ -2015,7 +2211,11 @@ Array [
             },
           },
         ],
-        "startCisla": "51-200",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "51-200",
+          ],
+        },
         "startovne": Object {
           "naMiste": 140,
           "predem": 120,
@@ -2088,7 +2288,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 140,
           "predem": 120,
@@ -2196,7 +2400,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 140,
           "predem": 120,
@@ -2269,7 +2477,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 140,
           "predem": 120,
@@ -2377,7 +2589,22 @@ Array [
             },
           },
         ],
-        "startCisla": "60-100 40-49 20 24-25 34 21-23 26-33 35-39 50-59 160 195-196 199",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "60-100",
+            "40-49",
+            "20",
+            "24-25",
+            "34",
+            "21-23",
+            "26-33",
+            "35-39",
+            "50-59",
+            "160",
+            "195-196",
+            "199",
+          ],
+        },
         "startovne": Object {
           "naMiste": 150,
           "predem": 130,
@@ -2450,7 +2677,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 150,
           "predem": 130,
@@ -2558,7 +2789,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-100",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-100",
+          ],
+        },
         "startovne": Object {
           "naMiste": 150,
           "predem": 130,
@@ -2631,7 +2866,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 150,
           "predem": 130,
@@ -2739,7 +2978,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-100",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-100",
+          ],
+        },
         "startovne": Object {
           "naMiste": 150,
           "predem": 130,
@@ -2812,7 +3055,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 150,
           "predem": 130,
@@ -2920,7 +3167,15 @@ Array [
             },
           },
         ],
-        "startCisla": "40-100 24 30 35 37-39",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "40-100",
+            "24",
+            "30",
+            "35",
+            "37-39",
+          ],
+        },
         "startovne": Object {
           "naMiste": 190,
           "predem": 140,
@@ -2993,7 +3248,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-140",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-140",
+          ],
+        },
         "startovne": Object {
           "naMiste": 190,
           "predem": 140,
@@ -3021,7 +3280,11 @@ Array [
             },
           },
         ],
-        "startCisla": "100-102",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "100-102",
+          ],
+        },
         "startovne": Object {
           "naMiste": 190,
           "predem": 140,
@@ -3129,7 +3392,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-100",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-100",
+          ],
+        },
         "startovne": Object {
           "naMiste": 200,
           "predem": 150,
@@ -3202,7 +3469,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 200,
           "predem": 150,
@@ -3230,7 +3501,11 @@ Array [
             },
           },
         ],
-        "startCisla": "90-100",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "90-100",
+          ],
+        },
         "startovne": Object {
           "naMiste": 200,
           "predem": 150,
@@ -3356,12 +3631,104 @@ Array [
             },
           },
         ],
-        "startCisla": "1-100",
+        "startCisla": Object {
+          "barva": "cervena",
+          "rozsahy": Array [
+            "1-100",
+          ],
+        },
         "startovne": Object {
           "naMiste": 250,
           "predem": 200,
         },
         "typ": "maraton",
+      },
+      Object {
+        "kategorie": Array [
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 39,
+              "min": 18,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "muž",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 150,
+              "min": 60,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 39,
+              "min": 18,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+          Object {
+            "__v": 0,
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 150,
+              "min": 60,
+            },
+          },
+        ],
+        "startCisla": Object {
+          "barva": "cerna",
+          "rozsahy": Array [
+            "1-100",
+          ],
+        },
+        "startovne": Object {
+          "naMiste": 250,
+          "predem": 200,
+        },
+        "typ": "půlmaraton",
       },
       Object {
         "kategorie": Array [
@@ -3429,7 +3796,11 @@ Array [
             },
           },
         ],
-        "startCisla": "1-150",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "1-150",
+          ],
+        },
         "startovne": Object {
           "naMiste": 250,
           "predem": 200,
@@ -3457,7 +3828,11 @@ Array [
             },
           },
         ],
-        "startCisla": "90-100",
+        "startCisla": Object {
+          "rozsahy": Array [
+            "100-90",
+          ],
+        },
         "startovne": Object {
           "naMiste": 250,
           "predem": 200,

@@ -53,7 +53,7 @@ it('naimportuj dva ročníky', async () => {
         <kategorie pohlavi="zena" minVek="40" maxVek="49"/>
         <kategorie pohlavi="zena" minVek="50" maxVek="59"/>
         <kategorie pohlavi="zena" minVek="60" maxVek="150"/>
-        <startCisla>1-100</startCisla>
+        <startCisla>40-100 24 30 35 37-39</startCisla>
         <startovne predem="150" naMiste="200"/>
       </typKategorie>
       <typKategorie typ="cyklo">
@@ -80,7 +80,7 @@ it('naimportuj dva ročníky', async () => {
     </rocnik>
     <rocnik rok="2018">
       <datum>2018-06-09</datum>
-      <typKategorie typ="beh">
+      <typKategorie typ="maraton">
         <kategorie pohlavi="muz" minVek="18" maxVek="39"/>
         <kategorie pohlavi="muz" minVek="40" maxVek="49"/>
         <kategorie pohlavi="muz" minVek="50" maxVek="59"/>
@@ -91,7 +91,19 @@ it('naimportuj dva ročníky', async () => {
         <kategorie pohlavi="zena" minVek="50" maxVek="59"/>
         <kategorie pohlavi="zena" minVek="60" maxVek="69"/>
         <kategorie pohlavi="zena" minVek="70" maxVek="150"/>
-        <startCisla>1-100</startCisla>
+        <startCisla barva="cervena">1-100</startCisla>
+        <startovne predem="200" naMiste="250"/>
+      </typKategorie>
+      <typKategorie typ="půlmaraton">
+        <kategorie pohlavi="muz" minVek="18" maxVek="39"/>
+        <kategorie pohlavi="muz" minVek="40" maxVek="49"/>
+        <kategorie pohlavi="muz" minVek="50" maxVek="59"/>
+        <kategorie pohlavi="muz" minVek="60" maxVek="150"/>
+        <kategorie pohlavi="zena" minVek="18" maxVek="39"/>
+        <kategorie pohlavi="zena" minVek="40" maxVek="49"/>
+        <kategorie pohlavi="zena" minVek="50" maxVek="59"/>
+        <kategorie pohlavi="zena" minVek="60" maxVek="150"/>
+        <startCisla barva="cerna">1-100</startCisla>
         <startovne predem="200" naMiste="250"/>
       </typKategorie>
       <typKategorie typ="cyklo">
@@ -108,7 +120,7 @@ it('naimportuj dva ročníky', async () => {
       <typKategorie typ="kolobezka">
         <kategorie pohlavi="muz" minVek="18" maxVek="150"/>
         <kategorie pohlavi="zena" minVek="18" maxVek="150"/>
-        <startCisla>90-100</startCisla>
+        <startCisla>100-90</startCisla>
         <startovne predem="200" naMiste="250"/>
       </typKategorie>
       <typKategorie typ="pesi">
@@ -125,7 +137,7 @@ it('naimportuj dva ročníky', async () => {
   expect(rocniky).toMatchSnapshot();
 
   const kategorie = await Kategorie.find({}, { _id: 0 }).lean();
-  expect(kategorie.length).toEqual(22);
+  expect(kategorie.length).toEqual(30);
 
   await Rocnik.remove({});
   await Kategorie.remove({});
@@ -598,7 +610,7 @@ it('naimportuj všechny ročníky', async () => {
     </rocnik>
     <rocnik rok="2018">
       <datum>2018-06-09</datum>
-      <typKategorie typ="beh">
+      <typKategorie typ="maraton">
         <kategorie pohlavi="muz" minVek="18" maxVek="39"/>
         <kategorie pohlavi="muz" minVek="40" maxVek="49"/>
         <kategorie pohlavi="muz" minVek="50" maxVek="59"/>
@@ -609,7 +621,19 @@ it('naimportuj všechny ročníky', async () => {
         <kategorie pohlavi="zena" minVek="50" maxVek="59"/>
         <kategorie pohlavi="zena" minVek="60" maxVek="69"/>
         <kategorie pohlavi="zena" minVek="70" maxVek="150"/>
-        <startCisla>1-100</startCisla>
+        <startCisla barva="cervena">1-100</startCisla>
+        <startovne predem="200" naMiste="250"/>
+      </typKategorie>
+      <typKategorie typ="půlmaraton">
+        <kategorie pohlavi="muz" minVek="18" maxVek="39"/>
+        <kategorie pohlavi="muz" minVek="40" maxVek="49"/>
+        <kategorie pohlavi="muz" minVek="50" maxVek="59"/>
+        <kategorie pohlavi="muz" minVek="60" maxVek="150"/>
+        <kategorie pohlavi="zena" minVek="18" maxVek="39"/>
+        <kategorie pohlavi="zena" minVek="40" maxVek="49"/>
+        <kategorie pohlavi="zena" minVek="50" maxVek="59"/>
+        <kategorie pohlavi="zena" minVek="60" maxVek="150"/>
+        <startCisla barva="cerna">1-100</startCisla>
         <startovne predem="200" naMiste="250"/>
       </typKategorie>
       <typKategorie typ="cyklo">
@@ -626,7 +650,7 @@ it('naimportuj všechny ročníky', async () => {
       <typKategorie typ="kolobezka">
         <kategorie pohlavi="muz" minVek="18" maxVek="150"/>
         <kategorie pohlavi="zena" minVek="18" maxVek="150"/>
-        <startCisla>90-100</startCisla>
+        <startCisla>100-90</startCisla>
         <startovne predem="200" naMiste="250"/>
       </typKategorie>
       <typKategorie typ="pesi">
@@ -653,7 +677,7 @@ it('naimportuj všechny ročníky', async () => {
     }, []);
     expect(elements).toHaveLength(1);
   });
-  expect(kategorie.length).toEqual(31);
+  expect(kategorie.length).toEqual(39);
 
   await Rocnik.remove({});
   await Kategorie.remove({});

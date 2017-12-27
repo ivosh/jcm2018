@@ -9,7 +9,11 @@ Object {
       "id": "---r1",
       "kategorie": Object {
         "maraton": Object {
-          "startCisla": "1-100",
+          "startCisla": Object {
+            "rozsahy": Array [
+              "1-100",
+            ],
+          },
           "startovne": Object {
             "naMiste": 200,
             "predem": 150,
@@ -46,7 +50,11 @@ Object {
       "id": "---r2",
       "kategorie": Object {
         "maraton": Object {
-          "startCisla": "5-95",
+          "startCisla": Object {
+            "rozsahy": Array [
+              "5-95",
+            ],
+          },
           "startovne": Object {
             "naMiste": 250,
             "predem": 200,
@@ -92,7 +100,11 @@ Object {
               },
             },
           ],
-          "startCisla": "100-199",
+          "startCisla": Object {
+            "rozsahy": Array [
+              "100-199",
+            ],
+          },
           "startovne": Object {
             "naMiste": 250,
             "predem": 200,

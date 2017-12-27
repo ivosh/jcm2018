@@ -3,6 +3,7 @@
 const mongoose = require('mongoose');
 const uniqueArrayPlugin = require('mongoose-unique-array');
 const Startovne = require('./Startovne');
+const StartCisla = require('./StartCisla');
 
 const TypKategorieSchema = new mongoose.Schema(
   {
@@ -12,7 +13,7 @@ const TypKategorieSchema = new mongoose.Schema(
       required: true
     },
     kategorie: [{ type: mongoose.Schema.ObjectId, ref: 'Kategorie' }],
-    startCisla: { type: String },
+    startCisla: { type: StartCisla },
     startovne: { type: Startovne, required: true }
   },
   { _id: false, bufferCommands: false }

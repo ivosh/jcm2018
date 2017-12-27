@@ -68,7 +68,7 @@ it('findAllRocniky', async () => {
   rocnik1.kategorie.push({
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id],
-    startCisla: '1-100',
+    startCisla: { rozsahy: ['1-100'] },
     startovne: { predem: 150, naMiste: 200 }
   });
   rocnik1.ubytovani.push({ den: 'pátek', poplatek: 50 });
@@ -79,13 +79,13 @@ it('findAllRocniky', async () => {
   rocnik2.kategorie.push({
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id],
-    startCisla: '5-95',
+    startCisla: { rozsahy: ['5-95'] },
     startovne: { predem: 200, naMiste: 250 }
   });
   rocnik2.kategorie.push({
     typ: 'půlmaraton',
     kategorie: [kategorie3.id, kategorie4.id, kategorie5.id],
-    startCisla: '100-199',
+    startCisla: { rozsahy: ['100-199'] },
     startovne: { predem: 200, naMiste: 250 }
   });
   rocnik2.kategorie.push({

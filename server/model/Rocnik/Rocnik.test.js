@@ -24,7 +24,7 @@ it('vytvoř ročník s jednou kategorií', async () => {
   rocnik.kategorie.push({
     typ: 'maraton',
     kategorie: [kategorie.id],
-    startCisla: '1-100',
+    startCisla: { rozsahy: ['1-100'] },
     startovne: { predem: 150, naMiste: 200 }
   });
   await rocnik.save();
@@ -53,7 +53,7 @@ it('vytvoř ročník s ubytováním', async () => {
   rocnik.kategorie.push({
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id],
-    startCisla: '1-100',
+    startCisla: { rozsahy: ['1-100'] },
     startovne: { predem: 150, naMiste: 200 }
   });
   rocnik.ubytovani.push({ den: 'pátek', poplatek: 50 });
