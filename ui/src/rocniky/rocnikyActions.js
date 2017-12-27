@@ -13,7 +13,16 @@ const normalizeRocniky = json => {
 
 export const receiveRocniky = json => ({
   type: 'RECEIVE_ROCNIKY',
-  rocniky: normalizeRocniky(json),
+  data: normalizeRocniky(json),
+  receivedAt: Date.now()
+});
+
+// TODO: no component is subscribed to this action.
+const receiveRocnikyError = ({ code, status, err }) => ({
+  type: 'RECEIVE_ROCNIKY_ERROR',
+  code,
+  status,
+  err,
   receivedAt: Date.now()
 });
 
@@ -30,11 +39,9 @@ export const fetchRocniky = () => async (dispatch, getState, wsClient) => {
     if (response.code === CODE_OK) {
       dispatch(receiveRocniky(response));
     } else {
-      console.log(`Chyba u wsClienta: ${response.code} ${response.status}`);
-      // TODO: dispatch error somehow
+      dispatch(receiveRocnikyError(response));
     }
   } catch (err) {
-    console.log(`Chyba u wsClienta: ${err}`);
-    // TODO: dispatch error somehow
+    dispatch(receiveRocnikyError({ code: 'internal error', err }));
   }
 };
