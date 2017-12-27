@@ -14,7 +14,16 @@ const normalizeUcastnici = json => {
 
 export const receiveUcastnici = json => ({
   type: 'RECEIVE_UCASTNICI',
-  ucastnici: normalizeUcastnici(json),
+  data: normalizeUcastnici(json),
+  receivedAt: Date.now()
+});
+
+// TODO: no component is subscribed to this action.
+const receiveUcastniciError = ({ code, status, err }) => ({
+  type: 'RECEIVE_UCASTNICI_ERROR',
+  code,
+  status,
+  err,
   receivedAt: Date.now()
 });
 
@@ -28,11 +37,9 @@ export const fetchUcastnici = () => async (dispatch, getState, wsClient) => {
     if (response.code === CODE_OK) {
       dispatch(receiveUcastnici(response));
     } else {
-      console.log(`Chyba u wsClienta: ${response.code} ${response.status}`);
-      // TODO: dispatch error somehow
+      dispatch(receiveUcastniciError(response));
     }
   } catch (err) {
-    console.log(`Chyba u wsClienta: ${err}`);
-    // TODO: dispatch error somehow
+    dispatch(receiveUcastniciError({ code: 'internal error', err }));
   }
 };
