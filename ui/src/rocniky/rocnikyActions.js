@@ -5,7 +5,7 @@ const requestRocniky = () => ({
 });
 
 const normalizeRocniky = json => {
-  const byRoky = json.response;
+  const byRoky = json.response.rocniky;
   const roky = Object.keys(byRoky).map(value => parseInt(value, 10));
 
   return { byRoky, roky };
