@@ -386,7 +386,7 @@ const importFromXML = async ({ file, data }) => {
     if (code !== common.CODE_OK) {
       throw new Error(`${code} - ${status}`);
     }
-    await processUcastniky(response, result.jcm.ucastnici[0].ucastnik);
+    await processUcastniky(response.rocniky, result.jcm.ucastnici[0].ucastnik);
   }
 };
 
