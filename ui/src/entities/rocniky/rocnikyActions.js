@@ -1,4 +1,5 @@
 import { CODE_OK, findAllRocniky } from '../../common';
+import { receiveKategorie, receiveKategorieError } from '../kategorie/kategorieActions';
 
 const requestRocniky = () => ({
   type: 'REQUEST_ROCNIKY'
@@ -37,11 +38,14 @@ export const fetchRocniky = () => async (dispatch, getState, wsClient) => {
   try {
     const response = await wsClient.sendRequest(findAllRocniky());
     if (response.code === CODE_OK) {
+      dispatch(receiveKategorie(response));
       dispatch(receiveRocniky(response));
     } else {
+      dispatch(receiveKategorieError(response));
       dispatch(receiveRocnikyError(response));
     }
   } catch (err) {
+    dispatch(receiveKategorieError({ code: 'internal error', err }));
     dispatch(receiveRocnikyError({ code: 'internal error', err }));
   }
 };

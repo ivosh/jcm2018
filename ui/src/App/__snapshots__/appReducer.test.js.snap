@@ -11,6 +11,7 @@ Object {
   },
   "connected": false,
   "entities": Object {
+    "kategorie": Object {},
     "rocniky": Object {
       "byRoky": Object {},
       "roky": Array [],
@@ -42,6 +43,7 @@ Object {
   },
   "connected": true,
   "entities": Object {
+    "kategorie": Object {},
     "rocniky": Object {
       "byRoky": Object {},
       "roky": Array [],
@@ -73,6 +75,7 @@ Object {
   },
   "connected": false,
   "entities": Object {
+    "kategorie": Object {},
     "rocniky": Object {
       "byRoky": Object {},
       "roky": Array [],

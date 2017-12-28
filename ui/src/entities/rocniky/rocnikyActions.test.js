@@ -199,7 +199,7 @@ it('fetchRocniky() should not dispatch anything if rocniky cached', async () => 
   expect(store.getActions()).toHaveLength(0);
 });
 
-it('fetchRocniky() should dispatch two successful actions if rocniky not cached', async () => {
+it('fetchRocniky() should dispatch three successful actions if rocniky not cached', async () => {
   mockWsClient.sendRequest = async () => successfulResponse;
   const store = mockStore({});
 
@@ -207,6 +207,12 @@ it('fetchRocniky() should dispatch two successful actions if rocniky not cached'
   const actions = store.getActions();
   expect(actions[0]).toEqual({ type: 'REQUEST_ROCNIKY' });
   expect(actions[1]).toEqual(
+    expect.objectContaining({
+      data: successfulResponse.response.kategorie,
+      type: 'RECEIVE_KATEGORIE'
+    })
+  );
+  expect(actions[2]).toEqual(
     expect.objectContaining({
       data: { byRoky: successfulResponse.response.rocniky, roky: [2017, 2018] },
       type: 'RECEIVE_ROCNIKY'
@@ -223,6 +229,13 @@ it('fetchRocniky() should dispatch two unsuccessful actions if rocniky not cache
   expect(actions[0]).toEqual({ type: 'REQUEST_ROCNIKY' });
   expect(actions[1]).toEqual(
     expect.objectContaining({
+      type: 'RECEIVE_KATEGORIE_ERROR',
+      code: 'unfulfilled request',
+      status: 'A strange error occurred.'
+    })
+  );
+  expect(actions[2]).toEqual(
+    expect.objectContaining({
       type: 'RECEIVE_ROCNIKY_ERROR',
       code: 'unfulfilled request',
       status: 'A strange error occurred.'
@@ -238,6 +251,13 @@ it('fetchRocniky() should dispatch two unsuccessful actions on error', async () 
   const actions = store.getActions();
   expect(actions[0]).toEqual({ type: 'REQUEST_ROCNIKY' });
   expect(actions[1]).toEqual(
+    expect.objectContaining({
+      type: 'RECEIVE_KATEGORIE_ERROR',
+      code: 'internal error',
+      err: new Error('Parse error!')
+    })
+  );
+  expect(actions[2]).toEqual(
     expect.objectContaining({
       type: 'RECEIVE_ROCNIKY_ERROR',
       code: 'internal error',
