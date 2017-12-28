@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 import UcastniciDigestFilterable from './UcastniciDigestFilterable';
-import { fetchUcastnici } from '../../ucastnici/ucastniciActions';
+import { fetchUcastnici } from '../../entities/ucastnici/ucastniciActions';
 import { getUcastniciDigestSorted } from './ucastniciDigestReducer';
 import { filterChange, sortDirChange } from './UcastniciDigestActions';
 
-const mapStateToProps = ({ ucastnici, registrator }) => {
+const mapStateToProps = ({ entities, registrator }) => {
   const { filter, sortColumn, sortDir } = registrator.ucastniciDigest;
 
   return {
-    ucastniciDigest: getUcastniciDigestSorted({ ...ucastnici, ...registrator.ucastniciDigest }),
+    ucastniciDigest: getUcastniciDigestSorted({ ...entities, ...registrator.ucastniciDigest }),
     filter,
     sortColumn,
     sortDir

@@ -1,4 +1,4 @@
-import { CODE_OK, findAllUcastnici } from '../common';
+import { CODE_OK, findAllUcastnici } from '../../common';
 import { fetchRocniky } from '../rocniky/rocnikyActions';
 
 const requestUcastnici = () => ({

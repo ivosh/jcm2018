@@ -1,4 +1,4 @@
-import { CODE_OK, findAllRocniky } from '../common';
+import { CODE_OK, findAllRocniky } from '../../common';
 
 const requestRocniky = () => ({
   type: 'REQUEST_ROCNIKY'

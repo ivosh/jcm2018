@@ -10,42 +10,44 @@ let store;
 let wrapper;
 beforeEach(() => {
   const state = {
-    ucastnici: {
-      allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
-      byIds: {
-        '6f09b1fd371dec1e99b7e1c9': {
-          roky: [2016],
-          2016: {
-            udaje: {
-              prijmeni: 'Sukdoláková',
-              jmeno: 'Martina',
-              narozeni: { rok: 1963 },
-              pohlavi: 'zena',
-              obec: 'Zlín',
-              stat: 'Česká republika'
-            }
-          }
-        },
-        '5a09b1fd371dec1e99b7e1c9': {
-          roky: [2018, 2017],
-          2018: {
-            udaje: {
-              prijmeni: 'Balabák',
-              jmeno: 'Roman',
-              narozeni: { rok: 1956, mesic: 5, den: 15 },
-              pohlavi: 'muz',
-              obec: 'Ostrava 2',
-              stat: 'Česká republika'
+    entities: {
+      ucastnici: {
+        allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
+        byIds: {
+          '6f09b1fd371dec1e99b7e1c9': {
+            roky: [2016],
+            2016: {
+              udaje: {
+                prijmeni: 'Sukdoláková',
+                jmeno: 'Martina',
+                narozeni: { rok: 1963 },
+                pohlavi: 'zena',
+                obec: 'Zlín',
+                stat: 'Česká republika'
+              }
             }
           },
-          2017: {
-            udaje: {
-              prijmeni: 'Balabák',
-              jmeno: 'Roman',
-              narozeni: { rok: 1956 },
-              pohlavi: 'muz',
-              obec: 'Ostrava 1',
-              stat: 'Česká republika'
+          '5a09b1fd371dec1e99b7e1c9': {
+            roky: [2018, 2017],
+            2018: {
+              udaje: {
+                prijmeni: 'Balabák',
+                jmeno: 'Roman',
+                narozeni: { rok: 1956, mesic: 5, den: 15 },
+                pohlavi: 'muz',
+                obec: 'Ostrava 2',
+                stat: 'Česká republika'
+              }
+            },
+            2017: {
+              udaje: {
+                prijmeni: 'Balabák',
+                jmeno: 'Roman',
+                narozeni: { rok: 1956 },
+                pohlavi: 'muz',
+                obec: 'Ostrava 1',
+                stat: 'Česká republika'
+              }
             }
           }
         }

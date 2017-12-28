@@ -10,6 +10,16 @@ Object {
     },
   },
   "connected": false,
+  "entities": Object {
+    "rocniky": Object {
+      "byRoky": Object {},
+      "roky": Array [],
+    },
+    "ucastnici": Object {
+      "allIds": Array [],
+      "byIds": Object {},
+    },
+  },
   "registrator": Object {
     "ucastniciDigest": Object {
       "filter": "",
@@ -17,15 +27,7 @@ Object {
       "sortDir": "none",
     },
   },
-  "rocniky": Object {
-    "byRoky": Object {},
-    "roky": Array [],
-  },
   "startujici": Array [],
-  "ucastnici": Object {
-    "allIds": Array [],
-    "byIds": Object {},
-  },
 }
 `;
 
@@ -39,6 +41,16 @@ Object {
     },
   },
   "connected": true,
+  "entities": Object {
+    "rocniky": Object {
+      "byRoky": Object {},
+      "roky": Array [],
+    },
+    "ucastnici": Object {
+      "allIds": Array [],
+      "byIds": Object {},
+    },
+  },
   "registrator": Object {
     "ucastniciDigest": Object {
       "filter": "",
@@ -46,15 +58,7 @@ Object {
       "sortDir": "none",
     },
   },
-  "rocniky": Object {
-    "byRoky": Object {},
-    "roky": Array [],
-  },
   "startujici": Array [],
-  "ucastnici": Object {
-    "allIds": Array [],
-    "byIds": Object {},
-  },
 }
 `;
 
@@ -68,6 +72,16 @@ Object {
     },
   },
   "connected": false,
+  "entities": Object {
+    "rocniky": Object {
+      "byRoky": Object {},
+      "roky": Array [],
+    },
+    "ucastnici": Object {
+      "allIds": Array [],
+      "byIds": Object {},
+    },
+  },
   "registrator": Object {
     "ucastniciDigest": Object {
       "filter": "",
@@ -75,14 +89,6 @@ Object {
       "sortDir": "none",
     },
   },
-  "rocniky": Object {
-    "byRoky": Object {},
-    "roky": Array [],
-  },
   "startujici": Array [],
-  "ucastnici": Object {
-    "allIds": Array [],
-    "byIds": Object {},
-  },
 }
 `;

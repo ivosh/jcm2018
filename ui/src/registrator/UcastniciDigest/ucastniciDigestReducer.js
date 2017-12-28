@@ -2,7 +2,7 @@ import {
   csStringSortMethod,
   narozeniSortMethod,
   prijmeniJmenoNarozeniSortMethod
-} from '../../ucastnici/ucastniciReducer';
+} from '../../entities/ucastnici/ucastniciReducer';
 
 export const SortDirTypes = { NONE: 'none', ASC: 'asc', DESC: 'desc' };
 
@@ -39,10 +39,10 @@ const ucastniciDigestReducer = (state = initialState, action) => {
 
 export default ucastniciDigestReducer;
 
-export const getUcastniciDigestSorted = ({ allIds, byIds, sortColumn, sortDir, filter }) => {
-  const ucastnici = [];
-  allIds.forEach(id => {
-    const ucastnik = byIds[id];
+export const getUcastniciDigestSorted = ({ ucastnici, sortColumn, sortDir, filter }) => {
+  const result = [];
+  ucastnici.allIds.forEach(id => {
+    const ucastnik = ucastnici.byIds[id];
     const posledniUcast = ucastnik[ucastnik.roky[0]];
     const { udaje } = posledniUcast;
 
@@ -50,7 +50,7 @@ export const getUcastniciDigestSorted = ({ allIds, byIds, sortColumn, sortDir, f
       udaje.prijmeni.toLowerCase().startsWith(filter) ||
       udaje.jmeno.toLowerCase().startsWith(filter)
     ) {
-      ucastnici.push({
+      result.push({
         id,
         prijmeni: udaje.prijmeni,
         jmeno: udaje.jmeno,
@@ -66,7 +66,7 @@ export const getUcastniciDigestSorted = ({ allIds, byIds, sortColumn, sortDir, f
   };
 
   const sortMethod = sortMethods[sortColumn] || prijmeniJmenoNarozeniSortMethod;
-  const sorted = ucastnici.sort(sortMethod);
+  const sorted = result.sort(sortMethod);
   if (sortDir === SortDirTypes.DESC) {
     sorted.reverse();
   }

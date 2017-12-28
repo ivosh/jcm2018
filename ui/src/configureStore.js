@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import appReducer from './App/appReducer';
 import { websocketConnected, websocketDisconnected } from './App/AppActions';
-import { fetchRocniky } from './rocniky/rocnikyActions';
+import { fetchRocniky } from './entities/rocniky/rocnikyActions';
 import { setHighestMezicasId } from './casomeric/Mezicasy/MezicasyActions';
 
 const demoStartujiciState = {

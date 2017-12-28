@@ -48,42 +48,44 @@ it('filtrovat na dvě písmena', () => {
 
 it('getUcastniciDigestSorted() by default', () => {
   const state = {
-    ucastnici: {
-      allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
-      byIds: {
-        '6f09b1fd371dec1e99b7e1c9': {
-          roky: [2016],
-          2016: {
-            udaje: {
-              prijmeni: 'Sukdoláková',
-              jmeno: 'Martina',
-              narozeni: { rok: 1963, mesic: 12, den: 7 },
-              pohlavi: 'zena',
-              obec: 'Zlín',
-              stat: 'Česká republika'
-            }
-          }
-        },
-        '5a09b1fd371dec1e99b7e1c9': {
-          roky: [2018, 2017],
-          2018: {
-            udaje: {
-              prijmeni: 'Balabák',
-              jmeno: 'Roman',
-              narozeni: { rok: 1956 },
-              pohlavi: 'muz',
-              obec: 'Ostrava 2',
-              stat: 'Česká republika'
+    entities: {
+      ucastnici: {
+        allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
+        byIds: {
+          '6f09b1fd371dec1e99b7e1c9': {
+            roky: [2016],
+            2016: {
+              udaje: {
+                prijmeni: 'Sukdoláková',
+                jmeno: 'Martina',
+                narozeni: { rok: 1963, mesic: 12, den: 7 },
+                pohlavi: 'zena',
+                obec: 'Zlín',
+                stat: 'Česká republika'
+              }
             }
           },
-          2017: {
-            udaje: {
-              prijmeni: 'Balabák',
-              jmeno: 'Roman',
-              narozeni: { rok: 1957 },
-              pohlavi: 'muz',
-              obec: 'Ostrava 1',
-              stat: 'Česká republika'
+          '5a09b1fd371dec1e99b7e1c9': {
+            roky: [2018, 2017],
+            2018: {
+              udaje: {
+                prijmeni: 'Balabák',
+                jmeno: 'Roman',
+                narozeni: { rok: 1956 },
+                pohlavi: 'muz',
+                obec: 'Ostrava 2',
+                stat: 'Česká republika'
+              }
+            },
+            2017: {
+              udaje: {
+                prijmeni: 'Balabák',
+                jmeno: 'Roman',
+                narozeni: { rok: 1957 },
+                pohlavi: 'muz',
+                obec: 'Ostrava 1',
+                stat: 'Česká republika'
+              }
             }
           }
         }
@@ -113,50 +115,52 @@ it('getUcastniciDigestSorted() by default', () => {
   ];
   deepFreeze(state);
 
-  const { ucastnici, registrator } = state;
-  expect(getUcastniciDigestSorted({ ...ucastnici, ...registrator.ucastniciDigest })).toEqual(
+  const { entities, registrator } = state;
+  expect(getUcastniciDigestSorted({ ...entities, ...registrator.ucastniciDigest })).toEqual(
     selected
   );
 });
 
 it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
   const state = {
-    ucastnici: {
-      allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
-      byIds: {
-        '6f09b1fd371dec1e99b7e1c9': {
-          roky: [2016],
-          2016: {
-            udaje: {
-              prijmeni: 'Sukdoláková',
-              jmeno: 'Martina',
-              narozeni: { rok: 1963, mesic: 12, den: 7 },
-              pohlavi: 'zena',
-              obec: 'Zlín',
-              stat: 'Česká republika'
-            }
-          }
-        },
-        '5a09b1fd371dec1e99b7e1c9': {
-          roky: [2018, 2017],
-          2018: {
-            udaje: {
-              prijmeni: 'Balabák',
-              jmeno: 'Roman',
-              narozeni: { rok: 1956 },
-              pohlavi: 'muz',
-              obec: 'Ostrava 2',
-              stat: 'Česká republika'
+    entities: {
+      ucastnici: {
+        allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
+        byIds: {
+          '6f09b1fd371dec1e99b7e1c9': {
+            roky: [2016],
+            2016: {
+              udaje: {
+                prijmeni: 'Sukdoláková',
+                jmeno: 'Martina',
+                narozeni: { rok: 1963, mesic: 12, den: 7 },
+                pohlavi: 'zena',
+                obec: 'Zlín',
+                stat: 'Česká republika'
+              }
             }
           },
-          2017: {
-            udaje: {
-              prijmeni: 'Balabák',
-              jmeno: 'Roman',
-              narozeni: { rok: 1957 },
-              pohlavi: 'muz',
-              obec: 'Ostrava 1',
-              stat: 'Česká republika'
+          '5a09b1fd371dec1e99b7e1c9': {
+            roky: [2018, 2017],
+            2018: {
+              udaje: {
+                prijmeni: 'Balabák',
+                jmeno: 'Roman',
+                narozeni: { rok: 1956 },
+                pohlavi: 'muz',
+                obec: 'Ostrava 2',
+                stat: 'Česká republika'
+              }
+            },
+            2017: {
+              udaje: {
+                prijmeni: 'Balabák',
+                jmeno: 'Roman',
+                narozeni: { rok: 1957 },
+                pohlavi: 'muz',
+                obec: 'Ostrava 1',
+                stat: 'Česká republika'
+              }
             }
           }
         }
@@ -186,50 +190,52 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
   ];
   deepFreeze(state);
 
-  const { ucastnici, registrator } = state;
-  expect(getUcastniciDigestSorted({ ...ucastnici, ...registrator.ucastniciDigest })).toEqual(
+  const { entities, registrator } = state;
+  expect(getUcastniciDigestSorted({ ...entities, ...registrator.ucastniciDigest })).toEqual(
     selected
   );
 });
 
 it('getUcastniciDigestSorted() podle narození sestupně', () => {
   const state = {
-    ucastnici: {
-      allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
-      byIds: {
-        '6f09b1fd371dec1e99b7e1c9': {
-          roky: [2016],
-          2016: {
-            udaje: {
-              prijmeni: 'Sukdoláková',
-              jmeno: 'Martina',
-              narozeni: { rok: 1963, mesic: 12, den: 7 },
-              pohlavi: 'zena',
-              obec: 'Zlín',
-              stat: 'Česká republika'
-            }
-          }
-        },
-        '5a09b1fd371dec1e99b7e1c9': {
-          roky: [2018, 2017],
-          2018: {
-            udaje: {
-              prijmeni: 'Balabák',
-              jmeno: 'Roman',
-              narozeni: { rok: 1956 },
-              pohlavi: 'muz',
-              obec: 'Ostrava 2',
-              stat: 'Česká republika'
+    entities: {
+      ucastnici: {
+        allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
+        byIds: {
+          '6f09b1fd371dec1e99b7e1c9': {
+            roky: [2016],
+            2016: {
+              udaje: {
+                prijmeni: 'Sukdoláková',
+                jmeno: 'Martina',
+                narozeni: { rok: 1963, mesic: 12, den: 7 },
+                pohlavi: 'zena',
+                obec: 'Zlín',
+                stat: 'Česká republika'
+              }
             }
           },
-          2017: {
-            udaje: {
-              prijmeni: 'Balabák',
-              jmeno: 'Roman',
-              narozeni: { rok: 1957 },
-              pohlavi: 'muz',
-              obec: 'Ostrava 1',
-              stat: 'Česká republika'
+          '5a09b1fd371dec1e99b7e1c9': {
+            roky: [2018, 2017],
+            2018: {
+              udaje: {
+                prijmeni: 'Balabák',
+                jmeno: 'Roman',
+                narozeni: { rok: 1956 },
+                pohlavi: 'muz',
+                obec: 'Ostrava 2',
+                stat: 'Česká republika'
+              }
+            },
+            2017: {
+              udaje: {
+                prijmeni: 'Balabák',
+                jmeno: 'Roman',
+                narozeni: { rok: 1957 },
+                pohlavi: 'muz',
+                obec: 'Ostrava 1',
+                stat: 'Česká republika'
+              }
             }
           }
         }
@@ -259,50 +265,52 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
   ];
   deepFreeze(state);
 
-  const { ucastnici, registrator } = state;
-  expect(getUcastniciDigestSorted({ ...ucastnici, ...registrator.ucastniciDigest })).toEqual(
+  const { entities, registrator } = state;
+  expect(getUcastniciDigestSorted({ ...entities, ...registrator.ucastniciDigest })).toEqual(
     selected
   );
 });
 
 it('getUcastniciDigestSorted() filtrováno na r', () => {
   const state = {
-    ucastnici: {
-      allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
-      byIds: {
-        '6f09b1fd371dec1e99b7e1c9': {
-          roky: [2016],
-          2016: {
-            udaje: {
-              prijmeni: 'Sukdoláková',
-              jmeno: 'Martina',
-              narozeni: { rok: 1963, mesic: 12, den: 7 },
-              pohlavi: 'zena',
-              obec: 'Zlín',
-              stat: 'Česká republika'
-            }
-          }
-        },
-        '5a09b1fd371dec1e99b7e1c9': {
-          roky: [2018, 2017],
-          2018: {
-            udaje: {
-              prijmeni: 'Balabák',
-              jmeno: 'Roman',
-              narozeni: { rok: 1956 },
-              pohlavi: 'muz',
-              obec: 'Ostrava 2',
-              stat: 'Česká republika'
+    entities: {
+      ucastnici: {
+        allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
+        byIds: {
+          '6f09b1fd371dec1e99b7e1c9': {
+            roky: [2016],
+            2016: {
+              udaje: {
+                prijmeni: 'Sukdoláková',
+                jmeno: 'Martina',
+                narozeni: { rok: 1963, mesic: 12, den: 7 },
+                pohlavi: 'zena',
+                obec: 'Zlín',
+                stat: 'Česká republika'
+              }
             }
           },
-          2017: {
-            udaje: {
-              prijmeni: 'Balabák',
-              jmeno: 'Roman',
-              narozeni: { rok: 1957 },
-              pohlavi: 'muz',
-              obec: 'Ostrava 1',
-              stat: 'Česká republika'
+          '5a09b1fd371dec1e99b7e1c9': {
+            roky: [2018, 2017],
+            2018: {
+              udaje: {
+                prijmeni: 'Balabák',
+                jmeno: 'Roman',
+                narozeni: { rok: 1956 },
+                pohlavi: 'muz',
+                obec: 'Ostrava 2',
+                stat: 'Česká republika'
+              }
+            },
+            2017: {
+              udaje: {
+                prijmeni: 'Balabák',
+                jmeno: 'Roman',
+                narozeni: { rok: 1957 },
+                pohlavi: 'muz',
+                obec: 'Ostrava 1',
+                stat: 'Česká republika'
+              }
             }
           }
         }
@@ -326,8 +334,8 @@ it('getUcastniciDigestSorted() filtrováno na r', () => {
   ];
   deepFreeze(state);
 
-  const { ucastnici, registrator } = state;
-  expect(getUcastniciDigestSorted({ ...ucastnici, ...registrator.ucastniciDigest })).toEqual(
+  const { entities, registrator } = state;
+  expect(getUcastniciDigestSorted({ ...entities, ...registrator.ucastniciDigest })).toEqual(
     selected
   );
 });

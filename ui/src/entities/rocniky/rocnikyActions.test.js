@@ -1,6 +1,6 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import WsClient from '../WsClient';
+import WsClient from '../../WsClient';
 import { fetchRocniky } from './rocnikyActions';
 
 const mockWsClient = new WsClient();
