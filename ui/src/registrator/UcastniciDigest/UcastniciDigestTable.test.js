@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import UcastniciDigest from './UcastniciDigest';
+import UcastniciDigestTable from './UcastniciDigestTable';
 
 it('žádný účastník', () => {
   const wrapper = shallow(
-    <UcastniciDigest
+    <UcastniciDigestTable
       ucastniciDigest={[]}
       fetchUcastnici={jest.fn()}
       onSortDirChange={jest.fn()}
@@ -33,7 +33,7 @@ it('dva účastníci', () => {
   ];
 
   const wrapper = shallow(
-    <UcastniciDigest
+    <UcastniciDigestTable
       ucastniciDigest={ucastniciDigest}
       fetchUcastnici={jest.fn()}
       onSortDirChange={jest.fn()}

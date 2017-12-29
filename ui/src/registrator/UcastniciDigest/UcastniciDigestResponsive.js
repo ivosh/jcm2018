@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import Dimensions from 'react-dimensions';
-import UcastniciDigest from './UcastniciDigest';
+import UcastniciDigestTable from './UcastniciDigestTable';
 
 const UcastniciDigestResponsive = Dimensions({
   getHeight: () => window.innerHeight - 130,
   getWidth: () => window.innerWidth - 100
-})(UcastniciDigest);
+})(UcastniciDigestTable);
 
 // ucastniciDigest are simple pass-through from UcastniciDigestContainer.
 UcastniciDigestResponsive.propTypes = {
