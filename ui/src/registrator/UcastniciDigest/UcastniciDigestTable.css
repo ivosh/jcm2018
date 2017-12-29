@@ -1,0 +1,27 @@
+/* display: block is a workaround for fixedDataTableCell_wrap1 which sets display: table
+   and prevents applying background colour to the whole cell element. */
+
+.UcastniciDigestTable_maraton {
+  display: block;
+  background-color: #b0ffb5;
+}
+
+.UcastniciDigestTable_půlmaraton {
+  display: block;
+  background-color: #ff837a;
+}
+
+.UcastniciDigestTable_cyklo {
+  display: block;
+  background-color: #efe023;
+}
+
+.UcastniciDigestTable_koloběžka {
+  display: block;
+  background-color: #405ced;
+}
+
+.UcastniciDigestTable_pěší {
+  display: block;
+  background-color: #d793ff;
+}

@@ -4,16 +4,49 @@ import { Cell, Column, Table } from 'fixed-data-table-2';
 import 'fixed-data-table-2/dist/fixed-data-table.css';
 import { SortDirTypes } from './ucastniciDigestReducer';
 import SortHeaderCell from './SortHeaderCell';
+import './UcastniciDigestTable.css';
 
 // TODO: extend from React.PureComponent and implement render?
 const TextCell = ({ data, rowIndex, columnKey }) => <Cell>{data[rowIndex][columnKey]}</Cell>;
-
 TextCell.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       prijmeni: PropTypes.string.isRequired,
       jmeno: PropTypes.string.isRequired,
       narozeni: PropTypes.string.isRequired
+    }).isRequired
+  ).isRequired,
+  rowIndex: PropTypes.number,
+  columnKey: PropTypes.string.isRequired
+};
+
+const VykonCell = ({ data, rowIndex, columnKey }) => {
+  const cell = data[rowIndex][columnKey];
+  if (cell) {
+    let text;
+    if (cell.dokonceno === true) {
+      text = '✓';
+    } else if (cell.dokonceno === false) {
+      text = '✗';
+    } else {
+      text = '?';
+    }
+    return <Cell className={`UcastniciDigestTable_${cell.kategorie}`}>{text}</Cell>;
+  }
+  return <Cell />;
+};
+VykonCell.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      // TODO další roky
+      2017: PropTypes.shape({
+        kategorie: PropTypes.string.isRequired,
+        dokonceno: PropTypes.bool
+      }),
+      2018: PropTypes.shape({
+        kategorie: PropTypes.string.isRequired,
+        dokonceno: PropTypes.bool
+      })
     }).isRequired
   ).isRequired,
   rowIndex: PropTypes.number,
@@ -42,10 +75,10 @@ class UcastniciDigest extends Component {
     }
 
     const columns = [
-      { key: 'prijmeni', label: 'příjmení', width: 100 },
-      { key: 'jmeno', label: 'jméno', width: 90 },
-      { key: 'narozeni', label: 'narození', width: 100 },
-      ...roky.map(rok => ({ key: `${rok}`, label: rok, width: 50 }))
+      { key: 'prijmeni', label: 'příjmení', width: 100, vykon: false },
+      { key: 'jmeno', label: 'jméno', width: 90, vykon: false },
+      { key: 'narozeni', label: 'narození', width: 100, vykon: false },
+      ...roky.map(rok => ({ key: `${rok}`, label: rok, width: 45, vykon: true }))
     ];
 
     return (
@@ -60,24 +93,37 @@ class UcastniciDigest extends Component {
         keyboardScrollEnabled
         keyboardPageEnabled
       >
-        {columns.map(column => (
-          <Column
-            key={column.key}
-            columnKey={column.key}
-            width={column.width}
-            flexGrow={1}
-            header={
-              <SortHeaderCell
-                columnKey={column.key}
-                onSortDirChange={() => onSortDirChange(column.key)}
-                sortDir={sortColumn === column.key ? sortDir : SortDirTypes.NONE}
-              >
-                {column.label}
-              </SortHeaderCell>
-            }
-            cell={<TextCell columnKey={column.key} data={ucastniciDigest} />}
-          />
-        ))}
+        {columns.map(({ key, label, width, vykon }) => {
+          if (vykon === false) {
+            return (
+              <Column
+                key={key}
+                columnKey={key}
+                width={width}
+                flexGrow={1}
+                header={
+                  <SortHeaderCell
+                    columnKey={key}
+                    onSortDirChange={() => onSortDirChange(key)}
+                    sortDir={sortColumn === key ? sortDir : SortDirTypes.NONE}
+                  >
+                    {label}
+                  </SortHeaderCell>
+                }
+                cell={<TextCell columnKey={key} data={ucastniciDigest} />}
+              />
+            );
+          }
+          return (
+            <Column
+              key={key}
+              columnKey={key}
+              width={width}
+              header={<Cell>{label}</Cell>}
+              cell={<VykonCell columnKey={key} data={ucastniciDigest} />}
+            />
+          );
+        })}
       </Table>
     );
   };

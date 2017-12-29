@@ -39,7 +39,23 @@ const ucastniciDigestReducer = (state = initialState, action) => {
 
 export default ucastniciDigestReducer;
 
-export const getUcastniciDigestSorted = ({ ucastnici, sortColumn, sortDir, filter }) => {
+export const getVykony = (kategorie, ucastnik) => {
+  const result = {};
+
+  ucastnik.roky.forEach(rok => {
+    const { vykon } = ucastnik[rok];
+    if (vykon) {
+      result[rok] = {
+        kategorie: kategorie[vykon.kategorie].typ,
+        dokonceno: vykon.dokonceno
+      };
+    }
+  });
+
+  return result;
+};
+
+export const getUcastniciDigestSorted = ({ kategorie, ucastnici, sortColumn, sortDir, filter }) => {
   const result = [];
   ucastnici.allIds.forEach(id => {
     const ucastnik = ucastnici.byIds[id];
@@ -54,7 +70,8 @@ export const getUcastniciDigestSorted = ({ ucastnici, sortColumn, sortDir, filte
         id,
         prijmeni: udaje.prijmeni,
         jmeno: udaje.jmeno,
-        narozeni: udaje.narozeni
+        narozeni: udaje.narozeni,
+        ...getVykony(kategorie, ucastnik)
       });
     }
   });
