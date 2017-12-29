@@ -8,6 +8,7 @@ const mapStateToProps = ({ entities, registrator }) => {
   const { filter, sortColumn, sortDir } = registrator.ucastniciDigest;
 
   return {
+    roky: entities.rocniky.roky,
     ucastniciDigest: getUcastniciDigestSorted({ ...entities, ...registrator.ucastniciDigest }),
     filter,
     sortColumn,

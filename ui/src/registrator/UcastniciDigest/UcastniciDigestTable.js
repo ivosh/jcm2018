@@ -27,6 +27,7 @@ class UcastniciDigest extends Component {
 
   render = () => {
     const {
+      roky,
       ucastniciDigest,
       onSortDirChange,
       sortColumn,
@@ -36,13 +37,15 @@ class UcastniciDigest extends Component {
     } = this.props;
 
     if (ucastniciDigest.length === 0) {
+      // :TODO: display "načítáme"
       return <div className="Ucastnici">žádný účastník</div>;
     }
 
     const columns = [
       { key: 'prijmeni', label: 'příjmení', width: 100 },
-      { key: 'jmeno', label: 'jméno', width: 100 },
-      { key: 'narozeni', label: 'narození', width: 100 }
+      { key: 'jmeno', label: 'jméno', width: 90 },
+      { key: 'narozeni', label: 'narození', width: 100 },
+      ...roky.map(rok => ({ key: `${rok}`, label: rok, width: 50 }))
     ];
 
     return (
@@ -81,6 +84,7 @@ class UcastniciDigest extends Component {
 }
 
 UcastniciDigest.propTypes = {
+  roky: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
   ucastniciDigest: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,

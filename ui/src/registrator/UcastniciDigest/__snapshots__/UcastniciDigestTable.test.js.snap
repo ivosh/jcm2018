@@ -108,7 +108,7 @@ exports[`dva účastníci 1`] = `
       </SortHeaderCell>
     }
     key="jmeno"
-    width={100}
+    width={90}
   />
   <FixedDataTableColumn
     allowCellsRecycling={false}
@@ -148,6 +148,708 @@ exports[`dva účastníci 1`] = `
     }
     key="narozeni"
     width={100}
+  />
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        columnKey="2001"
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
+    }
+    columnKey="2001"
+    fixed={false}
+    fixedRight={false}
+    flexGrow={1}
+    header={
+      <SortHeaderCell
+        columnKey="2001"
+        onSortDirChange={[Function]}
+        sortDir="none"
+      >
+        2001
+      </SortHeaderCell>
+    }
+    key="2001"
+    width={50}
+  />
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        columnKey="2002"
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
+    }
+    columnKey="2002"
+    fixed={false}
+    fixedRight={false}
+    flexGrow={1}
+    header={
+      <SortHeaderCell
+        columnKey="2002"
+        onSortDirChange={[Function]}
+        sortDir="none"
+      >
+        2002
+      </SortHeaderCell>
+    }
+    key="2002"
+    width={50}
+  />
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        columnKey="2003"
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
+    }
+    columnKey="2003"
+    fixed={false}
+    fixedRight={false}
+    flexGrow={1}
+    header={
+      <SortHeaderCell
+        columnKey="2003"
+        onSortDirChange={[Function]}
+        sortDir="none"
+      >
+        2003
+      </SortHeaderCell>
+    }
+    key="2003"
+    width={50}
+  />
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        columnKey="2004"
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
+    }
+    columnKey="2004"
+    fixed={false}
+    fixedRight={false}
+    flexGrow={1}
+    header={
+      <SortHeaderCell
+        columnKey="2004"
+        onSortDirChange={[Function]}
+        sortDir="none"
+      >
+        2004
+      </SortHeaderCell>
+    }
+    key="2004"
+    width={50}
+  />
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        columnKey="2005"
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
+    }
+    columnKey="2005"
+    fixed={false}
+    fixedRight={false}
+    flexGrow={1}
+    header={
+      <SortHeaderCell
+        columnKey="2005"
+        onSortDirChange={[Function]}
+        sortDir="none"
+      >
+        2005
+      </SortHeaderCell>
+    }
+    key="2005"
+    width={50}
+  />
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        columnKey="2006"
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
+    }
+    columnKey="2006"
+    fixed={false}
+    fixedRight={false}
+    flexGrow={1}
+    header={
+      <SortHeaderCell
+        columnKey="2006"
+        onSortDirChange={[Function]}
+        sortDir="none"
+      >
+        2006
+      </SortHeaderCell>
+    }
+    key="2006"
+    width={50}
+  />
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        columnKey="2007"
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
+    }
+    columnKey="2007"
+    fixed={false}
+    fixedRight={false}
+    flexGrow={1}
+    header={
+      <SortHeaderCell
+        columnKey="2007"
+        onSortDirChange={[Function]}
+        sortDir="none"
+      >
+        2007
+      </SortHeaderCell>
+    }
+    key="2007"
+    width={50}
+  />
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        columnKey="2008"
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
+    }
+    columnKey="2008"
+    fixed={false}
+    fixedRight={false}
+    flexGrow={1}
+    header={
+      <SortHeaderCell
+        columnKey="2008"
+        onSortDirChange={[Function]}
+        sortDir="none"
+      >
+        2008
+      </SortHeaderCell>
+    }
+    key="2008"
+    width={50}
+  />
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        columnKey="2009"
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
+    }
+    columnKey="2009"
+    fixed={false}
+    fixedRight={false}
+    flexGrow={1}
+    header={
+      <SortHeaderCell
+        columnKey="2009"
+        onSortDirChange={[Function]}
+        sortDir="none"
+      >
+        2009
+      </SortHeaderCell>
+    }
+    key="2009"
+    width={50}
+  />
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        columnKey="2010"
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
+    }
+    columnKey="2010"
+    fixed={false}
+    fixedRight={false}
+    flexGrow={1}
+    header={
+      <SortHeaderCell
+        columnKey="2010"
+        onSortDirChange={[Function]}
+        sortDir="none"
+      >
+        2010
+      </SortHeaderCell>
+    }
+    key="2010"
+    width={50}
+  />
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        columnKey="2011"
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
+    }
+    columnKey="2011"
+    fixed={false}
+    fixedRight={false}
+    flexGrow={1}
+    header={
+      <SortHeaderCell
+        columnKey="2011"
+        onSortDirChange={[Function]}
+        sortDir="none"
+      >
+        2011
+      </SortHeaderCell>
+    }
+    key="2011"
+    width={50}
+  />
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        columnKey="2012"
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
+    }
+    columnKey="2012"
+    fixed={false}
+    fixedRight={false}
+    flexGrow={1}
+    header={
+      <SortHeaderCell
+        columnKey="2012"
+        onSortDirChange={[Function]}
+        sortDir="none"
+      >
+        2012
+      </SortHeaderCell>
+    }
+    key="2012"
+    width={50}
+  />
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        columnKey="2013"
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
+    }
+    columnKey="2013"
+    fixed={false}
+    fixedRight={false}
+    flexGrow={1}
+    header={
+      <SortHeaderCell
+        columnKey="2013"
+        onSortDirChange={[Function]}
+        sortDir="none"
+      >
+        2013
+      </SortHeaderCell>
+    }
+    key="2013"
+    width={50}
+  />
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        columnKey="2014"
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
+    }
+    columnKey="2014"
+    fixed={false}
+    fixedRight={false}
+    flexGrow={1}
+    header={
+      <SortHeaderCell
+        columnKey="2014"
+        onSortDirChange={[Function]}
+        sortDir="none"
+      >
+        2014
+      </SortHeaderCell>
+    }
+    key="2014"
+    width={50}
+  />
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        columnKey="2015"
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
+    }
+    columnKey="2015"
+    fixed={false}
+    fixedRight={false}
+    flexGrow={1}
+    header={
+      <SortHeaderCell
+        columnKey="2015"
+        onSortDirChange={[Function]}
+        sortDir="none"
+      >
+        2015
+      </SortHeaderCell>
+    }
+    key="2015"
+    width={50}
+  />
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        columnKey="2016"
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
+    }
+    columnKey="2016"
+    fixed={false}
+    fixedRight={false}
+    flexGrow={1}
+    header={
+      <SortHeaderCell
+        columnKey="2016"
+        onSortDirChange={[Function]}
+        sortDir="none"
+      >
+        2016
+      </SortHeaderCell>
+    }
+    key="2016"
+    width={50}
+  />
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        columnKey="2017"
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
+    }
+    columnKey="2017"
+    fixed={false}
+    fixedRight={false}
+    flexGrow={1}
+    header={
+      <SortHeaderCell
+        columnKey="2017"
+        onSortDirChange={[Function]}
+        sortDir="none"
+      >
+        2017
+      </SortHeaderCell>
+    }
+    key="2017"
+    width={50}
+  />
+  <FixedDataTableColumn
+    allowCellsRecycling={false}
+    cell={
+      <TextCell
+        columnKey="2018"
+        data={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": "1956",
+              "prijmeni": "Balabák",
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": "7. 12. 1963",
+              "prijmeni": "Sukdoláková",
+            },
+          ]
+        }
+      />
+    }
+    columnKey="2018"
+    fixed={false}
+    fixedRight={false}
+    flexGrow={1}
+    header={
+      <SortHeaderCell
+        columnKey="2018"
+        onSortDirChange={[Function]}
+        sortDir="none"
+      >
+        2018
+      </SortHeaderCell>
+    }
+    key="2018"
+    width={50}
   />
 </FixedDataTable>
 `;

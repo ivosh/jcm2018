@@ -27,6 +27,7 @@ UcastniciDigestFilterable.propTypes = {
   filter: PropTypes.string,
   sortColumn: PropTypes.string,
   sortDir: PropTypes.string,
+  roky: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
   ucastniciDigest: PropTypes.array.isRequired,
   fetchUcastnici: PropTypes.func.isRequired,
   onFilterChange: PropTypes.func.isRequired,

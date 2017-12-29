@@ -11,6 +11,9 @@ let wrapper;
 beforeEach(() => {
   const state = {
     entities: {
+      rocniky: {
+        roky: [2016, 2017, 2018]
+      },
       ucastnici: {
         allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
         byIds: {

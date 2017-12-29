@@ -7,10 +7,11 @@ const UcastniciDigestResponsive = Dimensions({
   getWidth: () => window.innerWidth - 100
 })(UcastniciDigestTable);
 
-// ucastniciDigest are simple pass-through from UcastniciDigestContainer.
+// roky+ucastniciDigest are simple pass-through from UcastniciDigestContainer.
 UcastniciDigestResponsive.propTypes = {
   sortColumn: PropTypes.string,
   sortDir: PropTypes.string,
+  roky: PropTypes.array.isRequired,
   ucastniciDigest: PropTypes.array.isRequired,
   fetchUcastnici: PropTypes.func.isRequired,
   onSortDirChange: PropTypes.func.isRequired
