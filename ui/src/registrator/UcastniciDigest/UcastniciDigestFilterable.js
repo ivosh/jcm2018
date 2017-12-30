@@ -16,7 +16,7 @@ const UcastniciDigestFilterable = ({ filter, onFilterChange, ...props }) => (
       onChange={e => onFilterChange(e.target.value)}
     />
     <span className="UcastniciDigestFilterable_span">
-      Celkem: <Badge>{props.ucastniciDigest.length}</Badge>
+      zobrazeno: <Badge>{props.ucastniciDigest.length}</Badge>
     </span>
     <UcastniciDigestResponsive {...props} />
   </div>

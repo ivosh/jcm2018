@@ -6,7 +6,6 @@ import { SortDirTypes } from './ucastniciDigestReducer';
 import SortHeaderCell from './SortHeaderCell';
 import './UcastniciDigestTable.css';
 
-// TODO: extend from React.PureComponent and implement render?
 const TextCell = ({ data, rowIndex, columnKey }) => <Cell>{data[rowIndex][columnKey]}</Cell>;
 TextCell.propTypes = {
   data: PropTypes.arrayOf(

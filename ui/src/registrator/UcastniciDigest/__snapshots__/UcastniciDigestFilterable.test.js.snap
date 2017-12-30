@@ -18,7 +18,7 @@ exports[`renders 1`] = `
   <span
     className="UcastniciDigestFilterable_span"
   >
-    Celkem: 
+    zobrazeno: 
     <Badge
       bsClass="badge"
       pullRight={false}
