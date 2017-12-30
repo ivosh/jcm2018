@@ -94,12 +94,18 @@ class UcastniciDigest extends Component {
         keyboardPageEnabled
       >
         {columns.map(({ key, label, width, vykon }) => {
+          const commonProps = {
+            key,
+            columnKey: key,
+            width,
+            allowCellsRecycling: true,
+            pureRendering: true
+          };
+
           if (vykon === false) {
             return (
               <Column
-                key={key}
-                columnKey={key}
-                width={width}
+                {...commonProps}
                 flexGrow={1}
                 header={
                   <SortHeaderCell
@@ -116,9 +122,7 @@ class UcastniciDigest extends Component {
           }
           return (
             <Column
-              key={key}
-              columnKey={key}
-              width={width}
+              {...commonProps}
               header={<Cell>{label}</Cell>}
               cell={<VykonCell columnKey={key} data={ucastniciDigest} />}
             />

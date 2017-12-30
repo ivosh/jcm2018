@@ -55,7 +55,7 @@ exports[`dva účastníci 1`] = `
   width={500}
 >
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <TextCell
         columnKey="prijmeni"
@@ -113,10 +113,11 @@ exports[`dva účastníci 1`] = `
       </SortHeaderCell>
     }
     key="prijmeni"
+    pureRendering={true}
     width={100}
   />
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <TextCell
         columnKey="jmeno"
@@ -174,10 +175,11 @@ exports[`dva účastníci 1`] = `
       </SortHeaderCell>
     }
     key="jmeno"
+    pureRendering={true}
     width={90}
   />
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <TextCell
         columnKey="narozeni"
@@ -235,10 +237,11 @@ exports[`dva účastníci 1`] = `
       </SortHeaderCell>
     }
     key="narozeni"
+    pureRendering={true}
     width={100}
   />
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <VykonCell
         columnKey="2001"
@@ -291,10 +294,11 @@ exports[`dva účastníci 1`] = `
       </FixedDataTableCellDefault>
     }
     key="2001"
+    pureRendering={true}
     width={45}
   />
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <VykonCell
         columnKey="2002"
@@ -347,10 +351,11 @@ exports[`dva účastníci 1`] = `
       </FixedDataTableCellDefault>
     }
     key="2002"
+    pureRendering={true}
     width={45}
   />
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <VykonCell
         columnKey="2003"
@@ -403,10 +408,11 @@ exports[`dva účastníci 1`] = `
       </FixedDataTableCellDefault>
     }
     key="2003"
+    pureRendering={true}
     width={45}
   />
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <VykonCell
         columnKey="2004"
@@ -459,10 +465,11 @@ exports[`dva účastníci 1`] = `
       </FixedDataTableCellDefault>
     }
     key="2004"
+    pureRendering={true}
     width={45}
   />
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <VykonCell
         columnKey="2005"
@@ -515,10 +522,11 @@ exports[`dva účastníci 1`] = `
       </FixedDataTableCellDefault>
     }
     key="2005"
+    pureRendering={true}
     width={45}
   />
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <VykonCell
         columnKey="2006"
@@ -571,10 +579,11 @@ exports[`dva účastníci 1`] = `
       </FixedDataTableCellDefault>
     }
     key="2006"
+    pureRendering={true}
     width={45}
   />
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <VykonCell
         columnKey="2007"
@@ -627,10 +636,11 @@ exports[`dva účastníci 1`] = `
       </FixedDataTableCellDefault>
     }
     key="2007"
+    pureRendering={true}
     width={45}
   />
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <VykonCell
         columnKey="2008"
@@ -683,10 +693,11 @@ exports[`dva účastníci 1`] = `
       </FixedDataTableCellDefault>
     }
     key="2008"
+    pureRendering={true}
     width={45}
   />
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <VykonCell
         columnKey="2009"
@@ -739,10 +750,11 @@ exports[`dva účastníci 1`] = `
       </FixedDataTableCellDefault>
     }
     key="2009"
+    pureRendering={true}
     width={45}
   />
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <VykonCell
         columnKey="2010"
@@ -795,10 +807,11 @@ exports[`dva účastníci 1`] = `
       </FixedDataTableCellDefault>
     }
     key="2010"
+    pureRendering={true}
     width={45}
   />
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <VykonCell
         columnKey="2011"
@@ -851,10 +864,11 @@ exports[`dva účastníci 1`] = `
       </FixedDataTableCellDefault>
     }
     key="2011"
+    pureRendering={true}
     width={45}
   />
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <VykonCell
         columnKey="2012"
@@ -907,10 +921,11 @@ exports[`dva účastníci 1`] = `
       </FixedDataTableCellDefault>
     }
     key="2012"
+    pureRendering={true}
     width={45}
   />
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <VykonCell
         columnKey="2013"
@@ -963,10 +978,11 @@ exports[`dva účastníci 1`] = `
       </FixedDataTableCellDefault>
     }
     key="2013"
+    pureRendering={true}
     width={45}
   />
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <VykonCell
         columnKey="2014"
@@ -1019,10 +1035,11 @@ exports[`dva účastníci 1`] = `
       </FixedDataTableCellDefault>
     }
     key="2014"
+    pureRendering={true}
     width={45}
   />
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <VykonCell
         columnKey="2015"
@@ -1075,10 +1092,11 @@ exports[`dva účastníci 1`] = `
       </FixedDataTableCellDefault>
     }
     key="2015"
+    pureRendering={true}
     width={45}
   />
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <VykonCell
         columnKey="2016"
@@ -1131,10 +1149,11 @@ exports[`dva účastníci 1`] = `
       </FixedDataTableCellDefault>
     }
     key="2016"
+    pureRendering={true}
     width={45}
   />
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <VykonCell
         columnKey="2017"
@@ -1187,10 +1206,11 @@ exports[`dva účastníci 1`] = `
       </FixedDataTableCellDefault>
     }
     key="2017"
+    pureRendering={true}
     width={45}
   />
   <FixedDataTableColumn
-    allowCellsRecycling={false}
+    allowCellsRecycling={true}
     cell={
       <VykonCell
         columnKey="2018"
@@ -1243,6 +1263,7 @@ exports[`dva účastníci 1`] = `
       </FixedDataTableCellDefault>
     }
     key="2018"
+    pureRendering={true}
     width={45}
   />
 </FixedDataTable>
