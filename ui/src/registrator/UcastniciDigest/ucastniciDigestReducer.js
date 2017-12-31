@@ -18,8 +18,9 @@ const reverseSortDirType = sortDirType => {
 };
 
 export const initialState = {
-  textFilter: '',
   isFetching: false,
+  kategorieVykonuFilter: '',
+  textFilter: '',
   sortColumn: undefined,
   sortDir: SortDirTypes.NONE
 };
@@ -31,13 +32,18 @@ const ucastniciDigestReducer = (state = initialState, action) => {
     case 'FETCH_UCASTNICI_SUCCESS':
     case 'FETCH_UCASTNICI_ERROR':
       return { ...state, isFetching: false };
+    case 'UCASTNICI_DIGEST_KATEGORIE_VYKONU_FILTER_CHANGE':
+      if (state.kategorieVykonuFilter === action.typKategorie) {
+        return { ...state, kategorieVykonuFilter: '' };
+      }
+      return { ...state, kategorieVykonuFilter: action.typKategorie };
+    case 'UCASTNICI_DIGEST_TEXT_FILTER_CHANGE':
+      return { ...state, textFilter: action.textFilter.toLowerCase() };
     case 'UCASTNICI_DIGEST_SORT_DIR_CHANGE':
       if (state.sortColumn !== action.sortColumn) {
         return { ...state, sortColumn: action.sortColumn, sortDir: SortDirTypes.ASC };
       }
       return { ...state, sortDir: reverseSortDirType(state.sortDir) };
-    case 'UCASTNICI_DIGEST_TEXT_FILTER_CHANGE':
-      return { ...state, textFilter: action.textFilter.toLowerCase() };
     default:
       return state;
   }
@@ -46,27 +52,32 @@ const ucastniciDigestReducer = (state = initialState, action) => {
 export default ucastniciDigestReducer;
 
 export const getVykony = (kategorie, ucastnik) => {
-  const result = {};
+  const vykony = {};
+  const typyKategorie = {};
 
   ucastnik.roky.forEach(rok => {
     const { vykon } = ucastnik[rok];
     if (vykon) {
-      result[rok] = {
-        kategorie: kategorie[vykon.kategorie].typ,
+      const typKategorie = kategorie[vykon.kategorie].typ;
+      vykony[rok] = {
+        kategorie: typKategorie,
         dokonceno: vykon.dokonceno
       };
+      // Mark this particular typKategorie in typyKategorie dictionary.
+      typyKategorie[typKategorie] = typKategorie;
     }
   });
 
-  return result;
+  return { vykony, typyKategorie };
 };
 
 export const getUcastniciDigestSorted = ({
   kategorie,
   ucastnici,
+  kategorieVykonuFilter,
+  textFilter,
   sortColumn,
-  sortDir,
-  textFilter
+  sortDir
 }) => {
   const result = [];
   ucastnici.allIds.forEach(id => {
@@ -78,13 +89,17 @@ export const getUcastniciDigestSorted = ({
       udaje.prijmeni.toLowerCase().startsWith(textFilter) ||
       udaje.jmeno.toLowerCase().startsWith(textFilter)
     ) {
-      result.push({
-        id,
-        prijmeni: udaje.prijmeni,
-        jmeno: udaje.jmeno,
-        narozeni: udaje.narozeni,
-        ...getVykony(kategorie, ucastnik)
-      });
+      const { vykony, typyKategorie } = getVykony(kategorie, ucastnik);
+      typyKategorie[''] = true; // empty filter means a match as well
+      if (typyKategorie[kategorieVykonuFilter]) {
+        result.push({
+          id,
+          prijmeni: udaje.prijmeni,
+          jmeno: udaje.jmeno,
+          narozeni: udaje.narozeni,
+          ...vykony
+        });
+      }
     }
   });
 

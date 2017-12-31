@@ -2,15 +2,26 @@ import { connect } from 'react-redux';
 import UcastniciDigestFilterable from './UcastniciDigestFilterable';
 import { fetchUcastnici } from '../../entities/ucastnici/ucastniciActions';
 import { getUcastniciDigestSorted } from './ucastniciDigestReducer';
-import { textFilterChange, sortDirChange } from './UcastniciDigestActions';
+import {
+  kategorieVykonuFilterChange,
+  textFilterChange,
+  sortDirChange
+} from './UcastniciDigestActions';
 
 const mapStateToProps = ({ entities, registrator }) => {
-  const { textFilter, isFetching, sortColumn, sortDir } = registrator.ucastniciDigest;
+  const {
+    isFetching,
+    kategorieVykonuFilter,
+    textFilter,
+    sortColumn,
+    sortDir
+  } = registrator.ucastniciDigest;
 
   return {
-    isFetching,
     roky: entities.rocniky.roky,
     ucastniciDigest: getUcastniciDigestSorted({ ...entities, ...registrator.ucastniciDigest }),
+    isFetching,
+    kategorieVykonuFilter,
     textFilter,
     sortColumn,
     sortDir
@@ -20,6 +31,8 @@ const mapStateToProps = ({ entities, registrator }) => {
 const mapDispatchToProps = dispatch => ({
   fetchUcastnici: () => dispatch(fetchUcastnici()),
   onTextFilterChange: textFilter => dispatch(textFilterChange(textFilter)),
+  onKategorieVykonuFilterChange: typKategorie =>
+    dispatch(kategorieVykonuFilterChange(typKategorie)),
   onSortDirChange: sortColumn => dispatch(sortDirChange(sortColumn))
 });
 

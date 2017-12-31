@@ -32,7 +32,7 @@ const VykonCell = ({ data, rowIndex, columnKey }) => {
       text = '?';
     }
     const style = {
-      'background-color': barvaProTypKategorie(cell.kategorie)
+      backgroundColor: barvaProTypKategorie(cell.kategorie)
     };
     return (
       <Cell style={style} className="UcastniciDigestTable_vykon">

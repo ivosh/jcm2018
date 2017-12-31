@@ -8,6 +8,10 @@
   margin-bottom: 1ex;
 }
 
-.UcastniciDigestFilterable_span {
-  margin-left: 2ex;
+.UcastniciDigestFilterable_zobrazeno {
+  margin-left: 2em;
+}
+
+.UcastniciDigestFilterable_kategorie_vykonu {
+  margin-left: 2em;
 }

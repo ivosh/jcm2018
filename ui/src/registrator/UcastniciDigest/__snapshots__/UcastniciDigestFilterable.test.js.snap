@@ -15,8 +15,46 @@ exports[`renders 1`] = `
     placeholder="Filtr na příjmení a jméno"
     type="text"
   />
+  <ButtonGroup
+    block={false}
+    bsClass="btn-group"
+    className="UcastniciDigestFilterable_kategorie_vykonu"
+    justified={false}
+    vertical={false}
+  >
+    <KategorieVykonuFilter
+      active={false}
+      key="maraton"
+      onClick={[Function]}
+      typKategorie="maraton"
+    />
+    <KategorieVykonuFilter
+      active={false}
+      key="půlmaraton"
+      onClick={[Function]}
+      typKategorie="půlmaraton"
+    />
+    <KategorieVykonuFilter
+      active={false}
+      key="cyklo"
+      onClick={[Function]}
+      typKategorie="cyklo"
+    />
+    <KategorieVykonuFilter
+      active={false}
+      key="koloběžka"
+      onClick={[Function]}
+      typKategorie="koloběžka"
+    />
+    <KategorieVykonuFilter
+      active={false}
+      key="pěší"
+      onClick={[Function]}
+      typKategorie="pěší"
+    />
+  </ButtonGroup>
   <span
-    className="UcastniciDigestFilterable_span"
+    className="UcastniciDigestFilterable_zobrazeno"
   >
     zobrazeno: 
     <Badge

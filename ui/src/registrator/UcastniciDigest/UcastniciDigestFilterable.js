@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Badge } from 'react-bootstrap';
+import { Badge, ButtonGroup } from 'react-bootstrap';
 import DebounceInput from 'react-debounce-input';
+import KategorieVykonuFilter from './KategorieVykonuFilter';
 import UcastniciDigestResponsive from './UcastniciDigestResponsive';
 import './UcastniciDigestFilterable.css';
 
-const UcastniciDigestFilterable = ({ textFilter, onTextFilterChange, ...props }) => (
+const UcastniciDigestFilterable = ({
+  kategorieVykonuFilter,
+  textFilter,
+  onKategorieVykonuFilterChange,
+  onTextFilterChange,
+  ...props
+}) => (
   <div className="UcastniciDigestFilterable_div">
     <DebounceInput
       className="UcastniciDigestFilterable_input"
@@ -15,9 +22,22 @@ const UcastniciDigestFilterable = ({ textFilter, onTextFilterChange, ...props })
       placeholder="Filtr na příjmení a jméno"
       onChange={e => onTextFilterChange(e.target.value)}
     />
-    <span className="UcastniciDigestFilterable_span">
+
+    <ButtonGroup className="UcastniciDigestFilterable_kategorie_vykonu">
+      {['maraton', 'půlmaraton', 'cyklo', 'koloběžka', 'pěší'].map(typKategorie => (
+        <KategorieVykonuFilter
+          key={typKategorie}
+          typKategorie={typKategorie}
+          onClick={() => onKategorieVykonuFilterChange(typKategorie)}
+          active={kategorieVykonuFilter === typKategorie}
+        />
+      ))}
+    </ButtonGroup>
+
+    <span className="UcastniciDigestFilterable_zobrazeno">
       zobrazeno: <Badge>{props.ucastniciDigest.length}</Badge>
     </span>
+
     <UcastniciDigestResponsive {...props} />
   </div>
 );
@@ -26,11 +46,13 @@ const UcastniciDigestFilterable = ({ textFilter, onTextFilterChange, ...props })
 UcastniciDigestFilterable.propTypes = {
   roky: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
   ucastniciDigest: PropTypes.array.isRequired,
-  textFilter: PropTypes.string,
   isFetching: PropTypes.bool,
+  kategorieVykonuFilter: PropTypes.string,
+  textFilter: PropTypes.string,
   sortColumn: PropTypes.string,
   sortDir: PropTypes.string,
   fetchUcastnici: PropTypes.func.isRequired,
+  onKategorieVykonuFilterChange: PropTypes.func.isRequired,
   onTextFilterChange: PropTypes.func.isRequired,
   onSortDirChange: PropTypes.func.isRequired
 };

@@ -32,6 +32,7 @@ it('renders', () => {
     <UcastniciDigestFilterable
       roky={roky}
       ucastniciDigest={ucastniciDigest}
+      onKategorieVykonuFilterChange={jest.fn()}
       onTextFilterChange={jest.fn()}
       fetchUcastnici={jest.fn()}
       onSortDirChange={jest.fn()}
@@ -46,6 +47,7 @@ it('maps onChange to dispatch onFilterChange action', () => {
     <UcastniciDigestFilterable
       roky={roky}
       ucastniciDigest={ucastniciDigest}
+      onKategorieVykonuFilterChange={jest.fn()}
       onTextFilterChange={onTextFilterChange}
       fetchUcastnici={jest.fn()}
       onSortDirChange={jest.fn()}
