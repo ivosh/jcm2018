@@ -26,14 +26,14 @@ test('navigates to /casomeric by default', () => {
   expect(wrapper.find('Stopky')).toHaveLength(1);
 });
 
-test('navigates correctly to /registrace', () => {
+test('navigates correctly to /prihlaska', () => {
   const wrapper = mount(
     <Provider store={store}>
-      <MemoryRouter initialEntries={['/registrace']}>
+      <MemoryRouter initialEntries={['/prihlaska']}>
         <Route component={AppContainer} />
       </MemoryRouter>
     </Provider>
   );
 
-  expect(wrapper.find('Registrace')).toHaveLength(1);
+  expect(wrapper.find('Prihlaska')).toHaveLength(1);
 });

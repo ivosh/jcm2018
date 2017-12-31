@@ -56,14 +56,14 @@ exports[`with websocket connected 1`] = `
         exact={false}
         replace={false}
         strict={false}
-        to="/registrace"
+        to="/prihlaska"
       >
         <NavItem
           active={false}
           disabled={false}
           eventKey={3}
         >
-          Registrace
+          Přihláška
         </NavItem>
       </LinkContainer>
     </Nav>
@@ -85,7 +85,7 @@ exports[`with websocket connected 1`] = `
       />
       <Route
         component={[Function]}
-        path="/registrace"
+        path="/prihlaska"
       />
       <Redirect
         push={false}
@@ -152,14 +152,14 @@ exports[`with websocket disconnected 1`] = `
         exact={false}
         replace={false}
         strict={false}
-        to="/registrace"
+        to="/prihlaska"
       >
         <NavItem
           active={false}
           disabled={false}
           eventKey={3}
         >
-          Registrace
+          Přihláška
         </NavItem>
       </LinkContainer>
     </Nav>
@@ -181,7 +181,7 @@ exports[`with websocket disconnected 1`] = `
       />
       <Route
         component={[Function]}
-        path="/registrace"
+        path="/prihlaska"
       />
       <Redirect
         push={false}

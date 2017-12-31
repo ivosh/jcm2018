@@ -5,7 +5,7 @@ import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import CasomericContainer from '../casomeric/Casomeric/CasomericContainer';
 import UcastniciDigestContainer from '../registrator/UcastniciDigest/UcastniciDigestContainer';
-import Registrace from '../registrator/Registrace/Registrace';
+import Prihlaska from '../registrator/Prihlaska/Prihlaska';
 import './App.css';
 import logo from './logo.svg';
 
@@ -22,8 +22,8 @@ const App = ({ connected }) => (
         <LinkContainer to="/ucastnici">
           <NavItem eventKey={2}>Účastníci</NavItem>
         </LinkContainer>
-        <LinkContainer to="/registrace">
-          <NavItem eventKey={3}>Registrace</NavItem>
+        <LinkContainer to="/prihlaska">
+          <NavItem eventKey={3}>Přihláška</NavItem>
         </LinkContainer>
       </Nav>
     </Navbar>
@@ -32,7 +32,7 @@ const App = ({ connected }) => (
         <Route exact path="/" component={CasomericContainer} />
         <Route path="/casomeric" component={CasomericContainer} />
         <Route path="/ucastnici" component={UcastniciDigestContainer} />
-        <Route path="/registrace" component={Registrace} />
+        <Route path="/prihlaska" component={Prihlaska} />
         <Redirect to="/" />
       </Switch>
     </main>
