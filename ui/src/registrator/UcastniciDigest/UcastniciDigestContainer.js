@@ -5,9 +5,10 @@ import { getUcastniciDigestSorted } from './ucastniciDigestReducer';
 import { filterChange, sortDirChange } from './UcastniciDigestActions';
 
 const mapStateToProps = ({ entities, registrator }) => {
-  const { filter, sortColumn, sortDir } = registrator.ucastniciDigest;
+  const { filter, isFetching, sortColumn, sortDir } = registrator.ucastniciDigest;
 
   return {
+    isFetching,
     roky: entities.rocniky.roky,
     ucastniciDigest: getUcastniciDigestSorted({ ...entities, ...registrator.ucastniciDigest }),
     filter,

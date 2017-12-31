@@ -22,13 +22,14 @@ const UcastniciDigestFilterable = ({ filter, onFilterChange, ...props }) => (
   </div>
 );
 
-// ucastniciDigest are simple pass-through from UcastniciDigestContainer.
+// roky+ucastniciDigest are simple pass-through from UcastniciDigestContainer.
 UcastniciDigestFilterable.propTypes = {
-  filter: PropTypes.string,
-  sortColumn: PropTypes.string,
-  sortDir: PropTypes.string,
   roky: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
   ucastniciDigest: PropTypes.array.isRequired,
+  filter: PropTypes.string,
+  isFetching: PropTypes.bool,
+  sortColumn: PropTypes.string,
+  sortDir: PropTypes.string,
   fetchUcastnici: PropTypes.func.isRequired,
   onFilterChange: PropTypes.func.isRequired,
   onSortDirChange: PropTypes.func.isRequired

@@ -24,6 +24,7 @@ Object {
   "registrator": Object {
     "ucastniciDigest": Object {
       "filter": "",
+      "isFetching": false,
       "sortColumn": undefined,
       "sortDir": "none",
     },
@@ -56,6 +57,7 @@ Object {
   "registrator": Object {
     "ucastniciDigest": Object {
       "filter": "",
+      "isFetching": false,
       "sortColumn": undefined,
       "sortDir": "none",
     },
@@ -88,6 +90,7 @@ Object {
   "registrator": Object {
     "ucastniciDigest": Object {
       "filter": "",
+      "isFetching": false,
       "sortColumn": undefined,
       "sortDir": "none",
     },

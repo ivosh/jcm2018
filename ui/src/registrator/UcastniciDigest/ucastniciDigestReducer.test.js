@@ -9,9 +9,10 @@ it('na začátku', () => {
   const stateBefore = undefined;
 
   const stateAfter = ucastniciDigestReducer(stateBefore, {});
+  expect(stateAfter.filter).toEqual('');
+  expect(stateAfter.isFetching).toEqual(false);
   expect(stateAfter.sortColumn).toBe(undefined);
   expect(stateAfter.sortDir).toEqual(SortDirTypes.NONE);
-  expect(stateAfter.filter).toEqual('');
 });
 
 it('řadit dle příjmení vzestupně', () => {
@@ -44,6 +45,28 @@ it('filtrovat na dvě písmena', () => {
   deepFreeze(stateBefore);
 
   expect(ucastniciDigestReducer(stateBefore, filterChange('Kl'))).toEqual(stateAfter);
+});
+
+it('přepínání isFetching', () => {
+  const stateBefore = {
+    sortColumn: 'prijmeni',
+    sortDir: SortDirTypes.ASC,
+    filter: '',
+    isFetching: false
+  };
+  const stateAfter = {
+    sortColumn: 'prijmeni',
+    sortDir: SortDirTypes.ASC,
+    filter: '',
+    isFetching: true
+  };
+  deepFreeze(stateBefore);
+
+  expect(ucastniciDigestReducer(stateBefore, { type: 'REQUEST_UCASTNICI' })).toEqual(stateAfter);
+  expect(ucastniciDigestReducer(stateAfter, { type: 'RECEIVE_UCASTNICI' })).toEqual(stateBefore);
+  expect(ucastniciDigestReducer(stateAfter, { type: 'RECEIVE_UCASTNICI_ERROR' })).toEqual(
+    stateBefore
+  );
 });
 
 it('getUcastniciDigestSorted() by default', () => {

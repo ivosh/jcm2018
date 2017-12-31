@@ -18,13 +18,19 @@ const reverseSortDirType = sortDirType => {
 };
 
 export const initialState = {
+  filter: '',
+  isFetching: false,
   sortColumn: undefined,
-  sortDir: SortDirTypes.NONE,
-  filter: ''
+  sortDir: SortDirTypes.NONE
 };
 
 const ucastniciDigestReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'REQUEST_UCASTNICI':
+      return { ...state, isFetching: true };
+    case 'RECEIVE_UCASTNICI':
+    case 'RECEIVE_UCASTNICI_ERROR':
+      return { ...state, isFetching: false };
     case 'UCASTNICI_DIGEST_SORT_DIR_CHANGE':
       if (state.sortColumn !== action.sortColumn) {
         return { ...state, sortColumn: action.sortColumn, sortDir: SortDirTypes.ASC };

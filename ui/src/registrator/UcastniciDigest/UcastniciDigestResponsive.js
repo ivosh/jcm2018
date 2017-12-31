@@ -9,10 +9,11 @@ const UcastniciDigestResponsive = Dimensions({
 
 // roky+ucastniciDigest are simple pass-through from UcastniciDigestContainer.
 UcastniciDigestResponsive.propTypes = {
-  sortColumn: PropTypes.string,
-  sortDir: PropTypes.string,
   roky: PropTypes.array.isRequired,
   ucastniciDigest: PropTypes.array.isRequired,
+  isFetching: PropTypes.bool,
+  sortColumn: PropTypes.string,
+  sortDir: PropTypes.string,
   fetchUcastnici: PropTypes.func.isRequired,
   onSortDirChange: PropTypes.func.isRequired
 };
