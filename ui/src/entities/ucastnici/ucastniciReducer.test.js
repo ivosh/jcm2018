@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import ucastniciReducer, { narozeniSortMethod } from './ucastniciReducer';
-import { receiveUcastnici } from './ucastniciActions';
+import { fetchUcastniciSuccess } from './ucastniciActions';
 
 const narozeniSortMethodDescending = (a, b) => narozeniSortMethod(a, b, true);
 
@@ -141,7 +141,7 @@ it('po načtení účastníků', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(ucastniciReducer(stateBefore, receiveUcastnici(json))).toEqual(stateAfter);
+  expect(ucastniciReducer(stateBefore, fetchUcastniciSuccess(json))).toEqual(stateAfter);
 });
 
 it('narozeniSort(desc=false) - nulls', () => {

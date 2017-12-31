@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import kategorieReducer from './kategorieReducer';
-import { receiveKategorie } from './kategorieActions';
+import { fetchKategorieSuccess } from './kategorieActions';
 
 it('nic se nestalo 1', () => {
   const stateBefore = undefined;
@@ -201,5 +201,5 @@ it('po načtení ročníků', () => {
   const stateAfter = { ...json.response.kategorie };
   deepFreeze(stateBefore);
 
-  expect(kategorieReducer(stateBefore, receiveKategorie(json))).toEqual(stateAfter);
+  expect(kategorieReducer(stateBefore, fetchKategorieSuccess(json))).toEqual(stateAfter);
 });

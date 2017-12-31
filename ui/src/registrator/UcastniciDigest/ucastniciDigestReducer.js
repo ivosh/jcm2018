@@ -26,10 +26,10 @@ export const initialState = {
 
 const ucastniciDigestReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'REQUEST_UCASTNICI':
+    case 'FETCH_UCASTNICI_REQUEST':
       return { ...state, isFetching: true };
-    case 'RECEIVE_UCASTNICI':
-    case 'RECEIVE_UCASTNICI_ERROR':
+    case 'FETCH_UCASTNICI_SUCCESS':
+    case 'FETCH_UCASTNICI_ERROR':
       return { ...state, isFetching: false };
     case 'UCASTNICI_DIGEST_SORT_DIR_CHANGE':
       if (state.sortColumn !== action.sortColumn) {

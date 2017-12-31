@@ -1,8 +1,8 @@
 import { CODE_OK, findAllUcastnici } from '../../common';
 import { fetchRocniky } from '../rocniky/rocnikyActions';
 
-const requestUcastnici = () => ({
-  type: 'REQUEST_UCASTNICI'
+const fetchUcastniciRequest = () => ({
+  type: 'FETCH_UCASTNICI_REQUEST'
 });
 
 const normalizeUcastnici = json => {
@@ -12,15 +12,15 @@ const normalizeUcastnici = json => {
   return { allIds, byIds };
 };
 
-export const receiveUcastnici = json => ({
-  type: 'RECEIVE_UCASTNICI',
+export const fetchUcastniciSuccess = json => ({
+  type: 'FETCH_UCASTNICI_SUCCESS',
   data: normalizeUcastnici(json),
   receivedAt: Date.now()
 });
 
 // TODO: no component is subscribed to this action.
-const receiveUcastniciError = ({ code, status, err }) => ({
-  type: 'RECEIVE_UCASTNICI_ERROR',
+const fetchUcastniciError = ({ code, status, err }) => ({
+  type: 'FETCH_UCASTNICI_ERROR',
   code,
   status,
   err,
@@ -28,18 +28,18 @@ const receiveUcastniciError = ({ code, status, err }) => ({
 });
 
 export const fetchUcastnici = () => async (dispatch, getState, wsClient) => {
-  dispatch(requestUcastnici());
+  dispatch(fetchUcastniciRequest());
 
   await dispatch(fetchRocniky());
 
   try {
     const response = await wsClient.sendRequest(findAllUcastnici());
     if (response.code === CODE_OK) {
-      dispatch(receiveUcastnici(response));
+      dispatch(fetchUcastniciSuccess(response));
     } else {
-      dispatch(receiveUcastniciError(response));
+      dispatch(fetchUcastniciError(response));
     }
   } catch (err) {
-    dispatch(receiveUcastniciError({ code: 'internal error', err }));
+    dispatch(fetchUcastniciError({ code: 'internal error', err }));
   }
 };

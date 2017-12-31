@@ -80,14 +80,14 @@ it('fetchRocniky() should dispatch two successful actions [ročníky cached]', a
 
   await store.dispatch(fetchUcastnici());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'REQUEST_UCASTNICI' });
+  expect(actions[0]).toEqual({ type: 'FETCH_UCASTNICI_REQUEST' });
   expect(actions[1]).toEqual(
     expect.objectContaining({
       data: {
         byIds: successfulResponse.response,
         allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9']
       },
-      type: 'RECEIVE_UCASTNICI'
+      type: 'FETCH_UCASTNICI_SUCCESS'
     })
   );
 });
@@ -98,10 +98,10 @@ it('fetchUcastnici() should dispatch two unsuccessful actions', async () => {
 
   await store.dispatch(fetchUcastnici());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'REQUEST_UCASTNICI' });
+  expect(actions[0]).toEqual({ type: 'FETCH_UCASTNICI_REQUEST' });
   expect(actions[1]).toEqual(
     expect.objectContaining({
-      type: 'RECEIVE_UCASTNICI_ERROR',
+      type: 'FETCH_UCASTNICI_ERROR',
       code: 'unfulfilled request',
       status: 'A strange error occurred.'
     })
@@ -114,10 +114,10 @@ it('fetchUcastnici() should dispatch two unsuccessful actions on error', async (
 
   await store.dispatch(fetchUcastnici());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'REQUEST_UCASTNICI' });
+  expect(actions[0]).toEqual({ type: 'FETCH_UCASTNICI_REQUEST' });
   expect(actions[1]).toEqual(
     expect.objectContaining({
-      type: 'RECEIVE_UCASTNICI_ERROR',
+      type: 'FETCH_UCASTNICI_ERROR',
       code: 'internal error',
       err: new Error('Parse error!')
     })

@@ -2,7 +2,7 @@ export const initialState = { allIds: [], byIds: {} };
 
 const ucastniciReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'RECEIVE_UCASTNICI':
+    case 'FETCH_UCASTNICI_SUCCESS':
       return action.data;
     default:
       return state;

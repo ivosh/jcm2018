@@ -62,9 +62,13 @@ it('přepínání isFetching', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(ucastniciDigestReducer(stateBefore, { type: 'REQUEST_UCASTNICI' })).toEqual(stateAfter);
-  expect(ucastniciDigestReducer(stateAfter, { type: 'RECEIVE_UCASTNICI' })).toEqual(stateBefore);
-  expect(ucastniciDigestReducer(stateAfter, { type: 'RECEIVE_UCASTNICI_ERROR' })).toEqual(
+  expect(ucastniciDigestReducer(stateBefore, { type: 'FETCH_UCASTNICI_REQUEST' })).toEqual(
+    stateAfter
+  );
+  expect(ucastniciDigestReducer(stateAfter, { type: 'FETCH_UCASTNICI_SUCCESS' })).toEqual(
+    stateBefore
+  );
+  expect(ucastniciDigestReducer(stateAfter, { type: 'FETCH_UCASTNICI_ERROR' })).toEqual(
     stateBefore
   );
 });

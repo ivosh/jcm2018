@@ -205,17 +205,17 @@ it('fetchRocniky() should dispatch three successful actions if rocniky not cache
 
   await store.dispatch(fetchRocniky());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'REQUEST_ROCNIKY' });
+  expect(actions[0]).toEqual({ type: 'FETCH_ROCNIKY_REQUEST' });
   expect(actions[1]).toEqual(
     expect.objectContaining({
       data: successfulResponse.response.kategorie,
-      type: 'RECEIVE_KATEGORIE'
+      type: 'FETCH_KATEGORIE_SUCCESS'
     })
   );
   expect(actions[2]).toEqual(
     expect.objectContaining({
       data: { byRoky: successfulResponse.response.rocniky, roky: [2017, 2018] },
-      type: 'RECEIVE_ROCNIKY'
+      type: 'FETCH_ROCNIKY_SUCCESS'
     })
   );
 });
@@ -226,17 +226,17 @@ it('fetchRocniky() should dispatch two unsuccessful actions if rocniky not cache
 
   await store.dispatch(fetchRocniky());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'REQUEST_ROCNIKY' });
+  expect(actions[0]).toEqual({ type: 'FETCH_ROCNIKY_REQUEST' });
   expect(actions[1]).toEqual(
     expect.objectContaining({
-      type: 'RECEIVE_KATEGORIE_ERROR',
+      type: 'FETCH_KATEGORIE_ERROR',
       code: 'unfulfilled request',
       status: 'A strange error occurred.'
     })
   );
   expect(actions[2]).toEqual(
     expect.objectContaining({
-      type: 'RECEIVE_ROCNIKY_ERROR',
+      type: 'FETCH_ROCNIKY_ERROR',
       code: 'unfulfilled request',
       status: 'A strange error occurred.'
     })
@@ -249,17 +249,17 @@ it('fetchRocniky() should dispatch two unsuccessful actions on error', async () 
 
   await store.dispatch(fetchRocniky());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'REQUEST_ROCNIKY' });
+  expect(actions[0]).toEqual({ type: 'FETCH_ROCNIKY_REQUEST' });
   expect(actions[1]).toEqual(
     expect.objectContaining({
-      type: 'RECEIVE_KATEGORIE_ERROR',
+      type: 'FETCH_KATEGORIE_ERROR',
       code: 'internal error',
       err: new Error('Parse error!')
     })
   );
   expect(actions[2]).toEqual(
     expect.objectContaining({
-      type: 'RECEIVE_ROCNIKY_ERROR',
+      type: 'FETCH_ROCNIKY_ERROR',
       code: 'internal error',
       err: new Error('Parse error!')
     })

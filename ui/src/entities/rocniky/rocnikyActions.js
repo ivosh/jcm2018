@@ -1,8 +1,8 @@
 import { CODE_OK, findAllRocniky } from '../../common';
-import { receiveKategorie, receiveKategorieError } from '../kategorie/kategorieActions';
+import { fetchKategorieSuccess, fetchKategorieError } from '../kategorie/kategorieActions';
 
-const requestRocniky = () => ({
-  type: 'REQUEST_ROCNIKY'
+const fetchRocnikyRequest = () => ({
+  type: 'FETCH_ROCNIKY_REQUEST'
 });
 
 const normalizeRocniky = json => {
@@ -12,15 +12,15 @@ const normalizeRocniky = json => {
   return { byRoky, roky };
 };
 
-export const receiveRocniky = json => ({
-  type: 'RECEIVE_ROCNIKY',
+export const fetchRocnikySuccess = json => ({
+  type: 'FETCH_ROCNIKY_SUCCESS',
   data: normalizeRocniky(json),
   receivedAt: Date.now()
 });
 
 // TODO: no component is subscribed to this action.
-const receiveRocnikyError = ({ code, status, err }) => ({
-  type: 'RECEIVE_ROCNIKY_ERROR',
+const fetchRocnikyError = ({ code, status, err }) => ({
+  type: 'FETCH_ROCNIKY_ERROR',
   code,
   status,
   err,
@@ -33,19 +33,19 @@ export const fetchRocniky = () => async (dispatch, getState, wsClient) => {
     return; // Use cached value.
   }
 
-  dispatch(requestRocniky());
+  dispatch(fetchRocnikyRequest());
 
   try {
     const response = await wsClient.sendRequest(findAllRocniky());
     if (response.code === CODE_OK) {
-      dispatch(receiveKategorie(response));
-      dispatch(receiveRocniky(response));
+      dispatch(fetchKategorieSuccess(response));
+      dispatch(fetchRocnikySuccess(response));
     } else {
-      dispatch(receiveKategorieError(response));
-      dispatch(receiveRocnikyError(response));
+      dispatch(fetchKategorieError(response));
+      dispatch(fetchRocnikyError(response));
     }
   } catch (err) {
-    dispatch(receiveKategorieError({ code: 'internal error', err }));
-    dispatch(receiveRocnikyError({ code: 'internal error', err }));
+    dispatch(fetchKategorieError({ code: 'internal error', err }));
+    dispatch(fetchRocnikyError({ code: 'internal error', err }));
   }
 };

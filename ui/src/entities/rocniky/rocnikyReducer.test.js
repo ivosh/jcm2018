@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import rocnikyReducer from './rocnikyReducer';
-import { receiveRocniky } from './rocnikyActions';
+import { fetchRocnikySuccess } from './rocnikyActions';
 
 it('nic se nestalo 1', () => {
   const stateBefore = undefined;
@@ -201,5 +201,5 @@ it('po načtení ročníků', () => {
   const stateAfter = { byRoky: { ...json.response.rocniky }, roky: [2017, 2018] };
   deepFreeze(stateBefore);
 
-  expect(rocnikyReducer(stateBefore, receiveRocniky(json))).toEqual(stateAfter);
+  expect(rocnikyReducer(stateBefore, fetchRocnikySuccess(json))).toEqual(stateAfter);
 });
