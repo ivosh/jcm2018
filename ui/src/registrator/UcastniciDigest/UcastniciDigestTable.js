@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Cell, Column, Table } from 'fixed-data-table-2';
 import 'fixed-data-table-2/dist/fixed-data-table.css';
+import { barvaProTypKategorie } from '../../Util';
 import { SortDirTypes } from './ucastniciDigestReducer';
 import SortHeaderCell from './SortHeaderCell';
 import './UcastniciDigestTable.css';
@@ -30,7 +31,14 @@ const VykonCell = ({ data, rowIndex, columnKey }) => {
     } else {
       text = '?';
     }
-    return <Cell className={`UcastniciDigestTable_${cell.kategorie}`}>{text}</Cell>;
+    const style = {
+      'background-color': barvaProTypKategorie(cell.kategorie)
+    };
+    return (
+      <Cell style={style} className="UcastniciDigestTable_vykon">
+        {text}
+      </Cell>
+    );
   }
   return <Cell />;
 };

@@ -44,3 +44,12 @@ export const dokoncenoStr = dokonceno => {
   }
   return ['na-trase', 'na trase'];
 };
+
+const barvy = {
+  maraton: '#b0ffb5',
+  půlmaraton: '#ff837a',
+  cyklo: '#efe023',
+  koloběžka: '#405ced',
+  pěší: '#d793ff'
+};
+export const barvaProTypKategorie = typKategorie => barvy[typKategorie] || '';
