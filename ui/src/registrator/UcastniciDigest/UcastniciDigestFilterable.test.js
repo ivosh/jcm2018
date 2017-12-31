@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import UcastniciDigestFilterable from './UcastniciDigestFilterable';
 
@@ -41,7 +41,7 @@ it('renders', () => {
   expect(toJSON(wrapper)).toMatchSnapshot();
 });
 
-it('maps onChange to dispatch onFilterChange action', () => {
+it('maps DebounceInput.onChange to dispatch onTextFilterChange action', () => {
   const onTextFilterChange = jest.fn();
   const wrapper = shallow(
     <UcastniciDigestFilterable
@@ -58,4 +58,25 @@ it('maps onChange to dispatch onFilterChange action', () => {
 
   jest.runAllTimers();
   expect(onTextFilterChange).toHaveBeenCalled();
+});
+
+it('maps KategorieVykonuFilter.onClick to dispatch onKategorieVykonuFilterChange action', () => {
+  const onKategorieVykonuFilterChange = jest.fn();
+  const wrapper = mount(
+    <UcastniciDigestFilterable
+      roky={roky}
+      ucastniciDigest={ucastniciDigest}
+      onKategorieVykonuFilterChange={onKategorieVykonuFilterChange}
+      onTextFilterChange={jest.fn()}
+      fetchUcastnici={jest.fn()}
+      onSortDirChange={jest.fn()}
+    />
+  );
+  expect(wrapper.find('button')).toHaveLength(5);
+  wrapper
+    .find('button')
+    .first()
+    .simulate('click');
+
+  expect(onKategorieVykonuFilterChange).toHaveBeenCalledWith('maraton');
 });

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import moment from 'moment';
-import './Stopky.css';
 import Displej from './Displej';
+import './Stopky.css';
 
 const ONE_TICK = 100; // milliseconds
 

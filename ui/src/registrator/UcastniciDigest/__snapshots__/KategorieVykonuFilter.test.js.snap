@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders active 1`] = `
+<span
+  className="KategorieVykonuFilter_active"
+>
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsStyle="default"
+    disabled={false}
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#d793ff",
+        "fontWeight": "bold",
+      }
+    }
+  >
+    pěší
+  </Button>
+</span>
+`;
+
+exports[`renders nonactive 1`] = `
+<span
+  className="KategorieVykonuFilter_nonactive"
+>
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsStyle="default"
+    disabled={false}
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#405ced",
+        "fontWeight": "",
+      }
+    }
+  >
+    koloběžka
+  </Button>
+</span>
+`;

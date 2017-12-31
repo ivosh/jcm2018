@@ -7,7 +7,7 @@ import './KategorieVykonuFilter.css';
 const KategorieVykonuFilter = ({ typKategorie, active, onClick }) => {
   const style = {
     backgroundColor: barvaProTypKategorie(typKategorie),
-    fontWeight: active ? 'bold' : ''
+    fontWeight: active ? 'bold' : '' // override style from <Button/>
   };
   return (
     <span className={`KategorieVykonuFilter_${active ? 'active' : 'nonactive'}`}>
