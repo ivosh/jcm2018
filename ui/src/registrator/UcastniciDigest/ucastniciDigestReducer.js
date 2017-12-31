@@ -18,7 +18,7 @@ const reverseSortDirType = sortDirType => {
 };
 
 export const initialState = {
-  filter: '',
+  textFilter: '',
   isFetching: false,
   sortColumn: undefined,
   sortDir: SortDirTypes.NONE
@@ -36,8 +36,8 @@ const ucastniciDigestReducer = (state = initialState, action) => {
         return { ...state, sortColumn: action.sortColumn, sortDir: SortDirTypes.ASC };
       }
       return { ...state, sortDir: reverseSortDirType(state.sortDir) };
-    case 'UCASTNICI_DIGEST_FILTER_CHANGE':
-      return { ...state, filter: action.filter.toLowerCase() };
+    case 'UCASTNICI_DIGEST_TEXT_FILTER_CHANGE':
+      return { ...state, textFilter: action.textFilter.toLowerCase() };
     default:
       return state;
   }
@@ -61,7 +61,13 @@ export const getVykony = (kategorie, ucastnik) => {
   return result;
 };
 
-export const getUcastniciDigestSorted = ({ kategorie, ucastnici, sortColumn, sortDir, filter }) => {
+export const getUcastniciDigestSorted = ({
+  kategorie,
+  ucastnici,
+  sortColumn,
+  sortDir,
+  textFilter
+}) => {
   const result = [];
   ucastnici.allIds.forEach(id => {
     const ucastnik = ucastnici.byIds[id];
@@ -69,8 +75,8 @@ export const getUcastniciDigestSorted = ({ kategorie, ucastnici, sortColumn, sor
     const { udaje } = posledniUcast;
 
     if (
-      udaje.prijmeni.toLowerCase().startsWith(filter) ||
-      udaje.jmeno.toLowerCase().startsWith(filter)
+      udaje.prijmeni.toLowerCase().startsWith(textFilter) ||
+      udaje.jmeno.toLowerCase().startsWith(textFilter)
     ) {
       result.push({
         id,

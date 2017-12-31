@@ -5,15 +5,15 @@ import DebounceInput from 'react-debounce-input';
 import UcastniciDigestResponsive from './UcastniciDigestResponsive';
 import './UcastniciDigestFilterable.css';
 
-const UcastniciDigestFilterable = ({ filter, onFilterChange, ...props }) => (
+const UcastniciDigestFilterable = ({ textFilter, onTextFilterChange, ...props }) => (
   <div className="UcastniciDigestFilterable_div">
     <DebounceInput
       className="UcastniciDigestFilterable_input"
       minLength={0}
       debounceTimeout={500}
-      value={filter}
+      value={textFilter}
       placeholder="Filtr na příjmení a jméno"
-      onChange={e => onFilterChange(e.target.value)}
+      onChange={e => onTextFilterChange(e.target.value)}
     />
     <span className="UcastniciDigestFilterable_span">
       zobrazeno: <Badge>{props.ucastniciDigest.length}</Badge>
@@ -26,12 +26,12 @@ const UcastniciDigestFilterable = ({ filter, onFilterChange, ...props }) => (
 UcastniciDigestFilterable.propTypes = {
   roky: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
   ucastniciDigest: PropTypes.array.isRequired,
-  filter: PropTypes.string,
+  textFilter: PropTypes.string,
   isFetching: PropTypes.bool,
   sortColumn: PropTypes.string,
   sortDir: PropTypes.string,
   fetchUcastnici: PropTypes.func.isRequired,
-  onFilterChange: PropTypes.func.isRequired,
+  onTextFilterChange: PropTypes.func.isRequired,
   onSortDirChange: PropTypes.func.isRequired
 };
 

@@ -3,61 +3,61 @@ import ucastniciDigestReducer, {
   SortDirTypes,
   getUcastniciDigestSorted
 } from './ucastniciDigestReducer';
-import { filterChange, sortDirChange } from './UcastniciDigestActions';
+import { textFilterChange, sortDirChange } from './UcastniciDigestActions';
 
 it('na začátku', () => {
   const stateBefore = undefined;
 
   const stateAfter = ucastniciDigestReducer(stateBefore, {});
-  expect(stateAfter.filter).toEqual('');
+  expect(stateAfter.textFilter).toEqual('');
   expect(stateAfter.isFetching).toEqual(false);
   expect(stateAfter.sortColumn).toBe(undefined);
   expect(stateAfter.sortDir).toEqual(SortDirTypes.NONE);
 });
 
 it('řadit dle příjmení vzestupně', () => {
-  const stateBefore = { sortColumn: undefined, sortDir: SortDirTypes.NONE, filter: '' };
-  const stateAfter = { sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC, filter: '' };
+  const stateBefore = { sortColumn: undefined, sortDir: SortDirTypes.NONE, textFilter: '' };
+  const stateAfter = { sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC, textFilter: '' };
   deepFreeze(stateBefore);
 
   expect(ucastniciDigestReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
 });
 
 it('řadit dle příjmení sestupně', () => {
-  const stateBefore = { sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC, filter: '' };
-  const stateAfter = { sortColumn: 'prijmeni', sortDir: SortDirTypes.DESC, filter: '' };
+  const stateBefore = { sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC, textFilter: '' };
+  const stateAfter = { sortColumn: 'prijmeni', sortDir: SortDirTypes.DESC, textFilter: '' };
   deepFreeze(stateBefore);
 
   expect(ucastniciDigestReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
 });
 
 it('řadit dle jména vzestupně', () => {
-  const stateBefore = { sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC, filter: '' };
-  const stateAfter = { sortColumn: 'jmeno', sortDir: SortDirTypes.ASC, filter: '' };
+  const stateBefore = { sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC, textFilter: '' };
+  const stateAfter = { sortColumn: 'jmeno', sortDir: SortDirTypes.ASC, textFilter: '' };
   deepFreeze(stateBefore);
 
   expect(ucastniciDigestReducer(stateBefore, sortDirChange('jmeno'))).toEqual(stateAfter);
 });
 
 it('filtrovat na dvě písmena', () => {
-  const stateBefore = { sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC, filter: '' };
-  const stateAfter = { sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC, filter: 'kl' };
+  const stateBefore = { sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC, textFilter: '' };
+  const stateAfter = { sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC, textFilter: 'kl' };
   deepFreeze(stateBefore);
 
-  expect(ucastniciDigestReducer(stateBefore, filterChange('Kl'))).toEqual(stateAfter);
+  expect(ucastniciDigestReducer(stateBefore, textFilterChange('Kl'))).toEqual(stateAfter);
 });
 
 it('přepínání isFetching', () => {
   const stateBefore = {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
-    filter: '',
+    textFilter: '',
     isFetching: false
   };
   const stateAfter = {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
-    filter: '',
+    textFilter: '',
     isFetching: true
   };
   deepFreeze(stateBefore);
@@ -122,7 +122,7 @@ it('getUcastniciDigestSorted() by default', () => {
       ucastniciDigest: {
         sortColumn: undefined,
         sortDir: undefined,
-        filter: ''
+        textFilter: ''
       }
     }
   };
@@ -197,7 +197,7 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
       ucastniciDigest: {
         sortColumn: 'prijmeni',
         sortDir: SortDirTypes.DESC,
-        filter: ''
+        textFilter: ''
       }
     }
   };
@@ -272,7 +272,7 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
       ucastniciDigest: {
         sortColumn: 'narozeni',
         sortDir: SortDirTypes.DESC,
-        filter: ''
+        textFilter: ''
       }
     }
   };
@@ -347,7 +347,7 @@ it('getUcastniciDigestSorted() filtrováno na r', () => {
       ucastniciDigest: {
         sortColumn: undefined,
         sortDir: undefined,
-        filter: 'r'
+        textFilter: 'r'
       }
     }
   };

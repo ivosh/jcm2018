@@ -57,7 +57,7 @@ beforeEach(() => {
       }
     },
     registrator: {
-      ucastniciDigest: { sortColumn: 'prijmeni', sortDir: SortDirTypes.DESC, filter: '' }
+      ucastniciDigest: { sortColumn: 'prijmeni', sortDir: SortDirTypes.DESC, textFilter: '' }
     }
   };
   store = mockStore(state);
@@ -70,7 +70,7 @@ beforeEach(() => {
 it('maps state and dispatch to props', () => {
   expect(wrapper.props().ucastniciDigest).toBeTruthy();
   expect(wrapper.props().ucastniciDigest).toMatchSnapshot();
-  expect(wrapper.props().filter).toEqual('');
+  expect(wrapper.props().textFilter).toEqual('');
   expect(wrapper.props().sortColumn).toEqual('prijmeni');
   expect(wrapper.props().sortDir).toEqual('desc');
 });
@@ -85,10 +85,10 @@ it('maps onSortDirChange to dispatch sortDirChange action', () => {
 });
 
 it('maps onFilterChange to dispatch sortDirChange action', () => {
-  wrapper.props().onFilterChange('Kl');
+  wrapper.props().onTextFilterChange('Kl');
 
   expect(store.dispatch).toHaveBeenCalledWith({
-    type: 'UCASTNICI_DIGEST_FILTER_CHANGE',
-    filter: 'Kl'
+    type: 'UCASTNICI_DIGEST_TEXT_FILTER_CHANGE',
+    textFilter: 'Kl'
   });
 });

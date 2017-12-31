@@ -32,7 +32,7 @@ it('renders', () => {
     <UcastniciDigestFilterable
       roky={roky}
       ucastniciDigest={ucastniciDigest}
-      onFilterChange={jest.fn()}
+      onTextFilterChange={jest.fn()}
       fetchUcastnici={jest.fn()}
       onSortDirChange={jest.fn()}
     />
@@ -41,12 +41,12 @@ it('renders', () => {
 });
 
 it('maps onChange to dispatch onFilterChange action', () => {
-  const onFilterChange = jest.fn();
+  const onTextFilterChange = jest.fn();
   const wrapper = shallow(
     <UcastniciDigestFilterable
       roky={roky}
       ucastniciDigest={ucastniciDigest}
-      onFilterChange={onFilterChange}
+      onTextFilterChange={onTextFilterChange}
       fetchUcastnici={jest.fn()}
       onSortDirChange={jest.fn()}
     />
@@ -55,5 +55,5 @@ it('maps onChange to dispatch onFilterChange action', () => {
   wrapper.find('.UcastniciDigestFilterable_input').simulate('change', { target: { value: 'K' } });
 
   jest.runAllTimers();
-  expect(onFilterChange).toHaveBeenCalled();
+  expect(onTextFilterChange).toHaveBeenCalled();
 });

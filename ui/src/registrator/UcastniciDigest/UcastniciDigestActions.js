@@ -3,7 +3,7 @@ export const sortDirChange = sortColumn => ({
   sortColumn
 });
 
-export const filterChange = filter => ({
-  type: 'UCASTNICI_DIGEST_FILTER_CHANGE',
-  filter
+export const textFilterChange = textFilter => ({
+  type: 'UCASTNICI_DIGEST_TEXT_FILTER_CHANGE',
+  textFilter
 });
