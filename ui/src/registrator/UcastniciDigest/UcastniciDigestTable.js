@@ -36,16 +36,15 @@ const VykonCell = ({ data, rowIndex, columnKey }) => {
 };
 VykonCell.propTypes = {
   data: PropTypes.arrayOf(
-    PropTypes.shape({
-      // TODO další roky
-      2017: PropTypes.shape({
-        kategorie: PropTypes.string.isRequired,
-        dokonceno: PropTypes.bool
-      }),
-      2018: PropTypes.shape({
-        kategorie: PropTypes.string.isRequired,
-        dokonceno: PropTypes.bool
-      })
+    PropTypes.objectOf((propValue, key) => {
+      // rok, například 2001, 2017 apod.
+      if (key.startsWith('20')) {
+        return PropTypes.shape({
+          kategorie: PropTypes.string.isRequired,
+          dokonceno: PropTypes.bool
+        });
+      }
+      return undefined;
     }).isRequired
   ).isRequired,
   rowIndex: PropTypes.number,
