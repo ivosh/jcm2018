@@ -17,6 +17,7 @@ const mapStateToProps = ({ entities, registrator }) => {
     sortDir
   } = registrator.ucastniciDigest;
 
+  // Don't forget to update areStatesEqual!
   return {
     roky: entities.rocniky.roky,
     ucastniciDigest: getUcastniciDigestSorted({ ...entities, ...registrator.ucastniciDigest }),
@@ -28,6 +29,10 @@ const mapStateToProps = ({ entities, registrator }) => {
   };
 };
 
+const areStatesEqual = (next, prev) =>
+  prev.entities === next.entities &&
+  prev.registrator.ucastniciDigest === next.registrator.ucastniciDigest;
+
 const mapDispatchToProps = dispatch => ({
   fetchUcastnici: () => dispatch(fetchUcastnici()),
   onTextFilterChange: textFilter => dispatch(textFilterChange(textFilter)),
@@ -36,8 +41,8 @@ const mapDispatchToProps = dispatch => ({
   onSortDirChange: sortColumn => dispatch(sortDirChange(sortColumn))
 });
 
-const UcastniciDigestContainer = connect(mapStateToProps, mapDispatchToProps)(
-  UcastniciDigestFilterable
-);
+const UcastniciDigestContainer = connect(mapStateToProps, mapDispatchToProps, null, {
+  areStatesEqual
+})(UcastniciDigestFilterable);
 
 export default UcastniciDigestContainer;
