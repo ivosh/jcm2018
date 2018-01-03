@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders 1`] = `
+<div
+  className="well"
+>
+  <div
+    className="panel panel-info"
+    id={undefined}
+  >
+    <div
+      className="panel-heading"
+    >
+      Jirkovský crossmarathon 2018
+    </div>
+    <div
+      className="panel-body"
+    >
+      <div
+        className="About_row"
+      >
+        <img
+          alt="logo"
+          className="App-logo-animated"
+          src="logo.svg"
+        />
+        <div>
+          Aplikace 
+          <span
+            className="glyphicon glyphicon-star"
+          />
+          Jirkovský crossmarathon 2018
+          <span
+            className="glyphicon glyphicon-star"
+          />
+          <br />
+          Verze: 
+          0.2.0
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -66,6 +66,21 @@ exports[`with websocket connected 1`] = `
           Přihláška
         </NavItem>
       </LinkContainer>
+      <LinkContainer
+        activeClassName="active"
+        exact={false}
+        replace={false}
+        strict={false}
+        to="/about"
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey={4}
+        >
+          O aplikaci
+        </NavItem>
+      </LinkContainer>
     </Nav>
   </Uncontrolled(Navbar)>
   <main>
@@ -86,6 +101,10 @@ exports[`with websocket connected 1`] = `
       <Route
         component={[Function]}
         path="/prihlaska"
+      />
+      <Route
+        component={[Function]}
+        path="/about"
       />
       <Redirect
         push={false}
@@ -162,6 +181,21 @@ exports[`with websocket disconnected 1`] = `
           Přihláška
         </NavItem>
       </LinkContainer>
+      <LinkContainer
+        activeClassName="active"
+        exact={false}
+        replace={false}
+        strict={false}
+        to="/about"
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey={4}
+        >
+          O aplikaci
+        </NavItem>
+      </LinkContainer>
     </Nav>
   </Uncontrolled(Navbar)>
   <main>
@@ -182,6 +216,10 @@ exports[`with websocket disconnected 1`] = `
       <Route
         component={[Function]}
         path="/prihlaska"
+      />
+      <Route
+        component={[Function]}
+        path="/about"
       />
       <Redirect
         push={false}
