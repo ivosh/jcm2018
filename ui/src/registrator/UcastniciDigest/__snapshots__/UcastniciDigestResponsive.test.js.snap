@@ -567,6 +567,7 @@ exports[`renders 1`] = `
                   />,
                   ]
                 }
+                showScrollbarY={false}
                 touchEnabled={false}
                 width={924}
                 zIndex={1}
@@ -1004,6 +1005,7 @@ exports[`renders 1`] = `
                       />,
                       ]
                     }
+                    showScrollbarY={false}
                     touchEnabled={false}
                     width={924}
                   >
@@ -3667,6 +3669,7 @@ exports[`renders 1`] = `
                   ]
                 }
                 showLastRowBorder={true}
+                showScrollbarY={false}
                 width={924}
               >
                 <div />
