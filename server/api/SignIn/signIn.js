@@ -6,12 +6,10 @@ const Actions = require('../../../common/common');
 const config = require('../../config');
 const User = require('../../model/User/User');
 
-const EXPIRE_TIME = 8 * 60 * 24; // 8 hours
-
 const generateToken = (username, nonce) => {
   const payload = { username, nonce };
   return jwt.sign(payload, config.jwt.secret, {
-    expiresIn: EXPIRE_TIME
+    expiresIn: config.jwt.expireTime
   });
 };
 

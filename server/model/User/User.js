@@ -3,10 +3,7 @@
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 const codes = require('../../../common/common');
-
-const SALT_ROUNDS = 10;
-const MAX_LOGIN_ATTEMPTS = 5;
-const LOCK_TIME = 2 * 60 * 60 * 1000; // 2 hours
+const config = require('../../config');
 
 const UserSchema = new mongoose.Schema(
   {
@@ -36,7 +33,7 @@ UserSchema.pre('save', async function userPreSave(next) {
   }
 
   try {
-    const salt = await bcrypt.genSalt(SALT_ROUNDS);
+    const salt = await bcrypt.genSalt(config.auth.saltRounds);
     const hash = await bcrypt.hash(user.password, salt);
 
     // Override the cleartext password with the hashed one.
@@ -64,9 +61,9 @@ UserSchema.methods.incLoginAttempts = async function incLoginAttempts() {
   const updates = { $inc: { loginAttempts: 1 } };
 
   // Lock the account if we have reached max attempts and it's not locked already.
-  if (this.loginAttempts + 1 >= MAX_LOGIN_ATTEMPTS && !this.isLocked) {
+  if (this.loginAttempts + 1 >= config.auth.maxAttempts && !this.isLocked) {
     const now = new Date();
-    updates.$set = { lockUntil: new Date(now.getTime() + LOCK_TIME) };
+    updates.$set = { lockUntil: new Date(now.getTime() + config.auth.lockTime) };
   }
 
   return this.update(updates);
