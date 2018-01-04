@@ -33,7 +33,9 @@
   },
   "dependencies": {
     "async-file": "^2.0.2",
+    "bcrypt": "^1.0.3",
     "heroku-logger": "^0.3.0",
+    "jsonwebtoken": "^8.1.0",
     "mongoose": "^4.13.8",
     "mongoose-unique-array": "^0.2.0",
     "node": "^8.9.4",

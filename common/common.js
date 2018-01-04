@@ -17,12 +17,15 @@ const CREATE_UCAST = 'create_ucast';
 const FIND_ALL_ROCNIKY = 'find_all_rocniky';
 const FIND_ALL_UCASTNICI = 'find_all_ucastnici';
 const FIND_UCAST_BY_UCASTNIK = 'find_ucast_by_ucastnik';
+const SIGN_IN = 'sign_in';
 
 const CODE_OK = 'ok';
 const CODE_ALREADY_EXISTING = 'již existuje';
 const CODE_DB_DISCONNECTED = 'nepřipojeno k databázi';
+const CODE_MAX_LOGIN_ATTEMPTS = 'max login attempts reached';
 const CODE_MLADISTVY_UCASTNIK = 'účastník potřebuje souhlas zákonného zástupce';
 const CODE_NONEXISTING = 'neexistuje';
+const CODE_PASSWORD_INCORRECT = 'password incorrect';
 const CODE_UNFULFILLED_REQUEST = 'unfulfilled request';
 const CODE_UNPARSEABLE_MESSAGE = 'unparseable message';
 const CODE_UNRECOGNIZED_ACTION = 'unrecognized action';
@@ -40,6 +43,11 @@ const findAllRocniky = () => ({
 const findAllUcastnici = () => ({
   action: FIND_ALL_UCASTNICI,
   request: undefined
+});
+
+const signIn = (username, password) => ({
+  action: SIGN_IN,
+  request: { username, password }
 });
 
 const zkontrolujMladistvy = (kategorie, { datum, narozeni, mladistvyPotvrzen }) => {
@@ -149,16 +157,20 @@ module.exports = {
   FIND_ALL_ROCNIKY,
   FIND_ALL_UCASTNICI,
   FIND_UCAST_BY_UCASTNIK,
+  SIGN_IN,
   CODE_OK,
   CODE_ALREADY_EXISTING,
   CODE_DB_DISCONNECTED,
+  CODE_MAX_LOGIN_ATTEMPTS,
   CODE_MLADISTVY_UCASTNIK,
   CODE_NONEXISTING,
+  CODE_PASSWORD_INCORRECT,
   CODE_UNFULFILLED_REQUEST,
   CODE_UNPARSEABLE_MESSAGE,
   CODE_UNRECOGNIZED_ACTION,
   createUcast,
   findAllRocniky,
   findAllUcastnici,
-  findKategorie
+  findKategorie,
+  signIn
 };

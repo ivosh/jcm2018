@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`autentizuj uživatele neúspěšně 1`] = `
+Array [
+  Object {
+    "__v": 0,
+    "loginAttempts": 1,
+    "password": "===password===",
+    "username": "tomáš",
+  },
+]
+`;
+
+exports[`autentizuj uživatele neúspěšně až se zamkne 1`] = `
+Array [
+  Object {
+    "__v": 0,
+    "loginAttempts": 6,
+    "password": "===password===",
+    "username": "tomáš",
+  },
+]
+`;
+
+exports[`autentizuj uživatele úspěšně 1`] = `
+Array [
+  Object {
+    "__v": 0,
+    "loginAttempts": 0,
+    "password": "===password===",
+    "username": "tomáš",
+  },
+]
+`;
+
+exports[`vytvoř uživatele 1`] = `
+Array [
+  Object {
+    "__v": 0,
+    "loginAttempts": 0,
+    "password": "===password===",
+    "username": "tomáš",
+  },
+]
+`;
+
+exports[`vytvoř uživatele s prázdným heslem 1`] = `[ValidationError: User validation failed: password: Path \`password\` is required.]`;
