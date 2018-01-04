@@ -45,9 +45,9 @@ const findAllUcastnici = () => ({
   request: undefined
 });
 
-const signIn = (username, password) => ({
+const signIn = (username, password, nonce) => ({
   action: SIGN_IN,
-  request: { username, password }
+  request: { username, password, nonce }
 });
 
 const zkontrolujMladistvy = (kategorie, { datum, narozeni, mladistvyPotvrzen }) => {

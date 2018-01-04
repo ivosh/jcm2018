@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`signIn successfully 1`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "token": "===token===",
+    "username": "tumáš",
+  },
+}
+`;
+
+exports[`signIn unsuccessfully (zamčený uživatel) 1`] = `
+Object {
+  "code": "password incorrect",
+  "status": "Špatné jméno či heslo. Uživatel může být též zamčený.",
+}
+`;
+
+exports[`signIn unsuccessfully (špatné heslo) 1`] = `
+Object {
+  "code": "password incorrect",
+  "status": "Špatné jméno či heslo. Uživatel může být též zamčený.",
+}
+`;
+
+exports[`signIn unsuccessfully (špatný uživatel) 1`] = `
+Object {
+  "code": "password incorrect",
+  "status": "Špatné jméno či heslo. Uživatel může být též zamčený.",
+}
+`;

@@ -113,7 +113,6 @@ it('autentizuj zamknutého uživatele úspěšně', async () => {
   const user = new User({
     username: 'tomáš',
     password: 'jcm2018',
-    isLocked: true,
     lockUntil: dayBefore
   });
   await user.save();
@@ -132,7 +131,6 @@ it('autentizuj zamknutého uživatele neúspěšně', async () => {
   const user = new User({
     username: 'tomáš',
     password: 'jcm2018',
-    isLocked: true,
     lockUntil: dayBefore
   });
   await user.save();

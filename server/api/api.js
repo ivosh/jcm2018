@@ -6,6 +6,7 @@ const db = require('../db');
 const createUcast = require('./Ucastnik/createUcast');
 const findAllRocniky = require('./Rocnik/findAllRocniky');
 const findAllUcastnici = require('./Ucastnik/findAllUcastnici');
+const signIn = require('./SignIn/signIn');
 
 const processRequest = async ({ action, request }) => {
   if (!db.isConnected()) {
@@ -16,18 +17,32 @@ const processRequest = async ({ action, request }) => {
   }
 
   const actions = {
-    [Actions.CREATE_UCAST]: async req => createUcast(req),
-    [Actions.FIND_ALL_ROCNIKY]: async req => findAllRocniky(req),
-    [Actions.FIND_ALL_UCASTNICI]: async req => findAllUcastnici(req),
-    default: () => ({
-      code: Actions.CODE_UNRECOGNIZED_ACTION,
-      status: `neznámá akce '${action || ''}'`
-    })
+    [Actions.CREATE_UCAST]: { authRequired: true, action: async req => createUcast(req) },
+    [Actions.FIND_ALL_ROCNIKY]: { authRequired: true, action: async req => findAllRocniky(req) },
+    [Actions.FIND_ALL_UCASTNICI]: {
+      authRequired: true,
+      action: async req => findAllUcastnici(req)
+    },
+    [Actions.SIGN_IN]: { authRequired: false, action: async req => signIn(req) },
+    default: {
+      authRequired: false,
+      action: () => ({
+        code: Actions.CODE_UNRECOGNIZED_ACTION,
+        status: `neznámá akce '${action || ''}'`
+      })
+    }
   };
 
   const processMessageAction = actions[action] || actions.default;
-  logger.debug(`Dispatching to function ${processMessageAction}`);
-  return processMessageAction(request);
+  logger.debug(
+    `Dispatching to function ${processMessageAction.action}, authorization required: ${
+      processMessageAction.authRequired
+    }`
+  );
+
+  // TODO: check JWT token
+
+  return processMessageAction.action(request);
 };
 
 const sendResponse = ({ connection, code, status, response, requestId }) => {
