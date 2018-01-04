@@ -3,7 +3,7 @@
 exports[`basic connectivity 1`] = `
 Object {
   "code": "unrecognized action",
-  "status": "neznámá akce ''",
+  "status": "neznámá akce: ",
 }
 `;
 

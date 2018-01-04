@@ -8,7 +8,7 @@ const findAllRocniky = require('./Rocnik/findAllRocniky');
 const findAllUcastnici = require('./Ucastnik/findAllUcastnici');
 const signIn = require('./SignIn/signIn');
 
-const processRequest = async ({ action, request }) => {
+const processRequest = async ({ action = '', request }) => {
   if (!db.isConnected()) {
     return {
       code: Actions.CODE_DB_DISCONNECTED,
@@ -28,7 +28,7 @@ const processRequest = async ({ action, request }) => {
       authRequired: false,
       action: () => ({
         code: Actions.CODE_UNRECOGNIZED_ACTION,
-        status: `neznámá akce '${action || ''}'`
+        status: `neznámá akce: ${action}`
       })
     }
   };
