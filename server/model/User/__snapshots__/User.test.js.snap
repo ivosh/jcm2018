@@ -33,6 +33,50 @@ Array [
 ]
 `;
 
+exports[`autentizuj zamknutého uživatele neúspěšně 1`] = `
+Array [
+  Object {
+    "__v": 0,
+    "loginAttempts": 1,
+    "password": "===password===",
+    "username": "tomáš",
+  },
+]
+`;
+
+exports[`autentizuj zamknutého uživatele úspěšně 1`] = `
+Array [
+  Object {
+    "__v": 0,
+    "loginAttempts": 0,
+    "password": "===password===",
+    "username": "tomáš",
+  },
+]
+`;
+
+exports[`vytvoř a změň uživatele 1`] = `
+Array [
+  Object {
+    "__v": 0,
+    "loginAttempts": 0,
+    "password": "===password===",
+    "username": "tomáš",
+  },
+]
+`;
+
+exports[`vytvoř a změň uživatele 2`] = `
+Array [
+  Object {
+    "__v": 0,
+    "loginAttempts": 0,
+    "password": "===password===",
+    "username": "tom",
+  },
+]
+`;
+
 exports[`vytvoř uživatele 1`] = `
 Array [
   Object {

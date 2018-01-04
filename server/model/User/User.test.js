@@ -4,6 +4,8 @@ const codes = require('../../../common/common');
 const db = require('../../db');
 const User = require('./User');
 
+const ONE_DAY = 24 * 60 * 60 * 1000;
+
 beforeAll(async () => {
   await db.dropDatabase();
 });
@@ -101,6 +103,60 @@ it('autentizuj uživatele neúspěšně až se zamkne', async () => {
   expect(code).toEqual({ code: codes.CODE_MAX_LOGIN_ATTEMPTS });
 
   await usersMatchSnapshot();
+
+  await User.remove({});
+});
+
+it('autentizuj zamknutého uživatele úspěšně', async () => {
+  const now = new Date();
+  const dayBefore = new Date(now.getTime() - ONE_DAY);
+  const user = new User({
+    username: 'tomáš',
+    password: 'jcm2018',
+    isLocked: true,
+    lockUntil: dayBefore
+  });
+  await user.save();
+
+  const code = await User.authenticate('tomáš', 'jcm2018');
+  expect(code).toEqual({ code: codes.CODE_OK });
+
+  await usersMatchSnapshot();
+
+  await User.remove({});
+});
+
+it('autentizuj zamknutého uživatele neúspěšně', async () => {
+  const now = new Date();
+  const dayBefore = new Date(now.getTime() - ONE_DAY);
+  const user = new User({
+    username: 'tomáš',
+    password: 'jcm2018',
+    isLocked: true,
+    lockUntil: dayBefore
+  });
+  await user.save();
+
+  const code = await User.authenticate('tomáš', 'jcm2017');
+  expect(code).toEqual({ code: codes.CODE_PASSWORD_INCORRECT });
+
+  await usersMatchSnapshot();
+
+  await User.remove({});
+});
+
+it('vytvoř a změň uživatele', async () => {
+  const user = new User({ username: 'tomáš', password: 'jcm2018' });
+  await user.save();
+  const password1 = user.password;
+  await usersMatchSnapshot();
+
+  user.username = 'tom';
+  await user.save();
+  const password2 = user.password;
+  await usersMatchSnapshot();
+  // Password hashes should remain equal.
+  expect(password1).toEqual(password2);
 
   await User.remove({});
 });
