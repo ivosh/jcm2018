@@ -38,3 +38,9 @@ it('unparsable message', async done => {
 
   await wsClient.send('--');
 });
+
+it('binary data', async () => {
+  const data = new Uint8Array(1);
+  data[0] = 1;
+  await wsClient.send(data);
+});

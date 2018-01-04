@@ -22,24 +22,28 @@ const createWsServer = ({ httpServer, originAllowed }) => {
       return;
     }
 
-    const connection = request.accept('jcm2018', request.origin);
-    logger.debug(`Connection for origin '${request.origin}' accepted.`);
+    try {
+      const connection = request.accept('jcm2018', request.origin);
+      logger.info(`Connection for origin '${request.origin}' accepted.`);
 
-    connection.on('message', async message => {
-      if (message.type !== 'utf8') {
-        connection.drop(connection.CLOSE_REASON_INVALID_DATA);
-        logger.error(`Message with unknown type ${message.type}.`);
-        return;
-      }
+      connection.on('message', async message => {
+        if (message.type !== 'utf8') {
+          connection.drop(connection.CLOSE_REASON_INVALID_DATA);
+          logger.warn(`Message with unknown type ${message.type}.`);
+          return;
+        }
 
-      await processMessage(connection, message);
-    });
+        await processMessage(connection, message);
+      });
 
-    connection.on('close', (reasonCode, description) => {
-      logger.info(
-        `Connection ${connection.remoteAddress} disconnected with ${reasonCode}: ${description}.`
-      );
-    });
+      connection.on('close', (reasonCode, description) => {
+        logger.info(
+          `Connection ${connection.remoteAddress} disconnected with ${reasonCode}: ${description}.`
+        );
+      });
+    } catch (err) {
+      logger.debug(`Connection rejected: ${err}`);
+    }
   });
 
   return ws;

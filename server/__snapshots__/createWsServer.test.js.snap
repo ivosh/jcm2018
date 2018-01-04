@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`connect fails because of invalid origin 1`] = `[Error: WebSocket closed with reason: connection failed (1006).]`;
+
+exports[`connect fails because of invalid protocol 1`] = `[Error: WebSocket closed with reason: connection failed (1006).]`;
