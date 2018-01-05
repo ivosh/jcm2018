@@ -26,12 +26,27 @@ exports[`with websocket connected 1`] = `
         exact={false}
         replace={false}
         strict={false}
-        to="/casomeric"
+        to="/signin"
       >
         <NavItem
           active={false}
           disabled={false}
           eventKey={1}
+        >
+          Přihlášení
+        </NavItem>
+      </LinkContainer>
+      <LinkContainer
+        activeClassName="active"
+        exact={false}
+        replace={false}
+        strict={false}
+        to="/casomeric"
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey={2}
         >
           Časoměřič
         </NavItem>
@@ -46,7 +61,7 @@ exports[`with websocket connected 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={2}
+          eventKey={3}
         >
           Účastníci
         </NavItem>
@@ -61,7 +76,7 @@ exports[`with websocket connected 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={3}
+          eventKey={4}
         >
           Přihláška
         </NavItem>
@@ -76,7 +91,7 @@ exports[`with websocket connected 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={4}
+          eventKey={5}
         >
           O aplikaci
         </NavItem>
@@ -89,6 +104,10 @@ exports[`with websocket connected 1`] = `
         component={[Function]}
         exact={true}
         path="/"
+      />
+      <Route
+        component={[Function]}
+        path="/signin"
       />
       <Route
         component={[Function]}
@@ -141,12 +160,27 @@ exports[`with websocket disconnected 1`] = `
         exact={false}
         replace={false}
         strict={false}
-        to="/casomeric"
+        to="/signin"
       >
         <NavItem
           active={false}
           disabled={false}
           eventKey={1}
+        >
+          Přihlášení
+        </NavItem>
+      </LinkContainer>
+      <LinkContainer
+        activeClassName="active"
+        exact={false}
+        replace={false}
+        strict={false}
+        to="/casomeric"
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey={2}
         >
           Časoměřič
         </NavItem>
@@ -161,7 +195,7 @@ exports[`with websocket disconnected 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={2}
+          eventKey={3}
         >
           Účastníci
         </NavItem>
@@ -176,7 +210,7 @@ exports[`with websocket disconnected 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={3}
+          eventKey={4}
         >
           Přihláška
         </NavItem>
@@ -191,7 +225,7 @@ exports[`with websocket disconnected 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={4}
+          eventKey={5}
         >
           O aplikaci
         </NavItem>
@@ -204,6 +238,10 @@ exports[`with websocket disconnected 1`] = `
         component={[Function]}
         exact={true}
         path="/"
+      />
+      <Route
+        component={[Function]}
+        path="/signin"
       />
       <Route
         component={[Function]}

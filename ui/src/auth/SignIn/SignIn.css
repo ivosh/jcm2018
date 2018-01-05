@@ -1,0 +1,13 @@
+.SignIn_div {
+  margin-left: 1em;
+  margin-top: 1ex;
+  display: inline-block;
+}
+
+.SignIn_spacing {
+  margin-left: 1em;
+}
+
+.SignIn_form .form-group input {
+  width: 12em;
+}
