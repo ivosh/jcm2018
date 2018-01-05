@@ -22,6 +22,7 @@ const CODE_ALREADY_EXISTING = 'již existuje';
 const CODE_DB_DISCONNECTED = 'nepřipojeno k databázi';
 const CODE_MAX_LOGIN_ATTEMPTS = 'max login attempts reached';
 const CODE_MLADISTVY_UCASTNIK = 'účastník potřebuje souhlas zákonného zástupce';
+const CODE_NONCE_MISMATCH = 'nesouhlas jednorázového přihlašovacího kódu';
 const CODE_NONEXISTING = 'neexistuje';
 const CODE_PASSWORD_INCORRECT = 'password incorrect';
 const CODE_UNFULFILLED_REQUEST = 'unfulfilled request';
@@ -161,6 +162,7 @@ const exported = {
   CODE_DB_DISCONNECTED,
   CODE_MAX_LOGIN_ATTEMPTS,
   CODE_MLADISTVY_UCASTNIK,
+  CODE_NONCE_MISMATCH,
   CODE_NONEXISTING,
   CODE_PASSWORD_INCORRECT,
   CODE_UNFULFILLED_REQUEST,
@@ -186,6 +188,7 @@ export {
   CODE_DB_DISCONNECTED,
   CODE_MAX_LOGIN_ATTEMPTS,
   CODE_MLADISTVY_UCASTNIK,
+  CODE_NONCE_MISMATCH,
   CODE_NONEXISTING,
   CODE_PASSWORD_INCORRECT,
   CODE_UNFULFILLED_REQUEST,
