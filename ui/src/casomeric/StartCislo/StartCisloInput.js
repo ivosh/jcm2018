@@ -44,7 +44,7 @@ class StartCisloInput extends Component {
   };
 
   render = () => (
-    <Form inline onSubmit={this.handleSubmit} autoComplete="off">
+    <Form inline onSubmit={this.handleSubmit} autoComplete="off" className="StartCisloInput_form">
       <FormGroup controlId="validatedCislo" validationState={this.validationState()} bsSize="small">
         <FormControl
           type="text"
