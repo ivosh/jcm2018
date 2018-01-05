@@ -6,7 +6,7 @@ const db = require('../db');
 const createUcast = require('./Ucastnik/createUcast');
 const findAllRocniky = require('./Rocnik/findAllRocniky');
 const findAllUcastnici = require('./Ucastnik/findAllUcastnici');
-const signIn = require('./SignIn/signIn');
+const signIn = require('./User/signIn');
 
 const processRequest = async ({ action = '', request }) => {
   if (!db.isConnected()) {
