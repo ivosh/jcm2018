@@ -6,11 +6,9 @@ const Actions = require('../../../common/common');
 const config = require('../../config');
 const User = require('../../model/User/User');
 
-const generateToken = (username, nonce) => {
+const generateToken = ({ username, nonce, secret, expireTime }) => {
   const payload = { username, nonce };
-  return jwt.sign(payload, config.jwt.secret, {
-    expiresIn: config.jwt.expireTime
-  });
+  return jwt.sign(payload, secret, { expiresIn: expireTime });
 };
 
 /* Include client-generated nonce in JWT.
@@ -29,7 +27,15 @@ const signIn = async ({ username, password, nonce }) => {
   return {
     code: Actions.CODE_OK,
     status: undefined,
-    response: { username, token: generateToken(username, nonce) }
+    response: {
+      username,
+      token: generateToken({
+        username,
+        nonce,
+        secret: config.jwt.secret,
+        expireTime: config.jwt.expireTime
+      })
+    }
   };
 };
 
