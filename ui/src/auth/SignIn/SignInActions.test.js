@@ -24,9 +24,19 @@ const successfulResponse = {
   requestId: '0.9310306652587374'
 };
 
+const mismatchedNonceResponse = {
+  code: 'ok',
+  response: {
+    token: generateToken({ username: 'tomáš', nonce: 'abc5656' }),
+    username: 'tomáš'
+  },
+  requestId: '0.9310306652587374'
+};
+
 const unsuccessfulResponse = {
   code: 'password incorrect',
-  status: 'Špatné jméno či heslo. Uživatel může být též zamčený.'
+  status: 'Špatné jméno či heslo. Uživatel může být též zamčený.',
+  requestId: '0.9310306652587374'
 };
 
 const middlewares = [thunk.withExtraArgument(mockWsClient)];
@@ -83,6 +93,25 @@ it('signIn() should dispatch two unsuccessful actions on error', async () => {
       type: 'SIGN_IN_ERROR',
       code: 'internal error',
       err: new Error('Parse error!')
+    })
+  );
+});
+
+it('signIn() should dispatch two unsuccessful actions [nonce mismatch]', async () => {
+  mockWsClient.sendRequest = async () => mismatchedNonceResponse;
+  const store = mockStore();
+
+  await store.dispatch(signIn('', ''));
+  const actions = store.getActions();
+  expect(actions[0]).toEqual({ type: 'SIGN_IN_REQUEST' });
+  expect(actions[1]).toEqual(
+    expect.objectContaining({
+      type: 'SIGN_IN_ERROR',
+      code: 'nesouhlas jednorázového přihlašovacího kódu',
+      status:
+        'Jednorázový přihlašovací kód vygenerovaný prohlížečem nesouhlasí s kódem, který poslal server.',
+      client: '56565656565656565656',
+      server: 'abc5656'
     })
   );
 });

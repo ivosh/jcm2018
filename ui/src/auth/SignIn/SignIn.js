@@ -44,7 +44,6 @@ class SignIn extends Component {
               placeholder=""
               onChange={this.handlePasswordChange}
             />
-            <FormControl.Feedback />
           </FormGroup>
           <span className="SignIn_spacing" />
           <FormGroup>
