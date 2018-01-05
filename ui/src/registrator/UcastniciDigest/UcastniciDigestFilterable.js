@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Badge, ButtonGroup } from 'react-bootstrap';
 import DebounceInput from 'react-debounce-input';
+import { TYPY_KATEGORII } from '../../constants';
 import KategorieVykonuFilter from './KategorieVykonuFilter';
 import UcastniciDigestResponsive from './UcastniciDigestResponsive';
 import './UcastniciDigestFilterable.css';
@@ -24,7 +25,7 @@ const UcastniciDigestFilterable = ({
     />
 
     <ButtonGroup className="UcastniciDigestFilterable_kategorie_vykonu">
-      {['maraton', 'půlmaraton', 'cyklo', 'koloběžka', 'pěší'].map(typKategorie => (
+      {TYPY_KATEGORII.map(typKategorie => (
         <KategorieVykonuFilter
           key={typKategorie}
           typKategorie={typKategorie}

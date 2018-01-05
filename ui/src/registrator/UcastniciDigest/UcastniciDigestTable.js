@@ -101,7 +101,6 @@ class UcastniciDigest extends Component {
       >
         {columns.map(({ key, label, width, vykon }) => {
           const commonProps = {
-            key,
             columnKey: key,
             width,
             allowCellsRecycling: true,
@@ -111,6 +110,7 @@ class UcastniciDigest extends Component {
           if (vykon === false) {
             return (
               <Column
+                key={key}
                 {...commonProps}
                 flexGrow={1}
                 header={
@@ -128,6 +128,7 @@ class UcastniciDigest extends Component {
           }
           return (
             <Column
+              key={key}
               {...commonProps}
               header={<Cell>{label}</Cell>}
               cell={<VykonCell columnKey={key} data={ucastniciDigest} />}
