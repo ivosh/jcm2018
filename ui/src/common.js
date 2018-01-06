@@ -4,8 +4,10 @@
 
    Convert from CommonJS format by the following incantation:
    cp common/common.js ui/src/common.js
-   ./node_modules/jscodeshift/bin/jscodeshift.sh -t node_modules/5to6-codemod/transforms/exports.js ui/src/common.js
-   ./node_modules/jscodeshift/bin/jscodeshift.sh -t node_modules/5to6-codemod/transforms/named-export-generation.js ui/src/common.js
+   ./node_modules/jscodeshift/bin/jscodeshift.sh \
+       -t node_modules/5to6-codemod/transforms/exports.js ui/src/common.js
+   ./node_modules/jscodeshift/bin/jscodeshift.sh \
+       -t node_modules/5to6-codemod/transforms/named-export-generation.js ui/src/common.js
    diff -u common/common.js ui/src/common.js
  */
 

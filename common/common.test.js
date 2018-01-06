@@ -6,7 +6,8 @@
 
    Convert from CommonJS format by the following incantation:
    cp common/common.test.js ui/src/common.test.js
-   ./node_modules/jscodeshift/bin/jscodeshift.sh -t node_modules/5to6-codemod/transforms/cjs.js ui/src/common.test.js
+   ./node_modules/jscodeshift/bin/jscodeshift.sh \
+       -t node_modules/5to6-codemod/transforms/cjs.js ui/src/common.test.js
    diff -u common/common.test.js ui/src/common.test.js
    diff -u common/__snapshots__/common.test.js.snap ui/src/__snapshots__/common.test.js.snap
  */
