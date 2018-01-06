@@ -1,5 +1,129 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`formulář s chybou 1`] = `
+<div
+  className="SignIn_div"
+>
+  <div
+    className="panel panel-primary"
+    id={undefined}
+  >
+    <div
+      className="panel-heading"
+    >
+      Přihlášení do aplikace JCM
+    </div>
+    <div
+      className="panel-body"
+    >
+      <form
+        autoComplete="off"
+        className="SignIn_form form-inline"
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-group"
+        >
+          <label
+            className="control-label"
+            htmlFor="username"
+          >
+            Jméno
+          </label>
+           
+          <input
+            className="form-control"
+            id="username"
+            onChange={[Function]}
+            placeholder="uživatelské jméno"
+            type="text"
+            value=""
+          />
+        </div>
+        <span
+          className="SignIn_spacing"
+        />
+        <div
+          className="form-group"
+        >
+          <label
+            className="control-label"
+            htmlFor="password"
+          >
+            Heslo
+          </label>
+           
+          <input
+            className="form-control"
+            id="password"
+            onChange={[Function]}
+            placeholder="heslo"
+            type="password"
+            value=""
+          />
+        </div>
+        <span
+          className="SignIn_spacing"
+        />
+        <div
+          className="form-group"
+        >
+          <button
+            className="btn btn-success"
+            disabled={false}
+            type="submit"
+          >
+            Přihlásit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div
+    className="alert alert-danger alert-dismissable"
+    role="alert"
+  >
+    <button
+      className="close"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        aria-hidden="true"
+      >
+        ×
+      </span>
+      <span
+        className="sr-only"
+      >
+        Close alert
+      </span>
+    </button>
+    <h4>
+      Chyba při přihlášení!
+    </h4>
+    <p>
+      Popis: 
+      Chybová zpráva
+    </p>
+    <p>
+      Chybový kód: 
+      kód
+    </p>
+    <p>
+      <button
+        className="btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        Schovat chybu
+      </button>
+    </p>
+  </div>
+</div>
+`;
+
 exports[`prázdný formulář 1`] = `
 <div
   className="SignIn_div"
@@ -35,7 +159,7 @@ exports[`prázdný formulář 1`] = `
             className="form-control"
             id="username"
             onChange={[Function]}
-            placeholder=""
+            placeholder="uživatelské jméno"
             type="text"
             value=""
           />
@@ -57,7 +181,7 @@ exports[`prázdný formulář 1`] = `
             className="form-control"
             id="password"
             onChange={[Function]}
-            placeholder=""
+            placeholder="heslo"
             type="password"
             value=""
           />

@@ -10,6 +10,20 @@ it('prázdný formulář', () => {
   expect(component.toJSON()).toMatchSnapshot();
 });
 
+it('formulář s chybou', () => {
+  const component = renderer.create(
+    <SignIn
+      isSigningIn={false}
+      errorCode="kód"
+      errorMessage="Chybová zpráva"
+      showError={true}
+      onHideError={jest.fn()}
+      onSubmit={jest.fn()}
+    />
+  );
+  expect(component.toJSON()).toMatchSnapshot();
+});
+
 it('handle succesfull form submit', () => {
   const onSubmit = jest.fn();
 
@@ -22,4 +36,16 @@ it('handle succesfull form submit', () => {
   wrapper.find('#password').simulate('change', { target: { value: 'jcm' } });
   wrapper.find('form').simulate('submit');
   expect(onSubmit).toHaveBeenCalledWith('tumáš', 'jcm');
+});
+
+it('handle hide error', () => {
+  const onHideError = jest.fn();
+
+  const wrapper = mount(
+    <SignIn isSigningIn={false} showError={true} onHideError={onHideError} onSubmit={jest.fn()} />
+  );
+  expect(wrapper.find('button.close')).toHaveLength(1);
+
+  wrapper.find('button.close').simulate('click');
+  expect(onHideError).toHaveBeenCalled();
 });
