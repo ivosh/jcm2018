@@ -43,7 +43,7 @@ it('signIn successfully', async () => {
   response.response.token = '===token===';
   expect(response).toMatchSnapshot();
 
-  await User.remove({});
+  await User.collection.drop();
 });
 
 it('signIn unsuccessfully (špatné heslo)', async () => {
@@ -55,7 +55,7 @@ it('signIn unsuccessfully (špatné heslo)', async () => {
   );
   expect(response).toMatchSnapshot();
 
-  await User.remove({});
+  await User.collection.drop();
 });
 
 it('signIn unsuccessfully (špatný uživatel)', async () => {
@@ -67,7 +67,7 @@ it('signIn unsuccessfully (špatný uživatel)', async () => {
   );
   expect(response).toMatchSnapshot();
 
-  await User.remove({});
+  await User.collection.drop();
 });
 
 it('signIn unsuccessfully (zamčený uživatel)', async () => {
@@ -86,5 +86,5 @@ it('signIn unsuccessfully (zamčený uživatel)', async () => {
   );
   expect(response).toMatchSnapshot();
 
-  await User.remove({});
+  await User.collection.drop();
 });

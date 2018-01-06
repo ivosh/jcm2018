@@ -29,7 +29,7 @@ it('vytvoř uživatele', async () => {
 
   await usersMatchSnapshot();
 
-  await User.remove({});
+  await User.collection.drop();
 });
 
 it('vytvoř uživatele s prázdným heslem', async () => {
@@ -48,7 +48,7 @@ it('ověř heslo uživatele napřímo', async () => {
   const isMatch2 = await user1.comparePassword('jcm2017');
   expect(isMatch2).toBe(false);
 
-  await User.remove({});
+  await User.collection.drop();
 });
 
 it('autentizuj uživatele úspěšně', async () => {
@@ -60,7 +60,7 @@ it('autentizuj uživatele úspěšně', async () => {
 
   await usersMatchSnapshot();
 
-  await User.remove({});
+  await User.collection.drop();
 });
 
 it('autentizuj neexistujícího uživatele', async () => {
@@ -70,7 +70,7 @@ it('autentizuj neexistujícího uživatele', async () => {
   const code = await User.authenticate('tom', 'jcm2018');
   expect(code).toEqual({ code: codes.CODE_NONEXISTING });
 
-  await User.remove({});
+  await User.collection.drop();
 });
 
 it('autentizuj uživatele neúspěšně', async () => {
@@ -82,7 +82,7 @@ it('autentizuj uživatele neúspěšně', async () => {
 
   await usersMatchSnapshot();
 
-  await User.remove({});
+  await User.collection.drop();
 });
 
 const authAttempt = async () => {
@@ -104,7 +104,7 @@ it('autentizuj uživatele neúspěšně až se zamkne', async () => {
 
   await usersMatchSnapshot();
 
-  await User.remove({});
+  await User.collection.drop();
 });
 
 it('autentizuj zamknutého uživatele úspěšně', async () => {
@@ -122,7 +122,7 @@ it('autentizuj zamknutého uživatele úspěšně', async () => {
 
   await usersMatchSnapshot();
 
-  await User.remove({});
+  await User.collection.drop();
 });
 
 it('autentizuj zamknutého uživatele neúspěšně', async () => {
@@ -140,7 +140,7 @@ it('autentizuj zamknutého uživatele neúspěšně', async () => {
 
   await usersMatchSnapshot();
 
-  await User.remove({});
+  await User.collection.drop();
 });
 
 it('vytvoř a změň uživatele', async () => {
@@ -156,5 +156,5 @@ it('vytvoř a změň uživatele', async () => {
   // Password hashes should remain equal.
   expect(password1).toEqual(password2);
 
-  await User.remove({});
+  await User.collection.drop();
 });

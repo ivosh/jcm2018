@@ -35,7 +35,7 @@ it('vytvoř účastníka s minimální účastí', async () => {
   const ucastnici = await Ucastnik.find({}, { _id: 0 });
   expect(ucastnici).toMatchSnapshot();
 
-  await Ucastnik.remove({});
+  await Ucastnik.collection.drop();
 });
 
 it('přihlaš účastníka', async () => {
@@ -79,8 +79,8 @@ it('přihlaš účastníka', async () => {
   });
   expect(ucastnici).toMatchSnapshot();
 
-  await Kategorie.remove({});
-  await Ucastnik.remove({});
+  await Kategorie.collection.drop();
+  await Ucastnik.collection.drop();
 });
 
 it('účastník zaplatil ubytování', async () => {
@@ -106,5 +106,5 @@ it('účastník zaplatil ubytování', async () => {
   const ucastnici = await Ucastnik.find({}, { _id: 0 });
   expect(ucastnici).toMatchSnapshot();
 
-  await Ucastnik.remove({});
+  await Ucastnik.collection.drop();
 });

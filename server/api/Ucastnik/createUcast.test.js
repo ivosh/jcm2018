@@ -43,7 +43,7 @@ it('vytvoř minimálního účastníka', async () => {
   const ucastnici = await Ucastnik.find({}, { _id: 0 });
   expect(ucastnici).toMatchSnapshot();
 
-  await Ucastnik.remove({});
+  await Ucastnik.collection.drop();
 });
 
 it('vytvoř dvě účasti', async () => {
@@ -67,5 +67,5 @@ it('vytvoř dvě účasti', async () => {
   const ucastnici = await Ucastnik.find({}, { _id: 0 });
   expect(ucastnici).toMatchSnapshot();
 
-  await Ucastnik.remove({});
+  await Ucastnik.collection.drop();
 });

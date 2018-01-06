@@ -34,8 +34,8 @@ it('naimportuj ročník', async () => {
     .lean();
   expect(rocniky).toMatchSnapshot();
 
-  await Rocnik.remove({});
-  await Kategorie.remove({});
+  await Rocnik.collection.drop();
+  await Kategorie.collection.drop();
 });
 
 it('naimportuj dva ročníky', async () => {
@@ -139,8 +139,8 @@ it('naimportuj dva ročníky', async () => {
   const kategorie = await Kategorie.find({}, { _id: 0 }).lean();
   expect(kategorie.length).toEqual(30);
 
-  await Rocnik.remove({});
-  await Kategorie.remove({});
+  await Rocnik.collection.drop();
+  await Kategorie.collection.drop();
 });
 
 it('naimportuj všechny ročníky', async () => {
@@ -679,8 +679,8 @@ it('naimportuj všechny ročníky', async () => {
   });
   expect(kategorie.length).toEqual(39);
 
-  await Rocnik.remove({});
-  await Kategorie.remove({});
+  await Rocnik.collection.drop();
+  await Kategorie.collection.drop();
 });
 
 it('naimportuj účastníka', async () => {

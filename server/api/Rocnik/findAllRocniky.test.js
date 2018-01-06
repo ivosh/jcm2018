@@ -125,6 +125,6 @@ it('findAllRocniky', async () => {
 
   expect(response).toMatchSnapshot();
 
-  await Kategorie.remove({});
-  await Rocnik.remove({});
+  await Kategorie.collection.drop();
+  await Rocnik.collection.drop();
 });

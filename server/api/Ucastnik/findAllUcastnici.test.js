@@ -114,5 +114,5 @@ it('findAllUcastnici', async () => {
     response: { id1: response[ids[0]], id2: response[ids[1]] }
   }).toMatchSnapshot();
 
-  await Ucastnik.remove({});
+  await Ucastnik.collection.drop();
 });
