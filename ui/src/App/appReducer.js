@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import authReducer from '../auth/authReducer';
 import startujiciReducer from '../casomeric/Startujici/startujiciReducer';
 import casomericReducer from '../casomeric/Casomeric/casomericReducer';
 import registratorReducer from '../registrator/registratorReducer';
@@ -16,6 +17,7 @@ const connected = (state = false, action) => {
 };
 
 const appReducer = combineReducers({
+  auth: authReducer,
   casomeric: casomericReducer,
   startujici: startujiciReducer,
   registrator: registratorReducer,
