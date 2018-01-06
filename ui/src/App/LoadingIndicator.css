@@ -1,0 +1,8 @@
+.LoadingIndicator {
+  animation: LoadingIndicator-spin infinite 5s linear;
+}
+
+@keyframes LoadingIndicator-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

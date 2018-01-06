@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Cell, Column, Table } from 'fixed-data-table-2';
 import 'fixed-data-table-2/dist/fixed-data-table.css';
 import { barvaProTypKategorie } from '../../Util';
+import LoadingIndicator from '../../App/LoadingIndicator';
 import { SortDirTypes } from './ucastniciDigestReducer';
 import SortHeaderCell from './SortHeaderCell';
 import './UcastniciDigestTable.css';
@@ -77,7 +78,11 @@ class UcastniciDigest extends Component {
     } = this.props;
 
     if (isFetching) {
-      return <div>Účastníci se načítají...</div>;
+      return (
+        <div>
+          <LoadingIndicator /> Účastníci se načítají...
+        </div>
+      );
     }
 
     const columns = [

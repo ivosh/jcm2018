@@ -1271,7 +1271,8 @@ exports[`dva účastníci 1`] = `
 
 exports[`načítá se 1`] = `
 <div>
-  Účastníci se načítají...
+  <LoadingIndicator />
+   Účastníci se načítají...
 </div>
 `;
 

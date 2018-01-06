@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Alert, Button, ControlLabel, Form, FormGroup, FormControl, Panel } from 'react-bootstrap';
+import LoadingIndicator from '../../App/LoadingIndicator';
 import './SignIn.css';
 
 class SignIn extends Component {
@@ -60,6 +61,7 @@ class SignIn extends Component {
             </FormGroup>
           </Form>
         </Panel>
+        {isSigningIn && <div><LoadingIndicator /> Probíhá přihlašování...</div> }
         {showError && (
           <Alert bsStyle="danger" onDismiss={this.handleDismiss}>
             <h4>Chyba při přihlášení!</h4>
