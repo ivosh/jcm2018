@@ -7,6 +7,9 @@ const config = require('./config');
 /* Use native ES6 promises. */
 mongoose.Promise = global.Promise;
 
+/* Enable for debugging. */
+// mongoose.set('debug', true);
+
 class DB {
   async connect() {
     const { uri, ...configOptions } = config.db;
