@@ -3,12 +3,14 @@
 exports[`na začátku 1`] = `
 Object {
   "auth": Object {
+    "isAuthenticated": false,
     "signIn": Object {
       "errorCode": "",
       "errorMessage": "",
       "isSigningIn": false,
       "showError": false,
     },
+    "token": null,
   },
   "casomeric": Object {
     "mezicasy": Array [],
@@ -45,12 +47,14 @@ Object {
 exports[`websocket connected 1`] = `
 Object {
   "auth": Object {
+    "isAuthenticated": false,
     "signIn": Object {
       "errorCode": "",
       "errorMessage": "",
       "isSigningIn": false,
       "showError": false,
     },
+    "token": null,
   },
   "casomeric": Object {
     "mezicasy": Array [],
@@ -87,12 +91,14 @@ Object {
 exports[`websocket disconnected 1`] = `
 Object {
   "auth": Object {
+    "isAuthenticated": false,
     "signIn": Object {
       "errorCode": "",
       "errorMessage": "",
       "isSigningIn": false,
       "showError": false,
     },
+    "token": null,
   },
   "casomeric": Object {
     "mezicasy": Array [],
