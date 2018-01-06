@@ -32,7 +32,17 @@ it('snapshort po startu', () => {
       onStop={jest.fn()}
     />
   );
-  expect(component.toJSON()).toMatchSnapshot();
+
+  /* Manually set all Displej digits to 0. */
+  const json = component.toJSON();
+  const displej = json.children[0].children[0];
+  expect(displej.props.className).toEqual('Displej');
+  expect(displej.children).toHaveLength(7);
+  displej.children[0].children[0] = '0';
+  displej.children[2].children[0] = '00';
+  displej.children[4].children[0] = '00';
+  displej.children[6].children[0] = '00';
+  expect(json).toMatchSnapshot();
 });
 
 it('maps button Start to dispatch onStart action', () => {
