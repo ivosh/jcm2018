@@ -1,26 +1,27 @@
 import jwtDecode from 'jwt-decode';
 import { CODE_OK, CODE_NONCE_MISMATCH, signIn as signInAction } from '../../common';
 
+export const hideSignInError = () => ({ type: 'SIGN_IN_HIDE_ERROR' });
+
 export const generateNonce = (len = 20) => {
   const arr = new Uint8Array(len / 2);
   window.crypto.getRandomValues(arr);
   return Array.from(arr, val => val.toString(16)).join('');
 };
 
-const signInRequest = () => ({
+export const signInRequest = () => ({
   type: 'SIGN_IN_REQUEST'
 });
 
 const decodeToken = token => jwtDecode(token);
 
-export const signInSuccess = response => ({
+export const signInSuccess = json => ({
   type: 'SIGN_IN_SUCCESS',
-  data: response,
+  data: json.response,
   receivedAt: Date.now()
 });
 
-// TODO: no component is subscribed to this action.
-const signInError = ({ code, status, err, ...rest }) => ({
+export const signInError = ({ code, status, err, ...rest }) => ({
   type: 'SIGN_IN_ERROR',
   code,
   status,
@@ -34,13 +35,12 @@ export const signIn = (username, password) => async (dispatch, getState, wsClien
 
   const nonce = generateNonce();
   try {
-    const { code, status, response } = await wsClient.sendRequest(
-      signInAction(username, password, nonce)
-    );
+    const response = await wsClient.sendRequest(signInAction(username, password, nonce));
+    const { code } = response;
     if (code === CODE_OK) {
-      const token = decodeToken(response.token);
-      if (token.nonce === nonce) {
-        response.token = token;
+      const decodedToken = decodeToken(response.response.token);
+      if (decodedToken.nonce === nonce) {
+        response.response.decodedToken = decodedToken;
         dispatch(signInSuccess(response));
       } else {
         dispatch(
@@ -49,12 +49,12 @@ export const signIn = (username, password) => async (dispatch, getState, wsClien
             status:
               'Jednorázový přihlašovací kód vygenerovaný prohlížečem nesouhlasí s kódem, který poslal server.',
             client: nonce,
-            server: token.nonce
+            server: decodedToken.nonce
           })
         );
       }
     } else {
-      dispatch(signInError({ code, status }));
+      dispatch(signInError(response));
     }
   } catch (err) {
     dispatch(signInError({ code: 'internal error', err }));

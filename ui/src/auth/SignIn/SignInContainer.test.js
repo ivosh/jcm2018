@@ -14,12 +14,21 @@ mockWsClient.sendRequest = async () => ({});
 let store;
 let wrapper;
 beforeEach(() => {
-  store = mockStore({});
+  const state = {
+    auth: {
+      signIn: { isSigningIn: false, errorCode: 'code', errorMessage: 'message', showError: false }
+    }
+  };
+  store = mockStore(state);
   store.dispatch = jest.fn();
   wrapper = shallow(<SignInContainer store={store} />);
 });
 
-it('maps dispatch to props', () => {
+it('maps state and dispatch to props', () => {
+  expect(wrapper.props().isSigningIn).toBe(false);
+  expect(wrapper.props().errorCode).toEqual('code');
+  expect(wrapper.props().errorMessage).toEqual('message');
+  expect(wrapper.props().showError).toBe(false);
   expect(wrapper.props()).toEqual(expect.objectContaining({ onSubmit: expect.any(Function) }));
 });
 

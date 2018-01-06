@@ -4,14 +4,16 @@ import { mount } from 'enzyme';
 import SignIn from './SignIn';
 
 it('prázdný formulář', () => {
-  const component = renderer.create(<SignIn onSubmit={jest.fn()} />);
+  const component = renderer.create(
+    <SignIn isSigningIn={false} onHideError={jest.fn()} onSubmit={jest.fn()} />
+  );
   expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('handle succesfull form submit', () => {
   const onSubmit = jest.fn();
 
-  const wrapper = mount(<SignIn onSubmit={onSubmit} />);
+  const wrapper = mount(<SignIn isSigningIn={false} onHideError={jest.fn()} onSubmit={onSubmit} />);
   expect(wrapper.find('#username')).toHaveLength(1);
   expect(wrapper.find('#password')).toHaveLength(1);
   expect(wrapper.find('form')).toHaveLength(1);

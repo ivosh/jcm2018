@@ -58,6 +58,11 @@ class SignIn extends Component {
 }
 
 SignIn.propTypes = {
+  isSigningIn: PropTypes.bool.isRequired,
+  errorCode: PropTypes.string,
+  errorMessage: PropTypes.string,
+  showError: PropTypes.bool,
+  onHideError: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
 };
 
