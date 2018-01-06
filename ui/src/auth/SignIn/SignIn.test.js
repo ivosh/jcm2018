@@ -10,6 +10,13 @@ it('prázdný formulář', () => {
   expect(component.toJSON()).toMatchSnapshot();
 });
 
+it('formulář při načítání', () => {
+  const component = renderer.create(
+    <SignIn isSigningIn={true} onHideError={jest.fn()} onSubmit={jest.fn()} />
+  );
+  expect(component.toJSON()).toMatchSnapshot();
+});
+
 it('formulář s chybou', () => {
   const component = renderer.create(
     <SignIn

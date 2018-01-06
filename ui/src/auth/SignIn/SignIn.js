@@ -61,7 +61,11 @@ class SignIn extends Component {
             </FormGroup>
           </Form>
         </Panel>
-        {isSigningIn && <div><LoadingIndicator /> Probíhá přihlašování...</div> }
+        {isSigningIn && (
+          <div>
+            <LoadingIndicator /> Probíhá přihlašování...
+          </div>
+        )}
         {showError && (
           <Alert bsStyle="danger" onDismiss={this.handleDismiss}>
             <h4>Chyba při přihlášení!</h4>

@@ -4,10 +4,10 @@ import signInReducer from './SignIn/signInReducer';
 const isAuthenticatedReducer = (state = false, action) => {
   switch (action.type) {
     case 'SIGN_IN_SUCCESS':
-      return { ...state, isAuthenticated: true };
+      return true;
     case 'SIGN_IN_ERROR':
     case 'SIGN_OUT_SUCCESS':
-      return { ...state, isAuthenticated: false };
+      return false;
     default:
       return state;
   }
@@ -16,10 +16,10 @@ const isAuthenticatedReducer = (state = false, action) => {
 const tokenReducer = (state = null, action) => {
   switch (action.type) {
     case 'SIGN_IN_SUCCESS':
-      return { ...state, token: action.token };
+      return action.token;
     case 'SIGN_IN_ERROR':
     case 'SIGN_OUT_SUCCESS':
-      return { ...state, token: null };
+      return null;
     default:
       return state;
   }

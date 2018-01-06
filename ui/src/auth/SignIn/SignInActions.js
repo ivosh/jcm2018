@@ -15,11 +15,17 @@ export const signInRequest = () => ({
 
 const decodeToken = token => jwtDecode(token);
 
-export const signInSuccess = json => ({
-  type: 'SIGN_IN_SUCCESS',
-  data: json.response,
-  receivedAt: Date.now()
-});
+export const signInSuccess = json => {
+  const { username, token, decodedToken } = json.response;
+
+  return {
+    type: 'SIGN_IN_SUCCESS',
+    username,
+    token,
+    decodedToken,
+    receivedAt: Date.now()
+  };
+};
 
 export const signInError = ({ code, status, err, ...rest }) => ({
   type: 'SIGN_IN_ERROR',

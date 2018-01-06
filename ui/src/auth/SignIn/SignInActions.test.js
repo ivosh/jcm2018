@@ -51,16 +51,14 @@ it('signIn() should dispatch two successful actions', async () => {
   expect(actions[0]).toEqual({ type: 'SIGN_IN_REQUEST' });
   expect(actions[1]).toEqual(
     expect.objectContaining({
-      data: {
-        decodedToken: {
-          exp: 2208988800,
-          iat: expect.any(Number),
-          nonce: '56565656565656565656',
-          username: 'tomáš'
-        },
-        token: expect.any(String),
+      decodedToken: {
+        exp: 2208988800,
+        iat: expect.any(Number),
+        nonce: '56565656565656565656',
         username: 'tomáš'
       },
+      token: expect.any(String),
+      username: 'tomáš',
       type: 'SIGN_IN_SUCCESS'
     })
   );
