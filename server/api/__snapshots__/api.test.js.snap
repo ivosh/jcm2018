@@ -7,6 +7,13 @@ Object {
 }
 `;
 
+exports[`unknown action 1`] = `
+Object {
+  "code": "unrecognized action",
+  "status": "neznámá akce: unknown",
+}
+`;
+
 exports[`unparsable message 1`] = `
 Object {
   "code": "unparseable message",

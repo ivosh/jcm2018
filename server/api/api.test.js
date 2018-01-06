@@ -39,6 +39,17 @@ it('unparsable message', async done => {
   await wsClient.send('--');
 });
 
+it('unknown action', async done => {
+  wsClient.onMessage.addListener(message => {
+    const parsed = JSON.parse(message);
+    expect(parsed).toMatchSnapshot();
+    done();
+  });
+
+  await wsClient.send('{ "action": "unknown" }');
+});
+
+/* Keep last - it havocs wsClient's state. */
 it('binary data', async () => {
   const data = new Uint8Array(1);
   data[0] = 1;
