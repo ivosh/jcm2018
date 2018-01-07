@@ -28,15 +28,15 @@ const fetchRocnikyError = ({ code, status, err }) => ({
 });
 
 export const fetchRocniky = () => async (dispatch, getState, wsClient) => {
-  const state = getState();
-  if (state.rocniky && state.rocniky.roky && state.rocniky.roky.length > 0) {
+  const { rocniky, auth } = getState();
+  if (rocniky && rocniky.roky && rocniky.roky.length > 0) {
     return; // Use cached value.
   }
 
   dispatch(fetchRocnikyRequest());
 
   try {
-    const response = await wsClient.sendRequest(findAllRocniky());
+    const response = await wsClient.sendRequest(findAllRocniky((auth && auth.token) || null));
     if (response.code === CODE_OK) {
       dispatch(fetchKategorieSuccess(response));
       dispatch(fetchRocnikySuccess(response));

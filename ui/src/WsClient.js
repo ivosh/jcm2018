@@ -10,8 +10,13 @@ import { PORT } from './common';
  * await wsClient.close();
  */
 class WsClient {
-  constructor({ host = 'localhost', port = PORT, onConnect, onClose } = {}) {
-    this.url = `ws://${host}:${port}/`;
+  constructor({ port = PORT, onConnect, onClose } = {}) {
+    const hostname = (window && window.location && window.location.hostname) || 'localhost';
+    if (hostname === 'localhost') {
+      this.url = `ws://${hostname}:${port}/`;
+    } else {
+      this.url = `wss://${hostname}/`;
+    }
     this.reconnectInterval = 2 * 1000;
     this.sendTimeout = 10 * 1000;
     this.setCallbacks({ onConnect, onClose });

@@ -28,12 +28,14 @@ const fetchUcastniciError = ({ code, status, err }) => ({
 });
 
 export const fetchUcastnici = () => async (dispatch, getState, wsClient) => {
+  const { auth } = getState();
+
   dispatch(fetchUcastniciRequest());
 
   await dispatch(fetchRocniky());
 
   try {
-    const response = await wsClient.sendRequest(findAllUcastnici());
+    const response = await wsClient.sendRequest(findAllUcastnici((auth && auth.token) || null));
     if (response.code === CODE_OK) {
       dispatch(fetchUcastniciSuccess(response));
     } else {
