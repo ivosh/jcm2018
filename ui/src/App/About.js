@@ -13,6 +13,8 @@ const About = () => (
           Aplikace <Glyphicon glyph="star" />Jirkovský crossmarathon 2018<Glyphicon glyph="star" />
           <br />
           Verze: {version}
+          <br />
+          Origin: {(window && window.location && window.location.origin) || ''}
         </div>
       </div>
     </Panel>
