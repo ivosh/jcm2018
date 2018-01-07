@@ -9,18 +9,25 @@ https://medium.com/@baphemot/understanding-reactjs-component-life-cycle-823a640b
 https://hackernoon.com/a-user-encounters-a-javascript-error-youll-never-guess-what-happens-next-dc1a6f725490
 https://blog.scalac.io/react-redux-jwt-authentication.html
 
+
 Integration with heroku:
 ~~~~~~~~~~~~~~~~~~~~~~~~
 https://github.com/mars/heroku-cra-node
 heroku plugins:install heroku-cli-static
 git remote add heroku https://git.heroku.com/jcm2018.git
+heroku domains
+heroku certs:auto
 heroku ps:resize web=hobby
 heroku ps
 heroku ps:restart
 heroku logs
 
+Heroku SSL uses Server Name Indication (SNI), an extension of the TLS protocol, which allows for
+Heroku to terminate SSL on its router. App receives only unencrypted HTTP/WS traffic.
+https://devcenter.heroku.com/articles/ssl
 https://devcenter.heroku.com/articles/automated-certificate-management
-Heroku employs Heroku router which strips SSL and passes only unencrypted HTTP/WS traffic to my app.
+https://devcenter.heroku.com/articles/http-routing     (X-Forwarded-Proto)
+
 
 MongoDB Atlas in the cloud:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

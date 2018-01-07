@@ -29,7 +29,11 @@ const createWsServer = ({ httpServer, requestAllowed }) => {
 
     try {
       const connection = webSocketRequest.accept('jcm2018', webSocketRequest.origin);
-      logger.info(`Connection for origin '${webSocketRequest.origin}' accepted.`);
+      logger.info(
+        `Connection from remoteAddress '${webSocketRequest.remoteAddress}' and origin '${
+          webSocketRequest.origin
+        }' accepted.`
+      );
 
       connection.on('message', async message => {
         if (message.type !== 'utf8') {
