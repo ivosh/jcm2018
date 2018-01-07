@@ -1,5 +1,10 @@
 'use strict';
 
+/* Imports jcm.xml into the DB.
+   Usage:
+       LOG_LEVEL=debug NODE_ENV={development,test,production} node ./server/xmlImportFile jcm.xml
+*/
+
 const logger = require('heroku-logger');
 const db = require('./db');
 const importFromXML = require('./model/importFromXML');

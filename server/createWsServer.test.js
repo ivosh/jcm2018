@@ -7,16 +7,16 @@ const createWsServer = require('./createWsServer');
 
 const PORT = 4001;
 
-let allowThisOrigin;
-const originAllowed = () => allowThisOrigin;
+let allowThisRequest;
+const requestAllowed = () => allowThisRequest;
 
 beforeEach(() => {
-  allowThisOrigin = true;
+  allowThisRequest = true;
 });
 
 let wsServer;
 beforeAll(() => {
-  wsServer = createWsServer({ httpServer, originAllowed });
+  wsServer = createWsServer({ httpServer, requestAllowed });
   wsServer.httpServer().listen(PORT);
 });
 
@@ -41,7 +41,7 @@ it('connect fails because of invalid protocol', async () => {
 });
 
 it('connect fails because of invalid origin', async () => {
-  allowThisOrigin = false;
+  allowThisRequest = false;
 
   const wsClient = new WebSocketAsPromised(`ws://localhost:${PORT}`, {
     createWebSocket: url => new W3CWebSocket(url, 'jcm2018'),

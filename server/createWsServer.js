@@ -5,7 +5,7 @@ const logger = require('heroku-logger');
 const WebSocketServer = require('websocket').server;
 const processMessage = require('./api/api');
 
-const createWsServer = ({ httpServer, originAllowed }) => {
+const createWsServer = ({ httpServer, requestAllowed }) => {
   const wsHttpServer = httpServer || http.createServer(); // for testing
 
   const ws = new WebSocketServer({
@@ -15,16 +15,21 @@ const createWsServer = ({ httpServer, originAllowed }) => {
 
   ws.httpServer = () => wsHttpServer;
 
-  ws.on('request', request => {
-    if (originAllowed && !originAllowed(request.origin)) {
-      request.reject(401);
-      logger.warn(`Connection for origin '${request.origin}' rejected.`);
+  ws.on('request', webSocketRequest => {
+    if (requestAllowed && !requestAllowed(webSocketRequest)) {
+      webSocketRequest.reject(401);
+      logger.warn('Request for websocket connection rejected.');
+      logger.debug(
+        `Host: ${webSocketRequest.host}, remoteAddress: ${
+          webSocketRequest.remoteAddress
+        }, origin: ${webSocketRequest.origin}.`
+      );
       return;
     }
 
     try {
-      const connection = request.accept('jcm2018', request.origin);
-      logger.info(`Connection for origin '${request.origin}' accepted.`);
+      const connection = webSocketRequest.accept('jcm2018', webSocketRequest.origin);
+      logger.info(`Connection for origin '${webSocketRequest.origin}' accepted.`);
 
       connection.on('message', async message => {
         if (message.type !== 'utf8') {

@@ -2,7 +2,7 @@
 
 /* Creates users in the DB.
    Usage:
-       LOG_LEVEL=debug NODE_ENV={dev,test,production} node ./server/createUsers.js users.txt
+       LOG_LEVEL=debug NODE_ENV={development,test,production} node ./server/createUsers.js users.txt
 */
 
 const fs = require('fs');
