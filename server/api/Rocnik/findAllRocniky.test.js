@@ -97,7 +97,7 @@ it('findAllRocniky', async () => {
   rocnik2.ubytovani.push({ den: 'pátek', poplatek: 60 });
   await rocnik2.save();
 
-  const { requestId, ...response } = await wsClient.sendRequest(Actions.findAllRocniky());
+  const { requestId, ...response } = await wsClient.sendRequest(Actions.findAllRocniky(null));
   const { kategorie, rocniky } = response.response;
 
   const ids = {};

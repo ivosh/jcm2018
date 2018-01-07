@@ -38,14 +38,16 @@ const createUcast = ({ id, rok, udaje, prihlaska }) => ({
   request: { id, rok, udaje, prihlaska }
 });
 
-const findAllRocniky = () => ({
+const findAllRocniky = token => ({
   action: FIND_ALL_ROCNIKY,
-  request: undefined
+  request: undefined,
+  token
 });
 
-const findAllUcastnici = () => ({
+const findAllUcastnici = token => ({
   action: FIND_ALL_UCASTNICI,
-  request: undefined
+  request: undefined,
+  token
 });
 
 const signIn = (username, password, nonce) => ({

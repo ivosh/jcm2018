@@ -97,7 +97,7 @@ it('findAllUcastnici', async () => {
   await ucastnik2.save();
 
   const { code, status, requestId, response, ...theRest } = await wsClient.sendRequest(
-    Actions.findAllUcastnici()
+    Actions.findAllUcastnici(null)
   );
   expect(theRest).toEqual({});
   const ids = Object.keys(response);
