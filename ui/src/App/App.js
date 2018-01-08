@@ -42,7 +42,7 @@ const App = ({ connected, username }) => (
         <Route path="/casomeric" component={CasomericContainer} />
         <Route path="/ucastnici" component={UcastniciDigestContainer} />
         <Route path="/prihlaska" component={Prihlaska} />
-        <Route path="/about" component={About} username={username} />
+        <Route path="/about" component={() => <About username={username} />} />
         <Redirect to="/" />
       </Switch>
     </main>

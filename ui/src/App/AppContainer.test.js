@@ -8,7 +8,7 @@ const mockStore = configureStore();
 let store;
 let wrapper;
 beforeEach(() => {
-  const state = { connected: true, auth: { decodedToken: null } };
+  const state = { connected: true, auth: { decodedToken: { username: 'tomáš' } } };
   store = mockStore(state);
   store.dispatch = jest.fn();
   wrapper = shallow(<AppContainer store={store} />);
@@ -16,5 +16,5 @@ beforeEach(() => {
 
 it('maps state to props', () => {
   expect(wrapper.props().connected).toBe(true);
-  expect(wrapper.props().username).toEqual('');
+  expect(wrapper.props().username).toEqual('tomáš');
 });
