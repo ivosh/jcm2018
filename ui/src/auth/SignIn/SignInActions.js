@@ -15,8 +15,8 @@ export const signInRequest = () => ({
 
 const decodeToken = token => jwtDecode(token);
 
-export const signInSuccess = json => {
-  const { username, token, decodedToken } = json.response;
+export const signInSuccess = (json, decodedToken) => {
+  const { username, token } = json.response;
 
   return {
     type: 'SIGN_IN_SUCCESS',
@@ -46,8 +46,7 @@ export const signIn = (username, password) => async (dispatch, getState, wsClien
     if (code === CODE_OK) {
       const decodedToken = decodeToken(response.response.token);
       if (decodedToken.nonce === nonce) {
-        response.response.decodedToken = decodedToken;
-        dispatch(signInSuccess(response));
+        dispatch(signInSuccess(response, decodedToken));
       } else {
         dispatch(
           signInError({

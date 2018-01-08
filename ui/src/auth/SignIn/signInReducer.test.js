@@ -17,6 +17,11 @@ const unsuccessfulResponse = {
   requestId: '0.9310306652587374'
 };
 
+const decodedToken = {
+  username: 'tomáš',
+  nonce: '4345ab771'
+};
+
 it('na začátku', () => {
   const stateBefore = undefined;
 
@@ -50,7 +55,9 @@ it('signInSuccess()', () => {
   const stateAfter = { ...stateBefore, isSigningIn: false };
   deepFreeze(stateBefore);
 
-  expect(signInReducer(stateBefore, signInSuccess(successfulResponse))).toEqual(stateAfter);
+  expect(signInReducer(stateBefore, signInSuccess(successfulResponse, decodedToken))).toEqual(
+    stateAfter
+  );
 });
 
 it('signInError()', () => {

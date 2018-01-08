@@ -17,6 +17,11 @@ const unsuccessfulResponse = {
   requestId: '0.9310306652587374'
 };
 
+const decodedToken = {
+  username: 'tomáš',
+  nonce: '4345ab771'
+};
+
 it('na začátku', () => {
   const stateBefore = undefined;
 
@@ -27,16 +32,27 @@ it('na začátku', () => {
 
 it('signInSuccess()', () => {
   const stateBefore = { authenticated: false, token: null, signIn: { isSigningIn: false } };
-  const stateAfter = { ...stateBefore, authenticated: true, token: '=======token=========' };
+  const stateAfter = {
+    ...stateBefore,
+    authenticated: true,
+    token: '=======token=========',
+    decodedToken: {
+      username: 'tomáš',
+      nonce: '4345ab771'
+    }
+  };
   deepFreeze(stateBefore);
 
-  expect(authReducer(stateBefore, signInSuccess(successfulResponse))).toEqual(stateAfter);
+  expect(authReducer(stateBefore, signInSuccess(successfulResponse, decodedToken))).toEqual(
+    stateAfter
+  );
 });
 
 it('signInError()', () => {
   const stateBefore = { authenticated: true, token: '==token==', signIn: { isSigningIn: false } };
   const stateAfter = {
     authenticated: false,
+    decodedToken: null,
     token: null,
     signIn: {
       isSigningIn: false,

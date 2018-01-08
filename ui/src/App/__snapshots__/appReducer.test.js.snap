@@ -4,6 +4,7 @@ exports[`na začátku 1`] = `
 Object {
   "auth": Object {
     "authenticated": false,
+    "decodedToken": null,
     "signIn": Object {
       "errorCode": "",
       "errorMessage": "",
@@ -48,6 +49,7 @@ exports[`websocket connected 1`] = `
 Object {
   "auth": Object {
     "authenticated": false,
+    "decodedToken": null,
     "signIn": Object {
       "errorCode": "",
       "errorMessage": "",
@@ -92,6 +94,7 @@ exports[`websocket disconnected 1`] = `
 Object {
   "auth": Object {
     "authenticated": false,
+    "decodedToken": null,
     "signIn": Object {
       "errorCode": "",
       "errorMessage": "",
