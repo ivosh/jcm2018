@@ -21,22 +21,22 @@ it('na začátku', () => {
   const stateBefore = undefined;
 
   const stateAfter = authReducer(stateBefore, {});
-  expect(stateAfter.isAuthenticated).toEqual(false);
+  expect(stateAfter.authenticated).toEqual(false);
   expect(stateAfter.token).toBe(null);
 });
 
 it('signInSuccess()', () => {
-  const stateBefore = { isAuthenticated: false, token: null, signIn: { isSigningIn: false } };
-  const stateAfter = { ...stateBefore, isAuthenticated: true, token: '=======token=========' };
+  const stateBefore = { authenticated: false, token: null, signIn: { isSigningIn: false } };
+  const stateAfter = { ...stateBefore, authenticated: true, token: '=======token=========' };
   deepFreeze(stateBefore);
 
   expect(authReducer(stateBefore, signInSuccess(successfulResponse))).toEqual(stateAfter);
 });
 
 it('signInError()', () => {
-  const stateBefore = { isAuthenticated: true, token: '==token==', signIn: { isSigningIn: false } };
+  const stateBefore = { authenticated: true, token: '==token==', signIn: { isSigningIn: false } };
   const stateAfter = {
-    isAuthenticated: false,
+    authenticated: false,
     token: null,
     signIn: {
       isSigningIn: false,

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import signInReducer from './SignIn/signInReducer';
 
-const isAuthenticatedReducer = (state = false, action) => {
+const authenticatedReducer = (state = false, action) => {
   switch (action.type) {
     case 'SIGN_IN_SUCCESS':
       return true;
@@ -26,7 +26,7 @@ const tokenReducer = (state = null, action) => {
 };
 
 const authReducer = combineReducers({
-  isAuthenticated: isAuthenticatedReducer,
+  authenticated: authenticatedReducer,
   signIn: signInReducer,
   token: tokenReducer
 });

@@ -3,7 +3,7 @@
 exports[`na začátku 1`] = `
 Object {
   "auth": Object {
-    "isAuthenticated": false,
+    "authenticated": false,
     "signIn": Object {
       "errorCode": "",
       "errorMessage": "",
@@ -47,7 +47,7 @@ Object {
 exports[`websocket connected 1`] = `
 Object {
   "auth": Object {
-    "isAuthenticated": false,
+    "authenticated": false,
     "signIn": Object {
       "errorCode": "",
       "errorMessage": "",
@@ -91,7 +91,7 @@ Object {
 exports[`websocket disconnected 1`] = `
 Object {
   "auth": Object {
-    "isAuthenticated": false,
+    "authenticated": false,
     "signIn": Object {
       "errorCode": "",
       "errorMessage": "",
