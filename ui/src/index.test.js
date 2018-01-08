@@ -7,12 +7,29 @@ import AppContainer from './App/AppContainer';
 
 const mockStore = configureStore();
 const store = mockStore({
-  auth: { decodedToken: null },
+  auth: {
+    authenticated: true,
+    decodedToken: null,
+    token: null,
+    signIn: { errorCode: '', errorMessage: '', isSigningIn: false, showError: false }
+  },
   casomeric: { mezicasy: [], stopky: { base: null, running: false } },
-  registrator: { ucastniciDigest: { filter: '', sortColumn: undefined, sortDir: 'none' } },
-  startujici: [],
-  ucastnici: { allIds: [], byIds: {} },
-  connected: true
+  connected: true,
+  entities: {
+    kategorie: {},
+    rocniky: { byRoky: {}, roky: [] },
+    ucastnici: { allIds: [], byIds: {} }
+  },
+  registrator: {
+    ucastniciDigest: {
+      isFetching: false,
+      kategorieVykonuFilter: '',
+      sortColumn: undefined,
+      sortDir: 'none',
+      textFilter: ''
+    }
+  },
+  startujici: []
 });
 
 test('navigates to /casomeric by default', () => {
@@ -27,14 +44,14 @@ test('navigates to /casomeric by default', () => {
   expect(wrapper.find('Stopky')).toHaveLength(1);
 });
 
-test('navigates correctly to /prihlaska', () => {
+test('navigates correctly to /about', () => {
   const wrapper = mount(
     <Provider store={store}>
-      <MemoryRouter initialEntries={['/prihlaska']}>
+      <MemoryRouter initialEntries={['/about']}>
         <Route component={AppContainer} />
       </MemoryRouter>
     </Provider>
   );
 
-  expect(wrapper.find('Prihlaska')).toHaveLength(1);
+  expect(wrapper.find('About')).toHaveLength(1);
 });

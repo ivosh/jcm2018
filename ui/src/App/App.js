@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import withAuth from '../auth/withAuth';
+import withoutAuth from '../auth/withoutAuth';
 import SignInContainer from '../auth/SignIn/SignInContainer';
 import CasomericContainer from '../casomeric/Casomeric/CasomericContainer';
 import UcastniciDigestContainer from '../registrator/UcastniciDigest/UcastniciDigestContainer';
@@ -11,25 +13,30 @@ import About from './About';
 import './App.css';
 import logo from './logo.svg';
 
-const App = ({ connected, username }) => (
+const App = ({ authenticated, connected, username }) => (
   <div>
     <Navbar inverse>
       <Navbar.Header>
         <img src={logo} className={connected ? 'App-logo-animated' : 'App-logo'} alt="logo" />
       </Navbar.Header>
       <Nav className="App-Nav">
-        <LinkContainer to="/signin">
-          <NavItem eventKey={1}>Přihlášení</NavItem>
-        </LinkContainer>
-        <LinkContainer to="/casomeric">
-          <NavItem eventKey={2}>Časoměřič</NavItem>
-        </LinkContainer>
-        <LinkContainer to="/ucastnici">
-          <NavItem eventKey={3}>Účastníci</NavItem>
-        </LinkContainer>
-        <LinkContainer to="/prihlaska">
-          <NavItem eventKey={4}>Přihláška</NavItem>
-        </LinkContainer>
+        {!authenticated && (
+          <LinkContainer to="/signin">
+            <NavItem eventKey={1}>Přihlášení</NavItem>
+          </LinkContainer>
+        )}
+        {authenticated && [
+          // TODO: JSX fragment would be more appropriate if eslint-react-plugin supported it.
+          <LinkContainer key="casomeric" to="/casomeric">
+            <NavItem eventKey={2}>Časoměřič</NavItem>
+          </LinkContainer>,
+          <LinkContainer key="ucastnici" to="/ucastnici">
+            <NavItem eventKey={3}>Účastníci</NavItem>
+          </LinkContainer>,
+          <LinkContainer key="prihlaska" to="/prihlaska">
+            <NavItem eventKey={4}>Přihláška</NavItem>
+          </LinkContainer>
+        ]}
         <LinkContainer to="/about">
           <NavItem eventKey={5}>O aplikaci</NavItem>
         </LinkContainer>
@@ -37,11 +44,11 @@ const App = ({ connected, username }) => (
     </Navbar>
     <main>
       <Switch>
-        <Route exact path="/" component={CasomericContainer} />
-        <Route path="/signin" component={SignInContainer} />
-        <Route path="/casomeric" component={CasomericContainer} />
-        <Route path="/ucastnici" component={UcastniciDigestContainer} />
-        <Route path="/prihlaska" component={Prihlaska} />
+        <Route exact path="/" component={withAuth(CasomericContainer)} />
+        <Route path="/signin" component={withoutAuth(SignInContainer)} />
+        <Route path="/casomeric" component={withAuth(CasomericContainer)} />
+        <Route path="/ucastnici" component={withAuth(UcastniciDigestContainer)} />
+        <Route path="/prihlaska" component={withAuth(Prihlaska)} />
         <Route path="/about" component={() => <About username={username} />} />
         <Redirect to="/" />
       </Switch>
@@ -50,6 +57,7 @@ const App = ({ connected, username }) => (
 );
 
 App.propTypes = {
+  authenticated: PropTypes.bool.isRequired,
   connected: PropTypes.bool.isRequired,
   username: PropTypes.string
 };

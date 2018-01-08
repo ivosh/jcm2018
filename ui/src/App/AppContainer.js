@@ -5,6 +5,7 @@ const mapStateToProps = state => {
   const { auth, connected } = state;
 
   return {
+    authenticated: auth.authenticated,
     connected,
     username: (auth.decodedToken && auth.decodedToken.username) || '<nikdo>'
   };
