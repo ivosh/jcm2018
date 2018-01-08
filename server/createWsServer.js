@@ -15,23 +15,23 @@ const createWsServer = ({ httpServer, requestAllowed }) => {
 
   ws.httpServer = () => wsHttpServer;
 
-  ws.on('request', webSocketRequest => {
-    if (requestAllowed && !requestAllowed(webSocketRequest)) {
-      webSocketRequest.reject(401);
+  ws.on('request', wsRequest => {
+    if (requestAllowed && !requestAllowed(wsRequest)) {
+      wsRequest.reject(401);
       logger.warn('Request for websocket connection rejected.');
       logger.debug(
-        `Host: ${webSocketRequest.host}, remoteAddress: ${
-          webSocketRequest.remoteAddress
-        }, origin: ${webSocketRequest.origin}.`
+        `Host: ${wsRequest.host}, remoteAddress: ${wsRequest.remoteAddress}, origin: ${
+          wsRequest.origin
+        }.`
       );
       return;
     }
 
     try {
-      const connection = webSocketRequest.accept('jcm2018', webSocketRequest.origin);
+      const connection = wsRequest.accept('jcm2018', wsRequest.origin);
       logger.info(
-        `Connection from remoteAddress '${webSocketRequest.remoteAddress}' and origin '${
-          webSocketRequest.origin
+        `Connection from remoteAddress '${wsRequest.remoteAddress}' and origin '${
+          wsRequest.origin
         }' accepted.`
       );
 

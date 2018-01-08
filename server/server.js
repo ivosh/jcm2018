@@ -15,17 +15,17 @@ httpServer.listen(PORT, () => {
   logger.info(`Server is listening on port ${PORT}.`);
 });
 
-const requestAllowed = webSocketRequest => {
+const requestAllowed = wsRequest => {
   /* webSocketRequest.origin is only advisory and Same origin policy cannot rely on it.
      Rather, we disallow http in production and employ authentication-protected API. */
   if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
-    const proto = webSocketRequest.httpRequest.headers['x-forwarded-proto'];
+    const proto = wsRequest.httpRequest.headers['x-forwarded-proto'];
     if (proto === 'https') {
       logger.debug(`Allowing originating protocol ${proto} in production.`);
       return true;
     }
     logger.debug(`Disallowing originating protocol ${proto} in production.`);
-    logger.debug(JSON.stringify(webSocketRequest.httpRequest.headers));
+    logger.debug(JSON.stringify(wsRequest.httpRequest.headers));
     return false;
   }
   logger.debug('Allowing any access, not in production.');
