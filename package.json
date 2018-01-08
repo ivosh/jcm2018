@@ -1,6 +1,6 @@
 {
   "name": "jcm2018",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Jirkovský crossmarathon",
   "keywords": [],
   "author": "Ivo Raisr",
@@ -11,7 +11,7 @@
     "url": "https://github.com/ivosh/jcm2018.git"
   },
   "engines": {
-    "node": "8.8.x"
+    "node": "8.9.x"
   },
   "cacheDirectories": [
     "node_modules",
