@@ -7,6 +7,7 @@ import AppContainer from './App/AppContainer';
 
 const mockStore = configureStore();
 const store = mockStore({
+  auth: { decodedToken: null },
   casomeric: { mezicasy: [], stopky: { base: null, running: false } },
   registrator: { ucastniciDigest: { filter: '', sortColumn: undefined, sortDir: 'none' } },
   startujici: [],

@@ -11,7 +11,7 @@ import About from './About';
 import './App.css';
 import logo from './logo.svg';
 
-const App = ({ connected }) => (
+const App = ({ connected, username }) => (
   <div>
     <Navbar inverse>
       <Navbar.Header>
@@ -42,7 +42,7 @@ const App = ({ connected }) => (
         <Route path="/casomeric" component={CasomericContainer} />
         <Route path="/ucastnici" component={UcastniciDigestContainer} />
         <Route path="/prihlaska" component={Prihlaska} />
-        <Route path="/about" component={About} />
+        <Route path="/about" component={About} username={username} />
         <Redirect to="/" />
       </Switch>
     </main>
@@ -50,7 +50,8 @@ const App = ({ connected }) => (
 );
 
 App.propTypes = {
-  connected: PropTypes.bool.isRequired
+  connected: PropTypes.bool.isRequired,
+  username: PropTypes.string
 };
 
 export default App;
