@@ -7,6 +7,7 @@ const createUcast = require('./Ucastnik/createUcast');
 const findAllRocniky = require('./Rocnik/findAllRocniky');
 const findAllUcastnici = require('./Ucastnik/findAllUcastnici');
 const signIn = require('./User/signIn');
+const signOut = require('./User/signOut');
 
 const processRequest = async ({ action = '', request }) => {
   if (!db.isConnected()) {
@@ -24,6 +25,7 @@ const processRequest = async ({ action = '', request }) => {
       action: async req => findAllUcastnici(req)
     },
     [Actions.SIGN_IN]: { authRequired: false, action: async req => signIn(req) },
+    [Actions.SIGN_OUT]: { authRequired: true, action: async req => signOut(req) },
     default: {
       authRequired: false,
       action: () => ({
@@ -40,7 +42,9 @@ const processRequest = async ({ action = '', request }) => {
     }`
   );
 
-  // TODO: check JWT token
+  // TODO: check JWT token if authRequired === true
+  // if JWT token valid, set "authenticated" on the websocket connection
+  // if JWT token invalid, clear "authenticated" on the websocket connection
 
   return processMessageAction.action(request);
 };

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`signOut successfully 1`] = `undefined`;
+
+exports[`signOut unsuccessful (bogus token) 1`] = `
+Object {
+  "code": "ok",
+}
+`;

@@ -12,7 +12,7 @@ const generateToken = ({ username, nonce, secret, expireTime }) => {
 };
 
 /* Include client-generated nonce in JWT.
-   The client is supposed to validate it once received from the server.
+   The client validates it once received from the server.
    https://auth0.com/docs/api-auth/tutorials/nonce */
 const signIn = async ({ username, password, nonce }) => {
   const { code } = await User.authenticate(username, password);
