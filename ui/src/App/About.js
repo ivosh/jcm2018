@@ -17,7 +17,7 @@ const About = ({ username }) => (
           <br />
           Origin: {(window && window.location && window.location.origin) || ''}
           <br />
-          Přihlášen jako: {username}
+          {username === null ? <span>Nepřihlášen</span> : <span>Přihlášen jako: {username}</span>}
         </div>
       </div>
     </Panel>

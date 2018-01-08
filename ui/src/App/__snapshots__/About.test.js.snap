@@ -40,7 +40,9 @@ exports[`it renders 1`] = `
           Origin: 
           http://localhost
           <br />
-          Přihlášen jako: 
+          <span>
+            Přihlášen jako: 
+          </span>
         </div>
       </div>
     </div>
