@@ -33,9 +33,10 @@ const CODE_UNFULFILLED_REQUEST = 'unfulfilled request';
 const CODE_UNPARSEABLE_MESSAGE = 'unparseable message';
 const CODE_UNRECOGNIZED_ACTION = 'unrecognized action';
 
-const createUcast = ({ id, rok, udaje, prihlaska }) => ({
+const createUcast = ({ id, rok, udaje, prihlaska }, token) => ({
   action: CREATE_UCAST,
-  request: { id, rok, udaje, prihlaska }
+  request: { id, rok, udaje, prihlaska },
+  token
 });
 
 const findAllRocniky = token => ({
