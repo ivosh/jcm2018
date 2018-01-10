@@ -81,6 +81,12 @@ it('maps state and dispatch to props', () => {
   expect(wrapper.props().sortDir).toEqual('desc');
 });
 
+it('maps fetchUcastnici to dispatch', () => {
+  wrapper.props().fetchUcastnici();
+
+  expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
+});
+
 it('maps onKategorieVykonuFilterChange to dispatch kategorieVykonuFilterChange action', () => {
   wrapper.props().onKategorieVykonuFilterChange('pěší');
 

@@ -81,3 +81,12 @@ it('signOut() should dispatch two unsuccessful actions on error', async () => {
     })
   );
 });
+
+it('signOut() should dispatch no actions if not authenticated', async () => {
+  mockWsClient.sendRequest = async () => successfulResponse;
+  const store = mockStore({ auth: { authenticated: false } });
+
+  await store.dispatch(signOut());
+  const actions = store.getActions();
+  expect(actions).toHaveLength(0);
+});
