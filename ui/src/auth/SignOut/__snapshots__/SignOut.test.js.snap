@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<div
+  className="panel panel-primary"
+  id={undefined}
+>
+  <div
+    className="panel-heading"
+  >
+    Odhlášení z aplikace JCM
+  </div>
+  <div
+    className="panel-body"
+  >
+    <div>
+      <span
+        className="LoadingIndicator glyphicon glyphicon-repeat"
+      />
+       Probíhá odhlašování...
+    </div>
+  </div>
+</div>
+`;

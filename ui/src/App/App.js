@@ -9,6 +9,7 @@ import SignInContainer from '../auth/SignIn/SignInContainer';
 import CasomericContainer from '../casomeric/Casomeric/CasomericContainer';
 import UcastniciDigestContainer from '../registrator/UcastniciDigest/UcastniciDigestContainer';
 import Prihlaska from '../registrator/Prihlaska/Prihlaska';
+import SignOutContainer from '../auth/SignOut/SignOutContainer';
 import About from './About';
 import './App.css';
 import logo from './logo.svg';
@@ -35,10 +36,13 @@ const App = ({ authenticated, connected, username }) => (
           </LinkContainer>,
           <LinkContainer key="prihlaska" to="/prihlaska">
             <NavItem eventKey={4}>Přihláška</NavItem>
+          </LinkContainer>,
+          <LinkContainer key="signout" to="/signout">
+            <NavItem eventKey={5}>Odhlášení</NavItem>
           </LinkContainer>
         ]}
         <LinkContainer to="/about">
-          <NavItem eventKey={5}>O aplikaci</NavItem>
+          <NavItem eventKey={6}>O aplikaci</NavItem>
         </LinkContainer>
       </Nav>
     </Navbar>
@@ -49,6 +53,7 @@ const App = ({ authenticated, connected, username }) => (
         <Route path="/casomeric" component={withAuth(CasomericContainer)} />
         <Route path="/ucastnici" component={withAuth(UcastniciDigestContainer)} />
         <Route path="/prihlaska" component={withAuth(Prihlaska)} />
+        <Route path="/signout" component={withAuth(SignOutContainer)} />
         <Route path="/about" component={() => <About username={username} />} />
         <Redirect to="/" />
       </Switch>
