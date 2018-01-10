@@ -7,8 +7,6 @@ import './SignOut.css';
 class SignOut extends Component {
   componentDidMount = async () => {
     await this.props.signOut();
-    // :TODO: probably not needed?
-    this.props.history.push('/');
   };
 
   render = () => (
@@ -23,9 +21,6 @@ class SignOut extends Component {
 }
 
 SignOut.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired
-  }).isRequired,
   signOut: PropTypes.func.isRequired
 };
 

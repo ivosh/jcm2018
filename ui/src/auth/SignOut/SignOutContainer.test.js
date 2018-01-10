@@ -22,14 +22,10 @@ beforeEach(() => {
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
-  const history = { push: jest.fn() };
-  wrapper = shallow(<SignOutContainer history={history} store={store} />);
+  wrapper = shallow(<SignOutContainer store={store} />);
 });
 
 it('maps ownProps and dispatch to props', () => {
-  expect(wrapper.props()).toEqual(
-    expect.objectContaining({ history: { push: expect.any(Function) } })
-  );
   expect(wrapper.props()).toEqual(expect.objectContaining({ signOut: expect.any(Function) }));
 });
 
