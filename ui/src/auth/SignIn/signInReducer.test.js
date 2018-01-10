@@ -26,7 +26,7 @@ it('na začátku', () => {
   const stateBefore = undefined;
 
   const stateAfter = signInReducer(stateBefore, {});
-  expect(stateAfter.isSigningIn).toEqual(false);
+  expect(stateAfter.signingIn).toEqual(false);
   expect(stateAfter.errorCode).toEqual('');
   expect(stateAfter.errorMessage).toEqual('');
   expect(stateAfter.showError).toBe(false);
@@ -34,12 +34,12 @@ it('na začátku', () => {
 
 it('signInRequest()', () => {
   const stateBefore = {
-    isSigningIn: false,
+    signingIn: false,
     errorCode: '',
     errorMessage: '',
     showError: false
   };
-  const stateAfter = { ...stateBefore, isSigningIn: true };
+  const stateAfter = { ...stateBefore, signingIn: true };
   deepFreeze(stateBefore);
 
   expect(signInReducer(stateBefore, signInRequest())).toEqual(stateAfter);
@@ -47,12 +47,12 @@ it('signInRequest()', () => {
 
 it('signInSuccess()', () => {
   const stateBefore = {
-    isSigningIn: true,
+    signingIn: true,
     errorCode: '',
     errorMessage: '',
     showError: false
   };
-  const stateAfter = { ...stateBefore, isSigningIn: false };
+  const stateAfter = { ...stateBefore, signingIn: false };
   deepFreeze(stateBefore);
 
   expect(signInReducer(stateBefore, signInSuccess(successfulResponse, decodedToken))).toEqual(
@@ -62,14 +62,14 @@ it('signInSuccess()', () => {
 
 it('signInError()', () => {
   const stateBefore = {
-    isSigningIn: true,
+    signingIn: true,
     errorCode: '',
     errorMessage: '',
     showError: false
   };
   const stateAfter = {
     ...stateBefore,
-    isSigningIn: false,
+    signingIn: false,
     errorCode: 'password incorrect',
     errorMessage: 'Špatné jméno či heslo. Uživatel může být též zamčený.',
     showError: true
@@ -81,7 +81,7 @@ it('signInError()', () => {
 
 it('hideSignInError()', () => {
   const stateBefore = {
-    isSigningIn: false,
+    signingIn: false,
     errorCode: 'password incorrect',
     errorMessage: 'Špatné jméno či heslo. Uživatel může být též zamčený.',
     showError: true

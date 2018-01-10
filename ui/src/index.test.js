@@ -11,7 +11,7 @@ const store = mockStore({
     authenticated: true,
     decodedToken: null,
     token: null,
-    signIn: { errorCode: '', errorMessage: '', isSigningIn: false, showError: false }
+    signIn: { errorCode: '', errorMessage: '', signingIn: false, showError: false }
   },
   casomeric: { mezicasy: [], stopky: { base: null, running: false } },
   connected: true,

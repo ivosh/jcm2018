@@ -3,9 +3,9 @@ import SignIn from './SignIn';
 import { hideSignInError, signIn } from './SignInActions';
 
 const mapStateToProps = state => {
-  const { isSigningIn, errorCode, errorMessage, showError } = state.auth.signIn;
+  const { signingIn, errorCode, errorMessage, showError } = state.auth.signIn;
 
-  return { isSigningIn, errorCode, errorMessage, showError };
+  return { signingIn, errorCode, errorMessage, showError };
 };
 
 const mapDispatchToProps = dispatch => ({

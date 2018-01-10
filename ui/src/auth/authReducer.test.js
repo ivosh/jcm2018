@@ -38,7 +38,7 @@ it('na začátku', () => {
 });
 
 it('signInSuccess()', () => {
-  const stateBefore = { authenticated: false, token: null, signIn: { isSigningIn: false } };
+  const stateBefore = { authenticated: false, token: null, signIn: { signingIn: false } };
   const stateAfter = {
     ...stateBefore,
     authenticated: true,
@@ -56,13 +56,13 @@ it('signInSuccess()', () => {
 });
 
 it('signInError()', () => {
-  const stateBefore = { authenticated: true, token: '==token==', signIn: { isSigningIn: false } };
+  const stateBefore = { authenticated: true, token: '==token==', signIn: { signingIn: false } };
   const stateAfter = {
     authenticated: false,
     decodedToken: null,
     token: null,
     signIn: {
-      isSigningIn: false,
+      signingIn: false,
       errorCode: 'password incorrect',
       errorMessage: 'Špatné jméno či heslo. Uživatel může být též zamčený.',
       showError: true
@@ -78,14 +78,14 @@ it('signOutSuccess()', () => {
     authenticated: true,
     token: '===token===',
     decodedToken: '===decoded===',
-    signIn: { isSigningIn: false, errorCode: '', errorMessage: '', showError: false }
+    signIn: { signingIn: false, errorCode: '', errorMessage: '', showError: false }
   };
   const stateAfter = {
     ...stateBefore,
     authenticated: false,
     token: null,
     decodedToken: null,
-    signIn: { isSigningIn: false, errorCode: '', errorMessage: '', showError: false }
+    signIn: { signingIn: false, errorCode: '', errorMessage: '', showError: false }
   };
   deepFreeze(stateBefore);
 
@@ -97,13 +97,13 @@ it('signOutError()', () => {
     authenticated: true,
     token: '===token===',
     decodedToken: '===decoded===',
-    signIn: { isSigningIn: false, errorCode: '', errorMessage: '', showError: false }
+    signIn: { signingIn: false, errorCode: '', errorMessage: '', showError: false }
   };
   const stateAfter = {
     authenticated: false,
     decodedToken: null,
     token: null,
-    signIn: { isSigningIn: false, errorCode: '', errorMessage: '', showError: false }
+    signIn: { signingIn: false, errorCode: '', errorMessage: '', showError: false }
   };
   deepFreeze(stateBefore);
 

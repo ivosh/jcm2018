@@ -5,14 +5,14 @@ import SignIn from './SignIn';
 
 it('prázdný formulář', () => {
   const component = renderer.create(
-    <SignIn isSigningIn={false} onHideError={jest.fn()} onSubmit={jest.fn()} />
+    <SignIn signingIn={false} onHideError={jest.fn()} onSubmit={jest.fn()} />
   );
   expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('formulář při načítání', () => {
   const component = renderer.create(
-    <SignIn isSigningIn={true} onHideError={jest.fn()} onSubmit={jest.fn()} />
+    <SignIn signingIn={true} onHideError={jest.fn()} onSubmit={jest.fn()} />
   );
   expect(component.toJSON()).toMatchSnapshot();
 });
@@ -20,7 +20,7 @@ it('formulář při načítání', () => {
 it('formulář s chybou', () => {
   const component = renderer.create(
     <SignIn
-      isSigningIn={false}
+      signingIn={false}
       errorCode="kód"
       errorMessage="Chybová zpráva"
       showError={true}
@@ -34,7 +34,7 @@ it('formulář s chybou', () => {
 it('handle succesfull form submit', () => {
   const onSubmit = jest.fn();
 
-  const wrapper = mount(<SignIn isSigningIn={false} onHideError={jest.fn()} onSubmit={onSubmit} />);
+  const wrapper = mount(<SignIn signingIn={false} onHideError={jest.fn()} onSubmit={onSubmit} />);
   expect(wrapper.find('#username')).toHaveLength(1);
   expect(wrapper.find('#password')).toHaveLength(1);
   expect(wrapper.find('form')).toHaveLength(1);
@@ -49,7 +49,7 @@ it('handle hide error', () => {
   const onHideError = jest.fn();
 
   const wrapper = mount(
-    <SignIn isSigningIn={false} showError={true} onHideError={onHideError} onSubmit={jest.fn()} />
+    <SignIn signingIn={false} showError={true} onHideError={onHideError} onSubmit={jest.fn()} />
   );
   expect(wrapper.find('button.close')).toHaveLength(1);
 

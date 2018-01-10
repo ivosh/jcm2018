@@ -16,7 +16,7 @@ let wrapper;
 beforeEach(() => {
   const state = {
     auth: {
-      signIn: { isSigningIn: false, errorCode: 'code', errorMessage: 'message', showError: false }
+      signIn: { signingIn: false, errorCode: 'code', errorMessage: 'message', showError: false }
     }
   };
   store = mockStore(state);
@@ -25,7 +25,7 @@ beforeEach(() => {
 });
 
 it('maps state and dispatch to props', () => {
-  expect(wrapper.props().isSigningIn).toBe(false);
+  expect(wrapper.props().signingIn).toBe(false);
   expect(wrapper.props().errorCode).toEqual('code');
   expect(wrapper.props().errorMessage).toEqual('message');
   expect(wrapper.props().showError).toBe(false);

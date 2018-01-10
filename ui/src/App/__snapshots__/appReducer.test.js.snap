@@ -8,8 +8,8 @@ Object {
     "signIn": Object {
       "errorCode": "",
       "errorMessage": "",
-      "isSigningIn": false,
       "showError": false,
+      "signingIn": false,
     },
     "token": null,
   },
@@ -53,8 +53,8 @@ Object {
     "signIn": Object {
       "errorCode": "",
       "errorMessage": "",
-      "isSigningIn": false,
       "showError": false,
+      "signingIn": false,
     },
     "token": null,
   },
@@ -98,8 +98,8 @@ Object {
     "signIn": Object {
       "errorCode": "",
       "errorMessage": "",
-      "isSigningIn": false,
       "showError": false,
+      "signingIn": false,
     },
     "token": null,
   },

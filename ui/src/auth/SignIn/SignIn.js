@@ -29,7 +29,7 @@ class SignIn extends Component {
   };
 
   render = () => {
-    const { isSigningIn, errorCode, errorMessage, showError } = this.props;
+    const { signingIn, errorCode, errorMessage, showError } = this.props;
     return (
       <div className="SignIn_div">
         <Panel bsStyle="primary" header="Přihlášení do aplikace JCM">
@@ -61,7 +61,7 @@ class SignIn extends Component {
             </FormGroup>
           </Form>
         </Panel>
-        {isSigningIn && (
+        {signingIn && (
           <div>
             <LoadingIndicator /> Probíhá přihlašování...
           </div>
@@ -82,7 +82,7 @@ class SignIn extends Component {
 }
 
 SignIn.propTypes = {
-  isSigningIn: PropTypes.bool.isRequired,
+  signingIn: PropTypes.bool.isRequired,
   errorCode: PropTypes.string,
   errorMessage: PropTypes.string,
   showError: PropTypes.bool,

@@ -1,5 +1,5 @@
 export const initialState = {
-  isSigningIn: false,
+  signingIn: false,
   errorCode: '',
   errorMessage: '',
   showError: false
@@ -8,13 +8,13 @@ export const initialState = {
 const signInReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SIGN_IN_REQUEST':
-      return { ...state, isSigningIn: true, errorCode: '', errorMessage: '', showError: false };
+      return { ...state, signingIn: true, errorCode: '', errorMessage: '', showError: false };
     case 'SIGN_IN_SUCCESS':
-      return { ...state, isSigningIn: false };
+      return { ...state, signingIn: false };
     case 'SIGN_IN_ERROR':
       return {
         ...state,
-        isSigningIn: false,
+        signingIn: false,
         errorCode: action.code,
         errorMessage: action.status,
         showError: true
