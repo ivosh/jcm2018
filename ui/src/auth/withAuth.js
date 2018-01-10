@@ -2,42 +2,24 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-/* Causes WrappedComponent to be redirected to `/signin` if there is no `this.props.authenticated`
-   available. Tacks on `?next=` query param with the `window.location` which the sign in page
-   can redirect user back to on successful authentication. */
+/* TODO: Could eventually redirect to original location upon successful authentication.
+   Will need to dispatch window.location.pathname into Redux store and redirect here to when
+   authenticated. */
 const withAuth = WrappedComponent => {
   class WithAuthComponent extends Component {
-    /* :TODO: investigage
-    constructor (props) {
+    constructor(props) {
       super(props);
 
-      // On the client redirect right away to the sign in page.
-      if (process.browser && !props.authenticated) {
-        this.props.history.push('/signin?next=' + encodeURI(window.location))
-      }
-    }
-    */
-
-    componentWillMount = () => {
       if (!this.props.authenticated) {
         this.props.history.push('/signin');
       }
-    };
+    }
 
-    componentWillUpdate = nextProps => {
+    componentWillReceiveProps = nextProps => {
       if (!nextProps.authenticated) {
         this.props.history.push('/signin');
       }
     };
-
-    /* :TODO: investigage
-    componentWillReceiveProps = nextProps => {
-      // On the client redirect to the sign in page if the session gets signed out in another tab.
-      if (process.browser && !nextProps.authenticated) {
-        this.props.history.push('/signin?next=' + encodeURI(window.location))
-      }
-    };
-    */
 
     render = () => <WrappedComponent {...this.props} />;
   }

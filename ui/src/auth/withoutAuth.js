@@ -4,13 +4,15 @@ import PropTypes from 'prop-types';
 
 const withoutAuth = WrappedComponent => {
   class WithoutAuthComponent extends Component {
-    componentWillMount = () => {
+    constructor(props) {
+      super(props);
+
       if (this.props.authenticated) {
         this.props.history.push('/');
       }
-    };
+    }
 
-    componentWillUpdate = nextProps => {
+    componentWillReceiveProps = nextProps => {
       if (nextProps.authenticated) {
         this.props.history.push('/');
       }
