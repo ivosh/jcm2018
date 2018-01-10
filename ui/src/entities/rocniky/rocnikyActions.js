@@ -28,8 +28,8 @@ const fetchRocnikyError = ({ code, status, err }) => ({
 });
 
 export const fetchRocniky = () => async (dispatch, getState, wsClient) => {
-  const { rocniky, auth } = getState();
-  if (rocniky && rocniky.roky && rocniky.roky.length > 0) {
+  const { entities, auth } = getState();
+  if (entities && entities.rocniky && entities.rocniky.roky && entities.rocniky.roky.length > 0) {
     return; // Use cached value.
   }
 

@@ -76,7 +76,7 @@ const mockStore = configureStore(middlewares);
 
 it('fetchRocniky() should dispatch two successful actions [ročníky cached]', async () => {
   mockWsClient.sendRequest = async () => successfulResponse;
-  const store = mockStore({ rocniky: { roky: [2011] } });
+  const store = mockStore({ entities: { rocniky: { roky: [2011] } } });
 
   await store.dispatch(fetchUcastnici());
   const actions = store.getActions();
@@ -94,7 +94,7 @@ it('fetchRocniky() should dispatch two successful actions [ročníky cached]', a
 
 it('fetchUcastnici() should dispatch two unsuccessful actions', async () => {
   mockWsClient.sendRequest = async () => unsuccessfulResponse;
-  const store = mockStore({ rocniky: { roky: [2011] } });
+  const store = mockStore({ entities: { rocniky: { roky: [2011] } } });
 
   await store.dispatch(fetchUcastnici());
   const actions = store.getActions();
@@ -110,7 +110,7 @@ it('fetchUcastnici() should dispatch two unsuccessful actions', async () => {
 
 it('fetchUcastnici() should dispatch two unsuccessful actions on error', async () => {
   mockWsClient.sendRequest = async () => Promise.reject(new Error('Parse error!'));
-  const store = mockStore({ rocniky: { roky: [2011] } });
+  const store = mockStore({ entities: { rocniky: { roky: [2011] } } });
 
   await store.dispatch(fetchUcastnici());
   const actions = store.getActions();

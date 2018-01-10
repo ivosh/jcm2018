@@ -194,7 +194,7 @@ const middlewares = [thunk.withExtraArgument(mockWsClient)];
 const mockStore = configureStore(middlewares);
 
 it('fetchRocniky() should not dispatch anything if rocniky cached', async () => {
-  const store = mockStore({ rocniky: { roky: [2011] } });
+  const store = mockStore({ entities: { rocniky: { roky: [2011] } } });
   await store.dispatch(fetchRocniky());
   expect(store.getActions()).toHaveLength(0);
 });
