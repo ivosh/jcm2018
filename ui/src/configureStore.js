@@ -98,6 +98,11 @@ const configureStore = (wsClient, initialStateParam = loadState()) => {
   store.subscribe(() => {
     const state = store.getState();
     saveState({
+      auth: {
+        authenticated: state.auth.authenticated,
+        decodedToken: state.auth.decodedToken,
+        token: state.auth.token
+      },
       casomeric: { stopky: state.casomeric.stopky, mezicasy: state.casomeric.mezicasy }
     });
   });
