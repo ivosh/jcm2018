@@ -19,9 +19,13 @@ export const signOutError = ({ code, status, err, ...rest }) => ({
 });
 
 export const signOut = () => async (dispatch, getState, wsClient) => {
+  const { auth } = getState();
+  if (!auth.authenticated) {
+    return;
+  }
+
   dispatch(signOutRequest());
 
-  const { auth } = getState();
   try {
     const response = await wsClient.sendRequest(signOutAction(auth.token));
     const { code } = response;
