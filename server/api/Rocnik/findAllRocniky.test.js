@@ -6,6 +6,7 @@ const createWsServer = require('../../createWsServer');
 const createWsClient = require('../createWsClient');
 const Kategorie = require('../../model/Kategorie/Kategorie');
 const Rocnik = require('../../model/Rocnik/Rocnik');
+const generateTestToken = require('../generateTestToken');
 
 const port = 5603;
 const wsServer = createWsServer({});
@@ -97,7 +98,9 @@ it('findAllRocniky', async () => {
   rocnik2.ubytovani.push({ den: 'pátek', poplatek: 60 });
   await rocnik2.save();
 
-  const { requestId, ...response } = await wsClient.sendRequest(Actions.findAllRocniky(null));
+  const { requestId, ...response } = await wsClient.sendRequest(
+    Actions.findAllRocniky(generateTestToken())
+  );
   const { kategorie, rocniky } = response.response;
 
   const ids = {};
@@ -127,4 +130,9 @@ it('findAllRocniky', async () => {
 
   await Kategorie.collection.drop();
   await Rocnik.collection.drop();
+});
+
+it('findAllRocniky [not authenticated]', async () => {
+  const { requestId, ...response } = await wsClient.sendRequest(Actions.findAllRocniky(null));
+  expect(response).toMatchSnapshot();
 });

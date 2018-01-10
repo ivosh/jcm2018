@@ -14,7 +14,9 @@ const generateToken = ({ username, nonce, secret, expireTime }) => {
 /* Include client-generated nonce in JWT.
    The client validates it once received from the server.
    https://auth0.com/docs/api-auth/tutorials/nonce */
-const signIn = async ({ username, password, nonce }) => {
+const signIn = async ({ request, connection }) => {
+  const { username, password, nonce } = request;
+
   const { code } = await User.authenticate(username, password);
   if (code !== Actions.CODE_OK) {
     logger.debug(`User ${username} failed to authenticate: ${code}`);
@@ -24,6 +26,7 @@ const signIn = async ({ username, password, nonce }) => {
     };
   }
 
+  connection.authenticated = true; // eslint-disable-line no-param-reassign
   return {
     code: Actions.CODE_OK,
     status: undefined,

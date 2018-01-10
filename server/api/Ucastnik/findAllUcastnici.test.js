@@ -6,6 +6,7 @@ const createWsServer = require('../../createWsServer');
 const createWsClient = require('../createWsClient');
 const Kategorie = require('../../model/Kategorie/Kategorie');
 const Ucastnik = require('../../model/Ucastnik/Ucastnik');
+const generateTestToken = require('../generateTestToken');
 
 const port = 5602;
 const wsServer = createWsServer({});
@@ -97,7 +98,7 @@ it('findAllUcastnici', async () => {
   await ucastnik2.save();
 
   const { code, status, requestId, response, ...theRest } = await wsClient.sendRequest(
-    Actions.findAllUcastnici(null)
+    Actions.findAllUcastnici(generateTestToken())
   );
   expect(theRest).toEqual({});
   const ids = Object.keys(response);
@@ -115,4 +116,9 @@ it('findAllUcastnici', async () => {
   }).toMatchSnapshot();
 
   await Ucastnik.collection.drop();
+});
+
+it('findAllUcastnici [not authenticated]', async () => {
+  const { requestId, ...response } = await wsClient.sendRequest(Actions.findAllUcastnici(null));
+  expect(response).toMatchSnapshot();
 });

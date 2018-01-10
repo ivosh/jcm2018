@@ -1,7 +1,9 @@
 'use strict';
 
 const logger = require('heroku-logger');
+const jwt = require('jsonwebtoken');
 const Actions = require('../../common/common');
+const config = require('../config');
 const db = require('../db');
 const createUcast = require('./Ucastnik/createUcast');
 const findAllRocniky = require('./Rocnik/findAllRocniky');
@@ -9,7 +11,23 @@ const findAllUcastnici = require('./Ucastnik/findAllUcastnici');
 const signIn = require('./User/signIn');
 const signOut = require('./User/signOut');
 
-const processRequest = async ({ action = '', request }) => {
+const processAuthentication = ({ token, connection }) => {
+  try {
+    jwt.verify(token, config.jwt.secret);
+    connection.authenticated = true; // eslint-disable-line no-param-reassign
+    return { code: Actions.CODE_OK };
+  } catch (err) {
+    connection.authenticated = false; // eslint-disable-line no-param-reassign
+    logger.warn(`Failed to verify authentication token: ${token}`);
+    logger.debug(err);
+    return {
+      code: Actions.TOKEN_INVALID,
+      status: `Špatný ověřovací token. Zkus se přihlásit znovu. Detaily: ${err}`
+    };
+  }
+};
+
+const processRequest = async ({ action = '', request, token, connection }) => {
   if (!db.isConnected()) {
     return {
       code: Actions.CODE_DB_DISCONNECTED,
@@ -25,7 +43,7 @@ const processRequest = async ({ action = '', request }) => {
       action: async req => findAllUcastnici(req)
     },
     [Actions.SIGN_IN]: { authRequired: false, action: async req => signIn(req) },
-    [Actions.SIGN_OUT]: { authRequired: true, action: async req => signOut(req) },
+    [Actions.SIGN_OUT]: { authRequired: false, action: async req => signOut(req) },
     default: {
       authRequired: false,
       action: () => ({
@@ -37,16 +55,19 @@ const processRequest = async ({ action = '', request }) => {
 
   const processMessageAction = actions[action] || actions.default;
   logger.debug(
-    `Dispatching to function ${processMessageAction.action}, authorization required: ${
+    `Dispatching to action ${processMessageAction.action}, authorization required: ${
       processMessageAction.authRequired
     }`
   );
 
-  // TODO: check JWT token if authRequired === true
-  // if JWT token valid, set "authenticated" on the websocket connection
-  // if JWT token invalid, clear "authenticated" on the websocket connection
+  if (processMessageAction.authRequired) {
+    const result = processAuthentication({ token, connection });
+    if (result.code !== Actions.CODE_OK) {
+      return result;
+    }
+  }
 
-  return processMessageAction.action(request);
+  return processMessageAction.action({ request, connection });
 };
 
 const sendResponse = ({ connection, code, status, response, requestId }) => {
@@ -60,9 +81,14 @@ const processMessage = async (connection, message) => {
   logger.debug(`Received: ${message.utf8Data}`);
 
   try {
-    const { action, request, requestId } = JSON.parse(message.utf8Data);
+    const { action, request, token, requestId } = JSON.parse(message.utf8Data);
     try {
-      const { code, status, response } = await processRequest({ action, request });
+      const { code, status, response } = await processRequest({
+        action,
+        request,
+        token,
+        connection
+      });
       sendResponse({ connection, code, status, response, requestId });
     } catch (err) {
       logger.warn(`Failed to process the API request: ${err}`);

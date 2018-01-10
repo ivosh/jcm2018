@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`findAllUcastnici [not authenticated] 1`] = `
+Object {
+  "status": "Špatný ověřovací token. Zkus se přihlásit znovu. Detaily: JsonWebTokenError: jwt must be provided",
+}
+`;
+
 exports[`findAllUcastnici 1`] = `
 Object {
   "code": "ok",

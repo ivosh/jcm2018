@@ -5,6 +5,7 @@ const Actions = require('../../../common/common');
 const createWsServer = require('../../createWsServer');
 const createWsClient = require('./../createWsClient');
 const Ucastnik = require('../../model/Ucastnik/Ucastnik');
+const generateTestToken = require('../generateTestToken');
 
 const port = 5601;
 const wsServer = createWsServer({});
@@ -34,7 +35,7 @@ it('vytvoř minimálního účastníka', async () => {
   };
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.createUcast({ rok: 2017, udaje })
+    Actions.createUcast({ rok: 2017, udaje }, generateTestToken())
   );
   expect(response.response.id).not.toBeNull();
   response.response.id = '---';
@@ -56,11 +57,13 @@ it('vytvoř dvě účasti', async () => {
   };
   const udaje2 = { ...udaje1, obec: 'Ostrava 2' };
 
-  const response1 = await wsClient.sendRequest(Actions.createUcast({ rok: 2017, udaje: udaje1 }));
+  const response1 = await wsClient.sendRequest(
+    Actions.createUcast({ rok: 2017, udaje: udaje1 }, generateTestToken())
+  );
 
   const ucastnikId = response1.response.id;
   const { requestId, ...response2 } = await wsClient.sendRequest(
-    Actions.createUcast({ id: ucastnikId, rok: 2018, udaje: udaje2 })
+    Actions.createUcast({ id: ucastnikId, rok: 2018, udaje: udaje2 }, generateTestToken())
   );
   expect(response2).toMatchSnapshot();
 
@@ -68,4 +71,9 @@ it('vytvoř dvě účasti', async () => {
   expect(ucastnici).toMatchSnapshot();
 
   await Ucastnik.collection.drop();
+});
+
+it('createUcast [not authenticated]', async () => {
+  const { requestId, ...response } = await wsClient.sendRequest(Actions.createUcast({}, null));
+  expect(response).toMatchSnapshot();
 });
