@@ -7,6 +7,7 @@ const authenticatedReducer = (state = false, action) => {
       return true;
     case 'SIGN_IN_ERROR':
     case 'SIGN_OUT_SUCCESS':
+    case 'SIGN_OUT_ERROR':
       return false;
     default:
       return state;
@@ -19,6 +20,7 @@ const decodedTokenReducer = (state = null, action) => {
       return action.decodedToken;
     case 'SIGN_IN_ERROR':
     case 'SIGN_OUT_SUCCESS':
+    case 'SIGN_OUT_ERROR':
       return null;
     default:
       return state;
@@ -31,6 +33,7 @@ const tokenReducer = (state = null, action) => {
       return action.token;
     case 'SIGN_IN_ERROR':
     case 'SIGN_OUT_SUCCESS':
+    case 'SIGN_OUT_ERROR':
       return null;
     default:
       return state;

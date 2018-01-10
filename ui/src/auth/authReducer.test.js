@@ -1,8 +1,9 @@
 import deepFreeze from 'deep-freeze';
 import { signInSuccess, signInError } from './SignIn/SignInActions';
+import { signOutSuccess, signOutError } from './SignOut/SignOutActions';
 import authReducer from './authReducer';
 
-const successfulResponse = {
+const successfulSignInResponse = {
   code: 'ok',
   response: {
     token: '=======token=========',
@@ -11,7 +12,7 @@ const successfulResponse = {
   requestId: '0.9310306652587374'
 };
 
-const unsuccessfulResponse = {
+const unsuccessfulSignInResponse = {
   code: 'password incorrect',
   status: 'Špatné jméno či heslo. Uživatel může být též zamčený.',
   requestId: '0.9310306652587374'
@@ -20,6 +21,12 @@ const unsuccessfulResponse = {
 const decodedToken = {
   username: 'tomáš',
   nonce: '4345ab771'
+};
+
+const unsuccessfulSignOutResponse = {
+  code: 'authentication token invalid',
+  status: 'Špatný ověřovací token. Zkus se přihlásit znovu.',
+  requestId: '0.9310306652587371'
 };
 
 it('na začátku', () => {
@@ -43,7 +50,7 @@ it('signInSuccess()', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(authReducer(stateBefore, signInSuccess(successfulResponse, decodedToken))).toEqual(
+  expect(authReducer(stateBefore, signInSuccess(successfulSignInResponse, decodedToken))).toEqual(
     stateAfter
   );
 });
@@ -63,5 +70,42 @@ it('signInError()', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(authReducer(stateBefore, signInError(unsuccessfulResponse))).toEqual(stateAfter);
+  expect(authReducer(stateBefore, signInError(unsuccessfulSignInResponse))).toEqual(stateAfter);
+});
+
+it('signOutSuccess()', () => {
+  const stateBefore = {
+    authenticated: true,
+    token: '===token===',
+    decodedToken: '===decoded===',
+    signIn: { isSigningIn: false, errorCode: '', errorMessage: '', showError: false }
+  };
+  const stateAfter = {
+    ...stateBefore,
+    authenticated: false,
+    token: null,
+    decodedToken: null,
+    signIn: { isSigningIn: false, errorCode: '', errorMessage: '', showError: false }
+  };
+  deepFreeze(stateBefore);
+
+  expect(authReducer(stateBefore, signOutSuccess())).toEqual(stateAfter);
+});
+
+it('signOutError()', () => {
+  const stateBefore = {
+    authenticated: true,
+    token: '===token===',
+    decodedToken: '===decoded===',
+    signIn: { isSigningIn: false, errorCode: '', errorMessage: '', showError: false }
+  };
+  const stateAfter = {
+    authenticated: false,
+    decodedToken: null,
+    token: null,
+    signIn: { isSigningIn: false, errorCode: '', errorMessage: '', showError: false }
+  };
+  deepFreeze(stateBefore);
+
+  expect(authReducer(stateBefore, signOutError(unsuccessfulSignOutResponse))).toEqual(stateAfter);
 });
