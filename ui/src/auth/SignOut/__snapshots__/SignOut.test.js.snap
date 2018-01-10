@@ -2,22 +2,26 @@
 
 exports[`renders 1`] = `
 <div
-  className="panel panel-primary"
-  id={undefined}
+  className="SignOut_div"
 >
   <div
-    className="panel-heading"
+    className="panel panel-primary"
+    id={undefined}
   >
-    Odhlášení z aplikace JCM
-  </div>
-  <div
-    className="panel-body"
-  >
-    <div>
-      <span
-        className="LoadingIndicator glyphicon glyphicon-repeat"
-      />
-       Probíhá odhlašování...
+    <div
+      className="panel-heading"
+    >
+      Odhlášení z aplikace JCM
+    </div>
+    <div
+      className="panel-body"
+    >
+      <div>
+        <span
+          className="LoadingIndicator glyphicon glyphicon-repeat"
+        />
+         Probíhá odhlašování...
+      </div>
     </div>
   </div>
 </div>
