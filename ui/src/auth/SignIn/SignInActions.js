@@ -1,5 +1,6 @@
 import jwtDecode from 'jwt-decode';
 import { CODE_OK, CODE_NONCE_MISMATCH, signIn as signInAction } from '../../common';
+import { fetchRocniky } from '../../entities/rocniky/rocnikyActions';
 
 export const hideSignInError = () => ({ type: 'SIGN_IN_HIDE_ERROR' });
 
@@ -47,6 +48,10 @@ export const signIn = (username, password) => async (dispatch, getState, wsClien
       const decodedToken = decodeToken(response.response.token);
       if (decodedToken.nonce === nonce) {
         dispatch(signInSuccess(response, decodedToken));
+
+        /* Fetch ročníky. They will get usefull in the whole app. However individual actions
+           must not rely on this alone - they need to use: await dispatch(fetchRocniky()). */
+        dispatch(fetchRocniky());
       } else {
         dispatch(
           signInError({
