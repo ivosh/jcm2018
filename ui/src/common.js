@@ -18,6 +18,7 @@ const FIND_ALL_ROCNIKY = 'find_all_rocniky';
 const FIND_ALL_UCASTNICI = 'find_all_ucastnici';
 const FIND_UCAST_BY_UCASTNIK = 'find_ucast_by_ucastnik';
 const SIGN_IN = 'sign_in';
+const SIGN_OUT = 'sign_out';
 
 const CODE_OK = 'ok';
 const CODE_ALREADY_EXISTING = 'již existuje';
@@ -27,6 +28,7 @@ const CODE_MLADISTVY_UCASTNIK = 'účastník potřebuje souhlas zákonného zás
 const CODE_NONCE_MISMATCH = 'nesouhlas jednorázového přihlašovacího kódu';
 const CODE_NONEXISTING = 'neexistuje';
 const CODE_PASSWORD_INCORRECT = 'password incorrect';
+const CODE_TOKEN_INVALID = 'authentication token invalid';
 const CODE_UNFULFILLED_REQUEST = 'unfulfilled request';
 const CODE_UNPARSEABLE_MESSAGE = 'unparseable message';
 const CODE_UNRECOGNIZED_ACTION = 'unrecognized action';
@@ -51,6 +53,11 @@ const findAllUcastnici = token => ({
 const signIn = (username, password, nonce) => ({
   action: SIGN_IN,
   request: { username, password, nonce }
+});
+
+const signOut = token => ({
+  action: SIGN_OUT,
+  token
 });
 
 const zkontrolujMladistvy = (kategorie, { datum, narozeni, mladistvyPotvrzen }) => {
@@ -161,6 +168,7 @@ const exported = {
   FIND_ALL_UCASTNICI,
   FIND_UCAST_BY_UCASTNIK,
   SIGN_IN,
+  SIGN_OUT,
   CODE_OK,
   CODE_ALREADY_EXISTING,
   CODE_DB_DISCONNECTED,
@@ -169,6 +177,7 @@ const exported = {
   CODE_NONCE_MISMATCH,
   CODE_NONEXISTING,
   CODE_PASSWORD_INCORRECT,
+  CODE_TOKEN_INVALID,
   CODE_UNFULFILLED_REQUEST,
   CODE_UNPARSEABLE_MESSAGE,
   CODE_UNRECOGNIZED_ACTION,
@@ -176,7 +185,8 @@ const exported = {
   findAllRocniky,
   findAllUcastnici,
   findKategorie,
-  signIn
+  signIn,
+  signOut
 };
 
 export default exported;
@@ -187,6 +197,7 @@ export {
   FIND_ALL_UCASTNICI,
   FIND_UCAST_BY_UCASTNIK,
   SIGN_IN,
+  SIGN_OUT,
   CODE_OK,
   CODE_ALREADY_EXISTING,
   CODE_DB_DISCONNECTED,
@@ -195,6 +206,7 @@ export {
   CODE_NONCE_MISMATCH,
   CODE_NONEXISTING,
   CODE_PASSWORD_INCORRECT,
+  CODE_TOKEN_INVALID,
   CODE_UNFULFILLED_REQUEST,
   CODE_UNPARSEABLE_MESSAGE,
   CODE_UNRECOGNIZED_ACTION,
@@ -202,5 +214,6 @@ export {
   findAllRocniky,
   findAllUcastnici,
   findKategorie,
-  signIn
+  signIn,
+  signOut
 };

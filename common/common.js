@@ -30,6 +30,7 @@ const CODE_MLADISTVY_UCASTNIK = 'účastník potřebuje souhlas zákonného zás
 const CODE_NONCE_MISMATCH = 'nesouhlas jednorázového přihlašovacího kódu';
 const CODE_NONEXISTING = 'neexistuje';
 const CODE_PASSWORD_INCORRECT = 'password incorrect';
+const CODE_TOKEN_INVALID = 'authentication token invalid';
 const CODE_UNFULFILLED_REQUEST = 'unfulfilled request';
 const CODE_UNPARSEABLE_MESSAGE = 'unparseable message';
 const CODE_UNRECOGNIZED_ACTION = 'unrecognized action';
@@ -178,6 +179,7 @@ module.exports = {
   CODE_NONCE_MISMATCH,
   CODE_NONEXISTING,
   CODE_PASSWORD_INCORRECT,
+  CODE_TOKEN_INVALID,
   CODE_UNFULFILLED_REQUEST,
   CODE_UNPARSEABLE_MESSAGE,
   CODE_UNRECOGNIZED_ACTION,
