@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shows wrapped component when not authenticated 1`] = `
+<span
+  className="LoadingIndicator glyphicon glyphicon-repeat"
+/>
+`;
