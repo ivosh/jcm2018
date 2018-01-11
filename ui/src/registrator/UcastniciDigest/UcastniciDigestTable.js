@@ -69,7 +69,7 @@ class UcastniciDigest extends Component {
     const {
       roky,
       ucastniciDigest,
-      isFetching,
+      fetching,
       onSortDirChange,
       sortColumn,
       sortDir,
@@ -77,7 +77,7 @@ class UcastniciDigest extends Component {
       containerHeight
     } = this.props;
 
-    if (isFetching) {
+    if (fetching) {
       return (
         <div>
           <LoadingIndicator /> Účastníci se načítají...
@@ -155,7 +155,7 @@ UcastniciDigest.propTypes = {
       narozeni: PropTypes.string.isRequired
     }).isRequired
   ).isRequired,
-  isFetching: PropTypes.bool,
+  fetching: PropTypes.bool,
   sortColumn: PropTypes.string,
   sortDir: PropTypes.string,
   fetchUcastnici: PropTypes.func.isRequired,

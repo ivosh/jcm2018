@@ -10,7 +10,7 @@ import {
 
 const mapStateToProps = ({ entities, registrator }) => {
   const {
-    isFetching,
+    fetching,
     kategorieVykonuFilter,
     textFilter,
     sortColumn,
@@ -21,7 +21,7 @@ const mapStateToProps = ({ entities, registrator }) => {
   return {
     roky: entities.rocniky.roky,
     ucastniciDigest: getUcastniciDigestSorted({ ...entities, ...registrator.ucastniciDigest }),
-    isFetching,
+    fetching,
     kategorieVykonuFilter,
     textFilter,
     sortColumn,

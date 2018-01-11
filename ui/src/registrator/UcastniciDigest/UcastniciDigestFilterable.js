@@ -47,7 +47,7 @@ const UcastniciDigestFilterable = ({
 UcastniciDigestFilterable.propTypes = {
   roky: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
   ucastniciDigest: PropTypes.array.isRequired,
-  isFetching: PropTypes.bool,
+  fetching: PropTypes.bool,
   kategorieVykonuFilter: PropTypes.string,
   textFilter: PropTypes.string,
   sortColumn: PropTypes.string,

@@ -18,7 +18,7 @@ const reverseSortDirType = sortDirType => {
 };
 
 export const initialState = {
-  isFetching: false,
+  fetching: false,
   kategorieVykonuFilter: '',
   textFilter: '',
   sortColumn: undefined,
@@ -28,10 +28,10 @@ export const initialState = {
 const ucastniciDigestReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'FETCH_UCASTNICI_REQUEST':
-      return { ...state, isFetching: true };
+      return { ...state, fetching: true };
     case 'FETCH_UCASTNICI_SUCCESS':
     case 'FETCH_UCASTNICI_ERROR':
-      return { ...state, isFetching: false };
+      return { ...state, fetching: false };
     case 'UCASTNICI_DIGEST_KATEGORIE_VYKONU_FILTER_CHANGE':
       if (state.kategorieVykonuFilter === action.typKategorie) {
         return { ...state, kategorieVykonuFilter: '' };

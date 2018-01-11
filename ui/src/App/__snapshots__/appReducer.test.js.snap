@@ -34,7 +34,7 @@ Object {
   },
   "registrator": Object {
     "ucastniciDigest": Object {
-      "isFetching": false,
+      "fetching": false,
       "kategorieVykonuFilter": "",
       "sortColumn": undefined,
       "sortDir": "none",
@@ -79,7 +79,7 @@ Object {
   },
   "registrator": Object {
     "ucastniciDigest": Object {
-      "isFetching": false,
+      "fetching": false,
       "kategorieVykonuFilter": "",
       "sortColumn": undefined,
       "sortDir": "none",
@@ -124,7 +124,7 @@ Object {
   },
   "registrator": Object {
     "ucastniciDigest": Object {
-      "isFetching": false,
+      "fetching": false,
       "kategorieVykonuFilter": "",
       "sortColumn": undefined,
       "sortDir": "none",

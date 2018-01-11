@@ -13,7 +13,7 @@ it('na začátku', () => {
   const stateBefore = undefined;
 
   const stateAfter = ucastniciDigestReducer(stateBefore, {});
-  expect(stateAfter.isFetching).toEqual(false);
+  expect(stateAfter.fetching).toEqual(false);
   expect(stateAfter.kategorieVykonuFilter).toEqual('');
   expect(stateAfter.textFilter).toEqual('');
   expect(stateAfter.sortColumn).toBe(undefined);
@@ -117,15 +117,15 @@ it('filtrovat na dvě písmena', () => {
   expect(ucastniciDigestReducer(stateBefore, textFilterChange('Kl'))).toEqual(stateAfter);
 });
 
-it('přepínání isFetching', () => {
+it('přepínání fetching', () => {
   const stateBefore = {
-    isFetching: false,
+    fetching: false,
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
     kategorieVykonuFilter: '',
     textFilter: ''
   };
-  const stateAfter = { ...stateBefore, isFetching: true };
+  const stateAfter = { ...stateBefore, fetching: true };
   deepFreeze(stateBefore);
 
   expect(ucastniciDigestReducer(stateBefore, { type: 'FETCH_UCASTNICI_REQUEST' })).toEqual(

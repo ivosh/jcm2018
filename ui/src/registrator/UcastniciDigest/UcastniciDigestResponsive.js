@@ -11,7 +11,7 @@ const UcastniciDigestResponsive = Dimensions({
 UcastniciDigestResponsive.propTypes = {
   roky: PropTypes.array.isRequired,
   ucastniciDigest: PropTypes.array.isRequired,
-  isFetching: PropTypes.bool,
+  fetching: PropTypes.bool,
   sortColumn: PropTypes.string,
   sortDir: PropTypes.string,
   fetchUcastnici: PropTypes.func.isRequired,

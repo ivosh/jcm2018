@@ -50,7 +50,7 @@ it('žádný účastník', () => {
     <UcastniciDigestTable
       roky={roky}
       ucastniciDigest={[]}
-      isFetching={false}
+      fetching={false}
       fetchUcastnici={jest.fn()}
       onSortDirChange={jest.fn()}
       containerWidth={500}
@@ -65,7 +65,7 @@ it('načítá se', () => {
     <UcastniciDigestTable
       roky={roky}
       ucastniciDigest={ucastniciDigest}
-      isFetching={true}
+      fetching={true}
       fetchUcastnici={jest.fn()}
       onSortDirChange={jest.fn()}
       containerWidth={500}

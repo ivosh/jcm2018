@@ -22,7 +22,7 @@ const store = mockStore({
   },
   registrator: {
     ucastniciDigest: {
-      isFetching: false,
+      fetching: false,
       kategorieVykonuFilter: '',
       sortColumn: undefined,
       sortDir: 'none',
