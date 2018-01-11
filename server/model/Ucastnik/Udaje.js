@@ -10,7 +10,6 @@ const UdajeSchema = new mongoose.Schema(
     narozeni: { type: NarozeniSchema, required: true },
     pohlavi: { type: String, enum: ['muž', 'žena'], required: true },
     adresa: { type: String },
-    cislo: { type: String },
     obec: { type: String, required: true },
     psc: { type: String },
     stat: { type: String, required: true, default: 'Česká republika' },
