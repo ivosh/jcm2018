@@ -130,11 +130,17 @@ const processStartCisla = xmlStartCisla => {
 
 const processTypKategorie = async xmlTyp => {
   const nazev = convertNazevTypuKategorie(xmlTyp.typ[0]);
-  const [predem] = xmlTyp.startovne[0].predem;
-  const [naMiste] = xmlTyp.startovne[0].naMiste;
   const kategorie = await processKategorieList(nazev, xmlTyp.kategorie);
 
-  const typ = { typ: nazev, kategorie, maStartCisla: false, startovne: { predem, naMiste } };
+  const [predem] = xmlTyp.startovne[0].predem;
+  const [naMiste] = xmlTyp.startovne[0].naMiste;
+  const startovne = { predem, naMiste };
+  if (xmlTyp.startovne[0].zaloha) {
+    const [zaloha] = xmlTyp.startovne[0].zaloha;
+    startovne.zaloha = zaloha;
+  }
+
+  const typ = { typ: nazev, kategorie, maStartCisla: false, startovne };
 
   if (xmlTyp.startCisla) {
     typ.maStartCisla = true;
