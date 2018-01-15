@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
+import { SortDirTypes } from './ucastniciDigestReducer';
 import UcastniciDigestTable from './UcastniciDigestTable';
 
 const roky = [
@@ -80,6 +81,22 @@ it('dva účastníci', () => {
     <UcastniciDigestTable
       roky={roky}
       ucastniciDigest={ucastniciDigest}
+      fetchUcastnici={jest.fn()}
+      onSortDirChange={jest.fn()}
+      containerWidth={500}
+      containerHeight={500}
+    />
+  );
+  expect(toJSON(wrapper)).toMatchSnapshot();
+});
+
+it('dva účastníci, řazeno dle příjmení', () => {
+  const wrapper = shallow(
+    <UcastniciDigestTable
+      roky={roky}
+      ucastniciDigest={ucastniciDigest}
+      sortColumn="prijmeni"
+      sortDir={SortDirTypes.ASC}
       fetchUcastnici={jest.fn()}
       onSortDirChange={jest.fn()}
       containerWidth={500}
