@@ -1,4 +1,5 @@
-import { CODE_OK } from '../../common';
+import { CODE_OK, saveUcast as saveUcastAction } from '../../common';
+import { AKTUALNI_ROK } from '../../constants';
 import { prihlaseniValid } from './prihlaseniReducer';
 
 export const hideError = () => ({ type: 'PRIHLASENI_HIDE_ERROR' });
@@ -42,7 +43,8 @@ export const saveUcastError = ({ code, status, err, ...rest }) => ({
 export const saveUcast = () => async (dispatch, getState, wsClient) => {
   await dispatch(validateEmpty());
 
-  const { registrator: { prihlaseni } } = getState();
+  const state = getState();
+  const { registrator: { prihlaseni } } = state;
   if (!prihlaseniValid(prihlaseni)) {
     dispatch(validationError());
     return;
@@ -52,7 +54,15 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
 
   try {
     const response = await wsClient.sendRequest(
-      saveUcast(prihlaseni.ucastnikId, prihlaseni.udaje, prihlaseni.prihlaska)
+      saveUcastAction(
+        {
+          id: prihlaseni.ucastnikId,
+          rok: AKTUALNI_ROK,
+          udaje: prihlaseni.udaje,
+          prihlaska: prihlaseni.prihlaska
+        },
+        state.auth.token
+      )
     );
     const { code } = response;
     if (code === CODE_OK) {
