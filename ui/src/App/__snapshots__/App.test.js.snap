@@ -59,14 +59,14 @@ exports[`with websocket connected, authenticated 1`] = `
         key="prihlaska"
         replace={false}
         strict={false}
-        to="/prihlaska"
+        to="/prihlasky"
       >
         <NavItem
           active={false}
           disabled={false}
           eventKey={4}
         >
-          Přihláška
+          Přihlášky
         </NavItem>
       </LinkContainer>
       <LinkContainer
@@ -123,7 +123,7 @@ exports[`with websocket connected, authenticated 1`] = `
       />
       <Route
         component={[Function]}
-        path="/prihlaska"
+        path="/prihlasky"
       />
       <Route
         component={[Function]}
@@ -216,7 +216,7 @@ exports[`with websocket connected, not authenticated 1`] = `
       />
       <Route
         component={[Function]}
-        path="/prihlaska"
+        path="/prihlasky"
       />
       <Route
         component={[Function]}
@@ -294,14 +294,14 @@ exports[`with websocket disconnected, authenticated 1`] = `
         key="prihlaska"
         replace={false}
         strict={false}
-        to="/prihlaska"
+        to="/prihlasky"
       >
         <NavItem
           active={false}
           disabled={false}
           eventKey={4}
         >
-          Přihláška
+          Přihlášky
         </NavItem>
       </LinkContainer>
       <LinkContainer
@@ -358,7 +358,7 @@ exports[`with websocket disconnected, authenticated 1`] = `
       />
       <Route
         component={[Function]}
-        path="/prihlaska"
+        path="/prihlasky"
       />
       <Route
         component={[Function]}

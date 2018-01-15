@@ -32,9 +32,11 @@ class Prihlaseni extends Component {
     const { errorCode, errorMessage, showError, fetching, saving, existujiciUcastnik } = this.props;
 
     if (fetching) {
-      return <div>
-              <LoadingIndicator /> Načítám účastníky...
-            </div>;
+      return (
+        <div>
+          <LoadingIndicator /> Načítám účastníky...
+        </div>
+      );
     }
 
     return (

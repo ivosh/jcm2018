@@ -44,7 +44,7 @@ const prihlaseniReducer = (state = initialState, action) => {
         ...state,
         showError: true,
         errorCode: action.code,
-        errorMessage: action.status,
+        errorMessage: action.status
       };
     case 'FETCH_UCASTNICI_REQUEST':
       return { ...state, fetching: true };

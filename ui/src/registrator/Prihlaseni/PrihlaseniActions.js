@@ -13,7 +13,7 @@ export const reset = () => ({
   type: 'PRIHLASENI_RESET'
 });
 
-const validateEmpty = () => ({type: 'PRIHLASENI_VALIDATE_EMPTY'});
+const validateEmpty = () => ({ type: 'PRIHLASENI_VALIDATE_EMPTY' });
 
 const validationError = () => ({
   type: 'PRIHLASENI_FORM_INVALID',
