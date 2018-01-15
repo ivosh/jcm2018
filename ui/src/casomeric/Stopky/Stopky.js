@@ -8,10 +8,7 @@ import './Stopky.css';
 const ONE_TICK = 100; // milliseconds
 
 class Stopky extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { current: new Date() };
-  }
+  state = { current: new Date() };
 
   componentDidMount = () => {
     if (this.props.running) {

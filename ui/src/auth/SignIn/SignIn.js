@@ -5,10 +5,7 @@ import LoadingIndicator from '../../App/LoadingIndicator';
 import './SignIn.css';
 
 class SignIn extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { username: '', password: '' };
-  }
+  state = { username: '', password: '' };
 
   handleUsernameChange = event => {
     this.setState({ username: event.target.value });

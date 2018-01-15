@@ -4,10 +4,7 @@ import { Form, FormGroup, FormControl } from 'react-bootstrap';
 import './StartCisloInput.css';
 
 class StartCisloInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { cislo: '' };
-  }
+  state = { cislo: '' };
 
   findStartujici = () => {
     const cislo = parseInt(this.state.cislo, 10);
