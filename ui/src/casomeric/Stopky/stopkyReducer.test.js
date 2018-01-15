@@ -10,13 +10,22 @@ it('na začátku', () => {
   expect(stateAfter.base).toBeNull();
 });
 
-it('po startu', () => {
+it('po startu [Date]', () => {
   const now = new Date();
   const stateBefore = { running: false, base: null };
   const stateAfter = { running: true, base: now.toJSON() };
   deepFreeze(stateBefore);
 
   expect(stopkyReducer(stateBefore, stopkyStart(now))).toEqual(stateAfter);
+});
+
+it('po startu [string]', () => {
+  const now = new Date();
+  const stateBefore = { running: false, base: null };
+  const stateAfter = { running: true, base: now.toJSON() };
+  deepFreeze(stateBefore);
+
+  expect(stopkyReducer(stateBefore, stopkyStart(now.toJSON()))).toEqual(stateAfter);
 });
 
 it('dvakrát start', () => {
