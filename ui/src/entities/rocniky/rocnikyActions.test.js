@@ -220,6 +220,19 @@ it('fetchRocniky() should dispatch three successful actions if rocniky not cache
   );
 });
 
+it('fetchRocniky() should use auth token if available', async () => {
+  const tokenSent = { tokenSent: false };
+  mockWsClient.sendRequest = async token => {
+    if (token) {
+      tokenSent.tokenSent = true;
+    }
+  };
+  const store = mockStore({ auth: { token: '===token===' } });
+
+  await store.dispatch(fetchRocniky());
+  expect(tokenSent.tokenSent).toBe(true);
+});
+
 it('fetchRocniky() should dispatch two unsuccessful actions if rocniky not cached', async () => {
   mockWsClient.sendRequest = async () => unsuccessfulResponse;
   const store = mockStore({});

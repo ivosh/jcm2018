@@ -74,7 +74,7 @@ const unsuccessfulResponse = {
 const middlewares = [thunk.withExtraArgument(mockWsClient)];
 const mockStore = configureStore(middlewares);
 
-it('fetchRocniky() should dispatch two successful actions [ročníky cached]', async () => {
+it('fetchUcastnici() should dispatch two successful actions [ročníky cached]', async () => {
   mockWsClient.sendRequest = async () => successfulResponse;
   const store = mockStore({ entities: { rocniky: { roky: [2011] } } });
 
@@ -90,6 +90,19 @@ it('fetchRocniky() should dispatch two successful actions [ročníky cached]', a
       type: 'FETCH_UCASTNICI_SUCCESS'
     })
   );
+});
+
+it('fetchUcastnici() should use auth token if available', async () => {
+  const tokenSent = { tokenSent: false };
+  mockWsClient.sendRequest = async token => {
+    if (token) {
+      tokenSent.tokenSent = true;
+    }
+  };
+  const store = mockStore({ auth: { token: '===token===' } });
+
+  await store.dispatch(fetchUcastnici());
+  expect(tokenSent.tokenSent).toBe(true);
 });
 
 it('fetchUcastnici() should dispatch two unsuccessful actions', async () => {
