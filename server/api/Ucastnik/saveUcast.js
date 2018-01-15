@@ -4,7 +4,7 @@ const logger = require('heroku-logger');
 const Actions = require('../../../common/common');
 const Ucastnik = require('../../model/Ucastnik/Ucastnik');
 
-const createUcast = async ({ request }) => {
+const saveUcast = async ({ request }) => {
   const { id, rok, udaje, prihlaska } = request;
 
   // :TODO: zkontrolovat kategorii (tzn. znovu ji vybrat oproti typu)
@@ -28,7 +28,10 @@ const createUcast = async ({ request }) => {
     logger.debug(`Ucastnik id ${id} found: ${ucastnik}`);
     const existujiciUcast = ucastnik.ucasti.find(ucast => ucast.rok === rok);
     if (existujiciUcast) {
-      return { code: Actions.CODE_EXISTING_UCAST, status: `účast pro rok ${rok} již existuje` };
+      existujiciUcast.udaje = udaje;
+      existujiciUcast.prihlaska = prihlaska;
+      await ucastnik.save();
+      return { code: Actions.CODE_OK, status: 'stávající účast uložena v pořádku' };
     }
 
     logger.debug(`Creating new ucast ${rok} for ucastnik id ${id}`);
@@ -40,4 +43,4 @@ const createUcast = async ({ request }) => {
   return { code: Actions.CODE_NONEXISTING, status: `účastník s id ${id} neexistuje` };
 };
 
-module.exports = createUcast;
+module.exports = saveUcast;

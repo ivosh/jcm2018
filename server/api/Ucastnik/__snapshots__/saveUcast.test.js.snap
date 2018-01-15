@@ -1,6 +1,83 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`createUcast [not authenticated] 1`] = `
+exports[`přepiš existující účast 1`] = `
+Object {
+  "code": "ok",
+  "status": "stávající účast uložena v pořádku",
+}
+`;
+
+exports[`přepiš existující účast 2`] = `
+Array [
+  Object {
+    "__v": 3,
+    "ucasti": Array [
+      Object {
+        "platby": Array [],
+        "rok": 2018,
+        "ubytovani": Array [],
+        "udaje": Object {
+          "jmeno": "František",
+          "narozeni": Object {
+            "rok": 1953,
+          },
+          "obec": "Ostrava 1",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+      },
+      Object {
+        "platby": Array [],
+        "rok": 2017,
+        "ubytovani": Array [],
+        "udaje": Object {
+          "jmeno": "František",
+          "narozeni": Object {
+            "rok": 1953,
+          },
+          "obec": "Ostrava 5",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+      },
+      Object {
+        "platby": Array [],
+        "rok": 2016,
+        "ubytovani": Array [],
+        "udaje": Object {
+          "jmeno": "František",
+          "narozeni": Object {
+            "rok": 1953,
+          },
+          "obec": "Ostrava 3",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+      },
+      Object {
+        "platby": Array [],
+        "rok": 2015,
+        "ubytovani": Array [],
+        "udaje": Object {
+          "jmeno": "František",
+          "narozeni": Object {
+            "rok": 1953,
+          },
+          "obec": "Ostrava 4",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+      },
+    ],
+  },
+]
+`;
+
+exports[`saveUcast [not authenticated] 1`] = `
 Object {
   "status": "Špatný ověřovací token. Zkus se přihlásit znovu. Detaily: JsonWebTokenError: jwt must be provided",
 }

@@ -15,10 +15,9 @@
 
 const PORT = 4000;
 
-const CREATE_UCAST = 'create_ucast';
 const FIND_ALL_ROCNIKY = 'find_all_rocniky';
 const FIND_ALL_UCASTNICI = 'find_all_ucastnici';
-const FIND_UCAST_BY_UCASTNIK = 'find_ucast_by_ucastnik';
+const SAVE_UCAST = 'save_ucast';
 const SIGN_IN = 'sign_in';
 const SIGN_OUT = 'sign_out';
 
@@ -35,12 +34,6 @@ const CODE_UNFULFILLED_REQUEST = 'unfulfilled request';
 const CODE_UNPARSEABLE_MESSAGE = 'unparseable message';
 const CODE_UNRECOGNIZED_ACTION = 'unrecognized action';
 
-const createUcast = ({ id, rok, udaje, prihlaska }, token) => ({
-  action: CREATE_UCAST,
-  request: { id, rok, udaje, prihlaska },
-  token
-});
-
 const findAllRocniky = token => ({
   action: FIND_ALL_ROCNIKY,
   request: undefined,
@@ -50,6 +43,12 @@ const findAllRocniky = token => ({
 const findAllUcastnici = token => ({
   action: FIND_ALL_UCASTNICI,
   request: undefined,
+  token
+});
+
+const saveUcast = ({ id, rok, udaje, prihlaska }, token) => ({
+  action: SAVE_UCAST,
+  request: { id, rok, udaje, prihlaska },
   token
 });
 
@@ -166,10 +165,9 @@ const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyPotvrzen
 
 module.exports = {
   PORT,
-  CREATE_UCAST,
   FIND_ALL_ROCNIKY,
   FIND_ALL_UCASTNICI,
-  FIND_UCAST_BY_UCASTNIK,
+  SAVE_UCAST,
   SIGN_IN,
   SIGN_OUT,
   CODE_OK,
@@ -184,10 +182,10 @@ module.exports = {
   CODE_UNFULFILLED_REQUEST,
   CODE_UNPARSEABLE_MESSAGE,
   CODE_UNRECOGNIZED_ACTION,
-  createUcast,
   findAllRocniky,
   findAllUcastnici,
   findKategorie,
+  saveUcast,
   signIn,
   signOut
 };

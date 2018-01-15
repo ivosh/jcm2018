@@ -5,9 +5,9 @@ const jwt = require('jsonwebtoken');
 const Actions = require('../../common/common');
 const config = require('../config');
 const db = require('../db');
-const createUcast = require('./Ucastnik/createUcast');
 const findAllRocniky = require('./Rocnik/findAllRocniky');
 const findAllUcastnici = require('./Ucastnik/findAllUcastnici');
+const saveUcast = require('./Ucastnik/saveUcast');
 const signIn = require('./User/signIn');
 const signOut = require('./User/signOut');
 
@@ -36,12 +36,12 @@ const processRequest = async ({ action = '', request, token, connection }) => {
   }
 
   const actions = {
-    [Actions.CREATE_UCAST]: { authRequired: true, action: async req => createUcast(req) },
     [Actions.FIND_ALL_ROCNIKY]: { authRequired: true, action: async req => findAllRocniky(req) },
     [Actions.FIND_ALL_UCASTNICI]: {
       authRequired: true,
       action: async req => findAllUcastnici(req)
     },
+    [Actions.SAVE_UCAST]: { authRequired: true, action: async req => saveUcast(req) },
     [Actions.SIGN_IN]: { authRequired: false, action: async req => signIn(req) },
     [Actions.SIGN_OUT]: { authRequired: false, action: async req => signOut(req) },
     default: {
