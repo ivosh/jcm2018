@@ -1,4 +1,5 @@
 import deepFreeze from 'deep-freeze';
+import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
 import rocnikyReducer from './rocnikyReducer';
 import { fetchRocnikySuccess } from './rocnikyActions';
 
@@ -202,4 +203,53 @@ it('po načtení ročníků', () => {
   deepFreeze(stateBefore);
 
   expect(rocnikyReducer(stateBefore, fetchRocnikySuccess(json))).toEqual(stateAfter);
+});
+
+it('po odhlášení', () => {
+  const stateBefore = {
+    byRoky: {
+      2017: {
+        datum: '2017-06-10',
+        id: '6f09b1fd371dec1e99b7e1c9',
+        kategorie: {
+          maraton: {
+            startCisla: '1-100',
+            startovne: {
+              naMiste: 200,
+              predem: 150
+            },
+            žena: [
+              {
+                id: '5a71b1fd45754c1e99b7e1bc',
+                pohlavi: 'žena',
+                typ: 'maraton',
+                vek: {
+                  max: 49,
+                  min: 40
+                }
+              },
+              {
+                id: '5a09b1fd371dec1e99b7e1c9',
+                pohlavi: 'žena',
+                typ: 'maraton',
+                vek: {
+                  max: 59,
+                  min: 50
+                }
+              }
+            ]
+          }
+        },
+        ubytovani: {
+          pátek: 50,
+          sobota: 60
+        }
+      }
+    },
+    roky: [2017]
+  };
+  const stateAfter = { byRoky: {}, roky: [] };
+  deepFreeze(stateBefore);
+
+  expect(rocnikyReducer(stateBefore, signOutSuccess())).toEqual(stateAfter);
 });

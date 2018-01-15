@@ -1,4 +1,5 @@
 import deepFreeze from 'deep-freeze';
+import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
 import kategorieReducer from './kategorieReducer';
 import { fetchKategorieSuccess } from './kategorieActions';
 
@@ -202,4 +203,22 @@ it('po načtení ročníků', () => {
   deepFreeze(stateBefore);
 
   expect(kategorieReducer(stateBefore, fetchKategorieSuccess(json))).toEqual(stateAfter);
+});
+
+it('po odhlášení', () => {
+  const stateBefore = {
+    '5a71b1fd45754c1e99b7e1bc': {
+      id: '5a71b1fd45754c1e99b7e1bc',
+      pohlavi: 'žena',
+      typ: 'maraton',
+      vek: {
+        max: 49,
+        min: 40
+      }
+    }
+  };
+  const stateAfter = {};
+  deepFreeze(stateBefore);
+
+  expect(kategorieReducer(stateBefore, signOutSuccess())).toEqual(stateAfter);
 });
