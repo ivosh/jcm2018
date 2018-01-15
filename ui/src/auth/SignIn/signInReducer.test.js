@@ -1,5 +1,5 @@
 import deepFreeze from 'deep-freeze';
-import { hideSignInError, signInRequest, signInSuccess, signInError } from './SignInActions';
+import { hideError, signInRequest, signInSuccess, signInError } from './SignInActions';
 import signInReducer from './signInReducer';
 
 const successfulResponse = {
@@ -79,7 +79,7 @@ it('signInError()', () => {
   expect(signInReducer(stateBefore, signInError(unsuccessfulResponse))).toEqual(stateAfter);
 });
 
-it('hideSignInError()', () => {
+it('hideError()', () => {
   const stateBefore = {
     signingIn: false,
     errorCode: 'password incorrect',
@@ -89,5 +89,5 @@ it('hideSignInError()', () => {
   const stateAfter = { ...stateBefore, showError: false };
   deepFreeze(stateBefore);
 
-  expect(signInReducer(stateBefore, hideSignInError())).toEqual(stateAfter);
+  expect(signInReducer(stateBefore, hideError())).toEqual(stateAfter);
 });

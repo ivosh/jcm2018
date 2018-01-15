@@ -38,7 +38,7 @@ it('maps onSubmit to dispatch signIn action', async () => {
   expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
 });
 
-it('maps onHideError to dispatch hideSignInError action', async () => {
+it('maps onHideError to dispatch hideError action', async () => {
   wrapper.props().onHideError();
 
   expect(store.dispatch).toHaveBeenCalledWith({ type: 'SIGN_IN_HIDE_ERROR' });

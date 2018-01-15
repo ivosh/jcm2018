@@ -2,7 +2,7 @@ import jwtDecode from 'jwt-decode';
 import { CODE_OK, CODE_NONCE_MISMATCH, signIn as signInAction } from '../../common';
 import { fetchRocniky } from '../../entities/rocniky/rocnikyActions';
 
-export const hideSignInError = () => ({ type: 'SIGN_IN_HIDE_ERROR' });
+export const hideError = () => ({ type: 'SIGN_IN_HIDE_ERROR' });
 
 export const generateNonce = (len = 20) => {
   const arr = new Uint8Array(len / 2);

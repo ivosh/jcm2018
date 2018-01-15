@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import SignIn from './SignIn';
-import { hideSignInError, signIn } from './SignInActions';
+import { hideError, signIn } from './SignInActions';
 
 const mapStateToProps = state => {
   const { signingIn, errorCode, errorMessage, showError } = state.auth.signIn;
@@ -9,7 +9,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onHideError: () => dispatch(hideSignInError()),
+  onHideError: () => dispatch(hideError()),
   onSubmit: (username, password) => dispatch(signIn(username, password))
 });
 
