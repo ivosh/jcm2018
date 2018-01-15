@@ -4,6 +4,8 @@ const ucastniciReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'FETCH_UCASTNICI_SUCCESS':
       return action.data;
+    case 'SIGN_OUT_SUCCESS':
+      return initialState;
     default:
       return state;
   }
