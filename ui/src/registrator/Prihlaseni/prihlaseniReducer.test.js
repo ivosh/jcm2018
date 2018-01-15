@@ -1,6 +1,19 @@
 import deepFreeze from 'deep-freeze';
-import { hideError, reset } from './PrihlaseniActions';
+import {
+  hideError,
+  reset,
+  saveUcastRequest,
+  saveUcastSuccess,
+  saveUcastError
+} from './PrihlaseniActions';
 import prihlaseniReducer from './prihlaseniReducer';
+
+const successfulResponse = { TODO: null };
+const unsuccessfulResponse = {
+  code: 'neexistuje',
+  status: 'účastník s id ===id=== neexistuje.',
+  requestId: '0.9310306652587374'
+};
 
 it('na začátku', () => {
   const stateBefore = undefined;
@@ -107,4 +120,34 @@ it('reset()', () => {
   deepFreeze(stateBefore);
 
   expect(prihlaseniReducer(stateBefore, reset())).toEqual(stateAfter);
+});
+
+it('saveUcastRequest()', () => {
+  const stateBefore = { saving: false };
+  const stateAfter = { ...stateBefore, saving: true };
+  deepFreeze(stateBefore);
+
+  expect(prihlaseniReducer(stateBefore, saveUcastRequest())).toEqual(stateAfter);
+});
+
+it('saveUcastSuccess()', () => {
+  const stateBefore = { saving: true };
+  const stateAfter = { ...stateBefore, saving: false, showError: false };
+  deepFreeze(stateBefore);
+
+  expect(prihlaseniReducer(stateBefore, saveUcastSuccess(successfulResponse))).toEqual(stateAfter);
+});
+
+it('saveUcastError()', () => {
+  const stateBefore = { saving: true, errorCode: '', errorMessage: '', showError: false };
+  const stateAfter = {
+    ...stateBefore,
+    saving: false,
+    errorCode: 'neexistuje',
+    errorMessage: 'účastník s id ===id=== neexistuje.',
+    showError: true
+  };
+  deepFreeze(stateBefore);
+
+  expect(prihlaseniReducer(stateBefore, saveUcastError(unsuccessfulResponse))).toEqual(stateAfter);
 });

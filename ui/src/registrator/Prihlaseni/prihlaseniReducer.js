@@ -46,6 +46,18 @@ const prihlaseniReducer = (state = initialState, action) => {
         errorCode: action.code,
         errorMessage: action.status
       };
+    case 'PRIHLASENI_SAVE_REQUEST':
+      return { ...state, saving: true };
+    case 'PRIHLASENI_SAVE_SUCCESS':
+      return { ...state, saving: false, showError: false };
+    case 'PRIHLASENI_SAVE_ERROR':
+      return {
+        ...state,
+        saving: false,
+        errorCode: action.code,
+        errorMessage: action.status,
+        showError: true
+      };
     case 'FETCH_UCASTNICI_REQUEST':
       return { ...state, fetching: true };
     case 'FETCH_UCASTNICI_SUCCESS':
