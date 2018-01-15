@@ -11,7 +11,7 @@
     "url": "https://github.com/ivosh/jcm2018.git"
   },
   "engines": {
-    "node": "8.9.x"
+    "node": "9.x"
   },
   "cacheDirectories": [
     "node_modules",
@@ -38,7 +38,7 @@
     "jsonwebtoken": "^8.1.0",
     "mongoose": "^4.13.8",
     "mongoose-unique-array": "^0.2.0",
-    "node": "^8.9.4",
+    "node": "^9.4.0",
     "websocket": "^1.0.25",
     "websocket-as-promised": "^0.6.0",
     "xml2js": "^0.4.19"
