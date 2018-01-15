@@ -8,7 +8,7 @@ import withoutAuth from '../auth/withoutAuth';
 import SignInContainer from '../auth/SignIn/SignInContainer';
 import CasomericContainer from '../casomeric/Casomeric/CasomericContainer';
 import UcastniciDigestContainer from '../registrator/UcastniciDigest/UcastniciDigestContainer';
-import Prihlaska from '../registrator/Prihlaska/Prihlaska';
+import PrihlaseniContainer from '../registrator/Prihlaseni/PrihlaseniContainer';
 import SignOutContainer from '../auth/SignOut/SignOutContainer';
 import About from './About';
 import './App.css';
@@ -34,8 +34,8 @@ const App = ({ authenticated, connected, username }) => (
           <LinkContainer key="ucastnici" to="/ucastnici">
             <NavItem eventKey={3}>Účastníci</NavItem>
           </LinkContainer>,
-          <LinkContainer key="prihlaska" to="/prihlaska">
-            <NavItem eventKey={4}>Přihláška</NavItem>
+          <LinkContainer key="prihlaska" to="/prihlasky">
+            <NavItem eventKey={4}>Přihlášky</NavItem>
           </LinkContainer>,
           <LinkContainer key="signout" to="/signout">
             <NavItem eventKey={5}>Odhlášení</NavItem>
@@ -52,7 +52,7 @@ const App = ({ authenticated, connected, username }) => (
         <Route path="/signin" component={withoutAuth(SignInContainer)} />
         <Route path="/casomeric" component={withAuth(CasomericContainer)} />
         <Route path="/ucastnici" component={withAuth(UcastniciDigestContainer)} />
-        <Route path="/prihlaska" component={withAuth(Prihlaska)} />
+        <Route path="/prihlasky" component={withAuth(PrihlaseniContainer)} />
         <Route path="/signout" component={withAuth(SignOutContainer)} />
         <Route path="/about" component={() => <About username={username} />} />
         <Redirect to="/" />
