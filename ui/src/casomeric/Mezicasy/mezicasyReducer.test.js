@@ -28,9 +28,17 @@ it('přidej další', () => {
   expect(mezicasyReducer(stateBefore, addMezicas(moment.duration(12601)))).toEqual(stateAfter);
 });
 
+it('přidej mezičas jako string', () => {
+  const stateBefore = [{ id: 0, duration: 'PT5.4S' }];
+  const stateAfter = [stateBefore[0], { id: 2, duration: 'PT12.601S' }];
+  deepFreeze(stateBefore);
+
+  expect(mezicasyReducer(stateBefore, addMezicas('PT12.601S'))).toEqual(stateAfter);
+});
+
 it('měj mezičasy seřazené I.', () => {
   const stateBefore = [{ id: 0, duration: 'PT4.950S' }, { id: 1, duration: 'PT12.101S' }];
-  const stateAfter = [stateBefore[0], { id: 2, duration: 'PT5.6S' }, stateBefore[1]];
+  const stateAfter = [stateBefore[0], { id: 3, duration: 'PT5.6S' }, stateBefore[1]];
   deepFreeze(stateBefore);
 
   expect(mezicasyReducer(stateBefore, addMezicas(moment.duration('PT5.600S')))).toEqual(stateAfter);
@@ -38,7 +46,7 @@ it('měj mezičasy seřazené I.', () => {
 
 it('měj mezičasy seřazené II.', () => {
   const stateBefore = [{ id: 0, duration: 'PT0.435S' }, { id: 1, duration: 'PT0.678S' }];
-  const stateAfter = [{ id: 3, duration: 'PT0.123S' }, stateBefore[0], stateBefore[1]];
+  const stateAfter = [{ id: 4, duration: 'PT0.123S' }, stateBefore[0], stateBefore[1]];
   deepFreeze(stateBefore);
 
   expect(mezicasyReducer(stateBefore, addMezicas(moment.duration(123)))).toEqual(stateAfter);
