@@ -1,4 +1,5 @@
 import deepFreeze from 'deep-freeze';
+import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import ucastniciDigestReducer, {
   SortDirTypes,
   getUcastniciDigestSorted
@@ -141,49 +142,7 @@ it('přepínání fetching', () => {
 
 it('getUcastniciDigestSorted() by default', () => {
   const state = {
-    entities: {
-      ucastnici: {
-        allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
-        byIds: {
-          '6f09b1fd371dec1e99b7e1c9': {
-            roky: [2016],
-            2016: {
-              udaje: {
-                prijmeni: 'Sukdoláková',
-                jmeno: 'Martina',
-                narozeni: { rok: 1963, mesic: 12, den: 7 },
-                pohlavi: 'zena',
-                obec: 'Zlín',
-                stat: 'Česká republika'
-              }
-            }
-          },
-          '5a09b1fd371dec1e99b7e1c9': {
-            roky: [2018, 2017],
-            2018: {
-              udaje: {
-                prijmeni: 'Balabák',
-                jmeno: 'Roman',
-                narozeni: { rok: 1956 },
-                pohlavi: 'muz',
-                obec: 'Ostrava 2',
-                stat: 'Česká republika'
-              }
-            },
-            2017: {
-              udaje: {
-                prijmeni: 'Balabák',
-                jmeno: 'Roman',
-                narozeni: { rok: 1957 },
-                pohlavi: 'muz',
-                obec: 'Ostrava 1',
-                stat: 'Česká republika'
-              }
-            }
-          }
-        }
-      }
-    },
+    ...ucastniciTestData,
     registrator: {
       ucastniciDigest: {
         sortColumn: undefined,
@@ -198,13 +157,16 @@ it('getUcastniciDigestSorted() by default', () => {
       id: '5a09b1fd371dec1e99b7e1c9',
       prijmeni: 'Balabák',
       jmeno: 'Roman',
-      narozeni: '1956'
+      narozeni: '1956',
+      2017: { dokonceno: true, kategorie: 'maraton' },
+      2018: { dokonceno: false, kategorie: 'půlmaraton' }
     },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
-      narozeni: '7. 12. 1963'
+      narozeni: '7. 12. 1963',
+      2016: { dokonceno: true, kategorie: 'maraton' }
     }
   ];
   deepFreeze(state);
@@ -217,49 +179,7 @@ it('getUcastniciDigestSorted() by default', () => {
 
 it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
   const state = {
-    entities: {
-      ucastnici: {
-        allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
-        byIds: {
-          '6f09b1fd371dec1e99b7e1c9': {
-            roky: [2016],
-            2016: {
-              udaje: {
-                prijmeni: 'Sukdoláková',
-                jmeno: 'Martina',
-                narozeni: { rok: 1963, mesic: 12, den: 7 },
-                pohlavi: 'zena',
-                obec: 'Zlín',
-                stat: 'Česká republika'
-              }
-            }
-          },
-          '5a09b1fd371dec1e99b7e1c9': {
-            roky: [2018, 2017],
-            2018: {
-              udaje: {
-                prijmeni: 'Balabák',
-                jmeno: 'Roman',
-                narozeni: { rok: 1956 },
-                pohlavi: 'muz',
-                obec: 'Ostrava 2',
-                stat: 'Česká republika'
-              }
-            },
-            2017: {
-              udaje: {
-                prijmeni: 'Balabák',
-                jmeno: 'Roman',
-                narozeni: { rok: 1957 },
-                pohlavi: 'muz',
-                obec: 'Ostrava 1',
-                stat: 'Česká republika'
-              }
-            }
-          }
-        }
-      }
-    },
+    ...ucastniciTestData,
     registrator: {
       ucastniciDigest: {
         sortColumn: 'prijmeni',
@@ -274,13 +194,16 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
-      narozeni: '7. 12. 1963'
+      narozeni: '7. 12. 1963',
+      2016: { dokonceno: true, kategorie: 'maraton' }
     },
     {
       id: '5a09b1fd371dec1e99b7e1c9',
       prijmeni: 'Balabák',
       jmeno: 'Roman',
-      narozeni: '1956'
+      narozeni: '1956',
+      2017: { dokonceno: true, kategorie: 'maraton' },
+      2018: { dokonceno: false, kategorie: 'půlmaraton' }
     }
   ];
   deepFreeze(state);
@@ -293,49 +216,7 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
 
 it('getUcastniciDigestSorted() podle narození sestupně', () => {
   const state = {
-    entities: {
-      ucastnici: {
-        allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
-        byIds: {
-          '6f09b1fd371dec1e99b7e1c9': {
-            roky: [2016],
-            2016: {
-              udaje: {
-                prijmeni: 'Sukdoláková',
-                jmeno: 'Martina',
-                narozeni: { rok: 1963, mesic: 12, den: 7 },
-                pohlavi: 'zena',
-                obec: 'Zlín',
-                stat: 'Česká republika'
-              }
-            }
-          },
-          '5a09b1fd371dec1e99b7e1c9': {
-            roky: [2018, 2017],
-            2018: {
-              udaje: {
-                prijmeni: 'Balabák',
-                jmeno: 'Roman',
-                narozeni: { rok: 1956 },
-                pohlavi: 'muz',
-                obec: 'Ostrava 2',
-                stat: 'Česká republika'
-              }
-            },
-            2017: {
-              udaje: {
-                prijmeni: 'Balabák',
-                jmeno: 'Roman',
-                narozeni: { rok: 1957 },
-                pohlavi: 'muz',
-                obec: 'Ostrava 1',
-                stat: 'Česká republika'
-              }
-            }
-          }
-        }
-      }
-    },
+    ...ucastniciTestData,
     registrator: {
       ucastniciDigest: {
         sortColumn: 'narozeni',
@@ -350,13 +231,16 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
-      narozeni: '7. 12. 1963'
+      narozeni: '7. 12. 1963',
+      2016: { dokonceno: true, kategorie: 'maraton' }
     },
     {
       id: '5a09b1fd371dec1e99b7e1c9',
       prijmeni: 'Balabák',
       jmeno: 'Roman',
-      narozeni: '1956'
+      narozeni: '1956',
+      2017: { dokonceno: true, kategorie: 'maraton' },
+      2018: { dokonceno: false, kategorie: 'půlmaraton' }
     }
   ];
   deepFreeze(state);
@@ -369,49 +253,7 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
 
 it('getUcastniciDigestSorted() filtrováno na r', () => {
   const state = {
-    entities: {
-      ucastnici: {
-        allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
-        byIds: {
-          '6f09b1fd371dec1e99b7e1c9': {
-            roky: [2016],
-            2016: {
-              udaje: {
-                prijmeni: 'Sukdoláková',
-                jmeno: 'Martina',
-                narozeni: { rok: 1963, mesic: 12, den: 7 },
-                pohlavi: 'zena',
-                obec: 'Zlín',
-                stat: 'Česká republika'
-              }
-            }
-          },
-          '5a09b1fd371dec1e99b7e1c9': {
-            roky: [2018, 2017],
-            2018: {
-              udaje: {
-                prijmeni: 'Balabák',
-                jmeno: 'Roman',
-                narozeni: { rok: 1956 },
-                pohlavi: 'muz',
-                obec: 'Ostrava 2',
-                stat: 'Česká republika'
-              }
-            },
-            2017: {
-              udaje: {
-                prijmeni: 'Balabák',
-                jmeno: 'Roman',
-                narozeni: { rok: 1957 },
-                pohlavi: 'muz',
-                obec: 'Ostrava 1',
-                stat: 'Česká republika'
-              }
-            }
-          }
-        }
-      }
-    },
+    ...ucastniciTestData,
     registrator: {
       ucastniciDigest: {
         sortColumn: undefined,
@@ -426,7 +268,9 @@ it('getUcastniciDigestSorted() filtrováno na r', () => {
       id: '5a09b1fd371dec1e99b7e1c9',
       prijmeni: 'Balabák',
       jmeno: 'Roman',
-      narozeni: '1956'
+      narozeni: '1956',
+      2017: { dokonceno: true, kategorie: 'maraton' },
+      2018: { dokonceno: false, kategorie: 'půlmaraton' }
     }
   ];
   deepFreeze(state);
@@ -439,126 +283,7 @@ it('getUcastniciDigestSorted() filtrováno na r', () => {
 
 it('getUcastniciDigestSorted() filtrováno na kategorii výkonu půlmaraton', () => {
   const state = {
-    entities: {
-      kategorie: {
-        '5a71b1fd45754c1e99b7e1bc': {
-          id: '5a71b1fd45754c1e99b7e1bc',
-          pohlavi: 'žena',
-          typ: 'maraton',
-          vek: {
-            max: 49,
-            min: 40
-          }
-        },
-        '5a09b1fd371dec1e99b7e1c9': {
-          id: '5a09b1fd371dec1e99b7e1c9',
-          pohlavi: 'žena',
-          typ: 'maraton',
-          vek: {
-            max: 59,
-            min: 50
-          }
-        },
-        '5a71b1fd371dec1e99b7e1bc': {
-          id: '5a71b1fd371dec1e99b7e1bc',
-          typ: 'pěší'
-        },
-        '8799b1fd371dec1e99b7e1c9': {
-          id: '8799b1fd371dec1e99b7e1c9',
-          pohlavi: 'muž',
-          typ: 'půlmaraton',
-          vek: {
-            max: 59,
-            min: 50
-          }
-        },
-        '6439b1fd371dec1e99b7e1c9': {
-          id: '6439b1fd371dec1e99b7e1c9',
-          pohlavi: 'muž',
-          typ: 'maraton',
-          vek: {
-            max: 59,
-            min: 50
-          }
-        },
-        '1609b1fd3748746e99b7e1c9': {
-          id: '1609b1fd3748746e99b7e1c9',
-          pohlavi: 'žena',
-          typ: 'půlmaraton',
-          vek: {
-            max: 49,
-            min: 40
-          }
-        },
-        '3279b1fd371dec1e99b7e1c9': {
-          id: '3279b1fd371dec1e99b7e1c9',
-          pohlavi: 'žena',
-          typ: 'půlmaraton',
-          vek: {
-            max: 59,
-            min: 50
-          }
-        }
-      },
-      ucastnici: {
-        allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
-        byIds: {
-          '6f09b1fd371dec1e99b7e1c9': {
-            roky: [2016],
-            2016: {
-              udaje: {
-                prijmeni: 'Sukdoláková',
-                jmeno: 'Martina',
-                narozeni: { rok: 1963, mesic: 12, den: 7 },
-                pohlavi: 'zena',
-                obec: 'Zlín',
-                stat: 'Česká republika'
-              },
-              vykon: {
-                kategorie: '5a71b1fd45754c1e99b7e1bc',
-                startCislo: 11,
-                dokonceno: true,
-                cas: 'PT3H42M32.6S'
-              }
-            }
-          },
-          '5a09b1fd371dec1e99b7e1c9': {
-            roky: [2018, 2017],
-            2018: {
-              udaje: {
-                prijmeni: 'Balabák',
-                jmeno: 'Roman',
-                narozeni: { rok: 1956 },
-                pohlavi: 'muz',
-                obec: 'Ostrava 2',
-                stat: 'Česká republika'
-              },
-              vykon: {
-                kategorie: '8799b1fd371dec1e99b7e1c9',
-                startCislo: 15,
-                dokonceno: false
-              }
-            },
-            2017: {
-              udaje: {
-                prijmeni: 'Balabák',
-                jmeno: 'Roman',
-                narozeni: { rok: 1957 },
-                pohlavi: 'muz',
-                obec: 'Ostrava 1',
-                stat: 'Česká republika'
-              },
-              vykon: {
-                kategorie: '6439b1fd371dec1e99b7e1c9',
-                startCislo: 34,
-                dokonceno: true,
-                cas: 'PT1H25M32.6S'
-              }
-            }
-          }
-        }
-      }
-    },
+    ...ucastniciTestData,
     registrator: {
       ucastniciDigest: {
         sortColumn: undefined,
