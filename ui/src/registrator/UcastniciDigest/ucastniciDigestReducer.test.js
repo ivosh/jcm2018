@@ -47,6 +47,19 @@ it('řadit dle příjmení sestupně', () => {
   expect(ucastniciDigestReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
 });
 
+it('řadit dle příjmení zase vzestupně', () => {
+  const stateBefore = {
+    sortColumn: 'prijmeni',
+    sortDir: SortDirTypes.DESC,
+    kategorieVykonuFilter: '',
+    textFilter: ''
+  };
+  const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC };
+  deepFreeze(stateBefore);
+
+  expect(ucastniciDigestReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
+});
+
 it('řadit dle jména vzestupně', () => {
   const stateBefore = {
     sortColumn: 'prijmeni',
@@ -184,6 +197,43 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
       ucastniciDigest: {
         sortColumn: 'prijmeni',
         sortDir: SortDirTypes.DESC,
+        kategorieVykonuFilter: '',
+        textFilter: ''
+      }
+    }
+  };
+  const selected = [
+    {
+      id: '6f09b1fd371dec1e99b7e1c9',
+      prijmeni: 'Sukdoláková',
+      jmeno: 'Martina',
+      narozeni: '7. 12. 1963',
+      2016: { dokonceno: true, kategorie: 'maraton' }
+    },
+    {
+      id: '5a09b1fd371dec1e99b7e1c9',
+      prijmeni: 'Balabák',
+      jmeno: 'Roman',
+      narozeni: '1956',
+      2017: { dokonceno: true, kategorie: 'maraton' },
+      2018: { dokonceno: false, kategorie: 'půlmaraton' }
+    }
+  ];
+  deepFreeze(state);
+
+  const { entities, registrator } = state;
+  expect(getUcastniciDigestSorted({ ...entities, ...registrator.ucastniciDigest })).toEqual(
+    selected
+  );
+});
+
+it('getUcastniciDigestSorted() podle jména vzestupně', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      ucastniciDigest: {
+        sortColumn: 'jmeno',
+        sortDir: SortDirTypes.ASC,
         kategorieVykonuFilter: '',
         textFilter: ''
       }
