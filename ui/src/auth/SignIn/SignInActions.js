@@ -37,6 +37,12 @@ export const signInError = ({ code, status, err, ...rest }) => ({
   receivedAt: Date.now()
 });
 
+export const authTokenExpired = ({ code, status }) =>
+  signInError({
+    code,
+    status: `Platnost ověřovacího tokenu pravděpodobně vypršela. ${status}`
+  });
+
 export const signIn = (username, password) => async (dispatch, getState, wsClient) => {
   dispatch(signInRequest());
 

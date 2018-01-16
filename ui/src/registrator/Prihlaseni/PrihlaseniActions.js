@@ -1,5 +1,6 @@
-import { CODE_OK, saveUcast as saveUcastAction } from '../../common';
+import { CODE_OK, CODE_TOKEN_INVALID, saveUcast as saveUcastAction } from '../../common';
 import { AKTUALNI_ROK } from '../../constants';
+import { authTokenExpired } from '../../auth/SignIn/SignInActions';
 import { prihlaseniValid } from './prihlaseniReducer';
 
 export const hideError = () => ({ type: 'PRIHLASENI_HIDE_ERROR' });
@@ -67,6 +68,8 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
     const { code } = response;
     if (code === CODE_OK) {
       dispatch(saveUcastSuccess(response));
+    } else if (response.code === CODE_TOKEN_INVALID) {
+      dispatch(authTokenExpired(response));
     } else {
       dispatch(saveUcastError(response));
     }

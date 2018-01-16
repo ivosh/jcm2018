@@ -1,5 +1,6 @@
-import { CODE_OK, findAllUcastnici } from '../../common';
+import { CODE_OK, CODE_TOKEN_INVALID, findAllUcastnici } from '../../common';
 import { fetchRocniky } from '../rocniky/rocnikyActions';
+import { authTokenExpired } from '../../auth/SignIn/SignInActions';
 
 const fetchUcastniciRequest = () => ({
   type: 'FETCH_UCASTNICI_REQUEST'
@@ -38,6 +39,8 @@ export const fetchUcastnici = () => async (dispatch, getState, wsClient) => {
     const response = await wsClient.sendRequest(findAllUcastnici((auth && auth.token) || null));
     if (response.code === CODE_OK) {
       dispatch(fetchUcastniciSuccess(response));
+    } else if (response.code === CODE_TOKEN_INVALID) {
+      dispatch(authTokenExpired(response));
     } else {
       dispatch(fetchUcastniciError(response));
     }

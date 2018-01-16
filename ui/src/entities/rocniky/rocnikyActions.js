@@ -1,5 +1,6 @@
-import { CODE_OK, findAllRocniky } from '../../common';
+import { CODE_OK, CODE_TOKEN_INVALID, findAllRocniky } from '../../common';
 import { fetchKategorieSuccess, fetchKategorieError } from '../kategorie/kategorieActions';
+import { authTokenExpired } from '../../auth/SignIn/SignInActions';
 
 const fetchRocnikyRequest = () => ({
   type: 'FETCH_ROCNIKY_REQUEST'
@@ -40,6 +41,8 @@ export const fetchRocniky = () => async (dispatch, getState, wsClient) => {
     if (response.code === CODE_OK) {
       dispatch(fetchKategorieSuccess(response));
       dispatch(fetchRocnikySuccess(response));
+    } else if (response.code === CODE_TOKEN_INVALID) {
+      dispatch(authTokenExpired(response));
     } else {
       dispatch(fetchKategorieError(response));
       dispatch(fetchRocnikyError(response));
