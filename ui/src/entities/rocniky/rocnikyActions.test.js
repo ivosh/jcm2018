@@ -190,6 +190,11 @@ const unsuccessfulResponse = {
   status: 'A strange error occurred.'
 };
 
+const authTokenInvalidResponse = {
+  code: 'authentication token invalid',
+  status: 'Neplatný ověřovací token.'
+};
+
 const middlewares = [thunk.withExtraArgument(mockWsClient)];
 const mockStore = configureStore(middlewares);
 
@@ -275,6 +280,22 @@ it('fetchRocniky() should dispatch two unsuccessful actions on error', async () 
       type: 'FETCH_ROCNIKY_ERROR',
       code: 'internal error',
       err: new Error('Parse error!')
+    })
+  );
+});
+
+it('fetchRocniky() should dispatch two unsuccessful actions on invalid token', async () => {
+  mockWsClient.sendRequest = async () => authTokenInvalidResponse;
+  const store = mockStore({});
+
+  await store.dispatch(fetchRocniky());
+  const actions = store.getActions();
+  expect(actions[0]).toEqual({ type: 'FETCH_ROCNIKY_REQUEST' });
+  expect(actions[1]).toEqual(
+    expect.objectContaining({
+      type: 'SIGN_IN_ERROR',
+      code: 'authentication token invalid',
+      status: 'Platnost ověřovacího tokenu pravděpodobně vypršela. Neplatný ověřovací token.'
     })
   );
 });
