@@ -10,6 +10,7 @@ const saveUcast = async ({ request }) => {
   // :TODO: zkontrolovat kategorii (tzn. znovu ji vybrat oproti typu)
   // :TODO: zkontrolovat mladistveho
   // :TODO: zkontrolovat vyplnene cele narozeni pokud je vybrana kategorie vek.presne
+  // :TODO: startovní číslo?
 
   if (id === undefined) {
     logger.debug('Creating brand new ucastnik');

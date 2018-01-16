@@ -27,8 +27,10 @@ export const saveUcastRequest = () => ({
   type: 'PRIHLASENI_SAVE_REQUEST'
 });
 
-export const saveUcastSuccess = json => ({
+export const saveUcastSuccess = ({ response }) => ({
   type: 'PRIHLASENI_SAVE_SUCCESS',
+  id: response.id,
+  startCislo: response.startCislo,
   receivedAt: Date.now()
 });
 

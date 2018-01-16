@@ -8,7 +8,14 @@ import {
 } from './PrihlaseniActions';
 import prihlaseniReducer from './prihlaseniReducer';
 
-const successfulResponse = { TODO: null };
+const successfulResponse = {
+  code: 'ok',
+  response: {
+    id: '===id===',
+    startCislo: 12
+  },
+  requestId: '0.99234334532253'
+};
 const unsuccessfulResponse = {
   code: 'neexistuje',
   status: 'účastník s id ===id=== neexistuje.',
