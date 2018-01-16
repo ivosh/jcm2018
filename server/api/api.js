@@ -21,7 +21,7 @@ const processAuthentication = ({ token, connection }) => {
     logger.warn(`Failed to verify authentication token: ${token}`);
     logger.debug(err);
     return {
-      code: Actions.TOKEN_INVALID,
+      code: Actions.CODE_TOKEN_INVALID,
       status: `Špatný ověřovací token. Zkus se přihlásit znovu. Detaily: ${err}`
     };
   }
