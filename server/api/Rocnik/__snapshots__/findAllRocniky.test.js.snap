@@ -2,6 +2,7 @@
 
 exports[`findAllRocniky [not authenticated] 1`] = `
 Object {
+  "code": "authentication token invalid",
   "status": "Špatný ověřovací token. Zkus se přihlásit znovu. Detaily: JsonWebTokenError: jwt must be provided",
 }
 `;
