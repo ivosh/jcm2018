@@ -32,7 +32,7 @@ it('saveUcast() should dispatch three successful actions', async () => {
   mockWsClient.sendRequest = async () => successfulResponse;
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlaseni: { udaje: {}, prihlaska: {} } }
+    registrator: { prihlaseni: { validateEmpty: false, udaje: {}, prihlaska: {} } }
   });
 
   await store.dispatch(saveUcast());
@@ -122,4 +122,21 @@ it('saveUcast() should dispatch two unsuccessful actions on invalid token', asyn
       status: 'Platnost ověřovacího tokenu pravděpodobně vypršela. Neplatný ověřovací token.'
     })
   );
+});
+
+it('saveUcast() should dispatch validation error', async () => {
+  mockWsClient.sendRequest = async () => successfulResponse;
+  const store = mockStore({
+    auth: { token: '===token===' },
+    registrator: { prihlaseni: { validateEmpty: true, udaje: {}, prihlaska: {} } }
+  });
+
+  await store.dispatch(saveUcast());
+  const actions = store.getActions();
+  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_EMPTY' });
+  expect(actions[1]).toEqual({
+    type: 'PRIHLASENI_FORM_INVALID',
+    code: 'nejde uložit',
+    status: 'Přihláška nejde uložit. Povinná pole nejsou vyplněna.'
+  });
 });
