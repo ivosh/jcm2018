@@ -1,8 +1,28 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
+import configureStore from 'redux-mock-store';
 import Prihlaseni from './Prihlaseni';
+
+const mockStore = configureStore();
+const state = {
+  registrator: {
+    prihlaseni: {
+      errorCode: '',
+      errorMessage: '',
+      showError: false,
+      fetching: false,
+      saving: true,
+      ucastnikId: '---id---',
+      validateEmpty: false,
+      udaje: {},
+      prihlaska: {}
+    }
+  }
+};
+const store = mockStore(state);
 
 it('při načítání', () => {
   const component = renderer.create(
@@ -80,4 +100,48 @@ it('formulář s chybou', () => {
     />
   );
   expect(toJSON(wrapper)).toMatchSnapshot();
+});
+
+it('handle succesfull form submit', () => {
+  const onSubmit = jest.fn();
+
+  const wrapper = mount(
+    <Provider store={store}>
+      <Prihlaseni
+        fetching={false}
+        saving={false}
+        existujiciUcastnik={true}
+        fetchUcastnici={jest.fn()}
+        onHideError={jest.fn()}
+        onReset={jest.fn()}
+        onSubmit={onSubmit}
+      />
+    </Provider>
+  );
+  expect(wrapper.find('form')).toHaveLength(1);
+
+  wrapper.find('form').simulate('submit');
+  expect(onSubmit).toHaveBeenCalled();
+});
+
+it('handle form reset', () => {
+  const onReset = jest.fn();
+
+  const wrapper = mount(
+    <Provider store={store}>
+      <Prihlaseni
+        fetching={false}
+        saving={false}
+        existujiciUcastnik={true}
+        fetchUcastnici={jest.fn()}
+        onHideError={jest.fn()}
+        onReset={onReset}
+        onSubmit={jest.fn()}
+      />
+    </Provider>
+  );
+  expect(wrapper.find('.btn-danger')).toHaveLength(1);
+
+  wrapper.find('.btn-danger').simulate('click');
+  expect(onReset).toHaveBeenCalled();
 });
