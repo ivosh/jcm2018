@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Alert, Button, ControlLabel, Form, FormGroup, FormControl, Panel } from 'react-bootstrap';
-import LoadingIndicator from '../../App/LoadingIndicator';
+import LoadingIndicator from '../../shared/LoadingIndicator';
 import './SignIn.css';
 
 class SignIn extends Component {

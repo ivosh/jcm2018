@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Alert, Button, Col, Form, FormGroup, Grid, Panel } from 'react-bootstrap';
-import LoadingIndicator from '../../App/LoadingIndicator';
+import LoadingIndicator from '../../shared/LoadingIndicator';
 import InputContainer from './InputContainer';
 import RadioInput from './RadioInput';
 import TextInput from './TextInput';

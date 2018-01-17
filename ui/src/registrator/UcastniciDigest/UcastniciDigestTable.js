@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Cell, Column, Table } from 'fixed-data-table-2';
 import 'fixed-data-table-2/dist/fixed-data-table.css';
 import { barvaProTypKategorie } from '../../Util';
-import LoadingIndicator from '../../App/LoadingIndicator';
+import LoadingIndicator from '../../shared/LoadingIndicator';
 import { SortDirTypes } from './ucastniciDigestReducer';
 import SortHeaderCell from './SortHeaderCell';
 import './UcastniciDigestTable.css';

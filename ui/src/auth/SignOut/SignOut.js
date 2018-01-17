@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Panel } from 'react-bootstrap';
-import LoadingIndicator from '../../App/LoadingIndicator';
+import LoadingIndicator from '../../shared/LoadingIndicator';
 import './SignOut.css';
 
 class SignOut extends Component {

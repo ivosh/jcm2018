@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import MockRouter from 'react-mock-router';
 import configureStore from 'redux-mock-store';
-import LoadingIndicator from '../App/LoadingIndicator';
+import LoadingIndicator from '../shared/LoadingIndicator';
 import withAuth from './withAuth';
 
 const mockStore = configureStore();
