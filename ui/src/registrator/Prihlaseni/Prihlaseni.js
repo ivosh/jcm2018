@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Alert, Button, Col, Form, FormGroup, Grid, Panel } from 'react-bootstrap';
+import { Button, Col, Form, FormGroup, Grid, Panel } from 'react-bootstrap';
+import HideableError from '../../shared/HideableError';
 import LoadingIndicator from '../../shared/LoadingIndicator';
 import InputContainer from './InputContainer';
 import RadioInput from './RadioInput';
@@ -10,11 +11,6 @@ import './Prihlaseni.css';
 class Prihlaseni extends Component {
   componentDidMount = () => {
     this.props.fetchUcastnici();
-  };
-
-  handleDismiss = event => {
-    event.preventDefault();
-    this.props.onHideError();
   };
 
   handleReset = event => {
@@ -29,7 +25,15 @@ class Prihlaseni extends Component {
 
   // TODO: narozeni
   render = () => {
-    const { errorCode, errorMessage, showError, fetching, saving, existujiciUcastnik } = this.props;
+    const {
+      errorCode,
+      errorMessage,
+      showError,
+      fetching,
+      saving,
+      existujiciUcastnik,
+      onHideError
+    } = this.props;
 
     if (fetching) {
       return (
@@ -85,14 +89,12 @@ class Prihlaseni extends Component {
             </div>
           )}
           {showError && (
-            <Alert bsStyle="danger" onDismiss={this.handleDismiss}>
-              <h4>Chyba při ukládání!</h4>
-              <p>Popis: {errorMessage}</p>
-              <p>Chybový kód: {errorCode}</p>
-              <p>
-                <Button onClick={this.handleDismiss}>Schovat chybu</Button>
-              </p>
-            </Alert>
+            <HideableError
+              code={errorCode}
+              message={errorMessage}
+              title="Chyba při ukládání!"
+              onHideError={onHideError}
+            />
           )}
         </Grid>
       </div>

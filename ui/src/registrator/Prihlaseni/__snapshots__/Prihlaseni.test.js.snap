@@ -141,36 +141,12 @@ exports[`formulář s chybou 1`] = `
     >
       Reset
     </Button>
-    <Alert
-      bsClass="alert"
-      bsStyle="danger"
-      closeLabel="Close alert"
-      onDismiss={[Function]}
-    >
-      <h4>
-        Chyba při ukládání!
-      </h4>
-      <p>
-        Popis: 
-        Popisek chyby, která se stala.
-      </p>
-      <p>
-        Chybový kód: 
-        chybový kód
-      </p>
-      <p>
-        <Button
-          active={false}
-          block={false}
-          bsClass="btn"
-          bsStyle="default"
-          disabled={false}
-          onClick={[Function]}
-        >
-          Schovat chybu
-        </Button>
-      </p>
-    </Alert>
+    <HideableError
+      code="chybový kód"
+      message="Popisek chyby, která se stala."
+      onHideError={[Function]}
+      title="Chyba při ukládání!"
+    />
   </Grid>
 </div>
 `;

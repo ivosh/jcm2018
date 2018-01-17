@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Alert, Button, ControlLabel, Form, FormGroup, FormControl, Panel } from 'react-bootstrap';
+import { Button, ControlLabel, Form, FormGroup, FormControl, Panel } from 'react-bootstrap';
+import HideableError from '../../shared/HideableError';
 import LoadingIndicator from '../../shared/LoadingIndicator';
 import './SignIn.css';
 
@@ -20,13 +21,8 @@ class SignIn extends Component {
     this.props.onSubmit(this.state.username, this.state.password);
   };
 
-  handleDismiss = event => {
-    event.preventDefault();
-    this.props.onHideError();
-  };
-
   render = () => {
-    const { signingIn, errorCode, errorMessage, showError } = this.props;
+    const { signingIn, errorCode, errorMessage, showError, onHideError } = this.props;
     return (
       <div className="SignIn_div">
         <Panel bsStyle="primary" header="Přihlášení do aplikace JCM">
@@ -64,14 +60,12 @@ class SignIn extends Component {
           </div>
         )}
         {showError && (
-          <Alert bsStyle="danger" onDismiss={this.handleDismiss}>
-            <h4>Chyba při přihlášení!</h4>
-            <p>Popis: {errorMessage}</p>
-            <p>Chybový kód: {errorCode}</p>
-            <p>
-              <Button onClick={this.handleDismiss}>Schovat chybu</Button>
-            </p>
-          </Alert>
+          <HideableError
+            code={errorCode}
+            message={errorMessage}
+            title="Chyba při přihlášení!"
+            onHideError={onHideError}
+          />
         )}
       </div>
     );
