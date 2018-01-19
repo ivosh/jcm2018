@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 const initialState = {
   errorCode: '',
   errorMessage: '',
@@ -27,13 +29,30 @@ const initialState = {
   }
 };
 
+const parseNarozeni = value => {
+  if (value === undefined) {
+    return { den: undefined, mesic: undefined, rok: undefined };
+  }
+
+  const split = value.split('.');
+  if (split.length !== 3) {
+    return { den: undefined, mesic: undefined, rok: value };
+  }
+
+  const den = split[0] && split[0].trim();
+  const mesic = split[1] && split[1].trim();
+  const rok = split[2] && split[2].trim();
+  return { den, mesic, rok };
+};
+
 const prihlaseniReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'PRIHLASENI_HIDE_ERROR':
       return { ...state, showError: false };
     case 'PRIHLASENI_INPUT_CHANGED': {
       const [section, name] = action.name.split('.');
-      return { ...state, [section]: { ...state[section], [name]: action.value } };
+      const value = name === 'narozeni' ? parseNarozeni(action.value) : action.value;
+      return { ...state, [section]: { ...state[section], [name]: value } };
     }
     case 'PRIHLASENI_RESET':
       return initialState;
@@ -82,7 +101,35 @@ const nonEmptyInputValid = (value, validateEmpty) => {
   return 'success';
 };
 
-// todo: narozeni
+const narozeniValid = (value, validateEmpty, requireDenMesic) => {
+  const { den, mesic, rok } = value;
+  if (den === undefined && mesic === undefined && rok === undefined) {
+    if (validateEmpty) {
+      return 'error';
+    }
+    return undefined;
+  }
+
+  if (den === undefined && mesic === undefined) {
+    if (requireDenMesic) {
+      return 'error';
+    }
+
+    if (moment(rok, 'YYYY', true).isValid()) {
+      if (validateEmpty) {
+        return 'success';
+      }
+      return 'warning';
+    }
+    return 'error';
+  }
+
+  if (moment(`${den}.${mesic}.${rok}`, 'D.M.YYYY', true).isValid()) {
+    return 'success';
+  }
+  return 'error';
+};
+
 export const inputValid = (name, value, prihlaseni) => {
   switch (name) {
     case 'udaje.prijmeni':
@@ -99,10 +146,16 @@ export const inputValid = (name, value, prihlaseni) => {
     case 'udaje.telefon':
     case 'prihlaska.kod':
       return undefined;
+    case 'udaje.narozeni':
+      // TODO: kategorie presne => den + mesic required === true
+      return narozeniValid(value, prihlaseni.validateEmpty, false);
     case 'udaje.psc':
       if (prihlaseni.udaje.stat === 'Česká republika') {
         return nonEmptyInputValid(value, prihlaseni.validateEmpty);
       }
+      return undefined;
+    case 'prihlaska.startCislo':
+      // TODO: kategorie ma startCislo => nonEmptyInputValid
       return undefined;
     default:
       return 'error';
@@ -123,6 +176,7 @@ export const prihlaseniValid = prihlaseni => {
   return (
     isInputValid('udaje.prijmeni', udaje.prijmeni, prihlaseni) &&
     isInputValid('udaje.jmeno', udaje.jmeno, prihlaseni) &&
+    isInputValid('udaje.narozeni', udaje.narozeni, prihlaseni) &&
     isInputValid('udaje.pohlavi', udaje.pohlavi, prihlaseni) &&
     isInputValid('udaje.obec', udaje.obec, prihlaseni) &&
     isInputValid('udaje.psc', udaje.psc, prihlaseni) &&

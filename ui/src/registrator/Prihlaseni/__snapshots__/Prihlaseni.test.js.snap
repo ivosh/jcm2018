@@ -41,6 +41,11 @@ exports[`formulář s chybou 1`] = `
           />
           <Connect(Input)
             Type={[Function]}
+            name="udaje.narozeni"
+            popisek="narození"
+          />
+          <Connect(Input)
+            Type={[Function]}
             name="udaje.pohlavi"
             popisek="pohlaví"
           />
@@ -192,6 +197,11 @@ exports[`formulář s existujícím účastníkem 1`] = `
           />
           <Connect(Input)
             Type={[Function]}
+            name="udaje.narozeni"
+            popisek="narození"
+          />
+          <Connect(Input)
+            Type={[Function]}
             name="udaje.pohlavi"
             popisek="pohlaví"
           />
@@ -334,6 +344,11 @@ exports[`formulář s existujícím účastníkem při ukládání 1`] = `
             Type={[Function]}
             name="udaje.jmeno"
             popisek="jméno"
+          />
+          <Connect(Input)
+            Type={[Function]}
+            name="udaje.narozeni"
+            popisek="narození"
           />
           <Connect(Input)
             Type={[Function]}
@@ -483,6 +498,11 @@ exports[`prázdný formulář 1`] = `
             Type={[Function]}
             name="udaje.jmeno"
             popisek="jméno"
+          />
+          <Connect(Input)
+            Type={[Function]}
+            name="udaje.narozeni"
+            popisek="narození"
           />
           <Connect(Input)
             Type={[Function]}

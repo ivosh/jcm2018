@@ -17,7 +17,7 @@ const state = {
       saving: true,
       ucastnikId: '---id---',
       validateEmpty: false,
-      udaje: {},
+      udaje: { narozeni: {} },
       prihlaska: {}
     }
   }

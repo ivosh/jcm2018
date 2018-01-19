@@ -56,6 +56,7 @@ class Prihlaseni extends Component {
               <Panel bsStyle="primary" header="Údaje">
                 <InputContainer name="udaje.prijmeni" popisek="příjmení" Type={TextInput} />
                 <InputContainer name="udaje.jmeno" popisek="jméno" Type={TextInput} />
+                <InputContainer name="udaje.narozeni" popisek="narození" Type={TextInput} />
                 <InputContainer name="udaje.pohlavi" popisek="pohlaví" Type={RadioInput} />
                 <InputContainer name="udaje.adresa" popisek="adresa" Type={TextInput} />
                 <InputContainer name="udaje.obec" popisek="obec" Type={TextInput} />

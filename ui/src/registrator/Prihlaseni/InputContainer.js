@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { narozeniToStr } from '../../Util';
 import Input from './Input';
 import { inputChanged } from './PrihlaseniActions';
 import { radioInputValues, inputValid } from './prihlaseniReducer';
@@ -21,7 +22,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     name,
     popisek: popisek || name,
     Type,
-    value: value || '',
+    value: name === 'udaje.narozeni' ? narozeniToStr(value) : value || '',
     values: radioInputValues(name),
     validationState: inputValid(name, value, stateProps.prihlaseni),
     onChange: event => dispatchProps.dispatch(inputChanged(name, event))

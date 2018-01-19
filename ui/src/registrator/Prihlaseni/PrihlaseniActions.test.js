@@ -32,7 +32,7 @@ it('saveUcast() should dispatch three successful actions', async () => {
   mockWsClient.sendRequest = async () => successfulResponse;
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlaseni: { validateEmpty: false, udaje: {}, prihlaska: {} } }
+    registrator: { prihlaseni: { validateEmpty: false, udaje: { narozeni: {} }, prihlaska: {} } }
   });
 
   await store.dispatch(saveUcast());
@@ -57,7 +57,7 @@ it('saveUcast() should use auth token if available', async () => {
   };
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlaseni: { udaje: {}, prihlaska: {} } }
+    registrator: { prihlaseni: { udaje: { narozeni: {} }, prihlaska: {} } }
   });
 
   await store.dispatch(saveUcast());
@@ -68,7 +68,7 @@ it('saveUcast() should dispatch two unsuccessful actions', async () => {
   mockWsClient.sendRequest = async () => unsuccessfulResponse;
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlaseni: { udaje: {}, prihlaska: {} } }
+    registrator: { prihlaseni: { udaje: { narozeni: {} }, prihlaska: {} } }
   });
 
   await store.dispatch(saveUcast());
@@ -88,7 +88,7 @@ it('saveUcast() should dispatch two unsuccessful actions on error', async () => 
   mockWsClient.sendRequest = async () => Promise.reject(new Error('Parse error!'));
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlaseni: { udaje: {}, prihlaska: {} } }
+    registrator: { prihlaseni: { udaje: { narozeni: {} }, prihlaska: {} } }
   });
 
   await store.dispatch(saveUcast());
@@ -108,7 +108,7 @@ it('saveUcast() should dispatch two unsuccessful actions on invalid token', asyn
   mockWsClient.sendRequest = async () => authTokenInvalidResponse;
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlaseni: { udaje: {}, prihlaska: {} } }
+    registrator: { prihlaseni: { udaje: { narozeni: {} }, prihlaska: {} } }
   });
 
   await store.dispatch(saveUcast());
@@ -128,7 +128,7 @@ it('saveUcast() should dispatch validation error', async () => {
   mockWsClient.sendRequest = async () => successfulResponse;
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlaseni: { validateEmpty: true, udaje: {}, prihlaska: {} } }
+    registrator: { prihlaseni: { validateEmpty: true, udaje: { narozeni: {} }, prihlaska: {} } }
   });
 
   await store.dispatch(saveUcast());
