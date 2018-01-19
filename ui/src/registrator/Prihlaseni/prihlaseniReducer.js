@@ -45,13 +45,35 @@ const parseNarozeni = value => {
   return { den, mesic, rok };
 };
 
+const validFormats = ['D.M.YYYY', 'D. M. YYYY', moment.ISO_8601];
+export const datumValid = value =>
+  validFormats.some(format => moment(value, format, true).isValid());
+
+const parseDatum = value =>
+  validFormats.reduce((accumulator, format) => {
+    if (!accumulator && moment(value, format, true).isValid()) {
+      return moment.utc(value, format, true).toJSON();
+    }
+    return accumulator;
+  }, undefined) || value;
+
 const prihlaseniReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'PRIHLASENI_HIDE_ERROR':
       return { ...state, showError: false };
     case 'PRIHLASENI_INPUT_CHANGED': {
       const [section, name] = action.name.split('.');
-      const value = name === 'narozeni' ? parseNarozeni(action.value) : action.value;
+      let { value } = action;
+      switch (action.name) {
+        case 'udaje.narozeni':
+          value = parseNarozeni(action.value);
+          break;
+        case 'prihlaska.datum':
+          value = parseDatum(action.value);
+          break;
+        default:
+          break;
+      }
       return { ...state, [section]: { ...state[section], [name]: value } };
     }
     case 'PRIHLASENI_RESET':
@@ -137,7 +159,6 @@ export const inputValid = (name, value, prihlaseni) => {
     case 'udaje.pohlavi':
     case 'udaje.obec':
     case 'udaje.stat':
-    case 'prihlaska.datum':
     case 'prihlaska.kategorie':
       return nonEmptyInputValid(value, prihlaseni.validateEmpty);
     case 'udaje.adresa':
@@ -154,6 +175,14 @@ export const inputValid = (name, value, prihlaseni) => {
         return nonEmptyInputValid(value, prihlaseni.validateEmpty);
       }
       return undefined;
+    case 'prihlaska.datum':
+      if (value === undefined) {
+        if (prihlaseni.validateEmpty) {
+          return 'error';
+        }
+        return undefined;
+      }
+      return datumValid(value) ? 'success' : 'error';
     case 'prihlaska.startCislo':
       // TODO: kategorie ma startCislo => nonEmptyInputValid
       return undefined;

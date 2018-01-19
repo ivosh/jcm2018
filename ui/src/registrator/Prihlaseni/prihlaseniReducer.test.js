@@ -1,12 +1,14 @@
+import moment from 'moment';
 import deepFreeze from 'deep-freeze';
 import {
   hideError,
+  inputChanged,
   reset,
   saveUcastRequest,
   saveUcastSuccess,
   saveUcastError
 } from './PrihlaseniActions';
-import prihlaseniReducer, { inputValid, prihlaseniValid } from './prihlaseniReducer';
+import prihlaseniReducer, { datumValid, inputValid, prihlaseniValid } from './prihlaseniReducer';
 
 const successfulResponse = {
   code: 'ok',
@@ -329,4 +331,48 @@ it('validation of some invalid state [validateEmpty === true]', () => {
   expect(inputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toBe(undefined);
   expect(inputValid('prihlaska.kod', state.prihlaska.kod, state)).toBe(undefined);
   expect(prihlaseniValid(state)).toBe(false);
+});
+
+it('prihlaska.datum - neúplné', () => {
+  const stateBefore = { prihlaska: { datum: undefined } };
+  deepFreeze(stateBefore);
+  const stateAfter = { prihlaska: { datum: '1. 7. 201' } };
+
+  expect(
+    prihlaseniReducer(
+      stateBefore,
+      inputChanged('prihlaska.datum', { target: { value: '1. 7. 201' } })
+    )
+  ).toEqual(stateAfter);
+  expect(datumValid(stateAfter.prihlaska.datum)).toBe(false);
+});
+
+it('prihlaska.datum - formát 1', () => {
+  const stateBefore = { prihlaska: { datum: '1. 7. 201' } };
+  deepFreeze(stateBefore);
+  const stateAfter = { prihlaska: { datum: '2017-07-01T00:00:00.000Z' } };
+
+  expect(
+    prihlaseniReducer(
+      stateBefore,
+      inputChanged('prihlaska.datum', { target: { value: '1. 7. 2017' } })
+    )
+  ).toEqual(stateAfter);
+  expect(datumValid(stateAfter.prihlaska.datum)).toBe(true);
+  expect(moment.utc(stateAfter.prihlaska.datum).format('D. M. YYYY')).toEqual('1. 7. 2017');
+});
+
+it('prihlaska.datum - formát 2', () => {
+  const stateBefore = { prihlaska: { datum: '1.7.201' } };
+  deepFreeze(stateBefore);
+  const stateAfter = { prihlaska: { datum: '2017-07-01T00:00:00.000Z' } };
+
+  expect(
+    prihlaseniReducer(
+      stateBefore,
+      inputChanged('prihlaska.datum', { target: { value: '1.7.2017' } })
+    )
+  ).toEqual(stateAfter);
+  expect(datumValid(stateAfter.prihlaska.datum)).toBe(true);
+  expect(moment.utc(stateAfter.prihlaska.datum).format('D. M. YYYY')).toEqual('1. 7. 2017');
 });
