@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { convertDuration } from './Util';
+import { convertDuration, narozeniToStr } from './Util';
 
 it('null', () => {
   const expected = { hours: '-', mins: '--', secs: '--', subsecs: '--' };
@@ -44,4 +44,16 @@ it('jen pár minut', () => {
 it('jen pár hodin', () => {
   const expected = { hours: '4', mins: '53', secs: '17', subsecs: '64' };
   expect(convertDuration(moment.duration('PT4H53M17.643S'))).toEqual(expected);
+});
+
+it('narozeniToStr - celé datum', () => {
+  expect(narozeniToStr({ den: 7, mesic: 12, rok: 1956 })).toEqual('7. 12. 1956');
+});
+
+it('narozeniToStr - jen rok', () => {
+  expect(narozeniToStr({ rok: 1956 })).toEqual('1956');
+});
+
+it('narozeniToStr - vůbec nic', () => {
+  expect(narozeniToStr({})).toEqual('');
 });

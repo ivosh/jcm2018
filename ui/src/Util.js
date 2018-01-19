@@ -34,6 +34,17 @@ export const convertDuration = duration => {
   return { hours, mins, secs, subsecs };
 };
 
+export const narozeniToStr = narozeni => {
+  const { den, mesic, rok } = narozeni;
+  if (mesic && den && rok) {
+    return `${den}. ${mesic}. ${rok}`;
+  }
+  if (rok) {
+    return `${rok}`;
+  }
+  return '';
+};
+
 export const dokoncenoArr = [true, false, null];
 
 export const dokoncenoStr = dokonceno => {

@@ -1,3 +1,4 @@
+import { narozeniToStr } from '../../Util';
 import {
   csStringSortMethod,
   narozeniSortMethod,
@@ -117,7 +118,6 @@ export const getUcastniciDigestSorted = ({
 
   return sorted.map(ucastnik => {
     const { narozeni, ...ostatek } = ucastnik;
-    const { den, mesic, rok } = narozeni;
-    return { ...ostatek, narozeni: mesic && den ? `${den}. ${mesic}. ${rok}` : `${rok}` };
+    return { ...ostatek, narozeni: narozeniToStr(narozeni) };
   });
 };
