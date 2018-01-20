@@ -4,10 +4,12 @@ import renderer from 'react-test-renderer';
 import { mount, shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import configureStore from 'redux-mock-store';
+import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import Prihlaseni from './Prihlaseni';
 
 const mockStore = configureStore();
 const state = {
+  ...ucastniciTestData,
   registrator: {
     prihlaseni: {
       errorCode: '',

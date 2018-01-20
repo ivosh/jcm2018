@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
+import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import InputContainer from './InputContainer';
 import TextInput from './TextInput';
 
@@ -10,6 +11,7 @@ let store;
 let wrapper;
 beforeEach(() => {
   const state = {
+    ...ucastniciTestData,
     registrator: {
       prihlaseni: {
         udaje: {
@@ -45,6 +47,7 @@ it('maps onChange to dispatch inputChanged', () => {
 
 it('maps state to props - narození - jen rok', () => {
   const state = {
+    ...ucastniciTestData,
     registrator: {
       prihlaseni: {
         validateEmpty: false,
@@ -67,6 +70,7 @@ it('maps state to props - narození - jen rok', () => {
 
 it('maps state to props - narození - celé', () => {
   const state = {
+    ...ucastniciTestData,
     registrator: {
       prihlaseni: {
         validateEmpty: false,

@@ -1,5 +1,6 @@
 import moment from 'moment';
 import deepFreeze from 'deep-freeze';
+import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import {
   hideError,
   inputChanged,
@@ -8,7 +9,12 @@ import {
   saveUcastSuccess,
   saveUcastError
 } from './PrihlaseniActions';
-import prihlaseniReducer, { datumValid, inputValid, prihlaseniValid } from './prihlaseniReducer';
+import prihlaseniReducer, {
+  datumValid,
+  inputValid,
+  prihlaseniValid,
+  radioInputOptions
+} from './prihlaseniReducer';
 
 const successfulResponse = {
   code: 'ok',
@@ -450,4 +456,19 @@ it('prihlaska.datum - formát 2', () => {
   ).toEqual(stateAfter);
   expect(datumValid(stateAfter.prihlaska.datum)).toBe(true);
   expect(moment.utc(stateAfter.prihlaska.datum).format('D. M. YYYY')).toEqual('1. 7. 2017');
+});
+
+it('prihlaska.kategorie - muž', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      prihlaseni: {
+        udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: 'muž' }
+      }
+    }
+  };
+
+  expect(
+    radioInputOptions('prihlaska.kategorie', state.registrator.prihlaseni, state.entities.rocniky)
+  ).toEqual([]);
 });

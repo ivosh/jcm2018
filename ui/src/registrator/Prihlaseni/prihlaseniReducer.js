@@ -1,4 +1,6 @@
 import moment from 'moment';
+import { findKategorie, CODE_OK } from '../../common';
+import { AKTUALNI_ROK, TYPY_KATEGORII } from '../../constants';
 import { narozeniToStr } from '../../Util';
 
 const initialState = {
@@ -225,10 +227,26 @@ export const prihlaseniValid = prihlaseni => {
   // :TODO: kategorie -> ma startovni cisla -> startCislo valid? nebo undefined (vyplni server)
 };
 
-export const radioInputValues = name => {
+export const radioInputOptions = (name, prihlaseni, rocniky) => {
   switch (name) {
     case 'udaje.pohlavi':
-      return ['muž', 'žena'];
+      return [{ key: 'muž', value: 'muž' }, { key: 'žena', value: 'žena' }];
+    case 'prihlaska.kategorie': {
+      const list = [];
+      TYPY_KATEGORII.forEach(typ => {
+        const found = findKategorie(rocniky, {
+          rok: AKTUALNI_ROK,
+          typ,
+          pohlavi: prihlaseni.udaje.pohlavi,
+          narozeni: prihlaseni.udaje.narozeni,
+          mladistvyPotvrzen: true
+        });
+        if (found.code === CODE_OK) {
+          list.push({ key: typ, value: found.kategorie });
+        }
+      });
+      return list;
+    }
     default:
       return null;
   }
