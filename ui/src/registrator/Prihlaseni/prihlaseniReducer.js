@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { narozeniToStr } from '../../Util';
 
 const initialState = {
   errorCode: '',
@@ -29,6 +30,8 @@ const initialState = {
   }
 };
 
+const validFormats = ['D.M.YYYY', 'D. M. YYYY', moment.ISO_8601];
+
 const parseNarozeni = value => {
   if (value === undefined) {
     return { den: undefined, mesic: undefined, rok: undefined };
@@ -36,16 +39,22 @@ const parseNarozeni = value => {
 
   const split = value.split('.');
   if (split.length !== 3) {
+    if (moment(value, 'YYYY', true).isValid()) {
+      return { den: undefined, mesic: undefined, rok: moment(value, 'YYYY').year() };
+    }
     return { den: undefined, mesic: undefined, rok: value };
   }
 
   const den = split[0] && split[0].trim();
   const mesic = split[1] && split[1].trim();
   const rok = split[2] && split[2].trim();
-  return { den, mesic, rok };
+  const maybeParsed = moment(`${den}.${mesic}.${rok}`, validFormats[0], true);
+  if (maybeParsed.isValid()) {
+    return { den: maybeParsed.date(), mesic: maybeParsed.month() + 1, rok: maybeParsed.year() };
+  }
+  return { den: undefined, mesic: undefined, rok: value };
 };
 
-const validFormats = ['D.M.YYYY', 'D. M. YYYY', moment.ISO_8601];
 export const datumValid = value =>
   validFormats.some(format => moment(value, format, true).isValid());
 
@@ -222,5 +231,16 @@ export const radioInputValues = name => {
       return ['muž', 'žena'];
     default:
       return null;
+  }
+};
+
+export const formatValue = (name, rawValue) => {
+  switch (name) {
+    case 'udaje.narozeni':
+      return narozeniToStr(rawValue);
+    case 'prihlaska.datum':
+      return datumValid(rawValue) ? moment.utc(rawValue).format('D. M. YYYY') : rawValue;
+    default:
+      return rawValue || '';
   }
 };

@@ -333,6 +333,81 @@ it('validation of some invalid state [validateEmpty === true]', () => {
   expect(prihlaseniValid(state)).toBe(false);
 });
 
+it('udaje.narozeni - prázdné', () => {
+  const stateBefore = {
+    validateEmpty: false,
+    udaje: { narozeni: { den: undefined, mesic: undefined, rok: undefined } }
+  };
+  deepFreeze(stateBefore);
+  const stateAfter = {
+    validateEmpty: false,
+    udaje: { narozeni: { den: undefined, mesic: undefined, rok: '' } }
+  };
+
+  expect(
+    prihlaseniReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '' } }))
+  ).toEqual(stateAfter);
+  expect(inputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toBe(undefined);
+  expect(inputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual('error');
+});
+
+it('udaje.narozeni - neúplné', () => {
+  const stateBefore = {
+    validateEmpty: false,
+    udaje: { narozeni: { den: undefined, mesic: undefined, rok: undefined } }
+  };
+  deepFreeze(stateBefore);
+  const stateAfter = {
+    validateEmpty: false,
+    udaje: { narozeni: { den: undefined, mesic: undefined, rok: '1. ' } }
+  };
+
+  expect(
+    prihlaseniReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '1. ' } }))
+  ).toEqual(stateAfter);
+  expect(inputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toBe(undefined);
+  expect(inputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual('error');
+});
+
+it('udaje.narozeni - jen rok', () => {
+  const stateBefore = {
+    validateEmpty: false,
+    udaje: { narozeni: { den: undefined, mesic: undefined, rok: '197' } }
+  };
+  deepFreeze(stateBefore);
+  const stateAfter = {
+    validateEmpty: false,
+    udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1978 } }
+  };
+
+  expect(
+    prihlaseniReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '1978' } }))
+  ).toEqual(stateAfter);
+  expect(inputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toEqual('error');
+  expect(inputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual('warning');
+});
+
+it('udaje.narozeni - celé', () => {
+  const stateBefore = {
+    validateEmpty: false,
+    udaje: { narozeni: { den: undefined, mesic: undefined, rok: '1.7.196' } }
+  };
+  deepFreeze(stateBefore);
+  const stateAfter = {
+    validateEmpty: false,
+    udaje: { narozeni: { den: 1, mesic: 7, rok: 1967 } }
+  };
+
+  expect(
+    prihlaseniReducer(
+      stateBefore,
+      inputChanged('udaje.narozeni', { target: { value: '1.7.1967' } })
+    )
+  ).toEqual(stateAfter);
+  expect(inputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toEqual('error');
+  expect(inputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual('success');
+});
+
 it('prihlaska.datum - neúplné', () => {
   const stateBefore = { prihlaska: { datum: undefined } };
   deepFreeze(stateBefore);

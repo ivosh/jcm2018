@@ -25,7 +25,7 @@ beforeEach(() => {
   );
 });
 
-it('maps state and dispatch to props', () => {
+it('maps state and dispatch to props - jmeno', () => {
   expect(wrapper.props().name).toEqual('udaje.jmeno');
   expect(wrapper.props().popisek).toEqual('jméno');
   expect(wrapper.props().value).toEqual('Klára');
@@ -41,4 +41,48 @@ it('maps onChange to dispatch inputChanged', () => {
     name: 'udaje.jmeno',
     value: 'Bára'
   });
+});
+
+it('maps state to props - narození - jen rok', () => {
+  const state = {
+    registrator: {
+      prihlaseni: {
+        validateEmpty: false,
+        udaje: {
+          narozeni: { den: undefined, mesic: undefined, rok: 1981 }
+        }
+      }
+    }
+  };
+  store = mockStore(state);
+  wrapper = shallow(
+    <InputContainer name="udaje.narozeni" popisek="narození" type={TextInput} store={store} />
+  );
+
+  expect(wrapper.props().name).toEqual('udaje.narozeni');
+  expect(wrapper.props().popisek).toEqual('narození');
+  expect(wrapper.props().value).toEqual('1981');
+  expect(wrapper.props().validationState).toEqual('warning');
+});
+
+it('maps state to props - narození - celé', () => {
+  const state = {
+    registrator: {
+      prihlaseni: {
+        validateEmpty: false,
+        udaje: {
+          narozeni: { den: 1, mesic: 6, rok: 1981 }
+        }
+      }
+    }
+  };
+  store = mockStore(state);
+  wrapper = shallow(
+    <InputContainer name="udaje.narozeni" popisek="narození" type={TextInput} store={store} />
+  );
+
+  expect(wrapper.props().name).toEqual('udaje.narozeni');
+  expect(wrapper.props().popisek).toEqual('narození');
+  expect(wrapper.props().value).toEqual('1. 6. 1981');
+  expect(wrapper.props().validationState).toEqual('success');
 });
