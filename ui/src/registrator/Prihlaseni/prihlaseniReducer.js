@@ -1,6 +1,6 @@
 import moment from 'moment';
 import { findKategorie, CODE_OK } from '../../common';
-import { AKTUALNI_ROK, TYPY_KATEGORII } from '../../constants';
+import { AKTUALNI_ROK } from '../../constants';
 import { narozeniToStr } from '../../Util';
 
 const initialState = {
@@ -57,8 +57,7 @@ const parseNarozeni = value => {
   return { den: undefined, mesic: undefined, rok: value };
 };
 
-export const datumValid = value =>
-  validFormats.some(format => moment(value, format, true).isValid());
+const datumValid = value => validFormats.some(format => moment(value, format, true).isValid());
 
 const parseDatum = value =>
   validFormats.reduce((accumulator, format) => {
@@ -149,9 +148,6 @@ const narozeniValid = (value, validateEmpty, requireDenMesic) => {
     }
 
     if (moment(rok, 'YYYY', true).isValid()) {
-      if (validateEmpty) {
-        return 'success';
-      }
       return 'warning';
     }
     return 'error';
@@ -176,6 +172,7 @@ export const inputValid = (name, value, prihlaseni) => {
     case 'udaje.klub':
     case 'udaje.email':
     case 'udaje.telefon':
+    case 'prihlaska.startCislo': // Může nechat nevyplněné, doplní server.
     case 'prihlaska.kod':
       return undefined;
     case 'udaje.narozeni':
@@ -194,9 +191,6 @@ export const inputValid = (name, value, prihlaseni) => {
         return undefined;
       }
       return datumValid(value) ? 'success' : 'error';
-    case 'prihlaska.startCislo':
-      // TODO: kategorie ma startCislo => nonEmptyInputValid
-      return undefined;
     default:
       return 'error';
   }
@@ -204,7 +198,11 @@ export const inputValid = (name, value, prihlaseni) => {
 
 const isInputValid = (name, value, prihlaseni) => {
   const validationState = inputValid(name, value, prihlaseni);
-  if (validationState === undefined || validationState === 'success') {
+  if (
+    validationState === undefined ||
+    validationState === 'success' ||
+    validationState === 'warning'
+  ) {
     return true;
   }
   return false;
@@ -224,7 +222,22 @@ export const prihlaseniValid = prihlaseni => {
     isInputValid('prihlaska.datum', prihlaska.datum, prihlaseni) &&
     isInputValid('prihlaska.kategorie', prihlaska.kategorie, prihlaseni)
   );
-  // :TODO: kategorie -> ma startovni cisla -> startCislo valid? nebo undefined (vyplni server)
+};
+
+const formatKategorie = kategorie => {
+  let value = kategorie.typ;
+  if (kategorie.pohlavi) {
+    value += ` - ${kategorie.pohlavi}`;
+  }
+  if (kategorie.vek) {
+    value += ` - ${kategorie.vek.min}`;
+    if (kategorie.vek.max === 150) {
+      value += ' a více';
+    } else {
+      value += `-${kategorie.vek.max}`;
+    }
+  }
+  return value;
 };
 
 export const radioInputOptions = (name, prihlaseni, rocniky) => {
@@ -233,16 +246,20 @@ export const radioInputOptions = (name, prihlaseni, rocniky) => {
       return [{ key: 'muž', value: 'muž' }, { key: 'žena', value: 'žena' }];
     case 'prihlaska.kategorie': {
       const list = [];
-      TYPY_KATEGORII.forEach(typ => {
-        const found = findKategorie(rocniky, {
-          rok: AKTUALNI_ROK,
+      const rok = AKTUALNI_ROK;
+      const typyKategorii = Object.keys(rocniky.byRoky[rok].kategorie);
+      typyKategorii.forEach(typ => {
+        const found = findKategorie(rocniky.byRoky, {
+          rok,
           typ,
           pohlavi: prihlaseni.udaje.pohlavi,
           narozeni: prihlaseni.udaje.narozeni,
           mladistvyPotvrzen: true
         });
         if (found.code === CODE_OK) {
-          list.push({ key: typ, value: found.kategorie });
+          list.push({ key: typ, value: formatKategorie(found.kategorie) });
+        } else {
+          list.push({ key: typ, value: typ });
         }
       });
       return list;

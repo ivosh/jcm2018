@@ -1,4 +1,3 @@
-import moment from 'moment';
 import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import {
@@ -10,7 +9,7 @@ import {
   saveUcastError
 } from './PrihlaseniActions';
 import prihlaseniReducer, {
-  datumValid,
+  formatValue,
   inputValid,
   prihlaseniValid,
   radioInputOptions
@@ -425,7 +424,7 @@ it('prihlaska.datum - neúplné', () => {
       inputChanged('prihlaska.datum', { target: { value: '1. 7. 201' } })
     )
   ).toEqual(stateAfter);
-  expect(datumValid(stateAfter.prihlaska.datum)).toBe(false);
+  expect(inputValid('prihlaska.datum', stateAfter.prihlaska.datum, stateAfter)).toEqual('error');
 });
 
 it('prihlaska.datum - formát 1', () => {
@@ -439,8 +438,8 @@ it('prihlaska.datum - formát 1', () => {
       inputChanged('prihlaska.datum', { target: { value: '1. 7. 2017' } })
     )
   ).toEqual(stateAfter);
-  expect(datumValid(stateAfter.prihlaska.datum)).toBe(true);
-  expect(moment.utc(stateAfter.prihlaska.datum).format('D. M. YYYY')).toEqual('1. 7. 2017');
+  expect(inputValid('prihlaska.datum', stateAfter.prihlaska.datum, stateAfter)).toEqual('success');
+  expect(formatValue('prihlaska.datum', stateAfter.prihlaska.datum)).toEqual('1. 7. 2017');
 });
 
 it('prihlaska.datum - formát 2', () => {
@@ -454,8 +453,30 @@ it('prihlaska.datum - formát 2', () => {
       inputChanged('prihlaska.datum', { target: { value: '1.7.2017' } })
     )
   ).toEqual(stateAfter);
-  expect(datumValid(stateAfter.prihlaska.datum)).toBe(true);
-  expect(moment.utc(stateAfter.prihlaska.datum).format('D. M. YYYY')).toEqual('1. 7. 2017');
+  expect(inputValid('prihlaska.datum', stateAfter.prihlaska.datum, stateAfter)).toEqual('success');
+  expect(formatValue('prihlaska.datum', stateAfter.prihlaska.datum)).toEqual('1. 7. 2017');
+});
+
+it('prihlaska.kategorie - není pohlaví', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      prihlaseni: {
+        udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: undefined }
+      }
+    }
+  };
+  const selected = [
+    { key: 'maraton', value: 'maraton' },
+    { key: 'půlmaraton', value: 'půlmaraton' },
+    { key: 'cyklo', value: 'cyklo' },
+    { key: 'koloběžka', value: 'koloběžka' },
+    { key: 'pěší', value: 'pěší' }
+  ];
+
+  expect(
+    radioInputOptions('prihlaska.kategorie', state.registrator.prihlaseni, state.entities.rocniky)
+  ).toEqual(selected);
 });
 
 it('prihlaska.kategorie - muž', () => {
@@ -467,8 +488,15 @@ it('prihlaska.kategorie - muž', () => {
       }
     }
   };
+  const selected = [
+    { key: 'maraton', value: 'maraton - muž - 18-39' },
+    { key: 'půlmaraton', value: 'půlmaraton - muž - 18-39' },
+    { key: 'cyklo', value: 'cyklo - muž - 36-45' },
+    { key: 'koloběžka', value: 'koloběžka - muž - 18 a více' },
+    { key: 'pěší', value: 'pěší' }
+  ];
 
   expect(
     radioInputOptions('prihlaska.kategorie', state.registrator.prihlaseni, state.entities.rocniky)
-  ).toEqual([]);
+  ).toEqual(selected);
 });
