@@ -9,8 +9,7 @@ mockWsClient.sendRequest = null;
 const successfulResponse = {
   code: 'ok',
   response: {
-    id: '===id===',
-    startCislo: 23
+    id: '===id==='
   },
   requestId: '0.9310306652587377'
 };
@@ -42,7 +41,6 @@ it('saveUcast() should dispatch three successful actions', async () => {
   expect(actions[2]).toEqual(
     expect.objectContaining({
       id: '===id===',
-      startCislo: 23,
       type: 'PRIHLASENI_SAVE_SUCCESS'
     })
   );

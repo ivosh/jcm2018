@@ -1,4 +1,4 @@
-import { CODE_OK, CODE_TOKEN_INVALID, saveUcast as saveUcastAction } from '../../common';
+import { CODE_OK, CODE_TOKEN_INVALID, savePrihlaska, saveUdaje } from '../../common';
 import { AKTUALNI_ROK } from '../../constants';
 import { authTokenExpired } from '../../auth/SignIn/SignInActions';
 import { prihlaseniValid } from './prihlaseniReducer';
@@ -27,10 +27,9 @@ export const saveUcastRequest = () => ({
   type: 'PRIHLASENI_SAVE_REQUEST'
 });
 
-export const saveUcastSuccess = ({ response }) => ({
+export const saveUcastSuccess = id => ({
   type: 'PRIHLASENI_SAVE_SUCCESS',
-  id: response.id,
-  startCislo: response.startCislo,
+  id,
   receivedAt: Date.now()
 });
 
@@ -42,6 +41,14 @@ export const saveUcastError = ({ code, status, err, ...rest }) => ({
   ...rest,
   receivedAt: Date.now()
 });
+
+const handleErrors = (dispatch, response) => {
+  if (response.code === CODE_TOKEN_INVALID) {
+    dispatch(authTokenExpired(response));
+  } else {
+    dispatch(saveUcastError(response));
+  }
+};
 
 export const saveUcast = () => async (dispatch, getState, wsClient) => {
   await dispatch(validateEmpty());
@@ -56,24 +63,36 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
   dispatch(saveUcastRequest());
 
   try {
-    const response = await wsClient.sendRequest(
-      saveUcastAction(
+    let response = await wsClient.sendRequest(
+      saveUdaje(
         {
           id: prihlaseni.ucastnikId,
           rok: AKTUALNI_ROK,
-          udaje: prihlaseni.udaje,
+          udaje: prihlaseni.udaje
+        },
+        state.auth.token
+      )
+    );
+    if (response.code !== CODE_OK) {
+      handleErrors(dispatch, response);
+      return;
+    }
+
+    const { id } = response.response;
+    response = await wsClient.sendRequest(
+      savePrihlaska(
+        {
+          id,
+          rok: AKTUALNI_ROK,
           prihlaska: prihlaseni.prihlaska
         },
         state.auth.token
       )
     );
-    const { code } = response;
-    if (code === CODE_OK) {
-      dispatch(saveUcastSuccess(response));
-    } else if (response.code === CODE_TOKEN_INVALID) {
-      dispatch(authTokenExpired(response));
+    if (response.code === CODE_OK) {
+      dispatch(saveUcastSuccess(id));
     } else {
-      dispatch(saveUcastError(response));
+      handleErrors(dispatch, response);
     }
   } catch (err) {
     dispatch(saveUcastError({ code: 'internal error', err }));

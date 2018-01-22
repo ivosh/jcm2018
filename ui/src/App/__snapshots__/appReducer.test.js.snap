@@ -40,6 +40,7 @@ Object {
       "prihlaska": Object {
         "datum": undefined,
         "kod": undefined,
+        "mladistvyPotvrzen": undefined,
         "startCislo": undefined,
         "typKategorie": undefined,
       },
@@ -117,6 +118,7 @@ Object {
       "prihlaska": Object {
         "datum": undefined,
         "kod": undefined,
+        "mladistvyPotvrzen": undefined,
         "startCislo": undefined,
         "typKategorie": undefined,
       },
@@ -194,6 +196,7 @@ Object {
       "prihlaska": Object {
         "datum": undefined,
         "kod": undefined,
+        "mladistvyPotvrzen": undefined,
         "startCislo": undefined,
         "typKategorie": undefined,
       },

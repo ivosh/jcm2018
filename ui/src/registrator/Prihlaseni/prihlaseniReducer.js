@@ -28,7 +28,8 @@ const initialState = {
     datum: undefined,
     typKategorie: undefined,
     startCislo: undefined,
-    kod: undefined
+    kod: undefined,
+    mladistvyPotvrzen: undefined
   }
 };
 
@@ -106,7 +107,7 @@ const prihlaseniReducer = (state = initialState, action) => {
     case 'PRIHLASENI_SAVE_REQUEST':
       return { ...state, saving: true };
     case 'PRIHLASENI_SAVE_SUCCESS':
-      return { ...state, saving: false, showError: false };
+      return { ...state, ucastnikId: action.id, saving: false, showError: false };
     case 'PRIHLASENI_SAVE_ERROR':
       return {
         ...state,
@@ -180,6 +181,7 @@ export const inputValid = (name, value, prihlaseni) => {
     case 'udaje.telefon':
     case 'prihlaska.startCislo': // Může nechat nevyplněné, doplní server.
     case 'prihlaska.kod':
+    case 'prihlaska.mladistvyPotvrzen':
       return undefined;
     case 'udaje.narozeni':
       // TODO: kategorie presne => den + mesic required === true

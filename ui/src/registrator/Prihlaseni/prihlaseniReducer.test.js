@@ -15,14 +15,6 @@ import prihlaseniReducer, {
   radioInputOptions
 } from './prihlaseniReducer';
 
-const successfulResponse = {
-  code: 'ok',
-  response: {
-    id: '===id===',
-    startCislo: 12
-  },
-  requestId: '0.99234334532253'
-};
 const unsuccessfulResponse = {
   code: 'neexistuje',
   status: 'účastník s id ===id=== neexistuje.',
@@ -57,7 +49,8 @@ it('na začátku', () => {
     datum: undefined,
     typKategorie: undefined,
     startCislo: undefined,
-    kod: undefined
+    kod: undefined,
+    mladistvyPotvrzen: undefined
   });
 });
 
@@ -100,7 +93,8 @@ it('reset()', () => {
       datum: '1. 10. 2019',
       typKategorie: 'maraton',
       startCislo: 23,
-      kod: '===kod=='
+      kod: '===kod==',
+      mladistvyPotvrzen: false
     }
   };
   const stateAfter = {
@@ -146,10 +140,10 @@ it('saveUcastRequest()', () => {
 
 it('saveUcastSuccess()', () => {
   const stateBefore = { saving: true };
-  const stateAfter = { ...stateBefore, saving: false, showError: false };
+  const stateAfter = { ...stateBefore, ucastnikId: '===id===', saving: false, showError: false };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniReducer(stateBefore, saveUcastSuccess(successfulResponse))).toEqual(stateAfter);
+  expect(prihlaseniReducer(stateBefore, saveUcastSuccess('===id==='))).toEqual(stateAfter);
 });
 
 it('saveUcastError()', () => {
@@ -186,7 +180,8 @@ it('validation of the initial state [validateEmpty === false]', () => {
       datum: undefined,
       typKategorie: undefined,
       startCislo: undefined,
-      kod: undefined
+      kod: undefined,
+      mladistvyPotvrzen: undefined
     }
   };
   deepFreeze(state);
@@ -206,6 +201,9 @@ it('validation of the initial state [validateEmpty === false]', () => {
   expect(inputValid('prihlaska.typKategorie', state.prihlaska.typKategorie, state)).toBe(undefined);
   expect(inputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toBe(undefined);
   expect(inputValid('prihlaska.kod', state.prihlaska.kod, state)).toBe(undefined);
+  expect(inputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)).toBe(
+    undefined
+  );
   expect(prihlaseniValid(state)).toBe(true);
 });
 
@@ -229,7 +227,8 @@ it('validation of the initial state [validateEmpty === true]', () => {
       datum: undefined,
       typKategorie: undefined,
       startCislo: undefined,
-      kod: undefined
+      kod: undefined,
+      mladistvyPotvrzen: undefined
     }
   };
   deepFreeze(state);
@@ -251,6 +250,9 @@ it('validation of the initial state [validateEmpty === true]', () => {
   );
   expect(inputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toBe(undefined);
   expect(inputValid('prihlaska.kod', state.prihlaska.kod, state)).toBe(undefined);
+  expect(inputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)).toBe(
+    undefined
+  );
   expect(prihlaseniValid(state)).toBe(false);
 });
 
@@ -274,7 +276,8 @@ it('validation of some invalid state [validateEmpty === false]', () => {
       datum: '1. 12. 2017',
       typKategorie: undefined,
       startCislo: undefined,
-      kod: '===kód==='
+      kod: '===kód===',
+      mladistvyPotvrzen: undefined
     }
   };
   deepFreeze(state);
@@ -294,6 +297,9 @@ it('validation of some invalid state [validateEmpty === false]', () => {
   expect(inputValid('prihlaska.typKategorie', state.prihlaska.typKategorie, state)).toBe(undefined);
   expect(inputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toBe(undefined);
   expect(inputValid('prihlaska.kod', state.prihlaska.kod, state)).toBe(undefined);
+  expect(inputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)).toBe(
+    undefined
+  );
   expect(prihlaseniValid(state)).toBe(false);
 });
 
@@ -317,7 +323,8 @@ it('validation of some invalid state [validateEmpty === true]', () => {
       datum: '1. 12. 2017',
       typKategorie: undefined,
       startCislo: undefined,
-      kod: '===kód==='
+      kod: '===kód===',
+      mladistvyPotvrzen: undefined
     }
   };
   deepFreeze(state);
@@ -339,6 +346,9 @@ it('validation of some invalid state [validateEmpty === true]', () => {
   );
   expect(inputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toBe(undefined);
   expect(inputValid('prihlaska.kod', state.prihlaska.kod, state)).toBe(undefined);
+  expect(inputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)).toBe(
+    undefined
+  );
   expect(prihlaseniValid(state)).toBe(false);
 });
 
@@ -510,7 +520,7 @@ it('prihlaska.typKategorie - není pohlaví', () => {
   ).toEqual(selected);
 });
 
-fit('prihlaska.typKategorie - není narození', () => {
+it('prihlaska.typKategorie - není narození', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
