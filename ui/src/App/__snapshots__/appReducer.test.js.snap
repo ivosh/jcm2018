@@ -39,9 +39,9 @@ Object {
       "fetching": false,
       "prihlaska": Object {
         "datum": undefined,
-        "kategorie": undefined,
         "kod": undefined,
         "startCislo": undefined,
+        "typKategorie": undefined,
       },
       "saving": false,
       "showError": false,
@@ -116,9 +116,9 @@ Object {
       "fetching": false,
       "prihlaska": Object {
         "datum": undefined,
-        "kategorie": undefined,
         "kod": undefined,
         "startCislo": undefined,
+        "typKategorie": undefined,
       },
       "saving": false,
       "showError": false,
@@ -193,9 +193,9 @@ Object {
       "fetching": false,
       "prihlaska": Object {
         "datum": undefined,
-        "kategorie": undefined,
         "kod": undefined,
         "startCislo": undefined,
+        "typKategorie": undefined,
       },
       "saving": false,
       "showError": false,

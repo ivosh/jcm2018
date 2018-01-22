@@ -1,6 +1,6 @@
 import moment from 'moment';
 import { findKategorie, CODE_OK } from '../../common';
-import { AKTUALNI_ROK } from '../../constants';
+import { AKTUALNI_ROK, TYPY_KATEGORII } from '../../constants';
 import { narozeniToStr } from '../../Util';
 
 const initialState = {
@@ -26,7 +26,7 @@ const initialState = {
   },
   prihlaska: {
     datum: undefined,
-    kategorie: undefined,
+    typKategorie: undefined,
     startCislo: undefined,
     kod: undefined
   }
@@ -166,7 +166,7 @@ export const inputValid = (name, value, prihlaseni) => {
     case 'udaje.pohlavi':
     case 'udaje.obec':
     case 'udaje.stat':
-    case 'prihlaska.kategorie':
+    case 'prihlaska.typKategorie':
       return nonEmptyInputValid(value, prihlaseni.validateEmpty);
     case 'udaje.adresa':
     case 'udaje.klub':
@@ -220,7 +220,7 @@ export const prihlaseniValid = prihlaseni => {
     isInputValid('udaje.psc', udaje.psc, prihlaseni) &&
     isInputValid('udaje.stat', udaje.stat, prihlaseni) &&
     isInputValid('prihlaska.datum', prihlaska.datum, prihlaseni) &&
-    isInputValid('prihlaska.kategorie', prihlaska.kategorie, prihlaseni)
+    isInputValid('prihlaska.typKategorie', prihlaska.typKategorie, prihlaseni)
   );
 };
 
@@ -244,10 +244,12 @@ export const radioInputOptions = (name, prihlaseni, rocniky) => {
   switch (name) {
     case 'udaje.pohlavi':
       return [{ key: 'muž', value: 'muž' }, { key: 'žena', value: 'žena' }];
-    case 'prihlaska.kategorie': {
-      const list = [];
+    case 'prihlaska.typKategorie': {
       const rok = AKTUALNI_ROK;
-      const typyKategorii = Object.keys(rocniky.byRoky[rok].kategorie);
+      const typyKategorii =
+        (rocniky.byRoky[rok] && Object.keys(rocniky.byRoky[rok].kategorie)) || TYPY_KATEGORII;
+
+      const list = [];
       typyKategorii.forEach(typ => {
         const found = findKategorie(rocniky.byRoky, {
           rok,

@@ -57,7 +57,12 @@ class Prihlaseni extends Component {
                 <InputContainer name="udaje.prijmeni" popisek="příjmení" Type={TextInput} />
                 <InputContainer name="udaje.jmeno" popisek="jméno" Type={TextInput} />
                 <InputContainer name="udaje.narozeni" popisek="narození" Type={TextInput} />
-                <InputContainer name="udaje.pohlavi" popisek="pohlaví" Type={RadioInput} />
+                <InputContainer
+                  name="udaje.pohlavi"
+                  popisek="pohlaví"
+                  Type={RadioInput}
+                  inline={true}
+                />
                 <InputContainer name="udaje.adresa" popisek="adresa" Type={TextInput} />
                 <InputContainer name="udaje.obec" popisek="obec" Type={TextInput} />
                 <InputContainer name="udaje.psc" popisek="PSČ" Type={TextInput} />
@@ -70,7 +75,11 @@ class Prihlaseni extends Component {
             <Col sm={6}>
               <Panel bsStyle="primary" header="Přihláška">
                 <InputContainer name="prihlaska.datum" popisek="datum" Type={TextInput} />
-                <InputContainer name="prihlaska.kategorie" popisek="kategorie" Type={TextInput} />
+                <InputContainer
+                  name="prihlaska.typKategorie"
+                  popisek="kategorie"
+                  Type={RadioInput}
+                />
                 <InputContainer name="prihlaska.startCislo" popisek="číslo" Type={TextInput} />
                 <InputContainer name="prihlaska.kod" popisek="kód" Type={TextInput} />
               </Panel>
