@@ -284,7 +284,7 @@ export const formatValue = (name, rawValue) => {
     case 'udaje.narozeni':
       return narozeniToStr(rawValue);
     case 'prihlaska.datum':
-      return datumValid(rawValue) ? moment.utc(rawValue).format('D. M. YYYY') : rawValue;
+      return datumValid(rawValue) ? moment.utc(rawValue).format('D. M. YYYY') : rawValue || '';
     default:
       return rawValue || '';
   }
