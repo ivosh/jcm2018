@@ -3,30 +3,19 @@
 exports[`přepiš existující účast 1`] = `
 Object {
   "code": "ok",
-  "status": "stávající účast uložena v pořádku",
+  "response": Object {
+    "id": "---",
+  },
+  "status": "uloženo v pořádku",
 }
 `;
 
 exports[`přepiš existující účast 2`] = `
 Array [
   Object {
-    "__v": 3,
     "ucasti": Array [
       Object {
         "platby": Array [],
-        "prihlaska": Object {
-          "datum": 2017-05-03T00:00:00.000Z,
-          "kategorie": Object {
-            "__v": 0,
-            "_id": "===k2===",
-            "pohlavi": "žena",
-            "typ": "maraton",
-            "vek": Object {
-              "max": 59,
-              "min": 50,
-            },
-          },
-        },
         "rok": 2018,
         "ubytovani": Array [],
         "udaje": Object {
@@ -43,19 +32,6 @@ Array [
       },
       Object {
         "platby": Array [],
-        "prihlaska": Object {
-          "datum": 2017-05-03T00:00:00.000Z,
-          "kategorie": Object {
-            "__v": 0,
-            "_id": "===k2===",
-            "pohlavi": "žena",
-            "typ": "maraton",
-            "vek": Object {
-              "max": 59,
-              "min": 50,
-            },
-          },
-        },
         "rok": 2017,
         "ubytovani": Array [],
         "udaje": Object {
@@ -72,19 +48,6 @@ Array [
       },
       Object {
         "platby": Array [],
-        "prihlaska": Object {
-          "datum": 2017-05-03T00:00:00.000Z,
-          "kategorie": Object {
-            "__v": 0,
-            "_id": "===k4===",
-            "pohlavi": "žena",
-            "typ": "maraton",
-            "vek": Object {
-              "max": 49,
-              "min": 40,
-            },
-          },
-        },
         "rok": 2016,
         "ubytovani": Array [],
         "udaje": Object {
@@ -101,19 +64,6 @@ Array [
       },
       Object {
         "platby": Array [],
-        "prihlaska": Object {
-          "datum": 2017-05-03T00:00:00.000Z,
-          "kategorie": Object {
-            "__v": 0,
-            "_id": "===k4===",
-            "pohlavi": "žena",
-            "typ": "maraton",
-            "vek": Object {
-              "max": 49,
-              "min": 40,
-            },
-          },
-        },
         "rok": 2015,
         "ubytovani": Array [],
         "udaje": Object {
@@ -143,31 +93,19 @@ Object {
 exports[`vytvoř dvě účasti 1`] = `
 Object {
   "code": "ok",
-  "status": "nová účast uložena v pořádku",
+  "response": Object {
+    "id": "---",
+  },
+  "status": "uloženo v pořádku",
 }
 `;
 
 exports[`vytvoř dvě účasti 2`] = `
 Array [
   Object {
-    "__v": 1,
     "ucasti": Array [
       Object {
         "platby": Array [],
-        "prihlaska": Object {
-          "datum": 2017-05-03T00:00:00.000Z,
-          "kategorie": Object {
-            "__v": 0,
-            "_id": "===k1===",
-            "pohlavi": "žena",
-            "typ": "maraton",
-            "vek": Object {
-              "max": 59,
-              "min": 50,
-            },
-          },
-          "kod": "===kod1===",
-        },
         "rok": 2017,
         "ubytovani": Array [],
         "udaje": Object {
@@ -184,20 +122,6 @@ Array [
       },
       Object {
         "platby": Array [],
-        "prihlaska": Object {
-          "datum": 2018-02-07T00:00:00.000Z,
-          "kategorie": Object {
-            "__v": 0,
-            "_id": "===k2===",
-            "pohlavi": "žena",
-            "typ": "půlmaraton",
-            "vek": Object {
-              "max": 59,
-              "min": 50,
-            },
-          },
-          "kod": "===kod2===",
-        },
         "rok": 2018,
         "ubytovani": Array [],
         "udaje": Object {
@@ -223,31 +147,16 @@ Object {
   "response": Object {
     "id": "---",
   },
-  "status": "nový účastník uložen v pořádku",
+  "status": "uloženo v pořádku",
 }
 `;
 
 exports[`vytvoř minimálního účastníka 2`] = `
 Array [
   Object {
-    "__v": 0,
     "ucasti": Array [
       Object {
         "platby": Array [],
-        "prihlaska": Object {
-          "datum": 2018-02-07T00:00:00.000Z,
-          "kategorie": Object {
-            "__v": 0,
-            "_id": "===k1===",
-            "pohlavi": "muž",
-            "typ": "půlmaraton",
-            "vek": Object {
-              "max": 59,
-              "min": 50,
-            },
-          },
-          "kod": "===kod===",
-        },
         "rok": 2018,
         "ubytovani": Array [],
         "udaje": Object {
