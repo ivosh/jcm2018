@@ -510,6 +510,32 @@ it('prihlaska.typKategorie - není pohlaví', () => {
   ).toEqual(selected);
 });
 
+fit('prihlaska.typKategorie - není narození', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      prihlaseni: {
+        udaje: { narozeni: { den: undefined, mesic: undefined, rok: undefined }, pohlavi: 'žena' }
+      }
+    }
+  };
+  const selected = [
+    { key: 'maraton', value: 'maraton' },
+    { key: 'půlmaraton', value: 'půlmaraton' },
+    { key: 'cyklo', value: 'cyklo' },
+    { key: 'koloběžka', value: 'koloběžka - žena - 18 a více' },
+    { key: 'pěší', value: 'pěší' }
+  ];
+
+  expect(
+    radioInputOptions(
+      'prihlaska.typKategorie',
+      state.registrator.prihlaseni,
+      state.entities.rocniky
+    )
+  ).toEqual(selected);
+});
+
 it('prihlaska.typKategorie - muž', () => {
   const state = {
     ...ucastniciTestData,
