@@ -130,6 +130,22 @@ Object {
 }
 `;
 
+exports[`findKategorie() - nevyplněné narození 1`] = `
+Object {
+  "code": "neexistuje",
+  "kategorie": null,
+  "status": "Nevyplněné datum narození (je potřeba alespoň rok).",
+}
+`;
+
+exports[`findKategorie() - nevyplněné pohlaví 1`] = `
+Object {
+  "code": "neexistuje",
+  "kategorie": null,
+  "status": "Kategorie 'maraton' v roce 2018 neexistuje.",
+}
+`;
+
 exports[`findKategorie() - pohlaví neexistuje 1`] = `
 Object {
   "code": "neexistuje",

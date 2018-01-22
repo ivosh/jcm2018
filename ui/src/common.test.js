@@ -36,6 +36,43 @@ it('findKategorie() - typ kategorie neexistuje', () => {
   expect(nalezeno).toMatchSnapshot();
 });
 
+it('findKategorie() - nevyplněné pohlaví', () => {
+  const rocniky = { 2018: { kategorie: { půlmaraton: {} } } };
+  const nalezeno = findKategorie(rocniky, {
+    rok: 2018,
+    typ: 'maraton',
+    pohlavi: undefined,
+    narozeni: { rok: 1956 }
+  });
+  expect(nalezeno.kategorie).toBeNull();
+  expect(nalezeno).toMatchSnapshot();
+});
+
+it('findKategorie() - nevyplněné narození', () => {
+  const rocniky = {
+    2018: {
+      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)),
+      kategorie: {
+        půlmaraton: {
+          žena: [
+            { id: '1234', vek: { min: 40, max: 49 } },
+            { id: '2345', vek: { min: 50, max: 59 } },
+            { id: '3456', vek: { min: 59, max: 60 } }
+          ]
+        }
+      }
+    }
+  };
+  const nalezeno = findKategorie(rocniky, {
+    rok: 2018,
+    typ: 'půlmaraton',
+    pohlavi: 'žena',
+    narozeni: { den: undefined, mesic: undefined, rok: undefined }
+  });
+  expect(nalezeno.kategorie).toBeNull();
+  expect(nalezeno).toMatchSnapshot();
+});
+
 it('findKategorie() - jedna kategorie pro typ', () => {
   const rocniky = {
     2018: {

@@ -129,6 +129,14 @@ const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyPotvrzen
     });
   }
 
+  if (!narozeni.rok) {
+    return {
+      kategorie: null,
+      code: CODE_NONEXISTING,
+      status: 'Nevyplněné datum narození (je potřeba alespoň rok).'
+    };
+  }
+
   const vek = rok - narozeni.rok;
   const spravnyVek = filtrujPodleVeku(spravnePohlavi, { rok, datum: rocnik.datum, narozeni });
   if (spravnyVek.length === 2 && spravnyVek[0].vek.presne) {
