@@ -14,61 +14,117 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2017-05-03T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k2===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+        },
         "rok": 2018,
         "ubytovani": Array [],
         "udaje": Object {
-          "jmeno": "František",
+          "jmeno": "Božena",
           "narozeni": Object {
-            "rok": 1953,
+            "rok": 1967,
           },
-          "obec": "Ostrava 1",
-          "pohlavi": "muž",
-          "prijmeni": "Balabák",
+          "obec": "Kladno 1",
+          "pohlavi": "žena",
+          "prijmeni": "Sukdoláková",
+          "psc": "327 41",
           "stat": "Česká republika",
         },
       },
       Object {
         "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2017-05-03T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k2===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+        },
         "rok": 2017,
         "ubytovani": Array [],
         "udaje": Object {
-          "jmeno": "František",
+          "jmeno": "Božena",
           "narozeni": Object {
-            "rok": 1953,
+            "rok": 1967,
           },
-          "obec": "Ostrava 5",
-          "pohlavi": "muž",
-          "prijmeni": "Balabák",
+          "obec": "Kladno 5",
+          "pohlavi": "žena",
+          "prijmeni": "Sukdoláková",
+          "psc": "327 41",
           "stat": "Česká republika",
         },
       },
       Object {
         "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2017-05-03T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k4===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
         "rok": 2016,
         "ubytovani": Array [],
         "udaje": Object {
-          "jmeno": "František",
+          "jmeno": "Božena",
           "narozeni": Object {
-            "rok": 1953,
+            "rok": 1967,
           },
-          "obec": "Ostrava 3",
-          "pohlavi": "muž",
-          "prijmeni": "Balabák",
+          "obec": "Kladno 3",
+          "pohlavi": "žena",
+          "prijmeni": "Sukdoláková",
+          "psc": "327 41",
           "stat": "Česká republika",
         },
       },
       Object {
         "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2017-05-03T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k4===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
         "rok": 2015,
         "ubytovani": Array [],
         "udaje": Object {
-          "jmeno": "František",
+          "jmeno": "Božena",
           "narozeni": Object {
-            "rok": 1953,
+            "rok": 1967,
           },
-          "obec": "Ostrava 4",
-          "pohlavi": "muž",
-          "prijmeni": "Balabák",
+          "obec": "Kladno 4",
+          "pohlavi": "žena",
+          "prijmeni": "Sukdoláková",
+          "psc": "327 41",
           "stat": "Česká republika",
         },
       },
@@ -98,31 +154,61 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2017-05-03T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+          "kod": "===kod1===",
+        },
         "rok": 2017,
         "ubytovani": Array [],
         "udaje": Object {
-          "jmeno": "František",
+          "jmeno": "Božena",
           "narozeni": Object {
-            "rok": 1953,
+            "rok": 1967,
           },
-          "obec": "Ostrava 1",
-          "pohlavi": "muž",
-          "prijmeni": "Balabák",
+          "obec": "Kladno Rozdělov",
+          "pohlavi": "žena",
+          "prijmeni": "Sukdoláková",
+          "psc": "327 41",
           "stat": "Česká republika",
         },
       },
       Object {
         "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2018-02-07T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k2===",
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+          "kod": "===kod2===",
+        },
         "rok": 2018,
         "ubytovani": Array [],
         "udaje": Object {
-          "jmeno": "František",
+          "jmeno": "Božena",
           "narozeni": Object {
-            "rok": 1953,
+            "rok": 1967,
           },
-          "obec": "Ostrava 2",
-          "pohlavi": "muž",
-          "prijmeni": "Balabák",
+          "obec": "Kamenický Přívoz",
+          "pohlavi": "žena",
+          "prijmeni": "Sukdoláková",
+          "psc": "327 41",
           "stat": "Česká republika",
         },
       },
@@ -148,7 +234,21 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
-        "rok": 2017,
+        "prihlaska": Object {
+          "datum": 2018-02-07T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "muž",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+          "kod": "===kod===",
+        },
+        "rok": 2018,
         "ubytovani": Array [],
         "udaje": Object {
           "jmeno": "František",

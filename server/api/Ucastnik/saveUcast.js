@@ -3,14 +3,36 @@
 const logger = require('heroku-logger');
 const Actions = require('../../../common/common');
 const Ucastnik = require('../../model/Ucastnik/Ucastnik');
+const findAllRocniky = require('../Rocnik/findAllRocniky');
 
 const saveUcast = async ({ request }) => {
   const { id, rok, udaje, prihlaska } = request;
 
-  // :TODO: zkontrolovat kategorii (tzn. znovu ji vybrat oproti typu)
   // :TODO: zkontrolovat mladistveho
   // :TODO: zkontrolovat vyplnene cele narozeni pokud je vybrana kategorie vek.presne
   // :TODO: startovní číslo?
+
+  const { code, status, response } = await findAllRocniky();
+  if (code !== Actions.CODE_OK) {
+    return { code, status };
+  }
+
+  const found = Actions.findKategorie(response.rocniky, {
+    rok,
+    typ: prihlaska.typKategorie,
+    pohlavi: udaje.pohlavi,
+    narozeni: udaje.narozeni,
+    mladistvyPotvrzen: prihlaska.mladistvyPotvrzen
+  });
+  if (found.code !== Actions.CODE_OK) {
+    return {
+      code: found.code,
+      status: found.status
+    };
+  }
+
+  delete prihlaska.typKategorie;
+  prihlaska.kategorie = found.kategorie.id;
 
   if (id === undefined) {
     logger.debug('Creating brand new ucastnik');
