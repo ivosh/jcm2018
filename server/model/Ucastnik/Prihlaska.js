@@ -7,7 +7,8 @@ const PrihlaskaSchema = new mongoose.Schema(
     datum: { type: Date, required: true },
     kategorie: { type: mongoose.Schema.ObjectId, ref: 'Kategorie', required: true },
     startCislo: { type: Number },
-    kod: { type: String }
+    kod: { type: String },
+    mladistvyPotvrzen: { type: Boolean }
   },
   { _id: false, bufferCommands: false }
 );
