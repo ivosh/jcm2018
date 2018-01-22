@@ -75,6 +75,12 @@ const prihlaseniReducer = (state = initialState, action) => {
       const [section, name] = action.name.split('.');
       let { value } = action;
       switch (action.name) {
+        case 'udaje.prijmeni':
+          if (value.endsWith('ová') && state.udaje.pohlavi === undefined) {
+            // eslint-disable-next-line no-param-reassign
+            state = { ...state, udaje: { ...state.udaje, pohlavi: 'žena' } };
+          }
+          break;
         case 'udaje.narozeni':
           value = parseNarozeni(action.value);
           break;

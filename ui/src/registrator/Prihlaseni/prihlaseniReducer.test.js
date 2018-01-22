@@ -342,6 +342,29 @@ it('validation of some invalid state [validateEmpty === true]', () => {
   expect(prihlaseniValid(state)).toBe(false);
 });
 
+it('udaje.pohlavi - nahodí ženu', () => {
+  const stateBefore = { udaje: { pohlavi: undefined } };
+  deepFreeze(stateBefore);
+  const stateAfter = { udaje: { prijmeni: 'Sukdoláková', pohlavi: 'žena' } };
+
+  expect(
+    prihlaseniReducer(
+      stateBefore,
+      inputChanged('udaje.prijmeni', { target: { value: 'Sukdoláková' } })
+    )
+  ).toEqual(stateAfter);
+});
+
+it('udaje.pohlavi - už nahodí ženu', () => {
+  const stateBefore = { udaje: { prijmeni: 'Mala', pohlavi: 'muž' } };
+  deepFreeze(stateBefore);
+  const stateAfter = { udaje: { prijmeni: 'Malová', pohlavi: 'muž' } };
+
+  expect(
+    prihlaseniReducer(stateBefore, inputChanged('udaje.prijmeni', { target: { value: 'Malová' } }))
+  ).toEqual(stateAfter);
+});
+
 it('udaje.narozeni - prázdné', () => {
   const stateBefore = {
     validateEmpty: false,
