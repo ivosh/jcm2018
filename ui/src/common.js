@@ -13,11 +13,12 @@
 
 const PORT = 4000;
 
-const FIND_ALL_ROCNIKY = 'find_all_rocniky';
-const FIND_ALL_UCASTNICI = 'find_all_ucastnici';
-const SAVE_UCAST = 'save_ucast';
-const SIGN_IN = 'sign_in';
-const SIGN_OUT = 'sign_out';
+const FIND_ALL_ROCNIKY = 'findAllRocniky';
+const FIND_ALL_UCASTNICI = 'findAllUcastnici';
+const SAVE_PRIHLASKA = 'savePrihlaska';
+const SAVE_UDAJE = 'saveUdaje';
+const SIGN_IN = 'signIn';
+const SIGN_OUT = 'signOut';
 
 const CODE_OK = 'ok';
 const CODE_ALREADY_EXISTING = 'již existuje';
@@ -44,9 +45,15 @@ const findAllUcastnici = token => ({
   token
 });
 
-const saveUcast = ({ id, rok, udaje, prihlaska }, token) => ({
-  action: SAVE_UCAST,
-  request: { id, rok, udaje, prihlaska },
+const savePrihlaska = ({ id, rok, prihlaska }, token) => ({
+  action: SAVE_PRIHLASKA,
+  request: { id, rok, prihlaska },
+  token
+});
+
+const saveUdaje = ({ id, rok, udaje }, token) => ({
+  action: SAVE_UDAJE,
+  request: { id, rok, udaje },
   token
 });
 
@@ -173,7 +180,8 @@ const exported = {
   PORT,
   FIND_ALL_ROCNIKY,
   FIND_ALL_UCASTNICI,
-  SAVE_UCAST,
+  SAVE_UDAJE,
+  SAVE_PRIHLASKA,
   SIGN_IN,
   SIGN_OUT,
   CODE_OK,
@@ -191,7 +199,8 @@ const exported = {
   findAllRocniky,
   findAllUcastnici,
   findKategorie,
-  saveUcast,
+  savePrihlaska,
+  saveUdaje,
   signIn,
   signOut
 };
@@ -201,7 +210,8 @@ export {
   PORT,
   FIND_ALL_ROCNIKY,
   FIND_ALL_UCASTNICI,
-  SAVE_UCAST,
+  SAVE_UDAJE,
+  SAVE_PRIHLASKA,
   SIGN_IN,
   SIGN_OUT,
   CODE_OK,
@@ -219,7 +229,8 @@ export {
   findAllRocniky,
   findAllUcastnici,
   findKategorie,
-  saveUcast,
+  savePrihlaska,
+  saveUdaje,
   signIn,
   signOut
 };
