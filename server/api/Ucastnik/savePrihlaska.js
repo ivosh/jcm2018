@@ -22,7 +22,9 @@ const savePrihlaska = async ({ request }) => {
   }
 
   const { code, status, ucastnik } = await createUcast({ id, rok });
-  logger.debug(`createUcast(id: ${id}, rok: ${rok}): code: ${code}, id: ${ucastnik.id}`);
+  logger.debug(
+    `createUcast(id: ${id}, rok: ${rok}): code: ${code}, id: ${ucastnik ? ucastnik.id : '?'}`
+  );
   if (code !== Actions.CODE_OK) {
     return { code, status };
   }

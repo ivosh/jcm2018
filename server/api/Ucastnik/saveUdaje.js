@@ -8,7 +8,9 @@ const saveUdaje = async ({ request }) => {
   const { id, rok, udaje } = request;
 
   const { code, status, ucastnik } = await createUcast({ id, rok, udaje });
-  logger.debug(`createUcast(id: ${id}, rok: ${rok}): code: ${code}, id: ${ucastnik.id}`);
+  logger.debug(
+    `createUcast(id: ${id}, rok: ${rok}): code: ${code}, id: ${ucastnik ? ucastnik.id : '?'}`
+  );
 
   if (code === Actions.CODE_OK) {
     const ucast = ucastnik.ucasti.find(oneUcast => oneUcast.rok === rok);

@@ -116,6 +116,36 @@ it('přepiš existující účast', async () => {
   await Ucastnik.collection.drop();
 });
 
+it('účastník neexistuje', async () => {
+  const udaje = {
+    prijmeni: 'Balabák',
+    jmeno: 'František',
+    narozeni: { rok: 1953 },
+    pohlavi: 'muž',
+    obec: 'Ostrava 1'
+  };
+
+  const { requestId, ...response } = await wsClient.sendRequest(
+    Actions.saveUdaje({ id: '41224d776a326fb40f000001', rok: 2018, udaje }, generateTestToken())
+  );
+  expect(response).toMatchSnapshot();
+});
+
+it('účastník neexistuje - špatné ID', async () => {
+  const udaje = {
+    prijmeni: 'Balabák',
+    jmeno: 'František',
+    narozeni: { rok: 1953 },
+    pohlavi: 'muž',
+    obec: 'Ostrava 1'
+  };
+
+  const { requestId, ...response } = await wsClient.sendRequest(
+    Actions.saveUdaje({ id: '===neexistujici===', rok: 2018, udaje }, generateTestToken())
+  );
+  expect(response).toMatchSnapshot();
+});
+
 it('saveUcast [not authenticated]', async () => {
   const { requestId, ...response } = await wsClient.sendRequest(Actions.saveUdaje({}, null));
   expect(response).toMatchSnapshot();

@@ -13,10 +13,17 @@ const createUcast = async ({ id, rok, udaje }) => {
     await ucastnik.save();
     logger.debug(`Účastník created: id ${ucastnik.id}.`);
   } else {
-    ucastnik = await Ucastnik.findById(id);
-    if (!ucastnik) {
+    try {
+      ucastnik = await Ucastnik.findById(id);
+    } catch (err) {
       logger.debug(`Účastník id ${id} not found.`);
-      return { code: Actions.CODE_NONEXISTING, status: `účastník s id ${id} neexistuje` };
+      return {
+        code: Actions.CODE_NONEXISTING,
+        status: `Účastník s id ${id} neexistuje. Detaily: ${err}`
+      };
+    }
+    if (!ucastnik) {
+      return { code: Actions.CODE_NONEXISTING, status: `Účastník s id ${id} neexistuje.` };
     }
 
     logger.debug(`Účastník id ${id} found: ${ucastnik}`);

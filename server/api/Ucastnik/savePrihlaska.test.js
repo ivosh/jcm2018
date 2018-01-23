@@ -262,6 +262,50 @@ it('přepiš existující přihlášku', async () => {
   await Ucastnik.collection.drop();
 });
 
+it('účastník neexistuje', async () => {
+  const prihlaska = {
+    datum: new Date('2018-02-07Z'),
+    typKategorie: 'půlmaraton',
+    kod: '===kod==='
+  };
+
+  const { requestId, ...response } = await wsClient.sendRequest(
+    Actions.savePrihlaska(
+      { id: '41224d776a326fb40f000001', rok: 2018, prihlaska },
+      generateTestToken()
+    )
+  );
+  expect(response).toMatchSnapshot();
+});
+
+it('kategorie neexistuje', async () => {
+  const udaje = {
+    prijmeni: 'Balabák',
+    jmeno: 'František',
+    narozeni: { rok: 1953 },
+    pohlavi: 'muž',
+    obec: 'Ostrava 1'
+  };
+  const prihlaska = {
+    datum: new Date('2018-02-07Z'),
+    typKategorie: 'cyklo',
+    startCislo: 34
+  };
+
+  const response1 = await wsClient.sendRequest(
+    Actions.saveUdaje({ rok: 2018, udaje }, generateTestToken())
+  );
+  const { id } = response1.response;
+  expect(id).toBeTruthy();
+
+  const { requestId, ...response } = await wsClient.sendRequest(
+    Actions.savePrihlaska({ id, rok: 2018, prihlaska }, generateTestToken())
+  );
+  expect(response).toMatchSnapshot();
+
+  await Ucastnik.collection.drop();
+});
+
 it('savePrihlaska [not authenticated]', async () => {
   const { requestId, ...response } = await wsClient.sendRequest(Actions.savePrihlaska({}, null));
   expect(response).toMatchSnapshot();

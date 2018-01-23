@@ -1,5 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`kategorie neexistuje 1`] = `
+Object {
+  "code": "neexistuje",
+  "status": "Kategorie 'cyklo' v roce 2018 neexistuje.",
+}
+`;
+
 exports[`přepiš existující přihlášku 1`] = `
 Object {
   "code": "ok",
@@ -288,4 +295,11 @@ Array [
     ],
   },
 ]
+`;
+
+exports[`účastník neexistuje 1`] = `
+Object {
+  "code": "neexistuje",
+  "status": "Účastník s id 41224d776a326fb40f000001 neexistuje.",
+}
 `;

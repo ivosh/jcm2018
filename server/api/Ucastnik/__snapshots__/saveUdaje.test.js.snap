@@ -174,3 +174,17 @@ Array [
   },
 ]
 `;
+
+exports[`účastník neexistuje - špatné ID 1`] = `
+Object {
+  "code": "neexistuje",
+  "status": "Účastník s id ===neexistujici=== neexistuje. Detaily: CastError: Cast to ObjectId failed for value \\"===neexistujici===\\" at path \\"_id\\" for model \\"Ucastnik\\"",
+}
+`;
+
+exports[`účastník neexistuje 1`] = `
+Object {
+  "code": "neexistuje",
+  "status": "Účastník s id 41224d776a326fb40f000001 neexistuje.",
+}
+`;
