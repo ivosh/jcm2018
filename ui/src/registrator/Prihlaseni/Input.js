@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, ControlLabel, FormGroup, FormControl } from 'react-bootstrap';
+import './Input.css';
 
 const Input = ({ inline, name, popisek, Type, value, options, validationState, onChange }) => (
   <FormGroup controlId={name} validationState={validationState}>
@@ -9,7 +10,7 @@ const Input = ({ inline, name, popisek, Type, value, options, validationState, o
     </Col>
     <Col sm={9}>
       <Type name={name} value={value} options={options} onChange={onChange} inline={inline} />
-      <FormControl.Feedback />
+      <FormControl.Feedback className="Input_feedback" />
     </Col>
   </FormGroup>
 );
