@@ -21,7 +21,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   return {
     inline,
     name,
-    popisek: popisek || name,
+    popisek,
     Type,
     value: formatValue(name, rawValue),
     options: radioInputOptions(name, stateProps.prihlaseni, stateProps.rocniky),
@@ -35,7 +35,7 @@ const InputContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(
 InputContainer.propTypes = {
   inline: PropTypes.bool,
   name: PropTypes.string.isRequired,
-  popisek: PropTypes.string,
+  popisek: PropTypes.string.isRequired,
   Type: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node])
 };
 
