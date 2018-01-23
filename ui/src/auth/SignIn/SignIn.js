@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, ControlLabel, Form, FormGroup, FormControl, Panel } from 'react-bootstrap';
+import { ControlLabel, Form, FormGroup, FormControl, Panel } from 'react-bootstrap';
 import HideableError from '../../shared/HideableError';
-import LoadingIndicator from '../../shared/LoadingIndicator';
+import LoadingButton from '../../shared/LoadingButton';
 import './SignIn.css';
 
 class SignIn extends Component {
@@ -48,17 +48,16 @@ class SignIn extends Component {
             </FormGroup>
             <span className="SignIn_spacing" />
             <FormGroup>
-              <Button type="submit" bsStyle="success">
-                Přihlásit
-              </Button>
+              <LoadingButton
+                type="submit"
+                bsStyle="success"
+                loading={signingIn}
+                text="Přihlásit"
+                loadingText="Probíhá přihlašování..."
+              />
             </FormGroup>
           </Form>
         </Panel>
-        {signingIn && (
-          <div>
-            <LoadingIndicator /> Probíhá přihlašování...
-          </div>
-        )}
         {showError && (
           <HideableError
             code={errorCode}

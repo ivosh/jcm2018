@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Col, Form, FormGroup, Grid, Panel } from 'react-bootstrap';
+import { Button, Col, Form, FormGroup, Grid, Panel, Row } from 'react-bootstrap';
 import HideableError from '../../shared/HideableError';
+import LoadingButton from '../../shared/LoadingButton';
 import LoadingIndicator from '../../shared/LoadingIndicator';
 import InputContainer from './InputContainer';
 import RadioInput from './RadioInput';
@@ -45,7 +46,7 @@ class Prihlaseni extends Component {
 
     return (
       <div className="Prihlaseni_div">
-        <Grid>
+        <Grid fluid>
           <Form
             horizontal
             onSubmit={this.handleSubmit}
@@ -84,20 +85,25 @@ class Prihlaseni extends Component {
                 <InputContainer name="prihlaska.kod" popisek="kód" Type={TextInput} />
               </Panel>
             </Col>
-            <FormGroup>
-              <Button type="submit" bsStyle="success">
-                Uložit {existujiciUcastnik ? 'stávajícího' : 'nového'} účastníka
-              </Button>
-            </FormGroup>
+            <Row>
+              <Col sm={6}>
+                <Panel>
+                  <FormGroup>
+                    <LoadingButton
+                      type="submit"
+                      bsStyle="success"
+                      loading={saving}
+                      text={`Uložit ${existujiciUcastnik ? 'stávajícího' : 'nového'} účastníka`}
+                      loadingText="Probíhá ukládání..."
+                    />
+                  </FormGroup>
+                  <Button bsStyle="danger" onClick={this.handleReset}>
+                    Reset
+                  </Button>
+                </Panel>
+              </Col>
+            </Row>
           </Form>
-          <Button bsStyle="danger" onClick={this.handleReset}>
-            Reset
-          </Button>
-          {saving && (
-            <div>
-              <LoadingIndicator /> Probíhá ukládání...
-            </div>
-          )}
           {showError && (
             <HideableError
               code={errorCode}

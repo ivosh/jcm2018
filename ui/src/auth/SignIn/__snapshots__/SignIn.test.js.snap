@@ -70,20 +70,20 @@ exports[`formulář při načítání 1`] = `
         >
           <button
             className="btn btn-success"
-            disabled={false}
+            disabled={true}
             type="submit"
           >
-            Přihlásit
+            <span>
+              <span
+                className="LoadingIndicator glyphicon glyphicon-repeat"
+              />
+               
+              Probíhá přihlašování...
+            </span>
           </button>
         </div>
       </form>
     </div>
-  </div>
-  <div>
-    <span
-      className="LoadingIndicator glyphicon glyphicon-repeat"
-    />
-     Probíhá přihlašování...
   </div>
 </div>
 `;

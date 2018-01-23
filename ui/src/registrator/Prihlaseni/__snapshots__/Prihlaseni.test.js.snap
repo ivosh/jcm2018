@@ -7,7 +7,7 @@ exports[`formulář s chybou 1`] = `
   <Grid
     bsClass="container"
     componentClass="div"
-    fluid={false}
+    fluid={true}
   >
     <Form
       autoComplete="off"
@@ -120,33 +120,45 @@ exports[`formulář s chybou 1`] = `
           />
         </Panel>
       </Col>
-      <FormGroup
-        bsClass="form-group"
+      <Row
+        bsClass="row"
+        componentClass="div"
       >
-        <Button
-          active={false}
-          block={false}
-          bsClass="btn"
-          bsStyle="success"
-          disabled={false}
-          type="submit"
+        <Col
+          bsClass="col"
+          componentClass="div"
+          sm={6}
         >
-          Uložit 
-          stávajícího
-           účastníka
-        </Button>
-      </FormGroup>
+          <Panel
+            bsClass="panel"
+            bsStyle="default"
+            defaultExpanded={false}
+          >
+            <FormGroup
+              bsClass="form-group"
+            >
+              <LoadingButton
+                bsStyle="success"
+                loading={false}
+                loadingText="Probíhá ukládání..."
+                text="Uložit stávajícího účastníka"
+                type="submit"
+              />
+            </FormGroup>
+            <Button
+              active={false}
+              block={false}
+              bsClass="btn"
+              bsStyle="danger"
+              disabled={false}
+              onClick={[Function]}
+            >
+              Reset
+            </Button>
+          </Panel>
+        </Col>
+      </Row>
     </Form>
-    <Button
-      active={false}
-      block={false}
-      bsClass="btn"
-      bsStyle="danger"
-      disabled={false}
-      onClick={[Function]}
-    >
-      Reset
-    </Button>
     <HideableError
       code="chybový kód"
       message="Popisek chyby, která se stala."
@@ -164,7 +176,7 @@ exports[`formulář s existujícím účastníkem 1`] = `
   <Grid
     bsClass="container"
     componentClass="div"
-    fluid={false}
+    fluid={true}
   >
     <Form
       autoComplete="off"
@@ -277,188 +289,45 @@ exports[`formulář s existujícím účastníkem 1`] = `
           />
         </Panel>
       </Col>
-      <FormGroup
-        bsClass="form-group"
-      >
-        <Button
-          active={false}
-          block={false}
-          bsClass="btn"
-          bsStyle="success"
-          disabled={false}
-          type="submit"
-        >
-          Uložit 
-          stávajícího
-           účastníka
-        </Button>
-      </FormGroup>
-    </Form>
-    <Button
-      active={false}
-      block={false}
-      bsClass="btn"
-      bsStyle="danger"
-      disabled={false}
-      onClick={[Function]}
-    >
-      Reset
-    </Button>
-  </Grid>
-</div>
-`;
-
-exports[`formulář s existujícím účastníkem při ukládání 1`] = `
-<div
-  className="Prihlaseni_div"
->
-  <Grid
-    bsClass="container"
-    componentClass="div"
-    fluid={false}
-  >
-    <Form
-      autoComplete="off"
-      bsClass="form"
-      className="Prihlaseni_form"
-      componentClass="form"
-      horizontal={true}
-      inline={false}
-      onSubmit={[Function]}
-    >
-      <Col
-        bsClass="col"
+      <Row
+        bsClass="row"
         componentClass="div"
-        sm={6}
       >
-        <Panel
-          bsClass="panel"
-          bsStyle="primary"
-          defaultExpanded={false}
-          header="Údaje"
+        <Col
+          bsClass="col"
+          componentClass="div"
+          sm={6}
         >
-          <Connect(Input)
-            Type={[Function]}
-            name="udaje.prijmeni"
-            popisek="příjmení"
-          />
-          <Connect(Input)
-            Type={[Function]}
-            name="udaje.jmeno"
-            popisek="jméno"
-          />
-          <Connect(Input)
-            Type={[Function]}
-            name="udaje.narozeni"
-            popisek="narození"
-          />
-          <Connect(Input)
-            Type={[Function]}
-            inline={true}
-            name="udaje.pohlavi"
-            popisek="pohlaví"
-          />
-          <Connect(Input)
-            Type={[Function]}
-            name="udaje.adresa"
-            popisek="adresa"
-          />
-          <Connect(Input)
-            Type={[Function]}
-            name="udaje.obec"
-            popisek="obec"
-          />
-          <Connect(Input)
-            Type={[Function]}
-            name="udaje.psc"
-            popisek="PSČ"
-          />
-          <Connect(Input)
-            Type={[Function]}
-            name="udaje.stat"
-            popisek="stát"
-          />
-          <Connect(Input)
-            Type={[Function]}
-            name="udaje.klub"
-            popisek="klub"
-          />
-          <Connect(Input)
-            Type={[Function]}
-            name="udaje.email"
-            popisek="email"
-          />
-          <Connect(Input)
-            Type={[Function]}
-            name="udaje.telefon"
-            popisek="telefon"
-          />
-        </Panel>
-      </Col>
-      <Col
-        bsClass="col"
-        componentClass="div"
-        sm={6}
-      >
-        <Panel
-          bsClass="panel"
-          bsStyle="primary"
-          defaultExpanded={false}
-          header="Přihláška"
-        >
-          <Connect(Input)
-            Type={[Function]}
-            name="prihlaska.datum"
-            popisek="datum"
-          />
-          <Connect(Input)
-            Type={[Function]}
-            name="prihlaska.typKategorie"
-            popisek="kategorie"
-          />
-          <Connect(Input)
-            Type={[Function]}
-            name="prihlaska.startCislo"
-            popisek="číslo"
-          />
-          <Connect(Input)
-            Type={[Function]}
-            name="prihlaska.kod"
-            popisek="kód"
-          />
-        </Panel>
-      </Col>
-      <FormGroup
-        bsClass="form-group"
-      >
-        <Button
-          active={false}
-          block={false}
-          bsClass="btn"
-          bsStyle="success"
-          disabled={false}
-          type="submit"
-        >
-          Uložit 
-          stávajícího
-           účastníka
-        </Button>
-      </FormGroup>
+          <Panel
+            bsClass="panel"
+            bsStyle="default"
+            defaultExpanded={false}
+          >
+            <FormGroup
+              bsClass="form-group"
+            >
+              <LoadingButton
+                bsStyle="success"
+                loading={false}
+                loadingText="Probíhá ukládání..."
+                text="Uložit stávajícího účastníka"
+                type="submit"
+              />
+            </FormGroup>
+            <Button
+              active={false}
+              block={false}
+              bsClass="btn"
+              bsStyle="danger"
+              disabled={false}
+              onClick={[Function]}
+            >
+              Reset
+            </Button>
+          </Panel>
+        </Col>
+      </Row>
     </Form>
-    <Button
-      active={false}
-      block={false}
-      bsClass="btn"
-      bsStyle="danger"
-      disabled={false}
-      onClick={[Function]}
-    >
-      Reset
-    </Button>
-    <div>
-      <LoadingIndicator />
-       Probíhá ukládání...
-    </div>
   </Grid>
 </div>
 `;
@@ -470,7 +339,7 @@ exports[`prázdný formulář 1`] = `
   <Grid
     bsClass="container"
     componentClass="div"
-    fluid={false}
+    fluid={true}
   >
     <Form
       autoComplete="off"
@@ -583,33 +452,45 @@ exports[`prázdný formulář 1`] = `
           />
         </Panel>
       </Col>
-      <FormGroup
-        bsClass="form-group"
+      <Row
+        bsClass="row"
+        componentClass="div"
       >
-        <Button
-          active={false}
-          block={false}
-          bsClass="btn"
-          bsStyle="success"
-          disabled={false}
-          type="submit"
+        <Col
+          bsClass="col"
+          componentClass="div"
+          sm={6}
         >
-          Uložit 
-          nového
-           účastníka
-        </Button>
-      </FormGroup>
+          <Panel
+            bsClass="panel"
+            bsStyle="default"
+            defaultExpanded={false}
+          >
+            <FormGroup
+              bsClass="form-group"
+            >
+              <LoadingButton
+                bsStyle="success"
+                loading={false}
+                loadingText="Probíhá ukládání..."
+                text="Uložit nového účastníka"
+                type="submit"
+              />
+            </FormGroup>
+            <Button
+              active={false}
+              block={false}
+              bsClass="btn"
+              bsStyle="danger"
+              disabled={false}
+              onClick={[Function]}
+            >
+              Reset
+            </Button>
+          </Panel>
+        </Col>
+      </Row>
     </Form>
-    <Button
-      active={false}
-      block={false}
-      bsClass="btn"
-      bsStyle="danger"
-      disabled={false}
-      onClick={[Function]}
-    >
-      Reset
-    </Button>
   </Grid>
 </div>
 `;

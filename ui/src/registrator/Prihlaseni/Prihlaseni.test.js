@@ -71,21 +71,6 @@ it('formulář s existujícím účastníkem', () => {
   expect(toJSON(wrapper)).toMatchSnapshot();
 });
 
-it('formulář s existujícím účastníkem při ukládání', () => {
-  const wrapper = shallow(
-    <Prihlaseni
-      fetching={false}
-      saving={true}
-      existujiciUcastnik={true}
-      fetchUcastnici={jest.fn()}
-      onHideError={jest.fn()}
-      onReset={jest.fn()}
-      onSubmit={jest.fn()}
-    />
-  );
-  expect(toJSON(wrapper)).toMatchSnapshot();
-});
-
 it('formulář s chybou', () => {
   const wrapper = shallow(
     <Prihlaseni
