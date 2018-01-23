@@ -5,6 +5,7 @@ export const setHighestMezicasId = highestId => {
 
 export const addMezicas = duration => ({
   type: 'ADD_MEZICAS',
+  // eslint-disable-next-line no-plusplus
   id: nextMezicasId++,
   duration: duration.toJSON ? duration.toJSON() : duration
 });

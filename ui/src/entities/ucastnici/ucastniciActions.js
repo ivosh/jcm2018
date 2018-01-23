@@ -2,7 +2,7 @@ import { CODE_OK, CODE_TOKEN_INVALID, findAllUcastnici } from '../../common';
 import { fetchRocniky } from '../rocniky/rocnikyActions';
 import { authTokenExpired } from '../../auth/SignIn/SignInActions';
 
-const fetchUcastniciRequest = () => ({
+export const fetchUcastniciRequest = () => ({
   type: 'FETCH_UCASTNICI_REQUEST'
 });
 
@@ -20,7 +20,7 @@ export const fetchUcastniciSuccess = json => ({
 });
 
 // TODO: no component is subscribed to this action.
-const fetchUcastniciError = ({ code, status, err }) => ({
+export const fetchUcastniciError = ({ code, status, err }) => ({
   type: 'FETCH_UCASTNICI_ERROR',
   code,
   status,

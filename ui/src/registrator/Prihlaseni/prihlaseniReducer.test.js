@@ -1,6 +1,11 @@
 import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import {
+  fetchUcastniciRequest,
+  fetchUcastniciSuccess,
+  fetchUcastniciError
+} from '../../entities/ucastnici/ucastniciActions';
+import {
   hideError,
   inputChanged,
   reset,
@@ -160,6 +165,25 @@ it('saveUcastError()', () => {
   expect(prihlaseniReducer(stateBefore, saveUcastError(unsuccessfulResponse))).toEqual(stateAfter);
 });
 
+it('fetchUcastniciRequest()', () => {
+  const stateBefore = { fetching: false };
+  const stateAfter = { fetching: true };
+  deepFreeze(stateBefore);
+
+  expect(prihlaseniReducer(stateBefore, fetchUcastniciRequest())).toEqual(stateAfter);
+});
+
+it('fetchUcastniciSuccess/Error()', () => {
+  const stateBefore = { fetching: true };
+  const stateAfter = { fetching: false };
+  deepFreeze(stateBefore);
+
+  expect(prihlaseniReducer(stateBefore, fetchUcastniciSuccess({ response: {} }))).toEqual(
+    stateAfter
+  );
+  expect(prihlaseniReducer(stateBefore, fetchUcastniciError({}))).toEqual(stateAfter);
+});
+
 it('validation of the initial state [validateEmpty === false]', () => {
   const state = {
     validateEmpty: false,
@@ -309,7 +333,7 @@ it('validation of some invalid state [validateEmpty === true]', () => {
     udaje: {
       prijmeni: '',
       jmeno: undefined,
-      narozeni: { den: undefined, mesic: undefined, rok: 'žblabuňka' },
+      narozeni: { den: 1, mesic: 10, rok: 'žblabuňka' },
       pohlavi: 'muž',
       adresa: 'Za vodou 4787',
       obec: 'Kolešov',
