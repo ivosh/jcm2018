@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Col, Form, FormGroup, Grid, Panel, Row } from 'react-bootstrap';
+import { Button, Col, Form, Grid, Panel, Row } from 'react-bootstrap';
 import HideableError from '../../shared/HideableError';
 import LoadingButton from '../../shared/LoadingButton';
 import LoadingIndicator from '../../shared/LoadingIndicator';
@@ -87,20 +87,16 @@ class Prihlaseni extends Component {
             </Col>
             <Row>
               <Col sm={6}>
-                <Panel>
-                  <FormGroup>
-                    <LoadingButton
-                      type="submit"
-                      bsStyle="success"
-                      loading={saving}
-                      text={`Uložit ${existujiciUcastnik ? 'stávajícího' : 'nového'} účastníka`}
-                      loadingText="Probíhá ukládání..."
-                    />
-                  </FormGroup>
-                  <Button bsStyle="danger" onClick={this.handleReset}>
-                    Reset
-                  </Button>
-                </Panel>
+                <LoadingButton
+                  type="submit"
+                  bsStyle="success"
+                  loading={saving}
+                  text={`Uložit ${existujiciUcastnik ? 'stávajícího' : 'nového'} účastníka`}
+                  loadingText="Probíhá ukládání..."
+                />
+                <Button bsStyle="danger" onClick={this.handleReset} className="Prihlaseni_reset">
+                  Reset
+                </Button>
               </Col>
             </Row>
           </Form>

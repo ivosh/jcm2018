@@ -129,33 +129,24 @@ exports[`formulář s chybou 1`] = `
           componentClass="div"
           sm={6}
         >
-          <Panel
-            bsClass="panel"
-            bsStyle="default"
-            defaultExpanded={false}
+          <LoadingButton
+            bsStyle="success"
+            loading={false}
+            loadingText="Probíhá ukládání..."
+            text="Uložit stávajícího účastníka"
+            type="submit"
+          />
+          <Button
+            active={false}
+            block={false}
+            bsClass="btn"
+            bsStyle="danger"
+            className="Prihlaseni_reset"
+            disabled={false}
+            onClick={[Function]}
           >
-            <FormGroup
-              bsClass="form-group"
-            >
-              <LoadingButton
-                bsStyle="success"
-                loading={false}
-                loadingText="Probíhá ukládání..."
-                text="Uložit stávajícího účastníka"
-                type="submit"
-              />
-            </FormGroup>
-            <Button
-              active={false}
-              block={false}
-              bsClass="btn"
-              bsStyle="danger"
-              disabled={false}
-              onClick={[Function]}
-            >
-              Reset
-            </Button>
-          </Panel>
+            Reset
+          </Button>
         </Col>
       </Row>
     </Form>
@@ -298,33 +289,24 @@ exports[`formulář s existujícím účastníkem 1`] = `
           componentClass="div"
           sm={6}
         >
-          <Panel
-            bsClass="panel"
-            bsStyle="default"
-            defaultExpanded={false}
+          <LoadingButton
+            bsStyle="success"
+            loading={false}
+            loadingText="Probíhá ukládání..."
+            text="Uložit stávajícího účastníka"
+            type="submit"
+          />
+          <Button
+            active={false}
+            block={false}
+            bsClass="btn"
+            bsStyle="danger"
+            className="Prihlaseni_reset"
+            disabled={false}
+            onClick={[Function]}
           >
-            <FormGroup
-              bsClass="form-group"
-            >
-              <LoadingButton
-                bsStyle="success"
-                loading={false}
-                loadingText="Probíhá ukládání..."
-                text="Uložit stávajícího účastníka"
-                type="submit"
-              />
-            </FormGroup>
-            <Button
-              active={false}
-              block={false}
-              bsClass="btn"
-              bsStyle="danger"
-              disabled={false}
-              onClick={[Function]}
-            >
-              Reset
-            </Button>
-          </Panel>
+            Reset
+          </Button>
         </Col>
       </Row>
     </Form>
@@ -461,33 +443,24 @@ exports[`prázdný formulář 1`] = `
           componentClass="div"
           sm={6}
         >
-          <Panel
-            bsClass="panel"
-            bsStyle="default"
-            defaultExpanded={false}
+          <LoadingButton
+            bsStyle="success"
+            loading={false}
+            loadingText="Probíhá ukládání..."
+            text="Uložit nového účastníka"
+            type="submit"
+          />
+          <Button
+            active={false}
+            block={false}
+            bsClass="btn"
+            bsStyle="danger"
+            className="Prihlaseni_reset"
+            disabled={false}
+            onClick={[Function]}
           >
-            <FormGroup
-              bsClass="form-group"
-            >
-              <LoadingButton
-                bsStyle="success"
-                loading={false}
-                loadingText="Probíhá ukládání..."
-                text="Uložit nového účastníka"
-                type="submit"
-              />
-            </FormGroup>
-            <Button
-              active={false}
-              block={false}
-              bsClass="btn"
-              bsStyle="danger"
-              disabled={false}
-              onClick={[Function]}
-            >
-              Reset
-            </Button>
-          </Panel>
+            Reset
+          </Button>
         </Col>
       </Row>
     </Form>

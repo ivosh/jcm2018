@@ -5,3 +5,7 @@
 .Prihlaseni_form {
   display: inline-block;
 }
+
+.Prihlaseni_reset {
+  margin-left: 2em;
+}
