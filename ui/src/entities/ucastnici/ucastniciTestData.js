@@ -2201,6 +2201,10 @@ const state = {
               obec: 'Zlín',
               stat: 'Česká republika'
             },
+            prihlaska: {
+              datum: '2016-06-11T00:00:00.000Z',
+              kategorie: '5a587e1a051c181132cf83c2'
+            },
             vykon: {
               kategorie: '5a587e1a051c181132cf83c2',
               startCislo: 11,
@@ -2220,6 +2224,10 @@ const state = {
               obec: 'Ostrava 2',
               stat: 'Česká republika'
             },
+            prihlaska: {
+              datum: '2018-06-09T00:00:00.000Z',
+              kategorie: '5a587e1b051c181132cf83d7'
+            },
             vykon: {
               kategorie: '5a587e1b051c181132cf83d7',
               startCislo: 15,
@@ -2234,6 +2242,10 @@ const state = {
               pohlavi: 'muz',
               obec: 'Ostrava 1',
               stat: 'Česká republika'
+            },
+            prihlaska: {
+              datum: '2017-04-01T00:00:00.000Z',
+              kategorie: '5a587e1a051c181132cf83bc'
             },
             vykon: {
               kategorie: '5a587e1a051c181132cf83bc',
