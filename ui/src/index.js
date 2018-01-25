@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'react-bootstrap-typeahead/css/Typeahead.css';
 import registerServiceWorker from './registerServiceWorker';
 import WsClient from './WsClient';
 import configureStore from './configureStore';
