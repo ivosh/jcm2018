@@ -11,6 +11,21 @@ export const inputChanged = (name, event) => ({
   value: event.target.value
 });
 
+export const ucastnikSelected = ({ id }, kategorie, ucastnici) => {
+  const ucastnik = ucastnici.byIds[id];
+  const posledniRok = ucastnik.roky[0];
+  const ucast = ucastnik[posledniRok];
+  const action = {
+    type: 'PRIHLASENI_UCASTNIK_SELECTED',
+    id,
+    udaje: ucast.udaje
+  };
+
+  // TODO: Předvyplň přihlášku jen pro aktuální rok. Pro minulé roky na to prdíme.
+  const typKategorie = kategorie[ucast.prihlaska.kategorie];
+  return action;
+};
+
 export const reset = () => ({
   type: 'PRIHLASENI_RESET'
 });

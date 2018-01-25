@@ -2,6 +2,7 @@ import moment from 'moment';
 import { findKategorie, CODE_OK } from '../../common';
 import { AKTUALNI_ROK, TYPY_KATEGORII } from '../../constants';
 import { narozeniToStr } from '../../Util';
+import { prijmeniJmenoNarozeniSortMethod } from '../../entities/ucastnici/ucastniciReducer';
 
 const initialState = {
   errorCode: '',
@@ -93,6 +94,8 @@ const prihlaseniReducer = (state = initialState, action) => {
       }
       return { ...state, [section]: { ...state[section], [name]: value } };
     }
+    case 'PRIHLASENI_UCASTNIK_SELECTED':
+      return { ...state, ucastnikId: action.id, udaje: action.udaje };
     case 'PRIHLASENI_RESET':
       return initialState;
     case 'PRIHLASENI_VALIDATE_EMPTY':
@@ -107,6 +110,7 @@ const prihlaseniReducer = (state = initialState, action) => {
     case 'PRIHLASENI_SAVE_REQUEST':
       return { ...state, saving: true };
     case 'PRIHLASENI_SAVE_SUCCESS':
+      // :TODO: zandat take do entities.ucastnici (at uz jako novy nebo jako stavajici)
       return { ...state, ucastnikId: action.id, saving: false, showError: false };
     case 'PRIHLASENI_SAVE_ERROR':
       return {
@@ -248,8 +252,21 @@ const formatKategorie = kategorie => {
   return value;
 };
 
-export const radioInputOptions = (name, prihlaseni, rocniky) => {
+export const inputOptions = (name, prihlaseni, rocniky, ucastnici) => {
   switch (name) {
+    case 'udaje.prijmeni+prihlaska.kod': {
+      const selected = ucastnici.allIds.map(id => {
+        const ucastnik = ucastnici.byIds[id];
+        const posledniRok = ucastnik.roky[0];
+        const { prijmeni, jmeno, narozeni } = ucastnik[posledniRok].udaje;
+        const result = { id, prijmeni, jmeno, narozeni };
+        if (ucastnik[AKTUALNI_ROK]) {
+          result.kod = ucastnik[AKTUALNI_ROK].prihlaska.kod;
+        }
+        return result;
+      });
+      return selected.sort(prijmeniJmenoNarozeniSortMethod);
+    }
     case 'udaje.pohlavi':
       return [{ key: 'muž', value: 'muž' }, { key: 'žena', value: 'žena' }];
     case 'prihlaska.typKategorie': {

@@ -2,11 +2,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Input from './Input';
 import { inputChanged } from './PrihlaseniActions';
-import { formatValue, inputValid, radioInputOptions } from './prihlaseniReducer';
+import { formatValue, inputOptions, inputValid } from './prihlaseniReducer';
 
 const mapStateToProps = state => ({
   prihlaseni: state.registrator.prihlaseni,
-  rocniky: state.entities.rocniky
+  rocniky: state.entities.rocniky,
+  ucastnici: state.entities.ucastnici
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -14,6 +15,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  const { prihlaseni, rocniky, ucastnici } = stateProps;
   const { inline, name, popisek, Type } = ownProps;
   const [section, subName] = name.split('.');
   const rawValue = stateProps.prihlaseni[section][subName];
@@ -24,8 +26,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     popisek,
     Type,
     value: formatValue(name, rawValue),
-    options: radioInputOptions(name, stateProps.prihlaseni, stateProps.rocniky),
-    validationState: inputValid(name, rawValue, stateProps.prihlaseni),
+    options: inputOptions(name, prihlaseni, rocniky, ucastnici),
+    validationState: inputValid(name, rawValue, prihlaseni),
     onChange: event => dispatchProps.dispatch(inputChanged(name, event))
   };
 };

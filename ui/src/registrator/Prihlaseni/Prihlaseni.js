@@ -7,6 +7,7 @@ import LoadingIndicator from '../../shared/LoadingIndicator';
 import InputContainer from './InputContainer';
 import RadioInput from './RadioInput';
 import TextInput from './TextInput';
+import PrihlaseniSearchContainer from './PrihlaseniSearchContainer';
 import './Prihlaseni.css';
 
 class Prihlaseni extends Component {
@@ -47,6 +48,7 @@ class Prihlaseni extends Component {
     return (
       <div className="Prihlaseni_div">
         <Grid fluid>
+          {!existujiciUcastnik && <PrihlaseniSearchContainer />}
           <Form
             horizontal
             onSubmit={this.handleSubmit}
