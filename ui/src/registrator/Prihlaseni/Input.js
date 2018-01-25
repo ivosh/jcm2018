@@ -24,6 +24,7 @@ Input.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.string.isRequired,
+      id: PropTypes.string,
       value: PropTypes.string.isRequired
     })
   ), // for RadioInput

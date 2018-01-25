@@ -7,6 +7,7 @@ const RadioInput = ({ inline, name, value, options, onChange }) =>
     <Radio
       key={option.key}
       name={name}
+      id={option.id}
       value={option.key}
       checked={option.key === value}
       onChange={onChange}
@@ -23,6 +24,7 @@ RadioInput.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.string.isRequired,
+      id: PropTypes.string,
       value: PropTypes.string.isRequired
     })
   ),

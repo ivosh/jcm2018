@@ -52,7 +52,8 @@ it('na začátku', () => {
   });
   expect(stateAfter.prihlaska).toEqual({
     datum: undefined,
-    typKategorie: undefined,
+    kategorie: undefined,
+    typ: undefined,
     startCislo: undefined,
     kod: undefined,
     mladistvyPotvrzen: undefined
@@ -96,7 +97,8 @@ it('reset()', () => {
     },
     prihlaska: {
       datum: '1. 10. 2019',
-      typKategorie: 'maraton',
+      kategorie: '===k1===',
+      typ: 'maraton',
       startCislo: 23,
       kod: '===kod==',
       mladistvyPotvrzen: false
@@ -125,7 +127,8 @@ it('reset()', () => {
     },
     prihlaska: {
       datum: undefined,
-      typKategorie: undefined,
+      kategorie: undefined,
+      typ: undefined,
       startCislo: undefined,
       kod: undefined
     }
@@ -202,7 +205,8 @@ it('validation of the initial state [validateEmpty === false]', () => {
     },
     prihlaska: {
       datum: undefined,
-      typKategorie: undefined,
+      kategorie: undefined,
+      typ: undefined,
       startCislo: undefined,
       kod: undefined,
       mladistvyPotvrzen: undefined
@@ -222,7 +226,8 @@ it('validation of the initial state [validateEmpty === false]', () => {
   expect(inputValid('udaje.telefon', state.udaje.telefon, state)).toBe(undefined);
   expect(inputValid('udaje.email', state.udaje.email, state)).toBe(undefined);
   expect(inputValid('prihlaska.datum', state.prihlaska.datum, state)).toBe(undefined);
-  expect(inputValid('prihlaska.typKategorie', state.prihlaska.typKategorie, state)).toBe(undefined);
+  expect(inputValid('prihlaska.kategorie', state.prihlaska.kategorie, state)).toBe(undefined);
+  expect(inputValid('prihlaska.typ', state.prihlaska.typ, state)).toBe(undefined);
   expect(inputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toBe(undefined);
   expect(inputValid('prihlaska.kod', state.prihlaska.kod, state)).toBe(undefined);
   expect(inputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)).toBe(
@@ -249,7 +254,8 @@ it('validation of the initial state [validateEmpty === true]', () => {
     },
     prihlaska: {
       datum: undefined,
-      typKategorie: undefined,
+      kategorie: undefined,
+      typ: undefined,
       startCislo: undefined,
       kod: undefined,
       mladistvyPotvrzen: undefined
@@ -269,9 +275,8 @@ it('validation of the initial state [validateEmpty === true]', () => {
   expect(inputValid('udaje.telefon', state.udaje.telefon, state)).toBe(undefined);
   expect(inputValid('udaje.email', state.udaje.email, state)).toBe(undefined);
   expect(inputValid('prihlaska.datum', state.prihlaska.datum, state)).toEqual('error');
-  expect(inputValid('prihlaska.typKategorie', state.prihlaska.typKategorie, state)).toEqual(
-    'error'
-  );
+  expect(inputValid('prihlaska.kategorie', state.prihlaska.kategorie, state)).toEqual('error');
+  expect(inputValid('prihlaska.typ', state.prihlaska.typ, state)).toEqual('error');
   expect(inputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toBe(undefined);
   expect(inputValid('prihlaska.kod', state.prihlaska.kod, state)).toBe(undefined);
   expect(inputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)).toBe(
@@ -298,7 +303,8 @@ it('validation of some invalid state [validateEmpty === false]', () => {
     },
     prihlaska: {
       datum: '1. 12. 2017',
-      typKategorie: undefined,
+      kategorie: undefined,
+      typ: undefined,
       startCislo: undefined,
       kod: '===kód===',
       mladistvyPotvrzen: undefined
@@ -318,7 +324,8 @@ it('validation of some invalid state [validateEmpty === false]', () => {
   expect(inputValid('udaje.telefon', state.udaje.telefon, state)).toBe(undefined);
   expect(inputValid('udaje.email', state.udaje.email, state)).toBe(undefined);
   expect(inputValid('prihlaska.datum', state.prihlaska.datum, state)).toEqual('success');
-  expect(inputValid('prihlaska.typKategorie', state.prihlaska.typKategorie, state)).toBe(undefined);
+  expect(inputValid('prihlaska.kategorie', state.prihlaska.kategorie, state)).toBe(undefined);
+  expect(inputValid('prihlaska.typ', state.prihlaska.typ, state)).toBe(undefined);
   expect(inputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toBe(undefined);
   expect(inputValid('prihlaska.kod', state.prihlaska.kod, state)).toBe(undefined);
   expect(inputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)).toBe(
@@ -345,7 +352,8 @@ it('validation of some invalid state [validateEmpty === true]', () => {
     },
     prihlaska: {
       datum: '1. 12. 2017',
-      typKategorie: undefined,
+      kategorie: undefined,
+      typ: undefined,
       startCislo: undefined,
       kod: '===kód===',
       mladistvyPotvrzen: undefined
@@ -365,9 +373,8 @@ it('validation of some invalid state [validateEmpty === true]', () => {
   expect(inputValid('udaje.telefon', state.udaje.telefon, state)).toBe(undefined);
   expect(inputValid('udaje.email', state.udaje.email, state)).toBe(undefined);
   expect(inputValid('prihlaska.datum', state.prihlaska.datum, state)).toEqual('success');
-  expect(inputValid('prihlaska.typKategorie', state.prihlaska.typKategorie, state)).toEqual(
-    'error'
-  );
+  expect(inputValid('prihlaska.kategorie', state.prihlaska.kategorie, state)).toEqual('error');
+  expect(inputValid('prihlaska.typ', state.prihlaska.typ, state)).toEqual('error');
   expect(inputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toBe(undefined);
   expect(inputValid('prihlaska.kod', state.prihlaska.kod, state)).toBe(undefined);
   expect(inputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)).toBe(
@@ -518,7 +525,7 @@ it('prihlaska.datum - formát 2', () => {
   expect(formatValue('prihlaska.datum', stateAfter.prihlaska.datum)).toEqual('1. 7. 2017');
 });
 
-it('prihlaska.typKategorie - není pohlaví', () => {
+it('prihlaska.typ - není pohlaví', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
@@ -532,15 +539,15 @@ it('prihlaska.typKategorie - není pohlaví', () => {
     { key: 'půlmaraton', value: 'půlmaraton' },
     { key: 'cyklo', value: 'cyklo' },
     { key: 'koloběžka', value: 'koloběžka' },
-    { key: 'pěší', value: 'pěší' }
+    { key: 'pěší', id: '5a587e1a051c181132cf83b1', value: 'pěší' }
   ];
 
   expect(
-    inputOptions('prihlaska.typKategorie', state.registrator.prihlaseni, state.entities.rocniky)
+    inputOptions('prihlaska.typ', state.registrator.prihlaseni, state.entities.rocniky)
   ).toEqual(selected);
 });
 
-it('prihlaska.typKategorie - není narození', () => {
+it('prihlaska.typ - není narození', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
@@ -553,16 +560,16 @@ it('prihlaska.typKategorie - není narození', () => {
     { key: 'maraton', value: 'maraton' },
     { key: 'půlmaraton', value: 'půlmaraton' },
     { key: 'cyklo', value: 'cyklo' },
-    { key: 'koloběžka', value: 'koloběžka - žena - 18 a více' },
-    { key: 'pěší', value: 'pěší' }
+    { key: 'koloběžka', id: '5a587e1b051c181132cf83d0', value: 'koloběžka - žena - 18 a více' },
+    { key: 'pěší', id: '5a587e1a051c181132cf83b1', value: 'pěší' }
   ];
 
   expect(
-    inputOptions('prihlaska.typKategorie', state.registrator.prihlaseni, state.entities.rocniky)
+    inputOptions('prihlaska.typ', state.registrator.prihlaseni, state.entities.rocniky)
   ).toEqual(selected);
 });
 
-it('prihlaska.typKategorie - muž', () => {
+it('prihlaska.typ - muž', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
@@ -572,14 +579,14 @@ it('prihlaska.typKategorie - muž', () => {
     }
   };
   const selected = [
-    { key: 'maraton', value: 'maraton - muž - 18-39' },
-    { key: 'půlmaraton', value: 'půlmaraton - muž - 18-39' },
-    { key: 'cyklo', value: 'cyklo - muž - 36-45' },
-    { key: 'koloběžka', value: 'koloběžka - muž - 18 a více' },
-    { key: 'pěší', value: 'pěší' }
+    { key: 'maraton', id: '5a587e1a051c181132cf83b8', value: 'maraton - muž - 18-39' },
+    { key: 'půlmaraton', id: '5a587e1b051c181132cf83d3', value: 'půlmaraton - muž - 18-39' },
+    { key: 'cyklo', id: '5a587e1a051c181132cf83b9', value: 'cyklo - muž - 36-45' },
+    { key: 'koloběžka', id: '5a587e1b051c181132cf83cf', value: 'koloběžka - muž - 18 a více' },
+    { key: 'pěší', id: '5a587e1a051c181132cf83b1', value: 'pěší' }
   ];
 
   expect(
-    inputOptions('prihlaska.typKategorie', state.registrator.prihlaseni, state.entities.rocniky)
+    inputOptions('prihlaska.typ', state.registrator.prihlaseni, state.entities.rocniky)
   ).toEqual(selected);
 });

@@ -27,7 +27,8 @@ const initialState = {
   },
   prihlaska: {
     datum: undefined,
-    typKategorie: undefined,
+    kategorie: undefined,
+    typ: undefined,
     startCislo: undefined,
     kod: undefined,
     mladistvyPotvrzen: undefined
@@ -89,13 +90,17 @@ const prihlaseniReducer = (state = initialState, action) => {
         case 'prihlaska.datum':
           value = parseDatum(action.value);
           break;
+        case 'prihlaska.typ':
+          // eslint-disable-next-line no-param-reassign
+          state = { ...state, prihlaska: { ...state.prihlaska, kategorie: action.id } };
+          break;
         default:
           break;
       }
       return { ...state, [section]: { ...state[section], [name]: value } };
     }
     case 'PRIHLASENI_UCASTNIK_SELECTED':
-      return { ...state, ucastnikId: action.id, udaje: action.udaje };
+      return { ...state, ucastnikId: action.id, udaje: action.udaje, prihlaska: action.prihlaska };
     case 'PRIHLASENI_RESET':
       return initialState;
     case 'PRIHLASENI_VALIDATE_EMPTY':
@@ -177,7 +182,8 @@ export const inputValid = (name, value, prihlaseni) => {
     case 'udaje.pohlavi':
     case 'udaje.obec':
     case 'udaje.stat':
-    case 'prihlaska.typKategorie':
+    case 'prihlaska.kategorie':
+    case 'prihlaska.typ':
       return nonEmptyInputValid(value, prihlaseni.validateEmpty);
     case 'udaje.adresa':
     case 'udaje.klub':
@@ -232,7 +238,8 @@ export const prihlaseniValid = prihlaseni => {
     isInputValid('udaje.psc', udaje.psc, prihlaseni) &&
     isInputValid('udaje.stat', udaje.stat, prihlaseni) &&
     isInputValid('prihlaska.datum', prihlaska.datum, prihlaseni) &&
-    isInputValid('prihlaska.typKategorie', prihlaska.typKategorie, prihlaseni)
+    isInputValid('prihlaska.kategorie', prihlaska.kategorie, prihlaseni) &&
+    isInputValid('prihlaska.typ', prihlaska.typ, prihlaseni)
   );
 };
 
@@ -269,7 +276,7 @@ export const inputOptions = (name, prihlaseni, rocniky, ucastnici) => {
     }
     case 'udaje.pohlavi':
       return [{ key: 'muž', value: 'muž' }, { key: 'žena', value: 'žena' }];
-    case 'prihlaska.typKategorie': {
+    case 'prihlaska.typ': {
       const rok = AKTUALNI_ROK;
       const typyKategorii =
         (rocniky.byRoky[rok] && Object.keys(rocniky.byRoky[rok].kategorie)) || TYPY_KATEGORII;
@@ -284,7 +291,7 @@ export const inputOptions = (name, prihlaseni, rocniky, ucastnici) => {
           mladistvyPotvrzen: true
         });
         if (found.code === CODE_OK) {
-          list.push({ key: typ, value: formatKategorie(found.kategorie) });
+          list.push({ key: typ, id: found.kategorie.id, value: formatKategorie(found.kategorie) });
         } else {
           list.push({ key: typ, value: typ });
         }

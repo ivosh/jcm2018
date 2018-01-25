@@ -105,7 +105,7 @@ exports[`formulář s chybou 1`] = `
           />
           <Connect(Input)
             Type={[Function]}
-            name="prihlaska.typKategorie"
+            name="prihlaska.typ"
             popisek="kategorie"
           />
           <Connect(Input)
@@ -265,7 +265,7 @@ exports[`formulář s existujícím účastníkem 1`] = `
           />
           <Connect(Input)
             Type={[Function]}
-            name="prihlaska.typKategorie"
+            name="prihlaska.typ"
             popisek="kategorie"
           />
           <Connect(Input)
@@ -420,7 +420,7 @@ exports[`prázdný formulář 1`] = `
           />
           <Connect(Input)
             Type={[Function]}
-            name="prihlaska.typKategorie"
+            name="prihlaska.typ"
             popisek="kategorie"
           />
           <Connect(Input)

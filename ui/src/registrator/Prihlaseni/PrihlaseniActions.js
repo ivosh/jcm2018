@@ -8,6 +8,7 @@ export const hideError = () => ({ type: 'PRIHLASENI_HIDE_ERROR' });
 export const inputChanged = (name, event) => ({
   type: 'PRIHLASENI_INPUT_CHANGED',
   name,
+  id: event.target.id,
   value: event.target.value
 });
 
@@ -22,7 +23,7 @@ export const ucastnikSelected = ({ id }, kategorie, ucastnici) => {
   };
 
   // TODO: Předvyplň přihlášku jen pro aktuální rok. Pro minulé roky na to prdíme.
-  // const typKategorie = kategorie[ucast.prihlaska.kategorie];
+  // const { typ } = kategorie[ucast.prihlaska.kategorie];
   return action;
 };
 
@@ -77,12 +78,13 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
 
   dispatch(saveUcastRequest());
 
+  const rok = AKTUALNI_ROK;
   try {
     let response = await wsClient.sendRequest(
       saveUdaje(
         {
           id: prihlaseni.ucastnikId,
-          rok: AKTUALNI_ROK,
+          rok,
           udaje: prihlaseni.udaje
         },
         state.auth.token
@@ -98,7 +100,7 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
       savePrihlaska(
         {
           id,
-          rok: AKTUALNI_ROK,
+          rok,
           prihlaska: prihlaseni.prihlaska
         },
         state.auth.token

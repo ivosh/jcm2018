@@ -78,11 +78,7 @@ class Prihlaseni extends Component {
             <Col sm={6}>
               <Panel bsStyle="primary" header="Přihláška">
                 <InputContainer name="prihlaska.datum" popisek="datum" Type={TextInput} />
-                <InputContainer
-                  name="prihlaska.typKategorie"
-                  popisek="kategorie"
-                  Type={RadioInput}
-                />
+                <InputContainer name="prihlaska.typ" popisek="kategorie" Type={RadioInput} />
                 <InputContainer name="prihlaska.startCislo" popisek="číslo" Type={TextInput} />
                 <InputContainer name="prihlaska.kod" popisek="kód" Type={TextInput} />
               </Panel>
