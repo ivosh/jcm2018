@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<div
+  className="rbt open clearfix PrihlaseniSearch"
+  style={
+    Object {
+      "position": "relative",
+    }
+  }
+  tabIndex={-1}
+>
+  <div
+    className="rbt-input form-control"
+    disabled={false}
+    onClick={[Function]}
+    onFocus={[Function]}
+    tabIndex={-1}
+  >
+    <div
+      className="rbt-input-wrapper"
+    >
+      <div
+        style={
+          Object {
+            "display": "block",
+            "position": "relative",
+          }
+        }
+      >
+        <input
+          autoComplete="off"
+          className="rbt-input-main"
+          disabled={false}
+          name={undefined}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          placeholder="Začni psát příjmení nebo vlož kód přihlášky."
+          style={
+            Object {
+              "backgroundColor": "transparent",
+              "border": 0,
+              "boxShadow": "none",
+              "cursor": "inherit",
+              "outline": "none",
+              "padding": 0,
+              "width": "100%",
+            }
+          }
+          type="text"
+          value=""
+        />
+        <div
+          className={undefined}
+          style={
+            Object {
+              "bottom": 0,
+              "display": "block",
+              "position": "absolute",
+              "top": 0,
+              "zIndex": 0,
+            }
+          }
+        >
+          <input
+            aria-hidden={true}
+            className="rbt-input-hint"
+            id={undefined}
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "border": 0,
+                "boxShadow": "none",
+                "boxSizing": "content-box",
+                "color": "rgba(0, 0, 0, 0.35)",
+                "cursor": "inherit",
+                "outline": "none",
+                "padding": 0,
+                "width": "1px",
+              }
+            }
+            tabIndex={-1}
+            value=""
+          />
+          <div
+            style={
+              Object {
+                "height": 0,
+                "left": 0,
+                "overflow": "scroll",
+                "position": "absolute",
+                "top": 0,
+                "visibility": "hidden",
+                "whiteSpace": "pre",
+              }
+            }
+          >
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-atomic={true}
+    aria-live="polite"
+    className="sr-only rbt-sr-status"
+    role="status"
+  >
+    0 selections
+  </div>
+</div>
+`;

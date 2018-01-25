@@ -25,7 +25,6 @@ class Prihlaseni extends Component {
     this.props.onSubmit();
   };
 
-  // TODO: narozeni
   render = () => {
     const {
       errorCode,

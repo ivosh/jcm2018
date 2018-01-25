@@ -2226,7 +2226,9 @@ const state = {
             },
             prihlaska: {
               datum: '2018-06-09T00:00:00.000Z',
-              kategorie: '5a587e1b051c181132cf83d7'
+              kategorie: '5a587e1b051c181132cf83d7',
+              startCislo: 17,
+              kod: '10728864'
             },
             vykon: {
               kategorie: '5a587e1b051c181132cf83d7',
@@ -2245,7 +2247,8 @@ const state = {
             },
             prihlaska: {
               datum: '2017-04-01T00:00:00.000Z',
-              kategorie: '5a587e1a051c181132cf83bc'
+              kategorie: '5a587e1a051c181132cf83bc',
+              kod: '10728863'
             },
             vykon: {
               kategorie: '5a587e1a051c181132cf83bc',
