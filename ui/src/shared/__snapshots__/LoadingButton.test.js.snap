@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders - loading 1`] = `
+<button
+  className="btn btn-success"
+  disabled={true}
+  type="button"
+>
+  <span>
+    <span
+      className="LoadingIndicator glyphicon glyphicon-repeat"
+    />
+     
+  </span>
+</button>
+`;
+
+exports[`renders - not loading 1`] = `
+<button
+  className="btn btn-success"
+  disabled={false}
+  type="button"
+>
+  čudl
+</button>
+`;
