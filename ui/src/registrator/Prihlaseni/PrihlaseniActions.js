@@ -22,7 +22,7 @@ export const ucastnikSelected = ({ id }, kategorie, ucastnici) => {
   };
 
   // TODO: Předvyplň přihlášku jen pro aktuální rok. Pro minulé roky na to prdíme.
-  const typKategorie = kategorie[ucast.prihlaska.kategorie];
+  // const typKategorie = kategorie[ucast.prihlaska.kategorie];
   return action;
 };
 

@@ -17,7 +17,7 @@ import prihlaseniReducer, {
   formatValue,
   inputValid,
   prihlaseniValid,
-  radioInputOptions
+  inputOptions
 } from './prihlaseniReducer';
 
 const unsuccessfulResponse = {
@@ -536,11 +536,7 @@ it('prihlaska.typKategorie - není pohlaví', () => {
   ];
 
   expect(
-    radioInputOptions(
-      'prihlaska.typKategorie',
-      state.registrator.prihlaseni,
-      state.entities.rocniky
-    )
+    inputOptions('prihlaska.typKategorie', state.registrator.prihlaseni, state.entities.rocniky)
   ).toEqual(selected);
 });
 
@@ -562,11 +558,7 @@ it('prihlaska.typKategorie - není narození', () => {
   ];
 
   expect(
-    radioInputOptions(
-      'prihlaska.typKategorie',
-      state.registrator.prihlaseni,
-      state.entities.rocniky
-    )
+    inputOptions('prihlaska.typKategorie', state.registrator.prihlaseni, state.entities.rocniky)
   ).toEqual(selected);
 });
 
@@ -588,10 +580,6 @@ it('prihlaska.typKategorie - muž', () => {
   ];
 
   expect(
-    radioInputOptions(
-      'prihlaska.typKategorie',
-      state.registrator.prihlaseni,
-      state.entities.rocniky
-    )
+    inputOptions('prihlaska.typKategorie', state.registrator.prihlaseni, state.entities.rocniky)
   ).toEqual(selected);
 });

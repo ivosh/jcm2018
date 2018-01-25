@@ -323,6 +323,7 @@ exports[`prázdný formulář 1`] = `
     componentClass="div"
     fluid={true}
   >
+    <Connect(PrihlaseniSearch) />
     <Form
       autoComplete="off"
       bsClass="form"
