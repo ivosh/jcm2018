@@ -9,6 +9,7 @@ import {
   hideError,
   inputChanged,
   reset,
+  ucastnikSelected,
   saveUcastRequest,
   saveUcastSuccess,
   saveUcastError
@@ -589,4 +590,116 @@ it('prihlaska.typ - muž', () => {
   expect(
     inputOptions('prihlaska.typ', state.registrator.prihlaseni, state.entities.rocniky)
   ).toEqual(selected);
+});
+
+it('ucastnikSelected - údaje i přihláška', () => {
+  const stateBefore = {
+    udaje: {
+      prijmeni: 'Příjmení',
+      jmeno: 'Jméno',
+      narozeni: { den: 1, mesic: 10, rok: 'žblabuňka' },
+      pohlavi: 'muž',
+      adresa: 'Za vodou 4787',
+      obec: 'Kolešov',
+      psc: '321 34',
+      stat: 'Česká republika',
+      klub: 'Hory hory hory',
+      email: 'není',
+      telefon: '765 123 089'
+    },
+    prihlaska: {
+      datum: '1. 12. 2017',
+      kategorie: '===k1===',
+      typ: 'maraton',
+      startCislo: 14,
+      kod: '===kód===',
+      mladistvyPotvrzen: undefined
+    }
+  };
+  const stateAfter = {
+    ucastnikId: '5a09b1fd371dec1e99b7e1c9',
+    udaje: {
+      prijmeni: 'Balabák',
+      jmeno: 'Roman',
+      narozeni: { rok: 1956 },
+      pohlavi: 'muz',
+      obec: 'Ostrava 2',
+      stat: 'Česká republika'
+    },
+    prihlaska: {
+      datum: '2018-06-09T00:00:00.000Z',
+      kategorie: '5a587e1b051c181132cf83d7',
+      typ: 'půlmaraton',
+      startCislo: 17,
+      kod: '10728864'
+    }
+  };
+  deepFreeze(stateBefore);
+
+  expect(
+    prihlaseniReducer(
+      stateBefore,
+      ucastnikSelected(
+        { id: '5a09b1fd371dec1e99b7e1c9' },
+        ucastniciTestData.entities.kategorie,
+        ucastniciTestData.entities.ucastnici
+      )
+    )
+  ).toEqual(stateAfter);
+});
+
+it('ucastnikSelected - jen údaje', () => {
+  const stateBefore = {
+    udaje: {
+      prijmeni: 'Příjmení',
+      jmeno: 'Jméno',
+      narozeni: { den: 1, mesic: 10, rok: 'žblabuňka' },
+      pohlavi: 'muž',
+      adresa: 'Za vodou 4787',
+      obec: 'Kolešov',
+      psc: '321 34',
+      stat: 'Česká republika',
+      klub: 'Hory hory hory',
+      email: 'není',
+      telefon: '765 123 089'
+    },
+    prihlaska: {
+      datum: '1. 12. 2017',
+      kategorie: '===k1===',
+      typ: 'maraton',
+      startCislo: 14,
+      kod: '===kód===',
+      mladistvyPotvrzen: undefined
+    }
+  };
+  const stateAfter = {
+    ucastnikId: '6f09b1fd371dec1e99b7e1c9',
+    udaje: {
+      prijmeni: 'Sukdoláková',
+      jmeno: 'Martina',
+      narozeni: { rok: 1963, mesic: 12, den: 7 },
+      pohlavi: 'zena',
+      obec: 'Zlín',
+      stat: 'Česká republika'
+    },
+    prihlaska: {
+      datum: undefined,
+      kategorie: undefined,
+      typ: undefined,
+      startCislo: undefined,
+      kod: undefined
+    }
+  };
+  deepFreeze(stateBefore);
+
+  expect(
+    prihlaseniReducer(
+      stateBefore,
+      ucastnikSelected(
+        { id: '6f09b1fd371dec1e99b7e1c9' },
+        ucastniciTestData.entities.kategorie,
+        ucastniciTestData.entities.ucastnici
+      )
+    )
+  ).toEqual(stateAfter);
 });

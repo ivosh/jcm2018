@@ -100,7 +100,12 @@ const prihlaseniReducer = (state = initialState, action) => {
       return { ...state, [section]: { ...state[section], [name]: value } };
     }
     case 'PRIHLASENI_UCASTNIK_SELECTED':
-      return { ...state, ucastnikId: action.id, udaje: action.udaje, prihlaska: action.prihlaska };
+      return {
+        ...state,
+        ucastnikId: action.id,
+        udaje: action.udaje,
+        prihlaska: action.prihlaska ? action.prihlaska : initialState.prihlaska
+      };
     case 'PRIHLASENI_RESET':
       return initialState;
     case 'PRIHLASENI_VALIDATE_EMPTY':
