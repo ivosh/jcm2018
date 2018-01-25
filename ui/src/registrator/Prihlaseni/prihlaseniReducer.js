@@ -189,7 +189,7 @@ export const inputValid = (name, value, prihlaseni) => {
     case 'udaje.klub':
     case 'udaje.email':
     case 'udaje.telefon':
-    case 'prihlaska.startCislo': // Může nechat nevyplněné, doplní server.
+    case 'prihlaska.startCislo': // Může nechat nevyplněné, doplní se později.
     case 'prihlaska.kod':
     case 'prihlaska.mladistvyPotvrzen':
       return undefined;

@@ -2,6 +2,8 @@ import WebSocketAsPromised from 'websocket-as-promised';
 import Channel from 'chnl';
 import { PORT } from './common';
 
+const TIMEOUT = 20 * 1000; // 20 seconds
+
 /**
  * Usage:
  * const wsClient = new WsClient({ onConnect, onClose });
@@ -18,7 +20,7 @@ class WsClient {
       this.url = `wss://${hostname}/`;
     }
     this.reconnectInterval = 2 * 1000;
-    this.sendTimeout = 10 * 1000;
+    this.sendTimeout = TIMEOUT;
     this.setCallbacks({ onConnect, onClose });
     this.channel = new Channel();
     this.channel.addListener(this.onRequestAvailable);
@@ -32,7 +34,7 @@ class WsClient {
       unpackMessage: message => JSON.parse(message),
       attachRequestId: (data, requestId) => ({ ...data, requestId }),
       extractRequestId: data => data && data.requestId,
-      timeout: 5000
+      timeout: this.sendTimeout
     });
 
     try {
