@@ -13,19 +13,23 @@ const port = 5601;
 const wsServer = createWsServer({});
 const wsClient = createWsClient({ port });
 
+let kategorie1;
+let kategorie2;
+let kategorie4;
+let kategorie5;
 beforeAll(async () => {
   wsServer.httpServer().listen(port);
   await wsClient.open();
 
   await db.dropDatabase();
 
-  const kategorie1 = new Kategorie({
+  kategorie1 = new Kategorie({
     typ: 'maraton',
     pohlavi: 'žena',
     vek: { min: 40, max: 49 }
   });
   await kategorie1.save();
-  const kategorie2 = new Kategorie({
+  kategorie2 = new Kategorie({
     typ: 'maraton',
     pohlavi: 'žena',
     vek: { min: 50, max: 59 }
@@ -37,13 +41,13 @@ beforeAll(async () => {
     vek: { min: 40, max: 49 }
   });
   await kategorie3.save();
-  const kategorie4 = new Kategorie({
+  kategorie4 = new Kategorie({
     typ: 'půlmaraton',
     pohlavi: 'žena',
     vek: { min: 50, max: 59 }
   });
   await kategorie4.save();
-  const kategorie5 = new Kategorie({
+  kategorie5 = new Kategorie({
     typ: 'půlmaraton',
     pohlavi: 'muž',
     vek: { min: 50, max: 59 }
@@ -127,7 +131,7 @@ it('vytvoř minimálního účastníka', async () => {
   };
   const prihlaska = {
     datum: new Date('2018-02-07Z'),
-    typKategorie: 'půlmaraton',
+    kategorie: kategorie5.id, // půlmaraton
     kod: '===kod==='
   };
 
@@ -163,12 +167,12 @@ it('vytvoř dvě účasti s přihláškami', async () => {
   const udaje2 = { ...udaje1, obec: 'Kamenický Přívoz' };
   const prihlaska1 = {
     datum: new Date('2017-05-03Z'),
-    typKategorie: 'maraton',
+    kategorie: kategorie2.id, // maraton
     kod: '===kod1==='
   };
   const prihlaska2 = {
     datum: new Date('2018-02-07Z'),
-    typKategorie: 'půlmaraton',
+    kategorie: kategorie4.id, // půlmaraton
     kod: '===kod2==='
   };
 
@@ -217,11 +221,11 @@ it('přepiš existující přihlášku', async () => {
     obec: 'Kladno 1',
     psc: '327 41'
   };
-  const prihlaska1 = { datum: new Date('2018-05-03Z'), typKategorie: 'maraton' };
-  const prihlaska2 = { datum: new Date('2017-05-03Z'), typKategorie: 'maraton' };
-  const prihlaska3 = { datum: new Date('2016-05-03Z'), typKategorie: 'maraton' };
-  const prihlaska4 = { datum: new Date('2015-05-03Z'), typKategorie: 'maraton' };
-  const prihlaska5 = { datum: new Date('2017-04-01Z'), typKategorie: 'maraton' };
+  const prihlaska1 = { datum: new Date('2018-05-03Z'), kategorie: kategorie2.id };
+  const prihlaska2 = { datum: new Date('2017-05-03Z'), kategorie: kategorie2.id };
+  const prihlaska3 = { datum: new Date('2016-05-03Z'), kategorie: kategorie1.id };
+  const prihlaska4 = { datum: new Date('2015-05-03Z'), kategorie: kategorie1.id };
+  const prihlaska5 = { datum: new Date('2017-04-01Z'), kategorie: kategorie2.id };
 
   const response1 = await wsClient.sendRequest(
     Actions.saveUdaje({ rok: 2018, udaje }, generateTestToken())
@@ -265,7 +269,7 @@ it('přepiš existující přihlášku', async () => {
 it('účastník neexistuje', async () => {
   const prihlaska = {
     datum: new Date('2018-02-07Z'),
-    typKategorie: 'půlmaraton',
+    kategorie: kategorie1.id,
     kod: '===kod==='
   };
 
@@ -288,7 +292,7 @@ it('kategorie neexistuje', async () => {
   };
   const prihlaska = {
     datum: new Date('2018-02-07Z'),
-    typKategorie: 'cyklo',
+    kategorie: '===neexistující===',
     startCislo: 34
   };
 
@@ -301,6 +305,36 @@ it('kategorie neexistuje', async () => {
   const { requestId, ...response } = await wsClient.sendRequest(
     Actions.savePrihlaska({ id, rok: 2018, prihlaska }, generateTestToken())
   );
+  expect(response).toMatchSnapshot();
+
+  await Ucastnik.collection.drop();
+});
+
+it('chybná kategorie (věk)', async () => {
+  const udaje = {
+    prijmeni: 'Sukdoláková',
+    jmeno: 'Božena',
+    narozeni: { rok: 1967 },
+    pohlavi: 'žena',
+    obec: 'Kladno 1',
+    psc: '327 41'
+  };
+  const prihlaska = {
+    datum: new Date('2015-02-07Z'),
+    kategorie: kategorie2.id,
+    startCislo: 34
+  };
+
+  const response1 = await wsClient.sendRequest(
+    Actions.saveUdaje({ rok: 2015, udaje }, generateTestToken())
+  );
+  const { id } = response1.response;
+  expect(id).toBeTruthy();
+
+  const { requestId, ...response } = await wsClient.sendRequest(
+    Actions.savePrihlaska({ id, rok: 2015, prihlaska }, generateTestToken())
+  );
+  response.status = response.status.replace(/[a-f\d]{24}/g, '==id==');
   expect(response).toMatchSnapshot();
 
   await Ucastnik.collection.drop();

@@ -1,9 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`chybná kategorie (věk) 1`] = `
+Object {
+  "code": "chybná kategorie",
+  "status": "Chybně vybraná kategorie id ==id== oproti správné ==id==. Detaily: { id: ==id==,
+  typ: 'maraton',
+  pohlavi: 'žena',
+  vek: { min: 50, max: 59 } } vs. { id: ==id==,
+  pohlavi: 'žena',
+  typ: 'maraton',
+  vek: { min: 40, max: 49 } }",
+}
+`;
+
 exports[`kategorie neexistuje 1`] = `
 Object {
   "code": "neexistuje",
-  "status": "Kategorie 'cyklo' v roce 2018 neexistuje.",
+  "status": "Kategorie id '===neexistující===' neexistuje.",
 }
 `;
 

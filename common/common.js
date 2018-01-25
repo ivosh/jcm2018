@@ -25,6 +25,7 @@ const SIGN_OUT = 'signOut';
 const CODE_OK = 'ok';
 const CODE_ALREADY_EXISTING = 'již existuje';
 const CODE_DB_DISCONNECTED = 'nepřipojeno k databázi';
+const CODE_KATEGORIE_INVALID = 'chybná kategorie';
 const CODE_MAX_LOGIN_ATTEMPTS = 'max login attempts reached';
 const CODE_MLADISTVY_UCASTNIK = 'účastník potřebuje souhlas zákonného zástupce';
 const CODE_NONCE_MISMATCH = 'nesouhlas jednorázového přihlašovacího kódu';
@@ -189,6 +190,7 @@ module.exports = {
   CODE_OK,
   CODE_ALREADY_EXISTING,
   CODE_DB_DISCONNECTED,
+  CODE_KATEGORIE_INVALID,
   CODE_MAX_LOGIN_ATTEMPTS,
   CODE_MLADISTVY_UCASTNIK,
   CODE_NONCE_MISMATCH,

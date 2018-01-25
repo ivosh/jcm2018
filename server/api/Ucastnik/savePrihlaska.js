@@ -1,9 +1,12 @@
 'use strict';
 
+const util = require('util');
 const logger = require('heroku-logger');
 const Actions = require('../../../common/common');
 const findAllRocniky = require('../Rocnik/findAllRocniky');
 const createUcast = require('./createUcast');
+
+const deepPrint = obj => util.inspect(obj, false, null);
 
 const savePrihlaska = async ({ request }) => {
   const { id, rok, prihlaska } = request;
@@ -12,13 +15,17 @@ const savePrihlaska = async ({ request }) => {
   // :TODO: zkontrolovat vyplnene cele narozeni pokud je vybrana kategorie vek.presne
   // :TODO: startovní číslo?
 
-  let rocniky;
-  {
-    const { code, status, response } = await findAllRocniky();
-    if (code !== Actions.CODE_OK) {
-      return { code, status };
-    }
-    ({ rocniky } = response);
+  const responseRocniky = await findAllRocniky();
+  if (responseRocniky.code !== Actions.CODE_OK) {
+    return { code: responseRocniky.code, status: responseRocniky.status };
+  }
+  const { kategorie, rocniky } = responseRocniky.response;
+
+  if (!kategorie[prihlaska.kategorie]) {
+    return {
+      code: Actions.CODE_NONEXISTING,
+      status: `Kategorie id '${prihlaska.kategorie}' neexistuje.`
+    };
   }
 
   const { code, status, ucastnik } = await createUcast({ id, rok });
@@ -30,9 +37,11 @@ const savePrihlaska = async ({ request }) => {
   }
 
   const ucast = ucastnik.ucasti.find(oneUcast => oneUcast.rok === rok);
+
+  const { typ } = kategorie[prihlaska.kategorie];
   const found = Actions.findKategorie(rocniky, {
     rok,
-    typ: prihlaska.typKategorie,
+    typ,
     pohlavi: ucast.udaje.pohlavi,
     narozeni: ucast.udaje.narozeni,
     mladistvyPotvrzen: prihlaska.mladistvyPotvrzen
@@ -44,8 +53,14 @@ const savePrihlaska = async ({ request }) => {
     };
   }
 
-  delete prihlaska.typKategorie;
-  prihlaska.kategorie = found.kategorie.id;
+  if (!found.kategorie.id.equals(prihlaska.kategorie)) {
+    return {
+      code: Actions.CODE_KATEGORIE_INVALID,
+      status: `Chybně vybraná kategorie id ${prihlaska.kategorie} oproti správné ${
+        found.kategorie.id
+      }. Detaily: ${deepPrint(kategorie[prihlaska.kategorie])} vs. ${deepPrint(found.kategorie)}`
+    };
+  }
 
   ucast.prihlaska = prihlaska;
   await ucastnik.save();
