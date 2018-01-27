@@ -17,6 +17,7 @@ beforeEach(() => {
         errorMessage: 'Chybová hláška trochu dlouhá.',
         showError: true,
         fetching: false,
+        saved: false,
         saving: true,
         ucastnikId: '---id---',
         validateEmpty: false
@@ -33,6 +34,7 @@ it('maps state and dispatch to props', () => {
   expect(wrapper.props().errorMessage).toEqual('Chybová hláška trochu dlouhá.');
   expect(wrapper.props().showError).toBe(true);
   expect(wrapper.props().fetching).toBe(false);
+  expect(wrapper.props().saved).toBe(false);
   expect(wrapper.props().saving).toBe(true);
   expect(wrapper.props().existujiciUcastnik).toBe(true);
 });
@@ -47,6 +49,12 @@ it('maps onHideError to dispatch hideError action', () => {
   wrapper.props().onHideError();
 
   expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASENI_HIDE_ERROR' });
+});
+
+it('maps onHideModal to dispatch hideModal action', () => {
+  wrapper.props().onHideModal();
+
+  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASENI_SAVE_MODAL_HIDE' });
 });
 
 it('maps onReset to dispatch reset action', () => {

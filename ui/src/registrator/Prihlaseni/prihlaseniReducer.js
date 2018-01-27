@@ -9,6 +9,7 @@ const initialState = {
   errorMessage: '',
   showError: false,
   fetching: false,
+  saved: false,
   saving: false,
   ucastnikId: undefined,
   validateEmpty: false,
@@ -120,7 +121,6 @@ const prihlaseniReducer = (state = initialState, action) => {
     case 'PRIHLASENI_SAVE_REQUEST':
       return { ...state, saving: true };
     case 'PRIHLASENI_SAVE_SUCCESS':
-      // :TODO: zandat take do entities.ucastnici (at uz jako novy nebo jako stavajici)
       return { ...state, ucastnikId: action.id, saving: false, showError: false };
     case 'PRIHLASENI_SAVE_ERROR':
       return {
@@ -130,6 +130,10 @@ const prihlaseniReducer = (state = initialState, action) => {
         errorMessage: action.status,
         showError: true
       };
+    case 'PRIHLASENI_SAVE_MODAL_SHOW':
+      return { ...state, saved: true };
+    case 'PRIHLASENI_SAVE_MODAL_HIDE':
+      return { ...state, saved: false };
     case 'FETCH_UCASTNICI_REQUEST':
       return { ...state, fetching: true };
     case 'FETCH_UCASTNICI_SUCCESS':

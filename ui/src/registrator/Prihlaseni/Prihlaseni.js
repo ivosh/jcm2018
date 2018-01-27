@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Col, Form, Grid, Panel, Row } from 'react-bootstrap';
+import { Button, Col, Form, Grid, Modal, Panel, Row } from 'react-bootstrap';
 import HideableError from '../../shared/HideableError';
 import LoadingButton from '../../shared/LoadingButton';
 import LoadingIndicator from '../../shared/LoadingIndicator';
@@ -31,9 +31,11 @@ class Prihlaseni extends Component {
       errorMessage,
       showError,
       fetching,
+      saved,
       saving,
       existujiciUcastnik,
-      onHideError
+      onHideError,
+      onHideModal
     } = this.props;
 
     if (fetching) {
@@ -46,6 +48,17 @@ class Prihlaseni extends Component {
 
     return (
       <div className="Prihlaseni_div">
+        <Modal show={saved} onHide={onHideModal} bsSize="small">
+          <Modal.Header closeButton>
+            <Modal.Title>V pořádku</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>V pořádku uloženo</Modal.Body>
+          <Modal.Footer>
+            <Button bsStyle="primary" onClick={onHideModal}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Grid fluid>
           {!existujiciUcastnik && <PrihlaseniSearchContainer />}
           <Form
@@ -116,10 +129,12 @@ Prihlaseni.propTypes = {
   errorMessage: PropTypes.string,
   showError: PropTypes.bool,
   fetching: PropTypes.bool.isRequired,
+  saved: PropTypes.bool.isRequired,
   saving: PropTypes.bool.isRequired,
   existujiciUcastnik: PropTypes.bool.isRequired,
   fetchUcastnici: PropTypes.func.isRequired,
   onHideError: PropTypes.func.isRequired,
+  onHideModal: PropTypes.func.isRequired,
   onReset: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
 };

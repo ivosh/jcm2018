@@ -1,17 +1,18 @@
 import { connect } from 'react-redux';
 import { fetchUcastnici } from '../../entities/ucastnici/ucastniciActions';
 import Prihlaseni from './Prihlaseni';
-import { hideError, reset, saveUcast } from './PrihlaseniActions';
+import { hideError, hideModal, reset, saveUcast } from './PrihlaseniActions';
 
 const mapStateToProps = state => {
   const { registrator: { prihlaseni } } = state;
-  const { errorCode, errorMessage, showError, fetching, saving, ucastnikId } = prihlaseni;
+  const { errorCode, errorMessage, showError, fetching, saved, saving, ucastnikId } = prihlaseni;
 
   return {
     errorCode,
     errorMessage,
     showError,
     fetching,
+    saved,
     saving,
     existujiciUcastnik: !!ucastnikId
   };
@@ -20,6 +21,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   fetchUcastnici: () => dispatch(fetchUcastnici()),
   onHideError: () => dispatch(hideError()),
+  onHideModal: () => dispatch(hideModal()),
   onReset: () => dispatch(reset()),
   onSubmit: () => dispatch(saveUcast())
 });

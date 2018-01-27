@@ -39,7 +39,7 @@ mockWsClient.sendRequest = async () => responses[responseNumber++];
 const middlewares = [thunk.withExtraArgument(mockWsClient)];
 const mockStore = configureStore(middlewares);
 
-it('saveUcast() should dispatch three successful actions', async () => {
+it('saveUcast() should dispatch four successful actions', async () => {
   responses = [successfulResponseSaveUdaje, successfulResponseSavePrihlaska];
   const store = mockStore({
     auth: { token: '===token===' },
@@ -56,6 +56,7 @@ it('saveUcast() should dispatch three successful actions', async () => {
       type: 'PRIHLASENI_SAVE_SUCCESS'
     })
   );
+  expect(actions[3]).toEqual({ type: 'PRIHLASENI_SAVE_MODAL_SHOW' });
 });
 
 it('saveUcast() should dispatch two unsuccessful actions 1/2', async () => {

@@ -1,9 +1,283 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`formulář po uložení 1`] = `
+<div
+  className="Prihlaseni_div"
+>
+  <Modal
+    animation={true}
+    autoFocus={true}
+    backdrop={true}
+    bsClass="modal"
+    bsSize="small"
+    dialogComponentClass={[Function]}
+    enforceFocus={true}
+    keyboard={true}
+    manager={
+      ModalManager {
+        "add": [Function],
+        "containers": Array [],
+        "data": Array [],
+        "handleContainerOverflow": true,
+        "hideSiblingNodes": true,
+        "isTopModal": [Function],
+        "modals": Array [],
+        "remove": [Function],
+      }
+    }
+    onHide={[Function]}
+    renderBackdrop={[Function]}
+    restoreFocus={true}
+    show={true}
+  >
+    <ModalHeader
+      bsClass="modal-header"
+      closeButton={true}
+      closeLabel="Close"
+    >
+      <ModalTitle
+        bsClass="modal-title"
+        componentClass="h4"
+      >
+        V pořádku
+      </ModalTitle>
+    </ModalHeader>
+    <ModalBody
+      bsClass="modal-body"
+      componentClass="div"
+    >
+      V pořádku uloženo
+    </ModalBody>
+    <ModalFooter
+      bsClass="modal-footer"
+      componentClass="div"
+    >
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="primary"
+        disabled={false}
+        onClick={[Function]}
+      >
+        Close
+      </Button>
+    </ModalFooter>
+  </Modal>
+  <Grid
+    bsClass="container"
+    componentClass="div"
+    fluid={true}
+  >
+    <Form
+      autoComplete="off"
+      bsClass="form"
+      className="Prihlaseni_form"
+      componentClass="form"
+      horizontal={true}
+      inline={false}
+      onSubmit={[Function]}
+    >
+      <Col
+        bsClass="col"
+        componentClass="div"
+        sm={6}
+      >
+        <Panel
+          bsClass="panel"
+          bsStyle="primary"
+          defaultExpanded={false}
+          header="Údaje"
+        >
+          <Connect(Input)
+            Type={[Function]}
+            name="udaje.prijmeni"
+            popisek="příjmení"
+          />
+          <Connect(Input)
+            Type={[Function]}
+            name="udaje.jmeno"
+            popisek="jméno"
+          />
+          <Connect(Input)
+            Type={[Function]}
+            name="udaje.narozeni"
+            popisek="narození"
+          />
+          <Connect(Input)
+            Type={[Function]}
+            inline={true}
+            name="udaje.pohlavi"
+            popisek="pohlaví"
+          />
+          <Connect(Input)
+            Type={[Function]}
+            name="udaje.adresa"
+            popisek="adresa"
+          />
+          <Connect(Input)
+            Type={[Function]}
+            name="udaje.obec"
+            popisek="obec"
+          />
+          <Connect(Input)
+            Type={[Function]}
+            name="udaje.psc"
+            popisek="PSČ"
+          />
+          <Connect(Input)
+            Type={[Function]}
+            name="udaje.stat"
+            popisek="stát"
+          />
+          <Connect(Input)
+            Type={[Function]}
+            name="udaje.klub"
+            popisek="klub"
+          />
+          <Connect(Input)
+            Type={[Function]}
+            name="udaje.email"
+            popisek="email"
+          />
+          <Connect(Input)
+            Type={[Function]}
+            name="udaje.telefon"
+            popisek="telefon"
+          />
+        </Panel>
+      </Col>
+      <Col
+        bsClass="col"
+        componentClass="div"
+        sm={6}
+      >
+        <Panel
+          bsClass="panel"
+          bsStyle="primary"
+          defaultExpanded={false}
+          header="Přihláška"
+        >
+          <Connect(Input)
+            Type={[Function]}
+            name="prihlaska.datum"
+            popisek="datum"
+          />
+          <Connect(Input)
+            Type={[Function]}
+            name="prihlaska.typ"
+            popisek="kategorie"
+          />
+          <Connect(Input)
+            Type={[Function]}
+            name="prihlaska.startCislo"
+            popisek="číslo"
+          />
+          <Connect(Input)
+            Type={[Function]}
+            name="prihlaska.kod"
+            popisek="kód"
+          />
+        </Panel>
+      </Col>
+      <Row
+        bsClass="row"
+        componentClass="div"
+      >
+        <Col
+          bsClass="col"
+          componentClass="div"
+          sm={6}
+        >
+          <LoadingButton
+            bsStyle="success"
+            loading={false}
+            loadingText="Probíhá ukládání..."
+            text="Uložit stávajícího účastníka"
+            type="submit"
+          />
+          <Button
+            active={false}
+            block={false}
+            bsClass="btn"
+            bsStyle="danger"
+            className="Prihlaseni_reset"
+            disabled={false}
+            onClick={[Function]}
+          >
+            Reset
+          </Button>
+        </Col>
+      </Row>
+    </Form>
+  </Grid>
+</div>
+`;
+
 exports[`formulář s chybou 1`] = `
 <div
   className="Prihlaseni_div"
 >
+  <Modal
+    animation={true}
+    autoFocus={true}
+    backdrop={true}
+    bsClass="modal"
+    bsSize="small"
+    dialogComponentClass={[Function]}
+    enforceFocus={true}
+    keyboard={true}
+    manager={
+      ModalManager {
+        "add": [Function],
+        "containers": Array [],
+        "data": Array [],
+        "handleContainerOverflow": true,
+        "hideSiblingNodes": true,
+        "isTopModal": [Function],
+        "modals": Array [],
+        "remove": [Function],
+      }
+    }
+    onHide={[Function]}
+    renderBackdrop={[Function]}
+    restoreFocus={true}
+    show={false}
+  >
+    <ModalHeader
+      bsClass="modal-header"
+      closeButton={true}
+      closeLabel="Close"
+    >
+      <ModalTitle
+        bsClass="modal-title"
+        componentClass="h4"
+      >
+        V pořádku
+      </ModalTitle>
+    </ModalHeader>
+    <ModalBody
+      bsClass="modal-body"
+      componentClass="div"
+    >
+      V pořádku uloženo
+    </ModalBody>
+    <ModalFooter
+      bsClass="modal-footer"
+      componentClass="div"
+    >
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="primary"
+        disabled={false}
+        onClick={[Function]}
+      >
+        Close
+      </Button>
+    </ModalFooter>
+  </Modal>
   <Grid
     bsClass="container"
     componentClass="div"
@@ -164,6 +438,66 @@ exports[`formulář s existujícím účastníkem 1`] = `
 <div
   className="Prihlaseni_div"
 >
+  <Modal
+    animation={true}
+    autoFocus={true}
+    backdrop={true}
+    bsClass="modal"
+    bsSize="small"
+    dialogComponentClass={[Function]}
+    enforceFocus={true}
+    keyboard={true}
+    manager={
+      ModalManager {
+        "add": [Function],
+        "containers": Array [],
+        "data": Array [],
+        "handleContainerOverflow": true,
+        "hideSiblingNodes": true,
+        "isTopModal": [Function],
+        "modals": Array [],
+        "remove": [Function],
+      }
+    }
+    onHide={[Function]}
+    renderBackdrop={[Function]}
+    restoreFocus={true}
+    show={false}
+  >
+    <ModalHeader
+      bsClass="modal-header"
+      closeButton={true}
+      closeLabel="Close"
+    >
+      <ModalTitle
+        bsClass="modal-title"
+        componentClass="h4"
+      >
+        V pořádku
+      </ModalTitle>
+    </ModalHeader>
+    <ModalBody
+      bsClass="modal-body"
+      componentClass="div"
+    >
+      V pořádku uloženo
+    </ModalBody>
+    <ModalFooter
+      bsClass="modal-footer"
+      componentClass="div"
+    >
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="primary"
+        disabled={false}
+        onClick={[Function]}
+      >
+        Close
+      </Button>
+    </ModalFooter>
+  </Modal>
   <Grid
     bsClass="container"
     componentClass="div"
@@ -318,6 +652,66 @@ exports[`prázdný formulář 1`] = `
 <div
   className="Prihlaseni_div"
 >
+  <Modal
+    animation={true}
+    autoFocus={true}
+    backdrop={true}
+    bsClass="modal"
+    bsSize="small"
+    dialogComponentClass={[Function]}
+    enforceFocus={true}
+    keyboard={true}
+    manager={
+      ModalManager {
+        "add": [Function],
+        "containers": Array [],
+        "data": Array [],
+        "handleContainerOverflow": true,
+        "hideSiblingNodes": true,
+        "isTopModal": [Function],
+        "modals": Array [],
+        "remove": [Function],
+      }
+    }
+    onHide={[Function]}
+    renderBackdrop={[Function]}
+    restoreFocus={true}
+    show={false}
+  >
+    <ModalHeader
+      bsClass="modal-header"
+      closeButton={true}
+      closeLabel="Close"
+    >
+      <ModalTitle
+        bsClass="modal-title"
+        componentClass="h4"
+      >
+        V pořádku
+      </ModalTitle>
+    </ModalHeader>
+    <ModalBody
+      bsClass="modal-body"
+      componentClass="div"
+    >
+      V pořádku uloženo
+    </ModalBody>
+    <ModalFooter
+      bsClass="modal-footer"
+      componentClass="div"
+    >
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="primary"
+        disabled={false}
+        onClick={[Function]}
+      >
+        Close
+      </Button>
+    </ModalFooter>
+  </Modal>
   <Grid
     bsClass="container"
     componentClass="div"

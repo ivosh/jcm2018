@@ -1,5 +1,5 @@
 import { CODE_OK, CODE_TOKEN_INVALID, savePrihlaska, saveUdaje } from '../../common';
-import { AKTUALNI_ROK } from '../../constants';
+import { AKTUALNI_ROK, PRIHLASENI_SAVE_MODAL_TIMEOUT } from '../../constants';
 import { authTokenExpired } from '../../auth/SignIn/SignInActions';
 import { prihlaseniValid } from './prihlaseniReducer';
 
@@ -77,6 +77,13 @@ const handleErrors = (dispatch, response) => {
   }
 };
 
+export const hideModal = () => ({ type: 'PRIHLASENI_SAVE_MODAL_HIDE' });
+const showModal = () => ({ type: 'PRIHLASENI_SAVE_MODAL_SHOW' });
+const showModalWithTimeout = dispatch => {
+  dispatch(showModal());
+  setTimeout(() => dispatch(hideModal()), PRIHLASENI_SAVE_MODAL_TIMEOUT);
+};
+
 export const saveUcast = () => async (dispatch, getState, wsClient) => {
   await dispatch(validateEmpty());
 
@@ -120,6 +127,7 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
     );
     if (response.code === CODE_OK) {
       dispatch(saveUcastSuccess({ id, rok, udaje, prihlaska }));
+      showModalWithTimeout(dispatch);
     } else {
       handleErrors(dispatch, response);
     }

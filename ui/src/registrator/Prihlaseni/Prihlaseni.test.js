@@ -16,6 +16,7 @@ const state = {
       errorMessage: '',
       showError: false,
       fetching: false,
+      saved: false,
       saving: true,
       ucastnikId: '---id---',
       validateEmpty: false,
@@ -30,10 +31,12 @@ it('při načítání', () => {
   const component = renderer.create(
     <Prihlaseni
       fetching={true}
+      saved={false}
       saving={false}
       existujiciUcastnik={false}
       fetchUcastnici={jest.fn()}
       onHideError={jest.fn()}
+      onHideModal={jest.fn()}
       onReset={jest.fn()}
       onSubmit={jest.fn()}
     />
@@ -45,10 +48,12 @@ it('prázdný formulář', () => {
   const wrapper = shallow(
     <Prihlaseni
       fetching={false}
+      saved={false}
       saving={false}
       existujiciUcastnik={false}
       fetchUcastnici={jest.fn()}
       onHideError={jest.fn()}
+      onHideModal={jest.fn()}
       onReset={jest.fn()}
       onSubmit={jest.fn()}
     />
@@ -60,10 +65,12 @@ it('formulář s existujícím účastníkem', () => {
   const wrapper = shallow(
     <Prihlaseni
       fetching={false}
+      saved={false}
       saving={false}
       existujiciUcastnik={true}
       fetchUcastnici={jest.fn()}
       onHideError={jest.fn()}
+      onHideModal={jest.fn()}
       onReset={jest.fn()}
       onSubmit={jest.fn()}
     />
@@ -78,10 +85,32 @@ it('formulář s chybou', () => {
       errorMessage="Popisek chyby, která se stala."
       showError={true}
       fetching={false}
+      saved={false}
       saving={false}
       existujiciUcastnik={true}
       fetchUcastnici={jest.fn()}
       onHideError={jest.fn()}
+      onHideModal={jest.fn()}
+      onReset={jest.fn()}
+      onSubmit={jest.fn()}
+    />
+  );
+  expect(toJSON(wrapper)).toMatchSnapshot();
+});
+
+it('formulář po uložení', () => {
+  const wrapper = shallow(
+    <Prihlaseni
+      errorCode="chybový kód"
+      errorMessage="Popisek chyby, která se stala."
+      showError={false}
+      fetching={false}
+      saved={true}
+      saving={false}
+      existujiciUcastnik={true}
+      fetchUcastnici={jest.fn()}
+      onHideError={jest.fn()}
+      onHideModal={jest.fn()}
       onReset={jest.fn()}
       onSubmit={jest.fn()}
     />
@@ -96,10 +125,12 @@ it('handle succesfull form submit', () => {
     <Provider store={store}>
       <Prihlaseni
         fetching={false}
+        saved={false}
         saving={false}
         existujiciUcastnik={true}
         fetchUcastnici={jest.fn()}
         onHideError={jest.fn()}
+        onHideModal={jest.fn()}
         onReset={jest.fn()}
         onSubmit={onSubmit}
       />
@@ -118,10 +149,12 @@ it('handle form reset', () => {
     <Provider store={store}>
       <Prihlaseni
         fetching={false}
+        saved={false}
         saving={false}
         existujiciUcastnik={true}
         fetchUcastnici={jest.fn()}
         onHideError={jest.fn()}
+        onHideModal={jest.fn()}
         onReset={onReset}
         onSubmit={jest.fn()}
       />

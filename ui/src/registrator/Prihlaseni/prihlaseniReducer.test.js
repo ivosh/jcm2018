@@ -81,6 +81,7 @@ it('reset()', () => {
     errorMessage: 'Dlouhá chybová hláška.',
     showError: true,
     fetching: false,
+    saved: true,
     saving: true,
     ucastnikId: '===id===',
     validateEmpty: true,
@@ -111,6 +112,7 @@ it('reset()', () => {
     errorMessage: '',
     showError: false,
     fetching: false,
+    saved: false,
     saving: false,
     ucastnikId: undefined,
     validateEmpty: false,
@@ -132,7 +134,8 @@ it('reset()', () => {
       kategorie: undefined,
       typ: undefined,
       startCislo: undefined,
-      kod: undefined
+      kod: undefined,
+      mladistvyPotvrzen: undefined
     }
   };
   deepFreeze(stateBefore);
