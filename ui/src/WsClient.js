@@ -1,8 +1,7 @@
 import WebSocketAsPromised from 'websocket-as-promised';
 import Channel from 'chnl';
 import { PORT } from './common';
-
-const TIMEOUT = 20 * 1000; // 20 seconds
+import { WEBSOCKET_RECONNECT_INTERVAL, WEBSOCKET_REQUEST_TIMEOUT } from './constants';
 
 /**
  * Usage:
@@ -12,15 +11,21 @@ const TIMEOUT = 20 * 1000; // 20 seconds
  * await wsClient.close();
  */
 class WsClient {
-  constructor({ port = PORT, onConnect, onClose } = {}) {
+  constructor({
+    port = PORT,
+    reconnectInterval = WEBSOCKET_RECONNECT_INTERVAL,
+    requestTimeout = WEBSOCKET_REQUEST_TIMEOUT,
+    onConnect,
+    onClose
+  } = {}) {
     const hostname = (window && window.location && window.location.hostname) || 'localhost';
     if (hostname === 'localhost') {
       this.url = `ws://${hostname}:${port}/`;
     } else {
       this.url = `wss://${hostname}/`;
     }
-    this.reconnectInterval = 2 * 1000;
-    this.sendTimeout = TIMEOUT;
+    this.reconnectInterval = reconnectInterval;
+    this.requestTimeout = requestTimeout;
     this.setCallbacks({ onConnect, onClose });
     this.channel = new Channel();
     this.channel.addListener(this.onRequestAvailable);
@@ -34,7 +39,7 @@ class WsClient {
       unpackMessage: message => JSON.parse(message),
       attachRequestId: (data, requestId) => ({ ...data, requestId }),
       extractRequestId: data => data && data.requestId,
-      timeout: this.sendTimeout
+      timeout: this.requestTimeout
     });
 
     try {
@@ -95,8 +100,12 @@ class WsClient {
   onRequestAvailable = async request => {
     const { ws } = this;
     if (ws) {
-      const response = await ws.sendRequest(request.data);
-      request.resolve(response);
+      try {
+        const response = await ws.sendRequest(request.data);
+        request.resolve(response);
+      } catch (err) {
+        request.reject(err);
+      }
       return;
     }
     // WsClient se mezitím odpojil. Naplánuj znovu.
@@ -109,7 +118,6 @@ class WsClient {
       request = { ...request, resolve, reject };
     });
 
-    setTimeout(() => request.reject(new Error('Request send timeout.')), this.sendTimeout);
     this.channel.dispatch(request);
     return promise;
   };

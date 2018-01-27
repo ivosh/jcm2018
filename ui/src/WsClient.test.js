@@ -82,3 +82,18 @@ it('sends a request', async () => {
   const response = await wsClient.sendRequest({ zprava: 'Tohle.' });
   expect(response).toBeTruthy();
 });
+
+it('handles request timeout', async done => {
+  const port = PORT + 1;
+  mockServer = new Server(`ws://localhost:${port}`);
+  wsClient = new WsClient({ requestTimeout: 500, port });
+  await wsClient.connect();
+
+  try {
+    await wsClient.sendRequest({zprava: 'Tamto.'});
+    fail();
+  } catch (err) {
+    expect(err.message).toContain('WebSocket request was rejected by timeout (500 ms).');
+    done();
+  }
+});
