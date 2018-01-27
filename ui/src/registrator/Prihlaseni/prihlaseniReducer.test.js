@@ -16,9 +16,10 @@ import {
 } from './PrihlaseniActions';
 import prihlaseniReducer, {
   formatValue,
+  inputOptions,
   inputValid,
-  prihlaseniValid,
-  inputOptions
+  isInputEnabled,
+  prihlaseniValid
 } from './prihlaseniReducer';
 
 const unsuccessfulResponse = {
@@ -237,6 +238,9 @@ it('validation of the initial state [validateEmpty === false]', () => {
     undefined
   );
   expect(prihlaseniValid(state)).toBe(true);
+  expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
+    false
+  );
 });
 
 it('validation of the initial state [validateEmpty === true]', () => {
@@ -286,6 +290,9 @@ it('validation of the initial state [validateEmpty === true]', () => {
     undefined
   );
   expect(prihlaseniValid(state)).toBe(false);
+  expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
+    false
+  );
 });
 
 it('validation of some invalid state [validateEmpty === false]', () => {
@@ -335,6 +342,9 @@ it('validation of some invalid state [validateEmpty === false]', () => {
     undefined
   );
   expect(prihlaseniValid(state)).toBe(false);
+  expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
+    false
+  );
 });
 
 it('validation of some invalid state [validateEmpty === true]', () => {
@@ -384,6 +394,9 @@ it('validation of some invalid state [validateEmpty === true]', () => {
     undefined
   );
   expect(prihlaseniValid(state)).toBe(false);
+  expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
+    false
+  );
 });
 
 it('udaje.pohlavi - nahodí ženu', () => {
@@ -592,6 +605,38 @@ it('prihlaska.typ - muž', () => {
   expect(
     inputOptions('prihlaska.typ', state.registrator.prihlaseni, state.entities.rocniky)
   ).toEqual(selected);
+});
+
+it('prihlaska.startCislo - kategorie má čísla', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      prihlaseni: {
+        udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: 'muž' },
+        prihlaska: { kategorie: '5a587e1b051c181132cf83d3', typ: 'půlmaraton' }
+      }
+    }
+  };
+
+  expect(
+    isInputEnabled('prihlaska.startCislo', state.registrator.prihlaseni, state.entities.rocniky)
+  ).toBe(true);
+});
+
+it('prihlaska.startCislo - kategorie nemá čísla', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      prihlaseni: {
+        udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: 'muž' },
+        prihlaska: { kategorie: '5a587e1a051c181132cf83b1', typ: 'pěší' }
+      }
+    }
+  };
+
+  expect(
+    isInputEnabled('prihlaska.startCislo', state.registrator.prihlaseni, state.entities.rocniky)
+  ).toBe(false);
 });
 
 it('ucastnikSelected - údaje i přihláška', () => {

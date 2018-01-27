@@ -248,6 +248,23 @@ export const prihlaseniValid = prihlaseni => {
   );
 };
 
+export const isInputEnabled = (name, prihlaseni, rocniky) => {
+  switch (name) {
+    case 'prihlaska.startCislo': {
+      const { typ } = prihlaseni.prihlaska;
+      if (!typ) {
+        return false;
+      }
+      const rok = AKTUALNI_ROK;
+      const rocnik = rocniky.byRoky[rok];
+      const typKategorieRocniku = rocnik.kategorie[typ];
+      return !!typKategorieRocniku.startCisla;
+    }
+    default:
+      return true;
+  }
+};
+
 const formatKategorie = kategorie => {
   let value = kategorie.typ;
   if (kategorie.pohlavi) {

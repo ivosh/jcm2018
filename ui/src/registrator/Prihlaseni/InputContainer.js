@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Input from './Input';
 import { inputChanged } from './PrihlaseniActions';
-import { formatValue, inputOptions, inputValid } from './prihlaseniReducer';
+import { formatValue, inputOptions, inputValid, isInputEnabled } from './prihlaseniReducer';
 
 const mapStateToProps = state => ({
   prihlaseni: state.registrator.prihlaseni,
@@ -25,9 +25,10 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     name,
     popisek,
     Type,
-    value: formatValue(name, rawValue),
+    enabled: isInputEnabled(name, prihlaseni, rocniky),
     options: inputOptions(name, prihlaseni, rocniky, ucastnici),
     validationState: inputValid(name, rawValue, prihlaseni),
+    value: formatValue(name, rawValue),
     onChange: event => dispatchProps.dispatch(inputChanged(name, event))
   };
 };
