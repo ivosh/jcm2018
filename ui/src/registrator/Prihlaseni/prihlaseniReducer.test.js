@@ -152,7 +152,9 @@ it('saveUcastSuccess()', () => {
   const stateAfter = { ...stateBefore, ucastnikId: '===id===', saving: false, showError: false };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniReducer(stateBefore, saveUcastSuccess('===id==='))).toEqual(stateAfter);
+  expect(
+    prihlaseniReducer(stateBefore, saveUcastSuccess({ id: '===id===', udaje: {}, prihlaska: {} }))
+  ).toEqual(stateAfter);
 });
 
 it('saveUcastError()', () => {
@@ -622,7 +624,7 @@ it('ucastnikSelected - údaje i přihláška', () => {
       prijmeni: 'Balabák',
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
-      pohlavi: 'muz',
+      pohlavi: 'muž',
       obec: 'Ostrava 2',
       stat: 'Česká republika'
     },
@@ -678,7 +680,7 @@ it('ucastnikSelected - jen údaje', () => {
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
       narozeni: { rok: 1963, mesic: 12, den: 7 },
-      pohlavi: 'zena',
+      pohlavi: 'žena',
       obec: 'Zlín',
       stat: 'Česká republika'
     },

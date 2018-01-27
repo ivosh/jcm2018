@@ -47,11 +47,18 @@ export const saveUcastRequest = () => ({
   type: 'PRIHLASENI_SAVE_REQUEST'
 });
 
-export const saveUcastSuccess = id => ({
-  type: 'PRIHLASENI_SAVE_SUCCESS',
-  id,
-  receivedAt: Date.now()
-});
+export const saveUcastSuccess = ({ id, rok, udaje, prihlaska }) => {
+  const { typ, ...jenPrihlaska } = prihlaska;
+
+  return {
+    type: 'PRIHLASENI_SAVE_SUCCESS',
+    id,
+    rok,
+    udaje,
+    prihlaska: jenPrihlaska,
+    receivedAt: Date.now()
+  };
+};
 
 export const saveUcastError = ({ code, status, err, ...rest }) => ({
   type: 'PRIHLASENI_SAVE_ERROR',
@@ -83,13 +90,14 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
   dispatch(saveUcastRequest());
 
   const rok = AKTUALNI_ROK;
+  const { udaje, prihlaska } = prihlaseni;
   try {
     let response = await wsClient.sendRequest(
       saveUdaje(
         {
           id: prihlaseni.ucastnikId,
           rok,
-          udaje: prihlaseni.udaje
+          udaje
         },
         state.auth.token
       )
@@ -105,13 +113,13 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
         {
           id,
           rok,
-          prihlaska: prihlaseni.prihlaska
+          prihlaska
         },
         state.auth.token
       )
     );
     if (response.code === CODE_OK) {
-      dispatch(saveUcastSuccess(id));
+      dispatch(saveUcastSuccess({ id, rok, udaje, prihlaska }));
     } else {
       handleErrors(dispatch, response);
     }

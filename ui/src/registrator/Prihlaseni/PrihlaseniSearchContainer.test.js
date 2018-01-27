@@ -50,7 +50,7 @@ it('maps onSelect to dispatch ucastnikSelected action - existující přihlášk
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
       obec: 'Ostrava 2',
-      pohlavi: 'muz',
+      pohlavi: 'muž',
       prijmeni: 'Balabák',
       stat: 'Česká republika'
     },
@@ -74,7 +74,7 @@ it('maps onSelect to dispatch ucastnikSelected action - starší účast', () =>
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
       narozeni: { rok: 1963, mesic: 12, den: 7 },
-      pohlavi: 'zena',
+      pohlavi: 'žena',
       obec: 'Zlín',
       stat: 'Česká republika'
     }

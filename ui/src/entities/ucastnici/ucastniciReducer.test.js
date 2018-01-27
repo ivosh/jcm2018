@@ -1,5 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
+import { saveUcastSuccess } from '../../registrator/Prihlaseni/PrihlaseniActions';
 import ucastniciReducer, { narozeniSortMethod } from './ucastniciReducer';
 import { fetchUcastniciSuccess } from './ucastniciActions';
 import ucastniciTestData from './ucastniciTestData';
@@ -32,7 +33,7 @@ it('po načtení účastníků', () => {
             prijmeni: 'Sukdoláková',
             jmeno: 'Martina',
             narozeni: { rok: 1963 },
-            pohlavi: 'zena',
+            pohlavi: 'žena',
             obec: 'Zlín',
             stat: 'Česká republika'
           },
@@ -51,7 +52,7 @@ it('po načtení účastníků', () => {
             prijmeni: 'Balabák',
             jmeno: 'Roman',
             narozeni: { rok: 1956 },
-            pohlavi: 'muz',
+            pohlavi: 'muž',
             obec: 'Ostrava 1',
             stat: 'Česká republika'
           },
@@ -67,7 +68,7 @@ it('po načtení účastníků', () => {
             prijmeni: 'Balabák',
             jmeno: 'Roman',
             narozeni: { rok: 1956 },
-            pohlavi: 'muz',
+            pohlavi: 'muž',
             obec: 'Ostrava 2',
             stat: 'Česká republika'
           },
@@ -93,7 +94,7 @@ it('po načtení účastníků', () => {
             prijmeni: 'Sukdoláková',
             jmeno: 'Martina',
             narozeni: { rok: 1963 },
-            pohlavi: 'zena',
+            pohlavi: 'žena',
             obec: 'Zlín',
             stat: 'Česká republika'
           },
@@ -112,7 +113,7 @@ it('po načtení účastníků', () => {
             prijmeni: 'Balabák',
             jmeno: 'Roman',
             narozeni: { rok: 1956 },
-            pohlavi: 'muz',
+            pohlavi: 'muž',
             obec: 'Ostrava 2',
             stat: 'Česká republika'
           },
@@ -127,7 +128,7 @@ it('po načtení účastníků', () => {
             prijmeni: 'Balabák',
             jmeno: 'Roman',
             narozeni: { rok: 1956 },
-            pohlavi: 'muz',
+            pohlavi: 'muž',
             obec: 'Ostrava 1',
             stat: 'Česká republika'
           },
@@ -244,4 +245,26 @@ it('narozeniSort(desc=true) - prázdný měsíc a den', () => {
     { rok: 1978, mesic: 8, den: 6 },
     { rok: 1978, mesic: 8, den: 7 }
   ]);
+});
+
+it('saveUcastSuccess() - stávající účastník', () => {
+  const stateBefore = { ...ucastniciTestData.entities.ucastnici };
+  deepFreeze(stateBefore);
+  const id = '6f09b1fd371dec1e99b7e1c9';
+  const rok = 2018;
+  const ucastnik = ucastniciTestData.entities.ucastnici.byIds[id];
+  let { udaje } = ucastnik[2016];
+  udaje = { ...udaje, klub: 'SK Nudle' };
+  const prihlaska = {
+    datum: '2018-05-12T00:00:00.000Z',
+    kategorie: '5a587e1b051c181132cf83db',
+    typ: 'půlmaraton',
+    startCislo: 15,
+    kod: '===kod===',
+    mladistvyPotvrzen: undefined
+  };
+
+  expect(
+    ucastniciReducer(stateBefore, saveUcastSuccess({ id, rok, udaje, prihlaska }))
+  ).toMatchSnapshot();
 });

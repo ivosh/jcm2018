@@ -1,9 +1,38 @@
 export const initialState = { allIds: [], byIds: {} };
 
+// První element je vždycky nejvyšší rok.
+const addRokAndSort = (roky, rok) => [...roky, rok].sort((a, b) => b - a);
+
+const updateUcast = (state, id, rok, name, obj) => {
+  let { allIds, byIds } = state;
+
+  let ucastnik = byIds[id];
+  if (!ucastnik) {
+    ucastnik = { roky: [] };
+    allIds = [...allIds, id];
+  }
+
+  let ucast = ucastnik[rok];
+  if (!ucast) {
+    ucast = {};
+    ucastnik = { ...ucastnik, roky: addRokAndSort(ucastnik.roky, rok) };
+  }
+
+  ucast = { ...ucast, [name]: obj };
+  ucastnik = { ...ucastnik, [rok]: ucast };
+  byIds = { ...byIds, [id]: ucastnik };
+  return { allIds, byIds };
+};
+
 const ucastniciReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'FETCH_UCASTNICI_SUCCESS':
       return action.data;
+    case 'PRIHLASENI_SAVE_SUCCESS': {
+      const { id, rok, udaje, prihlaska } = action;
+      const stateUpdated = updateUcast(state, id, rok, 'udaje', udaje);
+      return updateUcast(stateUpdated, id, rok, 'prihlaska', prihlaska);
+    }
     case 'SIGN_OUT_SUCCESS':
       return initialState;
     default:

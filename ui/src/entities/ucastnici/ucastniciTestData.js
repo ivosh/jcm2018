@@ -2197,7 +2197,7 @@ const state = {
               prijmeni: 'Sukdoláková',
               jmeno: 'Martina',
               narozeni: { rok: 1963, mesic: 12, den: 7 },
-              pohlavi: 'zena',
+              pohlavi: 'žena',
               obec: 'Zlín',
               stat: 'Česká republika'
             },
@@ -2220,7 +2220,7 @@ const state = {
               prijmeni: 'Balabák',
               jmeno: 'Roman',
               narozeni: { rok: 1956 },
-              pohlavi: 'muz',
+              pohlavi: 'muž',
               obec: 'Ostrava 2',
               stat: 'Česká republika'
             },
@@ -2241,7 +2241,7 @@ const state = {
               prijmeni: 'Balabák',
               jmeno: 'Roman',
               narozeni: { rok: 1958 },
-              pohlavi: 'muz',
+              pohlavi: 'muž',
               obec: 'Ostrava 1',
               stat: 'Česká republika'
             },
