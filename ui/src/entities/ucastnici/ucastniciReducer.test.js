@@ -247,7 +247,7 @@ it('narozeniSort(desc=true) - prázdný měsíc a den', () => {
   ]);
 });
 
-it('saveUcastSuccess() - stávající účastník', () => {
+it('saveUcastSuccess() - stávající účastník - nový rok', () => {
   const stateBefore = { ...ucastniciTestData.entities.ucastnici };
   deepFreeze(stateBefore);
   const id = '6f09b1fd371dec1e99b7e1c9';
@@ -258,6 +258,49 @@ it('saveUcastSuccess() - stávající účastník', () => {
   const prihlaska = {
     datum: '2018-05-12T00:00:00.000Z',
     kategorie: '5a587e1b051c181132cf83db',
+    typ: 'půlmaraton',
+    startCislo: 15,
+    kod: '===kod===',
+    mladistvyPotvrzen: undefined
+  };
+
+  expect(
+    ucastniciReducer(stateBefore, saveUcastSuccess({ id, rok, udaje, prihlaska }))
+  ).toMatchSnapshot();
+});
+
+it('saveUcastSuccess() - stávající účastník - stávající rok', () => {
+  const stateBefore = { ...ucastniciTestData.entities.ucastnici };
+  deepFreeze(stateBefore);
+  const id = '5a09b1fd371dec1e99b7e1c9';
+  const rok = 2018;
+  const ucastnik = ucastniciTestData.entities.ucastnici.byIds[id];
+  const { udaje } = ucastnik[2018];
+  let { prihlaska } = ucastnik[2018];
+  prihlaska = { ...prihlaska, startCislo: 18 };
+
+  expect(
+    ucastniciReducer(stateBefore, saveUcastSuccess({ id, rok, udaje, prihlaska }))
+  ).toMatchSnapshot();
+});
+
+it('saveUcastSuccess() - nový účastník', () => {
+  const stateBefore = { ...ucastniciTestData.entities.ucastnici };
+  deepFreeze(stateBefore);
+  const id = '7a09b1fd371dec1e99b79853';
+  const rok = 2018;
+  const udaje = {
+    prijmeni: 'Malá',
+    jmeno: 'Bára',
+    narozeni: { den: 4, mesic: 10, rok: 1998 },
+    pohlavi: 'žena',
+    adresa: 'Za elektrárnou 21',
+    obec: 'Mieroszow',
+    stat: 'Polsko'
+  };
+  const prihlaska = {
+    datum: '2018-05-12T00:00:00.000Z',
+    kategorie: '5a587e1b051c181132cf83d9',
     typ: 'půlmaraton',
     startCislo: 15,
     kod: '===kod===',
