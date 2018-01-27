@@ -332,6 +332,6 @@ export const formatValue = (name, rawValue) => {
     case 'prihlaska.datum':
       return datumValid(rawValue) ? moment.utc(rawValue).format('D. M. YYYY') : rawValue || '';
     default:
-      return rawValue || '';
+      return rawValue ? `${rawValue}` : '';
   }
 };

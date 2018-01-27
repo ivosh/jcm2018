@@ -613,7 +613,7 @@ it('prihlaska.startCislo - kategorie má čísla', () => {
     registrator: {
       prihlaseni: {
         udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: 'muž' },
-        prihlaska: { kategorie: '5a587e1b051c181132cf83d3', typ: 'půlmaraton' }
+        prihlaska: { kategorie: '5a587e1b051c181132cf83d3', typ: 'půlmaraton', startCislo: 45 }
       }
     }
   };
@@ -621,6 +621,9 @@ it('prihlaska.startCislo - kategorie má čísla', () => {
   expect(
     isInputEnabled('prihlaska.startCislo', state.registrator.prihlaseni, state.entities.rocniky)
   ).toBe(true);
+  expect(
+    formatValue('prihlaska.startCislo', state.registrator.prihlaseni.prihlaska.startCislo)
+  ).toEqual('45');
 });
 
 it('prihlaska.startCislo - kategorie nemá čísla', () => {
@@ -637,6 +640,9 @@ it('prihlaska.startCislo - kategorie nemá čísla', () => {
   expect(
     isInputEnabled('prihlaska.startCislo', state.registrator.prihlaseni, state.entities.rocniky)
   ).toBe(false);
+  expect(
+    formatValue('prihlaska.startCislo', state.registrator.prihlaseni.prihlaska.startCislo)
+  ).toEqual('');
 });
 
 it('ucastnikSelected - údaje i přihláška', () => {
