@@ -153,6 +153,50 @@ Array [
 ]
 `;
 
+exports[`přihláška na pěší 1`] = `
+Object {
+  "code": "ok",
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`přihláška na pěší 2`] = `
+Array [
+  Object {
+    "__v": 1,
+    "ucasti": Array [
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2018-02-07T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "typ": "pěší",
+          },
+          "kod": "===kod===",
+        },
+        "rok": 2018,
+        "ubytovani": Array [],
+        "udaje": Object {
+          "adresa": "Za elektrárnou 23",
+          "jmeno": "Bára",
+          "narozeni": Object {
+            "den": 4,
+            "mesic": 11,
+            "rok": 1998,
+          },
+          "obec": "Horákov",
+          "pohlavi": "žena",
+          "prijmeni": "Malá",
+          "stat": "Česká republika",
+        },
+      },
+    ],
+  },
+]
+`;
+
 exports[`savePrihlaska [not authenticated] 1`] = `
 Object {
   "code": "authentication token invalid",
@@ -214,6 +258,7 @@ Array [
             },
           },
           "kod": "===kod1===",
+          "startCislo": 7,
         },
         "rok": 2017,
         "ubytovani": Array [],
@@ -244,6 +289,7 @@ Array [
             },
           },
           "kod": "===kod2===",
+          "startCislo": 15,
         },
         "rok": 2018,
         "ubytovani": Array [],

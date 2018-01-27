@@ -17,6 +17,7 @@ let kategorie1;
 let kategorie2;
 let kategorie4;
 let kategorie5;
+let kategorie6;
 beforeAll(async () => {
   wsServer.httpServer().listen(port);
   await wsClient.open();
@@ -53,7 +54,7 @@ beforeAll(async () => {
     vek: { min: 50, max: 59 }
   });
   await kategorie5.save();
-  const kategorie6 = new Kategorie({ typ: 'pěší' });
+  kategorie6 = new Kategorie({ typ: 'pěší' });
   await kategorie6.save();
 
   const rocnik1 = new Rocnik({ rok: 2015, datum: '2015-06-01' });
@@ -168,11 +169,13 @@ it('vytvoř dvě účasti s přihláškami', async () => {
   const prihlaska1 = {
     datum: new Date('2017-05-03Z'),
     kategorie: kategorie2.id, // maraton
+    startCislo: 7,
     kod: '===kod1==='
   };
   const prihlaska2 = {
     datum: new Date('2018-02-07Z'),
     kategorie: kategorie4.id, // půlmaraton
+    startCislo: 15,
     kod: '===kod2==='
   };
 
@@ -261,6 +264,42 @@ it('přepiš existující přihlášku', async () => {
   ucastnici[0].ucasti[1].prihlaska.kategorie._id = '===k2===';
   ucastnici[0].ucasti[2].prihlaska.kategorie._id = '===k3===';
   ucastnici[0].ucasti[3].prihlaska.kategorie._id = '===k4===';
+  expect(ucastnici).toMatchSnapshot();
+
+  await Ucastnik.collection.drop();
+});
+
+it('přihláška na pěší', async () => {
+  const udaje = {
+    prijmeni: 'Malá',
+    jmeno: 'Bára',
+    narozeni: { den: 4, mesic: 11, rok: 1998 },
+    pohlavi: 'žena',
+    adresa: 'Za elektrárnou 23',
+    obec: 'Horákov'
+  };
+  const prihlaska = {
+    datum: new Date('2018-02-07Z'),
+    kategorie: kategorie6.id, // pěší
+    startCislo: 14, // navíc
+    kod: '===kod==='
+  };
+
+  const response1 = await wsClient.sendRequest(
+    Actions.saveUdaje({ rok: 2018, udaje }, generateTestToken())
+  );
+  const { id } = response1.response;
+  expect(id).toBeTruthy();
+
+  const { requestId, ...response } = await wsClient.sendRequest(
+    Actions.savePrihlaska({ id, rok: 2018, prihlaska }, generateTestToken())
+  );
+  expect(response).toMatchSnapshot();
+
+  const ucastnici = await Ucastnik.find({}, { _id: 0 })
+    .populate('ucasti.prihlaska.kategorie')
+    .lean();
+  ucastnici[0].ucasti[0].prihlaska.kategorie._id = '===k1===';
   expect(ucastnici).toMatchSnapshot();
 
   await Ucastnik.collection.drop();

@@ -62,6 +62,11 @@ const savePrihlaska = async ({ request }) => {
     };
   }
 
+  delete prihlaska.typ;
+  if (!rocniky[rok].kategorie[typ].startCisla) {
+    delete prihlaska.startCislo;
+  }
+
   ucast.prihlaska = prihlaska;
   await ucastnik.save();
   return { code: Actions.CODE_OK, status: 'uloženo v pořádku' };
