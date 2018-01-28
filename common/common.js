@@ -14,6 +14,7 @@
  */
 
 const PORT = 4000;
+const PLATBA_TYPY = ['hotově', 'převodem', 'složenkou'];
 
 const FIND_ALL_ROCNIKY = 'findAllRocniky';
 const FIND_ALL_UCASTNICI = 'findAllUcastnici';
@@ -181,6 +182,7 @@ const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyPotvrzen
 
 module.exports = {
   PORT,
+  PLATBA_TYPY,
   FIND_ALL_ROCNIKY,
   FIND_ALL_UCASTNICI,
   SAVE_UDAJE,

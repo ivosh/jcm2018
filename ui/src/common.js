@@ -12,6 +12,7 @@
  */
 
 const PORT = 4000;
+const PLATBA_TYPY = ['hotově', 'převodem', 'složenkou'];
 
 const FIND_ALL_ROCNIKY = 'findAllRocniky';
 const FIND_ALL_UCASTNICI = 'findAllUcastnici';
@@ -23,6 +24,7 @@ const SIGN_OUT = 'signOut';
 const CODE_OK = 'ok';
 const CODE_ALREADY_EXISTING = 'již existuje';
 const CODE_DB_DISCONNECTED = 'nepřipojeno k databázi';
+const CODE_KATEGORIE_INVALID = 'chybná kategorie';
 const CODE_MAX_LOGIN_ATTEMPTS = 'max login attempts reached';
 const CODE_MLADISTVY_UCASTNIK = 'účastník potřebuje souhlas zákonného zástupce';
 const CODE_NONCE_MISMATCH = 'nesouhlas jednorázového přihlašovacího kódu';
@@ -178,6 +180,7 @@ const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyPotvrzen
 
 const exported = {
   PORT,
+  PLATBA_TYPY,
   FIND_ALL_ROCNIKY,
   FIND_ALL_UCASTNICI,
   SAVE_UDAJE,
@@ -187,6 +190,7 @@ const exported = {
   CODE_OK,
   CODE_ALREADY_EXISTING,
   CODE_DB_DISCONNECTED,
+  CODE_KATEGORIE_INVALID,
   CODE_MAX_LOGIN_ATTEMPTS,
   CODE_MLADISTVY_UCASTNIK,
   CODE_NONCE_MISMATCH,
@@ -208,6 +212,7 @@ const exported = {
 export default exported;
 export {
   PORT,
+  PLATBA_TYPY,
   FIND_ALL_ROCNIKY,
   FIND_ALL_UCASTNICI,
   SAVE_UDAJE,
@@ -217,6 +222,7 @@ export {
   CODE_OK,
   CODE_ALREADY_EXISTING,
   CODE_DB_DISCONNECTED,
+  CODE_KATEGORIE_INVALID,
   CODE_MAX_LOGIN_ATTEMPTS,
   CODE_MLADISTVY_UCASTNIK,
   CODE_NONCE_MISMATCH,
