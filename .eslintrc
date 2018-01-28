@@ -1,11 +1,12 @@
 {
   env: {
     es6: true,
+    jasmine: true,
     jest: true,
     node: true,
   },
 
-  plugins: [ 'react' ],
+  plugins: [ 'jasmine', 'react' ],
 
   parser: 'babel-eslint',
 
@@ -16,7 +17,8 @@
     }
   },
 
-  extends: [ 'eslint:recommended', 'airbnb-base', 'plugin:react/recommended' ],
+  extends: [ 'eslint:recommended', 'airbnb-base', 'plugin:jasmine/recommended',
+             'plugin:react/recommended' ],
 
   globals: {
     document: true,
@@ -38,6 +40,9 @@
     'strict': 0,
 
     // Allow mongoose's _id.
-    'no-underscore-dangle': [2, { 'allow': ['_id'] }]
+    'no-underscore-dangle': [2, { 'allow': ['_id'] }],
+
+    // Do not force new lines before expect. Does not work correctly with 'await'.
+    'jasmine/new-line-before-expect': 0
   }
 }
