@@ -36,7 +36,7 @@ const initialState = {
     kod: undefined,
     mladistvyPotvrzen: undefined
   },
-  platby: [], // :TODO: řadit podle data
+  platby: [],
   novaPlatba: { castka: undefined, datum: undefined, typ: PLATBA_TYPY[0], poznamka: undefined }
 };
 
@@ -107,10 +107,11 @@ const prihlaseniReducer = (state = initialState, action) => {
     }
     case 'PRIHLASENI_UCASTNIK_SELECTED':
       return {
-        ...state,
+        ...initialState,
         ucastnikId: action.id,
         udaje: action.udaje,
-        prihlaska: action.prihlaska ? action.prihlaska : initialState.prihlaska
+        prihlaska: action.prihlaska ? action.prihlaska : initialState.prihlaska,
+        platby: action.platby ? action.platby : initialState.platby
       };
     case 'PRIHLASENI_RESET':
       return initialState;
@@ -141,13 +142,16 @@ const prihlaseniReducer = (state = initialState, action) => {
       return { ...state, saved: true };
     case 'PRIHLASENI_SAVE_HIDE_MODAL':
       return { ...state, saved: false };
-    case 'PRIHLASENI_ADD_PLATBA':
+    case 'PRIHLASENI_ADD_PLATBA': {
+      const platby = [...state.platby, state.novaPlatba];
+      platby.sort((a, b) => moment.utc(a.datum) - moment.utc(b.datum));
       return {
         ...state,
         validatePlatba: false,
-        platby: [...state.platby, state.novaPlatba],
+        platby,
         novaPlatba: initialState.novaPlatba
       };
+    }
     case 'PRIHLASENI_REMOVE_PLATBA':
       return {
         ...state,

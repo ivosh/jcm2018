@@ -56,7 +56,7 @@ it('saveUcast() should dispatch four successful actions', async () => {
       type: 'PRIHLASENI_SAVE_SUCCESS'
     })
   );
-  expect(actions[3]).toEqual({ type: 'PRIHLASENI_SAVE_MODAL_SHOW' });
+  expect(actions[3]).toEqual({ type: 'PRIHLASENI_SAVE_SHOW_MODAL' });
 });
 
 it('saveUcast() should dispatch two unsuccessful actions 1/2', async () => {

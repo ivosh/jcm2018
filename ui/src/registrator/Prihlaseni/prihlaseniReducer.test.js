@@ -721,7 +721,15 @@ it('ucastnikSelected - údaje i přihláška', () => {
     }
   };
   const stateAfter = {
+    errorCode: '',
+    errorMessage: '',
+    showError: false,
+    fetching: false,
+    saved: false,
+    saving: false,
     ucastnikId: '5a09b1fd371dec1e99b7e1c9',
+    validateForm: false,
+    validatePlatba: false,
     udaje: {
       prijmeni: 'Balabák',
       jmeno: 'Roman',
@@ -736,7 +744,9 @@ it('ucastnikSelected - údaje i přihláška', () => {
       typ: 'půlmaraton',
       startCislo: 17,
       kod: '10728864'
-    }
+    },
+    platby: [],
+    novaPlatba: { castka: undefined, datum: undefined, typ: 'hotově', poznamka: undefined }
   };
   deepFreeze(stateBefore);
 
@@ -777,7 +787,15 @@ it('ucastnikSelected - jen údaje', () => {
     }
   };
   const stateAfter = {
+    errorCode: '',
+    errorMessage: '',
+    showError: false,
+    fetching: false,
+    saved: false,
+    saving: false,
     ucastnikId: '6f09b1fd371dec1e99b7e1c9',
+    validateForm: false,
+    validatePlatba: false,
     udaje: {
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
@@ -792,7 +810,9 @@ it('ucastnikSelected - jen údaje', () => {
       typ: undefined,
       startCislo: undefined,
       kod: undefined
-    }
+    },
+    platby: [],
+    novaPlatba: { castka: undefined, datum: undefined, typ: 'hotově', poznamka: undefined }
   };
   deepFreeze(stateBefore);
 

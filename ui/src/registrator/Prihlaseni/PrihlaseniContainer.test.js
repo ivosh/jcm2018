@@ -54,7 +54,7 @@ it('maps onHideError to dispatch hideError action', () => {
 it('maps onHideModal to dispatch hideModal action', () => {
   wrapper.props().onHideModal();
 
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASENI_SAVE_MODAL_HIDE' });
+  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASENI_SAVE_HIDE_MODAL' });
 });
 
 it('maps onReset to dispatch reset action', () => {

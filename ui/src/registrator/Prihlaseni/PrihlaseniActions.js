@@ -24,9 +24,10 @@ export const ucastnikSelected = ({ id }, kategorie, ucastnici) => {
 
   const letosniUcast = ucastnik[AKTUALNI_ROK];
   if (letosniUcast) {
-    // Předvyplň přihlášku jen pro aktuální rok. Pro minulé roky na to prdíme.
+    // Předvyplň ostatní jen pro aktuální rok. Minulé roky už jsou pasé.
     const { typ } = kategorie[letosniUcast.prihlaska.kategorie];
     action.prihlaska = { ...letosniUcast.prihlaska, typ };
+    action.platby = letosniUcast.platby;
   }
   return action;
 };
@@ -97,7 +98,7 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
   dispatch(saveUcastRequest());
 
   const rok = AKTUALNI_ROK;
-  const { udaje, prihlaska } = prihlaseni;
+  const { udaje, prihlaska, platby } = prihlaseni;
   try {
     let response = await wsClient.sendRequest(
       saveUdaje(
@@ -126,7 +127,7 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
       )
     );
     if (response.code === CODE_OK) {
-      dispatch(saveUcastSuccess({ id, rok, udaje, prihlaska }));
+      dispatch(saveUcastSuccess({ id, rok, udaje, prihlaska, platby }));
       showModalWithTimeout(dispatch);
     } else {
       handleErrors(dispatch, response);
