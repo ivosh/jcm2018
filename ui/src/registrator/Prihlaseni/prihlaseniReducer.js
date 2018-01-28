@@ -258,7 +258,7 @@ const isInputValid = (name, value, prihlaseni) => {
   return false;
 };
 
-export const prihlaseniValid = prihlaseni => {
+export const formValid = prihlaseni => {
   const { udaje, prihlaska } = prihlaseni;
 
   return (
@@ -272,6 +272,17 @@ export const prihlaseniValid = prihlaseni => {
     isInputValid('prihlaska.datum', prihlaska.datum, prihlaseni) &&
     isInputValid('prihlaska.kategorie', prihlaska.kategorie, prihlaseni) &&
     isInputValid('prihlaska.typ', prihlaska.typ, prihlaseni)
+  );
+};
+
+export const novaPlatbaValid = prihlaseni => {
+  const { novaPlatba } = prihlaseni;
+
+  return (
+    isInputValid('novaPlatba.castka', novaPlatba.castka, prihlaseni) &&
+    isInputValid('novaPlatba.datum', novaPlatba.datum, prihlaseni) &&
+    isInputValid('novaPlatba.typ', novaPlatba.typ, prihlaseni) &&
+    isInputValid('novaPlatba.poznamka', novaPlatba.poznamka, prihlaseni)
   );
 };
 

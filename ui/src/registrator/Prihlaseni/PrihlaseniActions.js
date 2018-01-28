@@ -1,7 +1,7 @@
 import { CODE_OK, CODE_TOKEN_INVALID, savePrihlaska, saveUdaje } from '../../common';
 import { AKTUALNI_ROK, PRIHLASENI_SAVE_MODAL_TIMEOUT } from '../../constants';
 import { authTokenExpired } from '../../auth/SignIn/SignInActions';
-import { prihlaseniValid } from './prihlaseniReducer';
+import { formValid } from './prihlaseniReducer';
 
 export const hideError = () => ({ type: 'PRIHLASENI_HIDE_ERROR' });
 
@@ -89,7 +89,7 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
 
   const state = getState();
   const { registrator: { prihlaseni } } = state;
-  if (!prihlaseniValid(prihlaseni)) {
+  if (!formValid(prihlaseni)) {
     dispatch(validationError());
     return;
   }
@@ -138,6 +138,12 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
 
 /* ------------------------------------- platby ------------------------------------------------- */
 
-export const addPlatba = () => ({ type: 'PRIHLASENI_PLATBA_ADD' });
-export const removePlatba = idx => ({ type: 'PRIHLASENI_PLATBA_REMOVE', idx });
+const addPlatba = () => ({ type: 'PRIHLASENI_PLATBA_ADD' });
 const validatePlatba = () => ({ type: 'PRIHLASENI_VALIDATE_PLATBA' });
+
+export const addValidatedPlatba = dispatch => {
+  dispatch(validatePlatba());
+  dispatch(addPlatba());
+};
+
+export const removePlatba = idx => ({ type: 'PRIHLASENI_PLATBA_REMOVE', idx });

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Platby from './Platby';
-import { addPlatba, removePlatba } from './PrihlaseniActions';
+import { addValidatedPlatba, removePlatba } from './PrihlaseniActions';
 import { platby, predepsaneStartovne } from './prihlaseniReducer';
 
 const mapStateToProps = state => {
@@ -13,7 +13,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onAdd: () => dispatch(addPlatba()),
+  onAdd: () => addValidatedPlatba(dispatch),
   onRemove: idx => dispatch(removePlatba(idx))
 });
 

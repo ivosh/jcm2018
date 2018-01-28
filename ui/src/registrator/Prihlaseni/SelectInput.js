@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormControl } from 'react-bootstrap';
 
-const SelectInput = ({ name, value, options, onChange }) => (
+const SelectInput = ({ name, options, value, onChange }) => (
   <FormControl componentClass="select" name={name} defaultValue={value} onChange={onChange}>
     {options.map(option => (
       <option key={option.key} value={option.key}>

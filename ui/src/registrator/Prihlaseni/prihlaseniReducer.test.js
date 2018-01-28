@@ -15,12 +15,13 @@ import {
   saveUcastError
 } from './PrihlaseniActions';
 import prihlaseniReducer, {
-  predepsaneStartovne,
   formatValue,
+  formValid,
   inputOptions,
   inputValid,
   isInputEnabled,
-  prihlaseniValid
+  novaPlatbaValid,
+  predepsaneStartovne
 } from './prihlaseniReducer';
 
 const unsuccessfulResponse = {
@@ -262,7 +263,8 @@ it('validation of the initial state [validateForm,validatePlatba === false]', ()
   expect(inputValid('novaPlatba.datum', state.novaPlatba.datum, state)).toBe(undefined);
   expect(inputValid('novaPlatba.typ', state.novaPlatba.typ, state)).toBe(undefined);
   expect(inputValid('novaPlatba.poznamka', state.novaPlatba.poznamka, state)).toBe(undefined);
-  expect(prihlaseniValid(state)).toBe(true);
+  expect(formValid(state)).toBe(true);
+  expect(novaPlatbaValid(state)).toBe(true);
   expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
     false
   );
@@ -321,7 +323,8 @@ it('validation of the initial state [validateForm,validatePlatba === true]', () 
   expect(inputValid('novaPlatba.datum', state.novaPlatba.datum, state)).toEqual('error');
   expect(inputValid('novaPlatba.typ', state.novaPlatba.typ, state)).toEqual('error');
   expect(inputValid('novaPlatba.poznamka', state.novaPlatba.poznamka, state)).toBe(undefined);
-  expect(prihlaseniValid(state)).toBe(false);
+  expect(formValid(state)).toBe(false);
+  expect(novaPlatbaValid(state)).toBe(false);
   expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
     false
   );
@@ -380,7 +383,8 @@ it('validation of some invalid state [validateForm,validatePlatba === false]', (
   expect(inputValid('novaPlatba.datum', state.novaPlatba.datum, state)).toEqual('error');
   expect(inputValid('novaPlatba.typ', state.novaPlatba.typ, state)).toEqual('success');
   expect(inputValid('novaPlatba.poznamka', state.novaPlatba.poznamka, state)).toBe(undefined);
-  expect(prihlaseniValid(state)).toBe(false);
+  expect(formValid(state)).toBe(false);
+  expect(novaPlatbaValid(state)).toBe(false);
   expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
     false
   );
@@ -439,7 +443,8 @@ it('validation of some invalid state [validateForm,validatePlatba === true]', ()
   expect(inputValid('novaPlatba.datum', state.novaPlatba.datum, state)).toEqual('success');
   expect(inputValid('novaPlatba.typ', state.novaPlatba.typ, state)).toEqual('error');
   expect(inputValid('novaPlatba.poznamka', state.novaPlatba.poznamka, state)).toBe(undefined);
-  expect(prihlaseniValid(state)).toBe(false);
+  expect(formValid(state)).toBe(false);
+  expect(novaPlatbaValid(state)).toBe(false);
   expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
     false
   );
