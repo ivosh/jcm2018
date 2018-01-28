@@ -36,7 +36,7 @@ const initialState = {
     kod: undefined,
     mladistvyPotvrzen: undefined
   },
-  platby: [],
+  platby: [], // :TODO: řadit podle data
   novaPlatba: { castka: undefined, datum: undefined, typ: PLATBA_TYPY[0], poznamka: undefined }
 };
 
@@ -137,10 +137,22 @@ const prihlaseniReducer = (state = initialState, action) => {
         errorMessage: action.status,
         showError: true
       };
-    case 'PRIHLASENI_SAVE_MODAL_SHOW':
+    case 'PRIHLASENI_SAVE_SHOW_MODAL':
       return { ...state, saved: true };
-    case 'PRIHLASENI_SAVE_MODAL_HIDE':
+    case 'PRIHLASENI_SAVE_HIDE_MODAL':
       return { ...state, saved: false };
+    case 'PRIHLASENI_ADD_PLATBA':
+      return {
+        ...state,
+        validatePlatba: false,
+        platby: [...state.platby, state.novaPlatba],
+        novaPlatba: initialState.novaPlatba
+      };
+    case 'PRIHLASENI_REMOVE_PLATBA':
+      return {
+        ...state,
+        platby: [...state.platby.slice(0, action.idx), ...state.platby.slice(action.idx + 1)]
+      };
     case 'FETCH_UCASTNICI_REQUEST':
       return { ...state, fetching: true };
     case 'FETCH_UCASTNICI_SUCCESS':
@@ -375,7 +387,11 @@ export const formatValue = (name, rawValue) => {
   }
 };
 
-export const platby = prihlaseni => prihlaseni.platby;
+export const platby = prihlaseni =>
+  prihlaseni.platby.map(({ datum, ...platba }) => ({
+    datum: moment.utc(datum).format('D. M. YYYY'),
+    ...platba
+  }));
 
 export const predepsaneStartovne = (prihlaseni, rocniky) => {
   const { typ } = prihlaseni.prihlaska;
