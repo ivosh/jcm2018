@@ -141,7 +141,7 @@ it('handle succesfull form submit', () => {
   expect(wrapper.find('form')).toHaveLength(1);
 
   wrapper.find('form').simulate('submit');
-  expect(onSubmit).toHaveBeenCalled();
+  expect(onSubmit).toHaveBeenCalledWith();
 });
 
 it('handle form reset', () => {
@@ -165,5 +165,5 @@ it('handle form reset', () => {
   expect(wrapper.find('.btn-danger')).toHaveLength(1);
 
   wrapper.find('.btn-danger').simulate('click');
-  expect(onReset).toHaveBeenCalled();
+  expect(onReset).toHaveBeenCalledWith();
 });

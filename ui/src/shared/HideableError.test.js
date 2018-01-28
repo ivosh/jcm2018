@@ -29,5 +29,5 @@ it('handle hide error', () => {
   expect(wrapper.find('button.close')).toHaveLength(1);
 
   wrapper.find('button.close').simulate('click');
-  expect(onHideError).toHaveBeenCalled();
+  expect(onHideError).toHaveBeenCalledWith();
 });

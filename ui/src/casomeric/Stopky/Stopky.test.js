@@ -82,7 +82,7 @@ it('maps button Mezičas to dispatch onAddMezicas action', () => {
   expect(wrapper.find('button.btn-info')).toHaveLength(1);
   wrapper.find('button.btn-info').simulate('click');
 
-  expect(onAddMezicas).toHaveBeenCalled();
+  expect(onAddMezicas).toHaveBeenCalledTimes(1);
 });
 
 it('maps button Stop to dispatch onStop action', () => {
@@ -102,5 +102,5 @@ it('maps button Stop to dispatch onStop action', () => {
   expect(wrapper.find('button.btn-danger')).toHaveLength(1);
   wrapper.find('button.btn-danger').simulate('click');
 
-  expect(onStop).toHaveBeenCalled();
+  expect(onStop).toHaveBeenCalledWith();
 });

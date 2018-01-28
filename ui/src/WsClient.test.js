@@ -90,7 +90,7 @@ it('handles request timeout', async done => {
   await wsClient.connect();
 
   try {
-    await wsClient.sendRequest({zprava: 'Tamto.'});
+    await wsClient.sendRequest({ zprava: 'Tamto.' });
     fail();
   } catch (err) {
     expect(err.message).toContain('WebSocket request was rejected by timeout (500 ms).');

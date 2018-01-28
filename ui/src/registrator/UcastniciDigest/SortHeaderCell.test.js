@@ -32,5 +32,5 @@ it('maps onClick to dispatch onSortDirChange action', () => {
   expect(wrapper.find('a')).toHaveLength(1);
   wrapper.find('a').simulate('click');
 
-  expect(onSortDirChange).toHaveBeenCalled();
+  expect(onSortDirChange).toHaveBeenCalledWith();
 });

@@ -57,7 +57,7 @@ it('maps DebounceInput.onChange to dispatch onTextFilterChange action', () => {
   wrapper.find('.UcastniciDigestFilterable_input').simulate('change', { target: { value: 'K' } });
 
   jest.runAllTimers();
-  expect(onTextFilterChange).toHaveBeenCalled();
+  expect(onTextFilterChange).toHaveBeenCalledWith('K');
 });
 
 it('maps KategorieVykonuFilter.onClick to dispatch onKategorieVykonuFilterChange action', () => {
