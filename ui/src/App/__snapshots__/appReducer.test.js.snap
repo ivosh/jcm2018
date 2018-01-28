@@ -41,7 +41,7 @@ Object {
         "castka": undefined,
         "datum": undefined,
         "poznamka": undefined,
-        "typ": undefined,
+        "typ": "hotově",
       },
       "platby": Array [],
       "prihlaska": Object {
@@ -129,7 +129,7 @@ Object {
         "castka": undefined,
         "datum": undefined,
         "poznamka": undefined,
-        "typ": undefined,
+        "typ": "hotově",
       },
       "platby": Array [],
       "prihlaska": Object {
@@ -217,7 +217,7 @@ Object {
         "castka": undefined,
         "datum": undefined,
         "poznamka": undefined,
-        "typ": undefined,
+        "typ": "hotově",
       },
       "platby": Array [],
       "prihlaska": Object {

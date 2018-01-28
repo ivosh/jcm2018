@@ -37,7 +37,7 @@ const initialState = {
     mladistvyPotvrzen: undefined
   },
   platby: [],
-  novaPlatba: { castka: undefined, datum: undefined, typ: undefined, poznamka: undefined }
+  novaPlatba: { castka: undefined, datum: undefined, typ: PLATBA_TYPY[0], poznamka: undefined }
 };
 
 const validFormats = ['D.M.YYYY', 'D. M. YYYY', moment.ISO_8601];
