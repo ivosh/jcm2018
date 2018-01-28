@@ -35,7 +35,7 @@ export const reset = () => ({
   type: 'PRIHLASENI_RESET'
 });
 
-const validateEmpty = () => ({ type: 'PRIHLASENI_VALIDATE_EMPTY' });
+const validateForm = () => ({ type: 'PRIHLASENI_VALIDATE_FORM' });
 
 const validationError = () => ({
   type: 'PRIHLASENI_FORM_INVALID',
@@ -85,7 +85,7 @@ const showModalWithTimeout = dispatch => {
 };
 
 export const saveUcast = () => async (dispatch, getState, wsClient) => {
-  await dispatch(validateEmpty());
+  await dispatch(validateForm());
 
   const state = getState();
   const { registrator: { prihlaseni } } = state;
@@ -140,3 +140,4 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
 
 export const addPlatba = () => ({ type: 'PRIHLASENI_PLATBA_ADD' });
 export const removePlatba = idx => ({ type: 'PRIHLASENI_PLATBA_REMOVE', idx });
+const validatePlatba = () => ({ type: 'PRIHLASENI_VALIDATE_PLATBA' });

@@ -43,12 +43,12 @@ it('saveUcast() should dispatch four successful actions', async () => {
   responses = [successfulResponseSaveUdaje, successfulResponseSavePrihlaska];
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlaseni: { validateEmpty: false, udaje: { narozeni: {} }, prihlaska: {} } }
+    registrator: { prihlaseni: { validateForm: false, udaje: { narozeni: {} }, prihlaska: {} } }
   });
 
   await store.dispatch(saveUcast());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_EMPTY' });
+  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_FORM' });
   expect(actions[1]).toEqual({ type: 'PRIHLASENI_SAVE_REQUEST' });
   expect(actions[2]).toEqual(
     expect.objectContaining({
@@ -68,7 +68,7 @@ it('saveUcast() should dispatch two unsuccessful actions 1/2', async () => {
 
   await store.dispatch(saveUcast());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_EMPTY' });
+  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_FORM' });
   expect(actions[1]).toEqual({ type: 'PRIHLASENI_SAVE_REQUEST' });
   expect(actions[2]).toEqual(
     expect.objectContaining({
@@ -88,7 +88,7 @@ it('saveUcast() should dispatch two unsuccessful actions 2/2', async () => {
 
   await store.dispatch(saveUcast());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_EMPTY' });
+  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_FORM' });
   expect(actions[1]).toEqual({ type: 'PRIHLASENI_SAVE_REQUEST' });
   expect(actions[2]).toEqual(
     expect.objectContaining({
@@ -108,7 +108,7 @@ it('saveUcast() should dispatch two unsuccessful actions on an invalid token', a
 
   await store.dispatch(saveUcast());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_EMPTY' });
+  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_FORM' });
   expect(actions[1]).toEqual({ type: 'PRIHLASENI_SAVE_REQUEST' });
   expect(actions[2]).toEqual(
     expect.objectContaining({
@@ -123,12 +123,12 @@ it('saveUcast() should dispatch validation error', async () => {
   responses = [successfulResponseSaveUdaje, successfulResponseSavePrihlaska];
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlaseni: { validateEmpty: true, udaje: { narozeni: {} }, prihlaska: {} } }
+    registrator: { prihlaseni: { validateForm: true, udaje: { narozeni: {} }, prihlaska: {} } }
   });
 
   await store.dispatch(saveUcast());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_EMPTY' });
+  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_FORM' });
   expect(actions[1]).toEqual({
     type: 'PRIHLASENI_FORM_INVALID',
     code: 'nejde uložit',
@@ -146,7 +146,7 @@ it('saveUcast() should dispatch two unsuccessful actions on error', async () => 
 
   await store.dispatch(saveUcast());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_EMPTY' });
+  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_FORM' });
   expect(actions[1]).toEqual({ type: 'PRIHLASENI_SAVE_REQUEST' });
   expect(actions[2]).toEqual(
     expect.objectContaining({

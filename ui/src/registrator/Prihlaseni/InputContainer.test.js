@@ -50,7 +50,7 @@ it('maps state to props - narození - jen rok', () => {
     ...ucastniciTestData,
     registrator: {
       prihlaseni: {
-        validateEmpty: false,
+        validateForm: false,
         udaje: {
           narozeni: { den: undefined, mesic: undefined, rok: 1981 }
         }
@@ -73,7 +73,7 @@ it('maps state to props - narození - celé', () => {
     ...ucastniciTestData,
     registrator: {
       prihlaseni: {
-        validateEmpty: false,
+        validateForm: false,
         udaje: {
           narozeni: { den: 1, mesic: 6, rok: 1981 }
         }

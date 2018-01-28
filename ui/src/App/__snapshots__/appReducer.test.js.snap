@@ -73,7 +73,8 @@ Object {
         "stat": "Česká republika",
         "telefon": undefined,
       },
-      "validateEmpty": false,
+      "validateForm": false,
+      "validatePlatba": false,
     },
     "ucastniciDigest": Object {
       "fetching": false,
@@ -160,7 +161,8 @@ Object {
         "stat": "Česká republika",
         "telefon": undefined,
       },
-      "validateEmpty": false,
+      "validateForm": false,
+      "validatePlatba": false,
     },
     "ucastniciDigest": Object {
       "fetching": false,
@@ -247,7 +249,8 @@ Object {
         "stat": "Česká republika",
         "telefon": undefined,
       },
-      "validateEmpty": false,
+      "validateForm": false,
+      "validatePlatba": false,
     },
     "ucastniciDigest": Object {
       "fetching": false,

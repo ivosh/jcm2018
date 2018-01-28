@@ -13,7 +13,8 @@ const initialState = {
   saved: false,
   saving: false,
   ucastnikId: undefined,
-  validateEmpty: false,
+  validateForm: false,
+  validatePlatba: false,
   udaje: {
     prijmeni: undefined,
     jmeno: undefined,
@@ -113,8 +114,10 @@ const prihlaseniReducer = (state = initialState, action) => {
       };
     case 'PRIHLASENI_RESET':
       return initialState;
-    case 'PRIHLASENI_VALIDATE_EMPTY':
-      return { ...state, validateEmpty: true };
+    case 'PRIHLASENI_VALIDATE_FORM':
+      return { ...state, validateForm: true };
+    case 'PRIHLASENI_VALIDATE_PLATBA':
+      return { ...state, validatePlatba: true };
     case 'PRIHLASENI_FORM_INVALID':
       return {
         ...state,
@@ -150,9 +153,9 @@ const prihlaseniReducer = (state = initialState, action) => {
 
 export default prihlaseniReducer;
 
-const nonEmptyInputValid = (value, validateEmpty) => {
+const nonEmptyInputValid = (value, validateForm) => {
   if (value === undefined) {
-    if (validateEmpty) {
+    if (validateForm) {
       return 'error';
     }
     return undefined;
@@ -162,10 +165,10 @@ const nonEmptyInputValid = (value, validateEmpty) => {
   return 'success';
 };
 
-const narozeniValid = (value, validateEmpty, requireDenMesic) => {
+const narozeniValid = (value, validateForm, requireDenMesic) => {
   const { den, mesic, rok } = value;
   if (den === undefined && mesic === undefined && rok === undefined) {
-    if (validateEmpty) {
+    if (validateForm) {
       return 'error';
     }
     return undefined;
@@ -197,8 +200,7 @@ export const inputValid = (name, value, prihlaseni) => {
     case 'udaje.stat':
     case 'prihlaska.kategorie':
     case 'prihlaska.typ':
-    case 'novaPlatba.castka':
-      return nonEmptyInputValid(value, prihlaseni.validateEmpty);
+      return nonEmptyInputValid(value, prihlaseni.validateForm);
     case 'udaje.adresa':
     case 'udaje.klub':
     case 'udaje.email':
@@ -210,23 +212,32 @@ export const inputValid = (name, value, prihlaseni) => {
       return undefined;
     case 'udaje.narozeni':
       // TODO: kategorie presne => den + mesic required === true
-      return narozeniValid(value, prihlaseni.validateEmpty, false);
+      return narozeniValid(value, prihlaseni.validateForm, false);
     case 'udaje.psc':
       if (prihlaseni.udaje.stat === 'Česká republika') {
-        return nonEmptyInputValid(value, prihlaseni.validateEmpty);
+        return nonEmptyInputValid(value, prihlaseni.validateForm);
       }
       return undefined;
     case 'prihlaska.datum':
+      if (value === undefined) {
+        if (prihlaseni.validateForm) {
+          return 'error';
+        }
+        return undefined;
+      }
+      return datumValid(value) ? 'success' : 'error';
+    case 'novaPlatba.castka':
+      return nonEmptyInputValid(value, prihlaseni.validatePlatba);
     case 'novaPlatba.datum':
       if (value === undefined) {
-        if (prihlaseni.validateEmpty) {
+        if (prihlaseni.validatePlatba) {
           return 'error';
         }
         return undefined;
       }
       return datumValid(value) ? 'success' : 'error';
     case 'novaPlatba.typ':
-      if ((value === undefined) && !prihlaseni.validateEmpty) {
+      if (value === undefined && !prihlaseni.validatePlatba) {
         return undefined;
       }
       return PLATBA_TYPY.includes(value) ? 'success' : 'error';

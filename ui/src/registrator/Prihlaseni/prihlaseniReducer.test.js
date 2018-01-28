@@ -39,7 +39,8 @@ it('na začátku', () => {
   expect(stateAfter.fetching).toBe(false);
   expect(stateAfter.saving).toBe(false);
   expect(stateAfter.ucastnikId).toBe(undefined);
-  expect(stateAfter.validateEmpty).toBe(false);
+  expect(stateAfter.validateForm).toBe(false);
+  expect(stateAfter.validatePlatba).toBe(false);
   expect(stateAfter.udaje).toEqual({
     prijmeni: undefined,
     jmeno: undefined,
@@ -92,7 +93,8 @@ it('reset()', () => {
     saved: true,
     saving: true,
     ucastnikId: '===id===',
-    validateEmpty: true,
+    validateForm: true,
+    validatePlatba: true,
     udaje: {
       prijmeni: 'Hudák',
       jmeno: 'Jan',
@@ -125,7 +127,8 @@ it('reset()', () => {
     saved: false,
     saving: false,
     ucastnikId: undefined,
-    validateEmpty: false,
+    validateForm: false,
+    validatePlatba: false,
     udaje: {
       prijmeni: undefined,
       jmeno: undefined,
@@ -206,9 +209,10 @@ it('fetchUcastniciSuccess/Error()', () => {
   expect(prihlaseniReducer(stateBefore, fetchUcastniciError({}))).toEqual(stateAfter);
 });
 
-it('validation of the initial state [validateEmpty === false]', () => {
+it('validation of the initial state [validateForm,validatePlatba === false]', () => {
   const state = {
-    validateEmpty: false,
+    validateForm: false,
+    validatePlatba: false,
     udaje: {
       prijmeni: undefined,
       jmeno: undefined,
@@ -264,9 +268,10 @@ it('validation of the initial state [validateEmpty === false]', () => {
   );
 });
 
-it('validation of the initial state [validateEmpty === true]', () => {
+it('validation of the initial state [validateForm,validatePlatba === true]', () => {
   const state = {
-    validateEmpty: true,
+    validateForm: true,
+    validatePlatba: true,
     udaje: {
       prijmeni: undefined,
       jmeno: undefined,
@@ -322,9 +327,10 @@ it('validation of the initial state [validateEmpty === true]', () => {
   );
 });
 
-it('validation of some invalid state [validateEmpty === false]', () => {
+it('validation of some invalid state [validateForm,validatePlatba === false]', () => {
   const state = {
-    validateEmpty: false,
+    validateForm: false,
+    validatePlatba: false,
     udaje: {
       prijmeni: '',
       jmeno: undefined,
@@ -380,9 +386,10 @@ it('validation of some invalid state [validateEmpty === false]', () => {
   );
 });
 
-it('validation of some invalid state [validateEmpty === true]', () => {
+it('validation of some invalid state [validateForm,validatePlatba === true]', () => {
   const state = {
-    validateEmpty: true,
+    validateForm: true,
+    validatePlatba: true,
     udaje: {
       prijmeni: '',
       jmeno: undefined,
@@ -463,12 +470,12 @@ it('udaje.pohlavi - už nahodí ženu', () => {
 
 it('udaje.narozeni - prázdné', () => {
   const stateBefore = {
-    validateEmpty: false,
+    validateForm: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: undefined } }
   };
   deepFreeze(stateBefore);
   const stateAfter = {
-    validateEmpty: false,
+    validateForm: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: '' } }
   };
 
@@ -481,12 +488,12 @@ it('udaje.narozeni - prázdné', () => {
 
 it('udaje.narozeni - neúplné', () => {
   const stateBefore = {
-    validateEmpty: false,
+    validateForm: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: undefined } }
   };
   deepFreeze(stateBefore);
   const stateAfter = {
-    validateEmpty: false,
+    validateForm: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: '1. ' } }
   };
 
@@ -499,12 +506,12 @@ it('udaje.narozeni - neúplné', () => {
 
 it('udaje.narozeni - jen rok', () => {
   const stateBefore = {
-    validateEmpty: false,
+    validateForm: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: '197' } }
   };
   deepFreeze(stateBefore);
   const stateAfter = {
-    validateEmpty: false,
+    validateForm: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1978 } }
   };
 
@@ -517,12 +524,12 @@ it('udaje.narozeni - jen rok', () => {
 
 it('udaje.narozeni - celé', () => {
   const stateBefore = {
-    validateEmpty: false,
+    validateForm: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: '1.7.196' } }
   };
   deepFreeze(stateBefore);
   const stateAfter = {
-    validateEmpty: false,
+    validateForm: false,
     udaje: { narozeni: { den: 1, mesic: 7, rok: 1967 } }
   };
 
