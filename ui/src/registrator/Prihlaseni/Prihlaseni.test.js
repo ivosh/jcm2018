@@ -21,7 +21,9 @@ const state = {
       ucastnikId: '---id---',
       validateEmpty: false,
       udaje: { narozeni: {} },
-      prihlaska: {}
+      prihlaska: {},
+      platby: [],
+      novaPlatba: {}
     }
   }
 };

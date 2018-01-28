@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FormControl } from 'react-bootstrap';
 
 const TextInput = ({ enabled, value, onChange }) => (
-  <FormControl type="text" value={value} onChange={onChange} disabled={!enabled} />
+  <FormControl type="text" disabled={!enabled} value={value} onChange={onChange} />
 );
 
 TextInput.propTypes = {

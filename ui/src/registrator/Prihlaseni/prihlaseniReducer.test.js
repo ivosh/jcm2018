@@ -15,6 +15,7 @@ import {
   saveUcastError
 } from './PrihlaseniActions';
 import prihlaseniReducer, {
+  predepsaneStartovne,
   formatValue,
   inputOptions,
   inputValid,
@@ -59,6 +60,13 @@ it('na začátku', () => {
     startCislo: undefined,
     kod: undefined,
     mladistvyPotvrzen: undefined
+  });
+  expect(stateAfter.platby).toEqual([]);
+  expect(stateAfter.novaPlatba).toEqual({
+    castka: undefined,
+    datum: undefined,
+    typ: undefined,
+    poznamka: undefined
   });
 });
 
@@ -105,7 +113,9 @@ it('reset()', () => {
       startCislo: 23,
       kod: '===kod==',
       mladistvyPotvrzen: false
-    }
+    },
+    platby: [{ castka: 200, datum: new Date(), typ: 'převodem' }],
+    novaPlatba: { castka: undefined, datum: undefined, typ: 'složenkou', poznamka: 'haha' }
   };
   const stateAfter = {
     errorCode: '',
@@ -136,7 +146,9 @@ it('reset()', () => {
       startCislo: undefined,
       kod: undefined,
       mladistvyPotvrzen: undefined
-    }
+    },
+    platby: [],
+    novaPlatba: { castka: undefined, datum: undefined, typ: undefined, poznamka: undefined }
   };
   deepFreeze(stateBefore);
 
@@ -217,7 +229,9 @@ it('validation of the initial state [validateEmpty === false]', () => {
       startCislo: undefined,
       kod: undefined,
       mladistvyPotvrzen: undefined
-    }
+    },
+    platby: [],
+    novaPlatba: { castka: undefined, datum: undefined, typ: undefined, poznamka: undefined }
   };
   deepFreeze(state);
 
@@ -240,6 +254,10 @@ it('validation of the initial state [validateEmpty === false]', () => {
   expect(inputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)).toBe(
     undefined
   );
+  expect(inputValid('novaPlatba.castka', state.novaPlatba.castka, state)).toBe(undefined);
+  expect(inputValid('novaPlatba.datum', state.novaPlatba.datum, state)).toBe(undefined);
+  expect(inputValid('novaPlatba.typ', state.novaPlatba.typ, state)).toBe(undefined);
+  expect(inputValid('novaPlatba.poznamka', state.novaPlatba.poznamka, state)).toBe(undefined);
   expect(prihlaseniValid(state)).toBe(true);
   expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
     false
@@ -269,7 +287,9 @@ it('validation of the initial state [validateEmpty === true]', () => {
       startCislo: undefined,
       kod: undefined,
       mladistvyPotvrzen: undefined
-    }
+    },
+    platby: [],
+    novaPlatba: { castka: undefined, datum: undefined, typ: undefined, poznamka: undefined }
   };
   deepFreeze(state);
 
@@ -292,6 +312,10 @@ it('validation of the initial state [validateEmpty === true]', () => {
   expect(inputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)).toBe(
     undefined
   );
+  expect(inputValid('novaPlatba.castka', state.novaPlatba.castka, state)).toEqual('error');
+  expect(inputValid('novaPlatba.datum', state.novaPlatba.datum, state)).toEqual('error');
+  expect(inputValid('novaPlatba.typ', state.novaPlatba.typ, state)).toEqual('error');
+  expect(inputValid('novaPlatba.poznamka', state.novaPlatba.poznamka, state)).toBe(undefined);
   expect(prihlaseniValid(state)).toBe(false);
   expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
     false
@@ -321,7 +345,9 @@ it('validation of some invalid state [validateEmpty === false]', () => {
       startCislo: undefined,
       kod: '===kód===',
       mladistvyPotvrzen: undefined
-    }
+    },
+    platby: [{ castka: 220, datum: new Date(), typ: 'převodem' }],
+    novaPlatba: { castka: 200, datum: '1. 5.', typ: 'hotově', poznamka: undefined }
   };
   deepFreeze(state);
 
@@ -344,6 +370,10 @@ it('validation of some invalid state [validateEmpty === false]', () => {
   expect(inputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)).toBe(
     undefined
   );
+  expect(inputValid('novaPlatba.castka', state.novaPlatba.castka, state)).toEqual('success');
+  expect(inputValid('novaPlatba.datum', state.novaPlatba.datum, state)).toEqual('error');
+  expect(inputValid('novaPlatba.typ', state.novaPlatba.typ, state)).toEqual('success');
+  expect(inputValid('novaPlatba.poznamka', state.novaPlatba.poznamka, state)).toBe(undefined);
   expect(prihlaseniValid(state)).toBe(false);
   expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
     false
@@ -373,7 +403,9 @@ it('validation of some invalid state [validateEmpty === true]', () => {
       startCislo: undefined,
       kod: '===kód===',
       mladistvyPotvrzen: undefined
-    }
+    },
+    platby: [{ castka: 200, datum: '3. 1. 2015', typ: 'převodem' }],
+    novaPlatba: { castka: undefined, datum: '3. 1. 2015', typ: undefined, poznamka: 'haha' }
   };
   deepFreeze(state);
 
@@ -396,6 +428,10 @@ it('validation of some invalid state [validateEmpty === true]', () => {
   expect(inputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)).toBe(
     undefined
   );
+  expect(inputValid('novaPlatba.castka', state.novaPlatba.castka, state)).toEqual('error');
+  expect(inputValid('novaPlatba.datum', state.novaPlatba.datum, state)).toEqual('success');
+  expect(inputValid('novaPlatba.typ', state.novaPlatba.typ, state)).toEqual('error');
+  expect(inputValid('novaPlatba.poznamka', state.novaPlatba.poznamka, state)).toBe(undefined);
   expect(prihlaseniValid(state)).toBe(false);
   expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
     false
@@ -758,4 +794,38 @@ it('ucastnikSelected - jen údaje', () => {
       )
     )
   ).toEqual(stateAfter);
+});
+
+it('predepsaneStartovne - cyklo', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      prihlaseni: {
+        prihlaska: {
+          typ: 'cyklo'
+        }
+      }
+    }
+  };
+  const selected = [{ castka: 200, duvod: 'předem' }, { castka: 20, duvod: 'záloha' }];
+  expect(predepsaneStartovne(state.registrator.prihlaseni, state.entities.rocniky)).toEqual(
+    selected
+  );
+});
+
+it('predepsaneStartovne - půlmaraton', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      prihlaseni: {
+        prihlaska: {
+          typ: 'půlmaraton'
+        }
+      }
+    }
+  };
+  const selected = [{ castka: 200, duvod: 'předem' }];
+  expect(predepsaneStartovne(state.registrator.prihlaseni, state.entities.rocniky)).toEqual(
+    selected
+  );
 });

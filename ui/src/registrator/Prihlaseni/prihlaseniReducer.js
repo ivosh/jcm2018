@@ -1,7 +1,8 @@
 import moment from 'moment';
-import { findKategorie, CODE_OK } from '../../common';
-import { AKTUALNI_ROK, TYPY_KATEGORII } from '../../constants';
+import { findKategorie, CODE_OK, PLATBA_TYPY } from '../../common';
+import { AKTUALNI_ROK, DEN_ZAVODU, TYPY_KATEGORII } from '../../constants';
 import { narozeniToStr } from '../../Util';
+import { getTypKategorie } from '../../entities/rocniky/rocnikyReducer';
 import { prijmeniJmenoNarozeniSortMethod } from '../../entities/ucastnici/ucastniciReducer';
 
 const initialState = {
@@ -33,7 +34,9 @@ const initialState = {
     startCislo: undefined,
     kod: undefined,
     mladistvyPotvrzen: undefined
-  }
+  },
+  platby: [],
+  novaPlatba: { castka: undefined, datum: undefined, typ: undefined, poznamka: undefined }
 };
 
 const validFormats = ['D.M.YYYY', 'D. M. YYYY', moment.ISO_8601];
@@ -89,6 +92,7 @@ const prihlaseniReducer = (state = initialState, action) => {
           value = parseNarozeni(action.value);
           break;
         case 'prihlaska.datum':
+        case 'novaPlatba.datum':
           value = parseDatum(action.value);
           break;
         case 'prihlaska.typ':
@@ -193,6 +197,7 @@ export const inputValid = (name, value, prihlaseni) => {
     case 'udaje.stat':
     case 'prihlaska.kategorie':
     case 'prihlaska.typ':
+    case 'novaPlatba.castka':
       return nonEmptyInputValid(value, prihlaseni.validateEmpty);
     case 'udaje.adresa':
     case 'udaje.klub':
@@ -201,6 +206,7 @@ export const inputValid = (name, value, prihlaseni) => {
     case 'prihlaska.startCislo': // Může nechat nevyplněné, doplní se později.
     case 'prihlaska.kod':
     case 'prihlaska.mladistvyPotvrzen':
+    case 'novaPlatba.poznamka':
       return undefined;
     case 'udaje.narozeni':
       // TODO: kategorie presne => den + mesic required === true
@@ -211,6 +217,7 @@ export const inputValid = (name, value, prihlaseni) => {
       }
       return undefined;
     case 'prihlaska.datum':
+    case 'novaPlatba.datum':
       if (value === undefined) {
         if (prihlaseni.validateEmpty) {
           return 'error';
@@ -218,6 +225,11 @@ export const inputValid = (name, value, prihlaseni) => {
         return undefined;
       }
       return datumValid(value) ? 'success' : 'error';
+    case 'novaPlatba.typ':
+      if ((value === undefined) && !prihlaseni.validateEmpty) {
+        return undefined;
+      }
+      return PLATBA_TYPY.includes(value) ? 'success' : 'error';
     default:
       return 'error';
   }
@@ -259,9 +271,7 @@ export const isInputEnabled = (name, prihlaseni, rocniky) => {
       if (!typ) {
         return false;
       }
-      const rok = AKTUALNI_ROK;
-      const rocnik = rocniky.byRoky[rok];
-      const typKategorieRocniku = rocnik.kategorie[typ];
+      const typKategorieRocniku = getTypKategorie(AKTUALNI_ROK, typ, rocniky);
       return !!typKategorieRocniku.startCisla;
     }
     default:
@@ -324,6 +334,8 @@ export const inputOptions = (name, prihlaseni, rocniky, ucastnici) => {
       });
       return list;
     }
+    case 'novaPlatba.typ':
+      return PLATBA_TYPY.map(typ => ({ key: typ, value: typ }));
     default:
       return null;
   }
@@ -334,8 +346,32 @@ export const formatValue = (name, rawValue) => {
     case 'udaje.narozeni':
       return narozeniToStr(rawValue);
     case 'prihlaska.datum':
+    case 'novaPlatba.datum':
       return datumValid(rawValue) ? moment.utc(rawValue).format('D. M. YYYY') : rawValue || '';
     default:
       return rawValue ? `${rawValue}` : '';
   }
+};
+
+export const platby = prihlaseni => prihlaseni.platby;
+
+export const predepsaneStartovne = (prihlaseni, rocniky) => {
+  const { typ } = prihlaseni.prihlaska;
+  if (!typ) {
+    return [];
+  }
+
+  const typKategorieRocniku = getTypKategorie(AKTUALNI_ROK, typ, rocniky);
+  const { startovne } = typKategorieRocniku;
+  const predepsane = [];
+  if (DEN_ZAVODU) {
+    predepsane.push({ castka: startovne.naMiste, duvod: 'na místě' });
+  } else {
+    predepsane.push({ castka: startovne.predem, duvod: 'předem' });
+  }
+  if (startovne.zaloha) {
+    predepsane.push({ castka: startovne.zaloha, duvod: 'záloha' });
+  }
+
+  return predepsane;
 };

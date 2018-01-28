@@ -135,3 +135,8 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
     dispatch(saveUcastError({ code: 'internal error', err }));
   }
 };
+
+/* ------------------------------------- platby ------------------------------------------------- */
+
+export const addPlatba = () => ({ type: 'PRIHLASENI_PLATBA_ADD' });
+export const removePlatba = idx => ({ type: 'PRIHLASENI_PLATBA_REMOVE', idx });

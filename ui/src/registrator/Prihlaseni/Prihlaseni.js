@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Col, Form, Grid, Modal, Panel, Row } from 'react-bootstrap';
+import { Button, Col, Form, Grid, Modal, Panel } from 'react-bootstrap';
 import HideableError from '../../shared/HideableError';
 import LoadingButton from '../../shared/LoadingButton';
 import LoadingIndicator from '../../shared/LoadingIndicator';
 import InputContainer from './InputContainer';
+import PlatbyContainer from './PlatbyContainer';
 import RadioInput from './RadioInput';
 import TextInput from './TextInput';
 import PrihlaseniSearchContainer from './PrihlaseniSearchContainer';
@@ -67,7 +68,7 @@ class Prihlaseni extends Component {
             autoComplete="off"
             className="Prihlaseni_form"
           >
-            <Col sm={6}>
+            <Col sm={4}>
               <Panel bsStyle="primary" header="Údaje">
                 <InputContainer name="udaje.prijmeni" popisek="příjmení" Type={TextInput} />
                 <InputContainer name="udaje.jmeno" popisek="jméno" Type={TextInput} />
@@ -87,28 +88,29 @@ class Prihlaseni extends Component {
                 <InputContainer name="udaje.telefon" popisek="telefon" Type={TextInput} />
               </Panel>
             </Col>
-            <Col sm={6}>
+            <Col sm={4}>
               <Panel bsStyle="primary" header="Přihláška">
                 <InputContainer name="prihlaska.datum" popisek="datum" Type={TextInput} />
                 <InputContainer name="prihlaska.typ" popisek="kategorie" Type={RadioInput} />
                 <InputContainer name="prihlaska.startCislo" popisek="číslo" Type={TextInput} />
                 <InputContainer name="prihlaska.kod" popisek="kód" Type={TextInput} />
               </Panel>
+              <LoadingButton
+                type="submit"
+                bsStyle="success"
+                loading={saving}
+                text={`Uložit ${existujiciUcastnik ? 'stávajícího' : 'nového'} účastníka`}
+                loadingText="Probíhá ukládání..."
+              />
+              <Button bsStyle="danger" onClick={this.handleReset} className="Prihlaseni_reset">
+                Reset
+              </Button>
             </Col>
-            <Row>
-              <Col sm={6}>
-                <LoadingButton
-                  type="submit"
-                  bsStyle="success"
-                  loading={saving}
-                  text={`Uložit ${existujiciUcastnik ? 'stávajícího' : 'nového'} účastníka`}
-                  loadingText="Probíhá ukládání..."
-                />
-                <Button bsStyle="danger" onClick={this.handleReset} className="Prihlaseni_reset">
-                  Reset
-                </Button>
-              </Col>
-            </Row>
+            <Col sm={4}>
+              <Panel bsStyle="primary" header="Platby">
+                <PlatbyContainer />
+              </Panel>
+            </Col>
           </Form>
           {showError && (
             <HideableError

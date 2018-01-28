@@ -37,6 +37,13 @@ Object {
       "errorCode": "",
       "errorMessage": "",
       "fetching": false,
+      "novaPlatba": Object {
+        "castka": undefined,
+        "datum": undefined,
+        "poznamka": undefined,
+        "typ": undefined,
+      },
+      "platby": Array [],
       "prihlaska": Object {
         "datum": undefined,
         "kategorie": undefined,
@@ -117,6 +124,13 @@ Object {
       "errorCode": "",
       "errorMessage": "",
       "fetching": false,
+      "novaPlatba": Object {
+        "castka": undefined,
+        "datum": undefined,
+        "poznamka": undefined,
+        "typ": undefined,
+      },
+      "platby": Array [],
       "prihlaska": Object {
         "datum": undefined,
         "kategorie": undefined,
@@ -197,6 +211,13 @@ Object {
       "errorCode": "",
       "errorMessage": "",
       "fetching": false,
+      "novaPlatba": Object {
+        "castka": undefined,
+        "datum": undefined,
+        "poznamka": undefined,
+        "typ": undefined,
+      },
+      "platby": Array [],
       "prihlaska": Object {
         "datum": undefined,
         "kategorie": undefined,
