@@ -16,6 +16,7 @@ const PLATBA_TYPY = ['hotově', 'převodem', 'složenkou'];
 
 const FIND_ALL_ROCNIKY = 'findAllRocniky';
 const FIND_ALL_UCASTNICI = 'findAllUcastnici';
+const SAVE_PLATBY = 'savePlatby';
 const SAVE_PRIHLASKA = 'savePrihlaska';
 const SAVE_UDAJE = 'saveUdaje';
 const SIGN_IN = 'signIn';
@@ -44,6 +45,12 @@ const findAllRocniky = token => ({
 const findAllUcastnici = token => ({
   action: FIND_ALL_UCASTNICI,
   request: undefined,
+  token
+});
+
+const savePlatby = ({ id, rok, platby }, token) => ({
+  action: SAVE_PLATBY,
+  request: { id, rok, platby },
   token
 });
 
@@ -183,8 +190,9 @@ const exported = {
   PLATBA_TYPY,
   FIND_ALL_ROCNIKY,
   FIND_ALL_UCASTNICI,
-  SAVE_UDAJE,
+  SAVE_PLATBY,
   SAVE_PRIHLASKA,
+  SAVE_UDAJE,
   SIGN_IN,
   SIGN_OUT,
   CODE_OK,
@@ -203,6 +211,7 @@ const exported = {
   findAllRocniky,
   findAllUcastnici,
   findKategorie,
+  savePlatby,
   savePrihlaska,
   saveUdaje,
   signIn,
@@ -215,8 +224,9 @@ export {
   PLATBA_TYPY,
   FIND_ALL_ROCNIKY,
   FIND_ALL_UCASTNICI,
-  SAVE_UDAJE,
+  SAVE_PLATBY,
   SAVE_PRIHLASKA,
+  SAVE_UDAJE,
   SIGN_IN,
   SIGN_OUT,
   CODE_OK,
@@ -235,6 +245,7 @@ export {
   findAllRocniky,
   findAllUcastnici,
   findKategorie,
+  savePlatby,
   savePrihlaska,
   saveUdaje,
   signIn,
