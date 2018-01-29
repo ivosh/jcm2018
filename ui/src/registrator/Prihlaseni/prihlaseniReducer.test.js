@@ -6,13 +6,15 @@ import {
   fetchUcastniciError
 } from '../../entities/ucastnici/ucastniciActions';
 import {
+  addPlatba,
   hideError,
   inputChanged,
+  removePlatba,
   reset,
-  ucastnikSelected,
   saveUcastRequest,
   saveUcastSuccess,
-  saveUcastError
+  saveUcastError,
+  ucastnikSelected
 } from './PrihlaseniActions';
 import prihlaseniReducer, {
   formatValue,
@@ -659,6 +661,19 @@ it('prihlaska.typ - muž', () => {
   ).toEqual(selected);
 });
 
+it('prihlaska.typ - nahodí též kategorie', () => {
+  const stateBefore = { prihlaska: { typ: undefined } };
+  deepFreeze(stateBefore);
+  const stateAfter = { prihlaska: { typ: 'maraton', kategorie: '===id===' } };
+
+  expect(
+    prihlaseniReducer(
+      stateBefore,
+      inputChanged('prihlaska.typ', { target: { value: 'maraton', id: '===id===' } })
+    )
+  ).toEqual(stateAfter);
+});
+
 it('prihlaska.startCislo - kategorie má čísla', () => {
   const state = {
     ...ucastniciTestData,
@@ -886,4 +901,53 @@ it('provedenePlatby', () => {
     suma: 270
   };
   expect(provedenePlatby(state.registrator.prihlaseni)).toEqual(selected);
+});
+
+it('addPlatba()', () => {
+  const stateBefore = {
+    validatePlatba: true,
+    platby: [
+      { castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' },
+      { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
+    ],
+    novaPlatba: { castka: '133', datum: '2018-05-13T00:00:00.000Z', typ: 'převodem' }
+  };
+  const stateAfter = {
+    validatePlatba: false,
+    platby: [
+      { castka: 133, datum: '2018-05-13T00:00:00.000Z', typ: 'převodem' },
+      { castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' },
+      { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
+    ],
+    novaPlatba: { castka: undefined, datum: undefined, typ: 'hotově', poznamka: undefined }
+  };
+  deepFreeze(stateBefore);
+
+  expect(prihlaseniReducer(stateBefore, addPlatba())).toEqual(stateAfter);
+});
+
+it('removePlatba()', () => {
+  const stateBefore = {
+    platby: [
+      { castka: 133, datum: '2018-05-13T00:00:00.000Z', typ: 'převodem' },
+      { castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' },
+      { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
+    ]
+  };
+  const stateAfter0 = {
+    platby: [
+      { castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' },
+      { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
+    ]
+  };
+  const stateAfter2 = {
+    platby: [
+      { castka: 133, datum: '2018-05-13T00:00:00.000Z', typ: 'převodem' },
+      { castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
+    ]
+  };
+  deepFreeze(stateBefore);
+
+  expect(prihlaseniReducer(stateBefore, removePlatba(0))).toEqual(stateAfter0);
+  expect(prihlaseniReducer(stateBefore, removePlatba(2))).toEqual(stateAfter2);
 });

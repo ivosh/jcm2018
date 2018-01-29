@@ -140,7 +140,7 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
 
 /* ------------------------------------- platby ------------------------------------------------- */
 
-const addPlatba = () => ({ type: 'PRIHLASENI_ADD_PLATBA' });
+export const addPlatba = () => ({ type: 'PRIHLASENI_ADD_PLATBA' });
 const validatePlatba = () => ({ type: 'PRIHLASENI_VALIDATE_PLATBA' });
 
 export const addValidatedPlatba = () => async (dispatch, getState) => {
