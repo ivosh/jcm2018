@@ -7,7 +7,6 @@ const mapStateToProps = state => {
   const { registrator: { prihlaseni }, entities: { rocniky } } = state;
 
   return {
-    prihlaseni,
     predepsano: predepsaneStartovne(prihlaseni, rocniky),
     provedeno: provedenePlatby(prihlaseni)
   };

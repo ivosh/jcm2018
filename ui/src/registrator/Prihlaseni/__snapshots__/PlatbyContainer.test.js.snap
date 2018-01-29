@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`maps state and dispatch to props 1`] = `
+Object {
+  "polozky": Array [
+    Object {
+      "castka": 200,
+      "duvod": "předem",
+    },
+    Object {
+      "castka": 20,
+      "duvod": "záloha",
+    },
+  ],
+  "suma": 220,
+}
+`;
+
+exports[`maps state and dispatch to props 2`] = `
+Object {
+  "platby": Array [
+    Object {
+      "castka": 200,
+      "datum": "1. 5. 2018",
+      "onRemove": [Function],
+      "poznamka": "stále visí",
+      "typ": "převodem",
+    },
+    Object {
+      "castka": 20,
+      "datum": "9. 6. 2018",
+      "onRemove": [Function],
+      "typ": "hotově",
+    },
+  ],
+  "suma": 220,
+}
+`;
