@@ -16,6 +16,11 @@ const successfulResponseSavePrihlaska = {
   requestId: '0.9310306652587377'
 };
 
+const successfulResponseSavePlatby = {
+  code: 'ok',
+  requestId: '0.9310306652587377'
+};
+
 const unsuccessfulResponse = {
   code: 'unfulfilled request',
   status: 'A strange error occurred.'
@@ -40,7 +45,11 @@ const middlewares = [thunk.withExtraArgument(mockWsClient)];
 const mockStore = configureStore(middlewares);
 
 it('saveUcast() should dispatch four successful actions', async () => {
-  responses = [successfulResponseSaveUdaje, successfulResponseSavePrihlaska];
+  responses = [
+    successfulResponseSaveUdaje,
+    successfulResponseSavePrihlaska,
+    successfulResponseSavePlatby
+  ];
   const store = mockStore({
     auth: { token: '===token===' },
     registrator: { prihlaseni: { validateForm: false, udaje: { narozeni: {} }, prihlaska: {} } }
@@ -120,7 +129,11 @@ it('saveUcast() should dispatch two unsuccessful actions on an invalid token', a
 });
 
 it('saveUcast() should dispatch validation error', async () => {
-  responses = [successfulResponseSaveUdaje, successfulResponseSavePrihlaska];
+  responses = [
+    successfulResponseSaveUdaje,
+    successfulResponseSavePrihlaska,
+    successfulResponseSavePlatby
+  ];
   const store = mockStore({
     auth: { token: '===token===' },
     registrator: { prihlaseni: { validateForm: true, udaje: { narozeni: {} }, prihlaska: {} } }

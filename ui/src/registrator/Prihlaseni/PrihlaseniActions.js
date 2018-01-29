@@ -1,4 +1,4 @@
-import { CODE_OK, CODE_TOKEN_INVALID, savePrihlaska, saveUdaje } from '../../common';
+import { CODE_OK, CODE_TOKEN_INVALID, savePlatby, savePrihlaska, saveUdaje } from '../../common';
 import { AKTUALNI_ROK, PRIHLASENI_SAVE_MODAL_TIMEOUT } from '../../constants';
 import { authTokenExpired } from '../../auth/SignIn/SignInActions';
 import { formValid, novaPlatbaValid } from './prihlaseniReducer';
@@ -117,16 +117,13 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
     }
 
     const { id } = response.response;
-    response = await wsClient.sendRequest(
-      savePrihlaska(
-        {
-          id,
-          rok,
-          prihlaska
-        },
-        state.auth.token
-      )
-    );
+    response = await wsClient.sendRequest(savePrihlaska({ id, rok, prihlaska }, state.auth.token));
+    if (response.code !== CODE_OK) {
+      handleErrors(dispatch, response);
+      return;
+    }
+
+    response = await wsClient.sendRequest(savePlatby({ id, rok, platby }, state.auth.token));
     if (response.code === CODE_OK) {
       dispatch(saveUcastSuccess({ id, rok, udaje, prihlaska, platby }));
       showModalWithTimeout(dispatch);
