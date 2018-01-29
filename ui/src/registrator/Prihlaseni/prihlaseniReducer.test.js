@@ -880,8 +880,8 @@ it('provedenePlatby', () => {
   };
   const selected = {
     platby: [
-      { castka: '250', datum: '9. 6. 2018', typ: 'hotově' },
-      { castka: '20', datum: '9. 6. 2018', typ: 'hotově' }
+      { castka: 250, datum: '9. 6. 2018', typ: 'hotově' },
+      { castka: 20, datum: '9. 6. 2018', typ: 'hotově' }
     ],
     suma: 270
   };

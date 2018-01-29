@@ -143,7 +143,8 @@ const prihlaseniReducer = (state = initialState, action) => {
     case 'PRIHLASENI_SAVE_HIDE_MODAL':
       return { ...state, saved: false };
     case 'PRIHLASENI_ADD_PLATBA': {
-      const platby = [...state.platby, state.novaPlatba];
+      const { castka, ...novaPlatba } = state.novaPlatba;
+      const platby = [...state.platby, { castka: parseInt(castka, 10), ...novaPlatba }];
       platby.sort((a, b) => moment.utc(a.datum) - moment.utc(b.datum));
       return {
         ...state,
@@ -207,6 +208,15 @@ const narozeniValid = (value, validateForm, requireDenMesic) => {
   return 'error';
 };
 
+const numberValid = (value, validatePlatba) => {
+  if (value === undefined && !validatePlatba) {
+    return undefined;
+  }
+
+  const cislo = parseInt(value, 10);
+  return Number.isNaN(cislo) ? 'error' : 'success';
+};
+
 export const inputValid = (name, value, prihlaseni) => {
   switch (name) {
     case 'udaje.prijmeni':
@@ -243,7 +253,7 @@ export const inputValid = (name, value, prihlaseni) => {
       }
       return datumValid(value) ? 'success' : 'error';
     case 'novaPlatba.castka':
-      return nonEmptyInputValid(value, prihlaseni.validatePlatba);
+      return numberValid(value, prihlaseni.validatePlatba);
     case 'novaPlatba.datum':
       if (value === undefined) {
         if (prihlaseni.validatePlatba) {
@@ -392,8 +402,7 @@ export const formatValue = (name, rawValue) => {
 };
 
 export const provedenePlatby = prihlaseni => {
-  const platby = prihlaseni.platby.map(({ castka, datum, ...platba }) => ({
-    castka: `${castka}`,
+  const platby = prihlaseni.platby.map(({ datum, ...platba }) => ({
     datum: moment.utc(datum).format('D. M. YYYY'),
     ...platba
   }));
