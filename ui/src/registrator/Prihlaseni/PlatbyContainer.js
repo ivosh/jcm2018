@@ -18,6 +18,22 @@ const mapDispatchToProps = dispatch => ({
   onRemove: idx => dispatch(removePlatba(idx))
 });
 
-const PlatbyContainer = connect(mapStateToProps, mapDispatchToProps)(Platby);
+const mergeProps = (stateProps, dispatchProps) => {
+  const { provedeno } = stateProps;
+  const { onAdd, onRemove } = dispatchProps;
+
+  const platby = provedeno.platby.map((platba, index) => ({
+    ...platba,
+    onRemove: () => onRemove(index)
+  }));
+
+  return {
+    ...stateProps,
+    provedeno: { ...provedeno, platby },
+    onAdd
+  };
+};
+
+const PlatbyContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(Platby);
 
 export default PlatbyContainer;

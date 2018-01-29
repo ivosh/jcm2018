@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Table } from 'react-bootstrap';
 import Platba from './Platba';
 
-const PlatbyTable = ({ platby, onRemove }) => (
+const PlatbyTable = ({ platby }) => (
   <Table condensed>
     <thead>
       <tr>
@@ -16,7 +16,7 @@ const PlatbyTable = ({ platby, onRemove }) => (
     </thead>
     <tbody>
       {platby.map((platba, index) => (
-        <Platba key={index} platba={platba} onClick={() => onRemove(index)} />
+        <Platba key={index} platba={platba} onClick={platba.onRemove} />
       ))}
     </tbody>
   </Table>
@@ -28,10 +28,10 @@ PlatbyTable.propTypes = {
       castka: PropTypes.number.isRequired,
       datum: PropTypes.string.isRequired,
       typ: PropTypes.string.isRequired,
-      poznamka: PropTypes.string
+      poznamka: PropTypes.string,
+      onRemove: PropTypes.func.isRequired
     })
-  ).isRequired,
-  onRemove: PropTypes.func.isRequired
+  ).isRequired
 };
 
 export default PlatbyTable;

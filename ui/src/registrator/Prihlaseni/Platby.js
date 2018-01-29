@@ -17,7 +17,7 @@ const zaplacenoStyle = (zaplaceno, predepsano) => {
   return 'danger';
 };
 
-const Platby = ({ predepsano, provedeno, onAdd, onRemove }) => (
+const Platby = ({ predepsano, provedeno, onAdd }) => (
   <div>
     <p>
       Zaplaceno:{' '}
@@ -37,7 +37,7 @@ const Platby = ({ predepsano, provedeno, onAdd, onRemove }) => (
       </p>
     )}
 
-    {provedeno.platby.length > 0 && <PlatbyTable platby={provedeno.platby} onRemove={onRemove} />}
+    {provedeno.platby.length > 0 && <PlatbyTable platby={provedeno.platby} />}
 
     <Panel bsStyle="info" header="Nová platba">
       <InputContainer name="novaPlatba.castka" popisek="částka" Type={TextInput} />
@@ -67,13 +67,13 @@ Platby.propTypes = {
         castka: PropTypes.number.isRequired,
         datum: PropTypes.string.isRequired,
         typ: PropTypes.string.isRequired,
-        poznamka: PropTypes.string
+        poznamka: PropTypes.string,
+        onRemove: PropTypes.func.isRequired
       })
     ).isRequired,
     suma: PropTypes.number.isRequired
   }).isRequired,
-  onAdd: PropTypes.func.isRequired,
-  onRemove: PropTypes.func.isRequired
+  onAdd: PropTypes.func.isRequired
 };
 
 export default Platby;

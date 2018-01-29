@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dvě platby 1`] = `
+<table
+  className="table table-condensed"
+>
+  <thead>
+    <tr>
+      <th>
+        částka
+      </th>
+      <th>
+        datum
+      </th>
+      <th>
+        jak?
+      </th>
+      <th>
+        pozn.
+      </th>
+      <th />
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        200
+         Kč
+      </td>
+      <td>
+        10. 12. 2017
+      </td>
+      <td>
+        převodem
+      </td>
+      <td>
+        stále visí
+      </td>
+      <td>
+        <button
+          className="btn btn-xs btn-danger"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="glyphicon glyphicon-remove"
+          />
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        20
+         Kč
+      </td>
+      <td>
+        11. 12. 2017
+      </td>
+      <td>
+        hotově
+      </td>
+      <td />
+      <td>
+        <button
+          className="btn btn-xs btn-danger"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            className="glyphicon glyphicon-remove"
+          />
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
