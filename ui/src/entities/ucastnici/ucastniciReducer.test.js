@@ -1,7 +1,10 @@
 import deepFreeze from 'deep-freeze';
 import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
 import { saveUcastSuccess } from '../../registrator/Prihlaseni/PrihlaseniActions';
-import ucastniciReducer, { narozeniSortMethod } from './ucastniciReducer';
+import ucastniciReducer, {
+  narozeniSortMethod,
+  prijmeniJmenoNarozeniSortMethod
+} from './ucastniciReducer';
 import { fetchUcastniciSuccess } from './ucastniciActions';
 import ucastniciTestData from './ucastniciTestData';
 
@@ -236,14 +239,55 @@ it('narozeniSort(desc=true) - roky, dny, měsíce', () => {
 
 it('narozeniSort(desc=true) - prázdný měsíc a den', () => {
   const narozeni = [
-    { rok: 1978, mesic: 8, den: 7 },
-    { rok: 1978 },
-    { rok: 1978, mesic: 8, den: 6 }
+    { rok: 1978, mesic: 8, den: 7, id: 1 },
+    { rok: 1978, id: 2 },
+    { rok: 1978, mesic: 10, id: 3 },
+    { rok: 1978, mesic: 10, id: 4 },
+    { rok: 1978, mesic: 8, den: 6, id: 5 },
+    { rok: 1978, mesic: 8, den: 5, id: 6 },
+    { rok: 1978, mesic: 9, id: 7 },
+    { rok: 1978, mesic: 10, id: 8 }
   ];
   expect(narozeni.sort(narozeniSortMethodDescending)).toEqual([
+    { rok: 1978, id: 2 },
+    { rok: 1978, mesic: 8, den: 5, id: 6 },
+    { rok: 1978, mesic: 8, den: 6, id: 5 },
+    { rok: 1978, mesic: 8, den: 7, id: 1 },
+    { rok: 1978, mesic: 9, id: 7 },
+    { rok: 1978, mesic: 10, id: 3 },
+    { rok: 1978, mesic: 10, id: 4 },
+    { rok: 1978, mesic: 10, id: 8 }
+  ]);
+});
+
+it('narozeniSort(desc=true) - prázdný den', () => {
+  const narozeni = [{ rok: 1978, mesic: 8 }, { rok: 1978 }, { rok: 1978, mesic: 8, den: 6 }];
+  expect(narozeni.sort(narozeniSortMethodDescending)).toEqual([
     { rok: 1978 },
-    { rok: 1978, mesic: 8, den: 6 },
-    { rok: 1978, mesic: 8, den: 7 }
+    { rok: 1978, mesic: 8 },
+    { rok: 1978, mesic: 8, den: 6 }
+  ]);
+});
+
+it('prijmeniJmenoNarozeniSortMethod - podle jména', () => {
+  const ucastnici = [
+    { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1978, mesic: 8, den: 7 } },
+    { prijmeni: 'Bubáková', jmeno: 'Alena', narozeni: { rok: 1999, mesic: 1, den: 23 } }
+  ];
+  expect(ucastnici.sort(prijmeniJmenoNarozeniSortMethod)).toEqual([
+    { prijmeni: 'Bubáková', jmeno: 'Alena', narozeni: { rok: 1999, mesic: 1, den: 23 } },
+    { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1978, mesic: 8, den: 7 } }
+  ]);
+});
+
+it('prijmeniJmenoNarozeniSortMethod - podle narození', () => {
+  const ucastnici = [
+    { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1999, mesic: 8, den: 7 } },
+    { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1968, mesic: 1, den: 23 } }
+  ];
+  expect(ucastnici.sort(prijmeniJmenoNarozeniSortMethod)).toEqual([
+    { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1968, mesic: 1, den: 23 } },
+    { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1999, mesic: 8, den: 7 } }
   ]);
 });
 
