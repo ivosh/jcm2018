@@ -6,16 +6,16 @@ import PlatbyTable from './PlatbyTable';
 import SelectInput from './SelectInput';
 import TextInput from './TextInput';
 
-const Platby = ({ platby, predepsano, onAdd, onRemove }) => (
+const Platby = ({ predepsano, provedeno, onAdd, onRemove }) => (
   <div>
     <div>Předepsané startovné:</div>
-    {predepsano.map((platba, idx) => (
+    {predepsano.polozky.map((platba, idx) => (
       <div key={idx}>
         <b>{platba.castka}</b> Kč {platba.duvod}
       </div>
     ))}
 
-    <PlatbyTable platby={platby} onRemove={onRemove} />
+    <PlatbyTable platby={provedeno.platby} onRemove={onRemove} />
 
     <Panel bsStyle="info" header="Nová platba">
       <InputContainer name="novaPlatba.castka" popisek="částka" Type={TextInput} />
@@ -30,20 +30,26 @@ const Platby = ({ platby, predepsano, onAdd, onRemove }) => (
 );
 
 Platby.propTypes = {
-  platby: PropTypes.arrayOf(
-    PropTypes.shape({
-      castka: PropTypes.number.isRequired,
-      datum: PropTypes.string.isRequired,
-      typ: PropTypes.string.isRequired,
-      poznamka: PropTypes.string
-    })
-  ).isRequired,
-  predepsano: PropTypes.arrayOf(
-    PropTypes.shape({
-      castka: PropTypes.number.isRequired,
-      duvod: PropTypes.string.isRequired
-    })
-  ).isRequired,
+  predepsano: PropTypes.shape({
+    polozky: PropTypes.arrayOf(
+      PropTypes.shape({
+        castka: PropTypes.number.isRequired,
+        duvod: PropTypes.string.isRequired
+      })
+    ).isRequired,
+    suma: PropTypes.number.isRequired
+  }).isRequired,
+  provedeno: PropTypes.shape({
+    platby: PropTypes.arrayOf(
+      PropTypes.shape({
+        castka: PropTypes.number.isRequired,
+        datum: PropTypes.string.isRequired,
+        typ: PropTypes.string.isRequired,
+        poznamka: PropTypes.string
+      })
+    ).isRequired,
+    suma: PropTypes.number.isRequired
+  }).isRequired,
   onAdd: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired
 };

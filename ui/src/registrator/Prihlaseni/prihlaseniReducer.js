@@ -391,29 +391,35 @@ export const formatValue = (name, rawValue) => {
   }
 };
 
-export const platby = prihlaseni =>
-  prihlaseni.platby.map(({ datum, ...platba }) => ({
+export const provedenePlatby = prihlaseni => {
+  const platby = prihlaseni.platby.map(({ castka, datum, ...platba }) => ({
+    castka: `${castka}`,
     datum: moment.utc(datum).format('D. M. YYYY'),
     ...platba
   }));
+  const suma = prihlaseni.platby.reduce((sum, platba) => sum + platba.castka, 0);
+
+  return { platby, suma };
+};
 
 export const predepsaneStartovne = (prihlaseni, rocniky) => {
   const { typ } = prihlaseni.prihlaska;
   if (!typ) {
-    return [];
+    return { suma: 0, polozky: [] };
   }
 
   const typKategorieRocniku = getTypKategorie(AKTUALNI_ROK, typ, rocniky);
   const { startovne } = typKategorieRocniku;
-  const predepsane = [];
+  const polozky = [];
   if (DEN_ZAVODU) {
-    predepsane.push({ castka: startovne.naMiste, duvod: 'na místě' });
+    polozky.push({ castka: startovne.naMiste, duvod: 'na místě' });
   } else {
-    predepsane.push({ castka: startovne.predem, duvod: 'předem' });
+    polozky.push({ castka: startovne.predem, duvod: 'předem' });
   }
   if (startovne.zaloha) {
-    predepsane.push({ castka: startovne.zaloha, duvod: 'záloha' });
+    polozky.push({ castka: startovne.zaloha, duvod: 'záloha' });
   }
 
-  return predepsane;
+  const suma = polozky.reduce((sum, polozka) => sum + polozka.castka, 0);
+  return { polozky, suma };
 };

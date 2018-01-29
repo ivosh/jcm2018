@@ -48,7 +48,7 @@ export const saveUcastRequest = () => ({
   type: 'PRIHLASENI_SAVE_REQUEST'
 });
 
-export const saveUcastSuccess = ({ id, rok, udaje, prihlaska }) => {
+export const saveUcastSuccess = ({ id, rok, udaje, prihlaska, platby = [] }) => {
   const { typ, ...jenPrihlaska } = prihlaska;
 
   return {
@@ -57,6 +57,7 @@ export const saveUcastSuccess = ({ id, rok, udaje, prihlaska }) => {
     rok,
     udaje,
     prihlaska: jenPrihlaska,
+    platby,
     receivedAt: Date.now()
   };
 };

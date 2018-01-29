@@ -2224,6 +2224,7 @@ const state = {
               obec: 'Ostrava 2',
               stat: 'Česká republika'
             },
+            platby: [{ castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }],
             prihlaska: {
               datum: '2018-06-09T00:00:00.000Z',
               kategorie: '5a587e1b051c181132cf83d7',

@@ -60,7 +60,8 @@ it('maps onSelect to dispatch ucastnikSelected action - existující přihlášk
       typ: 'půlmaraton',
       startCislo: 17,
       kod: '10728864'
-    }
+    },
+    platby: [{ castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }]
   });
 });
 

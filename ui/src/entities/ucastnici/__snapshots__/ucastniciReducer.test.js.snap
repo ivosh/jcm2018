@@ -33,6 +33,13 @@ Object {
         },
       },
       "2018": Object {
+        "platby": Array [
+          Object {
+            "castka": 250,
+            "datum": "2018-06-09T00:00:00.000Z",
+            "typ": "hotově",
+          },
+        ],
         "prihlaska": Object {
           "datum": "2018-06-09T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d7",
@@ -91,6 +98,13 @@ Object {
     },
     "7a09b1fd371dec1e99b79853": Object {
       "2018": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2018-05-12T00:00:00.000Z",
+            "typ": "složenkou",
+          },
+        ],
         "prihlaska": Object {
           "datum": "2018-05-12T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d9",
@@ -152,6 +166,13 @@ Object {
         },
       },
       "2018": Object {
+        "platby": Array [
+          Object {
+            "castka": 250,
+            "datum": "2018-06-09T00:00:00.000Z",
+            "typ": "hotově",
+          },
+        ],
         "prihlaska": Object {
           "datum": "2018-06-09T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d7",
@@ -205,6 +226,13 @@ Object {
         },
       },
       "2018": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2018-05-12T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
         "prihlaska": Object {
           "datum": "2018-05-12T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83db",
@@ -267,6 +295,7 @@ Object {
         },
       },
       "2018": Object {
+        "platby": Array [],
         "prihlaska": Object {
           "datum": "2018-06-09T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d7",

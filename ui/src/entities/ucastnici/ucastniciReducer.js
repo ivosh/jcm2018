@@ -29,9 +29,10 @@ const ucastniciReducer = (state = initialState, action) => {
     case 'FETCH_UCASTNICI_SUCCESS':
       return action.data;
     case 'PRIHLASENI_SAVE_SUCCESS': {
-      const { id, rok, udaje, prihlaska } = action;
-      const stateUpdated = updateUcast(state, id, rok, 'udaje', udaje);
-      return updateUcast(stateUpdated, id, rok, 'prihlaska', prihlaska);
+      const { id, rok, udaje, prihlaska, platby } = action;
+      const state1 = updateUcast(state, id, rok, 'udaje', udaje);
+      const state2 = updateUcast(state1, id, rok, 'prihlaska', prihlaska);
+      return updateUcast(state2, id, rok, 'platby', platby);
     }
     case 'SIGN_OUT_SUCCESS':
       return initialState;
