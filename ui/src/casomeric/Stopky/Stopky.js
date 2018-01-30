@@ -1,37 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, ButtonToolbar } from 'react-bootstrap';
 import moment from 'moment';
-import Displej from './Displej';
+import StopkyButtons from './StopkyButtons';
+import StopkyDisplej from './StopkyDisplej';
 import './Stopky.css';
 
-const ONE_TICK = 100; // milliseconds
-
 class Stopky extends Component {
-  state = { current: new Date() };
-
-  componentDidMount = () => {
-    if (this.props.running) {
-      this.timerID = setInterval(() => this.tick(), ONE_TICK);
-    }
-  };
-
-  componentWillUnmount = () => {
-    this.stopTimer();
-  };
-
-  stopTimer = () => {
-    clearInterval(this.timerID);
-    this.timerID = null;
-  };
-
-  tick = () => {
-    this.setState({ current: new Date() });
-  };
-
   start = () => {
-    this.timerID = setInterval(() => this.tick(), ONE_TICK);
-
+    this.displej.startTimer();
     this.props.onStart(new Date());
   };
 
@@ -42,42 +18,34 @@ class Stopky extends Component {
   };
 
   stop = () => {
-    this.stopTimer();
-
+    this.displej.stopTimer();
     this.props.onStop();
   };
 
   render = () => {
-    const { props } = this;
-
-    let duration = null;
-    if (props.base !== null) {
-      duration = moment.duration(this.state.current.getTime() - props.base.getTime());
-    }
+    const { base, running, startEnabled, mezicasEnabled, stopEnabled } = this.props;
 
     /* eslint-disable jsx-a11y/no-access-key */
     return (
       <div className="Stopky">
         <div className="Stopky-mezera">
-          <Displej duration={duration} />
+          <StopkyDisplej
+            base={base}
+            running={running}
+            ref={displej => {
+              this.displej = displej;
+            }}
+          />
         </div>
         <div>
-          <ButtonToolbar>
-            <Button bsStyle="success" disabled={!props.startEnabled} onClick={this.start}>
-              Start
-            </Button>
-            <Button
-              bsStyle="info"
-              disabled={!props.mezicasEnabled}
-              onClick={this.mezicas}
-              accessKey="m"
-            >
-              Mezičas (Alt-m)
-            </Button>
-            <Button bsStyle="danger" disabled={!props.stopEnabled} onClick={this.stop}>
-              Stop
-            </Button>
-          </ButtonToolbar>
+          <StopkyButtons
+            startEnabled={startEnabled}
+            mezicasEnabled={mezicasEnabled}
+            stopEnabled={stopEnabled}
+            onStartClick={this.start}
+            onMezicasClick={this.mezicas}
+            onStopClick={this.stop}
+          />
         </div>
       </div>
     );
