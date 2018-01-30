@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { ControlLabel, Form, FormGroup, FormControl, Panel } from 'react-bootstrap';
 import HideableError from '../../shared/HideableError';
 import LoadingButton from '../../shared/LoadingButton';
 import './SignIn.css';
 
-class SignIn extends Component {
+class SignIn extends PureComponent {
   state = { username: '', password: '' };
 
   handleUsernameChange = event => {

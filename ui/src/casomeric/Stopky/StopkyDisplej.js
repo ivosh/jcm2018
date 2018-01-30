@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { STOPKY_ONE_TICK } from '../../constants';
 import Displej from './Displej';
 
 /* Split from Stopky to minimalize reconciliation (unnecessary updates). */
-class StopkyDisplej extends Component {
+class StopkyDisplej extends PureComponent {
   state = { current: new Date() };
 
   componentDidMount = () => {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Cell } from 'fixed-data-table-2';
 import { SortDirTypes } from './ucastniciDigestReducer';
@@ -9,10 +9,9 @@ sortDirs[SortDirTypes.NONE] = '';
 sortDirs[SortDirTypes.ASC] = '↑';
 sortDirs[SortDirTypes.DESC] = '↓';
 
-class SortHeaderCell extends Component {
+class SortHeaderCell extends PureComponent {
   sortDirChanged = event => {
     event.preventDefault();
-
     this.props.onSortDirChange();
   };
 

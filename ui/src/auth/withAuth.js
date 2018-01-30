@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
    Will need to dispatch window.location.pathname into Redux store and redirect here to when
    authenticated. */
 const withAuth = WrappedComponent => {
-  class WithAuthComponent extends Component {
+  class WithAuthComponent extends PureComponent {
     constructor(props) {
       super(props);
 

@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Form, FormGroup, FormControl } from 'react-bootstrap';
 import './StartCisloInput.css';
 
-class StartCisloInput extends Component {
+class StartCisloInput extends PureComponent {
   state = { cislo: '' };
 
   findStartujici = () => {

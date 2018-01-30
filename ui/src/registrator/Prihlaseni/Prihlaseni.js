@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Col, Form, Grid, Modal, Panel } from 'react-bootstrap';
 import HideableError from '../../shared/HideableError';
@@ -11,7 +11,7 @@ import TextInput from './TextInput';
 import PrihlaseniSearchContainer from './PrihlaseniSearchContainer';
 import './Prihlaseni.css';
 
-class Prihlaseni extends Component {
+class Prihlaseni extends PureComponent {
   componentDidMount = () => {
     this.props.fetchUcastnici();
   };

@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 const withoutAuth = WrappedComponent => {
-  class WithoutAuthComponent extends Component {
+  class WithoutAuthComponent extends PureComponent {
     constructor(props) {
       super(props);
 

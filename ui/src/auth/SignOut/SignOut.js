@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Panel } from 'react-bootstrap';
 import LoadingIndicator from '../../shared/LoadingIndicator';
 import './SignOut.css';
 
-class SignOut extends Component {
+class SignOut extends PureComponent {
   componentDidMount = async () => {
     await this.props.signOut();
   };

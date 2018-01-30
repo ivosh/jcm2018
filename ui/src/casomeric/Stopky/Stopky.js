@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import StopkyButtons from './StopkyButtons';
 import StopkyDisplej from './StopkyDisplej';
 import './Stopky.css';
 
-class Stopky extends Component {
+class Stopky extends PureComponent {
   start = () => {
     this.displej.startTimer();
     this.props.onStart(new Date());

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Cell, Column, Table } from 'fixed-data-table-2';
 import 'fixed-data-table-2/dist/fixed-data-table.css';
@@ -60,7 +60,7 @@ VykonCell.propTypes = {
   columnKey: PropTypes.string.isRequired
 };
 
-class UcastniciDigest extends Component {
+class UcastniciDigest extends PureComponent {
   componentDidMount = () => {
     this.props.fetchUcastnici();
   };
