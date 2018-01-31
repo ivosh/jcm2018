@@ -28,10 +28,9 @@ const pickContentType = extension => {
 };
 
 const responseAbend = (response, message) => {
-  response.set('Content-Type', 'text/plain');
+  response.setHeader('Content-Type', 'text/plain');
   response.statusCode = 500;
-  response.send(`Internal error: ${message}`);
-  response.end();
+  response.end(`Internal error: ${message}`);
 };
 
 const streamFile = async (filename, response) => {
@@ -120,11 +119,7 @@ const server = http.createServer((request, response) => {
       pathname = INITIAL_FILE;
     }
 
-    try {
-      streamRequest(pathname, response).then();
-    } catch (err) {
-      responseAbend(response, err.message);
-    }
+    streamRequest(pathname, response).then().catch(err => responseAbend(response, err.message));
   }
 });
 
