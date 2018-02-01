@@ -119,7 +119,9 @@ const server = http.createServer((request, response) => {
       pathname = INITIAL_FILE;
     }
 
-    streamRequest(pathname, response).then().catch(err => responseAbend(response, err.message));
+    streamRequest(pathname, response)
+      .then()
+      .catch(err => responseAbend(response, err.message));
   }
 });
 
