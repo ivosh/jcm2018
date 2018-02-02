@@ -1,0 +1,80 @@
+.UcastniciTable_GridRow {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.UcastniciTable_GridColumn {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.UcastniciTable_LeftSideGridContainer {
+	background-color: #ffffff; /* extremely important to specify one here */
+  border-left: 1px solid #d3d3d3;
+  flex-grow: 0;
+  flex-shrink: 0;
+  left: 0;
+  position: absolute;
+  z-index: 10;
+}
+
+.UcastniciTable_LeftSideGrid {
+  overflow: hidden !important;
+}
+
+.UcastniciTable_HeaderGrid {
+  overflow: hidden !important;
+  width: 100%;
+}
+
+.UcastniciTable_BodyGrid {
+  width: 100%;
+}
+
+.UcastniciTable_evenRow {
+  background-color: #f6f7f8;
+}
+.UcastniciTable_oddRow {
+  background-color: #ffffff;
+}
+.UcastniciTable_headerCell {
+  background-color: #f6f7f8;
+  background: linear-gradient(#ffffff, #efefef);
+  border-top: 1px solid #d3d3d3;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.UcastniciTable_cell,
+.UcastniciTable_headerCell,
+.UcastniciTable_leftCell {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 .5em;
+  border-right: 1px solid #d3d3d3;
+}
+.UcastniciTable_headerCell,
+.UcastniciTable_leftCell {
+  font-weight: bold;
+}
+
+/* -------------------- 
+
+
+.UcastniciTable_vykon {
+	font-weight: bold;
+  border-radius: 15px;
+  width: 33px;
+  height: 33px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+*/
