@@ -13,6 +13,7 @@
 .UcastniciTable_LeftSideGridContainer {
 	background-color: #ffffff; /* extremely important to specify one here */
   border-left: 1px solid #d3d3d3;
+  border-bottom: 1px solid #d3d3d3;
   flex-grow: 0;
   flex-shrink: 0;
   left: 0;
@@ -30,6 +31,7 @@
 }
 
 .UcastniciTable_BodyGrid {
+  border-bottom: 1px solid #d3d3d3;
   width: 100%;
 }
 

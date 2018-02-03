@@ -6,13 +6,31 @@ import { SortDirTypes } from '../../Util';
 import SortHeader from './SortHeader';
 import './UcastniciTable.css';
 
+const calculateHeight = ({
+  containerHeight,
+  horizontalScrollbarSize,
+  horizontalScrollbarVisible,
+  rowHeight,
+  rowCount
+}) => {
+  let height = containerHeight - horizontalScrollbarSize - rowHeight;
+  if (height % rowHeight < rowHeight / 2) {
+    height -= height % rowHeight;
+  }
+  if (rowCount * rowHeight < height) {
+    height = rowCount * rowHeight;
+  }
+  if (horizontalScrollbarVisible) {
+    height += horizontalScrollbarSize;
+  }
+  return height;
+};
+
 class UcastniciTable extends PureComponent {
   columnWidth = ({ index }) => this.props.columns[index].width;
 
-  fixedColumnsWidth = () =>
-    this.props.columns
-      .slice(0, this.props.fixedColumnCount)
-      .reduce((sum, column) => sum + column.width, 0);
+  columnsWidth = columnCount =>
+    this.props.columns.slice(0, columnCount).reduce((sum, column) => sum + column.width, 0);
 
   renderBodyCell = ({ columnIndex, key, rowIndex, style }) => {
     if (columnIndex < this.props.fixedColumnCount) {
@@ -71,109 +89,121 @@ class UcastniciTable extends PureComponent {
   };
 
   render() {
-    const { columns, data, fixedColumnCount, rowHeight } = this.props;
+    const { columns, containerHeight, data, fixedColumnCount, rowHeight } = this.props;
     const overscanColumnCount = 0;
     const overscanRowCount = 5;
 
     const columnCount = columns.length;
-    const fixedColumnsWidth = this.fixedColumnsWidth();
+    const allColumnsWidth = this.columnsWidth(columnCount);
+    const fixedColumnsWidth = this.columnsWidth(fixedColumnCount);
     const rowCount = data.length;
-    const height = this.props.containerHeight - scrollbarSize() - rowHeight;
 
     // :TODO: highlight currently hovered row
+    // :TODO: let AutoSizer manage height as well:
+    // https://github.com/bvaughn/react-virtualized/blob/master/docs/usingAutoSizer.md
     return (
-      <ScrollSync>
-        {({ clientHeight, onScroll, scrollLeft, scrollTop }) => (
-          <div className="UcastniciTable_GridRow">
-            <div
-              className="UcastniciTable_LeftSideGridContainer"
-              style={{
-                top: 0,
-                flexBasis: `${fixedColumnsWidth}px`
-              }}
-            >
-              <Grid
-                cellRenderer={this.renderLeftHeaderCell}
-                className="UcastniciTable_HeaderGrid"
-                columnCount={fixedColumnCount}
-                columnWidth={this.columnWidth}
-                height={rowHeight}
-                rowCount={1}
-                rowHeight={rowHeight}
-                width={fixedColumnsWidth}
-              />
-            </div>
-            <div
-              className="UcastniciTable_LeftSideGridContainer"
-              style={{
-                top: rowHeight,
-                flexBasis: `${fixedColumnsWidth}px`
-              }}
-            >
-              <Grid
-                cellRenderer={this.renderLeftSideCell}
-                className="UcastniciTable_LeftSideGrid"
-                columnCount={fixedColumnCount}
-                columnWidth={this.columnWidth}
-                height={clientHeight - scrollbarSize()}
-                overscanColumnCount={overscanColumnCount}
-                overscanRowCount={overscanRowCount}
-                rowCount={rowCount}
-                rowHeight={rowHeight}
-                scrollTop={scrollTop}
-                width={fixedColumnsWidth}
-              />
-            </div>
-            <div className="UcastniciTable_GridColumn">
-              <AutoSizer disableHeight>
-                {({ width }) => (
-                  <div>
-                    <div
-                      style={{
-                        height: rowHeight,
-                        width: width - scrollbarSize()
-                      }}
-                    >
-                      <Grid
-                        cellRenderer={this.renderHeaderCell}
-                        className="UcastniciTable_HeaderGrid"
-                        columnCount={columnCount}
-                        columnWidth={this.columnWidth}
-                        height={rowHeight}
-                        overscanColumnCount={overscanColumnCount}
-                        rowHeight={rowHeight}
-                        rowCount={1}
-                        scrollLeft={scrollLeft}
-                        width={width - scrollbarSize()}
-                      />
-                    </div>
-                    <div
-                      style={{
-                        height,
-                        width
-                      }}
-                    >
-                      <Grid
-                        cellRenderer={this.renderBodyCell}
-                        className="UcastniciTable_BodyGrid"
-                        columnCount={columnCount}
-                        columnWidth={this.columnWidth}
-                        height={height}
-                        onScroll={onScroll}
-                        overscanColumnCount={overscanColumnCount}
-                        overscanRowCount={overscanRowCount}
-                        rowCount={rowCount}
-                        rowHeight={rowHeight}
-                        width={width}
-                      />
+      <AutoSizer disableHeight>
+        {({ width }) => {
+          const horizontalScrollbarVisible = allColumnsWidth > width;
+          const height = calculateHeight({
+            containerHeight,
+            horizontalScrollbarSize: scrollbarSize(),
+            horizontalScrollbarVisible,
+            rowHeight,
+            rowCount
+          });
+          return (
+            <ScrollSync>
+              {({ onScroll, scrollLeft, scrollTop }) => (
+                <div className="UcastniciTable_GridRow">
+                  <div
+                    className="UcastniciTable_LeftSideGridContainer"
+                    style={{
+                      top: 0,
+                      flexBasis: `${fixedColumnsWidth}px`
+                    }}
+                  >
+                    <Grid
+                      cellRenderer={this.renderLeftHeaderCell}
+                      className="UcastniciTable_HeaderGrid"
+                      columnCount={fixedColumnCount}
+                      columnWidth={this.columnWidth}
+                      height={rowHeight}
+                      rowCount={1}
+                      rowHeight={rowHeight}
+                      width={fixedColumnsWidth}
+                    />
+                  </div>
+                  <div
+                    className="UcastniciTable_LeftSideGridContainer"
+                    style={{
+                      top: rowHeight,
+                      flexBasis: `${fixedColumnsWidth}px`
+                    }}
+                  >
+                    <Grid
+                      cellRenderer={this.renderLeftSideCell}
+                      className="UcastniciTable_LeftSideGrid"
+                      columnCount={fixedColumnCount}
+                      columnWidth={this.columnWidth}
+                      height={height - (horizontalScrollbarVisible ? scrollbarSize() : 0)}
+                      overscanColumnCount={overscanColumnCount}
+                      overscanRowCount={overscanRowCount}
+                      rowCount={rowCount}
+                      rowHeight={rowHeight}
+                      scrollTop={scrollTop}
+                      width={fixedColumnsWidth}
+                    />
+                  </div>
+                  <div className="UcastniciTable_GridColumn">
+                    <div>
+                      <div
+                        style={{
+                          height: rowHeight,
+                          width: width - fixedColumnsWidth - scrollbarSize()
+                        }}
+                      >
+                        <Grid
+                          cellRenderer={this.renderHeaderCell}
+                          className="UcastniciTable_HeaderGrid"
+                          columnCount={columnCount}
+                          columnWidth={this.columnWidth}
+                          height={rowHeight}
+                          overscanColumnCount={overscanColumnCount}
+                          rowHeight={rowHeight}
+                          rowCount={1}
+                          scrollLeft={scrollLeft}
+                          width={width - scrollbarSize()}
+                        />
+                      </div>
+                      <div
+                        style={{
+                          height,
+                          width
+                        }}
+                      >
+                        <Grid
+                          cellRenderer={this.renderBodyCell}
+                          className="UcastniciTable_BodyGrid"
+                          columnCount={columnCount}
+                          columnWidth={this.columnWidth}
+                          height={height}
+                          onScroll={onScroll}
+                          overscanColumnCount={overscanColumnCount}
+                          overscanRowCount={overscanRowCount}
+                          rowCount={rowCount}
+                          rowHeight={rowHeight}
+                          width={width}
+                        />
+                      </div>
                     </div>
                   </div>
-                )}
-              </AutoSizer>
-            </div>
-          </div>
-        )}
-      </ScrollSync>
+                </div>
+              )}
+            </ScrollSync>
+          );
+        }}
+      </AutoSizer>
     );
   }
 }
