@@ -73,7 +73,6 @@ class UcastniciDigest extends PureComponent {
     return (
       <UcastniciTable
         columns={columns}
-        containerHeight={window.innerHeight - 130} // navigation and filtering components
         data={ucastniciDigest}
         fixedColumnCount={3}
         rowHeight={35}

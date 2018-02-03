@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`dva účastníci 1`] = `
-<UcastniciTable
+<DimensionsHOC
   columns={
     Array [
       Object {
@@ -171,7 +171,6 @@ exports[`dva účastníci 1`] = `
       },
     ]
   }
-  containerHeight={638}
   data={
     Array [
       Object {
@@ -217,7 +216,7 @@ exports[`dva účastníci 1`] = `
 `;
 
 exports[`dva účastníci, řazeno dle příjmení 1`] = `
-<UcastniciTable
+<DimensionsHOC
   columns={
     Array [
       Object {
@@ -387,7 +386,6 @@ exports[`dva účastníci, řazeno dle příjmení 1`] = `
       },
     ]
   }
-  containerHeight={638}
   data={
     Array [
       Object {
@@ -442,7 +440,7 @@ exports[`načítá se 1`] = `
 `;
 
 exports[`žádný účastník 1`] = `
-<UcastniciTable
+<DimensionsHOC
   columns={
     Array [
       Object {
@@ -612,7 +610,6 @@ exports[`žádný účastník 1`] = `
       },
     ]
   }
-  containerHeight={638}
   data={Array []}
   fixedColumnCount={3}
   onSortDirChange={[Function]}

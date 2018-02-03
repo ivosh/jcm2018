@@ -7,7 +7,12 @@ import UcastniciTable from './UcastniciTable';
 const columns = [
   { key: 'prijmeni', label: 'příjmení', sortable: true, width: 100 },
   { key: 'jmeno', label: 'jméno', sortable: true, width: 100 },
-  { key: '2012', sortable: false, width: 50 }
+  {
+    key: '2012',
+    cellDataFormatter: ({ cellData }) => cellData.dokonceno,
+    sortable: false,
+    width: 50
+  }
 ];
 
 const data = [
@@ -71,4 +76,31 @@ it('dva účastníci, řazeno dle příjmení', () => {
     </div>
   );
   expect(toJSON(wrapper)).toMatchSnapshot();
+});
+
+it('maps onClick to onSortDirChange for jméno', () => {
+  const onSortDirChange = jest.fn();
+  const wrapper = mount(
+    <div height={500} width={500}>
+      <UcastniciTable
+        columns={columns}
+        containerHeight={500}
+        data={data}
+        fixedColumnCount={2}
+        rowHeight={35}
+        sortColumn="prijmeni"
+        sortDir={SortDirTypes.ASC}
+        onSortDirChange={onSortDirChange}
+      />
+    </div>
+  );
+
+  expect(wrapper.find('a')).toHaveLength(2);
+  expect(wrapper.find('a').last()).toHaveLength(1);
+  wrapper
+    .find('a')
+    .last()
+    .simulate('click');
+
+  expect(onSortDirChange).toHaveBeenCalledWith('jmeno');
 });

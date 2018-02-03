@@ -15,29 +15,31 @@ const UcastniciDigestFilterable = ({
   ...props
 }) => (
   <div className="UcastniciDigestFilterable_div">
-    <DebounceInput
-      className="UcastniciDigestFilterable_input"
-      minLength={0}
-      debounceTimeout={500}
-      value={textFilter}
-      placeholder="Filtr na příjmení a jméno"
-      onChange={e => onTextFilterChange(e.target.value)}
-    />
+    <div>
+      <DebounceInput
+        className="UcastniciDigestFilterable_input"
+        minLength={0}
+        debounceTimeout={500}
+        value={textFilter}
+        placeholder="Filtr na příjmení a jméno"
+        onChange={e => onTextFilterChange(e.target.value)}
+      />
 
-    <ButtonGroup className="UcastniciDigestFilterable_kategorie_vykonu">
-      {TYPY_KATEGORII.map(typKategorie => (
-        <KategorieVykonuFilter
-          key={typKategorie}
-          typKategorie={typKategorie}
-          onClick={() => onKategorieVykonuFilterChange(typKategorie)}
-          active={kategorieVykonuFilter === typKategorie}
-        />
-      ))}
-    </ButtonGroup>
+      <ButtonGroup className="UcastniciDigestFilterable_kategorie_vykonu">
+        {TYPY_KATEGORII.map(typKategorie => (
+          <KategorieVykonuFilter
+            key={typKategorie}
+            typKategorie={typKategorie}
+            onClick={() => onKategorieVykonuFilterChange(typKategorie)}
+            active={kategorieVykonuFilter === typKategorie}
+          />
+        ))}
+      </ButtonGroup>
 
-    <span className="UcastniciDigestFilterable_zobrazeno">
-      zobrazeno: <Badge>{props.ucastniciDigest.length}</Badge>
-    </span>
+      <span className="UcastniciDigestFilterable_zobrazeno">
+        zobrazeno: <Badge>{props.ucastniciDigest.length}</Badge>
+      </span>
+    </div>
 
     <UcastniciDigestTable {...props} />
   </div>
