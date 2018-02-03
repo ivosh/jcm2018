@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import { SortDirTypes } from './ucastniciDigestReducer';
+import { SortDirTypes } from '../../Util';
 import UcastniciDigestTable from './UcastniciDigestTable';
 
 const roky = [

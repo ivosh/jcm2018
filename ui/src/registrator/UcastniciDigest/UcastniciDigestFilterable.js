@@ -4,7 +4,7 @@ import { Badge, ButtonGroup } from 'react-bootstrap';
 import DebounceInput from 'react-debounce-input';
 import { TYPY_KATEGORII } from '../../constants';
 import KategorieVykonuFilter from './KategorieVykonuFilter';
-import UcastniciDigestResponsive from './UcastniciDigestResponsive';
+import UcastniciDigestTable from './UcastniciDigestTable';
 import './UcastniciDigestFilterable.css';
 
 const UcastniciDigestFilterable = ({
@@ -39,7 +39,7 @@ const UcastniciDigestFilterable = ({
       zobrazeno: <Badge>{props.ucastniciDigest.length}</Badge>
     </span>
 
-    <UcastniciDigestResponsive {...props} />
+    <UcastniciDigestTable {...props} />
   </div>
 );
 

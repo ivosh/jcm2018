@@ -64,7 +64,7 @@ exports[`renders 1`] = `
       0
     </Badge>
   </span>
-  <DimensionsHOC
+  <UcastniciDigest
     fetchUcastnici={[Function]}
     onSortDirChange={[Function]}
     roky={

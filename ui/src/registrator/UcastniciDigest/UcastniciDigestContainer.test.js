@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
-import { SortDirTypes } from './ucastniciDigestReducer';
+import { SortDirTypes } from '../../Util';
 import UcastniciDigestContainer from './UcastniciDigestContainer';
 
 const mockStore = configureStore();

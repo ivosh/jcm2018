@@ -1,7 +1,177 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`dva účastníci 1`] = `
-<FixedDataTable
+<UcastniciTable
+  columns={
+    Array [
+      Object {
+        "cellStyler": [Function],
+        "key": "prijmeni",
+        "label": "příjmení",
+        "sortable": true,
+        "width": 100,
+      },
+      Object {
+        "cellStyler": [Function],
+        "key": "jmeno",
+        "label": "jméno",
+        "sortable": true,
+        "width": 90,
+      },
+      Object {
+        "cellStyler": [Function],
+        "key": "narozeni",
+        "label": "narození",
+        "sortable": true,
+        "width": 100,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2001",
+        "label": 2001,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2002",
+        "label": 2002,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2003",
+        "label": 2003,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2004",
+        "label": 2004,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2005",
+        "label": 2005,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2006",
+        "label": 2006,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2007",
+        "label": 2007,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2008",
+        "label": 2008,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2009",
+        "label": 2009,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2010",
+        "label": 2010,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2011",
+        "label": 2011,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2012",
+        "label": 2012,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2013",
+        "label": 2013,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2014",
+        "label": 2014,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2015",
+        "label": 2015,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2016",
+        "label": 2016,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2017",
+        "label": 2017,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2018",
+        "label": 2018,
+        "sortable": false,
+        "width": 50,
+      },
+    ]
+  }
+  containerHeight={638}
   data={
     Array [
       Object {
@@ -40,1237 +210,184 @@ exports[`dva účastníci 1`] = `
       },
     ]
   }
-  footerHeight={0}
-  groupHeaderHeight={0}
-  headerHeight={35}
-  height={500}
-  keyboardPageEnabled={true}
-  keyboardScrollEnabled={true}
+  fixedColumnCount={3}
+  onSortDirChange={[Function]}
   rowHeight={35}
-  rowsCount={2}
-  showScrollbarX={true}
-  showScrollbarY={true}
-  stopScrollPropagation={false}
-  touchScrollEnabled={false}
-  width={500}
->
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <TextCell
-        columnKey="prijmeni"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="prijmeni"
-    fixed={false}
-    fixedRight={false}
-    flexGrow={1}
-    header={
-      <SortHeaderCell
-        columnKey="prijmeni"
-        onSortDirChange={[Function]}
-        sortDir="none"
-      >
-        příjmení
-      </SortHeaderCell>
-    }
-    key="prijmeni"
-    pureRendering={true}
-    width={100}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <TextCell
-        columnKey="jmeno"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="jmeno"
-    fixed={false}
-    fixedRight={false}
-    flexGrow={1}
-    header={
-      <SortHeaderCell
-        columnKey="jmeno"
-        onSortDirChange={[Function]}
-        sortDir="none"
-      >
-        jméno
-      </SortHeaderCell>
-    }
-    key="jmeno"
-    pureRendering={true}
-    width={90}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <TextCell
-        columnKey="narozeni"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="narozeni"
-    fixed={false}
-    fixedRight={false}
-    flexGrow={1}
-    header={
-      <SortHeaderCell
-        columnKey="narozeni"
-        onSortDirChange={[Function]}
-        sortDir="none"
-      >
-        narození
-      </SortHeaderCell>
-    }
-    key="narozeni"
-    pureRendering={true}
-    width={100}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2001"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2001"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2001
-      </FixedDataTableCellDefault>
-    }
-    key="2001"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2002"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2002"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2002
-      </FixedDataTableCellDefault>
-    }
-    key="2002"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2003"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2003"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2003
-      </FixedDataTableCellDefault>
-    }
-    key="2003"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2004"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2004"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2004
-      </FixedDataTableCellDefault>
-    }
-    key="2004"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2005"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2005"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2005
-      </FixedDataTableCellDefault>
-    }
-    key="2005"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2006"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2006"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2006
-      </FixedDataTableCellDefault>
-    }
-    key="2006"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2007"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2007"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2007
-      </FixedDataTableCellDefault>
-    }
-    key="2007"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2008"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2008"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2008
-      </FixedDataTableCellDefault>
-    }
-    key="2008"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2009"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2009"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2009
-      </FixedDataTableCellDefault>
-    }
-    key="2009"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2010"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2010"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2010
-      </FixedDataTableCellDefault>
-    }
-    key="2010"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2011"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2011"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2011
-      </FixedDataTableCellDefault>
-    }
-    key="2011"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2012"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2012"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2012
-      </FixedDataTableCellDefault>
-    }
-    key="2012"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2013"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2013"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2013
-      </FixedDataTableCellDefault>
-    }
-    key="2013"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2014"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2014"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2014
-      </FixedDataTableCellDefault>
-    }
-    key="2014"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2015"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2015"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2015
-      </FixedDataTableCellDefault>
-    }
-    key="2015"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2016"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2016"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2016
-      </FixedDataTableCellDefault>
-    }
-    key="2016"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2017"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2017"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2017
-      </FixedDataTableCellDefault>
-    }
-    key="2017"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2018"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2018"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2018
-      </FixedDataTableCellDefault>
-    }
-    key="2018"
-    pureRendering={true}
-    width={45}
-  />
-</FixedDataTable>
+/>
 `;
 
 exports[`dva účastníci, řazeno dle příjmení 1`] = `
-<FixedDataTable
+<UcastniciTable
+  columns={
+    Array [
+      Object {
+        "cellStyler": [Function],
+        "key": "prijmeni",
+        "label": "příjmení",
+        "sortable": true,
+        "width": 100,
+      },
+      Object {
+        "cellStyler": [Function],
+        "key": "jmeno",
+        "label": "jméno",
+        "sortable": true,
+        "width": 90,
+      },
+      Object {
+        "cellStyler": [Function],
+        "key": "narozeni",
+        "label": "narození",
+        "sortable": true,
+        "width": 100,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2001",
+        "label": 2001,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2002",
+        "label": 2002,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2003",
+        "label": 2003,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2004",
+        "label": 2004,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2005",
+        "label": 2005,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2006",
+        "label": 2006,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2007",
+        "label": 2007,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2008",
+        "label": 2008,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2009",
+        "label": 2009,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2010",
+        "label": 2010,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2011",
+        "label": 2011,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2012",
+        "label": 2012,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2013",
+        "label": 2013,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2014",
+        "label": 2014,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2015",
+        "label": 2015,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2016",
+        "label": 2016,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2017",
+        "label": 2017,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2018",
+        "label": 2018,
+        "sortable": false,
+        "width": 50,
+      },
+    ]
+  }
+  containerHeight={638}
   data={
     Array [
       Object {
@@ -1309,1233 +426,12 @@ exports[`dva účastníci, řazeno dle příjmení 1`] = `
       },
     ]
   }
-  footerHeight={0}
-  groupHeaderHeight={0}
-  headerHeight={35}
-  height={500}
-  keyboardPageEnabled={true}
-  keyboardScrollEnabled={true}
+  fixedColumnCount={3}
+  onSortDirChange={[Function]}
   rowHeight={35}
-  rowsCount={2}
-  showScrollbarX={true}
-  showScrollbarY={true}
-  stopScrollPropagation={false}
-  touchScrollEnabled={false}
-  width={500}
->
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <TextCell
-        columnKey="prijmeni"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="prijmeni"
-    fixed={false}
-    fixedRight={false}
-    flexGrow={1}
-    header={
-      <SortHeaderCell
-        columnKey="prijmeni"
-        onSortDirChange={[Function]}
-        sortDir="asc"
-      >
-        příjmení
-      </SortHeaderCell>
-    }
-    key="prijmeni"
-    pureRendering={true}
-    width={100}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <TextCell
-        columnKey="jmeno"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="jmeno"
-    fixed={false}
-    fixedRight={false}
-    flexGrow={1}
-    header={
-      <SortHeaderCell
-        columnKey="jmeno"
-        onSortDirChange={[Function]}
-        sortDir="none"
-      >
-        jméno
-      </SortHeaderCell>
-    }
-    key="jmeno"
-    pureRendering={true}
-    width={90}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <TextCell
-        columnKey="narozeni"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="narozeni"
-    fixed={false}
-    fixedRight={false}
-    flexGrow={1}
-    header={
-      <SortHeaderCell
-        columnKey="narozeni"
-        onSortDirChange={[Function]}
-        sortDir="none"
-      >
-        narození
-      </SortHeaderCell>
-    }
-    key="narozeni"
-    pureRendering={true}
-    width={100}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2001"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2001"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2001
-      </FixedDataTableCellDefault>
-    }
-    key="2001"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2002"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2002"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2002
-      </FixedDataTableCellDefault>
-    }
-    key="2002"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2003"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2003"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2003
-      </FixedDataTableCellDefault>
-    }
-    key="2003"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2004"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2004"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2004
-      </FixedDataTableCellDefault>
-    }
-    key="2004"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2005"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2005"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2005
-      </FixedDataTableCellDefault>
-    }
-    key="2005"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2006"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2006"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2006
-      </FixedDataTableCellDefault>
-    }
-    key="2006"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2007"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2007"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2007
-      </FixedDataTableCellDefault>
-    }
-    key="2007"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2008"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2008"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2008
-      </FixedDataTableCellDefault>
-    }
-    key="2008"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2009"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2009"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2009
-      </FixedDataTableCellDefault>
-    }
-    key="2009"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2010"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2010"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2010
-      </FixedDataTableCellDefault>
-    }
-    key="2010"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2011"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2011"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2011
-      </FixedDataTableCellDefault>
-    }
-    key="2011"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2012"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2012"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2012
-      </FixedDataTableCellDefault>
-    }
-    key="2012"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2013"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2013"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2013
-      </FixedDataTableCellDefault>
-    }
-    key="2013"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2014"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2014"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2014
-      </FixedDataTableCellDefault>
-    }
-    key="2014"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2015"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2015"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2015
-      </FixedDataTableCellDefault>
-    }
-    key="2015"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2016"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2016"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2016
-      </FixedDataTableCellDefault>
-    }
-    key="2016"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2017"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2017"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2017
-      </FixedDataTableCellDefault>
-    }
-    key="2017"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2018"
-        data={
-          Array [
-            Object {
-              "2016": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": true,
-                "kategorie": "půlmaraton",
-              },
-              "id": "5a09b1fd371dec1e99b7e1c9",
-              "jmeno": "Roman",
-              "narozeni": "1956",
-              "prijmeni": "Balabák",
-            },
-            Object {
-              "2015": Object {
-                "dokonceno": false,
-              },
-              "2017": Object {
-                "dokonceno": true,
-                "kategorie": "maraton",
-              },
-              "2018": Object {
-                "dokonceno": undefined,
-                "kategorie": "půlmaraton",
-              },
-              "id": "6f09b1fd371dec1e99b7e1c9",
-              "jmeno": "Martina",
-              "narozeni": "7. 12. 1963",
-              "prijmeni": "Sukdoláková",
-            },
-          ]
-        }
-      />
-    }
-    columnKey="2018"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2018
-      </FixedDataTableCellDefault>
-    }
-    key="2018"
-    pureRendering={true}
-    width={45}
-  />
-</FixedDataTable>
+  sortColumn="prijmeni"
+  sortDir="asc"
+/>
 `;
 
 exports[`načítá se 1`] = `
@@ -2546,456 +442,180 @@ exports[`načítá se 1`] = `
 `;
 
 exports[`žádný účastník 1`] = `
-<FixedDataTable
+<UcastniciTable
+  columns={
+    Array [
+      Object {
+        "cellStyler": [Function],
+        "key": "prijmeni",
+        "label": "příjmení",
+        "sortable": true,
+        "width": 100,
+      },
+      Object {
+        "cellStyler": [Function],
+        "key": "jmeno",
+        "label": "jméno",
+        "sortable": true,
+        "width": 90,
+      },
+      Object {
+        "cellStyler": [Function],
+        "key": "narozeni",
+        "label": "narození",
+        "sortable": true,
+        "width": 100,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2001",
+        "label": 2001,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2002",
+        "label": 2002,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2003",
+        "label": 2003,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2004",
+        "label": 2004,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2005",
+        "label": 2005,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2006",
+        "label": 2006,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2007",
+        "label": 2007,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2008",
+        "label": 2008,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2009",
+        "label": 2009,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2010",
+        "label": 2010,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2011",
+        "label": 2011,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2012",
+        "label": 2012,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2013",
+        "label": 2013,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2014",
+        "label": 2014,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2015",
+        "label": 2015,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2016",
+        "label": 2016,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2017",
+        "label": 2017,
+        "sortable": false,
+        "width": 50,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "cellStyler": [Function],
+        "key": "2018",
+        "label": 2018,
+        "sortable": false,
+        "width": 50,
+      },
+    ]
+  }
+  containerHeight={638}
   data={Array []}
-  footerHeight={0}
-  groupHeaderHeight={0}
-  headerHeight={35}
-  height={500}
-  keyboardPageEnabled={true}
-  keyboardScrollEnabled={true}
+  fixedColumnCount={3}
+  onSortDirChange={[Function]}
   rowHeight={35}
-  rowsCount={0}
-  showScrollbarX={true}
-  showScrollbarY={true}
-  stopScrollPropagation={false}
-  touchScrollEnabled={false}
-  width={500}
->
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <TextCell
-        columnKey="prijmeni"
-        data={Array []}
-      />
-    }
-    columnKey="prijmeni"
-    fixed={false}
-    fixedRight={false}
-    flexGrow={1}
-    header={
-      <SortHeaderCell
-        columnKey="prijmeni"
-        onSortDirChange={[Function]}
-        sortDir="none"
-      >
-        příjmení
-      </SortHeaderCell>
-    }
-    key="prijmeni"
-    pureRendering={true}
-    width={100}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <TextCell
-        columnKey="jmeno"
-        data={Array []}
-      />
-    }
-    columnKey="jmeno"
-    fixed={false}
-    fixedRight={false}
-    flexGrow={1}
-    header={
-      <SortHeaderCell
-        columnKey="jmeno"
-        onSortDirChange={[Function]}
-        sortDir="none"
-      >
-        jméno
-      </SortHeaderCell>
-    }
-    key="jmeno"
-    pureRendering={true}
-    width={90}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <TextCell
-        columnKey="narozeni"
-        data={Array []}
-      />
-    }
-    columnKey="narozeni"
-    fixed={false}
-    fixedRight={false}
-    flexGrow={1}
-    header={
-      <SortHeaderCell
-        columnKey="narozeni"
-        onSortDirChange={[Function]}
-        sortDir="none"
-      >
-        narození
-      </SortHeaderCell>
-    }
-    key="narozeni"
-    pureRendering={true}
-    width={100}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2001"
-        data={Array []}
-      />
-    }
-    columnKey="2001"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2001
-      </FixedDataTableCellDefault>
-    }
-    key="2001"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2002"
-        data={Array []}
-      />
-    }
-    columnKey="2002"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2002
-      </FixedDataTableCellDefault>
-    }
-    key="2002"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2003"
-        data={Array []}
-      />
-    }
-    columnKey="2003"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2003
-      </FixedDataTableCellDefault>
-    }
-    key="2003"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2004"
-        data={Array []}
-      />
-    }
-    columnKey="2004"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2004
-      </FixedDataTableCellDefault>
-    }
-    key="2004"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2005"
-        data={Array []}
-      />
-    }
-    columnKey="2005"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2005
-      </FixedDataTableCellDefault>
-    }
-    key="2005"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2006"
-        data={Array []}
-      />
-    }
-    columnKey="2006"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2006
-      </FixedDataTableCellDefault>
-    }
-    key="2006"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2007"
-        data={Array []}
-      />
-    }
-    columnKey="2007"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2007
-      </FixedDataTableCellDefault>
-    }
-    key="2007"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2008"
-        data={Array []}
-      />
-    }
-    columnKey="2008"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2008
-      </FixedDataTableCellDefault>
-    }
-    key="2008"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2009"
-        data={Array []}
-      />
-    }
-    columnKey="2009"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2009
-      </FixedDataTableCellDefault>
-    }
-    key="2009"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2010"
-        data={Array []}
-      />
-    }
-    columnKey="2010"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2010
-      </FixedDataTableCellDefault>
-    }
-    key="2010"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2011"
-        data={Array []}
-      />
-    }
-    columnKey="2011"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2011
-      </FixedDataTableCellDefault>
-    }
-    key="2011"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2012"
-        data={Array []}
-      />
-    }
-    columnKey="2012"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2012
-      </FixedDataTableCellDefault>
-    }
-    key="2012"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2013"
-        data={Array []}
-      />
-    }
-    columnKey="2013"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2013
-      </FixedDataTableCellDefault>
-    }
-    key="2013"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2014"
-        data={Array []}
-      />
-    }
-    columnKey="2014"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2014
-      </FixedDataTableCellDefault>
-    }
-    key="2014"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2015"
-        data={Array []}
-      />
-    }
-    columnKey="2015"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2015
-      </FixedDataTableCellDefault>
-    }
-    key="2015"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2016"
-        data={Array []}
-      />
-    }
-    columnKey="2016"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2016
-      </FixedDataTableCellDefault>
-    }
-    key="2016"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2017"
-        data={Array []}
-      />
-    }
-    columnKey="2017"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2017
-      </FixedDataTableCellDefault>
-    }
-    key="2017"
-    pureRendering={true}
-    width={45}
-  />
-  <FixedDataTableColumn
-    allowCellsRecycling={true}
-    cell={
-      <VykonCell
-        columnKey="2018"
-        data={Array []}
-      />
-    }
-    columnKey="2018"
-    fixed={false}
-    fixedRight={false}
-    header={
-      <FixedDataTableCellDefault>
-        2018
-      </FixedDataTableCellDefault>
-    }
-    key="2018"
-    pureRendering={true}
-    width={45}
-  />
-</FixedDataTable>
+/>
 `;

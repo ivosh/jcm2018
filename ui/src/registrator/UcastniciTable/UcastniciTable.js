@@ -2,26 +2,20 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { AutoSizer, Grid, ScrollSync } from 'react-virtualized';
 import scrollbarSize from 'dom-helpers/util/scrollbarSize';
+import { SortDirTypes } from '../../Util';
+import SortHeader from './SortHeader';
 import './UcastniciTable.css';
 
-const columnCount = 50;
-const rowCount = 1000;
-
 class UcastniciTable extends PureComponent {
-  state = {
-    columnWidth: 75,
-    overscanColumnCount: 0,
-    overscanRowCount: 5,
-    rowHeight: 35,
-    fixedColumnCount: 3,
-    header: Array.apply(null, { length: rowCount }).map((elem, idx) => `H${idx}`),
-    data: Array.apply(null, { length: rowCount }).map((elem1, rowIdx) =>
-      Array.apply(null, { length: columnCount }).map((elem2, colIdx) => `${rowIdx} - ${colIdx}`)
-    )
-  };
+  columnWidth = ({ index }) => this.props.columns[index].width;
+
+  fixedColumnsWidth = () =>
+    this.props.columns
+      .slice(0, this.props.fixedColumnCount)
+      .reduce((sum, column) => sum + column.width, 0);
 
   renderBodyCell = ({ columnIndex, key, rowIndex, style }) => {
-    if (columnIndex < this.fixedColumnCount) {
+    if (columnIndex < this.props.fixedColumnCount) {
       return undefined;
     }
 
@@ -29,40 +23,64 @@ class UcastniciTable extends PureComponent {
   };
 
   renderHeaderCell = ({ columnIndex, key, rowIndex, style }) => {
-    if (columnIndex < this.fixedColumnCount) {
+    if (columnIndex < this.props.fixedColumnCount) {
       return undefined;
     }
 
     return this.renderLeftHeaderCell({ columnIndex, key, rowIndex, style });
   };
 
-  renderLeftHeaderCell = ({ columnIndex, key, style }) => (
-    <div className="UcastniciTable_headerCell" key={key} style={style}>
-      {this.state.header[columnIndex]}
-    </div>
-  );
+  renderLeftHeaderCell = ({ columnIndex, key, style }) => {
+    const column = this.props.columns[columnIndex];
+    const { sortColumn, sortDir, onSortDirChange } = this.props;
+    const label = column.label || column.key;
+    const sorting = column.sortable && column.key === sortColumn;
+
+    return (
+      <div className="UcastniciTable_headerCell" key={key} style={style}>
+        {column.sortable ? (
+          <SortHeader
+            sortDir={sorting ? sortDir : SortDirTypes.NONE}
+            onClick={() => onSortDirChange(column.key)}
+          >
+            {label}
+          </SortHeader>
+        ) : (
+          label
+        )}
+      </div>
+    );
+  };
 
   renderLeftSideCell = ({ columnIndex, key, rowIndex, style }) => {
     const rowClass = rowIndex % 2 === 1 ? 'UcastniciTable_evenRow' : 'UcastniciTable_oddRow';
     const classNames = `${rowClass} UcastniciTable_cell`;
 
+    const { columns, data } = this.props;
+    const { cellDataFormatter, cellStyler, key: columnKey } = columns[columnIndex];
+    const cellData = data[rowIndex][columnKey];
+    const formattedData = cellDataFormatter ? cellDataFormatter({ cellData }) : cellData;
+    const cellStyle = cellStyler ? cellStyler({ cellData }) : {};
+    const mergedStyle = { ...style, ...cellStyle };
+
     return (
-      <div className={classNames} key={key} style={style}>
-        {this.state.data[rowIndex][columnIndex]}
+      <div className={classNames} key={key} style={mergedStyle}>
+        {formattedData}
       </div>
     );
   };
 
   render() {
-    const {
-      columnWidth,
-      fixedColumnCount,
-      overscanColumnCount,
-      overscanRowCount,
-      rowHeight
-    } = this.state;
+    const { columns, data, fixedColumnCount, rowHeight } = this.props;
+    const overscanColumnCount = 0;
+    const overscanRowCount = 5;
+
+    const columnCount = columns.length;
+    const fixedColumnsWidth = this.fixedColumnsWidth();
+    const rowCount = data.length;
     const height = this.props.containerHeight - scrollbarSize() - rowHeight;
 
+    // :TODO: highlight currently hovered row
     return (
       <ScrollSync>
         {({ clientHeight, onScroll, scrollLeft, scrollTop }) => (
@@ -71,39 +89,39 @@ class UcastniciTable extends PureComponent {
               className="UcastniciTable_LeftSideGridContainer"
               style={{
                 top: 0,
-                flexBasis: `${fixedColumnCount * columnWidth}px`
+                flexBasis: `${fixedColumnsWidth}px`
               }}
             >
               <Grid
                 cellRenderer={this.renderLeftHeaderCell}
                 className="UcastniciTable_HeaderGrid"
                 columnCount={fixedColumnCount}
-                columnWidth={columnWidth}
+                columnWidth={this.columnWidth}
                 height={rowHeight}
                 rowCount={1}
                 rowHeight={rowHeight}
-                width={3 * columnWidth}
+                width={fixedColumnsWidth}
               />
             </div>
             <div
               className="UcastniciTable_LeftSideGridContainer"
               style={{
                 top: rowHeight,
-                flexBasis: `${fixedColumnCount * columnWidth}px`
+                flexBasis: `${fixedColumnsWidth}px`
               }}
             >
               <Grid
                 cellRenderer={this.renderLeftSideCell}
                 className="UcastniciTable_LeftSideGrid"
                 columnCount={fixedColumnCount}
-                columnWidth={columnWidth}
+                columnWidth={this.columnWidth}
                 height={clientHeight - scrollbarSize()}
                 overscanColumnCount={overscanColumnCount}
                 overscanRowCount={overscanRowCount}
                 rowCount={rowCount}
                 rowHeight={rowHeight}
                 scrollTop={scrollTop}
-                width={fixedColumnCount * columnWidth}
+                width={fixedColumnsWidth}
               />
             </div>
             <div className="UcastniciTable_GridColumn">
@@ -120,7 +138,7 @@ class UcastniciTable extends PureComponent {
                         cellRenderer={this.renderHeaderCell}
                         className="UcastniciTable_HeaderGrid"
                         columnCount={columnCount}
-                        columnWidth={columnWidth}
+                        columnWidth={this.columnWidth}
                         height={rowHeight}
                         overscanColumnCount={overscanColumnCount}
                         rowHeight={rowHeight}
@@ -139,7 +157,7 @@ class UcastniciTable extends PureComponent {
                         cellRenderer={this.renderBodyCell}
                         className="UcastniciTable_BodyGrid"
                         columnCount={columnCount}
-                        columnWidth={columnWidth}
+                        columnWidth={this.columnWidth}
                         height={height}
                         onScroll={onScroll}
                         overscanColumnCount={overscanColumnCount}
@@ -160,140 +178,24 @@ class UcastniciTable extends PureComponent {
   }
 }
 
-/*
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { Column, Table } from 'react-virtualized';
-import { barvaProTypKategorie } from '../../Util';
-import LoadingIndicator from '../../shared/LoadingIndicator';
-import { SortDirTypes } from './ucastniciDigestReducer';
-import './UcastniciDigestTable.css';
-
-const rowClassName = ({index}) => {
-  if (index < 0) {
-    return 'UcastniciDigestTable_header';
-  }
-  return index %2 === 0 ? 'UcastniciDigestTable_evenRow' : 'UcastniciDigestTable_oddRow';
-}
-
-const vykonCellDataGetter = ({ columnData, dataKey, rowData }) => {
-  const cell = rowData[dataKey];
-  if (cell) {
-    if (cell.dokonceno === true) {
-      return '✓';
-    } else if (cell.dokonceno === false) {
-      return '✗';
-    }
-    return '?';
-  }
-  return '';
-};
-
-const vykonCellRenderer = ({ cellData, columnData, columnIndex, dataKey, rowData, rowIndex }) => {
-  const cell = rowData[dataKey];
-  if (cell) {
-    const style = {
-      backgroundColor: barvaProTypKategorie(cell.kategorie)
-    };
-    return <div className="UcastniciDigestTable_vykon" style={style}>{cellData}</div>;
-  }
-  return '';
-}
-
-class UcastniciDigest extends PureComponent {
-  componentDidMount = () => {
-    this.props.fetchUcastnici();
-  };
-
-  rowGetter = ({ index }) => this.props.ucastniciDigest[index];
-
-  render = () => {
-    const {
-      roky,
-      ucastniciDigest,
-      fetching,
-      onSortDirChange,
-      sortColumn,
-      sortDir,
-      containerWidth,
-      containerHeight
-    } = this.props;
-
-    if (fetching) {
-      return (
-        <div>
-          <LoadingIndicator /> Účastníci se načítají...
-        </div>
-      );
-    }
-
-    const columns = [
-      { key: 'prijmeni', label: 'příjmení', width: 100, vykon: false },
-      { key: 'jmeno', label: 'jméno', width: 90, vykon: false },
-      { key: 'narozeni', label: 'narození', width: 100, vykon: false },
-      ...roky.map(rok => ({ key: `${rok}`, label: rok, width: 45, vykon: true }))
-    ];
-
-    return (
-      <Table
-        // :TODO: highlight currently hovered row
-        headerHeight={35}
-        rowHeight={35}
-        height={800} // :TODO:
-        width={1200} // :TODO:
-        rowCount={ucastniciDigest.length}
-        rowGetter={this.rowGetter}
-        headerClassName="UcastniciDigestTable_headerColumn"
-        rowClassName={rowClassName}
-        // :TODO: sort, sortBy, sortDirection
-      >
-        {columns.map(({ key, label, width, vykon }) => {
-          if (vykon === false) {
-            // :TODO: sort
-            return <Column key={key} label={label} dataKey={key} width={width} flexGrow={1} />;
-          }
-          return <Column key={key} label={label} dataKey={key} width={width} disableSort
-          cellDataGetter={vykonCellDataGetter} cellRenderer={vykonCellRenderer} />;
-        })}
-      </Table>
-    );
-  };
-}
-*/
-
 UcastniciTable.propTypes = {
-  roky: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  ucastniciDigest: PropTypes.arrayOf(
+  columns: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      prijmeni: PropTypes.string.isRequired,
-      jmeno: PropTypes.string.isRequired,
-      narozeni: PropTypes.string.isRequired
+      cellDataFormatter: PropTypes.func, // ({ cellData }) => formattedData
+      cellStyler: PropTypes.func, // ({ cellData }) => style
+      key: PropTypes.string.isRequired,
+      label: PropTypes.node,
+      sortable: PropTypes.bool,
+      width: PropTypes.number.isRequired
     }).isRequired
   ).isRequired,
-  fetching: PropTypes.bool,
+  containerHeight: PropTypes.number.isRequired,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  fixedColumnCount: PropTypes.number.isRequired,
+  rowHeight: PropTypes.number.isRequired,
   sortColumn: PropTypes.string,
   sortDir: PropTypes.string,
-  fetchUcastnici: PropTypes.func.isRequired,
-  onSortDirChange: PropTypes.func.isRequired,
-  containerHeight: PropTypes.number.isRequired
+  onSortDirChange: PropTypes.func
 };
-
-/*
-VykonCell.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.objectOf((propValue, key) => {
-      // rok, například 2001, 2017 apod.
-      if (key.startsWith('20')) {
-        return PropTypes.shape({
-          kategorie: PropTypes.string.isRequired,
-          dokonceno: PropTypes.bool
-        });
-      }
-      return undefined;
-    }).isRequired
-  ).isRequired,
-};
-*/
 
 export default UcastniciTable;

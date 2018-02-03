@@ -1,22 +1,9 @@
-import { narozeniToStr } from '../../Util';
+import { narozeniToStr, reverseSortDirType, SortDirTypes } from '../../Util';
 import {
   csStringSortMethod,
   narozeniSortMethod,
   prijmeniJmenoNarozeniSortMethod
 } from '../../entities/ucastnici/ucastniciReducer';
-
-export const SortDirTypes = { NONE: 'none', ASC: 'asc', DESC: 'desc' };
-
-const reverseSortDirType = sortDirType => {
-  switch (sortDirType) {
-    case SortDirTypes.ASC:
-      return SortDirTypes.DESC;
-    case SortDirTypes.DESC:
-      return SortDirTypes.ASC;
-    default:
-      return SortDirTypes.ASC;
-  }
-};
 
 export const initialState = {
   fetching: false,

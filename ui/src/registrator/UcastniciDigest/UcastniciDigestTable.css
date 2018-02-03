@@ -1,5 +1,0 @@
-/* display: block is a workaround for fixedDataTableCell_wrap1 which sets "display: table"
-   and prevents applying background colour to the whole cell element. */
-.UcastniciDigestTable_vykon {
-  display: block;
-}

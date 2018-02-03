@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders jméno sestupně 1`] = `
+<a
+  className="SortHeader_a"
+  onClick={[Function]}
+>
+  jméno
+   
+  ↓
+</a>
+`;
+
+exports[`renders the default 1`] = `
+<a
+  className="SortHeader_a"
+  onClick={[Function]}
+>
+  příjmení
+   
+  
+</a>
+`;

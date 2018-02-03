@@ -34,6 +34,8 @@ export const convertDuration = duration => {
   return { hours, mins, secs, subsecs };
 };
 
+/* ---------------------------------------------------------------------------------------------- */
+
 export const narozeniToStr = narozeni => {
   const { den, mesic, rok } = narozeni;
   if (mesic && den && rok) {
@@ -44,6 +46,8 @@ export const narozeniToStr = narozeni => {
   }
   return '';
 };
+
+/* ---------------------------------------------------------------------------------------------- */
 
 export const dokoncenoArr = [true, false, null];
 
@@ -64,3 +68,18 @@ const barvy = {
   pěší: '#d793ff'
 };
 export const barvaProTypKategorie = typKategorie => barvy[typKategorie] || '';
+
+/* ---------------------------------------------------------------------------------------------- */
+
+export const SortDirTypes = { NONE: 'none', ASC: 'asc', DESC: 'desc' };
+
+export const reverseSortDirType = sortDirType => {
+  switch (sortDirType) {
+    case SortDirTypes.ASC:
+      return SortDirTypes.DESC;
+    case SortDirTypes.DESC:
+      return SortDirTypes.ASC;
+    default:
+      return SortDirTypes.ASC;
+  }
+};

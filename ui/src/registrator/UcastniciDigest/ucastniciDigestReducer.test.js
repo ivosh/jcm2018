@@ -1,9 +1,7 @@
 import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
-import ucastniciDigestReducer, {
-  SortDirTypes,
-  getUcastniciDigestSorted
-} from './ucastniciDigestReducer';
+import { SortDirTypes } from '../../Util';
+import ucastniciDigestReducer, { getUcastniciDigestSorted } from './ucastniciDigestReducer';
 import {
   kategorieVykonuFilterChange,
   textFilterChange,
