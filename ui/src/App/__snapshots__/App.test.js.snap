@@ -34,7 +34,7 @@ exports[`with websocket connected, authenticated 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={2}
+          eventKey={1}
         >
           Časoměřič
         </NavItem>
@@ -50,7 +50,7 @@ exports[`with websocket connected, authenticated 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={3}
+          eventKey={2}
         >
           Účastníci
         </NavItem>
@@ -66,11 +66,20 @@ exports[`with websocket connected, authenticated 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={4}
+          eventKey={3}
         >
           Přihlášky
         </NavItem>
       </LinkContainer>
+    </Nav>
+    <Nav
+      bsClass="nav"
+      className="App-Nav"
+      justified={false}
+      pullLeft={false}
+      pullRight={true}
+      stacked={false}
+    >
       <LinkContainer
         activeClassName="active"
         exact={false}
@@ -84,7 +93,11 @@ exports[`with websocket connected, authenticated 1`] = `
           disabled={false}
           eventKey={5}
         >
-          Odhlášení
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="log-out"
+          />
+           Odhlášení
         </NavItem>
       </LinkContainer>
       <LinkContainer
@@ -164,7 +177,7 @@ exports[`with websocket connected, not authenticated 1`] = `
       className="App-Nav"
       justified={false}
       pullLeft={false}
-      pullRight={false}
+      pullRight={true}
       stacked={false}
     >
       <LinkContainer
@@ -177,9 +190,13 @@ exports[`with websocket connected, not authenticated 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={1}
+          eventKey={4}
         >
-          Přihlášení
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="log-in"
+          />
+           Přihlášení
         </NavItem>
       </LinkContainer>
       <LinkContainer
@@ -273,7 +290,7 @@ exports[`with websocket disconnected, authenticated 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={2}
+          eventKey={1}
         >
           Časoměřič
         </NavItem>
@@ -289,7 +306,7 @@ exports[`with websocket disconnected, authenticated 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={3}
+          eventKey={2}
         >
           Účastníci
         </NavItem>
@@ -305,11 +322,20 @@ exports[`with websocket disconnected, authenticated 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={4}
+          eventKey={3}
         >
           Přihlášky
         </NavItem>
       </LinkContainer>
+    </Nav>
+    <Nav
+      bsClass="nav"
+      className="App-Nav"
+      justified={false}
+      pullLeft={false}
+      pullRight={true}
+      stacked={false}
+    >
       <LinkContainer
         activeClassName="active"
         exact={false}
@@ -323,7 +349,11 @@ exports[`with websocket disconnected, authenticated 1`] = `
           disabled={false}
           eventKey={5}
         >
-          Odhlášení
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="log-out"
+          />
+           Odhlášení
         </NavItem>
       </LinkContainer>
       <LinkContainer

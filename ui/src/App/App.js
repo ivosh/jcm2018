@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import { Nav, Navbar, NavItem } from 'react-bootstrap';
+import { Glyphicon, Nav, Navbar, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import withAuth from '../auth/withAuth';
 import withoutAuth from '../auth/withoutAuth';
@@ -20,27 +20,34 @@ const App = ({ authenticated, connected, username }) => (
       <Navbar.Header>
         <img src={logo} className={connected ? 'App-logo-animated' : 'App-logo'} alt="logo" />
       </Navbar.Header>
-      <Nav className="App-Nav">
+      {authenticated && (
+        <Nav className="App-Nav">
+          <LinkContainer key="casomeric" to="/casomeric">
+            <NavItem eventKey={1}>Časoměřič</NavItem>
+          </LinkContainer>
+          <LinkContainer key="ucastnici" to="/ucastnici">
+            <NavItem eventKey={2}>Účastníci</NavItem>
+          </LinkContainer>
+          <LinkContainer key="prihlaska" to="/prihlasky">
+            <NavItem eventKey={3}>Přihlášky</NavItem>
+          </LinkContainer>
+        </Nav>
+      )}
+      <Nav className="App-Nav" pullRight>
         {!authenticated && (
           <LinkContainer to="/signin">
-            <NavItem eventKey={1}>Přihlášení</NavItem>
+            <NavItem eventKey={4}>
+              <Glyphicon glyph="log-in" /> Přihlášení
+            </NavItem>
           </LinkContainer>
         )}
-        {authenticated && [
-          // TODO: JSX fragment would be more appropriate if eslint-react-plugin supported it.
-          <LinkContainer key="casomeric" to="/casomeric">
-            <NavItem eventKey={2}>Časoměřič</NavItem>
-          </LinkContainer>,
-          <LinkContainer key="ucastnici" to="/ucastnici">
-            <NavItem eventKey={3}>Účastníci</NavItem>
-          </LinkContainer>,
-          <LinkContainer key="prihlaska" to="/prihlasky">
-            <NavItem eventKey={4}>Přihlášky</NavItem>
-          </LinkContainer>,
+        {authenticated && (
           <LinkContainer key="signout" to="/signout">
-            <NavItem eventKey={5}>Odhlášení</NavItem>
+            <NavItem eventKey={5}>
+              <Glyphicon glyph="log-out" /> Odhlášení
+            </NavItem>
           </LinkContainer>
-        ]}
+        )}
         <LinkContainer to="/about">
           <NavItem eventKey={6}>O aplikaci</NavItem>
         </LinkContainer>
