@@ -136,9 +136,12 @@ class UcastniciTable extends PureComponent {
       verticalScrollbarVisible
     });
 
+    // Child components need to re-render if interestingProps change.
+    const { onSortDirChange, updateDimensions, ...interestingProps } = this.props;
+
     // :TODO: highlight currently hovered row
     return (
-      <ScrollSync>
+      <ScrollSync {...interestingProps}>
         {({ onScroll, scrollLeft, scrollTop }) => (
           <div className="UcastniciTable_GridRow">
             <div
@@ -157,6 +160,7 @@ class UcastniciTable extends PureComponent {
                 rowCount={1}
                 rowHeight={rowHeight}
                 width={fixedColumnsWidth}
+                {...interestingProps}
               />
             </div>
             <div
@@ -178,6 +182,7 @@ class UcastniciTable extends PureComponent {
                 rowHeight={rowHeight}
                 scrollTop={scrollTop}
                 width={fixedColumnsWidth}
+                {...interestingProps}
               />
             </div>
             <div className="UcastniciTable_GridColumn">
@@ -199,6 +204,7 @@ class UcastniciTable extends PureComponent {
                     rowCount={1}
                     scrollLeft={scrollLeft}
                     width={width - scrollbarSize()}
+                    {...interestingProps}
                   />
                 </div>
                 <div
@@ -219,6 +225,7 @@ class UcastniciTable extends PureComponent {
                     rowCount={rowCount}
                     rowHeight={rowHeight}
                     width={width}
+                    {...interestingProps}
                   />
                 </div>
               </div>
@@ -248,7 +255,8 @@ UcastniciTable.propTypes = {
   rowHeight: PropTypes.number.isRequired,
   sortColumn: PropTypes.string,
   sortDir: PropTypes.string,
-  onSortDirChange: PropTypes.func
+  onSortDirChange: PropTypes.func,
+  updateDimensions: PropTypes.func // injected by react-dimensions
 };
 
 export default Dimensions({

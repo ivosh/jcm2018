@@ -28,7 +28,6 @@ exports[`dva účastníci 1`] = `
         },
       ]
     }
-    containerHeight={500}
     data={
       Array [
         Object {
@@ -87,7 +86,7 @@ exports[`dva účastníci 1`] = `
             },
           ]
         }
-        containerHeight={500}
+        containerHeight={638}
         containerWidth={944}
         data={
           Array [
@@ -114,7 +113,55 @@ exports[`dva účastníci 1`] = `
         rowHeight={35}
         updateDimensions={[Function]}
       >
-        <ScrollSync>
+        <ScrollSync
+          columns={
+            Array [
+              Object {
+                "key": "prijmeni",
+                "label": "příjmení",
+                "sortable": true,
+                "width": 100,
+              },
+              Object {
+                "key": "jmeno",
+                "label": "jméno",
+                "sortable": true,
+                "width": 100,
+              },
+              Object {
+                "cellDataFormatter": [Function],
+                "key": "2012",
+                "sortable": false,
+                "width": 50,
+              },
+            ]
+          }
+          containerHeight={638}
+          containerWidth={944}
+          data={
+            Array [
+              Object {
+                "2012": Object {
+                  "dokonceno": false,
+                },
+                "id": "5a09b1fd371dec1e99b7e1c9",
+                "jmeno": "Roman",
+                "prijmeni": "Balabák",
+              },
+              Object {
+                "2012": Object {
+                  "dokonceno": true,
+                  "kategorie": "maraton",
+                },
+                "id": "6f09b1fd371dec1e99b7e1c9",
+                "jmeno": "Martina",
+                "prijmeni": "Sukdoláková",
+              },
+            ]
+          }
+          fixedColumnCount={2}
+          rowHeight={35}
+        >
           <div
             className="UcastniciTable_GridRow"
           >
@@ -138,10 +185,56 @@ exports[`dva účastníci 1`] = `
                 className="UcastniciTable_HeaderGrid"
                 columnCount={2}
                 columnWidth={[Function]}
+                columns={
+                  Array [
+                    Object {
+                      "key": "prijmeni",
+                      "label": "příjmení",
+                      "sortable": true,
+                      "width": 100,
+                    },
+                    Object {
+                      "key": "jmeno",
+                      "label": "jméno",
+                      "sortable": true,
+                      "width": 100,
+                    },
+                    Object {
+                      "cellDataFormatter": [Function],
+                      "key": "2012",
+                      "sortable": false,
+                      "width": 50,
+                    },
+                  ]
+                }
+                containerHeight={638}
                 containerRole="rowgroup"
                 containerStyle={Object {}}
+                containerWidth={944}
+                data={
+                  Array [
+                    Object {
+                      "2012": Object {
+                        "dokonceno": false,
+                      },
+                      "id": "5a09b1fd371dec1e99b7e1c9",
+                      "jmeno": "Roman",
+                      "prijmeni": "Balabák",
+                    },
+                    Object {
+                      "2012": Object {
+                        "dokonceno": true,
+                        "kategorie": "maraton",
+                      },
+                      "id": "6f09b1fd371dec1e99b7e1c9",
+                      "jmeno": "Martina",
+                      "prijmeni": "Sukdoláková",
+                    },
+                  ]
+                }
                 estimatedColumnSize={100}
                 estimatedRowSize={30}
+                fixedColumnCount={2}
                 getScrollbarSize={[Function]}
                 height={35}
                 noContentRenderer={[Function]}
@@ -274,10 +367,56 @@ exports[`dva účastníci 1`] = `
                 className="UcastniciTable_LeftSideGrid"
                 columnCount={2}
                 columnWidth={[Function]}
+                columns={
+                  Array [
+                    Object {
+                      "key": "prijmeni",
+                      "label": "příjmení",
+                      "sortable": true,
+                      "width": 100,
+                    },
+                    Object {
+                      "key": "jmeno",
+                      "label": "jméno",
+                      "sortable": true,
+                      "width": 100,
+                    },
+                    Object {
+                      "cellDataFormatter": [Function],
+                      "key": "2012",
+                      "sortable": false,
+                      "width": 50,
+                    },
+                  ]
+                }
+                containerHeight={638}
                 containerRole="rowgroup"
                 containerStyle={Object {}}
+                containerWidth={944}
+                data={
+                  Array [
+                    Object {
+                      "2012": Object {
+                        "dokonceno": false,
+                      },
+                      "id": "5a09b1fd371dec1e99b7e1c9",
+                      "jmeno": "Roman",
+                      "prijmeni": "Balabák",
+                    },
+                    Object {
+                      "2012": Object {
+                        "dokonceno": true,
+                        "kategorie": "maraton",
+                      },
+                      "id": "6f09b1fd371dec1e99b7e1c9",
+                      "jmeno": "Martina",
+                      "prijmeni": "Sukdoláková",
+                    },
+                  ]
+                }
                 estimatedColumnSize={100}
                 estimatedRowSize={30}
+                fixedColumnCount={2}
                 getScrollbarSize={[Function]}
                 height={70}
                 noContentRenderer={[Function]}
@@ -422,10 +561,56 @@ exports[`dva účastníci 1`] = `
                     className="UcastniciTable_HeaderGrid"
                     columnCount={3}
                     columnWidth={[Function]}
+                    columns={
+                      Array [
+                        Object {
+                          "key": "prijmeni",
+                          "label": "příjmení",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "key": "jmeno",
+                          "label": "jméno",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "cellDataFormatter": [Function],
+                          "key": "2012",
+                          "sortable": false,
+                          "width": 50,
+                        },
+                      ]
+                    }
+                    containerHeight={638}
                     containerRole="rowgroup"
                     containerStyle={Object {}}
+                    containerWidth={944}
+                    data={
+                      Array [
+                        Object {
+                          "2012": Object {
+                            "dokonceno": false,
+                          },
+                          "id": "5a09b1fd371dec1e99b7e1c9",
+                          "jmeno": "Roman",
+                          "prijmeni": "Balabák",
+                        },
+                        Object {
+                          "2012": Object {
+                            "dokonceno": true,
+                            "kategorie": "maraton",
+                          },
+                          "id": "6f09b1fd371dec1e99b7e1c9",
+                          "jmeno": "Martina",
+                          "prijmeni": "Sukdoláková",
+                        },
+                      ]
+                    }
                     estimatedColumnSize={100}
                     estimatedRowSize={30}
+                    fixedColumnCount={2}
                     getScrollbarSize={[Function]}
                     height={35}
                     noContentRenderer={[Function]}
@@ -521,10 +706,56 @@ exports[`dva účastníci 1`] = `
                     className="UcastniciTable_BodyGrid"
                     columnCount={3}
                     columnWidth={[Function]}
+                    columns={
+                      Array [
+                        Object {
+                          "key": "prijmeni",
+                          "label": "příjmení",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "key": "jmeno",
+                          "label": "jméno",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "cellDataFormatter": [Function],
+                          "key": "2012",
+                          "sortable": false,
+                          "width": 50,
+                        },
+                      ]
+                    }
+                    containerHeight={638}
                     containerRole="rowgroup"
                     containerStyle={Object {}}
+                    containerWidth={944}
+                    data={
+                      Array [
+                        Object {
+                          "2012": Object {
+                            "dokonceno": false,
+                          },
+                          "id": "5a09b1fd371dec1e99b7e1c9",
+                          "jmeno": "Roman",
+                          "prijmeni": "Balabák",
+                        },
+                        Object {
+                          "2012": Object {
+                            "dokonceno": true,
+                            "kategorie": "maraton",
+                          },
+                          "id": "6f09b1fd371dec1e99b7e1c9",
+                          "jmeno": "Martina",
+                          "prijmeni": "Sukdoláková",
+                        },
+                      ]
+                    }
                     estimatedColumnSize={100}
                     estimatedRowSize={30}
+                    fixedColumnCount={2}
                     getScrollbarSize={[Function]}
                     height={70}
                     noContentRenderer={[Function]}
@@ -625,8 +856,8 @@ exports[`dva účastníci 1`] = `
 
 exports[`dva účastníci, řazeno dle příjmení 1`] = `
 <div
-  height={500}
-  width={500}
+  height={200}
+  width={200}
 >
   <DimensionsHOC
     columns={
@@ -651,7 +882,6 @@ exports[`dva účastníci, řazeno dle příjmení 1`] = `
         },
       ]
     }
-    containerHeight={500}
     data={
       Array [
         Object {
@@ -713,7 +943,7 @@ exports[`dva účastníci, řazeno dle příjmení 1`] = `
             },
           ]
         }
-        containerHeight={500}
+        containerHeight={638}
         containerWidth={944}
         data={
           Array [
@@ -743,7 +973,57 @@ exports[`dva účastníci, řazeno dle příjmení 1`] = `
         sortDir="asc"
         updateDimensions={[Function]}
       >
-        <ScrollSync>
+        <ScrollSync
+          columns={
+            Array [
+              Object {
+                "key": "prijmeni",
+                "label": "příjmení",
+                "sortable": true,
+                "width": 100,
+              },
+              Object {
+                "key": "jmeno",
+                "label": "jméno",
+                "sortable": true,
+                "width": 100,
+              },
+              Object {
+                "cellDataFormatter": [Function],
+                "key": "2012",
+                "sortable": false,
+                "width": 50,
+              },
+            ]
+          }
+          containerHeight={638}
+          containerWidth={944}
+          data={
+            Array [
+              Object {
+                "2012": Object {
+                  "dokonceno": false,
+                },
+                "id": "5a09b1fd371dec1e99b7e1c9",
+                "jmeno": "Roman",
+                "prijmeni": "Balabák",
+              },
+              Object {
+                "2012": Object {
+                  "dokonceno": true,
+                  "kategorie": "maraton",
+                },
+                "id": "6f09b1fd371dec1e99b7e1c9",
+                "jmeno": "Martina",
+                "prijmeni": "Sukdoláková",
+              },
+            ]
+          }
+          fixedColumnCount={2}
+          rowHeight={35}
+          sortColumn="prijmeni"
+          sortDir="asc"
+        >
           <div
             className="UcastniciTable_GridRow"
           >
@@ -767,10 +1047,56 @@ exports[`dva účastníci, řazeno dle příjmení 1`] = `
                 className="UcastniciTable_HeaderGrid"
                 columnCount={2}
                 columnWidth={[Function]}
+                columns={
+                  Array [
+                    Object {
+                      "key": "prijmeni",
+                      "label": "příjmení",
+                      "sortable": true,
+                      "width": 100,
+                    },
+                    Object {
+                      "key": "jmeno",
+                      "label": "jméno",
+                      "sortable": true,
+                      "width": 100,
+                    },
+                    Object {
+                      "cellDataFormatter": [Function],
+                      "key": "2012",
+                      "sortable": false,
+                      "width": 50,
+                    },
+                  ]
+                }
+                containerHeight={638}
                 containerRole="rowgroup"
                 containerStyle={Object {}}
+                containerWidth={944}
+                data={
+                  Array [
+                    Object {
+                      "2012": Object {
+                        "dokonceno": false,
+                      },
+                      "id": "5a09b1fd371dec1e99b7e1c9",
+                      "jmeno": "Roman",
+                      "prijmeni": "Balabák",
+                    },
+                    Object {
+                      "2012": Object {
+                        "dokonceno": true,
+                        "kategorie": "maraton",
+                      },
+                      "id": "6f09b1fd371dec1e99b7e1c9",
+                      "jmeno": "Martina",
+                      "prijmeni": "Sukdoláková",
+                    },
+                  ]
+                }
                 estimatedColumnSize={100}
                 estimatedRowSize={30}
+                fixedColumnCount={2}
                 getScrollbarSize={[Function]}
                 height={35}
                 noContentRenderer={[Function]}
@@ -787,6 +1113,8 @@ exports[`dva účastníci, řazeno dle příjmení 1`] = `
                 scrollToColumn={-1}
                 scrollToRow={-1}
                 scrollingResetTimeInterval={150}
+                sortColumn="prijmeni"
+                sortDir="asc"
                 style={Object {}}
                 tabIndex={0}
                 width={200}
@@ -904,10 +1232,56 @@ exports[`dva účastníci, řazeno dle příjmení 1`] = `
                 className="UcastniciTable_LeftSideGrid"
                 columnCount={2}
                 columnWidth={[Function]}
+                columns={
+                  Array [
+                    Object {
+                      "key": "prijmeni",
+                      "label": "příjmení",
+                      "sortable": true,
+                      "width": 100,
+                    },
+                    Object {
+                      "key": "jmeno",
+                      "label": "jméno",
+                      "sortable": true,
+                      "width": 100,
+                    },
+                    Object {
+                      "cellDataFormatter": [Function],
+                      "key": "2012",
+                      "sortable": false,
+                      "width": 50,
+                    },
+                  ]
+                }
+                containerHeight={638}
                 containerRole="rowgroup"
                 containerStyle={Object {}}
+                containerWidth={944}
+                data={
+                  Array [
+                    Object {
+                      "2012": Object {
+                        "dokonceno": false,
+                      },
+                      "id": "5a09b1fd371dec1e99b7e1c9",
+                      "jmeno": "Roman",
+                      "prijmeni": "Balabák",
+                    },
+                    Object {
+                      "2012": Object {
+                        "dokonceno": true,
+                        "kategorie": "maraton",
+                      },
+                      "id": "6f09b1fd371dec1e99b7e1c9",
+                      "jmeno": "Martina",
+                      "prijmeni": "Sukdoláková",
+                    },
+                  ]
+                }
                 estimatedColumnSize={100}
                 estimatedRowSize={30}
+                fixedColumnCount={2}
                 getScrollbarSize={[Function]}
                 height={70}
                 noContentRenderer={[Function]}
@@ -925,6 +1299,8 @@ exports[`dva účastníci, řazeno dle příjmení 1`] = `
                 scrollToRow={-1}
                 scrollTop={0}
                 scrollingResetTimeInterval={150}
+                sortColumn="prijmeni"
+                sortDir="asc"
                 style={Object {}}
                 tabIndex={0}
                 width={200}
@@ -1052,10 +1428,56 @@ exports[`dva účastníci, řazeno dle příjmení 1`] = `
                     className="UcastniciTable_HeaderGrid"
                     columnCount={3}
                     columnWidth={[Function]}
+                    columns={
+                      Array [
+                        Object {
+                          "key": "prijmeni",
+                          "label": "příjmení",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "key": "jmeno",
+                          "label": "jméno",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "cellDataFormatter": [Function],
+                          "key": "2012",
+                          "sortable": false,
+                          "width": 50,
+                        },
+                      ]
+                    }
+                    containerHeight={638}
                     containerRole="rowgroup"
                     containerStyle={Object {}}
+                    containerWidth={944}
+                    data={
+                      Array [
+                        Object {
+                          "2012": Object {
+                            "dokonceno": false,
+                          },
+                          "id": "5a09b1fd371dec1e99b7e1c9",
+                          "jmeno": "Roman",
+                          "prijmeni": "Balabák",
+                        },
+                        Object {
+                          "2012": Object {
+                            "dokonceno": true,
+                            "kategorie": "maraton",
+                          },
+                          "id": "6f09b1fd371dec1e99b7e1c9",
+                          "jmeno": "Martina",
+                          "prijmeni": "Sukdoláková",
+                        },
+                      ]
+                    }
                     estimatedColumnSize={100}
                     estimatedRowSize={30}
+                    fixedColumnCount={2}
                     getScrollbarSize={[Function]}
                     height={35}
                     noContentRenderer={[Function]}
@@ -1073,6 +1495,8 @@ exports[`dva účastníci, řazeno dle příjmení 1`] = `
                     scrollToColumn={-1}
                     scrollToRow={-1}
                     scrollingResetTimeInterval={150}
+                    sortColumn="prijmeni"
+                    sortDir="asc"
                     style={Object {}}
                     tabIndex={0}
                     width={250}
@@ -1151,10 +1575,56 @@ exports[`dva účastníci, řazeno dle příjmení 1`] = `
                     className="UcastniciTable_BodyGrid"
                     columnCount={3}
                     columnWidth={[Function]}
+                    columns={
+                      Array [
+                        Object {
+                          "key": "prijmeni",
+                          "label": "příjmení",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "key": "jmeno",
+                          "label": "jméno",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "cellDataFormatter": [Function],
+                          "key": "2012",
+                          "sortable": false,
+                          "width": 50,
+                        },
+                      ]
+                    }
+                    containerHeight={638}
                     containerRole="rowgroup"
                     containerStyle={Object {}}
+                    containerWidth={944}
+                    data={
+                      Array [
+                        Object {
+                          "2012": Object {
+                            "dokonceno": false,
+                          },
+                          "id": "5a09b1fd371dec1e99b7e1c9",
+                          "jmeno": "Roman",
+                          "prijmeni": "Balabák",
+                        },
+                        Object {
+                          "2012": Object {
+                            "dokonceno": true,
+                            "kategorie": "maraton",
+                          },
+                          "id": "6f09b1fd371dec1e99b7e1c9",
+                          "jmeno": "Martina",
+                          "prijmeni": "Sukdoláková",
+                        },
+                      ]
+                    }
                     estimatedColumnSize={100}
                     estimatedRowSize={30}
+                    fixedColumnCount={2}
                     getScrollbarSize={[Function]}
                     height={70}
                     noContentRenderer={[Function]}
@@ -1171,6 +1641,8 @@ exports[`dva účastníci, řazeno dle příjmení 1`] = `
                     scrollToColumn={-1}
                     scrollToRow={-1}
                     scrollingResetTimeInterval={150}
+                    sortColumn="prijmeni"
+                    sortDir="asc"
                     style={Object {}}
                     tabIndex={0}
                     width={250}
@@ -1281,7 +1753,6 @@ exports[`žádná data 1`] = `
         },
       ]
     }
-    containerHeight={500}
     data={Array []}
     fixedColumnCount={2}
     rowHeight={35}
@@ -1320,14 +1791,42 @@ exports[`žádná data 1`] = `
             },
           ]
         }
-        containerHeight={500}
+        containerHeight={638}
         containerWidth={944}
         data={Array []}
         fixedColumnCount={2}
         rowHeight={35}
         updateDimensions={[Function]}
       >
-        <ScrollSync>
+        <ScrollSync
+          columns={
+            Array [
+              Object {
+                "key": "prijmeni",
+                "label": "příjmení",
+                "sortable": true,
+                "width": 100,
+              },
+              Object {
+                "key": "jmeno",
+                "label": "jméno",
+                "sortable": true,
+                "width": 100,
+              },
+              Object {
+                "cellDataFormatter": [Function],
+                "key": "2012",
+                "sortable": false,
+                "width": 50,
+              },
+            ]
+          }
+          containerHeight={638}
+          containerWidth={944}
+          data={Array []}
+          fixedColumnCount={2}
+          rowHeight={35}
+        >
           <div
             className="UcastniciTable_GridRow"
           >
@@ -1351,10 +1850,36 @@ exports[`žádná data 1`] = `
                 className="UcastniciTable_HeaderGrid"
                 columnCount={2}
                 columnWidth={[Function]}
+                columns={
+                  Array [
+                    Object {
+                      "key": "prijmeni",
+                      "label": "příjmení",
+                      "sortable": true,
+                      "width": 100,
+                    },
+                    Object {
+                      "key": "jmeno",
+                      "label": "jméno",
+                      "sortable": true,
+                      "width": 100,
+                    },
+                    Object {
+                      "cellDataFormatter": [Function],
+                      "key": "2012",
+                      "sortable": false,
+                      "width": 50,
+                    },
+                  ]
+                }
+                containerHeight={638}
                 containerRole="rowgroup"
                 containerStyle={Object {}}
+                containerWidth={944}
+                data={Array []}
                 estimatedColumnSize={100}
                 estimatedRowSize={30}
+                fixedColumnCount={2}
                 getScrollbarSize={[Function]}
                 height={35}
                 noContentRenderer={[Function]}
@@ -1487,10 +2012,36 @@ exports[`žádná data 1`] = `
                 className="UcastniciTable_LeftSideGrid"
                 columnCount={2}
                 columnWidth={[Function]}
+                columns={
+                  Array [
+                    Object {
+                      "key": "prijmeni",
+                      "label": "příjmení",
+                      "sortable": true,
+                      "width": 100,
+                    },
+                    Object {
+                      "key": "jmeno",
+                      "label": "jméno",
+                      "sortable": true,
+                      "width": 100,
+                    },
+                    Object {
+                      "cellDataFormatter": [Function],
+                      "key": "2012",
+                      "sortable": false,
+                      "width": 50,
+                    },
+                  ]
+                }
+                containerHeight={638}
                 containerRole="rowgroup"
                 containerStyle={Object {}}
+                containerWidth={944}
+                data={Array []}
                 estimatedColumnSize={100}
                 estimatedRowSize={30}
+                fixedColumnCount={2}
                 getScrollbarSize={[Function]}
                 height={0}
                 noContentRenderer={[Function]}
@@ -1558,10 +2109,36 @@ exports[`žádná data 1`] = `
                     className="UcastniciTable_HeaderGrid"
                     columnCount={3}
                     columnWidth={[Function]}
+                    columns={
+                      Array [
+                        Object {
+                          "key": "prijmeni",
+                          "label": "příjmení",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "key": "jmeno",
+                          "label": "jméno",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "cellDataFormatter": [Function],
+                          "key": "2012",
+                          "sortable": false,
+                          "width": 50,
+                        },
+                      ]
+                    }
+                    containerHeight={638}
                     containerRole="rowgroup"
                     containerStyle={Object {}}
+                    containerWidth={944}
+                    data={Array []}
                     estimatedColumnSize={100}
                     estimatedRowSize={30}
+                    fixedColumnCount={2}
                     getScrollbarSize={[Function]}
                     height={35}
                     noContentRenderer={[Function]}
@@ -1657,10 +2234,36 @@ exports[`žádná data 1`] = `
                     className="UcastniciTable_BodyGrid"
                     columnCount={3}
                     columnWidth={[Function]}
+                    columns={
+                      Array [
+                        Object {
+                          "key": "prijmeni",
+                          "label": "příjmení",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "key": "jmeno",
+                          "label": "jméno",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "cellDataFormatter": [Function],
+                          "key": "2012",
+                          "sortable": false,
+                          "width": 50,
+                        },
+                      ]
+                    }
+                    containerHeight={638}
                     containerRole="rowgroup"
                     containerStyle={Object {}}
+                    containerWidth={944}
+                    data={Array []}
                     estimatedColumnSize={100}
                     estimatedRowSize={30}
+                    fixedColumnCount={2}
                     getScrollbarSize={[Function]}
                     height={0}
                     noContentRenderer={[Function]}

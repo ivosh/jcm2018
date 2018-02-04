@@ -33,13 +33,7 @@ const data = [
 it('žádná data', () => {
   const wrapper = mount(
     <div height={500} width={500}>
-      <UcastniciTable
-        columns={columns}
-        containerHeight={500}
-        data={[]}
-        fixedColumnCount={2}
-        rowHeight={35}
-      />
+      <UcastniciTable columns={columns} data={[]} fixedColumnCount={2} rowHeight={35} />
     </div>
   );
   expect(toJSON(wrapper)).toMatchSnapshot();
@@ -48,13 +42,7 @@ it('žádná data', () => {
 it('dva účastníci', () => {
   const wrapper = mount(
     <div height={500} width={500}>
-      <UcastniciTable
-        columns={columns}
-        containerHeight={500}
-        data={data}
-        fixedColumnCount={2}
-        rowHeight={35}
-      />
+      <UcastniciTable columns={columns} data={data} fixedColumnCount={2} rowHeight={35} />
     </div>
   );
   expect(toJSON(wrapper)).toMatchSnapshot();
@@ -62,10 +50,9 @@ it('dva účastníci', () => {
 
 it('dva účastníci, řazeno dle příjmení', () => {
   const wrapper = mount(
-    <div height={500} width={500}>
+    <div height={200} width={200}>
       <UcastniciTable
         columns={columns}
-        containerHeight={500}
         data={data}
         fixedColumnCount={2}
         rowHeight={35}
@@ -84,7 +71,6 @@ it('maps onClick to onSortDirChange for jméno', () => {
     <div height={500} width={500}>
       <UcastniciTable
         columns={columns}
-        containerHeight={500}
         data={data}
         fixedColumnCount={2}
         rowHeight={35}
