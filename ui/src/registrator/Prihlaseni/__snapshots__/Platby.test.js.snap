@@ -153,7 +153,10 @@ exports[`platby v mínusu 1`] = `
         onClick={[Function]}
         type="button"
       >
-        Přidat
+        <span
+          className="glyphicon glyphicon-plus"
+        />
+         Přidat
       </button>
     </div>
   </div>
@@ -388,7 +391,10 @@ exports[`platby v plusu 1`] = `
         onClick={[Function]}
         type="button"
       >
-        Přidat
+        <span
+          className="glyphicon glyphicon-plus"
+        />
+         Přidat
       </button>
     </div>
   </div>

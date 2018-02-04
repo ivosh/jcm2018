@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Col, Form, Grid, Modal, Panel } from 'react-bootstrap';
+import { Button, Col, Form, Glyphicon, Grid, Modal, Panel } from 'react-bootstrap';
 import HideableError from '../../shared/HideableError';
 import LoadingButton from '../../shared/LoadingButton';
 import LoadingIndicator from '../../shared/LoadingIndicator';
@@ -99,11 +99,14 @@ class Prihlaseni extends PureComponent {
                 type="submit"
                 bsStyle="success"
                 loading={saving}
-                text={`Uložit ${existujiciUcastnik ? 'stávajícího' : 'nového'} účastníka`}
                 loadingText="Probíhá ukládání..."
-              />
+              >
+                <Glyphicon glyph="save" />{' '}
+                {`Uložit ${existujiciUcastnik ? 'stávajícího' : 'nového'}
+                účastníka`}
+              </LoadingButton>
               <Button bsStyle="danger" onClick={this.handleReset} className="Prihlaseni_reset">
-                Reset
+                <Glyphicon glyph="fire" /> Reset
               </Button>
             </Col>
             <Col sm={4}>

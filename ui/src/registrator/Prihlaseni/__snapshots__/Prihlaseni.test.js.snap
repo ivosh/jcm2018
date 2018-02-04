@@ -183,9 +183,16 @@ exports[`formulář po uložení 1`] = `
           bsStyle="success"
           loading={false}
           loadingText="Probíhá ukládání..."
-          text="Uložit stávajícího účastníka"
           type="submit"
-        />
+        >
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="save"
+          />
+           
+          Uložit stávajícího
+                          účastníka
+        </LoadingButton>
         <Button
           active={false}
           block={false}
@@ -195,7 +202,11 @@ exports[`formulář po uložení 1`] = `
           disabled={false}
           onClick={[Function]}
         >
-          Reset
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="fire"
+          />
+           Reset
         </Button>
       </Col>
       <Col
@@ -400,9 +411,16 @@ exports[`formulář s chybou 1`] = `
           bsStyle="success"
           loading={false}
           loadingText="Probíhá ukládání..."
-          text="Uložit stávajícího účastníka"
           type="submit"
-        />
+        >
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="save"
+          />
+           
+          Uložit stávajícího
+                          účastníka
+        </LoadingButton>
         <Button
           active={false}
           block={false}
@@ -412,7 +430,11 @@ exports[`formulář s chybou 1`] = `
           disabled={false}
           onClick={[Function]}
         >
-          Reset
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="fire"
+          />
+           Reset
         </Button>
       </Col>
       <Col
@@ -623,9 +645,16 @@ exports[`formulář s existujícím účastníkem 1`] = `
           bsStyle="success"
           loading={false}
           loadingText="Probíhá ukládání..."
-          text="Uložit stávajícího účastníka"
           type="submit"
-        />
+        >
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="save"
+          />
+           
+          Uložit stávajícího
+                          účastníka
+        </LoadingButton>
         <Button
           active={false}
           block={false}
@@ -635,7 +664,11 @@ exports[`formulář s existujícím účastníkem 1`] = `
           disabled={false}
           onClick={[Function]}
         >
-          Reset
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="fire"
+          />
+           Reset
         </Button>
       </Col>
       <Col
@@ -841,9 +874,16 @@ exports[`prázdný formulář 1`] = `
           bsStyle="success"
           loading={false}
           loadingText="Probíhá ukládání..."
-          text="Uložit nového účastníka"
           type="submit"
-        />
+        >
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="save"
+          />
+           
+          Uložit nového
+                          účastníka
+        </LoadingButton>
         <Button
           active={false}
           block={false}
@@ -853,7 +893,11 @@ exports[`prázdný formulář 1`] = `
           disabled={false}
           onClick={[Function]}
         >
-          Reset
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="fire"
+          />
+           Reset
         </Button>
       </Col>
       <Col

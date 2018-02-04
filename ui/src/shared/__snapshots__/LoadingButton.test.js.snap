@@ -11,6 +11,7 @@ exports[`renders - loading 1`] = `
       className="LoadingIndicator glyphicon glyphicon-repeat"
     />
      
+    Loading...
   </span>
 </button>
 `;

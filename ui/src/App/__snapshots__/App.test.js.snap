@@ -36,7 +36,11 @@ exports[`with websocket connected, authenticated 1`] = `
           disabled={false}
           eventKey={1}
         >
-          Časoměřič
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="time"
+          />
+           Časoměřič
         </NavItem>
       </LinkContainer>
       <LinkContainer
@@ -52,7 +56,11 @@ exports[`with websocket connected, authenticated 1`] = `
           disabled={false}
           eventKey={2}
         >
-          Účastníci
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="list-alt"
+          />
+           Účastníci
         </NavItem>
       </LinkContainer>
       <LinkContainer
@@ -68,7 +76,11 @@ exports[`with websocket connected, authenticated 1`] = `
           disabled={false}
           eventKey={3}
         >
-          Přihlášky
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="edit"
+          />
+           Přihlášky
         </NavItem>
       </LinkContainer>
     </Nav>
@@ -112,7 +124,11 @@ exports[`with websocket connected, authenticated 1`] = `
           disabled={false}
           eventKey={6}
         >
-          O aplikaci
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="question-sign"
+          />
+           O aplikaci
         </NavItem>
       </LinkContainer>
     </Nav>
@@ -211,7 +227,11 @@ exports[`with websocket connected, not authenticated 1`] = `
           disabled={false}
           eventKey={6}
         >
-          O aplikaci
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="question-sign"
+          />
+           O aplikaci
         </NavItem>
       </LinkContainer>
     </Nav>
@@ -292,7 +312,11 @@ exports[`with websocket disconnected, authenticated 1`] = `
           disabled={false}
           eventKey={1}
         >
-          Časoměřič
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="time"
+          />
+           Časoměřič
         </NavItem>
       </LinkContainer>
       <LinkContainer
@@ -308,7 +332,11 @@ exports[`with websocket disconnected, authenticated 1`] = `
           disabled={false}
           eventKey={2}
         >
-          Účastníci
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="list-alt"
+          />
+           Účastníci
         </NavItem>
       </LinkContainer>
       <LinkContainer
@@ -324,7 +352,11 @@ exports[`with websocket disconnected, authenticated 1`] = `
           disabled={false}
           eventKey={3}
         >
-          Přihlášky
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="edit"
+          />
+           Přihlášky
         </NavItem>
       </LinkContainer>
     </Nav>
@@ -368,7 +400,11 @@ exports[`with websocket disconnected, authenticated 1`] = `
           disabled={false}
           eventKey={6}
         >
-          O aplikaci
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="question-sign"
+          />
+           O aplikaci
         </NavItem>
       </LinkContainer>
     </Nav>

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Label, Panel } from 'react-bootstrap';
+import { Button, Glyphicon, Label, Panel } from 'react-bootstrap';
 import InputContainer from './InputContainer';
 import PlatbyTable from './PlatbyTable';
 import SelectInput from './SelectInput';
@@ -45,7 +45,7 @@ const Platby = ({ predepsano, provedeno, onAdd }) => (
       <InputContainer name="novaPlatba.typ" popisek="jak?" Type={SelectInput} />
       <InputContainer name="novaPlatba.poznamka" popisek="poznámka" Type={TextInput} />
       <Button bsStyle="primary" bsSize="small" onClick={onAdd}>
-        Přidat
+        <Glyphicon glyph="plus" /> Přidat
       </Button>
     </Panel>
   </div>

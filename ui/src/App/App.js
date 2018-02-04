@@ -23,13 +23,19 @@ const App = ({ authenticated, connected, username }) => (
       {authenticated && (
         <Nav className="App-Nav">
           <LinkContainer key="casomeric" to="/casomeric">
-            <NavItem eventKey={1}>Časoměřič</NavItem>
+            <NavItem eventKey={1}>
+              <Glyphicon glyph="time" /> Časoměřič
+            </NavItem>
           </LinkContainer>
           <LinkContainer key="ucastnici" to="/ucastnici">
-            <NavItem eventKey={2}>Účastníci</NavItem>
+            <NavItem eventKey={2}>
+              <Glyphicon glyph="list-alt" /> Účastníci
+            </NavItem>
           </LinkContainer>
           <LinkContainer key="prihlaska" to="/prihlasky">
-            <NavItem eventKey={3}>Přihlášky</NavItem>
+            <NavItem eventKey={3}>
+              <Glyphicon glyph="edit" /> Přihlášky
+            </NavItem>
           </LinkContainer>
         </Nav>
       )}
@@ -49,7 +55,9 @@ const App = ({ authenticated, connected, username }) => (
           </LinkContainer>
         )}
         <LinkContainer to="/about">
-          <NavItem eventKey={6}>O aplikaci</NavItem>
+          <NavItem eventKey={6}>
+            <Glyphicon glyph="question-sign" /> O aplikaci
+          </NavItem>
         </LinkContainer>
       </Nav>
     </Navbar>

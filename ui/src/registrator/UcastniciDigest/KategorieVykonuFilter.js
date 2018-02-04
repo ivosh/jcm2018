@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'react-bootstrap';
+import { Button, Glyphicon } from 'react-bootstrap';
 import { barvaProTypKategorie } from '../../Util';
 import './KategorieVykonuFilter.css';
 
@@ -12,7 +12,7 @@ const KategorieVykonuFilter = ({ typKategorie, active, onClick }) => {
   return (
     <span className={`KategorieVykonuFilter_${active ? 'active' : 'nonactive'}`}>
       <Button onClick={onClick} style={style}>
-        {typKategorie}
+        <Glyphicon glyph="filter" /> {typKategorie}
       </Button>
     </span>
   );

@@ -52,9 +52,10 @@ class SignIn extends PureComponent {
                 type="submit"
                 bsStyle="success"
                 loading={signingIn}
-                text="Přihlásit"
                 loadingText="Probíhá přihlašování..."
-              />
+              >
+                Přihlásit
+              </LoadingButton>
             </FormGroup>
           </Form>
         </Panel>
