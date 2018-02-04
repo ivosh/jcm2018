@@ -15,7 +15,7 @@ import './App.css';
 import logo from './logo.svg';
 
 const App = ({ authenticated, connected, username }) => (
-  <div>
+  <div className="App-div">
     <Navbar inverse>
       <Navbar.Header>
         <img src={logo} className={connected ? 'App-logo-animated' : 'App-logo'} alt="logo" />

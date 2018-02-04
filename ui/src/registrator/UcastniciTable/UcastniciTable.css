@@ -1,3 +1,7 @@
+.UcastniciTable-div {
+  flex: 1 0 auto;
+}
+
 .UcastniciTable_GridRow {
   display: flex;
   flex-direction: row;

@@ -1,3 +1,15 @@
+.App-div {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+
 /* Override react-bootstrap styling for Navbar's container. */
 .navbar > .container {
   padding-left: 0px;
