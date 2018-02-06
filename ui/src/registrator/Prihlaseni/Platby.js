@@ -19,22 +19,22 @@ const zaplacenoStyle = (zaplaceno, predepsano) => {
 
 const Platby = ({ predepsano, provedeno, onAdd }) => (
   <div>
-    <p>
+    <div className="Platby_paragraph">
       Zaplaceno:{' '}
       <Label bsStyle={zaplacenoStyle(provedeno.suma, predepsano.suma)} className="Platby_zaplaceno">
         {provedeno.suma} Kč
       </Label>
-    </p>
+    </div>
 
     {predepsano.polozky.length > 0 && (
-      <p>
+      <div className="Platby_paragraph">
         <div>Předepsané startovné:</div>
         {predepsano.polozky.map((platba, idx) => (
           <div key={idx}>
             <b>{platba.castka}</b> Kč {platba.duvod}
           </div>
         ))}
-      </p>
+      </div>
     )}
 
     {provedeno.platby.length > 0 && <PlatbyTable platby={provedeno.platby} />}
