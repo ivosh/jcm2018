@@ -1,30 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`maps state and dispatch to props 1`] = `
-Array [
-  Object {
-    "2016": Object {
-      "dokonceno": true,
-      "kategorie": "maraton",
-    },
-    "id": "6f09b1fd371dec1e99b7e1c9",
-    "jmeno": "Martina",
-    "narozeni": "7. 12. 1963",
-    "prijmeni": "Sukdoláková",
-  },
-  Object {
-    "2017": Object {
-      "dokonceno": true,
-      "kategorie": "maraton",
-    },
-    "2018": Object {
-      "dokonceno": false,
-      "kategorie": "půlmaraton",
-    },
-    "id": "5a09b1fd371dec1e99b7e1c9",
-    "jmeno": "Roman",
-    "narozeni": "1956",
-    "prijmeni": "Balabák",
-  },
-]
-`;
+exports[`maps state and dispatch to props 1`] = `Array []`;

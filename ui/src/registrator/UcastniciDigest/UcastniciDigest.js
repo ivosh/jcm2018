@@ -2,7 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { barvaProTypKategorie } from '../../Util';
 import LoadingIndicator from '../../shared/LoadingIndicator';
+import FilterableContainer from '../Filterable/FilterableContainer';
 import UcastniciTable from '../UcastniciTable/UcastniciTable';
+import './UcastniciDigest.css';
 
 const alignLeftStyler = () => ({ textAlign: 'left' });
 const alignRightStyle = () => ({ textAlign: 'right' });
@@ -34,7 +36,16 @@ class UcastniciDigest extends PureComponent {
   };
 
   render = () => {
-    const { fetching, roky, onSortDirChange, sortColumn, sortDir, ucastniciDigest } = this.props;
+    const {
+      actionPrefix,
+      fetching,
+      reduxName,
+      roky,
+      sortColumn,
+      sortDir,
+      ucastniciDigest,
+      onSortDirChange
+    } = this.props;
 
     if (fetching) {
       return (
@@ -71,22 +82,34 @@ class UcastniciDigest extends PureComponent {
     ];
 
     return (
-      <UcastniciTable
-        columns={columns}
-        data={ucastniciDigest}
-        fixedColumnCount={3}
-        rowHeight={35}
-        sortColumn={sortColumn}
-        sortDir={sortDir}
-        onSortDirChange={onSortDirChange}
-      />
+      <div className="UcastniciDigest_div">
+        <FilterableContainer
+          actionPrefix={actionPrefix}
+          reduxName={reduxName}
+          numberOfItems={ucastniciDigest.length}
+        />
+
+        <UcastniciTable
+          columns={columns}
+          data={ucastniciDigest}
+          fixedColumnCount={3}
+          rowHeight={35}
+          sortColumn={sortColumn}
+          sortDir={sortDir}
+          onSortDirChange={onSortDirChange}
+        />
+      </div>
     );
   };
 }
 
 UcastniciDigest.propTypes = {
+  actionPrefix: PropTypes.string.isRequired,
   fetching: PropTypes.bool,
+  reduxName: PropTypes.string.isRequired,
   roky: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  sortColumn: PropTypes.string,
+  sortDir: PropTypes.string,
   ucastniciDigest: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -95,8 +118,6 @@ UcastniciDigest.propTypes = {
       narozeni: PropTypes.string.isRequired
     }).isRequired
   ).isRequired,
-  sortColumn: PropTypes.string,
-  sortDir: PropTypes.string,
   fetchUcastnici: PropTypes.func.isRequired,
   onSortDirChange: PropTypes.func.isRequired
 };

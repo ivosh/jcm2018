@@ -2,7 +2,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import { SortDirTypes } from '../../Util';
-import UcastniciDigestTable from './UcastniciDigestTable';
+import UcastniciDigest from './UcastniciDigest';
+
+const commonProps = {
+  actionPrefix: 'UCASTNICI_DIGEST',
+  reduxName: 'ucastniciDigest',
+  fetchUcastnici: jest.fn(),
+  onSortDirChange: jest.fn()
+};
 
 const roky = [
   2001,
@@ -48,29 +55,18 @@ const ucastniciDigest = [
 
 it('žádný účastník', () => {
   const wrapper = shallow(
-    <UcastniciDigestTable
-      roky={roky}
-      ucastniciDigest={[]}
-      fetching={false}
-      fetchUcastnici={jest.fn()}
-      onSortDirChange={jest.fn()}
-      containerWidth={500}
-      containerHeight={500}
-    />
+    <UcastniciDigest roky={roky} ucastniciDigest={[]} fetching={false} {...commonProps} />
   );
   expect(toJSON(wrapper)).toMatchSnapshot();
 });
 
 it('načítá se', () => {
   const wrapper = shallow(
-    <UcastniciDigestTable
+    <UcastniciDigest
       roky={roky}
       ucastniciDigest={ucastniciDigest}
       fetching={true}
-      fetchUcastnici={jest.fn()}
-      onSortDirChange={jest.fn()}
-      containerWidth={500}
-      containerHeight={500}
+      {...commonProps}
     />
   );
   expect(toJSON(wrapper)).toMatchSnapshot();
@@ -78,29 +74,19 @@ it('načítá se', () => {
 
 it('dva účastníci', () => {
   const wrapper = shallow(
-    <UcastniciDigestTable
-      roky={roky}
-      ucastniciDigest={ucastniciDigest}
-      fetchUcastnici={jest.fn()}
-      onSortDirChange={jest.fn()}
-      containerWidth={500}
-      containerHeight={500}
-    />
+    <UcastniciDigest roky={roky} ucastniciDigest={ucastniciDigest} {...commonProps} />
   );
   expect(toJSON(wrapper)).toMatchSnapshot();
 });
 
 it('dva účastníci, řazeno dle příjmení', () => {
   const wrapper = shallow(
-    <UcastniciDigestTable
+    <UcastniciDigest
       roky={roky}
       ucastniciDigest={ucastniciDigest}
       sortColumn="prijmeni"
       sortDir={SortDirTypes.ASC}
-      fetchUcastnici={jest.fn()}
-      onSortDirChange={jest.fn()}
-      containerWidth={500}
-      containerHeight={500}
+      {...commonProps}
     />
   );
   expect(toJSON(wrapper)).toMatchSnapshot();

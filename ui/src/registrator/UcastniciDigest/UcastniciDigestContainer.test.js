@@ -15,24 +15,18 @@ beforeEach(() => {
     registrator: {
       ucastniciDigest: {
         sortColumn: 'prijmeni',
-        sortDir: SortDirTypes.DESC,
-        kategorieVykonuFilter: '',
-        textFilter: ''
+        sortDir: SortDirTypes.DESC
       }
     }
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
-  wrapper = shallow(
-    <UcastniciDigestContainer store={store} containerWidth={500} containerHeight={500} />
-  );
+  wrapper = shallow(<UcastniciDigestContainer store={store} />);
 });
 
 it('maps state and dispatch to props', () => {
   expect(wrapper.props().ucastniciDigest).toBeTruthy();
   expect(wrapper.props().ucastniciDigest).toMatchSnapshot();
-  expect(wrapper.props().kategorieVykonuFilter).toEqual('');
-  expect(wrapper.props().textFilter).toEqual('');
   expect(wrapper.props().sortColumn).toEqual('prijmeni');
   expect(wrapper.props().sortDir).toEqual('desc');
 });
@@ -41,24 +35,6 @@ it('maps fetchUcastnici to dispatch', () => {
   wrapper.props().fetchUcastnici();
 
   expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
-});
-
-it('maps onKategorieVykonuFilterChange to dispatch kategorieVykonuFilterChange action', () => {
-  wrapper.props().onKategorieVykonuFilterChange('pěší');
-
-  expect(store.dispatch).toHaveBeenCalledWith({
-    type: 'UCASTNICI_DIGEST_KATEGORIE_VYKONU_FILTER_CHANGE',
-    typKategorie: 'pěší'
-  });
-});
-
-it('maps onTextFilterChange to dispatch textFilterChange action', () => {
-  wrapper.props().onTextFilterChange('Kl');
-
-  expect(store.dispatch).toHaveBeenCalledWith({
-    type: 'UCASTNICI_DIGEST_TEXT_FILTER_CHANGE',
-    textFilter: 'Kl'
-  });
 });
 
 it('maps onSortDirChange to dispatch sortDirChange action', () => {
