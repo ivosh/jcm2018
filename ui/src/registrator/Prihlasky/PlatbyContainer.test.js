@@ -12,7 +12,7 @@ beforeEach(() => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlaseni: {
+      prihlasky: {
         validatePlatba: false,
         prihlaska: { typ: 'cyklo' },
         platby: [
@@ -52,5 +52,5 @@ it('maps onAdd to dispatch addValidatedPlatba', () => {
 it('maps provedeno.platby[0].onRemove to dispatch removePlatba action', () => {
   wrapper.props().provedeno.platby[0].onRemove();
 
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASENI_REMOVE_PLATBA', idx: 0 });
+  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASKY_REMOVE_PLATBA', idx: 0 });
 });

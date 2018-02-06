@@ -9,7 +9,7 @@ const mockStore = configureStore();
 const state = {
   ...ucastniciTestData,
   registrator: {
-    prihlaseni: {
+    prihlasky: {
       platby: [],
       novaPlatba: {}
     }

@@ -8,7 +8,7 @@ import withoutAuth from '../auth/withoutAuth';
 import SignInContainer from '../auth/SignIn/SignInContainer';
 import CasomericContainer from '../casomeric/Casomeric/CasomericContainer';
 import UcastniciDigestContainer from '../registrator/UcastniciDigest/UcastniciDigestContainer';
-import PrihlaseniContainer from '../registrator/Prihlaseni/PrihlaseniContainer';
+import PrihlaskyContainer from '../registrator/Prihlasky/PrihlaskyContainer';
 import SignOutContainer from '../auth/SignOut/SignOutContainer';
 import About from './About';
 import './App.css';
@@ -67,7 +67,7 @@ const App = ({ authenticated, connected, username }) => (
         <Route path="/signin" component={withoutAuth(SignInContainer)} />
         <Route path="/casomeric" component={withAuth(CasomericContainer)} />
         <Route path="/ucastnici" component={withAuth(UcastniciDigestContainer)} />
-        <Route path="/prihlasky" component={withAuth(PrihlaseniContainer)} />
+        <Route path="/prihlasky" component={withAuth(PrihlaskyContainer)} />
         <Route path="/signout" component={withAuth(SignOutContainer)} />
         <Route path="/about" component={() => <About username={username} />} />
         <Redirect to="/" />

@@ -33,7 +33,7 @@ Object {
     },
   },
   "registrator": Object {
-    "prihlaseni": Object {
+    "prihlasky": Object {
       "errorCode": "",
       "errorMessage": "",
       "fetching": false,
@@ -121,7 +121,7 @@ Object {
     },
   },
   "registrator": Object {
-    "prihlaseni": Object {
+    "prihlasky": Object {
       "errorCode": "",
       "errorMessage": "",
       "fetching": false,
@@ -209,7 +209,7 @@ Object {
     },
   },
   "registrator": Object {
-    "prihlaseni": Object {
+    "prihlasky": Object {
       "errorCode": "",
       "errorMessage": "",
       "fetching": false,

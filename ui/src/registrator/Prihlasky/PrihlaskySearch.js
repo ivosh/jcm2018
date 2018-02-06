@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Typeahead } from 'react-bootstrap-typeahead';
-import './PrihlaseniSearch.css';
+import './PrihlaskySearch.css';
 
 const stripDiactrics = string => string.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
@@ -14,9 +14,9 @@ const isMatch = (option, text) => {
   return prijmeniLower.startsWith(textLower) || kod === text;
 };
 
-const PrihlaseniSearch = ({ options, onChange, onSelect }) => (
+const PrihlaskySearch = ({ options, onChange, onSelect }) => (
   <Typeahead
-    className="PrihlaseniSearch"
+    className="PrihlaskySearch"
     labelKey="prijmeni"
     options={options}
     minLength={1}
@@ -40,7 +40,7 @@ const PrihlaseniSearch = ({ options, onChange, onSelect }) => (
   />
 );
 
-PrihlaseniSearch.propTypes = {
+PrihlaskySearch.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -56,4 +56,4 @@ PrihlaseniSearch.propTypes = {
   onSelect: PropTypes.func.isRequired
 };
 
-export default PrihlaseniSearch;
+export default PrihlaskySearch;

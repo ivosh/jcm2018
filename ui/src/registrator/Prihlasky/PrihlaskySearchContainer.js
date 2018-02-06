@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
-import { inputOptions } from './prihlaseniReducer';
-import PrihlaseniSearch from './PrihlaseniSearch';
-import { inputChanged, ucastnikSelected } from './PrihlaseniActions';
+import { inputOptions } from './prihlaskyReducer';
+import PrihlaskySearch from './PrihlaskySearch';
+import { inputChanged, ucastnikSelected } from './PrihlaskyActions';
 
 const mapStateToProps = state => {
-  const { registrator: { prihlaseni } } = state;
+  const { registrator: { prihlasky } } = state;
   const { entities: { kategorie, rocniky, ucastnici } } = state;
 
   return {
-    options: inputOptions('udaje.prijmeni+prihlaska.kod', prihlaseni, rocniky, ucastnici),
+    options: inputOptions('udaje.prijmeni+prihlaska.kod', prihlasky, rocniky, ucastnici),
     kategorie,
     ucastnici
   };
@@ -27,8 +27,8 @@ const mergeProps = (stateProps, dispatchProps) => {
   };
 };
 
-const PrihlaseniSearchContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(
-  PrihlaseniSearch
+const PrihlaskySearchContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(
+  PrihlaskySearch
 );
 
-export default PrihlaseniSearchContainer;
+export default PrihlaskySearchContainer;

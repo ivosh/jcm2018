@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
-import PrihlaseniSearchContainer from './PrihlaseniSearchContainer';
+import PrihlaskySearchContainer from './PrihlaskySearchContainer';
 
 const mockStore = configureStore();
 
@@ -12,7 +12,7 @@ beforeEach(() => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlaseni: {
+      prihlasky: {
         udaje: {
           prijmeni: 'Bala'
         }
@@ -21,7 +21,7 @@ beforeEach(() => {
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
-  wrapper = shallow(<PrihlaseniSearchContainer store={store} />);
+  wrapper = shallow(<PrihlaskySearchContainer store={store} />);
 });
 
 it('maps state and dispatch to props', () => {
@@ -34,7 +34,7 @@ it('maps onChange to dispatch inputChanged action', () => {
   wrapper.props().onChange('hu');
 
   expect(store.dispatch).toHaveBeenCalledWith({
-    type: 'PRIHLASENI_INPUT_CHANGED',
+    type: 'PRIHLASKY_INPUT_CHANGED',
     name: 'udaje.prijmeni',
     value: 'hu'
   });
@@ -44,7 +44,7 @@ it('maps onSelect to dispatch ucastnikSelected action - existující přihlášk
   wrapper.props().onSelect({ id: '5a09b1fd371dec1e99b7e1c9' });
 
   expect(store.dispatch).toHaveBeenCalledWith({
-    type: 'PRIHLASENI_UCASTNIK_SELECTED',
+    type: 'PRIHLASKY_UCASTNIK_SELECTED',
     id: '5a09b1fd371dec1e99b7e1c9',
     udaje: {
       jmeno: 'Roman',
@@ -69,7 +69,7 @@ it('maps onSelect to dispatch ucastnikSelected action - starší účast', () =>
   wrapper.props().onSelect({ id: '6f09b1fd371dec1e99b7e1c9' });
 
   expect(store.dispatch).toHaveBeenCalledWith({
-    type: 'PRIHLASENI_UCASTNIK_SELECTED',
+    type: 'PRIHLASKY_UCASTNIK_SELECTED',
     id: '6f09b1fd371dec1e99b7e1c9',
     udaje: {
       prijmeni: 'Sukdoláková',

@@ -75,11 +75,11 @@ const parseDatum = value =>
     return accumulator;
   }, undefined) || value;
 
-const prihlaseniReducer = (state = initialState, action) => {
+const prihlaskyReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'PRIHLASENI_HIDE_ERROR':
+    case 'PRIHLASKY_HIDE_ERROR':
       return { ...state, showError: false };
-    case 'PRIHLASENI_INPUT_CHANGED': {
+    case 'PRIHLASKY_INPUT_CHANGED': {
       const [section, name] = action.name.split('.');
       let { value } = action;
       switch (action.name) {
@@ -105,7 +105,7 @@ const prihlaseniReducer = (state = initialState, action) => {
       }
       return { ...state, [section]: { ...state[section], [name]: value } };
     }
-    case 'PRIHLASENI_UCASTNIK_SELECTED':
+    case 'PRIHLASKY_UCASTNIK_SELECTED':
       return {
         ...initialState,
         ucastnikId: action.id,
@@ -113,24 +113,24 @@ const prihlaseniReducer = (state = initialState, action) => {
         prihlaska: action.prihlaska ? action.prihlaska : initialState.prihlaska,
         platby: action.platby ? action.platby : initialState.platby
       };
-    case 'PRIHLASENI_RESET':
+    case 'PRIHLASKY_RESET':
       return initialState;
-    case 'PRIHLASENI_VALIDATE_FORM':
+    case 'PRIHLASKY_VALIDATE_FORM':
       return { ...state, validateForm: true };
-    case 'PRIHLASENI_VALIDATE_PLATBA':
+    case 'PRIHLASKY_VALIDATE_PLATBA':
       return { ...state, validatePlatba: true };
-    case 'PRIHLASENI_FORM_INVALID':
+    case 'PRIHLASKY_FORM_INVALID':
       return {
         ...state,
         showError: true,
         errorCode: action.code,
         errorMessage: action.status
       };
-    case 'PRIHLASENI_SAVE_REQUEST':
+    case 'PRIHLASKY_SAVE_REQUEST':
       return { ...state, saving: true };
-    case 'PRIHLASENI_SAVE_SUCCESS':
+    case 'PRIHLASKY_SAVE_SUCCESS':
       return { ...state, ucastnikId: action.id, saving: false, showError: false };
-    case 'PRIHLASENI_SAVE_ERROR':
+    case 'PRIHLASKY_SAVE_ERROR':
       return {
         ...state,
         saving: false,
@@ -138,11 +138,11 @@ const prihlaseniReducer = (state = initialState, action) => {
         errorMessage: action.status,
         showError: true
       };
-    case 'PRIHLASENI_SAVE_SHOW_MODAL':
+    case 'PRIHLASKY_SAVE_SHOW_MODAL':
       return { ...state, saved: true };
-    case 'PRIHLASENI_SAVE_HIDE_MODAL':
+    case 'PRIHLASKY_SAVE_HIDE_MODAL':
       return { ...state, saved: false };
-    case 'PRIHLASENI_ADD_PLATBA': {
+    case 'PRIHLASKY_ADD_PLATBA': {
       const { castka, ...novaPlatba } = state.novaPlatba;
       const platby = [...state.platby, { castka: parseInt(castka, 10), ...novaPlatba }];
       platby.sort((a, b) => moment.utc(a.datum) - moment.utc(b.datum));
@@ -153,7 +153,7 @@ const prihlaseniReducer = (state = initialState, action) => {
         novaPlatba: initialState.novaPlatba
       };
     }
-    case 'PRIHLASENI_REMOVE_PLATBA':
+    case 'PRIHLASKY_REMOVE_PLATBA':
       return {
         ...state,
         platby: [...state.platby.slice(0, action.idx), ...state.platby.slice(action.idx + 1)]
@@ -168,7 +168,7 @@ const prihlaseniReducer = (state = initialState, action) => {
   }
 };
 
-export default prihlaseniReducer;
+export default prihlaskyReducer;
 
 const nonEmptyInputValid = (value, validateForm) => {
   if (value === undefined) {
@@ -217,7 +217,7 @@ const numberValid = (value, validatePlatba) => {
   return Number.isNaN(cislo) ? 'error' : 'success';
 };
 
-export const inputValid = (name, value, prihlaseni) => {
+export const inputValid = (name, value, prihlasky) => {
   switch (name) {
     case 'udaje.prijmeni':
     case 'udaje.jmeno':
@@ -226,7 +226,7 @@ export const inputValid = (name, value, prihlaseni) => {
     case 'udaje.stat':
     case 'prihlaska.kategorie':
     case 'prihlaska.typ':
-      return nonEmptyInputValid(value, prihlaseni.validateForm);
+      return nonEmptyInputValid(value, prihlasky.validateForm);
     case 'udaje.adresa':
     case 'udaje.klub':
     case 'udaje.email':
@@ -238,32 +238,32 @@ export const inputValid = (name, value, prihlaseni) => {
       return undefined;
     case 'udaje.narozeni':
       // TODO: kategorie presne => den + mesic required === true
-      return narozeniValid(value, prihlaseni.validateForm, false);
+      return narozeniValid(value, prihlasky.validateForm, false);
     case 'udaje.psc':
-      if (prihlaseni.udaje.stat === 'Česká republika') {
-        return nonEmptyInputValid(value, prihlaseni.validateForm);
+      if (prihlasky.udaje.stat === 'Česká republika') {
+        return nonEmptyInputValid(value, prihlasky.validateForm);
       }
       return undefined;
     case 'prihlaska.datum':
       if (value === undefined) {
-        if (prihlaseni.validateForm) {
+        if (prihlasky.validateForm) {
           return 'error';
         }
         return undefined;
       }
       return datumValid(value) ? 'success' : 'error';
     case 'novaPlatba.castka':
-      return numberValid(value, prihlaseni.validatePlatba);
+      return numberValid(value, prihlasky.validatePlatba);
     case 'novaPlatba.datum':
       if (value === undefined) {
-        if (prihlaseni.validatePlatba) {
+        if (prihlasky.validatePlatba) {
           return 'error';
         }
         return undefined;
       }
       return datumValid(value) ? 'success' : 'error';
     case 'novaPlatba.typ':
-      if (value === undefined && !prihlaseni.validatePlatba) {
+      if (value === undefined && !prihlasky.validatePlatba) {
         return undefined;
       }
       return PLATBA_TYPY.includes(value) ? 'success' : 'error';
@@ -272,8 +272,8 @@ export const inputValid = (name, value, prihlaseni) => {
   }
 };
 
-const isInputValid = (name, value, prihlaseni) => {
-  const validationState = inputValid(name, value, prihlaseni);
+const isInputValid = (name, value, prihlasky) => {
+  const validationState = inputValid(name, value, prihlasky);
   if (
     validationState === undefined ||
     validationState === 'success' ||
@@ -284,38 +284,38 @@ const isInputValid = (name, value, prihlaseni) => {
   return false;
 };
 
-export const formValid = prihlaseni => {
-  const { udaje, prihlaska } = prihlaseni;
+export const formValid = prihlasky => {
+  const { udaje, prihlaska } = prihlasky;
 
   return (
-    isInputValid('udaje.prijmeni', udaje.prijmeni, prihlaseni) &&
-    isInputValid('udaje.jmeno', udaje.jmeno, prihlaseni) &&
-    isInputValid('udaje.narozeni', udaje.narozeni, prihlaseni) &&
-    isInputValid('udaje.pohlavi', udaje.pohlavi, prihlaseni) &&
-    isInputValid('udaje.obec', udaje.obec, prihlaseni) &&
-    isInputValid('udaje.psc', udaje.psc, prihlaseni) &&
-    isInputValid('udaje.stat', udaje.stat, prihlaseni) &&
-    isInputValid('prihlaska.datum', prihlaska.datum, prihlaseni) &&
-    isInputValid('prihlaska.kategorie', prihlaska.kategorie, prihlaseni) &&
-    isInputValid('prihlaska.typ', prihlaska.typ, prihlaseni)
+    isInputValid('udaje.prijmeni', udaje.prijmeni, prihlasky) &&
+    isInputValid('udaje.jmeno', udaje.jmeno, prihlasky) &&
+    isInputValid('udaje.narozeni', udaje.narozeni, prihlasky) &&
+    isInputValid('udaje.pohlavi', udaje.pohlavi, prihlasky) &&
+    isInputValid('udaje.obec', udaje.obec, prihlasky) &&
+    isInputValid('udaje.psc', udaje.psc, prihlasky) &&
+    isInputValid('udaje.stat', udaje.stat, prihlasky) &&
+    isInputValid('prihlaska.datum', prihlaska.datum, prihlasky) &&
+    isInputValid('prihlaska.kategorie', prihlaska.kategorie, prihlasky) &&
+    isInputValid('prihlaska.typ', prihlaska.typ, prihlasky)
   );
 };
 
-export const novaPlatbaValid = prihlaseni => {
-  const { novaPlatba } = prihlaseni;
+export const novaPlatbaValid = prihlasky => {
+  const { novaPlatba } = prihlasky;
 
   return (
-    isInputValid('novaPlatba.castka', novaPlatba.castka, prihlaseni) &&
-    isInputValid('novaPlatba.datum', novaPlatba.datum, prihlaseni) &&
-    isInputValid('novaPlatba.typ', novaPlatba.typ, prihlaseni) &&
-    isInputValid('novaPlatba.poznamka', novaPlatba.poznamka, prihlaseni)
+    isInputValid('novaPlatba.castka', novaPlatba.castka, prihlasky) &&
+    isInputValid('novaPlatba.datum', novaPlatba.datum, prihlasky) &&
+    isInputValid('novaPlatba.typ', novaPlatba.typ, prihlasky) &&
+    isInputValid('novaPlatba.poznamka', novaPlatba.poznamka, prihlasky)
   );
 };
 
-export const isInputEnabled = (name, prihlaseni, rocniky) => {
+export const isInputEnabled = (name, prihlasky, rocniky) => {
   switch (name) {
     case 'prihlaska.startCislo': {
-      const { typ } = prihlaseni.prihlaska;
+      const { typ } = prihlasky.prihlaska;
       if (!typ) {
         return false;
       }
@@ -343,7 +343,7 @@ const formatKategorie = kategorie => {
   return value;
 };
 
-export const inputOptions = (name, prihlaseni, rocniky, ucastnici) => {
+export const inputOptions = (name, prihlasky, rocniky, ucastnici) => {
   switch (name) {
     case 'udaje.prijmeni+prihlaska.kod': {
       const selected = ucastnici.allIds.map(id => {
@@ -370,8 +370,8 @@ export const inputOptions = (name, prihlaseni, rocniky, ucastnici) => {
         const found = findKategorie(rocniky.byRoky, {
           rok,
           typ,
-          pohlavi: prihlaseni.udaje.pohlavi,
-          narozeni: prihlaseni.udaje.narozeni,
+          pohlavi: prihlasky.udaje.pohlavi,
+          narozeni: prihlasky.udaje.narozeni,
           mladistvyPotvrzen: true
         });
         if (found.code === CODE_OK) {
@@ -401,18 +401,18 @@ export const formatValue = (name, rawValue) => {
   }
 };
 
-export const provedenePlatby = prihlaseni => {
-  const platby = prihlaseni.platby.map(({ datum, ...platba }) => ({
+export const provedenePlatby = prihlasky => {
+  const platby = prihlasky.platby.map(({ datum, ...platba }) => ({
     datum: moment.utc(datum).format('D. M. YYYY'),
     ...platba
   }));
-  const suma = prihlaseni.platby.reduce((sum, platba) => sum + platba.castka, 0);
+  const suma = prihlasky.platby.reduce((sum, platba) => sum + platba.castka, 0);
 
   return { platby, suma };
 };
 
-export const predepsaneStartovne = (prihlaseni, rocniky) => {
-  const { typ } = prihlaseni.prihlaska;
+export const predepsaneStartovne = (prihlasky, rocniky) => {
+  const { typ } = prihlasky.prihlaska;
   if (!typ) {
     return { suma: 0, polozky: [] };
   }

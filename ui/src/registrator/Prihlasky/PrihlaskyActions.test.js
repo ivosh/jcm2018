@@ -1,7 +1,7 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import WsClient from '../../WsClient';
-import { addValidatedPlatba, saveUcast } from './PrihlaseniActions';
+import { addValidatedPlatba, saveUcast } from './PrihlaskyActions';
 
 const successfulResponseSaveUdaje = {
   code: 'ok',
@@ -45,43 +45,43 @@ const middlewares = [thunk.withExtraArgument(mockWsClient)];
 const mockStore = configureStore(middlewares);
 
 it('saveUcast() should dispatch four successful actions', async () => {
-  responses = [
+ responses = [
     successfulResponseSaveUdaje,
     successfulResponseSavePrihlaska,
     successfulResponseSavePlatby
   ];
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlaseni: { validateForm: false, udaje: { narozeni: {} }, prihlaska: {} } }
+    registrator: { prihlasky: { validateForm: false, udaje: { narozeni: {} }, prihlaska: {} } }
   });
 
   await store.dispatch(saveUcast());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_FORM' });
-  expect(actions[1]).toEqual({ type: 'PRIHLASENI_SAVE_REQUEST' });
+  expect(actions[0]).toEqual({ type: 'PRIHLASKY_VALIDATE_FORM' });
+  expect(actions[1]).toEqual({ type: 'PRIHLASKY_SAVE_REQUEST' });
   expect(actions[2]).toEqual(
     expect.objectContaining({
       id: '===id===',
-      type: 'PRIHLASENI_SAVE_SUCCESS'
+      type: 'PRIHLASKY_SAVE_SUCCESS'
     })
   );
-  expect(actions[3]).toEqual({ type: 'PRIHLASENI_SAVE_SHOW_MODAL' });
+  expect(actions[3]).toEqual({ type: 'PRIHLASKY_SAVE_SHOW_MODAL' });
 });
 
 it('saveUcast() should dispatch two unsuccessful actions 1/2', async () => {
   responses = [unsuccessfulResponse, unsuccessfulResponse];
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlaseni: { udaje: { narozeni: {} }, prihlaska: {} } }
+    registrator: { prihlasky: { udaje: { narozeni: {} }, prihlaska: {} } }
   });
 
   await store.dispatch(saveUcast());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_FORM' });
-  expect(actions[1]).toEqual({ type: 'PRIHLASENI_SAVE_REQUEST' });
+  expect(actions[0]).toEqual({ type: 'PRIHLASKY_VALIDATE_FORM' });
+  expect(actions[1]).toEqual({ type: 'PRIHLASKY_SAVE_REQUEST' });
   expect(actions[2]).toEqual(
     expect.objectContaining({
-      type: 'PRIHLASENI_SAVE_ERROR',
+      type: 'PRIHLASKY_SAVE_ERROR',
       code: 'unfulfilled request',
       status: 'A strange error occurred.'
     })
@@ -92,16 +92,16 @@ it('saveUcast() should dispatch two unsuccessful actions 2/2', async () => {
   responses = [successfulResponseSaveUdaje, unsuccessfulResponse];
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlaseni: { udaje: { narozeni: {} }, prihlaska: {} } }
+    registrator: { prihlasky: { udaje: { narozeni: {} }, prihlaska: {} } }
   });
 
   await store.dispatch(saveUcast());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_FORM' });
-  expect(actions[1]).toEqual({ type: 'PRIHLASENI_SAVE_REQUEST' });
+  expect(actions[0]).toEqual({ type: 'PRIHLASKY_VALIDATE_FORM' });
+  expect(actions[1]).toEqual({ type: 'PRIHLASKY_SAVE_REQUEST' });
   expect(actions[2]).toEqual(
     expect.objectContaining({
-      type: 'PRIHLASENI_SAVE_ERROR',
+      type: 'PRIHLASKY_SAVE_ERROR',
       code: 'unfulfilled request',
       status: 'A strange error occurred.'
     })
@@ -112,13 +112,13 @@ it('saveUcast() should dispatch two unsuccessful actions on an invalid token', a
   responses = [authTokenInvalidResponse, unsuccessfulResponse];
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlaseni: { udaje: { narozeni: {} }, prihlaska: {} } }
+    registrator: { prihlasky: { udaje: { narozeni: {} }, prihlaska: {} } }
   });
 
   await store.dispatch(saveUcast());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_FORM' });
-  expect(actions[1]).toEqual({ type: 'PRIHLASENI_SAVE_REQUEST' });
+  expect(actions[0]).toEqual({ type: 'PRIHLASKY_VALIDATE_FORM' });
+  expect(actions[1]).toEqual({ type: 'PRIHLASKY_SAVE_REQUEST' });
   expect(actions[2]).toEqual(
     expect.objectContaining({
       type: 'SIGN_IN_ERROR',
@@ -136,14 +136,14 @@ it('saveUcast() should dispatch validation error', async () => {
   ];
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlaseni: { validateForm: true, udaje: { narozeni: {} }, prihlaska: {} } }
+    registrator: { prihlasky: { validateForm: true, udaje: { narozeni: {} }, prihlaska: {} } }
   });
 
   await store.dispatch(saveUcast());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_FORM' });
+  expect(actions[0]).toEqual({ type: 'PRIHLASKY_VALIDATE_FORM' });
   expect(actions[1]).toEqual({
-    type: 'PRIHLASENI_FORM_INVALID',
+    type: 'PRIHLASKY_FORM_INVALID',
     code: 'nejde uložit',
     status: 'Přihláška nejde uložit. Povinná pole nejsou vyplněna.'
   });
@@ -154,16 +154,16 @@ it('saveUcast() should dispatch two unsuccessful actions on error', async () => 
   mockWsClient.sendRequest = async () => Promise.reject(new Error('Parse error!'));
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlaseni: { udaje: { narozeni: {} }, prihlaska: {} } }
+    registrator: { prihlasky: { udaje: { narozeni: {} }, prihlaska: {} } }
   });
 
   await store.dispatch(saveUcast());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_FORM' });
-  expect(actions[1]).toEqual({ type: 'PRIHLASENI_SAVE_REQUEST' });
+  expect(actions[0]).toEqual({ type: 'PRIHLASKY_VALIDATE_FORM' });
+  expect(actions[1]).toEqual({ type: 'PRIHLASKY_SAVE_REQUEST' });
   expect(actions[2]).toEqual(
     expect.objectContaining({
-      type: 'PRIHLASENI_SAVE_ERROR',
+      type: 'PRIHLASKY_SAVE_ERROR',
       code: 'internal error',
       err: new Error('Parse error!')
     })
@@ -180,7 +180,7 @@ it('saveUcast() should use auth token if available', async () => {
   };
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlaseni: { udaje: { narozeni: {} }, prihlaska: {} } }
+    registrator: { prihlasky: { udaje: { narozeni: {} }, prihlaska: {} } }
   });
 
   await store.dispatch(saveUcast());
@@ -190,7 +190,7 @@ it('saveUcast() should use auth token if available', async () => {
 it('addValidatedPlatba() should dispatch two successful actions', async () => {
   const store = mockStore({
     registrator: {
-      prihlaseni: {
+      prihlasky: {
         validatePlatba: false,
         novaPlatba: { castka: '200', datum: '2018-05-12T00:00:00Z', typ: 'převodem' }
       }
@@ -199,16 +199,16 @@ it('addValidatedPlatba() should dispatch two successful actions', async () => {
 
   await store.dispatch(addValidatedPlatba());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_PLATBA' });
+  expect(actions[0]).toEqual({ type: 'PRIHLASKY_VALIDATE_PLATBA' });
   expect(actions[1]).toEqual({
-    type: 'PRIHLASENI_ADD_PLATBA'
+    type: 'PRIHLASKY_ADD_PLATBA'
   });
 });
 
 it('addValidatedPlatba() should dispatch only one action', async () => {
   const store = mockStore({
     registrator: {
-      prihlaseni: {
+      prihlasky: {
         validatePlatba: false,
         novaPlatba: { castka: 'rozepsáno', datum: '2018-05-12T00:00:00Z', typ: 'převodem' }
       }
@@ -218,5 +218,5 @@ it('addValidatedPlatba() should dispatch only one action', async () => {
   await store.dispatch(addValidatedPlatba());
   const actions = store.getActions();
   expect(actions).toHaveLength(1);
-  expect(actions[0]).toEqual({ type: 'PRIHLASENI_VALIDATE_PLATBA' });
+  expect(actions[0]).toEqual({ type: 'PRIHLASKY_VALIDATE_PLATBA' });
 });

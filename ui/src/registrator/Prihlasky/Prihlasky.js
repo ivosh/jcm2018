@@ -8,10 +8,10 @@ import InputContainer from './InputContainer';
 import PlatbyContainer from './PlatbyContainer';
 import RadioInput from './RadioInput';
 import TextInput from './TextInput';
-import PrihlaseniSearchContainer from './PrihlaseniSearchContainer';
-import './Prihlaseni.css';
+import PrihlaskySearchContainer from './PrihlaskySearchContainer';
+import './Prihlasky.css';
 
-class Prihlaseni extends PureComponent {
+class Prihlasky extends PureComponent {
   componentDidMount = () => {
     this.props.fetchUcastnici();
   };
@@ -48,7 +48,7 @@ class Prihlaseni extends PureComponent {
     }
 
     return (
-      <div className="Prihlaseni_div">
+      <div className="Prihlasky_div">
         <Modal show={saved} onHide={onHideModal} bsSize="small">
           <Modal.Header closeButton>
             <Modal.Title>V pořádku</Modal.Title>
@@ -61,12 +61,12 @@ class Prihlaseni extends PureComponent {
           </Modal.Footer>
         </Modal>
         <Grid fluid>
-          {!existujiciUcastnik && <PrihlaseniSearchContainer />}
+          {!existujiciUcastnik && <PrihlaskySearchContainer />}
           <Form
             horizontal
             onSubmit={this.handleSubmit}
             autoComplete="off"
-            className="Prihlaseni_form"
+            className="Prihlasky_form"
           >
             <Col sm={4}>
               <Panel bsStyle="primary" header="Údaje">
@@ -105,7 +105,7 @@ class Prihlaseni extends PureComponent {
                 {`Uložit ${existujiciUcastnik ? 'stávajícího' : 'nového'}
                 účastníka`}
               </LoadingButton>
-              <Button bsStyle="danger" onClick={this.handleReset} className="Prihlaseni_reset">
+              <Button bsStyle="danger" onClick={this.handleReset} className="Prihlasky_reset">
                 <Glyphicon glyph="fire" /> Reset
               </Button>
             </Col>
@@ -129,7 +129,7 @@ class Prihlaseni extends PureComponent {
   };
 }
 
-Prihlaseni.propTypes = {
+Prihlasky.propTypes = {
   errorCode: PropTypes.string,
   errorMessage: PropTypes.string,
   showError: PropTypes.bool,
@@ -144,4 +144,4 @@ Prihlaseni.propTypes = {
   onSubmit: PropTypes.func.isRequired
 };
 
-export default Prihlaseni;
+export default Prihlasky;

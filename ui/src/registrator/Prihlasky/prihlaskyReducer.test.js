@@ -15,8 +15,8 @@ import {
   saveUcastSuccess,
   saveUcastError,
   ucastnikSelected
-} from './PrihlaseniActions';
-import prihlaseniReducer, {
+} from './PrihlaskyActions';
+import prihlaskyReducer, {
   formatValue,
   formValid,
   inputOptions,
@@ -25,7 +25,7 @@ import prihlaseniReducer, {
   novaPlatbaValid,
   predepsaneStartovne,
   provedenePlatby
-} from './prihlaseniReducer';
+} from './prihlaskyReducer';
 
 const unsuccessfulResponse = {
   code: 'neexistuje',
@@ -36,7 +36,7 @@ const unsuccessfulResponse = {
 it('na začátku', () => {
   const stateBefore = undefined;
 
-  const stateAfter = prihlaseniReducer(stateBefore, {});
+  const stateAfter = prihlaskyReducer(stateBefore, {});
   expect(stateAfter.errorCode).toEqual('');
   expect(stateAfter.errorMessage).toEqual('');
   expect(stateAfter.showError).toBe(false);
@@ -85,7 +85,7 @@ it('hideError()', () => {
   const stateAfter = { ...stateBefore, showError: false };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniReducer(stateBefore, hideError())).toEqual(stateAfter);
+  expect(prihlaskyReducer(stateBefore, hideError())).toEqual(stateAfter);
 });
 
 it('reset()', () => {
@@ -159,7 +159,7 @@ it('reset()', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniReducer(stateBefore, reset())).toEqual(stateAfter);
+  expect(prihlaskyReducer(stateBefore, reset())).toEqual(stateAfter);
 });
 
 it('saveUcastRequest()', () => {
@@ -167,7 +167,7 @@ it('saveUcastRequest()', () => {
   const stateAfter = { ...stateBefore, saving: true };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniReducer(stateBefore, saveUcastRequest())).toEqual(stateAfter);
+  expect(prihlaskyReducer(stateBefore, saveUcastRequest())).toEqual(stateAfter);
 });
 
 it('saveUcastSuccess()', () => {
@@ -176,7 +176,7 @@ it('saveUcastSuccess()', () => {
   deepFreeze(stateBefore);
 
   expect(
-    prihlaseniReducer(stateBefore, saveUcastSuccess({ id: '===id===', udaje: {}, prihlaska: {} }))
+    prihlaskyReducer(stateBefore, saveUcastSuccess({ id: '===id===', udaje: {}, prihlaska: {} }))
   ).toEqual(stateAfter);
 });
 
@@ -191,7 +191,7 @@ it('saveUcastError()', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniReducer(stateBefore, saveUcastError(unsuccessfulResponse))).toEqual(stateAfter);
+  expect(prihlaskyReducer(stateBefore, saveUcastError(unsuccessfulResponse))).toEqual(stateAfter);
 });
 
 it('fetchUcastniciRequest()', () => {
@@ -199,7 +199,7 @@ it('fetchUcastniciRequest()', () => {
   const stateAfter = { fetching: true };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniReducer(stateBefore, fetchUcastniciRequest())).toEqual(stateAfter);
+  expect(prihlaskyReducer(stateBefore, fetchUcastniciRequest())).toEqual(stateAfter);
 });
 
 it('fetchUcastniciSuccess/Error()', () => {
@@ -207,10 +207,10 @@ it('fetchUcastniciSuccess/Error()', () => {
   const stateAfter = { fetching: false };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniReducer(stateBefore, fetchUcastniciSuccess({ response: {} }))).toEqual(
+  expect(prihlaskyReducer(stateBefore, fetchUcastniciSuccess({ response: {} }))).toEqual(
     stateAfter
   );
-  expect(prihlaseniReducer(stateBefore, fetchUcastniciError({}))).toEqual(stateAfter);
+  expect(prihlaskyReducer(stateBefore, fetchUcastniciError({}))).toEqual(stateAfter);
 });
 
 it('validation of the initial state [validateForm,validatePlatba === false]', () => {
@@ -459,7 +459,7 @@ it('udaje.pohlavi - nahodí ženu', () => {
   const stateAfter = { udaje: { prijmeni: 'Sukdoláková', pohlavi: 'žena' } };
 
   expect(
-    prihlaseniReducer(
+    prihlaskyReducer(
       stateBefore,
       inputChanged('udaje.prijmeni', { target: { value: 'Sukdoláková' } })
     )
@@ -472,7 +472,7 @@ it('udaje.pohlavi - už nahodí ženu', () => {
   const stateAfter = { udaje: { prijmeni: 'Malová', pohlavi: 'muž' } };
 
   expect(
-    prihlaseniReducer(stateBefore, inputChanged('udaje.prijmeni', { target: { value: 'Malová' } }))
+    prihlaskyReducer(stateBefore, inputChanged('udaje.prijmeni', { target: { value: 'Malová' } }))
   ).toEqual(stateAfter);
 });
 
@@ -488,7 +488,7 @@ it('udaje.narozeni - prázdné', () => {
   };
 
   expect(
-    prihlaseniReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '' } }))
+    prihlaskyReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '' } }))
   ).toEqual(stateAfter);
   expect(inputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toBe(undefined);
   expect(inputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual('error');
@@ -506,7 +506,7 @@ it('udaje.narozeni - neúplné', () => {
   };
 
   expect(
-    prihlaseniReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '1. ' } }))
+    prihlaskyReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '1. ' } }))
   ).toEqual(stateAfter);
   expect(inputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toBe(undefined);
   expect(inputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual('error');
@@ -524,7 +524,7 @@ it('udaje.narozeni - jen rok', () => {
   };
 
   expect(
-    prihlaseniReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '1978' } }))
+    prihlaskyReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '1978' } }))
   ).toEqual(stateAfter);
   expect(inputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toEqual('error');
   expect(inputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual('warning');
@@ -542,10 +542,7 @@ it('udaje.narozeni - celé', () => {
   };
 
   expect(
-    prihlaseniReducer(
-      stateBefore,
-      inputChanged('udaje.narozeni', { target: { value: '1.7.1967' } })
-    )
+    prihlaskyReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '1.7.1967' } }))
   ).toEqual(stateAfter);
   expect(inputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toEqual('error');
   expect(inputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual('success');
@@ -557,7 +554,7 @@ it('prihlaska.datum - neúplné', () => {
   const stateAfter = { prihlaska: { datum: '1. 7. 201' } };
 
   expect(
-    prihlaseniReducer(
+    prihlaskyReducer(
       stateBefore,
       inputChanged('prihlaska.datum', { target: { value: '1. 7. 201' } })
     )
@@ -571,7 +568,7 @@ it('prihlaska.datum - formát 1', () => {
   const stateAfter = { prihlaska: { datum: '2017-07-01T00:00:00.000Z' } };
 
   expect(
-    prihlaseniReducer(
+    prihlaskyReducer(
       stateBefore,
       inputChanged('prihlaska.datum', { target: { value: '1. 7. 2017' } })
     )
@@ -586,7 +583,7 @@ it('prihlaska.datum - formát 2', () => {
   const stateAfter = { prihlaska: { datum: '2017-07-01T00:00:00.000Z' } };
 
   expect(
-    prihlaseniReducer(
+    prihlaskyReducer(
       stateBefore,
       inputChanged('prihlaska.datum', { target: { value: '1.7.2017' } })
     )
@@ -599,7 +596,7 @@ it('prihlaska.typ - není pohlaví', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlaseni: {
+      prihlasky: {
         udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: undefined }
       }
     }
@@ -613,7 +610,7 @@ it('prihlaska.typ - není pohlaví', () => {
   ];
 
   expect(
-    inputOptions('prihlaska.typ', state.registrator.prihlaseni, state.entities.rocniky)
+    inputOptions('prihlaska.typ', state.registrator.prihlasky, state.entities.rocniky)
   ).toEqual(selected);
 });
 
@@ -621,7 +618,7 @@ it('prihlaska.typ - není narození', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlaseni: {
+      prihlasky: {
         udaje: { narozeni: { den: undefined, mesic: undefined, rok: undefined }, pohlavi: 'žena' }
       }
     }
@@ -635,7 +632,7 @@ it('prihlaska.typ - není narození', () => {
   ];
 
   expect(
-    inputOptions('prihlaska.typ', state.registrator.prihlaseni, state.entities.rocniky)
+    inputOptions('prihlaska.typ', state.registrator.prihlasky, state.entities.rocniky)
   ).toEqual(selected);
 });
 
@@ -643,7 +640,7 @@ it('prihlaska.typ - muž', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlaseni: {
+      prihlasky: {
         udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: 'muž' }
       }
     }
@@ -657,7 +654,7 @@ it('prihlaska.typ - muž', () => {
   ];
 
   expect(
-    inputOptions('prihlaska.typ', state.registrator.prihlaseni, state.entities.rocniky)
+    inputOptions('prihlaska.typ', state.registrator.prihlasky, state.entities.rocniky)
   ).toEqual(selected);
 });
 
@@ -667,7 +664,7 @@ it('prihlaska.typ - nahodí též kategorie', () => {
   const stateAfter = { prihlaska: { typ: 'maraton', kategorie: '===id===' } };
 
   expect(
-    prihlaseniReducer(
+    prihlaskyReducer(
       stateBefore,
       inputChanged('prihlaska.typ', { target: { value: 'maraton', id: '===id===' } })
     )
@@ -678,7 +675,7 @@ it('prihlaska.startCislo - kategorie má čísla', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlaseni: {
+      prihlasky: {
         udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: 'muž' },
         prihlaska: { kategorie: '5a587e1b051c181132cf83d3', typ: 'půlmaraton', startCislo: 45 }
       }
@@ -686,10 +683,10 @@ it('prihlaska.startCislo - kategorie má čísla', () => {
   };
 
   expect(
-    isInputEnabled('prihlaska.startCislo', state.registrator.prihlaseni, state.entities.rocniky)
+    isInputEnabled('prihlaska.startCislo', state.registrator.prihlasky, state.entities.rocniky)
   ).toBe(true);
   expect(
-    formatValue('prihlaska.startCislo', state.registrator.prihlaseni.prihlaska.startCislo)
+    formatValue('prihlaska.startCislo', state.registrator.prihlasky.prihlaska.startCislo)
   ).toEqual('45');
 });
 
@@ -697,7 +694,7 @@ it('prihlaska.startCislo - kategorie nemá čísla', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlaseni: {
+      prihlasky: {
         udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: 'muž' },
         prihlaska: { kategorie: '5a587e1a051c181132cf83b1', typ: 'pěší' }
       }
@@ -705,10 +702,10 @@ it('prihlaska.startCislo - kategorie nemá čísla', () => {
   };
 
   expect(
-    isInputEnabled('prihlaska.startCislo', state.registrator.prihlaseni, state.entities.rocniky)
+    isInputEnabled('prihlaska.startCislo', state.registrator.prihlasky, state.entities.rocniky)
   ).toBe(false);
   expect(
-    formatValue('prihlaska.startCislo', state.registrator.prihlaseni.prihlaska.startCislo)
+    formatValue('prihlaska.startCislo', state.registrator.prihlasky.prihlaska.startCislo)
   ).toEqual('');
 });
 
@@ -767,7 +764,7 @@ it('ucastnikSelected - údaje i přihláška', () => {
   deepFreeze(stateBefore);
 
   expect(
-    prihlaseniReducer(
+    prihlaskyReducer(
       stateBefore,
       ucastnikSelected(
         { id: '5a09b1fd371dec1e99b7e1c9' },
@@ -833,7 +830,7 @@ it('ucastnikSelected - jen údaje', () => {
   deepFreeze(stateBefore);
 
   expect(
-    prihlaseniReducer(
+    prihlaskyReducer(
       stateBefore,
       ucastnikSelected(
         { id: '6f09b1fd371dec1e99b7e1c9' },
@@ -848,7 +845,7 @@ it('predepsaneStartovne - cyklo', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlaseni: {
+      prihlasky: {
         prihlaska: {
           typ: 'cyklo'
         }
@@ -859,7 +856,7 @@ it('predepsaneStartovne - cyklo', () => {
     polozky: [{ castka: 200, duvod: 'předem' }, { castka: 20, duvod: 'záloha' }],
     suma: 220
   };
-  expect(predepsaneStartovne(state.registrator.prihlaseni, state.entities.rocniky)).toEqual(
+  expect(predepsaneStartovne(state.registrator.prihlasky, state.entities.rocniky)).toEqual(
     selected
   );
 });
@@ -868,7 +865,7 @@ it('predepsaneStartovne - půlmaraton', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlaseni: {
+      prihlasky: {
         prihlaska: {
           typ: 'půlmaraton'
         }
@@ -876,7 +873,7 @@ it('predepsaneStartovne - půlmaraton', () => {
     }
   };
   const selected = { polozky: [{ castka: 200, duvod: 'předem' }], suma: 200 };
-  expect(predepsaneStartovne(state.registrator.prihlaseni, state.entities.rocniky)).toEqual(
+  expect(predepsaneStartovne(state.registrator.prihlasky, state.entities.rocniky)).toEqual(
     selected
   );
 });
@@ -885,7 +882,7 @@ it('provedenePlatby', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlaseni: {
+      prihlasky: {
         platby: [
           { castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' },
           { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
@@ -900,7 +897,7 @@ it('provedenePlatby', () => {
     ],
     suma: 270
   };
-  expect(provedenePlatby(state.registrator.prihlaseni)).toEqual(selected);
+  expect(provedenePlatby(state.registrator.prihlasky)).toEqual(selected);
 });
 
 it('addPlatba()', () => {
@@ -923,7 +920,7 @@ it('addPlatba()', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniReducer(stateBefore, addPlatba())).toEqual(stateAfter);
+  expect(prihlaskyReducer(stateBefore, addPlatba())).toEqual(stateAfter);
 });
 
 it('removePlatba()', () => {
@@ -948,6 +945,6 @@ it('removePlatba()', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniReducer(stateBefore, removePlatba(0))).toEqual(stateAfter0);
-  expect(prihlaseniReducer(stateBefore, removePlatba(2))).toEqual(stateAfter2);
+  expect(prihlaskyReducer(stateBefore, removePlatba(0))).toEqual(stateAfter0);
+  expect(prihlaskyReducer(stateBefore, removePlatba(2))).toEqual(stateAfter2);
 });

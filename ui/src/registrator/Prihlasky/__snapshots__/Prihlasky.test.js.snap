@@ -2,7 +2,7 @@
 
 exports[`formulář po uložení 1`] = `
 <div
-  className="Prihlaseni_div"
+  className="Prihlasky_div"
 >
   <Modal
     animation={true}
@@ -72,7 +72,7 @@ exports[`formulář po uložení 1`] = `
     <Form
       autoComplete="off"
       bsClass="form"
-      className="Prihlaseni_form"
+      className="Prihlasky_form"
       componentClass="form"
       horizontal={true}
       inline={false}
@@ -198,7 +198,7 @@ exports[`formulář po uložení 1`] = `
           block={false}
           bsClass="btn"
           bsStyle="danger"
-          className="Prihlaseni_reset"
+          className="Prihlasky_reset"
           disabled={false}
           onClick={[Function]}
         >
@@ -230,7 +230,7 @@ exports[`formulář po uložení 1`] = `
 
 exports[`formulář s chybou 1`] = `
 <div
-  className="Prihlaseni_div"
+  className="Prihlasky_div"
 >
   <Modal
     animation={true}
@@ -300,7 +300,7 @@ exports[`formulář s chybou 1`] = `
     <Form
       autoComplete="off"
       bsClass="form"
-      className="Prihlaseni_form"
+      className="Prihlasky_form"
       componentClass="form"
       horizontal={true}
       inline={false}
@@ -426,7 +426,7 @@ exports[`formulář s chybou 1`] = `
           block={false}
           bsClass="btn"
           bsStyle="danger"
-          className="Prihlaseni_reset"
+          className="Prihlasky_reset"
           disabled={false}
           onClick={[Function]}
         >
@@ -464,7 +464,7 @@ exports[`formulář s chybou 1`] = `
 
 exports[`formulář s existujícím účastníkem 1`] = `
 <div
-  className="Prihlaseni_div"
+  className="Prihlasky_div"
 >
   <Modal
     animation={true}
@@ -534,7 +534,7 @@ exports[`formulář s existujícím účastníkem 1`] = `
     <Form
       autoComplete="off"
       bsClass="form"
-      className="Prihlaseni_form"
+      className="Prihlasky_form"
       componentClass="form"
       horizontal={true}
       inline={false}
@@ -660,7 +660,7 @@ exports[`formulář s existujícím účastníkem 1`] = `
           block={false}
           bsClass="btn"
           bsStyle="danger"
-          className="Prihlaseni_reset"
+          className="Prihlasky_reset"
           disabled={false}
           onClick={[Function]}
         >
@@ -692,7 +692,7 @@ exports[`formulář s existujícím účastníkem 1`] = `
 
 exports[`prázdný formulář 1`] = `
 <div
-  className="Prihlaseni_div"
+  className="Prihlasky_div"
 >
   <Modal
     animation={true}
@@ -759,11 +759,11 @@ exports[`prázdný formulář 1`] = `
     componentClass="div"
     fluid={true}
   >
-    <Connect(PrihlaseniSearch) />
+    <Connect(PrihlaskySearch) />
     <Form
       autoComplete="off"
       bsClass="form"
-      className="Prihlaseni_form"
+      className="Prihlasky_form"
       componentClass="form"
       horizontal={true}
       inline={false}
@@ -889,7 +889,7 @@ exports[`prázdný formulář 1`] = `
           block={false}
           bsClass="btn"
           bsStyle="danger"
-          className="Prihlaseni_reset"
+          className="Prihlasky_reset"
           disabled={false}
           onClick={[Function]}
         >

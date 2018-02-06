@@ -1,12 +1,12 @@
 import { CODE_OK, CODE_TOKEN_INVALID, savePlatby, savePrihlaska, saveUdaje } from '../../common';
-import { AKTUALNI_ROK, PRIHLASENI_SAVE_MODAL_TIMEOUT } from '../../constants';
+import { AKTUALNI_ROK, PRIHLASKY_SAVE_MODAL_TIMEOUT } from '../../constants';
 import { authTokenExpired } from '../../auth/SignIn/SignInActions';
-import { formValid, novaPlatbaValid } from './prihlaseniReducer';
+import { formValid, novaPlatbaValid } from './prihlaskyReducer';
 
-export const hideError = () => ({ type: 'PRIHLASENI_HIDE_ERROR' });
+export const hideError = () => ({ type: 'PRIHLASKY_HIDE_ERROR' });
 
 export const inputChanged = (name, event) => ({
-  type: 'PRIHLASENI_INPUT_CHANGED',
+  type: 'PRIHLASKY_INPUT_CHANGED',
   name,
   id: event.target.id,
   value: event.target.value
@@ -17,7 +17,7 @@ export const ucastnikSelected = ({ id }, kategorie, ucastnici) => {
   const posledniRok = ucastnik.roky[0];
   const ucast = ucastnik[posledniRok];
   const action = {
-    type: 'PRIHLASENI_UCASTNIK_SELECTED',
+    type: 'PRIHLASKY_UCASTNIK_SELECTED',
     id,
     udaje: ucast.udaje
   };
@@ -33,26 +33,26 @@ export const ucastnikSelected = ({ id }, kategorie, ucastnici) => {
 };
 
 export const reset = () => ({
-  type: 'PRIHLASENI_RESET'
+  type: 'PRIHLASKY_RESET'
 });
 
-const validateForm = () => ({ type: 'PRIHLASENI_VALIDATE_FORM' });
+const validateForm = () => ({ type: 'PRIHLASKY_VALIDATE_FORM' });
 
 const validationError = () => ({
-  type: 'PRIHLASENI_FORM_INVALID',
+  type: 'PRIHLASKY_FORM_INVALID',
   code: 'nejde uložit',
   status: 'Přihláška nejde uložit. Povinná pole nejsou vyplněna.'
 });
 
 export const saveUcastRequest = () => ({
-  type: 'PRIHLASENI_SAVE_REQUEST'
+  type: 'PRIHLASKY_SAVE_REQUEST'
 });
 
 export const saveUcastSuccess = ({ id, rok, udaje, prihlaska, platby = [] }) => {
   const { typ, ...jenPrihlaska } = prihlaska;
 
   return {
-    type: 'PRIHLASENI_SAVE_SUCCESS',
+    type: 'PRIHLASKY_SAVE_SUCCESS',
     id,
     rok,
     udaje,
@@ -63,7 +63,7 @@ export const saveUcastSuccess = ({ id, rok, udaje, prihlaska, platby = [] }) => 
 };
 
 export const saveUcastError = ({ code, status, err, ...rest }) => ({
-  type: 'PRIHLASENI_SAVE_ERROR',
+  type: 'PRIHLASKY_SAVE_ERROR',
   code,
   status,
   err,
@@ -79,19 +79,19 @@ const handleErrors = (dispatch, response) => {
   }
 };
 
-export const hideModal = () => ({ type: 'PRIHLASENI_SAVE_HIDE_MODAL' });
-const showModal = () => ({ type: 'PRIHLASENI_SAVE_SHOW_MODAL' });
+export const hideModal = () => ({ type: 'PRIHLASKY_SAVE_HIDE_MODAL' });
+const showModal = () => ({ type: 'PRIHLASKY_SAVE_SHOW_MODAL' });
 const showModalWithTimeout = dispatch => {
   dispatch(showModal());
-  setTimeout(() => dispatch(hideModal()), PRIHLASENI_SAVE_MODAL_TIMEOUT);
+  setTimeout(() => dispatch(hideModal()), PRIHLASKY_SAVE_MODAL_TIMEOUT);
 };
 
 export const saveUcast = () => async (dispatch, getState, wsClient) => {
   await dispatch(validateForm());
 
   const state = getState();
-  const { registrator: { prihlaseni } } = state;
-  if (!formValid(prihlaseni)) {
+  const { registrator: { prihlasky } } = state;
+  if (!formValid(prihlasky)) {
     dispatch(validationError());
     return;
   }
@@ -99,12 +99,12 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
   dispatch(saveUcastRequest());
 
   const rok = AKTUALNI_ROK;
-  const { udaje, prihlaska, platby } = prihlaseni;
+  const { udaje, prihlaska, platby } = prihlasky;
   try {
     let response = await wsClient.sendRequest(
       saveUdaje(
         {
-          id: prihlaseni.ucastnikId,
+          id: prihlasky.ucastnikId,
           rok,
           udaje
         },
@@ -137,18 +137,18 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
 
 /* ------------------------------------- platby ------------------------------------------------- */
 
-export const addPlatba = () => ({ type: 'PRIHLASENI_ADD_PLATBA' });
-const validatePlatba = () => ({ type: 'PRIHLASENI_VALIDATE_PLATBA' });
+export const addPlatba = () => ({ type: 'PRIHLASKY_ADD_PLATBA' });
+const validatePlatba = () => ({ type: 'PRIHLASKY_VALIDATE_PLATBA' });
 
 export const addValidatedPlatba = () => async (dispatch, getState) => {
   await dispatch(validatePlatba());
 
-  const { registrator: { prihlaseni } } = getState();
-  if (!novaPlatbaValid(prihlaseni)) {
+  const { registrator: { prihlasky } } = getState();
+  if (!novaPlatbaValid(prihlasky)) {
     return;
   }
 
   dispatch(addPlatba());
 };
 
-export const removePlatba = idx => ({ type: 'PRIHLASENI_REMOVE_PLATBA', idx });
+export const removePlatba = idx => ({ type: 'PRIHLASKY_REMOVE_PLATBA', idx });

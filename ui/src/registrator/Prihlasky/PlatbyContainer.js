@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 import Platby from './Platby';
-import { addValidatedPlatba, removePlatba } from './PrihlaseniActions';
-import { provedenePlatby, predepsaneStartovne } from './prihlaseniReducer';
+import { addValidatedPlatba, removePlatba } from './PrihlaskyActions';
+import { provedenePlatby, predepsaneStartovne } from './prihlaskyReducer';
 
 const mapStateToProps = state => {
-  const { registrator: { prihlaseni }, entities: { rocniky } } = state;
+  const { registrator: { prihlasky }, entities: { rocniky } } = state;
 
   return {
-    predepsano: predepsaneStartovne(prihlaseni, rocniky),
-    provedeno: provedenePlatby(prihlaseni)
+    predepsano: predepsaneStartovne(prihlasky, rocniky),
+    provedeno: provedenePlatby(prihlasky)
   };
 };
 

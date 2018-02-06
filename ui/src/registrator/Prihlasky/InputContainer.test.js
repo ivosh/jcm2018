@@ -13,7 +13,7 @@ beforeEach(() => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlaseni: {
+      prihlasky: {
         udaje: {
           jmeno: 'Klára'
         }
@@ -39,7 +39,7 @@ it('maps onChange to dispatch inputChanged', () => {
   wrapper.props().onChange({ target: { value: 'Bára' } });
 
   expect(store.dispatch).toHaveBeenCalledWith({
-    type: 'PRIHLASENI_INPUT_CHANGED',
+    type: 'PRIHLASKY_INPUT_CHANGED',
     name: 'udaje.jmeno',
     value: 'Bára'
   });
@@ -49,7 +49,7 @@ it('maps state to props - narození - jen rok', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlaseni: {
+      prihlasky: {
         validateForm: false,
         udaje: {
           narozeni: { den: undefined, mesic: undefined, rok: 1981 }
@@ -72,7 +72,7 @@ it('maps state to props - narození - celé', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlaseni: {
+      prihlasky: {
         validateForm: false,
         udaje: {
           narozeni: { den: 1, mesic: 6, rok: 1981 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
-import PrihlaseniSearch from './PrihlaseniSearch';
+import PrihlaskySearch from './PrihlaskySearch';
 
 const options = [
   { id: '===id1===', prijmeni: 'Hudec', jmeno: 'Jiří', narozeni: { rok: 1956 }, kod: '===kod1===' },
@@ -11,7 +11,7 @@ const options = [
 
 it('renders', () => {
   const component = renderer.create(
-    <PrihlaseniSearch options={options} onChange={jest.fn()} onSelect={jest.fn()} />
+    <PrihlaskySearch options={options} onChange={jest.fn()} onSelect={jest.fn()} />
   );
   expect(component.toJSON()).toMatchSnapshot();
 });
@@ -20,7 +20,7 @@ it('handle input change', () => {
   const onChange = jest.fn();
 
   const wrapper = mount(
-    <PrihlaseniSearch options={options} onChange={onChange} onSelect={jest.fn()} />
+    <PrihlaskySearch options={options} onChange={onChange} onSelect={jest.fn()} />
   );
   expect(wrapper.find('.rbt-input-main')).toHaveLength(1);
 
@@ -32,7 +32,7 @@ it('handle select', () => {
   const onSelect = jest.fn();
 
   const wrapper = mount(
-    <PrihlaseniSearch options={options} onChange={jest.fn()} onSelect={onSelect} />
+    <PrihlaskySearch options={options} onChange={jest.fn()} onSelect={onSelect} />
   );
   expect(wrapper.find('.rbt-input-main')).toHaveLength(1);
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
-import PrihlaseniContainer from './PrihlaseniContainer';
+import PrihlaskyContainer from './PrihlaskyContainer';
 
 const mockStore = configureStore();
 
@@ -12,7 +12,7 @@ beforeEach(() => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlaseni: {
+      prihlasky: {
         errorCode: 'Chybový kód.',
         errorMessage: 'Chybová hláška trochu dlouhá.',
         showError: true,
@@ -26,7 +26,7 @@ beforeEach(() => {
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
-  wrapper = shallow(<PrihlaseniContainer store={store} />);
+  wrapper = shallow(<PrihlaskyContainer store={store} />);
 });
 
 it('maps state and dispatch to props', () => {
@@ -48,19 +48,19 @@ it('maps fetchUcastnici to dispatch', () => {
 it('maps onHideError to dispatch hideError action', () => {
   wrapper.props().onHideError();
 
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASENI_HIDE_ERROR' });
+  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASKY_HIDE_ERROR' });
 });
 
 it('maps onHideModal to dispatch hideModal action', () => {
   wrapper.props().onHideModal();
 
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASENI_SAVE_HIDE_MODAL' });
+  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASKY_SAVE_HIDE_MODAL' });
 });
 
 it('maps onReset to dispatch reset action', () => {
   wrapper.props().onReset();
 
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASENI_RESET' });
+  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASKY_RESET' });
 });
 
 it('maps onSubmit to dispatch saveUcast action', () => {

@@ -28,7 +28,7 @@ const ucastniciReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'FETCH_UCASTNICI_SUCCESS':
       return action.data;
-    case 'PRIHLASENI_SAVE_SUCCESS': {
+    case 'PRIHLASKY_SAVE_SUCCESS': {
       const { id, rok, udaje, prihlaska, platby } = action;
       const state1 = updateUcast(state, id, rok, 'udaje', udaje);
       const state2 = updateUcast(state1, id, rok, 'prihlaska', prihlaska);

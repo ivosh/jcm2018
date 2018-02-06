@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Input from './Input';
-import { inputChanged } from './PrihlaseniActions';
-import { formatValue, inputOptions, inputValid, isInputEnabled } from './prihlaseniReducer';
+import { inputChanged } from './PrihlaskyActions';
+import { formatValue, inputOptions, inputValid, isInputEnabled } from './prihlaskyReducer';
 
 const mapStateToProps = state => ({
-  prihlaseni: state.registrator.prihlaseni,
+  prihlasky: state.registrator.prihlasky,
   rocniky: state.entities.rocniky,
   ucastnici: state.entities.ucastnici
 });
@@ -15,19 +15,19 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { prihlaseni, rocniky, ucastnici } = stateProps;
+  const { prihlasky, rocniky, ucastnici } = stateProps;
   const { inline, name, popisek, Type } = ownProps;
   const [section, subName] = name.split('.');
-  const rawValue = stateProps.prihlaseni[section][subName];
+  const rawValue = stateProps.prihlasky[section][subName];
 
   return {
     inline,
     name,
     popisek,
     Type,
-    enabled: isInputEnabled(name, prihlaseni, rocniky),
-    options: inputOptions(name, prihlaseni, rocniky, ucastnici),
-    validationState: inputValid(name, rawValue, prihlaseni),
+    enabled: isInputEnabled(name, prihlasky, rocniky),
+    options: inputOptions(name, prihlasky, rocniky, ucastnici),
+    validationState: inputValid(name, rawValue, prihlasky),
     value: formatValue(name, rawValue),
     onChange: event => dispatchProps.dispatch(inputChanged(name, event))
   };

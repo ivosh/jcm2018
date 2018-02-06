@@ -2,7 +2,7 @@
 
 exports[`renders 1`] = `
 <div
-  className="rbt open clearfix PrihlaseniSearch"
+  className="rbt open clearfix PrihlaskySearch"
   style={
     Object {
       "position": "relative",
