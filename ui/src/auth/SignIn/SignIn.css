@@ -2,7 +2,13 @@
   margin-left: 1em;
   margin-top: 1ex;
   display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.SignIn_panel {
   flex-direction: row;
+  flex: 0 0 auto;
 }
 
 .SignIn_spacing {

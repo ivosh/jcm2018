@@ -25,7 +25,7 @@ class SignIn extends PureComponent {
     const { signingIn, errorCode, errorMessage, showError, onHideError } = this.props;
     return (
       <div className="SignIn_div">
-        <Panel bsStyle="primary" header="Přihlášení do aplikace JCM">
+        <Panel bsStyle="primary" header="Přihlášení do aplikace JCM" className="SignIn_panel">
           <Form inline onSubmit={this.handleSubmit} autoComplete="off" className="SignIn_form">
             <FormGroup controlId="username">
               <ControlLabel>Jméno</ControlLabel>{' '}

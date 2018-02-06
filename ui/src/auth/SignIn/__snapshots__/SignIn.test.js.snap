@@ -5,7 +5,7 @@ exports[`formulář při načítání 1`] = `
   className="SignIn_div"
 >
   <div
-    className="panel panel-primary"
+    className="SignIn_panel panel panel-primary"
     id={undefined}
   >
     <div
@@ -93,7 +93,7 @@ exports[`formulář s chybou 1`] = `
   className="SignIn_div"
 >
   <div
-    className="panel panel-primary"
+    className="SignIn_panel panel panel-primary"
     id={undefined}
   >
     <div
@@ -217,7 +217,7 @@ exports[`prázdný formulář 1`] = `
   className="SignIn_div"
 >
   <div
-    className="panel panel-primary"
+    className="SignIn_panel panel panel-primary"
     id={undefined}
   >
     <div

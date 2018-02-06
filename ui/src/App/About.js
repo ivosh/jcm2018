@@ -11,7 +11,7 @@ const About = ({ username }) => (
       <div className="About_row">
         <img src={logo} className="App-logo-animated" alt="logo" />
         <div>
-          Aplikace <Glyphicon glyph="star" />Jirkovský crossmarathon 2018<Glyphicon glyph="star" />
+          Aplikace <Glyphicon glyph="star" />Jirkovský crossmarathon 2018 <Glyphicon glyph="star" />
           <br />
           Verze: {version}
           <br />
