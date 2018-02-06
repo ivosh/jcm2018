@@ -200,7 +200,7 @@ class UcastniciTable extends PureComponent {
                             rowHeight={rowHeight}
                             rowCount={1}
                             scrollLeft={scrollLeft}
-                            width={width - scrollbarSize()}
+                            width={width - (verticalScrollbarVisible ? scrollbarSize() : 0)}
                             {...interestingProps}
                           />
                         </div>
