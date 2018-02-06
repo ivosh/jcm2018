@@ -2,11 +2,10 @@ import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { SortDirTypes } from '../../Util';
 import ucastniciDigestReducer, { getUcastniciDigestSorted } from './ucastniciDigestReducer';
-import {
-  kategorieVykonuFilterChange,
-  textFilterChange,
-  sortDirChange
-} from './UcastniciDigestActions';
+import { kategorieVykonuFilterChange, textFilterChange } from '../Filterable/FilterableActions';
+import { sortDirChange } from '../UcastniciTable/UcastniciTableActions';
+
+const actionPrefix = 'UCASTNICI_DIGEST';
 
 it('na začátku', () => {
   const stateBefore = undefined;
@@ -29,7 +28,9 @@ it('řadit dle příjmení vzestupně', () => {
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC };
   deepFreeze(stateBefore);
 
-  expect(ucastniciDigestReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
+  expect(ucastniciDigestReducer(stateBefore, sortDirChange(actionPrefix, 'prijmeni'))).toEqual(
+    stateAfter
+  );
 });
 
 it('řadit dle příjmení sestupně', () => {
@@ -42,7 +43,9 @@ it('řadit dle příjmení sestupně', () => {
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.DESC };
   deepFreeze(stateBefore);
 
-  expect(ucastniciDigestReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
+  expect(ucastniciDigestReducer(stateBefore, sortDirChange(actionPrefix, 'prijmeni'))).toEqual(
+    stateAfter
+  );
 });
 
 it('řadit dle příjmení zase vzestupně', () => {
@@ -55,7 +58,9 @@ it('řadit dle příjmení zase vzestupně', () => {
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC };
   deepFreeze(stateBefore);
 
-  expect(ucastniciDigestReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
+  expect(ucastniciDigestReducer(stateBefore, sortDirChange(actionPrefix, 'prijmeni'))).toEqual(
+    stateAfter
+  );
 });
 
 it('řadit dle jména vzestupně', () => {
@@ -68,7 +73,9 @@ it('řadit dle jména vzestupně', () => {
   const stateAfter = { ...stateBefore, sortColumn: 'jmeno', sortDir: SortDirTypes.ASC };
   deepFreeze(stateBefore);
 
-  expect(ucastniciDigestReducer(stateBefore, sortDirChange('jmeno'))).toEqual(stateAfter);
+  expect(ucastniciDigestReducer(stateBefore, sortDirChange(actionPrefix, 'jmeno'))).toEqual(
+    stateAfter
+  );
 });
 
 it('zapnout filtrování podle kategorie výkonu', () => {
@@ -81,9 +88,9 @@ it('zapnout filtrování podle kategorie výkonu', () => {
   const stateAfter = { ...stateBefore, kategorieVykonuFilter: 'půlmaraton' };
   deepFreeze(stateBefore);
 
-  expect(ucastniciDigestReducer(stateBefore, kategorieVykonuFilterChange('půlmaraton'))).toEqual(
-    stateAfter
-  );
+  expect(
+    ucastniciDigestReducer(stateBefore, kategorieVykonuFilterChange(actionPrefix, 'půlmaraton'))
+  ).toEqual(stateAfter);
 });
 
 it('vypnout filtrování podle kategorie výkonu', () => {
@@ -96,9 +103,9 @@ it('vypnout filtrování podle kategorie výkonu', () => {
   const stateAfter = { ...stateBefore, kategorieVykonuFilter: '' };
   deepFreeze(stateBefore);
 
-  expect(ucastniciDigestReducer(stateBefore, kategorieVykonuFilterChange('půlmaraton'))).toEqual(
-    stateAfter
-  );
+  expect(
+    ucastniciDigestReducer(stateBefore, kategorieVykonuFilterChange(actionPrefix, 'půlmaraton'))
+  ).toEqual(stateAfter);
 });
 
 it('přeppnout filtrování podle kategorie výkonu', () => {
@@ -111,9 +118,9 @@ it('přeppnout filtrování podle kategorie výkonu', () => {
   const stateAfter = { ...stateBefore, kategorieVykonuFilter: 'pěší' };
   deepFreeze(stateBefore);
 
-  expect(ucastniciDigestReducer(stateBefore, kategorieVykonuFilterChange('pěší'))).toEqual(
-    stateAfter
-  );
+  expect(
+    ucastniciDigestReducer(stateBefore, kategorieVykonuFilterChange(actionPrefix, 'pěší'))
+  ).toEqual(stateAfter);
 });
 
 it('filtrovat na dvě písmena', () => {
@@ -126,7 +133,9 @@ it('filtrovat na dvě písmena', () => {
   const stateAfter = { ...stateBefore, textFilter: 'kl' };
   deepFreeze(stateBefore);
 
-  expect(ucastniciDigestReducer(stateBefore, textFilterChange('Kl'))).toEqual(stateAfter);
+  expect(ucastniciDigestReducer(stateBefore, textFilterChange(actionPrefix, 'Kl'))).toEqual(
+    stateAfter
+  );
 });
 
 it('přepínání fetching', () => {

@@ -9,231 +9,8 @@ exports[`dva účastníci 1`] = `
     numberOfItems={2}
     reduxName="ucastniciDigest"
   />
-  <UcastniciTable
-    columns={
-      Array [
-        Object {
-          "cellStyler": [Function],
-          "key": "prijmeni",
-          "label": "příjmení",
-          "sortable": true,
-          "width": 100,
-        },
-        Object {
-          "cellStyler": [Function],
-          "key": "jmeno",
-          "label": "jméno",
-          "sortable": true,
-          "width": 90,
-        },
-        Object {
-          "cellStyler": [Function],
-          "key": "narozeni",
-          "label": "narození",
-          "sortable": true,
-          "width": 100,
-        },
-        Object {
-          "cellDataFormatter": [Function],
-          "cellStyler": [Function],
-          "key": "2001",
-          "label": 2001,
-          "sortable": false,
-          "width": 50,
-        },
-        Object {
-          "cellDataFormatter": [Function],
-          "cellStyler": [Function],
-          "key": "2002",
-          "label": 2002,
-          "sortable": false,
-          "width": 50,
-        },
-        Object {
-          "cellDataFormatter": [Function],
-          "cellStyler": [Function],
-          "key": "2003",
-          "label": 2003,
-          "sortable": false,
-          "width": 50,
-        },
-        Object {
-          "cellDataFormatter": [Function],
-          "cellStyler": [Function],
-          "key": "2004",
-          "label": 2004,
-          "sortable": false,
-          "width": 50,
-        },
-        Object {
-          "cellDataFormatter": [Function],
-          "cellStyler": [Function],
-          "key": "2005",
-          "label": 2005,
-          "sortable": false,
-          "width": 50,
-        },
-        Object {
-          "cellDataFormatter": [Function],
-          "cellStyler": [Function],
-          "key": "2006",
-          "label": 2006,
-          "sortable": false,
-          "width": 50,
-        },
-        Object {
-          "cellDataFormatter": [Function],
-          "cellStyler": [Function],
-          "key": "2007",
-          "label": 2007,
-          "sortable": false,
-          "width": 50,
-        },
-        Object {
-          "cellDataFormatter": [Function],
-          "cellStyler": [Function],
-          "key": "2008",
-          "label": 2008,
-          "sortable": false,
-          "width": 50,
-        },
-        Object {
-          "cellDataFormatter": [Function],
-          "cellStyler": [Function],
-          "key": "2009",
-          "label": 2009,
-          "sortable": false,
-          "width": 50,
-        },
-        Object {
-          "cellDataFormatter": [Function],
-          "cellStyler": [Function],
-          "key": "2010",
-          "label": 2010,
-          "sortable": false,
-          "width": 50,
-        },
-        Object {
-          "cellDataFormatter": [Function],
-          "cellStyler": [Function],
-          "key": "2011",
-          "label": 2011,
-          "sortable": false,
-          "width": 50,
-        },
-        Object {
-          "cellDataFormatter": [Function],
-          "cellStyler": [Function],
-          "key": "2012",
-          "label": 2012,
-          "sortable": false,
-          "width": 50,
-        },
-        Object {
-          "cellDataFormatter": [Function],
-          "cellStyler": [Function],
-          "key": "2013",
-          "label": 2013,
-          "sortable": false,
-          "width": 50,
-        },
-        Object {
-          "cellDataFormatter": [Function],
-          "cellStyler": [Function],
-          "key": "2014",
-          "label": 2014,
-          "sortable": false,
-          "width": 50,
-        },
-        Object {
-          "cellDataFormatter": [Function],
-          "cellStyler": [Function],
-          "key": "2015",
-          "label": 2015,
-          "sortable": false,
-          "width": 50,
-        },
-        Object {
-          "cellDataFormatter": [Function],
-          "cellStyler": [Function],
-          "key": "2016",
-          "label": 2016,
-          "sortable": false,
-          "width": 50,
-        },
-        Object {
-          "cellDataFormatter": [Function],
-          "cellStyler": [Function],
-          "key": "2017",
-          "label": 2017,
-          "sortable": false,
-          "width": 50,
-        },
-        Object {
-          "cellDataFormatter": [Function],
-          "cellStyler": [Function],
-          "key": "2018",
-          "label": 2018,
-          "sortable": false,
-          "width": 50,
-        },
-      ]
-    }
-    data={
-      Array [
-        Object {
-          "2016": Object {
-            "dokonceno": false,
-          },
-          "2017": Object {
-            "dokonceno": true,
-            "kategorie": "maraton",
-          },
-          "2018": Object {
-            "dokonceno": true,
-            "kategorie": "půlmaraton",
-          },
-          "id": "5a09b1fd371dec1e99b7e1c9",
-          "jmeno": "Roman",
-          "narozeni": "1956",
-          "prijmeni": "Balabák",
-        },
-        Object {
-          "2015": Object {
-            "dokonceno": false,
-          },
-          "2017": Object {
-            "dokonceno": true,
-            "kategorie": "maraton",
-          },
-          "2018": Object {
-            "dokonceno": undefined,
-            "kategorie": "půlmaraton",
-          },
-          "id": "6f09b1fd371dec1e99b7e1c9",
-          "jmeno": "Martina",
-          "narozeni": "7. 12. 1963",
-          "prijmeni": "Sukdoláková",
-        },
-      ]
-    }
-    fixedColumnCount={3}
-    onSortDirChange={[Function]}
-    rowHeight={35}
-  />
-</div>
-`;
-
-exports[`dva účastníci, řazeno dle příjmení 1`] = `
-<div
-  className="UcastniciDigest_div"
->
-  <Connect(Filterable)
+  <Connect(UcastniciTable)
     actionPrefix="UCASTNICI_DIGEST"
-    numberOfItems={2}
-    reduxName="ucastniciDigest"
-  />
-  <UcastniciTable
     columns={
       Array [
         Object {
@@ -442,10 +219,8 @@ exports[`dva účastníci, řazeno dle příjmení 1`] = `
       ]
     }
     fixedColumnCount={3}
-    onSortDirChange={[Function]}
+    reduxName="ucastniciDigest"
     rowHeight={35}
-    sortColumn="prijmeni"
-    sortDir="asc"
   />
 </div>
 `;
@@ -466,7 +241,8 @@ exports[`žádný účastník 1`] = `
     numberOfItems={0}
     reduxName="ucastniciDigest"
   />
-  <UcastniciTable
+  <Connect(UcastniciTable)
+    actionPrefix="UCASTNICI_DIGEST"
     columns={
       Array [
         Object {
@@ -638,7 +414,7 @@ exports[`žádný účastník 1`] = `
     }
     data={Array []}
     fixedColumnCount={3}
-    onSortDirChange={[Function]}
+    reduxName="ucastniciDigest"
     rowHeight={35}
   />
 </div>

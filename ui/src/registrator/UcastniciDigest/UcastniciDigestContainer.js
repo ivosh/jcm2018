@@ -1,11 +1,10 @@
 import { connect } from 'react-redux';
 import { fetchUcastnici } from '../../entities/ucastnici/ucastniciActions';
 import { getUcastniciDigestSorted } from './ucastniciDigestReducer';
-import { sortDirChange } from './UcastniciDigestActions';
 import UcastniciDigest from './UcastniciDigest';
 
 const mapStateToProps = ({ entities, registrator }) => {
-  const { fetching, sortColumn, sortDir } = registrator.ucastniciDigest;
+  const { fetching } = registrator.ucastniciDigest;
 
   // Don't forget to update areStatesEqual!
   return {
@@ -13,9 +12,7 @@ const mapStateToProps = ({ entities, registrator }) => {
     ucastniciDigest: getUcastniciDigestSorted({ ...entities, ...registrator.ucastniciDigest }),
     actionPrefix: 'UCASTNICI_DIGEST',
     fetching,
-    reduxName: 'ucastniciDigest',
-    sortColumn,
-    sortDir
+    reduxName: 'ucastniciDigest'
   };
 };
 
@@ -24,8 +21,7 @@ const areStatesEqual = (next, prev) =>
   prev.registrator.ucastniciDigest === next.registrator.ucastniciDigest;
 
 const mapDispatchToProps = dispatch => ({
-  fetchUcastnici: () => dispatch(fetchUcastnici()),
-  onSortDirChange: sortColumn => dispatch(sortDirChange(sortColumn))
+  fetchUcastnici: () => dispatch(fetchUcastnici())
 });
 
 const UcastniciDigestContainer = connect(mapStateToProps, mapDispatchToProps, null, {

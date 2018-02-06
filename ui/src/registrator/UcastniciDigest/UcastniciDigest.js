@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { barvaProTypKategorie } from '../../Util';
 import LoadingIndicator from '../../shared/LoadingIndicator';
 import FilterableContainer from '../Filterable/FilterableContainer';
-import UcastniciTable from '../UcastniciTable/UcastniciTable';
+import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
 import './UcastniciDigest.css';
 
 const alignLeftStyler = () => ({ textAlign: 'left' });
@@ -36,16 +36,7 @@ class UcastniciDigest extends PureComponent {
   };
 
   render = () => {
-    const {
-      actionPrefix,
-      fetching,
-      reduxName,
-      roky,
-      sortColumn,
-      sortDir,
-      ucastniciDigest,
-      onSortDirChange
-    } = this.props;
+    const { actionPrefix, fetching, reduxName, roky, ucastniciDigest } = this.props;
 
     if (fetching) {
       return (
@@ -89,14 +80,13 @@ class UcastniciDigest extends PureComponent {
           numberOfItems={ucastniciDigest.length}
         />
 
-        <UcastniciTable
+        <UcastniciTableContainer
+          actionPrefix={actionPrefix}
           columns={columns}
           data={ucastniciDigest}
           fixedColumnCount={3}
+          reduxName={reduxName}
           rowHeight={35}
-          sortColumn={sortColumn}
-          sortDir={sortDir}
-          onSortDirChange={onSortDirChange}
         />
       </div>
     );
@@ -108,8 +98,6 @@ UcastniciDigest.propTypes = {
   fetching: PropTypes.bool,
   reduxName: PropTypes.string.isRequired,
   roky: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  sortColumn: PropTypes.string,
-  sortDir: PropTypes.string,
   ucastniciDigest: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -118,8 +106,7 @@ UcastniciDigest.propTypes = {
       narozeni: PropTypes.string.isRequired
     }).isRequired
   ).isRequired,
-  fetchUcastnici: PropTypes.func.isRequired,
-  onSortDirChange: PropTypes.func.isRequired
+  fetchUcastnici: PropTypes.func.isRequired
 };
 
 export default UcastniciDigest;

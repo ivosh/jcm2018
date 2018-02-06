@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import { SortDirTypes } from '../../Util';
 import UcastniciDigest from './UcastniciDigest';
 
 const commonProps = {
@@ -75,19 +74,6 @@ it('načítá se', () => {
 it('dva účastníci', () => {
   const wrapper = shallow(
     <UcastniciDigest roky={roky} ucastniciDigest={ucastniciDigest} {...commonProps} />
-  );
-  expect(toJSON(wrapper)).toMatchSnapshot();
-});
-
-it('dva účastníci, řazeno dle příjmení', () => {
-  const wrapper = shallow(
-    <UcastniciDigest
-      roky={roky}
-      ucastniciDigest={ucastniciDigest}
-      sortColumn="prijmeni"
-      sortDir={SortDirTypes.ASC}
-      {...commonProps}
-    />
   );
   expect(toJSON(wrapper)).toMatchSnapshot();
 });
