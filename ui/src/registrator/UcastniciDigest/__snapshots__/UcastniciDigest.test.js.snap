@@ -9,7 +9,7 @@ exports[`dva účastníci 1`] = `
     numberOfItems={2}
     reduxName="ucastniciDigest"
   />
-  <Connect(UcastniciTable)
+  <Connect(UcastniciTableResponsive)
     actionPrefix="UCASTNICI_DIGEST"
     columns={
       Array [
@@ -241,7 +241,7 @@ exports[`žádný účastník 1`] = `
     numberOfItems={0}
     reduxName="ucastniciDigest"
   />
-  <Connect(UcastniciTable)
+  <Connect(UcastniciTableResponsive)
     actionPrefix="UCASTNICI_DIGEST"
     columns={
       Array [

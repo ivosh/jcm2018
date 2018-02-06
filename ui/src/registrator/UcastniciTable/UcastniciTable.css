@@ -1,7 +1,3 @@
-.UcastniciTable-div {
-  flex: 1 0 auto;
-}
-
 .UcastniciTable_GridRow {
   display: flex;
   flex-direction: row;
@@ -68,18 +64,3 @@
 .UcastniciTable_leftCell {
   font-weight: bold;
 }
-
-/* -------------------- 
-
-
-.UcastniciTable_vykon {
-	font-weight: bold;
-  border-radius: 15px;
-  width: 33px;
-  height: 33px;
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle;
-}
-
-*/

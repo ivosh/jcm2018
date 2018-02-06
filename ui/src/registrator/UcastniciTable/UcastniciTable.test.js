@@ -30,37 +30,34 @@ const data = [
   }
 ];
 
+const commonProps = {
+  columns,
+  containerHeight: 500,
+  containerWidth: 500,
+  data,
+  fixedColumnCount: 2,
+  rowHeight: 35
+};
+
 it('žádná data', () => {
-  const wrapper = mount(
-    <div height={500} width={500}>
-      <UcastniciTable columns={columns} data={[]} fixedColumnCount={2} rowHeight={35} />
-    </div>
-  );
+  const wrapper = mount(<UcastniciTable {...commonProps} data={[]} />);
   expect(toJSON(wrapper)).toMatchSnapshot();
 });
 
 it('dva účastníci', () => {
-  const wrapper = mount(
-    <div height={500} width={500}>
-      <UcastniciTable columns={columns} data={data} fixedColumnCount={2} rowHeight={35} />
-    </div>
-  );
+  const wrapper = mount(<UcastniciTable {...commonProps} />);
   expect(toJSON(wrapper)).toMatchSnapshot();
 });
 
 it('dva účastníci, řazeno dle příjmení', () => {
   const wrapper = mount(
-    <div height={200} width={200}>
-      <UcastniciTable
-        columns={columns}
-        data={data}
-        fixedColumnCount={2}
-        rowHeight={35}
-        sortColumn="prijmeni"
-        sortDir={SortDirTypes.ASC}
-        onSortDirChange={jest.fn()}
-      />
-    </div>
+    <UcastniciTable
+      {...commonProps}
+      containerWidth={200}
+      sortColumn="prijmeni"
+      sortDir={SortDirTypes.ASC}
+      onSortDirChange={jest.fn()}
+    />
   );
   expect(toJSON(wrapper)).toMatchSnapshot();
 });
@@ -68,17 +65,12 @@ it('dva účastníci, řazeno dle příjmení', () => {
 it('maps onClick to onSortDirChange for jméno', () => {
   const onSortDirChange = jest.fn();
   const wrapper = mount(
-    <div height={500} width={500}>
-      <UcastniciTable
-        columns={columns}
-        data={data}
-        fixedColumnCount={2}
-        rowHeight={35}
-        sortColumn="prijmeni"
-        sortDir={SortDirTypes.ASC}
-        onSortDirChange={onSortDirChange}
-      />
-    </div>
+    <UcastniciTable
+      {...commonProps}
+      sortColumn="prijmeni"
+      sortDir={SortDirTypes.ASC}
+      onSortDirChange={onSortDirChange}
+    />
   );
 
   expect(wrapper.find('a')).toHaveLength(2);

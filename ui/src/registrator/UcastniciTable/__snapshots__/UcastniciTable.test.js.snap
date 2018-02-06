@@ -1,11 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`dva účastníci 1`] = `
-<div
-  height={500}
-  width={500}
+<UcastniciTable
+  columns={
+    Array [
+      Object {
+        "key": "prijmeni",
+        "label": "příjmení",
+        "sortable": true,
+        "width": 100,
+      },
+      Object {
+        "key": "jmeno",
+        "label": "jméno",
+        "sortable": true,
+        "width": 100,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "key": "2012",
+        "sortable": false,
+        "width": 50,
+      },
+    ]
+  }
+  containerHeight={500}
+  containerWidth={500}
+  data={
+    Array [
+      Object {
+        "2012": Object {
+          "dokonceno": false,
+        },
+        "id": "5a09b1fd371dec1e99b7e1c9",
+        "jmeno": "Roman",
+        "prijmeni": "Balabák",
+      },
+      Object {
+        "2012": Object {
+          "dokonceno": true,
+          "kategorie": "maraton",
+        },
+        "id": "6f09b1fd371dec1e99b7e1c9",
+        "jmeno": "Martina",
+        "prijmeni": "Sukdoláková",
+      },
+    ]
+  }
+  fixedColumnCount={2}
+  rowHeight={35}
 >
-  <UcastniciTable
+  <ScrollSync
     columns={
       Array [
         Object {
@@ -28,6 +73,8 @@ exports[`dva účastníci 1`] = `
         },
       ]
     }
+    containerHeight={500}
+    containerWidth={500}
     data={
       Array [
         Object {
@@ -53,607 +100,748 @@ exports[`dva účastníci 1`] = `
     rowHeight={35}
   >
     <div
-      className="UcastniciTable-div"
+      className="UcastniciTable_GridRow"
     >
-      <AutoSizer
-        disableHeight={false}
-        disableWidth={false}
-        onResize={[Function]}
-        style={Object {}}
-      >
-        <div
-          style={
-            Object {
-              "height": 0,
-              "overflow": "visible",
-              "width": 0,
-            }
+      <div
+        className="UcastniciTable_LeftSideGridContainer"
+        style={
+          Object {
+            "flexBasis": "200px",
+            "top": 0,
           }
+        }
+      >
+        <Grid
+          aria-label="grid"
+          aria-readonly={true}
+          autoContainerWidth={false}
+          autoHeight={false}
+          autoWidth={false}
+          cellRangeRenderer={[Function]}
+          cellRenderer={[Function]}
+          className="UcastniciTable_HeaderGrid"
+          columnCount={2}
+          columnWidth={[Function]}
+          columns={
+            Array [
+              Object {
+                "key": "prijmeni",
+                "label": "příjmení",
+                "sortable": true,
+                "width": 100,
+              },
+              Object {
+                "key": "jmeno",
+                "label": "jméno",
+                "sortable": true,
+                "width": 100,
+              },
+              Object {
+                "cellDataFormatter": [Function],
+                "key": "2012",
+                "sortable": false,
+                "width": 50,
+              },
+            ]
+          }
+          containerHeight={500}
+          containerRole="rowgroup"
+          containerStyle={Object {}}
+          containerWidth={500}
+          data={
+            Array [
+              Object {
+                "2012": Object {
+                  "dokonceno": false,
+                },
+                "id": "5a09b1fd371dec1e99b7e1c9",
+                "jmeno": "Roman",
+                "prijmeni": "Balabák",
+              },
+              Object {
+                "2012": Object {
+                  "dokonceno": true,
+                  "kategorie": "maraton",
+                },
+                "id": "6f09b1fd371dec1e99b7e1c9",
+                "jmeno": "Martina",
+                "prijmeni": "Sukdoláková",
+              },
+            ]
+          }
+          estimatedColumnSize={100}
+          estimatedRowSize={30}
+          fixedColumnCount={2}
+          getScrollbarSize={[Function]}
+          height={35}
+          noContentRenderer={[Function]}
+          onScroll={[Function]}
+          onScrollbarPresenceChange={[Function]}
+          onSectionRendered={[Function]}
+          overscanColumnCount={0}
+          overscanIndicesGetter={[Function]}
+          overscanRowCount={10}
+          role="grid"
+          rowCount={1}
+          rowHeight={35}
+          scrollToAlignment="auto"
+          scrollToColumn={-1}
+          scrollToRow={-1}
+          scrollingResetTimeInterval={150}
+          style={Object {}}
+          tabIndex={0}
+          width={200}
         >
-          <ScrollSync
-            columns={
-              Array [
-                Object {
-                  "key": "prijmeni",
-                  "label": "příjmení",
-                  "sortable": true,
-                  "width": 100,
-                },
-                Object {
-                  "key": "jmeno",
-                  "label": "jméno",
-                  "sortable": true,
-                  "width": 100,
-                },
-                Object {
-                  "cellDataFormatter": [Function],
-                  "key": "2012",
-                  "sortable": false,
-                  "width": 50,
-                },
-              ]
+          <div
+            aria-label="grid"
+            aria-readonly={true}
+            className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
+            onScroll={[Function]}
+            role="grid"
+            style={
+              Object {
+                "WebkitOverflowScrolling": "touch",
+                "boxSizing": "border-box",
+                "direction": "ltr",
+                "height": 35,
+                "overflowX": "hidden",
+                "overflowY": "hidden",
+                "position": "relative",
+                "width": 200,
+                "willChange": "transform",
+              }
             }
-            data={
-              Array [
-                Object {
-                  "2012": Object {
-                    "dokonceno": false,
-                  },
-                  "id": "5a09b1fd371dec1e99b7e1c9",
-                  "jmeno": "Roman",
-                  "prijmeni": "Balabák",
-                },
-                Object {
-                  "2012": Object {
-                    "dokonceno": true,
-                    "kategorie": "maraton",
-                  },
-                  "id": "6f09b1fd371dec1e99b7e1c9",
-                  "jmeno": "Martina",
-                  "prijmeni": "Sukdoláková",
-                },
-              ]
-            }
-            fixedColumnCount={2}
-            rowHeight={35}
+            tabIndex={0}
           >
             <div
-              className="UcastniciTable_GridRow"
+              className="ReactVirtualized__Grid__innerScrollContainer"
+              role="rowgroup"
+              style={
+                Object {
+                  "height": 35,
+                  "maxHeight": 35,
+                  "maxWidth": 200,
+                  "overflow": "hidden",
+                  "pointerEvents": "",
+                  "position": "relative",
+                  "width": 200,
+                }
+              }
             >
               <div
-                className="UcastniciTable_LeftSideGridContainer"
+                className="UcastniciTable_headerCell"
+                key="0-0"
                 style={
                   Object {
-                    "flexBasis": "200px",
+                    "height": 35,
+                    "left": 0,
+                    "position": "absolute",
                     "top": 0,
+                    "width": 100,
                   }
                 }
               >
-                <Grid
-                  aria-label="grid"
-                  aria-readonly={true}
-                  autoContainerWidth={false}
-                  autoHeight={false}
-                  autoWidth={false}
-                  cellRangeRenderer={[Function]}
-                  cellRenderer={[Function]}
-                  className="UcastniciTable_HeaderGrid"
-                  columnCount={2}
-                  columnWidth={[Function]}
-                  columns={
-                    Array [
-                      Object {
-                        "key": "prijmeni",
-                        "label": "příjmení",
-                        "sortable": true,
-                        "width": 100,
-                      },
-                      Object {
-                        "key": "jmeno",
-                        "label": "jméno",
-                        "sortable": true,
-                        "width": 100,
-                      },
-                      Object {
-                        "cellDataFormatter": [Function],
-                        "key": "2012",
-                        "sortable": false,
-                        "width": 50,
-                      },
-                    ]
-                  }
-                  containerRole="rowgroup"
-                  containerStyle={Object {}}
-                  data={
-                    Array [
-                      Object {
-                        "2012": Object {
-                          "dokonceno": false,
-                        },
-                        "id": "5a09b1fd371dec1e99b7e1c9",
-                        "jmeno": "Roman",
-                        "prijmeni": "Balabák",
-                      },
-                      Object {
-                        "2012": Object {
-                          "dokonceno": true,
-                          "kategorie": "maraton",
-                        },
-                        "id": "6f09b1fd371dec1e99b7e1c9",
-                        "jmeno": "Martina",
-                        "prijmeni": "Sukdoláková",
-                      },
-                    ]
-                  }
-                  estimatedColumnSize={100}
-                  estimatedRowSize={30}
-                  fixedColumnCount={2}
-                  getScrollbarSize={[Function]}
-                  height={35}
-                  noContentRenderer={[Function]}
-                  onScroll={[Function]}
-                  onScrollbarPresenceChange={[Function]}
-                  onSectionRendered={[Function]}
-                  overscanColumnCount={0}
-                  overscanIndicesGetter={[Function]}
-                  overscanRowCount={10}
-                  role="grid"
-                  rowCount={1}
-                  rowHeight={35}
-                  scrollToAlignment="auto"
-                  scrollToColumn={-1}
-                  scrollToRow={-1}
-                  scrollingResetTimeInterval={150}
-                  style={Object {}}
-                  tabIndex={0}
-                  width={200}
+                <SortHeader
+                  onClick={[Function]}
+                  sortDir="none"
                 >
-                  <div
-                    aria-label="grid"
-                    aria-readonly={true}
-                    className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
-                    onScroll={[Function]}
-                    role="grid"
-                    style={
-                      Object {
-                        "WebkitOverflowScrolling": "touch",
-                        "boxSizing": "border-box",
-                        "direction": "ltr",
-                        "height": 35,
-                        "overflowX": "hidden",
-                        "overflowY": "hidden",
-                        "position": "relative",
-                        "width": 200,
-                        "willChange": "transform",
-                      }
-                    }
-                    tabIndex={0}
+                  <a
+                    className="SortHeader_a"
+                    onClick={[Function]}
                   >
-                    <div
-                      className="ReactVirtualized__Grid__innerScrollContainer"
-                      role="rowgroup"
-                      style={
-                        Object {
-                          "height": 35,
-                          "maxHeight": 35,
-                          "maxWidth": 200,
-                          "overflow": "hidden",
-                          "pointerEvents": "",
-                          "position": "relative",
-                          "width": 200,
-                        }
-                      }
-                    >
-                      <div
-                        className="UcastniciTable_headerCell"
-                        key="0-0"
-                        style={
-                          Object {
-                            "height": 35,
-                            "left": 0,
-                            "position": "absolute",
-                            "top": 0,
-                            "width": 100,
-                          }
-                        }
-                      >
-                        <SortHeader
-                          onClick={[Function]}
-                          sortDir="none"
-                        >
-                          <a
-                            className="SortHeader_a"
-                            onClick={[Function]}
-                          >
-                            příjmení
-                             
-                          </a>
-                        </SortHeader>
-                      </div>
-                      <div
-                        className="UcastniciTable_headerCell"
-                        key="0-1"
-                        style={
-                          Object {
-                            "height": 35,
-                            "left": 100,
-                            "position": "absolute",
-                            "top": 0,
-                            "width": 100,
-                          }
-                        }
-                      >
-                        <SortHeader
-                          onClick={[Function]}
-                          sortDir="none"
-                        >
-                          <a
-                            className="SortHeader_a"
-                            onClick={[Function]}
-                          >
-                            jméno
-                             
-                          </a>
-                        </SortHeader>
-                      </div>
-                    </div>
-                  </div>
-                </Grid>
+                    příjmení
+                     
+                  </a>
+                </SortHeader>
               </div>
               <div
-                className="UcastniciTable_LeftSideGridContainer"
+                className="UcastniciTable_headerCell"
+                key="0-1"
                 style={
                   Object {
-                    "flexBasis": "200px",
-                    "top": 35,
+                    "height": 35,
+                    "left": 100,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": 100,
                   }
                 }
               >
-                <Grid
-                  aria-label="grid"
-                  aria-readonly={true}
-                  autoContainerWidth={false}
-                  autoHeight={false}
-                  autoWidth={false}
-                  cellRangeRenderer={[Function]}
-                  cellRenderer={[Function]}
-                  className="UcastniciTable_LeftSideGrid"
-                  columnCount={2}
-                  columnWidth={[Function]}
-                  columns={
-                    Array [
-                      Object {
-                        "key": "prijmeni",
-                        "label": "příjmení",
-                        "sortable": true,
-                        "width": 100,
-                      },
-                      Object {
-                        "key": "jmeno",
-                        "label": "jméno",
-                        "sortable": true,
-                        "width": 100,
-                      },
-                      Object {
-                        "cellDataFormatter": [Function],
-                        "key": "2012",
-                        "sortable": false,
-                        "width": 50,
-                      },
-                    ]
-                  }
-                  containerRole="rowgroup"
-                  containerStyle={Object {}}
-                  data={
-                    Array [
-                      Object {
-                        "2012": Object {
-                          "dokonceno": false,
-                        },
-                        "id": "5a09b1fd371dec1e99b7e1c9",
-                        "jmeno": "Roman",
-                        "prijmeni": "Balabák",
-                      },
-                      Object {
-                        "2012": Object {
-                          "dokonceno": true,
-                          "kategorie": "maraton",
-                        },
-                        "id": "6f09b1fd371dec1e99b7e1c9",
-                        "jmeno": "Martina",
-                        "prijmeni": "Sukdoláková",
-                      },
-                    ]
-                  }
-                  estimatedColumnSize={100}
-                  estimatedRowSize={30}
-                  fixedColumnCount={2}
-                  getScrollbarSize={[Function]}
-                  height={-35}
-                  noContentRenderer={[Function]}
-                  onScroll={[Function]}
-                  onScrollbarPresenceChange={[Function]}
-                  onSectionRendered={[Function]}
-                  overscanColumnCount={0}
-                  overscanIndicesGetter={[Function]}
-                  overscanRowCount={5}
-                  role="grid"
-                  rowCount={2}
-                  rowHeight={35}
-                  scrollToAlignment="auto"
-                  scrollToColumn={-1}
-                  scrollToRow={-1}
-                  scrollTop={0}
-                  scrollingResetTimeInterval={150}
-                  style={Object {}}
-                  tabIndex={0}
-                  width={200}
+                <SortHeader
+                  onClick={[Function]}
+                  sortDir="none"
                 >
-                  <div
-                    aria-label="grid"
-                    aria-readonly={true}
-                    className="ReactVirtualized__Grid UcastniciTable_LeftSideGrid"
-                    onScroll={[Function]}
-                    role="grid"
-                    style={
-                      Object {
-                        "WebkitOverflowScrolling": "touch",
-                        "boxSizing": "border-box",
-                        "direction": "ltr",
-                        "height": -35,
-                        "overflowX": "hidden",
-                        "overflowY": "auto",
-                        "position": "relative",
-                        "width": 200,
-                        "willChange": "transform",
-                      }
-                    }
-                    tabIndex={0}
-                  />
-                </Grid>
+                  <a
+                    className="SortHeader_a"
+                    onClick={[Function]}
+                  >
+                    jméno
+                     
+                  </a>
+                </SortHeader>
+              </div>
+            </div>
+          </div>
+        </Grid>
+      </div>
+      <div
+        className="UcastniciTable_LeftSideGridContainer"
+        style={
+          Object {
+            "flexBasis": "200px",
+            "top": 35,
+          }
+        }
+      >
+        <Grid
+          aria-label="grid"
+          aria-readonly={true}
+          autoContainerWidth={false}
+          autoHeight={false}
+          autoWidth={false}
+          cellRangeRenderer={[Function]}
+          cellRenderer={[Function]}
+          className="UcastniciTable_LeftSideGrid"
+          columnCount={2}
+          columnWidth={[Function]}
+          columns={
+            Array [
+              Object {
+                "key": "prijmeni",
+                "label": "příjmení",
+                "sortable": true,
+                "width": 100,
+              },
+              Object {
+                "key": "jmeno",
+                "label": "jméno",
+                "sortable": true,
+                "width": 100,
+              },
+              Object {
+                "cellDataFormatter": [Function],
+                "key": "2012",
+                "sortable": false,
+                "width": 50,
+              },
+            ]
+          }
+          containerHeight={500}
+          containerRole="rowgroup"
+          containerStyle={Object {}}
+          containerWidth={500}
+          data={
+            Array [
+              Object {
+                "2012": Object {
+                  "dokonceno": false,
+                },
+                "id": "5a09b1fd371dec1e99b7e1c9",
+                "jmeno": "Roman",
+                "prijmeni": "Balabák",
+              },
+              Object {
+                "2012": Object {
+                  "dokonceno": true,
+                  "kategorie": "maraton",
+                },
+                "id": "6f09b1fd371dec1e99b7e1c9",
+                "jmeno": "Martina",
+                "prijmeni": "Sukdoláková",
+              },
+            ]
+          }
+          estimatedColumnSize={100}
+          estimatedRowSize={30}
+          fixedColumnCount={2}
+          getScrollbarSize={[Function]}
+          height={70}
+          noContentRenderer={[Function]}
+          onScroll={[Function]}
+          onScrollbarPresenceChange={[Function]}
+          onSectionRendered={[Function]}
+          overscanColumnCount={0}
+          overscanIndicesGetter={[Function]}
+          overscanRowCount={5}
+          role="grid"
+          rowCount={2}
+          rowHeight={35}
+          scrollToAlignment="auto"
+          scrollToColumn={-1}
+          scrollToRow={-1}
+          scrollTop={0}
+          scrollingResetTimeInterval={150}
+          style={Object {}}
+          tabIndex={0}
+          width={200}
+        >
+          <div
+            aria-label="grid"
+            aria-readonly={true}
+            className="ReactVirtualized__Grid UcastniciTable_LeftSideGrid"
+            onScroll={[Function]}
+            role="grid"
+            style={
+              Object {
+                "WebkitOverflowScrolling": "touch",
+                "boxSizing": "border-box",
+                "direction": "ltr",
+                "height": 70,
+                "overflowX": "hidden",
+                "overflowY": "hidden",
+                "position": "relative",
+                "width": 200,
+                "willChange": "transform",
+              }
+            }
+            tabIndex={0}
+          >
+            <div
+              className="ReactVirtualized__Grid__innerScrollContainer"
+              role="rowgroup"
+              style={
+                Object {
+                  "height": 70,
+                  "maxHeight": 70,
+                  "maxWidth": 200,
+                  "overflow": "hidden",
+                  "pointerEvents": "",
+                  "position": "relative",
+                  "width": 200,
+                }
+              }
+            >
+              <div
+                className="UcastniciTable_oddRow UcastniciTable_cell"
+                key="0-0"
+                style={
+                  Object {
+                    "height": 35,
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": 100,
+                  }
+                }
+              >
+                Balabák
               </div>
               <div
-                className="UcastniciTable_GridColumn"
+                className="UcastniciTable_oddRow UcastniciTable_cell"
+                key="0-1"
+                style={
+                  Object {
+                    "height": 35,
+                    "left": 100,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": 100,
+                  }
+                }
               >
-                <div>
+                Roman
+              </div>
+              <div
+                className="UcastniciTable_evenRow UcastniciTable_cell"
+                key="1-0"
+                style={
+                  Object {
+                    "height": 35,
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 35,
+                    "width": 100,
+                  }
+                }
+              >
+                Sukdoláková
+              </div>
+              <div
+                className="UcastniciTable_evenRow UcastniciTable_cell"
+                key="1-1"
+                style={
+                  Object {
+                    "height": 35,
+                    "left": 100,
+                    "position": "absolute",
+                    "top": 35,
+                    "width": 100,
+                  }
+                }
+              >
+                Martina
+              </div>
+            </div>
+          </div>
+        </Grid>
+      </div>
+      <div
+        className="UcastniciTable_GridColumn"
+      >
+        <div>
+          <div
+            style={
+              Object {
+                "height": 35,
+                "width": 50,
+              }
+            }
+          >
+            <Grid
+              aria-label="grid"
+              aria-readonly={true}
+              autoContainerWidth={false}
+              autoHeight={false}
+              autoWidth={false}
+              cellRangeRenderer={[Function]}
+              cellRenderer={[Function]}
+              className="UcastniciTable_HeaderGrid"
+              columnCount={3}
+              columnWidth={[Function]}
+              columns={
+                Array [
+                  Object {
+                    "key": "prijmeni",
+                    "label": "příjmení",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "key": "jmeno",
+                    "label": "jméno",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "cellDataFormatter": [Function],
+                    "key": "2012",
+                    "sortable": false,
+                    "width": 50,
+                  },
+                ]
+              }
+              containerHeight={500}
+              containerRole="rowgroup"
+              containerStyle={Object {}}
+              containerWidth={500}
+              data={
+                Array [
+                  Object {
+                    "2012": Object {
+                      "dokonceno": false,
+                    },
+                    "id": "5a09b1fd371dec1e99b7e1c9",
+                    "jmeno": "Roman",
+                    "prijmeni": "Balabák",
+                  },
+                  Object {
+                    "2012": Object {
+                      "dokonceno": true,
+                      "kategorie": "maraton",
+                    },
+                    "id": "6f09b1fd371dec1e99b7e1c9",
+                    "jmeno": "Martina",
+                    "prijmeni": "Sukdoláková",
+                  },
+                ]
+              }
+              estimatedColumnSize={100}
+              estimatedRowSize={30}
+              fixedColumnCount={2}
+              getScrollbarSize={[Function]}
+              height={35}
+              noContentRenderer={[Function]}
+              onScroll={[Function]}
+              onScrollbarPresenceChange={[Function]}
+              onSectionRendered={[Function]}
+              overscanColumnCount={0}
+              overscanIndicesGetter={[Function]}
+              overscanRowCount={10}
+              role="grid"
+              rowCount={1}
+              rowHeight={35}
+              scrollLeft={0}
+              scrollToAlignment="auto"
+              scrollToColumn={-1}
+              scrollToRow={-1}
+              scrollingResetTimeInterval={150}
+              style={Object {}}
+              tabIndex={0}
+              width={250}
+            >
+              <div
+                aria-label="grid"
+                aria-readonly={true}
+                className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
+                onScroll={[Function]}
+                role="grid"
+                style={
+                  Object {
+                    "WebkitOverflowScrolling": "touch",
+                    "boxSizing": "border-box",
+                    "direction": "ltr",
+                    "height": 35,
+                    "overflowX": "hidden",
+                    "overflowY": "hidden",
+                    "position": "relative",
+                    "width": 250,
+                    "willChange": "transform",
+                  }
+                }
+                tabIndex={0}
+              >
+                <div
+                  className="ReactVirtualized__Grid__innerScrollContainer"
+                  role="rowgroup"
+                  style={
+                    Object {
+                      "height": 35,
+                      "maxHeight": 35,
+                      "maxWidth": 250,
+                      "overflow": "hidden",
+                      "pointerEvents": "",
+                      "position": "relative",
+                      "width": 250,
+                    }
+                  }
+                >
                   <div
+                    className="UcastniciTable_headerCell"
+                    key="0-2"
                     style={
                       Object {
                         "height": 35,
-                        "width": -200,
+                        "left": 200,
+                        "position": "absolute",
+                        "top": 0,
+                        "width": 50,
                       }
                     }
                   >
-                    <Grid
-                      aria-label="grid"
-                      aria-readonly={true}
-                      autoContainerWidth={false}
-                      autoHeight={false}
-                      autoWidth={false}
-                      cellRangeRenderer={[Function]}
-                      cellRenderer={[Function]}
-                      className="UcastniciTable_HeaderGrid"
-                      columnCount={3}
-                      columnWidth={[Function]}
-                      columns={
-                        Array [
-                          Object {
-                            "key": "prijmeni",
-                            "label": "příjmení",
-                            "sortable": true,
-                            "width": 100,
-                          },
-                          Object {
-                            "key": "jmeno",
-                            "label": "jméno",
-                            "sortable": true,
-                            "width": 100,
-                          },
-                          Object {
-                            "cellDataFormatter": [Function],
-                            "key": "2012",
-                            "sortable": false,
-                            "width": 50,
-                          },
-                        ]
-                      }
-                      containerRole="rowgroup"
-                      containerStyle={Object {}}
-                      data={
-                        Array [
-                          Object {
-                            "2012": Object {
-                              "dokonceno": false,
-                            },
-                            "id": "5a09b1fd371dec1e99b7e1c9",
-                            "jmeno": "Roman",
-                            "prijmeni": "Balabák",
-                          },
-                          Object {
-                            "2012": Object {
-                              "dokonceno": true,
-                              "kategorie": "maraton",
-                            },
-                            "id": "6f09b1fd371dec1e99b7e1c9",
-                            "jmeno": "Martina",
-                            "prijmeni": "Sukdoláková",
-                          },
-                        ]
-                      }
-                      estimatedColumnSize={100}
-                      estimatedRowSize={30}
-                      fixedColumnCount={2}
-                      getScrollbarSize={[Function]}
-                      height={35}
-                      noContentRenderer={[Function]}
-                      onScroll={[Function]}
-                      onScrollbarPresenceChange={[Function]}
-                      onSectionRendered={[Function]}
-                      overscanColumnCount={0}
-                      overscanIndicesGetter={[Function]}
-                      overscanRowCount={10}
-                      role="grid"
-                      rowCount={1}
-                      rowHeight={35}
-                      scrollLeft={0}
-                      scrollToAlignment="auto"
-                      scrollToColumn={-1}
-                      scrollToRow={-1}
-                      scrollingResetTimeInterval={150}
-                      style={Object {}}
-                      tabIndex={0}
-                      width={0}
-                    >
-                      <div
-                        aria-label="grid"
-                        aria-readonly={true}
-                        className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
-                        onScroll={[Function]}
-                        role="grid"
-                        style={
-                          Object {
-                            "WebkitOverflowScrolling": "touch",
-                            "boxSizing": "border-box",
-                            "direction": "ltr",
-                            "height": 35,
-                            "overflowX": "auto",
-                            "overflowY": "hidden",
-                            "position": "relative",
-                            "width": 0,
-                            "willChange": "transform",
-                          }
-                        }
-                        tabIndex={0}
-                      />
-                    </Grid>
-                  </div>
-                  <div
-                    style={
-                      Object {
-                        "height": -35,
-                        "width": 0,
-                      }
-                    }
-                  >
-                    <Grid
-                      aria-label="grid"
-                      aria-readonly={true}
-                      autoContainerWidth={false}
-                      autoHeight={false}
-                      autoWidth={false}
-                      cellRangeRenderer={[Function]}
-                      cellRenderer={[Function]}
-                      className="UcastniciTable_BodyGrid"
-                      columnCount={3}
-                      columnWidth={[Function]}
-                      columns={
-                        Array [
-                          Object {
-                            "key": "prijmeni",
-                            "label": "příjmení",
-                            "sortable": true,
-                            "width": 100,
-                          },
-                          Object {
-                            "key": "jmeno",
-                            "label": "jméno",
-                            "sortable": true,
-                            "width": 100,
-                          },
-                          Object {
-                            "cellDataFormatter": [Function],
-                            "key": "2012",
-                            "sortable": false,
-                            "width": 50,
-                          },
-                        ]
-                      }
-                      containerRole="rowgroup"
-                      containerStyle={Object {}}
-                      data={
-                        Array [
-                          Object {
-                            "2012": Object {
-                              "dokonceno": false,
-                            },
-                            "id": "5a09b1fd371dec1e99b7e1c9",
-                            "jmeno": "Roman",
-                            "prijmeni": "Balabák",
-                          },
-                          Object {
-                            "2012": Object {
-                              "dokonceno": true,
-                              "kategorie": "maraton",
-                            },
-                            "id": "6f09b1fd371dec1e99b7e1c9",
-                            "jmeno": "Martina",
-                            "prijmeni": "Sukdoláková",
-                          },
-                        ]
-                      }
-                      estimatedColumnSize={100}
-                      estimatedRowSize={30}
-                      fixedColumnCount={2}
-                      getScrollbarSize={[Function]}
-                      height={-35}
-                      noContentRenderer={[Function]}
-                      onScroll={[Function]}
-                      onScrollbarPresenceChange={[Function]}
-                      onSectionRendered={[Function]}
-                      overscanColumnCount={0}
-                      overscanIndicesGetter={[Function]}
-                      overscanRowCount={5}
-                      role="grid"
-                      rowCount={2}
-                      rowHeight={35}
-                      scrollToAlignment="auto"
-                      scrollToColumn={-1}
-                      scrollToRow={-1}
-                      scrollingResetTimeInterval={150}
-                      style={Object {}}
-                      tabIndex={0}
-                      width={0}
-                    >
-                      <div
-                        aria-label="grid"
-                        aria-readonly={true}
-                        className="ReactVirtualized__Grid UcastniciTable_BodyGrid"
-                        onScroll={[Function]}
-                        role="grid"
-                        style={
-                          Object {
-                            "WebkitOverflowScrolling": "touch",
-                            "boxSizing": "border-box",
-                            "direction": "ltr",
-                            "height": -35,
-                            "overflowX": "auto",
-                            "overflowY": "auto",
-                            "position": "relative",
-                            "width": 0,
-                            "willChange": "transform",
-                          }
-                        }
-                        tabIndex={0}
-                      />
-                    </Grid>
+                    2012
                   </div>
                 </div>
               </div>
-            </div>
-          </ScrollSync>
+            </Grid>
+          </div>
+          <div
+            style={
+              Object {
+                "height": 70,
+                "width": 250,
+              }
+            }
+          >
+            <Grid
+              aria-label="grid"
+              aria-readonly={true}
+              autoContainerWidth={false}
+              autoHeight={false}
+              autoWidth={false}
+              cellRangeRenderer={[Function]}
+              cellRenderer={[Function]}
+              className="UcastniciTable_BodyGrid"
+              columnCount={3}
+              columnWidth={[Function]}
+              columns={
+                Array [
+                  Object {
+                    "key": "prijmeni",
+                    "label": "příjmení",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "key": "jmeno",
+                    "label": "jméno",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "cellDataFormatter": [Function],
+                    "key": "2012",
+                    "sortable": false,
+                    "width": 50,
+                  },
+                ]
+              }
+              containerHeight={500}
+              containerRole="rowgroup"
+              containerStyle={Object {}}
+              containerWidth={500}
+              data={
+                Array [
+                  Object {
+                    "2012": Object {
+                      "dokonceno": false,
+                    },
+                    "id": "5a09b1fd371dec1e99b7e1c9",
+                    "jmeno": "Roman",
+                    "prijmeni": "Balabák",
+                  },
+                  Object {
+                    "2012": Object {
+                      "dokonceno": true,
+                      "kategorie": "maraton",
+                    },
+                    "id": "6f09b1fd371dec1e99b7e1c9",
+                    "jmeno": "Martina",
+                    "prijmeni": "Sukdoláková",
+                  },
+                ]
+              }
+              estimatedColumnSize={100}
+              estimatedRowSize={30}
+              fixedColumnCount={2}
+              getScrollbarSize={[Function]}
+              height={70}
+              noContentRenderer={[Function]}
+              onScroll={[Function]}
+              onScrollbarPresenceChange={[Function]}
+              onSectionRendered={[Function]}
+              overscanColumnCount={0}
+              overscanIndicesGetter={[Function]}
+              overscanRowCount={5}
+              role="grid"
+              rowCount={2}
+              rowHeight={35}
+              scrollToAlignment="auto"
+              scrollToColumn={-1}
+              scrollToRow={-1}
+              scrollingResetTimeInterval={150}
+              style={Object {}}
+              tabIndex={0}
+              width={250}
+            >
+              <div
+                aria-label="grid"
+                aria-readonly={true}
+                className="ReactVirtualized__Grid UcastniciTable_BodyGrid"
+                onScroll={[Function]}
+                role="grid"
+                style={
+                  Object {
+                    "WebkitOverflowScrolling": "touch",
+                    "boxSizing": "border-box",
+                    "direction": "ltr",
+                    "height": 70,
+                    "overflowX": "hidden",
+                    "overflowY": "hidden",
+                    "position": "relative",
+                    "width": 250,
+                    "willChange": "transform",
+                  }
+                }
+                tabIndex={0}
+              >
+                <div
+                  className="ReactVirtualized__Grid__innerScrollContainer"
+                  role="rowgroup"
+                  style={
+                    Object {
+                      "height": 70,
+                      "maxHeight": 70,
+                      "maxWidth": 250,
+                      "overflow": "hidden",
+                      "pointerEvents": "",
+                      "position": "relative",
+                      "width": 250,
+                    }
+                  }
+                >
+                  <div
+                    className="UcastniciTable_oddRow UcastniciTable_cell"
+                    key="0-2"
+                    style={
+                      Object {
+                        "height": 35,
+                        "left": 200,
+                        "position": "absolute",
+                        "top": 0,
+                        "width": 50,
+                      }
+                    }
+                  />
+                  <div
+                    className="UcastniciTable_evenRow UcastniciTable_cell"
+                    key="1-2"
+                    style={
+                      Object {
+                        "height": 35,
+                        "left": 200,
+                        "position": "absolute",
+                        "top": 35,
+                        "width": 50,
+                      }
+                    }
+                  >
+                    <undefined />
+                  </div>
+                </div>
+              </div>
+            </Grid>
+          </div>
         </div>
-      </AutoSizer>
+      </div>
     </div>
-  </UcastniciTable>
-</div>
+  </ScrollSync>
+</UcastniciTable>
 `;
 
 exports[`dva účastníci, řazeno dle příjmení 1`] = `
-<div
-  height={200}
-  width={200}
+<UcastniciTable
+  columns={
+    Array [
+      Object {
+        "key": "prijmeni",
+        "label": "příjmení",
+        "sortable": true,
+        "width": 100,
+      },
+      Object {
+        "key": "jmeno",
+        "label": "jméno",
+        "sortable": true,
+        "width": 100,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "key": "2012",
+        "sortable": false,
+        "width": 50,
+      },
+    ]
+  }
+  containerHeight={500}
+  containerWidth={200}
+  data={
+    Array [
+      Object {
+        "2012": Object {
+          "dokonceno": false,
+        },
+        "id": "5a09b1fd371dec1e99b7e1c9",
+        "jmeno": "Roman",
+        "prijmeni": "Balabák",
+      },
+      Object {
+        "2012": Object {
+          "dokonceno": true,
+          "kategorie": "maraton",
+        },
+        "id": "6f09b1fd371dec1e99b7e1c9",
+        "jmeno": "Martina",
+        "prijmeni": "Sukdoláková",
+      },
+    ]
+  }
+  fixedColumnCount={2}
+  onSortDirChange={[Function]}
+  rowHeight={35}
+  sortColumn="prijmeni"
+  sortDir="asc"
 >
-  <UcastniciTable
+  <ScrollSync
     columns={
       Array [
         Object {
@@ -676,6 +864,8 @@ exports[`dva účastníci, řazeno dle příjmení 1`] = `
         },
       ]
     }
+    containerHeight={500}
+    containerWidth={200}
     data={
       Array [
         Object {
@@ -698,624 +888,662 @@ exports[`dva účastníci, řazeno dle příjmení 1`] = `
       ]
     }
     fixedColumnCount={2}
-    onSortDirChange={[Function]}
     rowHeight={35}
     sortColumn="prijmeni"
     sortDir="asc"
   >
     <div
-      className="UcastniciTable-div"
+      className="UcastniciTable_GridRow"
     >
-      <AutoSizer
-        disableHeight={false}
-        disableWidth={false}
-        onResize={[Function]}
-        style={Object {}}
-      >
-        <div
-          style={
-            Object {
-              "height": 0,
-              "overflow": "visible",
-              "width": 0,
-            }
+      <div
+        className="UcastniciTable_LeftSideGridContainer"
+        style={
+          Object {
+            "flexBasis": "200px",
+            "top": 0,
           }
+        }
+      >
+        <Grid
+          aria-label="grid"
+          aria-readonly={true}
+          autoContainerWidth={false}
+          autoHeight={false}
+          autoWidth={false}
+          cellRangeRenderer={[Function]}
+          cellRenderer={[Function]}
+          className="UcastniciTable_HeaderGrid"
+          columnCount={2}
+          columnWidth={[Function]}
+          columns={
+            Array [
+              Object {
+                "key": "prijmeni",
+                "label": "příjmení",
+                "sortable": true,
+                "width": 100,
+              },
+              Object {
+                "key": "jmeno",
+                "label": "jméno",
+                "sortable": true,
+                "width": 100,
+              },
+              Object {
+                "cellDataFormatter": [Function],
+                "key": "2012",
+                "sortable": false,
+                "width": 50,
+              },
+            ]
+          }
+          containerHeight={500}
+          containerRole="rowgroup"
+          containerStyle={Object {}}
+          containerWidth={200}
+          data={
+            Array [
+              Object {
+                "2012": Object {
+                  "dokonceno": false,
+                },
+                "id": "5a09b1fd371dec1e99b7e1c9",
+                "jmeno": "Roman",
+                "prijmeni": "Balabák",
+              },
+              Object {
+                "2012": Object {
+                  "dokonceno": true,
+                  "kategorie": "maraton",
+                },
+                "id": "6f09b1fd371dec1e99b7e1c9",
+                "jmeno": "Martina",
+                "prijmeni": "Sukdoláková",
+              },
+            ]
+          }
+          estimatedColumnSize={100}
+          estimatedRowSize={30}
+          fixedColumnCount={2}
+          getScrollbarSize={[Function]}
+          height={35}
+          noContentRenderer={[Function]}
+          onScroll={[Function]}
+          onScrollbarPresenceChange={[Function]}
+          onSectionRendered={[Function]}
+          overscanColumnCount={0}
+          overscanIndicesGetter={[Function]}
+          overscanRowCount={10}
+          role="grid"
+          rowCount={1}
+          rowHeight={35}
+          scrollToAlignment="auto"
+          scrollToColumn={-1}
+          scrollToRow={-1}
+          scrollingResetTimeInterval={150}
+          sortColumn="prijmeni"
+          sortDir="asc"
+          style={Object {}}
+          tabIndex={0}
+          width={200}
         >
-          <ScrollSync
-            columns={
-              Array [
-                Object {
-                  "key": "prijmeni",
-                  "label": "příjmení",
-                  "sortable": true,
-                  "width": 100,
-                },
-                Object {
-                  "key": "jmeno",
-                  "label": "jméno",
-                  "sortable": true,
-                  "width": 100,
-                },
-                Object {
-                  "cellDataFormatter": [Function],
-                  "key": "2012",
-                  "sortable": false,
-                  "width": 50,
-                },
-              ]
+          <div
+            aria-label="grid"
+            aria-readonly={true}
+            className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
+            onScroll={[Function]}
+            role="grid"
+            style={
+              Object {
+                "WebkitOverflowScrolling": "touch",
+                "boxSizing": "border-box",
+                "direction": "ltr",
+                "height": 35,
+                "overflowX": "hidden",
+                "overflowY": "hidden",
+                "position": "relative",
+                "width": 200,
+                "willChange": "transform",
+              }
             }
-            data={
-              Array [
-                Object {
-                  "2012": Object {
-                    "dokonceno": false,
-                  },
-                  "id": "5a09b1fd371dec1e99b7e1c9",
-                  "jmeno": "Roman",
-                  "prijmeni": "Balabák",
-                },
-                Object {
-                  "2012": Object {
-                    "dokonceno": true,
-                    "kategorie": "maraton",
-                  },
-                  "id": "6f09b1fd371dec1e99b7e1c9",
-                  "jmeno": "Martina",
-                  "prijmeni": "Sukdoláková",
-                },
-              ]
-            }
-            fixedColumnCount={2}
-            rowHeight={35}
-            sortColumn="prijmeni"
-            sortDir="asc"
+            tabIndex={0}
           >
             <div
-              className="UcastniciTable_GridRow"
+              className="ReactVirtualized__Grid__innerScrollContainer"
+              role="rowgroup"
+              style={
+                Object {
+                  "height": 35,
+                  "maxHeight": 35,
+                  "maxWidth": 200,
+                  "overflow": "hidden",
+                  "pointerEvents": "",
+                  "position": "relative",
+                  "width": 200,
+                }
+              }
             >
               <div
-                className="UcastniciTable_LeftSideGridContainer"
+                className="UcastniciTable_headerCell"
+                key="0-0"
                 style={
                   Object {
-                    "flexBasis": "200px",
+                    "height": 35,
+                    "left": 0,
+                    "position": "absolute",
                     "top": 0,
+                    "width": 100,
                   }
                 }
               >
-                <Grid
-                  aria-label="grid"
-                  aria-readonly={true}
-                  autoContainerWidth={false}
-                  autoHeight={false}
-                  autoWidth={false}
-                  cellRangeRenderer={[Function]}
-                  cellRenderer={[Function]}
-                  className="UcastniciTable_HeaderGrid"
-                  columnCount={2}
-                  columnWidth={[Function]}
-                  columns={
-                    Array [
-                      Object {
-                        "key": "prijmeni",
-                        "label": "příjmení",
-                        "sortable": true,
-                        "width": 100,
-                      },
-                      Object {
-                        "key": "jmeno",
-                        "label": "jméno",
-                        "sortable": true,
-                        "width": 100,
-                      },
-                      Object {
-                        "cellDataFormatter": [Function],
-                        "key": "2012",
-                        "sortable": false,
-                        "width": 50,
-                      },
-                    ]
-                  }
-                  containerRole="rowgroup"
-                  containerStyle={Object {}}
-                  data={
-                    Array [
-                      Object {
-                        "2012": Object {
-                          "dokonceno": false,
-                        },
-                        "id": "5a09b1fd371dec1e99b7e1c9",
-                        "jmeno": "Roman",
-                        "prijmeni": "Balabák",
-                      },
-                      Object {
-                        "2012": Object {
-                          "dokonceno": true,
-                          "kategorie": "maraton",
-                        },
-                        "id": "6f09b1fd371dec1e99b7e1c9",
-                        "jmeno": "Martina",
-                        "prijmeni": "Sukdoláková",
-                      },
-                    ]
-                  }
-                  estimatedColumnSize={100}
-                  estimatedRowSize={30}
-                  fixedColumnCount={2}
-                  getScrollbarSize={[Function]}
-                  height={35}
-                  noContentRenderer={[Function]}
-                  onScroll={[Function]}
-                  onScrollbarPresenceChange={[Function]}
-                  onSectionRendered={[Function]}
-                  overscanColumnCount={0}
-                  overscanIndicesGetter={[Function]}
-                  overscanRowCount={10}
-                  role="grid"
-                  rowCount={1}
-                  rowHeight={35}
-                  scrollToAlignment="auto"
-                  scrollToColumn={-1}
-                  scrollToRow={-1}
-                  scrollingResetTimeInterval={150}
-                  sortColumn="prijmeni"
+                <SortHeader
+                  onClick={[Function]}
                   sortDir="asc"
-                  style={Object {}}
-                  tabIndex={0}
-                  width={200}
                 >
-                  <div
-                    aria-label="grid"
-                    aria-readonly={true}
-                    className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
-                    onScroll={[Function]}
-                    role="grid"
-                    style={
-                      Object {
-                        "WebkitOverflowScrolling": "touch",
-                        "boxSizing": "border-box",
-                        "direction": "ltr",
-                        "height": 35,
-                        "overflowX": "hidden",
-                        "overflowY": "hidden",
-                        "position": "relative",
-                        "width": 200,
-                        "willChange": "transform",
-                      }
-                    }
-                    tabIndex={0}
+                  <a
+                    className="SortHeader_a"
+                    onClick={[Function]}
                   >
-                    <div
-                      className="ReactVirtualized__Grid__innerScrollContainer"
-                      role="rowgroup"
-                      style={
-                        Object {
-                          "height": 35,
-                          "maxHeight": 35,
-                          "maxWidth": 200,
-                          "overflow": "hidden",
-                          "pointerEvents": "",
-                          "position": "relative",
-                          "width": 200,
-                        }
-                      }
-                    >
-                      <div
-                        className="UcastniciTable_headerCell"
-                        key="0-0"
-                        style={
-                          Object {
-                            "height": 35,
-                            "left": 0,
-                            "position": "absolute",
-                            "top": 0,
-                            "width": 100,
-                          }
-                        }
-                      >
-                        <SortHeader
-                          onClick={[Function]}
-                          sortDir="asc"
-                        >
-                          <a
-                            className="SortHeader_a"
-                            onClick={[Function]}
-                          >
-                            příjmení
-                             
-                            ↑
-                          </a>
-                        </SortHeader>
-                      </div>
-                      <div
-                        className="UcastniciTable_headerCell"
-                        key="0-1"
-                        style={
-                          Object {
-                            "height": 35,
-                            "left": 100,
-                            "position": "absolute",
-                            "top": 0,
-                            "width": 100,
-                          }
-                        }
-                      >
-                        <SortHeader
-                          onClick={[Function]}
-                          sortDir="none"
-                        >
-                          <a
-                            className="SortHeader_a"
-                            onClick={[Function]}
-                          >
-                            jméno
-                             
-                          </a>
-                        </SortHeader>
-                      </div>
-                    </div>
-                  </div>
-                </Grid>
+                    příjmení
+                     
+                    ↑
+                  </a>
+                </SortHeader>
               </div>
               <div
-                className="UcastniciTable_LeftSideGridContainer"
+                className="UcastniciTable_headerCell"
+                key="0-1"
                 style={
                   Object {
-                    "flexBasis": "200px",
-                    "top": 35,
+                    "height": 35,
+                    "left": 100,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": 100,
                   }
                 }
               >
-                <Grid
-                  aria-label="grid"
-                  aria-readonly={true}
-                  autoContainerWidth={false}
-                  autoHeight={false}
-                  autoWidth={false}
-                  cellRangeRenderer={[Function]}
-                  cellRenderer={[Function]}
-                  className="UcastniciTable_LeftSideGrid"
-                  columnCount={2}
-                  columnWidth={[Function]}
-                  columns={
-                    Array [
-                      Object {
-                        "key": "prijmeni",
-                        "label": "příjmení",
-                        "sortable": true,
-                        "width": 100,
-                      },
-                      Object {
-                        "key": "jmeno",
-                        "label": "jméno",
-                        "sortable": true,
-                        "width": 100,
-                      },
-                      Object {
-                        "cellDataFormatter": [Function],
-                        "key": "2012",
-                        "sortable": false,
-                        "width": 50,
-                      },
-                    ]
-                  }
-                  containerRole="rowgroup"
-                  containerStyle={Object {}}
-                  data={
-                    Array [
-                      Object {
-                        "2012": Object {
-                          "dokonceno": false,
-                        },
-                        "id": "5a09b1fd371dec1e99b7e1c9",
-                        "jmeno": "Roman",
-                        "prijmeni": "Balabák",
-                      },
-                      Object {
-                        "2012": Object {
-                          "dokonceno": true,
-                          "kategorie": "maraton",
-                        },
-                        "id": "6f09b1fd371dec1e99b7e1c9",
-                        "jmeno": "Martina",
-                        "prijmeni": "Sukdoláková",
-                      },
-                    ]
-                  }
-                  estimatedColumnSize={100}
-                  estimatedRowSize={30}
-                  fixedColumnCount={2}
-                  getScrollbarSize={[Function]}
-                  height={-35}
-                  noContentRenderer={[Function]}
-                  onScroll={[Function]}
-                  onScrollbarPresenceChange={[Function]}
-                  onSectionRendered={[Function]}
-                  overscanColumnCount={0}
-                  overscanIndicesGetter={[Function]}
-                  overscanRowCount={5}
-                  role="grid"
-                  rowCount={2}
-                  rowHeight={35}
-                  scrollToAlignment="auto"
-                  scrollToColumn={-1}
-                  scrollToRow={-1}
-                  scrollTop={0}
-                  scrollingResetTimeInterval={150}
-                  sortColumn="prijmeni"
-                  sortDir="asc"
-                  style={Object {}}
-                  tabIndex={0}
-                  width={200}
+                <SortHeader
+                  onClick={[Function]}
+                  sortDir="none"
                 >
-                  <div
-                    aria-label="grid"
-                    aria-readonly={true}
-                    className="ReactVirtualized__Grid UcastniciTable_LeftSideGrid"
-                    onScroll={[Function]}
-                    role="grid"
-                    style={
-                      Object {
-                        "WebkitOverflowScrolling": "touch",
-                        "boxSizing": "border-box",
-                        "direction": "ltr",
-                        "height": -35,
-                        "overflowX": "hidden",
-                        "overflowY": "auto",
-                        "position": "relative",
-                        "width": 200,
-                        "willChange": "transform",
-                      }
-                    }
-                    tabIndex={0}
-                  />
-                </Grid>
-              </div>
-              <div
-                className="UcastniciTable_GridColumn"
-              >
-                <div>
-                  <div
-                    style={
-                      Object {
-                        "height": 35,
-                        "width": -200,
-                      }
-                    }
+                  <a
+                    className="SortHeader_a"
+                    onClick={[Function]}
                   >
-                    <Grid
-                      aria-label="grid"
-                      aria-readonly={true}
-                      autoContainerWidth={false}
-                      autoHeight={false}
-                      autoWidth={false}
-                      cellRangeRenderer={[Function]}
-                      cellRenderer={[Function]}
-                      className="UcastniciTable_HeaderGrid"
-                      columnCount={3}
-                      columnWidth={[Function]}
-                      columns={
-                        Array [
-                          Object {
-                            "key": "prijmeni",
-                            "label": "příjmení",
-                            "sortable": true,
-                            "width": 100,
-                          },
-                          Object {
-                            "key": "jmeno",
-                            "label": "jméno",
-                            "sortable": true,
-                            "width": 100,
-                          },
-                          Object {
-                            "cellDataFormatter": [Function],
-                            "key": "2012",
-                            "sortable": false,
-                            "width": 50,
-                          },
-                        ]
-                      }
-                      containerRole="rowgroup"
-                      containerStyle={Object {}}
-                      data={
-                        Array [
-                          Object {
-                            "2012": Object {
-                              "dokonceno": false,
-                            },
-                            "id": "5a09b1fd371dec1e99b7e1c9",
-                            "jmeno": "Roman",
-                            "prijmeni": "Balabák",
-                          },
-                          Object {
-                            "2012": Object {
-                              "dokonceno": true,
-                              "kategorie": "maraton",
-                            },
-                            "id": "6f09b1fd371dec1e99b7e1c9",
-                            "jmeno": "Martina",
-                            "prijmeni": "Sukdoláková",
-                          },
-                        ]
-                      }
-                      estimatedColumnSize={100}
-                      estimatedRowSize={30}
-                      fixedColumnCount={2}
-                      getScrollbarSize={[Function]}
-                      height={35}
-                      noContentRenderer={[Function]}
-                      onScroll={[Function]}
-                      onScrollbarPresenceChange={[Function]}
-                      onSectionRendered={[Function]}
-                      overscanColumnCount={0}
-                      overscanIndicesGetter={[Function]}
-                      overscanRowCount={10}
-                      role="grid"
-                      rowCount={1}
-                      rowHeight={35}
-                      scrollLeft={0}
-                      scrollToAlignment="auto"
-                      scrollToColumn={-1}
-                      scrollToRow={-1}
-                      scrollingResetTimeInterval={150}
-                      sortColumn="prijmeni"
-                      sortDir="asc"
-                      style={Object {}}
-                      tabIndex={0}
-                      width={0}
-                    >
-                      <div
-                        aria-label="grid"
-                        aria-readonly={true}
-                        className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
-                        onScroll={[Function]}
-                        role="grid"
-                        style={
-                          Object {
-                            "WebkitOverflowScrolling": "touch",
-                            "boxSizing": "border-box",
-                            "direction": "ltr",
-                            "height": 35,
-                            "overflowX": "auto",
-                            "overflowY": "hidden",
-                            "position": "relative",
-                            "width": 0,
-                            "willChange": "transform",
-                          }
-                        }
-                        tabIndex={0}
-                      />
-                    </Grid>
-                  </div>
-                  <div
-                    style={
-                      Object {
-                        "height": -35,
-                        "width": 0,
-                      }
-                    }
-                  >
-                    <Grid
-                      aria-label="grid"
-                      aria-readonly={true}
-                      autoContainerWidth={false}
-                      autoHeight={false}
-                      autoWidth={false}
-                      cellRangeRenderer={[Function]}
-                      cellRenderer={[Function]}
-                      className="UcastniciTable_BodyGrid"
-                      columnCount={3}
-                      columnWidth={[Function]}
-                      columns={
-                        Array [
-                          Object {
-                            "key": "prijmeni",
-                            "label": "příjmení",
-                            "sortable": true,
-                            "width": 100,
-                          },
-                          Object {
-                            "key": "jmeno",
-                            "label": "jméno",
-                            "sortable": true,
-                            "width": 100,
-                          },
-                          Object {
-                            "cellDataFormatter": [Function],
-                            "key": "2012",
-                            "sortable": false,
-                            "width": 50,
-                          },
-                        ]
-                      }
-                      containerRole="rowgroup"
-                      containerStyle={Object {}}
-                      data={
-                        Array [
-                          Object {
-                            "2012": Object {
-                              "dokonceno": false,
-                            },
-                            "id": "5a09b1fd371dec1e99b7e1c9",
-                            "jmeno": "Roman",
-                            "prijmeni": "Balabák",
-                          },
-                          Object {
-                            "2012": Object {
-                              "dokonceno": true,
-                              "kategorie": "maraton",
-                            },
-                            "id": "6f09b1fd371dec1e99b7e1c9",
-                            "jmeno": "Martina",
-                            "prijmeni": "Sukdoláková",
-                          },
-                        ]
-                      }
-                      estimatedColumnSize={100}
-                      estimatedRowSize={30}
-                      fixedColumnCount={2}
-                      getScrollbarSize={[Function]}
-                      height={-35}
-                      noContentRenderer={[Function]}
-                      onScroll={[Function]}
-                      onScrollbarPresenceChange={[Function]}
-                      onSectionRendered={[Function]}
-                      overscanColumnCount={0}
-                      overscanIndicesGetter={[Function]}
-                      overscanRowCount={5}
-                      role="grid"
-                      rowCount={2}
-                      rowHeight={35}
-                      scrollToAlignment="auto"
-                      scrollToColumn={-1}
-                      scrollToRow={-1}
-                      scrollingResetTimeInterval={150}
-                      sortColumn="prijmeni"
-                      sortDir="asc"
-                      style={Object {}}
-                      tabIndex={0}
-                      width={0}
-                    >
-                      <div
-                        aria-label="grid"
-                        aria-readonly={true}
-                        className="ReactVirtualized__Grid UcastniciTable_BodyGrid"
-                        onScroll={[Function]}
-                        role="grid"
-                        style={
-                          Object {
-                            "WebkitOverflowScrolling": "touch",
-                            "boxSizing": "border-box",
-                            "direction": "ltr",
-                            "height": -35,
-                            "overflowX": "auto",
-                            "overflowY": "auto",
-                            "position": "relative",
-                            "width": 0,
-                            "willChange": "transform",
-                          }
-                        }
-                        tabIndex={0}
-                      />
-                    </Grid>
-                  </div>
-                </div>
+                    jméno
+                     
+                  </a>
+                </SortHeader>
               </div>
             </div>
-          </ScrollSync>
+          </div>
+        </Grid>
+      </div>
+      <div
+        className="UcastniciTable_LeftSideGridContainer"
+        style={
+          Object {
+            "flexBasis": "200px",
+            "top": 35,
+          }
+        }
+      >
+        <Grid
+          aria-label="grid"
+          aria-readonly={true}
+          autoContainerWidth={false}
+          autoHeight={false}
+          autoWidth={false}
+          cellRangeRenderer={[Function]}
+          cellRenderer={[Function]}
+          className="UcastniciTable_LeftSideGrid"
+          columnCount={2}
+          columnWidth={[Function]}
+          columns={
+            Array [
+              Object {
+                "key": "prijmeni",
+                "label": "příjmení",
+                "sortable": true,
+                "width": 100,
+              },
+              Object {
+                "key": "jmeno",
+                "label": "jméno",
+                "sortable": true,
+                "width": 100,
+              },
+              Object {
+                "cellDataFormatter": [Function],
+                "key": "2012",
+                "sortable": false,
+                "width": 50,
+              },
+            ]
+          }
+          containerHeight={500}
+          containerRole="rowgroup"
+          containerStyle={Object {}}
+          containerWidth={200}
+          data={
+            Array [
+              Object {
+                "2012": Object {
+                  "dokonceno": false,
+                },
+                "id": "5a09b1fd371dec1e99b7e1c9",
+                "jmeno": "Roman",
+                "prijmeni": "Balabák",
+              },
+              Object {
+                "2012": Object {
+                  "dokonceno": true,
+                  "kategorie": "maraton",
+                },
+                "id": "6f09b1fd371dec1e99b7e1c9",
+                "jmeno": "Martina",
+                "prijmeni": "Sukdoláková",
+              },
+            ]
+          }
+          estimatedColumnSize={100}
+          estimatedRowSize={30}
+          fixedColumnCount={2}
+          getScrollbarSize={[Function]}
+          height={70}
+          noContentRenderer={[Function]}
+          onScroll={[Function]}
+          onScrollbarPresenceChange={[Function]}
+          onSectionRendered={[Function]}
+          overscanColumnCount={0}
+          overscanIndicesGetter={[Function]}
+          overscanRowCount={5}
+          role="grid"
+          rowCount={2}
+          rowHeight={35}
+          scrollToAlignment="auto"
+          scrollToColumn={-1}
+          scrollToRow={-1}
+          scrollTop={0}
+          scrollingResetTimeInterval={150}
+          sortColumn="prijmeni"
+          sortDir="asc"
+          style={Object {}}
+          tabIndex={0}
+          width={200}
+        >
+          <div
+            aria-label="grid"
+            aria-readonly={true}
+            className="ReactVirtualized__Grid UcastniciTable_LeftSideGrid"
+            onScroll={[Function]}
+            role="grid"
+            style={
+              Object {
+                "WebkitOverflowScrolling": "touch",
+                "boxSizing": "border-box",
+                "direction": "ltr",
+                "height": 70,
+                "overflowX": "hidden",
+                "overflowY": "hidden",
+                "position": "relative",
+                "width": 200,
+                "willChange": "transform",
+              }
+            }
+            tabIndex={0}
+          >
+            <div
+              className="ReactVirtualized__Grid__innerScrollContainer"
+              role="rowgroup"
+              style={
+                Object {
+                  "height": 70,
+                  "maxHeight": 70,
+                  "maxWidth": 200,
+                  "overflow": "hidden",
+                  "pointerEvents": "",
+                  "position": "relative",
+                  "width": 200,
+                }
+              }
+            >
+              <div
+                className="UcastniciTable_oddRow UcastniciTable_cell"
+                key="0-0"
+                style={
+                  Object {
+                    "height": 35,
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": 100,
+                  }
+                }
+              >
+                Balabák
+              </div>
+              <div
+                className="UcastniciTable_oddRow UcastniciTable_cell"
+                key="0-1"
+                style={
+                  Object {
+                    "height": 35,
+                    "left": 100,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": 100,
+                  }
+                }
+              >
+                Roman
+              </div>
+              <div
+                className="UcastniciTable_evenRow UcastniciTable_cell"
+                key="1-0"
+                style={
+                  Object {
+                    "height": 35,
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 35,
+                    "width": 100,
+                  }
+                }
+              >
+                Sukdoláková
+              </div>
+              <div
+                className="UcastniciTable_evenRow UcastniciTable_cell"
+                key="1-1"
+                style={
+                  Object {
+                    "height": 35,
+                    "left": 100,
+                    "position": "absolute",
+                    "top": 35,
+                    "width": 100,
+                  }
+                }
+              >
+                Martina
+              </div>
+            </div>
+          </div>
+        </Grid>
+      </div>
+      <div
+        className="UcastniciTable_GridColumn"
+      >
+        <div>
+          <div
+            style={
+              Object {
+                "height": 35,
+                "width": 0,
+              }
+            }
+          >
+            <Grid
+              aria-label="grid"
+              aria-readonly={true}
+              autoContainerWidth={false}
+              autoHeight={false}
+              autoWidth={false}
+              cellRangeRenderer={[Function]}
+              cellRenderer={[Function]}
+              className="UcastniciTable_HeaderGrid"
+              columnCount={3}
+              columnWidth={[Function]}
+              columns={
+                Array [
+                  Object {
+                    "key": "prijmeni",
+                    "label": "příjmení",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "key": "jmeno",
+                    "label": "jméno",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "cellDataFormatter": [Function],
+                    "key": "2012",
+                    "sortable": false,
+                    "width": 50,
+                  },
+                ]
+              }
+              containerHeight={500}
+              containerRole="rowgroup"
+              containerStyle={Object {}}
+              containerWidth={200}
+              data={
+                Array [
+                  Object {
+                    "2012": Object {
+                      "dokonceno": false,
+                    },
+                    "id": "5a09b1fd371dec1e99b7e1c9",
+                    "jmeno": "Roman",
+                    "prijmeni": "Balabák",
+                  },
+                  Object {
+                    "2012": Object {
+                      "dokonceno": true,
+                      "kategorie": "maraton",
+                    },
+                    "id": "6f09b1fd371dec1e99b7e1c9",
+                    "jmeno": "Martina",
+                    "prijmeni": "Sukdoláková",
+                  },
+                ]
+              }
+              estimatedColumnSize={100}
+              estimatedRowSize={30}
+              fixedColumnCount={2}
+              getScrollbarSize={[Function]}
+              height={35}
+              noContentRenderer={[Function]}
+              onScroll={[Function]}
+              onScrollbarPresenceChange={[Function]}
+              onSectionRendered={[Function]}
+              overscanColumnCount={0}
+              overscanIndicesGetter={[Function]}
+              overscanRowCount={10}
+              role="grid"
+              rowCount={1}
+              rowHeight={35}
+              scrollLeft={0}
+              scrollToAlignment="auto"
+              scrollToColumn={-1}
+              scrollToRow={-1}
+              scrollingResetTimeInterval={150}
+              sortColumn="prijmeni"
+              sortDir="asc"
+              style={Object {}}
+              tabIndex={0}
+              width={200}
+            >
+              <div
+                aria-label="grid"
+                aria-readonly={true}
+                className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
+                onScroll={[Function]}
+                role="grid"
+                style={
+                  Object {
+                    "WebkitOverflowScrolling": "touch",
+                    "boxSizing": "border-box",
+                    "direction": "ltr",
+                    "height": 35,
+                    "overflowX": "auto",
+                    "overflowY": "hidden",
+                    "position": "relative",
+                    "width": 200,
+                    "willChange": "transform",
+                  }
+                }
+                tabIndex={0}
+              />
+            </Grid>
+          </div>
+          <div
+            style={
+              Object {
+                "height": 70,
+                "width": 200,
+              }
+            }
+          >
+            <Grid
+              aria-label="grid"
+              aria-readonly={true}
+              autoContainerWidth={false}
+              autoHeight={false}
+              autoWidth={false}
+              cellRangeRenderer={[Function]}
+              cellRenderer={[Function]}
+              className="UcastniciTable_BodyGrid"
+              columnCount={3}
+              columnWidth={[Function]}
+              columns={
+                Array [
+                  Object {
+                    "key": "prijmeni",
+                    "label": "příjmení",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "key": "jmeno",
+                    "label": "jméno",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "cellDataFormatter": [Function],
+                    "key": "2012",
+                    "sortable": false,
+                    "width": 50,
+                  },
+                ]
+              }
+              containerHeight={500}
+              containerRole="rowgroup"
+              containerStyle={Object {}}
+              containerWidth={200}
+              data={
+                Array [
+                  Object {
+                    "2012": Object {
+                      "dokonceno": false,
+                    },
+                    "id": "5a09b1fd371dec1e99b7e1c9",
+                    "jmeno": "Roman",
+                    "prijmeni": "Balabák",
+                  },
+                  Object {
+                    "2012": Object {
+                      "dokonceno": true,
+                      "kategorie": "maraton",
+                    },
+                    "id": "6f09b1fd371dec1e99b7e1c9",
+                    "jmeno": "Martina",
+                    "prijmeni": "Sukdoláková",
+                  },
+                ]
+              }
+              estimatedColumnSize={100}
+              estimatedRowSize={30}
+              fixedColumnCount={2}
+              getScrollbarSize={[Function]}
+              height={70}
+              noContentRenderer={[Function]}
+              onScroll={[Function]}
+              onScrollbarPresenceChange={[Function]}
+              onSectionRendered={[Function]}
+              overscanColumnCount={0}
+              overscanIndicesGetter={[Function]}
+              overscanRowCount={5}
+              role="grid"
+              rowCount={2}
+              rowHeight={35}
+              scrollToAlignment="auto"
+              scrollToColumn={-1}
+              scrollToRow={-1}
+              scrollingResetTimeInterval={150}
+              sortColumn="prijmeni"
+              sortDir="asc"
+              style={Object {}}
+              tabIndex={0}
+              width={200}
+            >
+              <div
+                aria-label="grid"
+                aria-readonly={true}
+                className="ReactVirtualized__Grid UcastniciTable_BodyGrid"
+                onScroll={[Function]}
+                role="grid"
+                style={
+                  Object {
+                    "WebkitOverflowScrolling": "touch",
+                    "boxSizing": "border-box",
+                    "direction": "ltr",
+                    "height": 70,
+                    "overflowX": "auto",
+                    "overflowY": "hidden",
+                    "position": "relative",
+                    "width": 200,
+                    "willChange": "transform",
+                  }
+                }
+                tabIndex={0}
+              />
+            </Grid>
+          </div>
         </div>
-      </AutoSizer>
+      </div>
     </div>
-  </UcastniciTable>
-</div>
+  </ScrollSync>
+</UcastniciTable>
 `;
 
 exports[`žádná data 1`] = `
-<div
-  height={500}
-  width={500}
+<UcastniciTable
+  columns={
+    Array [
+      Object {
+        "key": "prijmeni",
+        "label": "příjmení",
+        "sortable": true,
+        "width": 100,
+      },
+      Object {
+        "key": "jmeno",
+        "label": "jméno",
+        "sortable": true,
+        "width": 100,
+      },
+      Object {
+        "cellDataFormatter": [Function],
+        "key": "2012",
+        "sortable": false,
+        "width": 50,
+      },
+    ]
+  }
+  containerHeight={500}
+  containerWidth={500}
+  data={Array []}
+  fixedColumnCount={2}
+  rowHeight={35}
 >
-  <UcastniciTable
+  <ScrollSync
     columns={
       Array [
         Object {
@@ -1338,502 +1566,495 @@ exports[`žádná data 1`] = `
         },
       ]
     }
+    containerHeight={500}
+    containerWidth={500}
     data={Array []}
     fixedColumnCount={2}
     rowHeight={35}
   >
     <div
-      className="UcastniciTable-div"
+      className="UcastniciTable_GridRow"
     >
-      <AutoSizer
-        disableHeight={false}
-        disableWidth={false}
-        onResize={[Function]}
-        style={Object {}}
-      >
-        <div
-          style={
-            Object {
-              "height": 0,
-              "overflow": "visible",
-              "width": 0,
-            }
+      <div
+        className="UcastniciTable_LeftSideGridContainer"
+        style={
+          Object {
+            "flexBasis": "200px",
+            "top": 0,
           }
+        }
+      >
+        <Grid
+          aria-label="grid"
+          aria-readonly={true}
+          autoContainerWidth={false}
+          autoHeight={false}
+          autoWidth={false}
+          cellRangeRenderer={[Function]}
+          cellRenderer={[Function]}
+          className="UcastniciTable_HeaderGrid"
+          columnCount={2}
+          columnWidth={[Function]}
+          columns={
+            Array [
+              Object {
+                "key": "prijmeni",
+                "label": "příjmení",
+                "sortable": true,
+                "width": 100,
+              },
+              Object {
+                "key": "jmeno",
+                "label": "jméno",
+                "sortable": true,
+                "width": 100,
+              },
+              Object {
+                "cellDataFormatter": [Function],
+                "key": "2012",
+                "sortable": false,
+                "width": 50,
+              },
+            ]
+          }
+          containerHeight={500}
+          containerRole="rowgroup"
+          containerStyle={Object {}}
+          containerWidth={500}
+          data={Array []}
+          estimatedColumnSize={100}
+          estimatedRowSize={30}
+          fixedColumnCount={2}
+          getScrollbarSize={[Function]}
+          height={35}
+          noContentRenderer={[Function]}
+          onScroll={[Function]}
+          onScrollbarPresenceChange={[Function]}
+          onSectionRendered={[Function]}
+          overscanColumnCount={0}
+          overscanIndicesGetter={[Function]}
+          overscanRowCount={10}
+          role="grid"
+          rowCount={1}
+          rowHeight={35}
+          scrollToAlignment="auto"
+          scrollToColumn={-1}
+          scrollToRow={-1}
+          scrollingResetTimeInterval={150}
+          style={Object {}}
+          tabIndex={0}
+          width={200}
         >
-          <ScrollSync
-            columns={
-              Array [
-                Object {
-                  "key": "prijmeni",
-                  "label": "příjmení",
-                  "sortable": true,
-                  "width": 100,
-                },
-                Object {
-                  "key": "jmeno",
-                  "label": "jméno",
-                  "sortable": true,
-                  "width": 100,
-                },
-                Object {
-                  "cellDataFormatter": [Function],
-                  "key": "2012",
-                  "sortable": false,
-                  "width": 50,
-                },
-              ]
+          <div
+            aria-label="grid"
+            aria-readonly={true}
+            className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
+            onScroll={[Function]}
+            role="grid"
+            style={
+              Object {
+                "WebkitOverflowScrolling": "touch",
+                "boxSizing": "border-box",
+                "direction": "ltr",
+                "height": 35,
+                "overflowX": "hidden",
+                "overflowY": "hidden",
+                "position": "relative",
+                "width": 200,
+                "willChange": "transform",
+              }
             }
-            data={Array []}
-            fixedColumnCount={2}
-            rowHeight={35}
+            tabIndex={0}
           >
             <div
-              className="UcastniciTable_GridRow"
+              className="ReactVirtualized__Grid__innerScrollContainer"
+              role="rowgroup"
+              style={
+                Object {
+                  "height": 35,
+                  "maxHeight": 35,
+                  "maxWidth": 200,
+                  "overflow": "hidden",
+                  "pointerEvents": "",
+                  "position": "relative",
+                  "width": 200,
+                }
+              }
             >
               <div
-                className="UcastniciTable_LeftSideGridContainer"
+                className="UcastniciTable_headerCell"
+                key="0-0"
                 style={
                   Object {
-                    "flexBasis": "200px",
+                    "height": 35,
+                    "left": 0,
+                    "position": "absolute",
                     "top": 0,
+                    "width": 100,
                   }
                 }
               >
-                <Grid
-                  aria-label="grid"
-                  aria-readonly={true}
-                  autoContainerWidth={false}
-                  autoHeight={false}
-                  autoWidth={false}
-                  cellRangeRenderer={[Function]}
-                  cellRenderer={[Function]}
-                  className="UcastniciTable_HeaderGrid"
-                  columnCount={2}
-                  columnWidth={[Function]}
-                  columns={
-                    Array [
-                      Object {
-                        "key": "prijmeni",
-                        "label": "příjmení",
-                        "sortable": true,
-                        "width": 100,
-                      },
-                      Object {
-                        "key": "jmeno",
-                        "label": "jméno",
-                        "sortable": true,
-                        "width": 100,
-                      },
-                      Object {
-                        "cellDataFormatter": [Function],
-                        "key": "2012",
-                        "sortable": false,
-                        "width": 50,
-                      },
-                    ]
-                  }
-                  containerRole="rowgroup"
-                  containerStyle={Object {}}
-                  data={Array []}
-                  estimatedColumnSize={100}
-                  estimatedRowSize={30}
-                  fixedColumnCount={2}
-                  getScrollbarSize={[Function]}
-                  height={35}
-                  noContentRenderer={[Function]}
-                  onScroll={[Function]}
-                  onScrollbarPresenceChange={[Function]}
-                  onSectionRendered={[Function]}
-                  overscanColumnCount={0}
-                  overscanIndicesGetter={[Function]}
-                  overscanRowCount={10}
-                  role="grid"
-                  rowCount={1}
-                  rowHeight={35}
-                  scrollToAlignment="auto"
-                  scrollToColumn={-1}
-                  scrollToRow={-1}
-                  scrollingResetTimeInterval={150}
-                  style={Object {}}
-                  tabIndex={0}
-                  width={200}
+                <SortHeader
+                  onClick={[Function]}
+                  sortDir="none"
                 >
-                  <div
-                    aria-label="grid"
-                    aria-readonly={true}
-                    className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
-                    onScroll={[Function]}
-                    role="grid"
-                    style={
-                      Object {
-                        "WebkitOverflowScrolling": "touch",
-                        "boxSizing": "border-box",
-                        "direction": "ltr",
-                        "height": 35,
-                        "overflowX": "hidden",
-                        "overflowY": "hidden",
-                        "position": "relative",
-                        "width": 200,
-                        "willChange": "transform",
-                      }
-                    }
-                    tabIndex={0}
+                  <a
+                    className="SortHeader_a"
+                    onClick={[Function]}
                   >
-                    <div
-                      className="ReactVirtualized__Grid__innerScrollContainer"
-                      role="rowgroup"
-                      style={
-                        Object {
-                          "height": 35,
-                          "maxHeight": 35,
-                          "maxWidth": 200,
-                          "overflow": "hidden",
-                          "pointerEvents": "",
-                          "position": "relative",
-                          "width": 200,
-                        }
-                      }
-                    >
-                      <div
-                        className="UcastniciTable_headerCell"
-                        key="0-0"
-                        style={
-                          Object {
-                            "height": 35,
-                            "left": 0,
-                            "position": "absolute",
-                            "top": 0,
-                            "width": 100,
-                          }
-                        }
-                      >
-                        <SortHeader
-                          onClick={[Function]}
-                          sortDir="none"
-                        >
-                          <a
-                            className="SortHeader_a"
-                            onClick={[Function]}
-                          >
-                            příjmení
-                             
-                          </a>
-                        </SortHeader>
-                      </div>
-                      <div
-                        className="UcastniciTable_headerCell"
-                        key="0-1"
-                        style={
-                          Object {
-                            "height": 35,
-                            "left": 100,
-                            "position": "absolute",
-                            "top": 0,
-                            "width": 100,
-                          }
-                        }
-                      >
-                        <SortHeader
-                          onClick={[Function]}
-                          sortDir="none"
-                        >
-                          <a
-                            className="SortHeader_a"
-                            onClick={[Function]}
-                          >
-                            jméno
-                             
-                          </a>
-                        </SortHeader>
-                      </div>
-                    </div>
-                  </div>
-                </Grid>
+                    příjmení
+                     
+                  </a>
+                </SortHeader>
               </div>
               <div
-                className="UcastniciTable_LeftSideGridContainer"
+                className="UcastniciTable_headerCell"
+                key="0-1"
                 style={
                   Object {
-                    "flexBasis": "200px",
-                    "top": 35,
+                    "height": 35,
+                    "left": 100,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": 100,
                   }
                 }
               >
-                <Grid
-                  aria-label="grid"
-                  aria-readonly={true}
-                  autoContainerWidth={false}
-                  autoHeight={false}
-                  autoWidth={false}
-                  cellRangeRenderer={[Function]}
-                  cellRenderer={[Function]}
-                  className="UcastniciTable_LeftSideGrid"
-                  columnCount={2}
-                  columnWidth={[Function]}
-                  columns={
-                    Array [
-                      Object {
-                        "key": "prijmeni",
-                        "label": "příjmení",
-                        "sortable": true,
-                        "width": 100,
-                      },
-                      Object {
-                        "key": "jmeno",
-                        "label": "jméno",
-                        "sortable": true,
-                        "width": 100,
-                      },
-                      Object {
-                        "cellDataFormatter": [Function],
-                        "key": "2012",
-                        "sortable": false,
-                        "width": 50,
-                      },
-                    ]
+                <SortHeader
+                  onClick={[Function]}
+                  sortDir="none"
+                >
+                  <a
+                    className="SortHeader_a"
+                    onClick={[Function]}
+                  >
+                    jméno
+                     
+                  </a>
+                </SortHeader>
+              </div>
+            </div>
+          </div>
+        </Grid>
+      </div>
+      <div
+        className="UcastniciTable_LeftSideGridContainer"
+        style={
+          Object {
+            "flexBasis": "200px",
+            "top": 35,
+          }
+        }
+      >
+        <Grid
+          aria-label="grid"
+          aria-readonly={true}
+          autoContainerWidth={false}
+          autoHeight={false}
+          autoWidth={false}
+          cellRangeRenderer={[Function]}
+          cellRenderer={[Function]}
+          className="UcastniciTable_LeftSideGrid"
+          columnCount={2}
+          columnWidth={[Function]}
+          columns={
+            Array [
+              Object {
+                "key": "prijmeni",
+                "label": "příjmení",
+                "sortable": true,
+                "width": 100,
+              },
+              Object {
+                "key": "jmeno",
+                "label": "jméno",
+                "sortable": true,
+                "width": 100,
+              },
+              Object {
+                "cellDataFormatter": [Function],
+                "key": "2012",
+                "sortable": false,
+                "width": 50,
+              },
+            ]
+          }
+          containerHeight={500}
+          containerRole="rowgroup"
+          containerStyle={Object {}}
+          containerWidth={500}
+          data={Array []}
+          estimatedColumnSize={100}
+          estimatedRowSize={30}
+          fixedColumnCount={2}
+          getScrollbarSize={[Function]}
+          height={0}
+          noContentRenderer={[Function]}
+          onScroll={[Function]}
+          onScrollbarPresenceChange={[Function]}
+          onSectionRendered={[Function]}
+          overscanColumnCount={0}
+          overscanIndicesGetter={[Function]}
+          overscanRowCount={5}
+          role="grid"
+          rowCount={0}
+          rowHeight={35}
+          scrollToAlignment="auto"
+          scrollToColumn={-1}
+          scrollToRow={-1}
+          scrollTop={0}
+          scrollingResetTimeInterval={150}
+          style={Object {}}
+          tabIndex={0}
+          width={200}
+        >
+          <div
+            aria-label="grid"
+            aria-readonly={true}
+            className="ReactVirtualized__Grid UcastniciTable_LeftSideGrid"
+            onScroll={[Function]}
+            role="grid"
+            style={
+              Object {
+                "WebkitOverflowScrolling": "touch",
+                "boxSizing": "border-box",
+                "direction": "ltr",
+                "height": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden",
+                "position": "relative",
+                "width": 200,
+                "willChange": "transform",
+              }
+            }
+            tabIndex={0}
+          />
+        </Grid>
+      </div>
+      <div
+        className="UcastniciTable_GridColumn"
+      >
+        <div>
+          <div
+            style={
+              Object {
+                "height": 35,
+                "width": 50,
+              }
+            }
+          >
+            <Grid
+              aria-label="grid"
+              aria-readonly={true}
+              autoContainerWidth={false}
+              autoHeight={false}
+              autoWidth={false}
+              cellRangeRenderer={[Function]}
+              cellRenderer={[Function]}
+              className="UcastniciTable_HeaderGrid"
+              columnCount={3}
+              columnWidth={[Function]}
+              columns={
+                Array [
+                  Object {
+                    "key": "prijmeni",
+                    "label": "příjmení",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "key": "jmeno",
+                    "label": "jméno",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "cellDataFormatter": [Function],
+                    "key": "2012",
+                    "sortable": false,
+                    "width": 50,
+                  },
+                ]
+              }
+              containerHeight={500}
+              containerRole="rowgroup"
+              containerStyle={Object {}}
+              containerWidth={500}
+              data={Array []}
+              estimatedColumnSize={100}
+              estimatedRowSize={30}
+              fixedColumnCount={2}
+              getScrollbarSize={[Function]}
+              height={35}
+              noContentRenderer={[Function]}
+              onScroll={[Function]}
+              onScrollbarPresenceChange={[Function]}
+              onSectionRendered={[Function]}
+              overscanColumnCount={0}
+              overscanIndicesGetter={[Function]}
+              overscanRowCount={10}
+              role="grid"
+              rowCount={1}
+              rowHeight={35}
+              scrollLeft={0}
+              scrollToAlignment="auto"
+              scrollToColumn={-1}
+              scrollToRow={-1}
+              scrollingResetTimeInterval={150}
+              style={Object {}}
+              tabIndex={0}
+              width={250}
+            >
+              <div
+                aria-label="grid"
+                aria-readonly={true}
+                className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
+                onScroll={[Function]}
+                role="grid"
+                style={
+                  Object {
+                    "WebkitOverflowScrolling": "touch",
+                    "boxSizing": "border-box",
+                    "direction": "ltr",
+                    "height": 35,
+                    "overflowX": "hidden",
+                    "overflowY": "hidden",
+                    "position": "relative",
+                    "width": 250,
+                    "willChange": "transform",
                   }
-                  containerRole="rowgroup"
-                  containerStyle={Object {}}
-                  data={Array []}
-                  estimatedColumnSize={100}
-                  estimatedRowSize={30}
-                  fixedColumnCount={2}
-                  getScrollbarSize={[Function]}
-                  height={-35}
-                  noContentRenderer={[Function]}
-                  onScroll={[Function]}
-                  onScrollbarPresenceChange={[Function]}
-                  onSectionRendered={[Function]}
-                  overscanColumnCount={0}
-                  overscanIndicesGetter={[Function]}
-                  overscanRowCount={5}
-                  role="grid"
-                  rowCount={0}
-                  rowHeight={35}
-                  scrollToAlignment="auto"
-                  scrollToColumn={-1}
-                  scrollToRow={-1}
-                  scrollTop={0}
-                  scrollingResetTimeInterval={150}
-                  style={Object {}}
-                  tabIndex={0}
-                  width={200}
+                }
+                tabIndex={0}
+              >
+                <div
+                  className="ReactVirtualized__Grid__innerScrollContainer"
+                  role="rowgroup"
+                  style={
+                    Object {
+                      "height": 35,
+                      "maxHeight": 35,
+                      "maxWidth": 250,
+                      "overflow": "hidden",
+                      "pointerEvents": "",
+                      "position": "relative",
+                      "width": 250,
+                    }
+                  }
                 >
                   <div
-                    aria-label="grid"
-                    aria-readonly={true}
-                    className="ReactVirtualized__Grid UcastniciTable_LeftSideGrid"
-                    onScroll={[Function]}
-                    role="grid"
-                    style={
-                      Object {
-                        "WebkitOverflowScrolling": "touch",
-                        "boxSizing": "border-box",
-                        "direction": "ltr",
-                        "height": -35,
-                        "overflowX": "hidden",
-                        "overflowY": "auto",
-                        "position": "relative",
-                        "width": 200,
-                        "willChange": "transform",
-                      }
-                    }
-                    tabIndex={0}
-                  />
-                </Grid>
-              </div>
-              <div
-                className="UcastniciTable_GridColumn"
-              >
-                <div>
-                  <div
+                    className="UcastniciTable_headerCell"
+                    key="0-2"
                     style={
                       Object {
                         "height": 35,
-                        "width": -200,
+                        "left": 200,
+                        "position": "absolute",
+                        "top": 0,
+                        "width": 50,
                       }
                     }
                   >
-                    <Grid
-                      aria-label="grid"
-                      aria-readonly={true}
-                      autoContainerWidth={false}
-                      autoHeight={false}
-                      autoWidth={false}
-                      cellRangeRenderer={[Function]}
-                      cellRenderer={[Function]}
-                      className="UcastniciTable_HeaderGrid"
-                      columnCount={3}
-                      columnWidth={[Function]}
-                      columns={
-                        Array [
-                          Object {
-                            "key": "prijmeni",
-                            "label": "příjmení",
-                            "sortable": true,
-                            "width": 100,
-                          },
-                          Object {
-                            "key": "jmeno",
-                            "label": "jméno",
-                            "sortable": true,
-                            "width": 100,
-                          },
-                          Object {
-                            "cellDataFormatter": [Function],
-                            "key": "2012",
-                            "sortable": false,
-                            "width": 50,
-                          },
-                        ]
-                      }
-                      containerRole="rowgroup"
-                      containerStyle={Object {}}
-                      data={Array []}
-                      estimatedColumnSize={100}
-                      estimatedRowSize={30}
-                      fixedColumnCount={2}
-                      getScrollbarSize={[Function]}
-                      height={35}
-                      noContentRenderer={[Function]}
-                      onScroll={[Function]}
-                      onScrollbarPresenceChange={[Function]}
-                      onSectionRendered={[Function]}
-                      overscanColumnCount={0}
-                      overscanIndicesGetter={[Function]}
-                      overscanRowCount={10}
-                      role="grid"
-                      rowCount={1}
-                      rowHeight={35}
-                      scrollLeft={0}
-                      scrollToAlignment="auto"
-                      scrollToColumn={-1}
-                      scrollToRow={-1}
-                      scrollingResetTimeInterval={150}
-                      style={Object {}}
-                      tabIndex={0}
-                      width={0}
-                    >
-                      <div
-                        aria-label="grid"
-                        aria-readonly={true}
-                        className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
-                        onScroll={[Function]}
-                        role="grid"
-                        style={
-                          Object {
-                            "WebkitOverflowScrolling": "touch",
-                            "boxSizing": "border-box",
-                            "direction": "ltr",
-                            "height": 35,
-                            "overflowX": "auto",
-                            "overflowY": "hidden",
-                            "position": "relative",
-                            "width": 0,
-                            "willChange": "transform",
-                          }
-                        }
-                        tabIndex={0}
-                      />
-                    </Grid>
-                  </div>
-                  <div
-                    style={
-                      Object {
-                        "height": -35,
-                        "width": 0,
-                      }
-                    }
-                  >
-                    <Grid
-                      aria-label="grid"
-                      aria-readonly={true}
-                      autoContainerWidth={false}
-                      autoHeight={false}
-                      autoWidth={false}
-                      cellRangeRenderer={[Function]}
-                      cellRenderer={[Function]}
-                      className="UcastniciTable_BodyGrid"
-                      columnCount={3}
-                      columnWidth={[Function]}
-                      columns={
-                        Array [
-                          Object {
-                            "key": "prijmeni",
-                            "label": "příjmení",
-                            "sortable": true,
-                            "width": 100,
-                          },
-                          Object {
-                            "key": "jmeno",
-                            "label": "jméno",
-                            "sortable": true,
-                            "width": 100,
-                          },
-                          Object {
-                            "cellDataFormatter": [Function],
-                            "key": "2012",
-                            "sortable": false,
-                            "width": 50,
-                          },
-                        ]
-                      }
-                      containerRole="rowgroup"
-                      containerStyle={Object {}}
-                      data={Array []}
-                      estimatedColumnSize={100}
-                      estimatedRowSize={30}
-                      fixedColumnCount={2}
-                      getScrollbarSize={[Function]}
-                      height={-35}
-                      noContentRenderer={[Function]}
-                      onScroll={[Function]}
-                      onScrollbarPresenceChange={[Function]}
-                      onSectionRendered={[Function]}
-                      overscanColumnCount={0}
-                      overscanIndicesGetter={[Function]}
-                      overscanRowCount={5}
-                      role="grid"
-                      rowCount={0}
-                      rowHeight={35}
-                      scrollToAlignment="auto"
-                      scrollToColumn={-1}
-                      scrollToRow={-1}
-                      scrollingResetTimeInterval={150}
-                      style={Object {}}
-                      tabIndex={0}
-                      width={0}
-                    >
-                      <div
-                        aria-label="grid"
-                        aria-readonly={true}
-                        className="ReactVirtualized__Grid UcastniciTable_BodyGrid"
-                        onScroll={[Function]}
-                        role="grid"
-                        style={
-                          Object {
-                            "WebkitOverflowScrolling": "touch",
-                            "boxSizing": "border-box",
-                            "direction": "ltr",
-                            "height": -35,
-                            "overflowX": "auto",
-                            "overflowY": "auto",
-                            "position": "relative",
-                            "width": 0,
-                            "willChange": "transform",
-                          }
-                        }
-                        tabIndex={0}
-                      />
-                    </Grid>
+                    2012
                   </div>
                 </div>
               </div>
-            </div>
-          </ScrollSync>
+            </Grid>
+          </div>
+          <div
+            style={
+              Object {
+                "height": 0,
+                "width": 250,
+              }
+            }
+          >
+            <Grid
+              aria-label="grid"
+              aria-readonly={true}
+              autoContainerWidth={false}
+              autoHeight={false}
+              autoWidth={false}
+              cellRangeRenderer={[Function]}
+              cellRenderer={[Function]}
+              className="UcastniciTable_BodyGrid"
+              columnCount={3}
+              columnWidth={[Function]}
+              columns={
+                Array [
+                  Object {
+                    "key": "prijmeni",
+                    "label": "příjmení",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "key": "jmeno",
+                    "label": "jméno",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "cellDataFormatter": [Function],
+                    "key": "2012",
+                    "sortable": false,
+                    "width": 50,
+                  },
+                ]
+              }
+              containerHeight={500}
+              containerRole="rowgroup"
+              containerStyle={Object {}}
+              containerWidth={500}
+              data={Array []}
+              estimatedColumnSize={100}
+              estimatedRowSize={30}
+              fixedColumnCount={2}
+              getScrollbarSize={[Function]}
+              height={0}
+              noContentRenderer={[Function]}
+              onScroll={[Function]}
+              onScrollbarPresenceChange={[Function]}
+              onSectionRendered={[Function]}
+              overscanColumnCount={0}
+              overscanIndicesGetter={[Function]}
+              overscanRowCount={5}
+              role="grid"
+              rowCount={0}
+              rowHeight={35}
+              scrollToAlignment="auto"
+              scrollToColumn={-1}
+              scrollToRow={-1}
+              scrollingResetTimeInterval={150}
+              style={Object {}}
+              tabIndex={0}
+              width={250}
+            >
+              <div
+                aria-label="grid"
+                aria-readonly={true}
+                className="ReactVirtualized__Grid UcastniciTable_BodyGrid"
+                onScroll={[Function]}
+                role="grid"
+                style={
+                  Object {
+                    "WebkitOverflowScrolling": "touch",
+                    "boxSizing": "border-box",
+                    "direction": "ltr",
+                    "height": 0,
+                    "overflowX": "auto",
+                    "overflowY": "hidden",
+                    "position": "relative",
+                    "width": 250,
+                    "willChange": "transform",
+                  }
+                }
+                tabIndex={0}
+              />
+            </Grid>
+          </div>
         </div>
-      </AutoSizer>
+      </div>
     </div>
-  </UcastniciTable>
-</div>
+  </ScrollSync>
+</UcastniciTable>
 `;
