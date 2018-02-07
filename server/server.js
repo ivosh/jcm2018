@@ -1,5 +1,6 @@
 'use strict';
 
+require('newrelic');
 const logger = require('heroku-logger');
 const common = require('../common/common');
 const db = require('./db');
