@@ -1,6 +1,6 @@
 {
   "name": "jcm2018",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "description": "Jirkovský crossmarathon",
   "keywords": [],
   "author": "Ivo Raisr",
@@ -32,6 +32,7 @@
     "heroku-postbuild": "cd ui/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build && cd .."
   },
   "dependencies": {
+    "@newrelic/native-metrics": "^2.1.2",
     "async-file": "^2.0.2",
     "bcrypt": "^1.0.3",
     "heroku-logger": "^0.3.0",
