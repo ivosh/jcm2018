@@ -7,7 +7,7 @@ import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
 import './UcastniciDigest.css';
 
 const alignLeftStyler = () => ({ textAlign: 'left' });
-const alignRightStyle = () => ({ textAlign: 'right' });
+const alignRightStyler = () => ({ textAlign: 'right' });
 
 const vykonCellDataFormatter = ({ cellData }) => {
   if (cellData) {
@@ -56,7 +56,7 @@ class UcastniciDigest extends PureComponent {
       },
       { cellStyler: alignLeftStyler, key: 'jmeno', label: 'jméno', sortable: true, width: 90 },
       {
-        cellStyler: alignRightStyle,
+        cellStyler: alignRightStyler,
         key: 'narozeni',
         label: 'narození',
         sortable: true,

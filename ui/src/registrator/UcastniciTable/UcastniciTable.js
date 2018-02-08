@@ -90,8 +90,10 @@ class UcastniciTable extends PureComponent {
     const { columns, data } = this.props;
     const { cellDataFormatter, cellStyler, key: columnKey } = columns[columnIndex];
     const cellData = data[rowIndex][columnKey];
-    const formattedData = cellDataFormatter ? cellDataFormatter({ cellData }) : cellData;
-    const cellStyle = cellStyler ? cellStyler({ cellData }) : {};
+    const formattedData = cellDataFormatter
+      ? cellDataFormatter({ cellData, data, rowIndex, columnKey })
+      : cellData;
+    const cellStyle = cellStyler ? cellStyler({ cellData, columnKey, data, rowIndex }) : {};
     const mergedStyle = { ...style, ...cellStyle };
 
     return (
@@ -239,8 +241,9 @@ class UcastniciTable extends PureComponent {
 UcastniciTable.propTypes = {
   columns: PropTypes.arrayOf(
     PropTypes.shape({
-      cellDataFormatter: PropTypes.func, // ({ cellData }) => formattedData
-      cellStyler: PropTypes.func, // ({ cellData }) => style
+      // cellDataFormatter = ({ cellData, columnKey, data, rowIndex }) => formattedData
+      cellDataFormatter: PropTypes.func,
+      cellStyler: PropTypes.func, // ({ cellData, columnKey, data, rowIndex }) => style
       key: PropTypes.string.isRequired,
       label: PropTypes.node,
       sortable: PropTypes.bool,
