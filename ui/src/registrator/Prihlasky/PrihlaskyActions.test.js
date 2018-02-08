@@ -45,7 +45,7 @@ const middlewares = [thunk.withExtraArgument(mockWsClient)];
 const mockStore = configureStore(middlewares);
 
 it('saveUcast() should dispatch four successful actions', async () => {
- responses = [
+  responses = [
     successfulResponseSaveUdaje,
     successfulResponseSavePrihlaska,
     successfulResponseSavePlatby
