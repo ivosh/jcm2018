@@ -61,13 +61,19 @@ export const dokoncenoStr = dokonceno => {
 };
 
 const barvy = {
-  maraton: '#b0ffb5',
-  půlmaraton: '#ff837a',
-  cyklo: '#efe023',
-  koloběžka: '#405ced',
-  pěší: '#d793ff'
+  maraton: ['176', '255', '181'],
+  půlmaraton: ['255', '131', '122'],
+  cyklo: ['239', '224', '35'],
+  koloběžka: ['80', '124', '239'],
+  pěší: ['215', '147', '255']
 };
-export const barvaProTypKategorie = typKategorie => barvy[typKategorie] || '';
+export const barvaProTypKategorie = (typKategorie, alpha = '1.0') => {
+  const barva = barvy[typKategorie];
+  if (barva) {
+    return `rgba(${barva[0]}, ${barva[1]}, ${barva[2]}, ${alpha})`;
+  }
+  return '';
+};
 
 /* ---------------------------------------------------------------------------------------------- */
 
