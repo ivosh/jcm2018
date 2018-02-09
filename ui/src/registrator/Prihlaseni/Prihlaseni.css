@@ -1,0 +1,7 @@
+.Prihlaseni_div {
+  padding-left: 30px;
+  padding-right: 50px;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}

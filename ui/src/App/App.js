@@ -9,6 +9,7 @@ import SignInContainer from '../auth/SignIn/SignInContainer';
 import CasomericContainer from '../casomeric/Casomeric/CasomericContainer';
 import UcastniciDigestContainer from '../registrator/UcastniciDigest/UcastniciDigestContainer';
 import PrihlaskyContainer from '../registrator/Prihlasky/PrihlaskyContainer';
+import PrihlaseniContainer from '../registrator/Prihlaseni/PrihlaseniContainer';
 import SignOutContainer from '../auth/SignOut/SignOutContainer';
 import About from './About';
 import './App.css';
@@ -32,9 +33,14 @@ const App = ({ authenticated, connected, username }) => (
               <Glyphicon glyph="list-alt" /> Účastníci
             </NavItem>
           </LinkContainer>
-          <LinkContainer key="prihlaska" to="/prihlasky">
+          <LinkContainer key="prihlasky" to="/prihlasky">
             <NavItem eventKey={3}>
               <Glyphicon glyph="edit" /> Přihlášky
+            </NavItem>
+          </LinkContainer>
+          <LinkContainer key="prihlaseni" to="/prihlaseni">
+            <NavItem eventKey={4}>
+              <Glyphicon glyph="road" /> Přihlášeni
             </NavItem>
           </LinkContainer>
         </Nav>
@@ -42,20 +48,20 @@ const App = ({ authenticated, connected, username }) => (
       <Nav className="App-Nav" pullRight>
         {!authenticated && (
           <LinkContainer to="/signin">
-            <NavItem eventKey={4}>
+            <NavItem eventKey={5}>
               <Glyphicon glyph="log-in" /> Přihlášení
             </NavItem>
           </LinkContainer>
         )}
         {authenticated && (
           <LinkContainer key="signout" to="/signout">
-            <NavItem eventKey={5}>
+            <NavItem eventKey={6}>
               <Glyphicon glyph="log-out" /> Odhlášení
             </NavItem>
           </LinkContainer>
         )}
         <LinkContainer to="/about">
-          <NavItem eventKey={6}>
+          <NavItem eventKey={7}>
             <Glyphicon glyph="question-sign" /> O aplikaci
           </NavItem>
         </LinkContainer>
@@ -68,6 +74,7 @@ const App = ({ authenticated, connected, username }) => (
         <Route path="/casomeric" component={withAuth(CasomericContainer)} />
         <Route path="/ucastnici" component={withAuth(UcastniciDigestContainer)} />
         <Route path="/prihlasky" component={withAuth(PrihlaskyContainer)} />
+        <Route path="/prihlaseni" component={withAuth(PrihlaseniContainer)} />
         <Route path="/signout" component={withAuth(SignOutContainer)} />
         <Route path="/about" component={() => <About username={username} />} />
         <Redirect to="/" />

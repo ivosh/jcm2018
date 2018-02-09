@@ -33,6 +33,13 @@ Object {
     },
   },
   "registrator": Object {
+    "prihlaseni": Object {
+      "fetching": false,
+      "kategorieVykonuFilter": "",
+      "sortColumn": undefined,
+      "sortDir": "none",
+      "textFilter": "",
+    },
     "prihlasky": Object {
       "errorCode": "",
       "errorMessage": "",
@@ -121,6 +128,13 @@ Object {
     },
   },
   "registrator": Object {
+    "prihlaseni": Object {
+      "fetching": false,
+      "kategorieVykonuFilter": "",
+      "sortColumn": undefined,
+      "sortDir": "none",
+      "textFilter": "",
+    },
     "prihlasky": Object {
       "errorCode": "",
       "errorMessage": "",
@@ -209,6 +223,13 @@ Object {
     },
   },
   "registrator": Object {
+    "prihlaseni": Object {
+      "fetching": false,
+      "kategorieVykonuFilter": "",
+      "sortColumn": undefined,
+      "sortDir": "none",
+      "textFilter": "",
+    },
     "prihlasky": Object {
       "errorCode": "",
       "errorMessage": "",
