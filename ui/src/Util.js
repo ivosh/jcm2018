@@ -75,6 +75,22 @@ export const barvaProTypKategorie = (typKategorie, alpha = '1.0') => {
   return '';
 };
 
+export const kategorieToStr = kategorie => {
+  let value = kategorie.typ;
+  if (kategorie.pohlavi) {
+    value += ` - ${kategorie.pohlavi}`;
+  }
+  if (kategorie.vek) {
+    value += ` - ${kategorie.vek.min}`;
+    if (kategorie.vek.max === 150) {
+      value += ' a více';
+    } else {
+      value += `-${kategorie.vek.max}`;
+    }
+  }
+  return value;
+};
+
 /* ---------------------------------------------------------------------------------------------- */
 
 export const SortDirTypes = { NONE: 'none', ASC: 'asc', DESC: 'desc' };

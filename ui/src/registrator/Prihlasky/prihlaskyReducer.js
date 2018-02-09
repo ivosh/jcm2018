@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { findKategorie, CODE_OK, PLATBA_TYPY } from '../../common';
 import { AKTUALNI_ROK, DEN_ZAVODU, TYPY_KATEGORII } from '../../constants';
-import { narozeniToStr } from '../../Util';
+import { kategorieToStr, narozeniToStr } from '../../Util';
 import { getTypKategorie } from '../../entities/rocniky/rocnikyReducer';
 import { prijmeniJmenoNarozeniSortMethod } from '../../entities/ucastnici/ucastniciReducer';
 
@@ -327,22 +327,6 @@ export const isInputEnabled = (name, prihlasky, rocniky) => {
   }
 };
 
-const formatKategorie = kategorie => {
-  let value = kategorie.typ;
-  if (kategorie.pohlavi) {
-    value += ` - ${kategorie.pohlavi}`;
-  }
-  if (kategorie.vek) {
-    value += ` - ${kategorie.vek.min}`;
-    if (kategorie.vek.max === 150) {
-      value += ' a více';
-    } else {
-      value += `-${kategorie.vek.max}`;
-    }
-  }
-  return value;
-};
-
 export const inputOptions = (name, prihlasky, rocniky, ucastnici) => {
   switch (name) {
     case 'udaje.prijmeni+prihlaska.kod': {
@@ -375,7 +359,7 @@ export const inputOptions = (name, prihlasky, rocniky, ucastnici) => {
           mladistvyPotvrzen: true
         });
         if (found.code === CODE_OK) {
-          list.push({ key: typ, id: found.kategorie.id, value: formatKategorie(found.kategorie) });
+          list.push({ key: typ, id: found.kategorie.id, value: kategorieToStr(found.kategorie) });
         } else {
           list.push({ key: typ, value: typ });
         }
