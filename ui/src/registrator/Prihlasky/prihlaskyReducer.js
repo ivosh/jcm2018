@@ -1,9 +1,10 @@
 import moment from 'moment';
 import { findKategorie, CODE_OK, PLATBA_TYPY } from '../../common';
-import { AKTUALNI_ROK, DEN_ZAVODU, TYPY_KATEGORII } from '../../constants';
+import { AKTUALNI_ROK, TYPY_KATEGORII } from '../../constants';
 import { kategorieToStr, narozeniToStr } from '../../Util';
 import { getTypKategorie } from '../../entities/rocniky/rocnikyReducer';
 import { prijmeniJmenoNarozeniSortMethod } from '../../entities/ucastnici/ucastniciReducer';
+import { predepsaneStartovneCommon } from '../platby';
 
 const initialState = {
   errorCode: '',
@@ -319,7 +320,7 @@ export const isInputEnabled = (name, prihlasky, rocniky) => {
       if (!typ) {
         return false;
       }
-      const typKategorieRocniku = getTypKategorie(AKTUALNI_ROK, typ, rocniky);
+      const typKategorieRocniku = getTypKategorie({ rok: AKTUALNI_ROK, typ, rocniky });
       return !!typKategorieRocniku.startCisla;
     }
     default:
@@ -385,34 +386,5 @@ export const formatValue = (name, rawValue) => {
   }
 };
 
-export const provedenePlatby = prihlasky => {
-  const platby = prihlasky.platby.map(({ datum, ...platba }) => ({
-    datum: moment.utc(datum).format('D. M. YYYY'),
-    ...platba
-  }));
-  const suma = prihlasky.platby.reduce((sum, platba) => sum + platba.castka, 0);
-
-  return { platby, suma };
-};
-
-export const predepsaneStartovne = (prihlasky, rocniky) => {
-  const { typ } = prihlasky.prihlaska;
-  if (!typ) {
-    return { suma: 0, polozky: [] };
-  }
-
-  const typKategorieRocniku = getTypKategorie(AKTUALNI_ROK, typ, rocniky);
-  const { startovne } = typKategorieRocniku;
-  const polozky = [];
-  if (DEN_ZAVODU) {
-    polozky.push({ castka: startovne.naMiste, duvod: 'na místě' });
-  } else {
-    polozky.push({ castka: startovne.predem, duvod: 'předem' });
-  }
-  if (startovne.zaloha) {
-    polozky.push({ castka: startovne.zaloha, duvod: 'záloha' });
-  }
-
-  const suma = polozky.reduce((sum, polozka) => sum + polozka.castka, 0);
-  return { polozky, suma };
-};
+export const predepsaneStartovne = ({ kategorie, prihlaska, rocniky }) =>
+  predepsaneStartovneCommon({ kategorie, prihlaska, rocniky, rok: AKTUALNI_ROK });

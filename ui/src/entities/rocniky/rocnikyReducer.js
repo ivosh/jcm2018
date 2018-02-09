@@ -13,7 +13,7 @@ const rocnikyReducer = (state = initialState, action) => {
 
 export default rocnikyReducer;
 
-export const getTypKategorie = (rok, typ, rocniky) => {
+export const getTypKategorie = ({ rok, typ, rocniky }) => {
   const rocnik = rocniky.byRoky[rok];
   return rocnik.kategorie[typ];
 };

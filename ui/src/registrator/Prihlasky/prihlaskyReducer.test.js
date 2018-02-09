@@ -23,8 +23,7 @@ import prihlaskyReducer, {
   inputValid,
   isInputEnabled,
   novaPlatbaValid,
-  predepsaneStartovne,
-  provedenePlatby
+  predepsaneStartovne
 } from './prihlaskyReducer';
 
 const unsuccessfulResponse = {
@@ -856,9 +855,13 @@ it('predepsaneStartovne - cyklo', () => {
     polozky: [{ castka: 200, duvod: 'předem' }, { castka: 20, duvod: 'záloha' }],
     suma: 220
   };
-  expect(predepsaneStartovne(state.registrator.prihlasky, state.entities.rocniky)).toEqual(
-    selected
-  );
+  expect(
+    predepsaneStartovne({
+      kategorie: state.entities.kategorie,
+      prihlaska: state.registrator.prihlasky.prihlaska,
+      rocniky: state.entities.rocniky
+    })
+  ).toEqual(selected);
 });
 
 it('predepsaneStartovne - půlmaraton', () => {
@@ -867,37 +870,19 @@ it('predepsaneStartovne - půlmaraton', () => {
     registrator: {
       prihlasky: {
         prihlaska: {
-          typ: 'půlmaraton'
+          kategorie: '5a587e1b051c181132cf83d4'
         }
       }
     }
   };
   const selected = { polozky: [{ castka: 200, duvod: 'předem' }], suma: 200 };
-  expect(predepsaneStartovne(state.registrator.prihlasky, state.entities.rocniky)).toEqual(
-    selected
-  );
-});
-
-it('provedenePlatby', () => {
-  const state = {
-    ...ucastniciTestData,
-    registrator: {
-      prihlasky: {
-        platby: [
-          { castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' },
-          { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
-        ]
-      }
-    }
-  };
-  const selected = {
-    platby: [
-      { castka: 250, datum: '9. 6. 2018', typ: 'hotově' },
-      { castka: 20, datum: '9. 6. 2018', typ: 'hotově' }
-    ],
-    suma: 270
-  };
-  expect(provedenePlatby(state.registrator.prihlasky)).toEqual(selected);
+  expect(
+    predepsaneStartovne({
+      kategorie: state.entities.kategorie,
+      prihlaska: state.registrator.prihlasky.prihlaska,
+      rocniky: state.entities.rocniky
+    })
+  ).toEqual(selected);
 });
 
 it('addPlatba()', () => {
