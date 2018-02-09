@@ -2188,7 +2188,7 @@ const state = {
       }
     },
     ucastnici: {
-      allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
+      allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9', '7a09b1fd371dec1e99b7e142'],
       byIds: {
         '6f09b1fd371dec1e99b7e1c9': {
           roky: [2016],
@@ -2256,6 +2256,35 @@ const state = {
               startCislo: 34,
               dokonceno: true,
               cas: 'PT1H25M32.6S'
+            }
+          }
+        },
+        '7a09b1fd371dec1e99b7e142': {
+          roky: [2018],
+          2018: {
+            udaje: {
+              prijmeni: 'Zralá',
+              jmeno: 'Hana',
+              narozeni: { rok: 1999, mesic: 7, den: 25 },
+              pohlavi: 'žena',
+              obec: 'Bučovice',
+              psc: '654 21',
+              stat: 'Česká republika',
+              klub: 'SK Nudle',
+              email: 'zrala.kl@s.cz'
+            },
+            platby: [{ castka: 100, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }],
+            prihlaska: {
+              datum: '2018-06-09T00:00:00.000Z',
+              kategorie: '5a587e1b051c181132cf83d9',
+              startCislo: 10,
+              kod: 'abc023skd204mvs345'
+            },
+            vykon: {
+              kategorie: '5a587e1b051c181132cf83d9',
+              startCislo: 11,
+              dokonceno: true,
+              cas: 'PT2H06M32.6S'
             }
           }
         }

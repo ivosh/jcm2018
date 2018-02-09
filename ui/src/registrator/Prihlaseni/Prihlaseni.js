@@ -15,10 +15,13 @@ const kategorieStyler = ({ cellData }) => ({
   backgroundColor: barvaProTypKategorie(cellData.typ, '0.4'),
   textAlign: 'left'
 });
+const kodStyler = () => ({ fontFamily: 'monospace', textAlign: 'left' });
 const zaplacenoFormat = ({ cellData }) => `${cellData} Kč`;
 const zaplacenoStyler = ({ cellData, data, rowIndex }) => ({
   backgroundColor:
-    cellData >= data[rowIndex].predepsano ? 'rgba(48, 199, 90, 0.7)' : 'rgba(226, 57, 73, 0.7)',
+    cellData >= data[rowIndex].predepsano ? 'rgba(48, 199, 90, 1.0)' : 'rgba(226, 57, 73, 1.0)',
+  color: 'white',
+  fontWeight: 'bold',
   textAlign: 'right'
 });
 
@@ -77,7 +80,7 @@ class Prihlaseni extends PureComponent {
         sortable: true,
         width: 100
       },
-      { cellStyler: alignRightStyler, key: 'kod', label: 'kód', width: 150 },
+      { cellStyler: kodStyler, key: 'kod', label: 'kód', width: 150 },
       {
         cellStyler: zaplacenoStyler,
         cellDataFormatter: zaplacenoFormat,

@@ -5,6 +5,7 @@ Object {
   "allIds": Array [
     "6f09b1fd371dec1e99b7e1c9",
     "5a09b1fd371dec1e99b7e1c9",
+    "7a09b1fd371dec1e99b7e142",
     "7a09b1fd371dec1e99b79853",
   ],
   "byIds": Object {
@@ -130,6 +131,47 @@ Object {
         2018,
       ],
     },
+    "7a09b1fd371dec1e99b7e142": Object {
+      "2018": Object {
+        "platby": Array [
+          Object {
+            "castka": 100,
+            "datum": "2018-06-09T00:00:00.000Z",
+            "typ": "hotově",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2018-06-09T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 10,
+        },
+        "udaje": Object {
+          "email": "zrala.kl@s.cz",
+          "jmeno": "Hana",
+          "klub": "SK Nudle",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 1999,
+          },
+          "obec": "Bučovice",
+          "pohlavi": "žena",
+          "prijmeni": "Zralá",
+          "psc": "654 21",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "startCislo": 11,
+        },
+      },
+      "roky": Array [
+        2018,
+      ],
+    },
   },
 }
 `;
@@ -139,6 +181,7 @@ Object {
   "allIds": Array [
     "6f09b1fd371dec1e99b7e1c9",
     "5a09b1fd371dec1e99b7e1c9",
+    "7a09b1fd371dec1e99b7e142",
   ],
   "byIds": Object {
     "5a09b1fd371dec1e99b7e1c9": Object {
@@ -259,6 +302,47 @@ Object {
         2016,
       ],
     },
+    "7a09b1fd371dec1e99b7e142": Object {
+      "2018": Object {
+        "platby": Array [
+          Object {
+            "castka": 100,
+            "datum": "2018-06-09T00:00:00.000Z",
+            "typ": "hotově",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2018-06-09T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 10,
+        },
+        "udaje": Object {
+          "email": "zrala.kl@s.cz",
+          "jmeno": "Hana",
+          "klub": "SK Nudle",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 1999,
+          },
+          "obec": "Bučovice",
+          "pohlavi": "žena",
+          "prijmeni": "Zralá",
+          "psc": "654 21",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "startCislo": 11,
+        },
+      },
+      "roky": Array [
+        2018,
+      ],
+    },
   },
 }
 `;
@@ -268,6 +352,7 @@ Object {
   "allIds": Array [
     "6f09b1fd371dec1e99b7e1c9",
     "5a09b1fd371dec1e99b7e1c9",
+    "7a09b1fd371dec1e99b7e142",
   ],
   "byIds": Object {
     "5a09b1fd371dec1e99b7e1c9": Object {
@@ -350,6 +435,47 @@ Object {
       },
       "roky": Array [
         2016,
+      ],
+    },
+    "7a09b1fd371dec1e99b7e142": Object {
+      "2018": Object {
+        "platby": Array [
+          Object {
+            "castka": 100,
+            "datum": "2018-06-09T00:00:00.000Z",
+            "typ": "hotově",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2018-06-09T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 10,
+        },
+        "udaje": Object {
+          "email": "zrala.kl@s.cz",
+          "jmeno": "Hana",
+          "klub": "SK Nudle",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 1999,
+          },
+          "obec": "Bučovice",
+          "pohlavi": "žena",
+          "prijmeni": "Zralá",
+          "psc": "654 21",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "startCislo": 11,
+        },
+      },
+      "roky": Array [
+        2018,
       ],
     },
   },

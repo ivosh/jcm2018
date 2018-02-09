@@ -187,6 +187,13 @@ it('getUcastniciDigestSorted() by default', () => {
       jmeno: 'Martina',
       narozeni: '7. 12. 1963',
       2016: { dokonceno: true, kategorie: 'maraton' }
+    },
+    {
+      id: '7a09b1fd371dec1e99b7e142',
+      prijmeni: 'Zralá',
+      jmeno: 'Hana',
+      narozeni: '25. 7. 1999',
+      2018: { dokonceno: true, kategorie: 'půlmaraton' }
     }
   ];
   deepFreeze(state);
@@ -210,6 +217,13 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
     }
   };
   const selected = [
+    {
+      id: '7a09b1fd371dec1e99b7e142',
+      prijmeni: 'Zralá',
+      jmeno: 'Hana',
+      narozeni: '25. 7. 1999',
+      2018: { dokonceno: true, kategorie: 'půlmaraton' }
+    },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',
@@ -248,6 +262,13 @@ it('getUcastniciDigestSorted() podle jména vzestupně', () => {
   };
   const selected = [
     {
+      id: '7a09b1fd371dec1e99b7e142',
+      prijmeni: 'Zralá',
+      jmeno: 'Hana',
+      narozeni: '25. 7. 1999',
+      2018: { dokonceno: true, kategorie: 'půlmaraton' }
+    },
+    {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
@@ -284,6 +305,13 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
     }
   };
   const selected = [
+    {
+      id: '7a09b1fd371dec1e99b7e142',
+      prijmeni: 'Zralá',
+      jmeno: 'Hana',
+      narozeni: '25. 7. 1999',
+      2018: { dokonceno: true, kategorie: 'půlmaraton' }
+    },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',
@@ -358,6 +386,13 @@ it('getUcastniciDigestSorted() filtrováno na kategorii výkonu půlmaraton', ()
       narozeni: '1956',
       2017: { dokonceno: true, kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' }
+    },
+    {
+      id: '7a09b1fd371dec1e99b7e142',
+      prijmeni: 'Zralá',
+      jmeno: 'Hana',
+      narozeni: '25. 7. 1999',
+      2018: { dokonceno: true, kategorie: 'půlmaraton' }
     }
   ];
   deepFreeze(state);

@@ -21,5 +21,16 @@ Array [
     },
     "prijmeni": "Sukdoláková",
   },
+  Object {
+    "id": "7a09b1fd371dec1e99b7e142",
+    "jmeno": "Hana",
+    "kod": "abc023skd204mvs345",
+    "narozeni": Object {
+      "den": 25,
+      "mesic": 7,
+      "rok": 1999,
+    },
+    "prijmeni": "Zralá",
+  },
 ]
 `;
