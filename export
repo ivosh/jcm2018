@@ -1,0 +1,11 @@
+#!/bin/sh
+dir="exports/$( date '+%Y-%m-%dT%H:%M:%S' )"
+mkdir -p "${dir}"
+cd "${dir}"
+
+mongoexport --uri=${DB} --pretty --sort="{id: 1}" -c kategories -o Kategorie.json
+mongoexport --uri=${DB} --pretty --sort="{id: 1}" -c rocniks -o Rocnik.json
+mongoexport --uri=${DB} --pretty --sort="{id: 1}" -c users -o User.json
+mongoexport --uri=${DB} --pretty --sort="{id: 1}" -c ucastniks -o Ucastnik.json
+
+echo "Exported to ${dir}."

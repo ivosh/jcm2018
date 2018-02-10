@@ -1,0 +1,14 @@
+#!/bin/sh
+dir=${1}
+if [ -z ${dir} ] ; then
+	echo "Usage: ${0} <dir>"
+	exit 1
+fi
+cd "${dir}"
+
+mongoimport --uri=${DB} --drop --maintainInsertionOrder --stopOnError -c kategories Kategorie.json
+mongoimport --uri=${DB} --drop --maintainInsertionOrder --stopOnError -c rocniks Rocnik.json
+mongoimport --uri=${DB} --drop --maintainInsertionOrder --stopOnError -c users User.json
+mongoimport --uri=${DB} --drop --maintainInsertionOrder --stopOnError -c ucastniks Ucastnik.json
+
+echo "Imported from ${dir}."
