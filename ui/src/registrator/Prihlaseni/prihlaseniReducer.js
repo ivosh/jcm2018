@@ -9,7 +9,7 @@ import { predepsaneStartovneCommon, provedenePlatby } from '../platby';
 
 export const initialState = {
   fetching: false,
-  kategorieVykonuFilter: '',
+  kategorieFilter: '',
   textFilter: '',
   sortColumn: undefined,
   sortDir: SortDirTypes.NONE
@@ -22,11 +22,11 @@ const prihlaseniReducer = (state = initialState, action) => {
     case 'FETCH_UCASTNICI_SUCCESS':
     case 'FETCH_UCASTNICI_ERROR':
       return { ...state, fetching: false };
-    case 'PRIHLASENI_KATEGORIE_VYKONU_FILTER_CHANGE':
-      if (state.kategorieVykonuFilter === action.typKategorie) {
-        return { ...state, kategorieVykonuFilter: '' };
+    case 'PRIHLASENI_KATEGORIE_FILTER_CHANGE':
+      if (state.kategorieFilter === action.typKategorie) {
+        return { ...state, kategorieFilter: '' };
       }
-      return { ...state, kategorieVykonuFilter: action.typKategorie };
+      return { ...state, kategorieFilter: action.typKategorie };
     case 'PRIHLASENI_TEXT_FILTER_CHANGE':
       return { ...state, textFilter: action.textFilter.toLowerCase() };
     case 'PRIHLASENI_SORT_DIR_CHANGE':
@@ -45,7 +45,7 @@ export const getPrihlaseniSorted = ({
   kategorie,
   rocniky,
   ucastnici,
-  kategorieVykonuFilter,
+  kategorieFilter,
   textFilter,
   sortColumn,
   sortDir
@@ -66,7 +66,7 @@ export const getPrihlaseniSorted = ({
         prijmeni.toLowerCase().startsWith(textFilter) ||
         jmeno.toLowerCase().startsWith(textFilter)
       ) {
-        if (kategorieVykonuFilter === '' || kategorieVykonuFilter === jednaKategorie.typ) {
+        if (kategorieFilter === '' || kategorieFilter === jednaKategorie.typ) {
           result.push({
             id,
             prijmeni,

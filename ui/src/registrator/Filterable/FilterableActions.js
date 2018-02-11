@@ -1,5 +1,5 @@
-export const kategorieVykonuFilterChange = (actionPrefix, typKategorie) => ({
-  type: `${actionPrefix}_KATEGORIE_VYKONU_FILTER_CHANGE`,
+export const kategorieFilterChange = (actionPrefix, typKategorie) => ({
+  type: `${actionPrefix}_KATEGORIE_FILTER_CHANGE`,
   typKategorie
 });
 

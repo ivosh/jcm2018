@@ -9,7 +9,7 @@ it('renders', () => {
   const wrapper = shallow(
     <Filterable
       numberOfItems={0}
-      onKategorieVykonuFilterChange={jest.fn()}
+      onKategorieFilterChange={jest.fn()}
       onTextFilterChange={jest.fn()}
     />
   );
@@ -21,7 +21,7 @@ it('maps DebounceInput.onChange to dispatch onTextFilterChange action', () => {
   const wrapper = shallow(
     <Filterable
       numberOfItems={1}
-      onKategorieVykonuFilterChange={jest.fn()}
+      onKategorieFilterChange={jest.fn()}
       onTextFilterChange={onTextFilterChange}
     />
   );
@@ -32,12 +32,12 @@ it('maps DebounceInput.onChange to dispatch onTextFilterChange action', () => {
   expect(onTextFilterChange).toHaveBeenCalledWith('K');
 });
 
-it('maps KategorieVykonuFilter.onClick to dispatch onKategorieVykonuFilterChange action', () => {
-  const onKategorieVykonuFilterChange = jest.fn();
+it('maps KategorieFilter.onClick to dispatch onKategorieFilterChange action', () => {
+  const onKategorieFilterChange = jest.fn();
   const wrapper = mount(
     <Filterable
       numberOfItems={2}
-      onKategorieVykonuFilterChange={onKategorieVykonuFilterChange}
+      onKategorieFilterChange={onKategorieFilterChange}
       onTextFilterChange={jest.fn()}
     />
   );
@@ -47,5 +47,5 @@ it('maps KategorieVykonuFilter.onClick to dispatch onKategorieVykonuFilterChange
     .first()
     .simulate('click');
 
-  expect(onKategorieVykonuFilterChange).toHaveBeenCalledWith('maraton');
+  expect(onKategorieFilterChange).toHaveBeenCalledWith('maraton');
 });

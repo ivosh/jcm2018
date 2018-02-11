@@ -11,7 +11,7 @@ beforeEach(() => {
   const state = {
     registrator: {
       yyyDigest: {
-        kategorieVykonuFilter: '',
+        kategorieFilter: '',
         textFilter: ''
       }
     }
@@ -29,15 +29,15 @@ beforeEach(() => {
 });
 
 it('maps state and dispatch to props', () => {
-  expect(wrapper.props().kategorieVykonuFilter).toEqual('');
+  expect(wrapper.props().kategorieFilter).toEqual('');
   expect(wrapper.props().textFilter).toEqual('');
 });
 
-it('maps onKategorieVykonuFilterChange to dispatch kategorieVykonuFilterChange action', () => {
-  wrapper.props().onKategorieVykonuFilterChange('pěší');
+it('maps onKategorieFilterChange to dispatch kategorieFilterChange action', () => {
+  wrapper.props().onKategorieFilterChange('pěší');
 
   expect(store.dispatch).toHaveBeenCalledWith({
-    type: 'YYY_DIGEST_KATEGORIE_VYKONU_FILTER_CHANGE',
+    type: 'YYY_DIGEST_KATEGORIE_FILTER_CHANGE',
     typKategorie: 'pěší'
   });
 });

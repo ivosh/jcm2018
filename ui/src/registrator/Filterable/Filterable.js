@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import { Badge, ButtonGroup } from 'react-bootstrap';
 import DebounceInput from 'react-debounce-input';
 import { TYPY_KATEGORII } from '../../constants';
-import KategorieVykonuFilter from './KategorieVykonuFilter';
+import KategorieFilter from './KategorieFilter';
 import './Filterable.css';
 
 const Filterable = ({
-  kategorieVykonuFilter,
+  kategorieFilter,
   numberOfItems,
   textFilter,
-  onKategorieVykonuFilterChange,
+  onKategorieFilterChange,
   onTextFilterChange
 }) => (
   <div>
@@ -23,13 +23,13 @@ const Filterable = ({
       onChange={e => onTextFilterChange(e.target.value)}
     />
 
-    <ButtonGroup className="Filterable_kategorie_vykonu">
+    <ButtonGroup className="Filterable_kategorie">
       {TYPY_KATEGORII.map(typKategorie => (
-        <KategorieVykonuFilter
+        <KategorieFilter
           key={typKategorie}
           typKategorie={typKategorie}
-          onClick={() => onKategorieVykonuFilterChange(typKategorie)}
-          active={kategorieVykonuFilter === typKategorie}
+          onClick={() => onKategorieFilterChange(typKategorie)}
+          active={kategorieFilter === typKategorie}
         />
       ))}
     </ButtonGroup>
@@ -41,10 +41,10 @@ const Filterable = ({
 );
 
 Filterable.propTypes = {
-  kategorieVykonuFilter: PropTypes.string,
+  kategorieFilter: PropTypes.string,
   numberOfItems: PropTypes.number.isRequired,
   textFilter: PropTypes.string,
-  onKategorieVykonuFilterChange: PropTypes.func.isRequired,
+  onKategorieFilterChange: PropTypes.func.isRequired,
   onTextFilterChange: PropTypes.func.isRequired
 };
 

@@ -16,35 +16,35 @@ exports[`renders 1`] = `
   <ButtonGroup
     block={false}
     bsClass="btn-group"
-    className="Filterable_kategorie_vykonu"
+    className="Filterable_kategorie"
     justified={false}
     vertical={false}
   >
-    <KategorieVykonuFilter
+    <KategorieFilter
       active={false}
       key="maraton"
       onClick={[Function]}
       typKategorie="maraton"
     />
-    <KategorieVykonuFilter
+    <KategorieFilter
       active={false}
       key="půlmaraton"
       onClick={[Function]}
       typKategorie="půlmaraton"
     />
-    <KategorieVykonuFilter
+    <KategorieFilter
       active={false}
       key="cyklo"
       onClick={[Function]}
       typKategorie="cyklo"
     />
-    <KategorieVykonuFilter
+    <KategorieFilter
       active={false}
       key="koloběžka"
       onClick={[Function]}
       typKategorie="koloběžka"
     />
-    <KategorieVykonuFilter
+    <KategorieFilter
       active={false}
       key="pěší"
       onClick={[Function]}

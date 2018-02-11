@@ -2,7 +2,7 @@ import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { SortDirTypes } from '../../Util';
 import ucastniciDigestReducer, { getUcastniciDigestSorted } from './ucastniciDigestReducer';
-import { kategorieVykonuFilterChange, textFilterChange } from '../Filterable/FilterableActions';
+import { kategorieFilterChange, textFilterChange } from '../Filterable/FilterableActions';
 import { sortDirChange } from '../UcastniciTable/UcastniciTableActions';
 
 const actionPrefix = 'UCASTNICI_DIGEST';
@@ -12,7 +12,7 @@ it('na začátku', () => {
 
   const stateAfter = ucastniciDigestReducer(stateBefore, {});
   expect(stateAfter.fetching).toEqual(false);
-  expect(stateAfter.kategorieVykonuFilter).toEqual('');
+  expect(stateAfter.kategorieFilter).toEqual('');
   expect(stateAfter.textFilter).toEqual('');
   expect(stateAfter.sortColumn).toBe(undefined);
   expect(stateAfter.sortDir).toEqual(SortDirTypes.NONE);
@@ -22,7 +22,7 @@ it('řadit dle příjmení vzestupně', () => {
   const stateBefore = {
     sortColumn: undefined,
     sortDir: SortDirTypes.NONE,
-    kategorieVykonuFilter: '',
+    kategorieFilter: '',
     textFilter: ''
   };
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC };
@@ -37,7 +37,7 @@ it('řadit dle příjmení sestupně', () => {
   const stateBefore = {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
-    kategorieVykonuFilter: '',
+    kategorieFilter: '',
     textFilter: ''
   };
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.DESC };
@@ -52,7 +52,7 @@ it('řadit dle příjmení zase vzestupně', () => {
   const stateBefore = {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.DESC,
-    kategorieVykonuFilter: '',
+    kategorieFilter: '',
     textFilter: ''
   };
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC };
@@ -67,7 +67,7 @@ it('řadit dle jména vzestupně', () => {
   const stateBefore = {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
-    kategorieVykonuFilter: '',
+    kategorieFilter: '',
     textFilter: ''
   };
   const stateAfter = { ...stateBefore, sortColumn: 'jmeno', sortDir: SortDirTypes.ASC };
@@ -82,14 +82,14 @@ it('zapnout filtrování podle kategorie výkonu', () => {
   const stateBefore = {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
-    kategorieVykonuFilter: '',
+    kategorieFilter: '',
     textFilter: ''
   };
-  const stateAfter = { ...stateBefore, kategorieVykonuFilter: 'půlmaraton' };
+  const stateAfter = { ...stateBefore, kategorieFilter: 'půlmaraton' };
   deepFreeze(stateBefore);
 
   expect(
-    ucastniciDigestReducer(stateBefore, kategorieVykonuFilterChange(actionPrefix, 'půlmaraton'))
+    ucastniciDigestReducer(stateBefore, kategorieFilterChange(actionPrefix, 'půlmaraton'))
   ).toEqual(stateAfter);
 });
 
@@ -97,14 +97,14 @@ it('vypnout filtrování podle kategorie výkonu', () => {
   const stateBefore = {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
-    kategorieVykonuFilter: 'půlmaraton',
+    kategorieFilter: 'půlmaraton',
     textFilter: ''
   };
-  const stateAfter = { ...stateBefore, kategorieVykonuFilter: '' };
+  const stateAfter = { ...stateBefore, kategorieFilter: '' };
   deepFreeze(stateBefore);
 
   expect(
-    ucastniciDigestReducer(stateBefore, kategorieVykonuFilterChange(actionPrefix, 'půlmaraton'))
+    ucastniciDigestReducer(stateBefore, kategorieFilterChange(actionPrefix, 'půlmaraton'))
   ).toEqual(stateAfter);
 });
 
@@ -112,22 +112,22 @@ it('přeppnout filtrování podle kategorie výkonu', () => {
   const stateBefore = {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
-    kategorieVykonuFilter: 'půlmaraton',
+    kategorieFilter: 'půlmaraton',
     textFilter: ''
   };
-  const stateAfter = { ...stateBefore, kategorieVykonuFilter: 'pěší' };
+  const stateAfter = { ...stateBefore, kategorieFilter: 'pěší' };
   deepFreeze(stateBefore);
 
-  expect(
-    ucastniciDigestReducer(stateBefore, kategorieVykonuFilterChange(actionPrefix, 'pěší'))
-  ).toEqual(stateAfter);
+  expect(ucastniciDigestReducer(stateBefore, kategorieFilterChange(actionPrefix, 'pěší'))).toEqual(
+    stateAfter
+  );
 });
 
 it('filtrovat na dvě písmena', () => {
   const stateBefore = {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
-    kategorieVykonuFilter: '',
+    kategorieFilter: '',
     textFilter: ''
   };
   const stateAfter = { ...stateBefore, textFilter: 'kl' };
@@ -143,7 +143,7 @@ it('přepínání fetching', () => {
     fetching: false,
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
-    kategorieVykonuFilter: '',
+    kategorieFilter: '',
     textFilter: ''
   };
   const stateAfter = { ...stateBefore, fetching: true };
@@ -167,7 +167,7 @@ it('getUcastniciDigestSorted() by default', () => {
       ucastniciDigest: {
         sortColumn: undefined,
         sortDir: undefined,
-        kategorieVykonuFilter: '',
+        kategorieFilter: '',
         textFilter: ''
       }
     }
@@ -211,7 +211,7 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
       ucastniciDigest: {
         sortColumn: 'prijmeni',
         sortDir: SortDirTypes.DESC,
-        kategorieVykonuFilter: '',
+        kategorieFilter: '',
         textFilter: ''
       }
     }
@@ -255,7 +255,7 @@ it('getUcastniciDigestSorted() podle jména vzestupně', () => {
       ucastniciDigest: {
         sortColumn: 'jmeno',
         sortDir: SortDirTypes.ASC,
-        kategorieVykonuFilter: '',
+        kategorieFilter: '',
         textFilter: ''
       }
     }
@@ -299,7 +299,7 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
       ucastniciDigest: {
         sortColumn: 'narozeni',
         sortDir: SortDirTypes.DESC,
-        kategorieVykonuFilter: '',
+        kategorieFilter: '',
         textFilter: ''
       }
     }
@@ -343,7 +343,7 @@ it('getUcastniciDigestSorted() filtrováno na r', () => {
       ucastniciDigest: {
         sortColumn: undefined,
         sortDir: undefined,
-        kategorieVykonuFilter: '',
+        kategorieFilter: '',
         textFilter: 'r'
       }
     }
@@ -373,7 +373,7 @@ it('getUcastniciDigestSorted() filtrováno na kategorii výkonu půlmaraton', ()
       ucastniciDigest: {
         sortColumn: undefined,
         sortDir: undefined,
-        kategorieVykonuFilter: 'půlmaraton',
+        kategorieFilter: 'půlmaraton',
         textFilter: ''
       }
     }

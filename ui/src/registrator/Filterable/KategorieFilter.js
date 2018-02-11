@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Glyphicon } from 'react-bootstrap';
 import { barvaProTypKategorie } from '../../Util';
-import './KategorieVykonuFilter.css';
+import './KategorieFilter.css';
 
-const KategorieVykonuFilter = ({ typKategorie, active, onClick }) => {
+const KategorieFilter = ({ typKategorie, active, onClick }) => {
   const style = {
     backgroundColor: barvaProTypKategorie(typKategorie),
     fontWeight: active ? 'bold' : '' // override style from <Button/>
   };
   return (
-    <span className={`KategorieVykonuFilter_${active ? 'active' : 'nonactive'}`}>
+    <span className={`KategorieFilter_${active ? 'active' : 'nonactive'}`}>
       <Button onClick={onClick} style={style}>
         <Glyphicon glyph="filter" /> {typKategorie}
       </Button>
@@ -18,10 +18,10 @@ const KategorieVykonuFilter = ({ typKategorie, active, onClick }) => {
   );
 };
 
-KategorieVykonuFilter.propTypes = {
+KategorieFilter.propTypes = {
   typKategorie: PropTypes.string.isRequired,
   active: PropTypes.bool,
   onClick: PropTypes.func.isRequired
 };
 
-export default KategorieVykonuFilter;
+export default KategorieFilter;

@@ -7,7 +7,7 @@ import {
 
 export const initialState = {
   fetching: false,
-  kategorieVykonuFilter: '',
+  kategorieFilter: '',
   textFilter: '',
   sortColumn: undefined,
   sortDir: SortDirTypes.NONE
@@ -20,11 +20,11 @@ const ucastniciDigestReducer = (state = initialState, action) => {
     case 'FETCH_UCASTNICI_SUCCESS':
     case 'FETCH_UCASTNICI_ERROR':
       return { ...state, fetching: false };
-    case 'UCASTNICI_DIGEST_KATEGORIE_VYKONU_FILTER_CHANGE':
-      if (state.kategorieVykonuFilter === action.typKategorie) {
-        return { ...state, kategorieVykonuFilter: '' };
+    case 'UCASTNICI_DIGEST_KATEGORIE_FILTER_CHANGE':
+      if (state.kategorieFilter === action.typKategorie) {
+        return { ...state, kategorieFilter: '' };
       }
-      return { ...state, kategorieVykonuFilter: action.typKategorie };
+      return { ...state, kategorieFilter: action.typKategorie };
     case 'UCASTNICI_DIGEST_TEXT_FILTER_CHANGE':
       return { ...state, textFilter: action.textFilter.toLowerCase() };
     case 'UCASTNICI_DIGEST_SORT_DIR_CHANGE':
@@ -62,7 +62,7 @@ export const getVykony = (kategorie, ucastnik) => {
 export const getUcastniciDigestSorted = ({
   kategorie,
   ucastnici,
-  kategorieVykonuFilter,
+  kategorieFilter,
   textFilter,
   sortColumn,
   sortDir
@@ -79,7 +79,7 @@ export const getUcastniciDigestSorted = ({
     ) {
       const { vykony, typyKategorie } = getVykony(kategorie, ucastnik);
       typyKategorie[''] = true; // empty filter means a match as well
-      if (typyKategorie[kategorieVykonuFilter]) {
+      if (typyKategorie[kategorieFilter]) {
         result.push({
           id,
           prijmeni: udaje.prijmeni,

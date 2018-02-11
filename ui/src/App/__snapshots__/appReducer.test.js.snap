@@ -35,7 +35,7 @@ Object {
   "registrator": Object {
     "prihlaseni": Object {
       "fetching": false,
-      "kategorieVykonuFilter": "",
+      "kategorieFilter": "",
       "sortColumn": undefined,
       "sortDir": "none",
       "textFilter": "",
@@ -85,7 +85,7 @@ Object {
     },
     "ucastniciDigest": Object {
       "fetching": false,
-      "kategorieVykonuFilter": "",
+      "kategorieFilter": "",
       "sortColumn": undefined,
       "sortDir": "none",
       "textFilter": "",
@@ -130,7 +130,7 @@ Object {
   "registrator": Object {
     "prihlaseni": Object {
       "fetching": false,
-      "kategorieVykonuFilter": "",
+      "kategorieFilter": "",
       "sortColumn": undefined,
       "sortDir": "none",
       "textFilter": "",
@@ -180,7 +180,7 @@ Object {
     },
     "ucastniciDigest": Object {
       "fetching": false,
-      "kategorieVykonuFilter": "",
+      "kategorieFilter": "",
       "sortColumn": undefined,
       "sortDir": "none",
       "textFilter": "",
@@ -225,7 +225,7 @@ Object {
   "registrator": Object {
     "prihlaseni": Object {
       "fetching": false,
-      "kategorieVykonuFilter": "",
+      "kategorieFilter": "",
       "sortColumn": undefined,
       "sortDir": "none",
       "textFilter": "",
@@ -275,7 +275,7 @@ Object {
     },
     "ucastniciDigest": Object {
       "fetching": false,
-      "kategorieVykonuFilter": "",
+      "kategorieFilter": "",
       "sortColumn": undefined,
       "sortDir": "none",
       "textFilter": "",
