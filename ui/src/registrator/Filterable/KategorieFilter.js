@@ -6,12 +6,12 @@ import './KategorieFilter.css';
 
 const KategorieFilter = ({ typKategorie, active, onClick }) => {
   const style = {
-    backgroundColor: barvaProTypKategorie(typKategorie),
-    fontWeight: active ? 'bold' : '' // override style from <Button/>
+    backgroundColor: barvaProTypKategorie(typKategorie, active ? '1.0' : '0.5')
   };
+
   return (
-    <span className={`KategorieFilter_${active ? 'active' : 'nonactive'}`}>
-      <Button onClick={onClick} style={style}>
+    <span className="KategorieFilter">
+      <Button onClick={onClick} style={style} active={active}>
         <Glyphicon glyph="filter" /> {typKategorie}
       </Button>
     </span>

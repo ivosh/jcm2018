@@ -1,15 +1,9 @@
-.KategorieFilter_active, .KategorieFilter_nonactive {
+.KategorieFilter {
   margin-right: 5px;
 }
 
-.KategorieFilter_active {
-  opacity: 1;
-}
-
-.KategorieFilter_nonactive {
-  opacity: 0.7;
-}
-
-.KategorieFilter_nonactive:hover {
-  opacity: 1;
+.KategorieFilter > .active {
+  font-weight: bold;
+  border-radius: 5px;
+  border: 3px solid black !important;
 }
