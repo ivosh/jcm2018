@@ -41,15 +41,6 @@ const prihlaseniReducer = (state = initialState, action) => {
 
 export default prihlaseniReducer;
 
-const expandedPrihlaska = (prihlaska, kategorie) => {
-  if (!prihlaska) {
-    return {};
-  }
-
-  const { datum, kategorie: kategorieId, startCislo, kod } = prihlaska;
-  return { datum, kategorie: kategorie[kategorieId], startCislo, kod };
-};
-
 export const getPrihlaseniSorted = ({
   kategorie,
   rocniky,
@@ -66,7 +57,8 @@ export const getPrihlaseniSorted = ({
     if (ucastnik.roky[0] === rok) {
       const ucast = ucastnik[rok];
       const { udaje: { prijmeni, jmeno, narozeni, obec }, prihlaska, platby } = ucast;
-      const expPrihlaska = expandedPrihlaska(prihlaska, kategorie);
+      const { datum, kategorie: kategorieId, startCislo, kod } = prihlaska;
+      const jednaKategorie = kategorie[kategorieId];
       const predepsano = predepsaneStartovneCommon({ kategorie, prihlaska, rocniky, rok }).suma;
       const zaplaceno = provedenePlatby(platby).suma;
 
@@ -74,18 +66,17 @@ export const getPrihlaseniSorted = ({
         prijmeni.toLowerCase().startsWith(textFilter) ||
         jmeno.toLowerCase().startsWith(textFilter)
       ) {
-        if (
-          kategorieVykonuFilter === '' ||
-          !prihlaska.kategorie ||
-          kategorieVykonuFilter === expPrihlaska.kategorie.typ
-        ) {
+        if (kategorieVykonuFilter === '' || kategorieVykonuFilter === jednaKategorie.typ) {
           result.push({
             id,
             prijmeni,
             jmeno,
             narozeni,
             obec,
-            ...expPrihlaska,
+            datum,
+            kategorie: jednaKategorie,
+            startCislo,
+            kod,
             predepsano,
             zaplaceno
           });
