@@ -1,7 +1,14 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import toJSON from 'enzyme-to-json';
+import { Provider } from 'react-redux';
+import renderer from 'react-test-renderer';
+import configureStore from 'redux-mock-store';
 import UcastniciDigest from './UcastniciDigest';
+
+const mockStore = configureStore();
+
+const state = { registrator: { ucastniciDigest: {} } };
+const store = mockStore(state);
+store.dispatch = jest.fn();
 
 const commonProps = {
   actionPrefix: 'UCASTNICI_DIGEST',
@@ -52,27 +59,33 @@ const ucastniciDigest = [
 ];
 
 it('žádný účastník', () => {
-  const wrapper = shallow(
-    <UcastniciDigest roky={roky} ucastniciDigest={[]} fetching={false} {...commonProps} />
+  const component = renderer.create(
+    <Provider store={store}>
+      <UcastniciDigest roky={roky} ucastniciDigest={[]} fetching={false} {...commonProps} />
+    </Provider>
   );
-  expect(toJSON(wrapper)).toMatchSnapshot();
+  expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('načítá se', () => {
-  const wrapper = shallow(
-    <UcastniciDigest
-      roky={roky}
-      ucastniciDigest={ucastniciDigest}
-      fetching={true}
-      {...commonProps}
-    />
+  const component = renderer.create(
+    <Provider store={store}>
+      <UcastniciDigest
+        roky={roky}
+        ucastniciDigest={ucastniciDigest}
+        fetching={true}
+        {...commonProps}
+      />
+    </Provider>
   );
-  expect(toJSON(wrapper)).toMatchSnapshot();
+  expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('dva účastníci', () => {
-  const wrapper = shallow(
-    <UcastniciDigest roky={roky} ucastniciDigest={ucastniciDigest} {...commonProps} />
+  const component = renderer.create(
+    <Provider store={store}>
+      <UcastniciDigest roky={roky} ucastniciDigest={ucastniciDigest} {...commonProps} />
+    </Provider>
   );
-  expect(toJSON(wrapper)).toMatchSnapshot();
+  expect(component.toJSON()).toMatchSnapshot();
 });

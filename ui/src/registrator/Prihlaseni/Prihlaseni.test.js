@@ -1,7 +1,14 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import toJSON from 'enzyme-to-json';
+import { Provider } from 'react-redux';
+import renderer from 'react-test-renderer';
+import configureStore from 'redux-mock-store';
 import Prihlaseni from './Prihlaseni';
+
+const mockStore = configureStore();
+
+const state = { registrator: { prihlaseni: {} } };
+const store = mockStore(state);
+store.dispatch = jest.fn();
 
 const commonProps = {
   actionPrefix: 'PRIHLASENI',
@@ -49,16 +56,28 @@ const prihlaseni = [
 ];
 
 it('žádný přihlášený', () => {
-  const wrapper = shallow(<Prihlaseni prihlaseni={[]} fetching={false} {...commonProps} />);
-  expect(toJSON(wrapper)).toMatchSnapshot();
+  const component = renderer.create(
+    <Provider store={store}>
+      <Prihlaseni prihlaseni={[]} fetching={false} {...commonProps} />
+    </Provider>
+  );
+  expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('načítá se', () => {
-  const wrapper = shallow(<Prihlaseni prihlaseni={prihlaseni} fetching={true} {...commonProps} />);
-  expect(toJSON(wrapper)).toMatchSnapshot();
+  const component = renderer.create(
+    <Provider store={store}>
+      <Prihlaseni prihlaseni={prihlaseni} fetching={true} {...commonProps} />
+    </Provider>
+  );
+  expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('dva přihlášení', () => {
-  const wrapper = shallow(<Prihlaseni prihlaseni={prihlaseni} {...commonProps} />);
-  expect(toJSON(wrapper)).toMatchSnapshot();
+  const component = renderer.create(
+    <Provider store={store}>
+      <Prihlaseni prihlaseni={prihlaseni} {...commonProps} />
+    </Provider>
+  );
+  expect(component.toJSON()).toMatchSnapshot();
 });
