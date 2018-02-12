@@ -4,7 +4,6 @@ import { AKTUALNI_ROK, TYPY_KATEGORII } from '../../constants';
 import { kategorieToStr, narozeniToStr } from '../../Util';
 import { getTypKategorie } from '../../entities/rocniky/rocnikyReducer';
 import { prijmeniJmenoNarozeniSortMethod } from '../../entities/ucastnici/ucastniciReducer';
-import { predepsaneStartovneCommon } from '../platby';
 
 const initialState = {
   errorCode: '',
@@ -385,6 +384,3 @@ export const formatValue = (name, rawValue) => {
       return rawValue ? `${rawValue}` : '';
   }
 };
-
-export const predepsaneStartovne = ({ kategorie, prihlaska, rocniky }) =>
-  predepsaneStartovneCommon({ kategorie, prihlaska, rocniky, rok: AKTUALNI_ROK });

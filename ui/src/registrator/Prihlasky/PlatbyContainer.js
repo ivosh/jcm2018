@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
-import { provedenePlatby } from '../platby';
+import { predepsaneStartovne, provedenePlatby } from '../platby';
 import Platby from './Platby';
 import { addValidatedPlatba, removePlatba } from './PrihlaskyActions';
-import { predepsaneStartovne } from './prihlaskyReducer';
 
 const mapStateToProps = state => {
   const {

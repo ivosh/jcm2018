@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { DEN_ZAVODU } from '../constants';
+import { AKTUALNI_ROK, DEN_ZAVODU } from '../constants';
 import { getTypKategorie } from '../entities/rocniky/rocnikyReducer';
 
 export const provedenePlatby = platby => {
@@ -13,7 +13,7 @@ export const provedenePlatby = platby => {
 };
 
 // Přihláška can contain either kategorie(id) or typ. Consider both.
-export const predepsaneStartovneCommon = ({ kategorie, prihlaska, rocniky, rok }) => {
+export const predepsaneStartovne = ({ kategorie, prihlaska, rocniky, rok = AKTUALNI_ROK }) => {
   let typ = null;
   if (prihlaska) {
     ({ typ } = prihlaska);

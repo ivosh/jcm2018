@@ -5,7 +5,7 @@ import {
   narozeniSortMethod,
   prijmeniJmenoNarozeniSortMethod
 } from '../../entities/ucastnici/ucastniciReducer';
-import { predepsaneStartovneCommon, provedenePlatby } from '../platby';
+import { predepsaneStartovne, provedenePlatby } from '../platby';
 
 export const initialState = {
   fetching: false,
@@ -59,7 +59,7 @@ export const getPrihlaseniSorted = ({
       const { udaje: { prijmeni, jmeno, narozeni, obec }, prihlaska, platby } = ucast;
       const { datum, kategorie: kategorieId, startCislo, kod } = prihlaska;
       const jednaKategorie = kategorie[kategorieId];
-      const predepsano = predepsaneStartovneCommon({ kategorie, prihlaska, rocniky, rok }).suma;
+      const predepsano = predepsaneStartovne({ kategorie, prihlaska, rocniky, rok }).suma;
       const zaplaceno = provedenePlatby(platby).suma;
 
       if (

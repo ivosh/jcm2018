@@ -5,6 +5,7 @@ import {
   fetchUcastniciSuccess,
   fetchUcastniciError
 } from '../../entities/ucastnici/ucastniciActions';
+import { predepsaneStartovne } from '../platby';
 import {
   addPlatba,
   hideError,
@@ -22,8 +23,7 @@ import prihlaskyReducer, {
   inputOptions,
   inputValid,
   isInputEnabled,
-  novaPlatbaValid,
-  predepsaneStartovne
+  novaPlatbaValid
 } from './prihlaskyReducer';
 
 const unsuccessfulResponse = {
