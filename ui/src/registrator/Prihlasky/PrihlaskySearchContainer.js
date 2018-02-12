@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { inputOptions } from './prihlaskyReducer';
 import PrihlaskySearch from './PrihlaskySearch';
-import { inputChanged, ucastnikSelected } from './PrihlaskyActions';
+import { ucastnikSelected } from './PrihlaskyActions';
 
 const mapStateToProps = state => {
   const { registrator: { prihlasky } } = state;
@@ -22,7 +22,6 @@ const mergeProps = (stateProps, dispatchProps) => {
 
   return {
     options,
-    onChange: value => dispatch(inputChanged('udaje.prijmeni', { target: { value } })),
     onSelect: option => dispatch(ucastnikSelected(option, kategorie, ucastnici))
   };
 };

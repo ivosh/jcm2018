@@ -14,7 +14,7 @@ const isMatch = (option, text) => {
   return prijmeniLower.startsWith(textLower) || kod === text;
 };
 
-const PrihlaskySearch = ({ options, onChange, onSelect }) => (
+const PrihlaskySearch = ({ options, onSelect }) => (
   <Typeahead
     className="PrihlaskySearch"
     labelKey="prijmeni"
@@ -32,7 +32,6 @@ const PrihlaskySearch = ({ options, onChange, onSelect }) => (
         onSelect(results[0]);
       }
     }}
-    onInputChange={onChange}
     renderMenuItemChildren={option => {
       const { prijmeni, jmeno, narozeni } = option;
       return `${prijmeni} ${jmeno}, ${narozeni.rok}`;
@@ -52,7 +51,6 @@ PrihlaskySearch.propTypes = {
       kod: PropTypes.string
     })
   ).isRequired,
-  onChange: PropTypes.func.isRequired,
   onSelect: PropTypes.func.isRequired
 };
 

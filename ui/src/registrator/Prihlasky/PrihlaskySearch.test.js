@@ -16,18 +16,6 @@ it('renders', () => {
   expect(component.toJSON()).toMatchSnapshot();
 });
 
-it('handle input change', () => {
-  const onChange = jest.fn();
-
-  const wrapper = mount(
-    <PrihlaskySearch options={options} onChange={onChange} onSelect={jest.fn()} />
-  );
-  expect(wrapper.find('.rbt-input-main')).toHaveLength(1);
-
-  wrapper.find('.rbt-input-main').simulate('change', { target: { value: 'hu' } });
-  expect(onChange).toHaveBeenCalledWith('hu');
-});
-
 it('handle select', () => {
   const onSelect = jest.fn();
 

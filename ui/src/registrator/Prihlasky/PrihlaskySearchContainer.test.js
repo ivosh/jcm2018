@@ -12,11 +12,7 @@ beforeEach(() => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlasky: {
-        udaje: {
-          prijmeni: 'Bala'
-        }
-      }
+      prihlasky: {}
     }
   };
   store = mockStore(state);
@@ -26,18 +22,7 @@ beforeEach(() => {
 
 it('maps state and dispatch to props', () => {
   expect(wrapper.props().options).toMatchSnapshot();
-  expect(wrapper.props().onChange).toEqual(expect.any(Function));
   expect(wrapper.props().onSelect).toEqual(expect.any(Function));
-});
-
-it('maps onChange to dispatch inputChanged action', () => {
-  wrapper.props().onChange('hu');
-
-  expect(store.dispatch).toHaveBeenCalledWith({
-    type: 'PRIHLASKY_INPUT_CHANGED',
-    name: 'udaje.prijmeni',
-    value: 'hu'
-  });
 });
 
 it('maps onSelect to dispatch ucastnikSelected action - existující přihláška', () => {
