@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
-import UcastniciDigestContainer from './UcastniciDigestContainer';
+import PrihlaseniContainer from './PrihlaseniContainer';
 
 const mockStore = configureStore();
 
@@ -12,7 +12,7 @@ beforeEach(() => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      ucastniciDigest: {
+      prihlaseni: {
         fetching: false,
         kategorieFilter: '',
         textFilter: ''
@@ -21,13 +21,13 @@ beforeEach(() => {
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
-  wrapper = shallow(<UcastniciDigestContainer store={store} />);
+  wrapper = shallow(<PrihlaseniContainer store={store} />);
 });
 
 it('maps state and dispatch to props', () => {
   expect(wrapper.props().fetching).toBe(false);
-  expect(wrapper.props().ucastniciDigest).toBeTruthy();
-  expect(wrapper.props().ucastniciDigest).toMatchSnapshot();
+  expect(wrapper.props().prihlaseni).toBeTruthy();
+  expect(wrapper.props().prihlaseni).toMatchSnapshot();
 });
 
 it('maps fetchUcastnici to dispatch', () => {

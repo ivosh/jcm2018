@@ -6,8 +6,7 @@ import UcastniciDigest from './UcastniciDigest';
 const commonProps = {
   actionPrefix: 'UCASTNICI_DIGEST',
   reduxName: 'ucastniciDigest',
-  fetchUcastnici: jest.fn(),
-  onSortDirChange: jest.fn()
+  fetchUcastnici: jest.fn()
 };
 
 const roky = [
