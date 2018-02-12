@@ -73,7 +73,7 @@ class UcastniciDigest extends PureComponent {
     ];
 
     return (
-      <div className="UcastniciDigest_div">
+      <div className="UcastniciDigest_div UcastniciTable_container">
         <FilterableContainer
           actionPrefix={actionPrefix}
           reduxName={reduxName}

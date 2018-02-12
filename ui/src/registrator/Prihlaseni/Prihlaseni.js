@@ -90,7 +90,7 @@ class Prihlaseni extends PureComponent {
     ];
 
     return (
-      <div className="Prihlaseni_div">
+      <div className="Prihlaseni_div UcastniciTable_container">
         <FilterableContainer
           actionPrefix={actionPrefix}
           reduxName={reduxName}
