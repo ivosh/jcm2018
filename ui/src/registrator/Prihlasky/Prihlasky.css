@@ -9,3 +9,7 @@
 .Prihlasky_reset {
   margin-left: 2em;
 }
+
+.Prihlasky_form > div > .panel > .panel-body > .form-group:last-child {
+  margin-bottom: 0px;
+}

@@ -36,7 +36,7 @@ exports[`platby v mínusu 1`] = `
     </div>
   </div>
   <div
-    className="panel panel-info"
+    className="Platby_nova_platba panel panel-info"
     id={undefined}
   >
     <div
@@ -278,7 +278,7 @@ exports[`platby v plusu 1`] = `
     </tbody>
   </table>
   <div
-    className="panel panel-info"
+    className="Platby_nova_platba panel panel-info"
     id={undefined}
   >
     <div

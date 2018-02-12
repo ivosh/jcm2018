@@ -39,7 +39,7 @@ const Platby = ({ predepsano, provedeno, onAdd }) => (
 
     {provedeno.platby.length > 0 && <PlatbyTable platby={provedeno.platby} />}
 
-    <Panel bsStyle="info" header="Nová platba">
+    <Panel bsStyle="info" header="Nová platba" className="Platby_nova_platba">
       <InputContainer name="novaPlatba.castka" popisek="částka" Type={TextInput} />
       <InputContainer name="novaPlatba.datum" popisek="datum" Type={TextInput} />
       <InputContainer name="novaPlatba.typ" popisek="jak?" Type={SelectInput} />
