@@ -1,39 +1,38 @@
 import { AKTUALNI_ROK } from '../../constants';
-import { narozeniToStr, reverseSortDirType, SortDirTypes } from '../../Util';
+import { narozeniToStr, SortDirTypes } from '../../Util';
 import {
   csStringSortMethod,
   narozeniSortMethod,
   prijmeniJmenoNarozeniSortMethod
 } from '../../entities/ucastnici/ucastniciReducer';
 import { predepsaneStartovne, provedenePlatby } from '../platby';
+import {
+  createFilterableReducer,
+  initialState as filterableInitialState
+} from '../Filterable/filterableReducer';
+import {
+  createUcastniciTableReducer,
+  initialState as ucastniciTableInitialState
+} from '../UcastniciTable/ucastniciTableReducer';
 
 export const initialState = {
   fetching: false,
-  kategorieFilter: '',
-  textFilter: '',
-  sortColumn: undefined,
-  sortDir: SortDirTypes.NONE
+  ...filterableInitialState,
+  ...ucastniciTableInitialState
 };
 
+const filterableReducer = createFilterableReducer('PRIHLASENI');
+const ucastniciTableReducer = createUcastniciTableReducer('PRIHLASENI');
+
 const prihlaseniReducer = (state = initialState, action) => {
+  state = filterableReducer(state, action); // eslint-disable-line no-param-reassign
+  state = ucastniciTableReducer(state, action); // eslint-disable-line no-param-reassign
   switch (action.type) {
     case 'FETCH_UCASTNICI_REQUEST':
       return { ...state, fetching: true };
     case 'FETCH_UCASTNICI_SUCCESS':
     case 'FETCH_UCASTNICI_ERROR':
       return { ...state, fetching: false };
-    case 'PRIHLASENI_KATEGORIE_FILTER_CHANGE':
-      if (state.kategorieFilter === action.typKategorie) {
-        return { ...state, kategorieFilter: '' };
-      }
-      return { ...state, kategorieFilter: action.typKategorie };
-    case 'PRIHLASENI_TEXT_FILTER_CHANGE':
-      return { ...state, textFilter: action.textFilter.toLowerCase() };
-    case 'PRIHLASENI_SORT_DIR_CHANGE':
-      if (state.sortColumn !== action.sortColumn) {
-        return { ...state, sortColumn: action.sortColumn, sortDir: SortDirTypes.ASC };
-      }
-      return { ...state, sortDir: reverseSortDirType(state.sortDir) };
     default:
       return state;
   }
