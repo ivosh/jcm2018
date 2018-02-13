@@ -1,4 +1,5 @@
 import React from 'react';
+import renderer from 'react-test-renderer';
 import { mount, shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import Filterable from './Filterable';
@@ -6,14 +7,14 @@ import Filterable from './Filterable';
 jest.useFakeTimers();
 
 it('renders', () => {
-  const wrapper = shallow(
+  const component = renderer.create(
     <Filterable
       numberOfItems={0}
       onKategorieFilterChange={jest.fn()}
       onTextFilterChange={jest.fn()}
     />
   );
-  expect(toJSON(wrapper)).toMatchSnapshot();
+  expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('maps DebounceInput.onChange to dispatch onTextFilterChange action', () => {

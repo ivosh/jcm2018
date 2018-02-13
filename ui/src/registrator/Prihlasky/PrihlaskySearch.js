@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Typeahead } from 'react-bootstrap-typeahead';
 import './PrihlaskySearch.css';
@@ -14,30 +14,47 @@ const isMatch = (option, text) => {
   return prijmeniLower.startsWith(textLower) || kod === text;
 };
 
-const PrihlaskySearch = ({ options, onSelect }) => (
-  <Typeahead
-    className="PrihlaskySearch"
-    labelKey="prijmeni"
-    options={options}
-    minLength={1}
-    highlightOnlyResult={true}
-    selectHintOnEnter={true}
-    placeholder="Začni psát příjmení nebo vlož kód přihlášky."
-    emptyLabel="Nic nenalezeno."
-    autoComplete={false}
-    filterBy={isMatch}
-    onChange={results => {
-      if (results.length >= 1) {
-        // Typeahead provides an array so take the first result.
-        onSelect(results[0]);
-      }
-    }}
-    renderMenuItemChildren={option => {
-      const { prijmeni, jmeno, narozeni } = option;
-      return `${prijmeni} ${jmeno}, ${narozeni.rok}`;
-    }}
-  />
-);
+class PrihlaskySearch extends Component {
+  componentDidMount = () => {
+    if (process.env.NODE_ENV !== 'test') {
+      this.typeahead.focus();
+    }
+  };
+
+  render = () => {
+    const { options, onSelect } = this.props;
+
+    return (
+      <Typeahead
+        autoComplete={false}
+        className="PrihlaskySearch"
+        emptyLabel="Nic nenalezeno."
+        filterBy={isMatch}
+        highlightOnlyResult={true}
+        labelKey="prijmeni"
+        minLength={1}
+        options={options}
+        placeholder="Začni psát příjmení nebo vlož kód přihlášky."
+        ref={ref => {
+          if (ref) {
+            this.typeahead = ref.getInstance();
+          }
+        }}
+        selectHintOnEnter={true}
+        onChange={results => {
+          if (results.length >= 1) {
+            // Typeahead provides an array so take the first result.
+            onSelect(results[0]);
+          }
+        }}
+        renderMenuItemChildren={option => {
+          const { prijmeni, jmeno, narozeni } = option;
+          return `${prijmeni} ${jmeno}, ${narozeni.rok}`;
+        }}
+      />
+    );
+  };
+}
 
 PrihlaskySearch.propTypes = {
   options: PropTypes.arrayOf(

@@ -2,65 +2,133 @@
 
 exports[`renders 1`] = `
 <div>
-  <DebounceInput
+  <input
     className="Filterable_input"
-    debounceTimeout={500}
-    element="input"
-    forceNotifyByEnter={true}
-    forceNotifyOnBlur={true}
-    minLength={0}
+    onBlur={[Function]}
     onChange={[Function]}
+    onKeyDown={[Function]}
     placeholder="Filtr na příjmení a jméno"
     type="text"
+    value=""
   />
-  <ButtonGroup
-    block={false}
-    bsClass="btn-group"
-    className="Filterable_kategorie"
-    justified={false}
-    vertical={false}
+  <div
+    className="Filterable_kategorie btn-group"
   >
-    <KategorieFilter
-      active={false}
-      key="maraton"
-      onClick={[Function]}
-      typKategorie="maraton"
-    />
-    <KategorieFilter
-      active={false}
-      key="půlmaraton"
-      onClick={[Function]}
-      typKategorie="půlmaraton"
-    />
-    <KategorieFilter
-      active={false}
-      key="cyklo"
-      onClick={[Function]}
-      typKategorie="cyklo"
-    />
-    <KategorieFilter
-      active={false}
-      key="koloběžka"
-      onClick={[Function]}
-      typKategorie="koloběžka"
-    />
-    <KategorieFilter
-      active={false}
-      key="pěší"
-      onClick={[Function]}
-      typKategorie="pěší"
-    />
-  </ButtonGroup>
+    <span
+      className="KategorieFilter"
+    >
+      <button
+        className="btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "rgba(176, 255, 181, 0.5)",
+          }
+        }
+        type="button"
+      >
+        <span
+          className="glyphicon glyphicon-filter"
+        />
+         
+        maraton
+      </button>
+    </span>
+    <span
+      className="KategorieFilter"
+    >
+      <button
+        className="btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "rgba(255, 131, 122, 0.5)",
+          }
+        }
+        type="button"
+      >
+        <span
+          className="glyphicon glyphicon-filter"
+        />
+         
+        půlmaraton
+      </button>
+    </span>
+    <span
+      className="KategorieFilter"
+    >
+      <button
+        className="btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "rgba(239, 224, 35, 0.5)",
+          }
+        }
+        type="button"
+      >
+        <span
+          className="glyphicon glyphicon-filter"
+        />
+         
+        cyklo
+      </button>
+    </span>
+    <span
+      className="KategorieFilter"
+    >
+      <button
+        className="btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "rgba(80, 124, 239, 0.5)",
+          }
+        }
+        type="button"
+      >
+        <span
+          className="glyphicon glyphicon-filter"
+        />
+         
+        koloběžka
+      </button>
+    </span>
+    <span
+      className="KategorieFilter"
+    >
+      <button
+        className="btn btn-default"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "rgba(215, 147, 255, 0.5)",
+          }
+        }
+        type="button"
+      >
+        <span
+          className="glyphicon glyphicon-filter"
+        />
+         
+        pěší
+      </button>
+    </span>
+  </div>
   <span
     className="Filterable_zobrazeno"
   >
     zobrazeno: 
-    <Badge
-      bsClass="badge"
-      pullRight={false}
+    <span
+      className="badge"
     >
       0
-    </Badge>
+    </span>
   </span>
 </div>
 `;
