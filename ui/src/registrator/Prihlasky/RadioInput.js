@@ -2,16 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Radio } from 'react-bootstrap';
 
-const RadioInput = ({ inline, name, value, options, onChange }) =>
+const RadioInput = ({ inline, name, value, options, inputRef, onChange }) =>
   options.map(option => (
     <Radio
+      checked={option.key === value}
+      id={option.id}
       key={option.key}
       name={name}
-      id={option.id}
-      value={option.key}
-      checked={option.key === value}
-      onChange={onChange}
       inline={inline}
+      value={option.key}
+      inputRef={ref => inputRef(ref)}
+      onChange={onChange}
     >
       {option.value}
     </Radio>
@@ -28,6 +29,7 @@ RadioInput.propTypes = {
       value: PropTypes.string.isRequired
     })
   ),
+  inputRef: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired
 };
 

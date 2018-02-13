@@ -91,57 +91,79 @@ exports[`formulář po uložení 1`] = `
         >
           <Connect(Input)
             Type={[Function]}
+            index={0}
+            inputRef={[Function]}
             name="udaje.prijmeni"
             popisek="příjmení"
           />
           <Connect(Input)
             Type={[Function]}
+            index={1}
+            inputRef={[Function]}
             name="udaje.jmeno"
             popisek="jméno"
           />
           <Connect(Input)
             Type={[Function]}
+            index={2}
+            inputRef={[Function]}
             name="udaje.narozeni"
             popisek="narození"
           />
           <Connect(Input)
             Type={[Function]}
+            index={3}
             inline={true}
+            inputRef={[Function]}
             name="udaje.pohlavi"
             popisek="pohlaví"
           />
           <Connect(Input)
             Type={[Function]}
+            index={4}
+            inputRef={[Function]}
             name="udaje.adresa"
             popisek="adresa"
           />
           <Connect(Input)
             Type={[Function]}
+            index={5}
+            inputRef={[Function]}
             name="udaje.obec"
             popisek="obec"
           />
           <Connect(Input)
             Type={[Function]}
+            index={6}
+            inputRef={[Function]}
             name="udaje.psc"
             popisek="PSČ"
           />
           <Connect(Input)
             Type={[Function]}
+            index={7}
+            inputRef={[Function]}
             name="udaje.stat"
             popisek="stát"
           />
           <Connect(Input)
             Type={[Function]}
+            index={8}
+            inputRef={[Function]}
             name="udaje.klub"
             popisek="klub"
           />
           <Connect(Input)
             Type={[Function]}
+            index={9}
+            inputRef={[Function]}
             name="udaje.email"
             popisek="email"
           />
           <Connect(Input)
             Type={[Function]}
+            index={10}
+            inputRef={[Function]}
             name="udaje.telefon"
             popisek="telefon"
           />
@@ -160,21 +182,29 @@ exports[`formulář po uložení 1`] = `
         >
           <Connect(Input)
             Type={[Function]}
+            index={11}
+            inputRef={[Function]}
             name="prihlaska.datum"
             popisek="datum"
           />
           <Connect(Input)
             Type={[Function]}
+            index={12}
+            inputRef={[Function]}
             name="prihlaska.typ"
             popisek="kategorie"
           />
           <Connect(Input)
             Type={[Function]}
+            index={13}
+            inputRef={[Function]}
             name="prihlaska.startCislo"
             popisek="číslo"
           />
           <Connect(Input)
             Type={[Function]}
+            index={14}
+            inputRef={[Function]}
             name="prihlaska.kod"
             popisek="kód"
           />
@@ -220,7 +250,10 @@ exports[`formulář po uložení 1`] = `
           defaultExpanded={false}
           header="Platby"
         >
-          <Connect(Platby) />
+          <Connect(Platby)
+            inputRef={[Function]}
+            startIndex={15}
+          />
         </Panel>
       </Col>
     </Form>
@@ -319,57 +352,79 @@ exports[`formulář s chybou 1`] = `
         >
           <Connect(Input)
             Type={[Function]}
+            index={0}
+            inputRef={[Function]}
             name="udaje.prijmeni"
             popisek="příjmení"
           />
           <Connect(Input)
             Type={[Function]}
+            index={1}
+            inputRef={[Function]}
             name="udaje.jmeno"
             popisek="jméno"
           />
           <Connect(Input)
             Type={[Function]}
+            index={2}
+            inputRef={[Function]}
             name="udaje.narozeni"
             popisek="narození"
           />
           <Connect(Input)
             Type={[Function]}
+            index={3}
             inline={true}
+            inputRef={[Function]}
             name="udaje.pohlavi"
             popisek="pohlaví"
           />
           <Connect(Input)
             Type={[Function]}
+            index={4}
+            inputRef={[Function]}
             name="udaje.adresa"
             popisek="adresa"
           />
           <Connect(Input)
             Type={[Function]}
+            index={5}
+            inputRef={[Function]}
             name="udaje.obec"
             popisek="obec"
           />
           <Connect(Input)
             Type={[Function]}
+            index={6}
+            inputRef={[Function]}
             name="udaje.psc"
             popisek="PSČ"
           />
           <Connect(Input)
             Type={[Function]}
+            index={7}
+            inputRef={[Function]}
             name="udaje.stat"
             popisek="stát"
           />
           <Connect(Input)
             Type={[Function]}
+            index={8}
+            inputRef={[Function]}
             name="udaje.klub"
             popisek="klub"
           />
           <Connect(Input)
             Type={[Function]}
+            index={9}
+            inputRef={[Function]}
             name="udaje.email"
             popisek="email"
           />
           <Connect(Input)
             Type={[Function]}
+            index={10}
+            inputRef={[Function]}
             name="udaje.telefon"
             popisek="telefon"
           />
@@ -388,21 +443,29 @@ exports[`formulář s chybou 1`] = `
         >
           <Connect(Input)
             Type={[Function]}
+            index={11}
+            inputRef={[Function]}
             name="prihlaska.datum"
             popisek="datum"
           />
           <Connect(Input)
             Type={[Function]}
+            index={12}
+            inputRef={[Function]}
             name="prihlaska.typ"
             popisek="kategorie"
           />
           <Connect(Input)
             Type={[Function]}
+            index={13}
+            inputRef={[Function]}
             name="prihlaska.startCislo"
             popisek="číslo"
           />
           <Connect(Input)
             Type={[Function]}
+            index={14}
+            inputRef={[Function]}
             name="prihlaska.kod"
             popisek="kód"
           />
@@ -448,7 +511,10 @@ exports[`formulář s chybou 1`] = `
           defaultExpanded={false}
           header="Platby"
         >
-          <Connect(Platby) />
+          <Connect(Platby)
+            inputRef={[Function]}
+            startIndex={15}
+          />
         </Panel>
       </Col>
     </Form>
@@ -553,57 +619,79 @@ exports[`formulář s existujícím účastníkem 1`] = `
         >
           <Connect(Input)
             Type={[Function]}
+            index={0}
+            inputRef={[Function]}
             name="udaje.prijmeni"
             popisek="příjmení"
           />
           <Connect(Input)
             Type={[Function]}
+            index={1}
+            inputRef={[Function]}
             name="udaje.jmeno"
             popisek="jméno"
           />
           <Connect(Input)
             Type={[Function]}
+            index={2}
+            inputRef={[Function]}
             name="udaje.narozeni"
             popisek="narození"
           />
           <Connect(Input)
             Type={[Function]}
+            index={3}
             inline={true}
+            inputRef={[Function]}
             name="udaje.pohlavi"
             popisek="pohlaví"
           />
           <Connect(Input)
             Type={[Function]}
+            index={4}
+            inputRef={[Function]}
             name="udaje.adresa"
             popisek="adresa"
           />
           <Connect(Input)
             Type={[Function]}
+            index={5}
+            inputRef={[Function]}
             name="udaje.obec"
             popisek="obec"
           />
           <Connect(Input)
             Type={[Function]}
+            index={6}
+            inputRef={[Function]}
             name="udaje.psc"
             popisek="PSČ"
           />
           <Connect(Input)
             Type={[Function]}
+            index={7}
+            inputRef={[Function]}
             name="udaje.stat"
             popisek="stát"
           />
           <Connect(Input)
             Type={[Function]}
+            index={8}
+            inputRef={[Function]}
             name="udaje.klub"
             popisek="klub"
           />
           <Connect(Input)
             Type={[Function]}
+            index={9}
+            inputRef={[Function]}
             name="udaje.email"
             popisek="email"
           />
           <Connect(Input)
             Type={[Function]}
+            index={10}
+            inputRef={[Function]}
             name="udaje.telefon"
             popisek="telefon"
           />
@@ -622,21 +710,29 @@ exports[`formulář s existujícím účastníkem 1`] = `
         >
           <Connect(Input)
             Type={[Function]}
+            index={11}
+            inputRef={[Function]}
             name="prihlaska.datum"
             popisek="datum"
           />
           <Connect(Input)
             Type={[Function]}
+            index={12}
+            inputRef={[Function]}
             name="prihlaska.typ"
             popisek="kategorie"
           />
           <Connect(Input)
             Type={[Function]}
+            index={13}
+            inputRef={[Function]}
             name="prihlaska.startCislo"
             popisek="číslo"
           />
           <Connect(Input)
             Type={[Function]}
+            index={14}
+            inputRef={[Function]}
             name="prihlaska.kod"
             popisek="kód"
           />
@@ -682,7 +778,10 @@ exports[`formulář s existujícím účastníkem 1`] = `
           defaultExpanded={false}
           header="Platby"
         >
-          <Connect(Platby) />
+          <Connect(Platby)
+            inputRef={[Function]}
+            startIndex={15}
+          />
         </Panel>
       </Col>
     </Form>
@@ -782,57 +881,79 @@ exports[`prázdný formulář 1`] = `
         >
           <Connect(Input)
             Type={[Function]}
+            index={0}
+            inputRef={[Function]}
             name="udaje.prijmeni"
             popisek="příjmení"
           />
           <Connect(Input)
             Type={[Function]}
+            index={1}
+            inputRef={[Function]}
             name="udaje.jmeno"
             popisek="jméno"
           />
           <Connect(Input)
             Type={[Function]}
+            index={2}
+            inputRef={[Function]}
             name="udaje.narozeni"
             popisek="narození"
           />
           <Connect(Input)
             Type={[Function]}
+            index={3}
             inline={true}
+            inputRef={[Function]}
             name="udaje.pohlavi"
             popisek="pohlaví"
           />
           <Connect(Input)
             Type={[Function]}
+            index={4}
+            inputRef={[Function]}
             name="udaje.adresa"
             popisek="adresa"
           />
           <Connect(Input)
             Type={[Function]}
+            index={5}
+            inputRef={[Function]}
             name="udaje.obec"
             popisek="obec"
           />
           <Connect(Input)
             Type={[Function]}
+            index={6}
+            inputRef={[Function]}
             name="udaje.psc"
             popisek="PSČ"
           />
           <Connect(Input)
             Type={[Function]}
+            index={7}
+            inputRef={[Function]}
             name="udaje.stat"
             popisek="stát"
           />
           <Connect(Input)
             Type={[Function]}
+            index={8}
+            inputRef={[Function]}
             name="udaje.klub"
             popisek="klub"
           />
           <Connect(Input)
             Type={[Function]}
+            index={9}
+            inputRef={[Function]}
             name="udaje.email"
             popisek="email"
           />
           <Connect(Input)
             Type={[Function]}
+            index={10}
+            inputRef={[Function]}
             name="udaje.telefon"
             popisek="telefon"
           />
@@ -851,21 +972,29 @@ exports[`prázdný formulář 1`] = `
         >
           <Connect(Input)
             Type={[Function]}
+            index={11}
+            inputRef={[Function]}
             name="prihlaska.datum"
             popisek="datum"
           />
           <Connect(Input)
             Type={[Function]}
+            index={12}
+            inputRef={[Function]}
             name="prihlaska.typ"
             popisek="kategorie"
           />
           <Connect(Input)
             Type={[Function]}
+            index={13}
+            inputRef={[Function]}
             name="prihlaska.startCislo"
             popisek="číslo"
           />
           <Connect(Input)
             Type={[Function]}
+            index={14}
+            inputRef={[Function]}
             name="prihlaska.kod"
             popisek="kód"
           />
@@ -911,7 +1040,10 @@ exports[`prázdný formulář 1`] = `
           defaultExpanded={false}
           header="Platby"
         >
-          <Connect(Platby) />
+          <Connect(Platby)
+            inputRef={[Function]}
+            startIndex={15}
+          />
         </Panel>
       </Col>
     </Form>

@@ -1,7 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount, shallow } from 'enzyme';
-import toJSON from 'enzyme-to-json';
 import Filterable from './Filterable';
 
 jest.useFakeTimers();

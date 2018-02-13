@@ -20,7 +20,7 @@ const mapDispatchToProps = dispatch => ({
   onRemove: idx => dispatch(removePlatba(idx))
 });
 
-const mergeProps = (stateProps, dispatchProps) => {
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { provedeno } = stateProps;
   const { onAdd, onRemove } = dispatchProps;
 
@@ -31,6 +31,7 @@ const mergeProps = (stateProps, dispatchProps) => {
 
   return {
     ...stateProps,
+    ...ownProps,
     provedeno: { ...provedeno, platby },
     onAdd
   };

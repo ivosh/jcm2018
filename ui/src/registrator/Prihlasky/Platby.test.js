@@ -42,7 +42,13 @@ const provedeno0 = {
 it('platby v plusu', () => {
   const component = renderer.create(
     <Provider store={store}>
-      <Platby predepsano={predepsano220} provedeno={provedeno220} onAdd={jest.fn()} />
+      <Platby
+        startIndex={10}
+        predepsano={predepsano220}
+        provedeno={provedeno220}
+        inputRef={jest.fn()}
+        onAdd={jest.fn()}
+      />
     </Provider>
   );
   expect(component.toJSON()).toMatchSnapshot();
@@ -51,7 +57,13 @@ it('platby v plusu', () => {
 it('platby v mínusu', () => {
   const component = renderer.create(
     <Provider store={store}>
-      <Platby predepsano={predepsano220} provedeno={provedeno0} onAdd={jest.fn()} />
+      <Platby
+        startIndex={10}
+        predepsano={predepsano220}
+        provedeno={provedeno0}
+        inputRef={jest.fn()}
+        onAdd={jest.fn()}
+      />
     </Provider>
   );
   expect(component.toJSON()).toMatchSnapshot();

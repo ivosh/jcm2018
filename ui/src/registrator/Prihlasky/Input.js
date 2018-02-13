@@ -12,6 +12,7 @@ const Input = ({
   options,
   validationState,
   value,
+  inputRef,
   onChange
 }) => (
   <FormGroup controlId={name} validationState={validationState}>
@@ -25,6 +26,7 @@ const Input = ({
         name={name}
         options={options}
         value={value}
+        inputRef={inputRef}
         onChange={onChange}
       />
       <FormControl.Feedback className="Input_feedback" />
@@ -47,6 +49,7 @@ Input.propTypes = {
   ), // for RadioInput
   validationState: PropTypes.string,
   value: PropTypes.string,
+  inputRef: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired
 };
 

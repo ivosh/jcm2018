@@ -35,7 +35,7 @@ beforeEach(() => {
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
-  wrapper = shallow(<PlatbyContainer store={store} />);
+  wrapper = shallow(<PlatbyContainer startIndex={10} store={store} inputRef={jest.fn()} />);
 });
 
 it('maps state and dispatch to props', () => {

@@ -2,8 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormControl } from 'react-bootstrap';
 
-const SelectInput = ({ name, options, value, onChange }) => (
-  <FormControl componentClass="select" name={name} defaultValue={value} onChange={onChange}>
+const SelectInput = ({ name, options, value, inputRef, onChange }) => (
+  <FormControl
+    componentClass="select"
+    defaultValue={value}
+    name={name}
+    inputRef={ref => inputRef(ref)}
+    onChange={onChange}
+  >
     {options.map(option => (
       <option key={option.key} value={option.key}>
         {option.value}
@@ -22,6 +28,7 @@ SelectInput.propTypes = {
       value: PropTypes.string.isRequired
     })
   ),
+  inputRef: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired
 };
 

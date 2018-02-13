@@ -16,7 +16,7 @@ const mapDispatchToProps = dispatch => ({
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { prihlasky, rocniky, ucastnici } = stateProps;
-  const { inline, name, popisek, Type } = ownProps;
+  const { index, inline, name, popisek, Type, inputRef } = ownProps;
   const [section, subName] = name.split('.');
   const rawValue = stateProps.prihlasky[section][subName];
 
@@ -29,6 +29,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     options: inputOptions(name, prihlasky, rocniky, ucastnici),
     validationState: inputValid(name, rawValue, prihlasky),
     value: formatValue(name, rawValue),
+    inputRef: ref => inputRef(index, ref),
     onChange: event => dispatchProps.dispatch(inputChanged(name, event))
   };
 };
@@ -36,10 +37,12 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 const InputContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(Input);
 
 InputContainer.propTypes = {
+  index: PropTypes.number.isRequired,
   inline: PropTypes.bool,
   name: PropTypes.string.isRequired,
   popisek: PropTypes.string.isRequired,
-  Type: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node])
+  Type: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]),
+  inputRef: PropTypes.func.isRequired
 };
 
 export default InputContainer;

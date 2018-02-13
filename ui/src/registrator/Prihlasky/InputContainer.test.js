@@ -7,6 +7,7 @@ import TextInput from './TextInput';
 
 const mockStore = configureStore();
 
+const inputRef = jest.fn();
 let store;
 let wrapper;
 beforeEach(() => {
@@ -23,7 +24,14 @@ beforeEach(() => {
   store = mockStore(state);
   store.dispatch = jest.fn();
   wrapper = shallow(
-    <InputContainer name="udaje.jmeno" popisek="jméno" type={TextInput} store={store} />
+    <InputContainer
+      index={1}
+      name="udaje.jmeno"
+      popisek="jméno"
+      type={TextInput}
+      store={store}
+      inputRef={inputRef}
+    />
   );
 });
 
@@ -32,6 +40,7 @@ it('maps state and dispatch to props - jmeno', () => {
   expect(wrapper.props().popisek).toEqual('jméno');
   expect(wrapper.props().value).toEqual('Klára');
   expect(wrapper.props().validationState).toEqual('success');
+  expect(wrapper.props().inputRef).toEqual(expect.any(Function));
   expect(wrapper.props().onChange).toEqual(expect.any(Function));
 });
 
@@ -43,6 +52,12 @@ it('maps onChange to dispatch inputChanged', () => {
     name: 'udaje.jmeno',
     value: 'Bára'
   });
+});
+
+it('maps inputRef to dispatch inputRef with index', () => {
+  wrapper.props().inputRef({ ref: 'ref' });
+
+  expect(inputRef).toHaveBeenCalledWith(1, { ref: 'ref' });
 });
 
 it('maps state to props - narození - jen rok', () => {
@@ -59,7 +74,14 @@ it('maps state to props - narození - jen rok', () => {
   };
   store = mockStore(state);
   wrapper = shallow(
-    <InputContainer name="udaje.narozeni" popisek="narození" type={TextInput} store={store} />
+    <InputContainer
+      index={0}
+      name="udaje.narozeni"
+      popisek="narození"
+      type={TextInput}
+      store={store}
+      inputRef={jest.fn()}
+    />
   );
 
   expect(wrapper.props().name).toEqual('udaje.narozeni');
@@ -82,7 +104,14 @@ it('maps state to props - narození - celé', () => {
   };
   store = mockStore(state);
   wrapper = shallow(
-    <InputContainer name="udaje.narozeni" popisek="narození" type={TextInput} store={store} />
+    <InputContainer
+      index={1}
+      name="udaje.narozeni"
+      popisek="narození"
+      type={TextInput}
+      store={store}
+      inputRef={jest.fn()}
+    />
   );
 
   expect(wrapper.props().name).toEqual('udaje.narozeni');

@@ -16,6 +16,20 @@ class Prihlasky extends PureComponent {
     this.props.fetchUcastnici();
   };
 
+  handleKeyPress = ({ event, index }) => {
+    if (event.which === 13) {
+      event.preventDefault();
+
+      const inputCandidates = this.inputs.slice(index + 1);
+      const next = inputCandidates.find(input => !input.disabled);
+      if (next) {
+        next.focus();
+      } else {
+        this.inputs[0].focus();
+      }
+    }
+  };
+
   handleReset = event => {
     event.preventDefault();
     this.props.onReset();
@@ -24,6 +38,20 @@ class Prihlasky extends PureComponent {
   handleSubmit = event => {
     event.preventDefault();
     this.props.onSubmit();
+  };
+
+  inputRef = (index, ref) => {
+    if (!this.inputs) {
+      this.inputs = [];
+    }
+    if (ref) {
+      const oldRef = this.inputs[index];
+      if (oldRef) {
+        oldRef.onkeypress = null;
+      }
+      this.inputs[index] = ref;
+      this.inputs[index].onkeypress = event => this.handleKeyPress({ event, index });
+    }
   };
 
   render = () => {
@@ -70,30 +98,116 @@ class Prihlasky extends PureComponent {
           >
             <Col sm={4}>
               <Panel bsStyle="primary" header="Údaje">
-                <InputContainer name="udaje.prijmeni" popisek="příjmení" Type={TextInput} />
-                <InputContainer name="udaje.jmeno" popisek="jméno" Type={TextInput} />
-                <InputContainer name="udaje.narozeni" popisek="narození" Type={TextInput} />
                 <InputContainer
+                  index={0}
+                  inputRef={this.inputRef}
+                  name="udaje.prijmeni"
+                  popisek="příjmení"
+                  Type={TextInput}
+                />
+                <InputContainer
+                  index={1}
+                  inputRef={this.inputRef}
+                  name="udaje.jmeno"
+                  popisek="jméno"
+                  Type={TextInput}
+                />
+                <InputContainer
+                  index={2}
+                  inputRef={this.inputRef}
+                  name="udaje.narozeni"
+                  popisek="narození"
+                  Type={TextInput}
+                />
+                <InputContainer
+                  index={3}
+                  inputRef={this.inputRef}
                   name="udaje.pohlavi"
                   popisek="pohlaví"
                   Type={RadioInput}
                   inline={true}
                 />
-                <InputContainer name="udaje.adresa" popisek="adresa" Type={TextInput} />
-                <InputContainer name="udaje.obec" popisek="obec" Type={TextInput} />
-                <InputContainer name="udaje.psc" popisek="PSČ" Type={TextInput} />
-                <InputContainer name="udaje.stat" popisek="stát" Type={TextInput} />
-                <InputContainer name="udaje.klub" popisek="klub" Type={TextInput} />
-                <InputContainer name="udaje.email" popisek="email" Type={TextInput} />
-                <InputContainer name="udaje.telefon" popisek="telefon" Type={TextInput} />
+                <InputContainer
+                  index={4}
+                  inputRef={this.inputRef}
+                  name="udaje.adresa"
+                  popisek="adresa"
+                  Type={TextInput}
+                />
+                <InputContainer
+                  index={5}
+                  inputRef={this.inputRef}
+                  name="udaje.obec"
+                  popisek="obec"
+                  Type={TextInput}
+                />
+                <InputContainer
+                  index={6}
+                  inputRef={this.inputRef}
+                  name="udaje.psc"
+                  popisek="PSČ"
+                  Type={TextInput}
+                />
+                <InputContainer
+                  index={7}
+                  inputRef={this.inputRef}
+                  name="udaje.stat"
+                  popisek="stát"
+                  Type={TextInput}
+                />
+                <InputContainer
+                  index={8}
+                  inputRef={this.inputRef}
+                  name="udaje.klub"
+                  popisek="klub"
+                  Type={TextInput}
+                />
+                <InputContainer
+                  index={9}
+                  inputRef={this.inputRef}
+                  name="udaje.email"
+                  popisek="email"
+                  Type={TextInput}
+                />
+                <InputContainer
+                  index={10}
+                  inputRef={this.inputRef}
+                  name="udaje.telefon"
+                  popisek="telefon"
+                  Type={TextInput}
+                />
               </Panel>
             </Col>
             <Col sm={4}>
               <Panel bsStyle="primary" header="Přihláška">
-                <InputContainer name="prihlaska.datum" popisek="datum" Type={TextInput} />
-                <InputContainer name="prihlaska.typ" popisek="kategorie" Type={RadioInput} />
-                <InputContainer name="prihlaska.startCislo" popisek="číslo" Type={TextInput} />
-                <InputContainer name="prihlaska.kod" popisek="kód" Type={TextInput} />
+                <InputContainer
+                  index={11}
+                  inputRef={this.inputRef}
+                  name="prihlaska.datum"
+                  popisek="datum"
+                  Type={TextInput}
+                />
+                <InputContainer
+                  index={12}
+                  inputRef={this.inputRef}
+                  name="prihlaska.typ"
+                  popisek="kategorie"
+                  Type={RadioInput}
+                />
+                <InputContainer
+                  index={13}
+                  inputRef={this.inputRef}
+                  name="prihlaska.startCislo"
+                  popisek="číslo"
+                  Type={TextInput}
+                />
+                <InputContainer
+                  index={14}
+                  inputRef={this.inputRef}
+                  name="prihlaska.kod"
+                  popisek="kód"
+                  Type={TextInput}
+                />
               </Panel>
               <LoadingButton
                 type="submit"
@@ -111,7 +225,7 @@ class Prihlasky extends PureComponent {
             </Col>
             <Col sm={4}>
               <Panel bsStyle="primary" header="Platby">
-                <PlatbyContainer />
+                <PlatbyContainer startIndex={15} inputRef={this.inputRef} />
               </Panel>
             </Col>
           </Form>
