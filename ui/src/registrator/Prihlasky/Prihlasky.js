@@ -5,6 +5,7 @@ import HideableError from '../../shared/HideableError';
 import LoadingButton from '../../shared/LoadingButton';
 import LoadingIndicator from '../../shared/LoadingIndicator';
 import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
+import PopisekPohlavi from '../../shared/Popisek/PopisekPohlavi';
 import InputContainer from './InputContainer';
 import PlatbyContainer from './PlatbyContainer';
 import RadioInput from './RadioInput';
@@ -122,11 +123,12 @@ class Prihlasky extends PureComponent {
                 />
                 <InputContainer
                   index={3}
+                  inline={true}
                   inputRef={this.inputRef}
                   name="udaje.pohlavi"
                   popisek="pohlaví"
                   Type={RadioInput}
-                  inline={true}
+                  Formatter={PopisekPohlavi}
                 />
                 <InputContainer
                   index={4}
@@ -193,8 +195,8 @@ class Prihlasky extends PureComponent {
                   inputRef={this.inputRef}
                   name="prihlaska.typ"
                   popisek="kategorie"
-                  Type={RadioInput}
                   Formatter={PopisekKategorie}
+                  Type={RadioInput}
                 />
                 <InputContainer
                   index={13}

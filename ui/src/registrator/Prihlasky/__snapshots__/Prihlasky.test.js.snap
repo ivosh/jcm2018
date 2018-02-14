@@ -111,6 +111,7 @@ exports[`formulář po uložení 1`] = `
             popisek="narození"
           />
           <Connect(Input)
+            Formatter={[Function]}
             Type={[Function]}
             index={3}
             inline={true}
@@ -373,6 +374,7 @@ exports[`formulář s chybou 1`] = `
             popisek="narození"
           />
           <Connect(Input)
+            Formatter={[Function]}
             Type={[Function]}
             index={3}
             inline={true}
@@ -641,6 +643,7 @@ exports[`formulář s existujícím účastníkem 1`] = `
             popisek="narození"
           />
           <Connect(Input)
+            Formatter={[Function]}
             Type={[Function]}
             index={3}
             inline={true}
@@ -904,6 +907,7 @@ exports[`prázdný formulář 1`] = `
             popisek="narození"
           />
           <Connect(Input)
+            Formatter={[Function]}
             Type={[Function]}
             index={3}
             inline={true}

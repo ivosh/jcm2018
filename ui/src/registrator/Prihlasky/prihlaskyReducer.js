@@ -343,7 +343,10 @@ export const inputOptions = (name, prihlasky, rocniky, ucastnici) => {
       return selected.sort(prijmeniJmenoNarozeniSortMethod);
     }
     case 'udaje.pohlavi':
-      return [{ key: 'muž', value: 'muž' }, { key: 'žena', value: 'žena' }];
+      return [
+        { key: 'muž', value: { pohlavi: 'muž' } },
+        { key: 'žena', value: { pohlavi: 'žena' } }
+      ];
     case 'prihlaska.typ': {
       const rok = AKTUALNI_ROK;
       const typyKategorii =

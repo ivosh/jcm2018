@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import PopisekPohlavi from './PopisekPohlavi';
 import cyklo from './cyklo.png';
 import kolobezka from './kolobezka.png';
 import maraton from './maraton.png';
-import muz from './muz.png';
 import pesi from './pesi.png';
 import pulmaraton from './pulmaraton.png';
-import zena from './zena.png';
 
 const typToImg = {
   cyklo,
@@ -16,18 +15,13 @@ const typToImg = {
   půlmaraton: pulmaraton
 };
 
-const pohlaviToImg = {
-  muž: muz,
-  žena: zena
-};
-
 const renderTyp = ({ pohlavi, typAsText, vek }) => (!pohlavi && !vek) || typAsText;
 
 const PopisekKategorie = ({ pohlavi, typ, typAsText, vek }) => (
   <span>
     <img src={typToImg[typ]} alt={typ} height={30} />{' '}
     {renderTyp({ pohlavi, typAsText, vek }) && typ}
-    {pohlavi && <img src={pohlaviToImg[pohlavi]} alt={pohlavi} height={28} />}
+    {pohlavi && <PopisekPohlavi pohlavi={pohlavi} />}
     {vek && `${vek.min} ${vek.max === 150 ? 'let a více' : `- ${vek.max} let`}`}
   </span>
 );
