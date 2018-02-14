@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import { barvaProTypKategorie } from '../../Util';
 import LoadingIndicator from '../../shared/LoadingIndicator';
-import PopisekKategorie from '../../shared/PopisekKategorie/PopisekKategorie';
+import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import FilterableContainer from '../Filterable/FilterableContainer';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
 import './Prihlaseni.css';

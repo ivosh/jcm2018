@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 import { barvaProTypKategorie } from '../../Util';
-import PopisekKategorie from '../../shared/PopisekKategorie/PopisekKategorie';
+import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import './KategorieFilter.css';
 
 const KategorieFilter = ({ typKategorie, active, onClick }) => {

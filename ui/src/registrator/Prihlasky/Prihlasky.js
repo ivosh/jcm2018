@@ -4,7 +4,7 @@ import { Button, Col, Form, Glyphicon, Grid, Modal, Panel } from 'react-bootstra
 import HideableError from '../../shared/HideableError';
 import LoadingButton from '../../shared/LoadingButton';
 import LoadingIndicator from '../../shared/LoadingIndicator';
-import PopisekKategorie from '../../shared/PopisekKategorie/PopisekKategorie';
+import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import InputContainer from './InputContainer';
 import PlatbyContainer from './PlatbyContainer';
 import RadioInput from './RadioInput';
