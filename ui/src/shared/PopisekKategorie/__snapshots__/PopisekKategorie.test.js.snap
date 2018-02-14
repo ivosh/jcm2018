@@ -8,6 +8,7 @@ exports[`renders cyklo 1`] = `
     src="cyklo.png"
   />
    
+  cyklo
 </span>
 `;
 
@@ -33,7 +34,7 @@ exports[`renders koloběžka with pohlaví 1`] = `
    
   <img
     alt="žena"
-    height={30}
+    height={28}
     src="zena.png"
   />
 </span>
@@ -49,7 +50,7 @@ exports[`renders maraton with pohlaví and věk 1`] = `
    
   <img
     alt="muž"
-    height={30}
+    height={28}
     src="muz.png"
   />
   18 - 39 let
@@ -66,7 +67,7 @@ exports[`renders půlmaraton with pohlaví and věk (max) 1`] = `
    
   <img
     alt="žena"
-    height={30}
+    height={28}
     src="zena.png"
   />
   60 let a více

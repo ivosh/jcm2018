@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { findKategorie, CODE_OK, PLATBA_TYPY } from '../../common';
 import { AKTUALNI_ROK, TYPY_KATEGORII } from '../../constants';
-import { kategorieToStr, narozeniToStr } from '../../Util';
+import { narozeniToStr } from '../../Util';
 import { getTypKategorie } from '../../entities/rocniky/rocnikyReducer';
 import { prijmeniJmenoNarozeniSortMethod } from '../../entities/ucastnici/ucastniciReducer';
 
@@ -359,9 +359,10 @@ export const inputOptions = (name, prihlasky, rocniky, ucastnici) => {
           mladistvyPotvrzen: true
         });
         if (found.code === CODE_OK) {
-          list.push({ key: typ, id: found.kategorie.id, value: kategorieToStr(found.kategorie) });
+          const { pohlavi, vek } = found.kategorie;
+          list.push({ key: typ, id: found.kategorie.id, value: { pohlavi, typ, vek } });
         } else {
-          list.push({ key: typ, value: typ });
+          list.push({ key: typ, value: { typ } });
         }
       });
       return list;

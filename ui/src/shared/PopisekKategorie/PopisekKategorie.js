@@ -21,10 +21,13 @@ const pohlaviToImg = {
   žena: zena
 };
 
+const renderTyp = ({ pohlavi, typAsText, vek }) => (!pohlavi && !vek) || typAsText;
+
 const PopisekKategorie = ({ pohlavi, typ, typAsText, vek }) => (
   <span>
-    <img src={typToImg[typ]} alt={typ} height={30} /> {typAsText && typ}
-    {pohlavi && <img src={pohlaviToImg[pohlavi]} alt={pohlavi} height={30} />}
+    <img src={typToImg[typ]} alt={typ} height={30} />{' '}
+    {renderTyp({ pohlavi, typAsText, vek }) && typ}
+    {pohlavi && <img src={pohlaviToImg[pohlavi]} alt={pohlavi} height={28} />}
     {vek && `${vek.min} ${vek.max === 150 ? 'let a více' : `- ${vek.max} let`}`}
   </span>
 );

@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { barvaProTypKategorie, kategorieToStr } from '../../Util';
+import { barvaProTypKategorie } from '../../Util';
 import LoadingIndicator from '../../shared/LoadingIndicator';
+import PopisekKategorie from '../../shared/PopisekKategorie/PopisekKategorie';
 import FilterableContainer from '../Filterable/FilterableContainer';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
 import './Prihlaseni.css';
@@ -10,7 +11,7 @@ import './Prihlaseni.css';
 const alignLeftStyler = () => ({ textAlign: 'left' });
 const alignRightStyler = () => ({ textAlign: 'right' });
 const datumFormat = ({ data, rowIndex }) => moment.utc(data[rowIndex].datum).format('D. M. YYYY');
-const kategorieFormat = ({ cellData }) => kategorieToStr(cellData);
+const kategorieFormat = args => <PopisekKategorie {...args.cellData} />;
 const kategorieStyler = ({ cellData }) => ({
   backgroundColor: barvaProTypKategorie(cellData.typ, '0.4'),
   textAlign: 'left'

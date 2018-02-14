@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Radio } from 'react-bootstrap';
 
-const RadioInput = ({ inline, name, value, options, inputRef, onChange }) =>
+const RadioInput = ({ inline, name, value, options, Formatter, inputRef, onChange }) =>
   options.map(option => (
     <Radio
       checked={option.key === value}
@@ -14,7 +14,7 @@ const RadioInput = ({ inline, name, value, options, inputRef, onChange }) =>
       inputRef={ref => inputRef(ref)}
       onChange={onChange}
     >
-      {option.value}
+      {Formatter ? <Formatter {...option.value} /> : option.value}
     </Radio>
   ));
 
@@ -26,10 +26,11 @@ RadioInput.propTypes = {
     PropTypes.shape({
       key: PropTypes.string.isRequired,
       id: PropTypes.string,
-      value: PropTypes.string.isRequired
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired
     })
   ),
   inputRef: PropTypes.func.isRequired,
+  Formatter: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]),
   onChange: PropTypes.func.isRequired
 };
 

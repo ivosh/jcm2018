@@ -13,7 +13,7 @@ const KategorieFilter = ({ typKategorie, active, onClick }) => {
   return (
     <span className="KategorieFilter">
       <Button onClick={onClick} style={style} active={active}>
-        <PopisekKategorie typ={typKategorie} typAsText={true} />
+        <PopisekKategorie typ={typKategorie} />
       </Button>
     </span>
   );

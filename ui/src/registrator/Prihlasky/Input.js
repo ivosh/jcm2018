@@ -4,14 +4,15 @@ import { Col, ControlLabel, FormGroup, FormControl } from 'react-bootstrap';
 import './Input.css';
 
 const Input = ({
+  enabled,
   inline,
   name,
   popisek,
-  Type,
-  enabled,
   options,
   validationState,
   value,
+  Formatter,
+  Type,
   inputRef,
   onChange
 }) => (
@@ -26,6 +27,7 @@ const Input = ({
         name={name}
         options={options}
         value={value}
+        Formatter={Formatter}
         inputRef={inputRef}
         onChange={onChange}
       />
@@ -35,20 +37,21 @@ const Input = ({
 );
 
 Input.propTypes = {
+  enabled: PropTypes.bool.isRequired,
   inline: PropTypes.bool,
   name: PropTypes.string.isRequired,
   popisek: PropTypes.string.isRequired,
-  Type: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]),
-  enabled: PropTypes.bool.isRequired,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.string.isRequired,
       id: PropTypes.string,
-      value: PropTypes.string.isRequired
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired
     })
   ), // for RadioInput
   validationState: PropTypes.string,
   value: PropTypes.string,
+  Formatter: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]),
+  Type: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]),
   inputRef: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired
 };

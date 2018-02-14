@@ -601,11 +601,11 @@ it('prihlaska.typ - není pohlaví', () => {
     }
   };
   const selected = [
-    { key: 'maraton', value: 'maraton' },
-    { key: 'půlmaraton', value: 'půlmaraton' },
-    { key: 'cyklo', value: 'cyklo' },
-    { key: 'koloběžka', value: 'koloběžka' },
-    { key: 'pěší', id: '5a587e1a051c181132cf83b1', value: 'pěší' }
+    { key: 'maraton', value: { typ: 'maraton' } },
+    { key: 'půlmaraton', value: { typ: 'půlmaraton' } },
+    { key: 'cyklo', value: { typ: 'cyklo' } },
+    { key: 'koloběžka', value: { typ: 'koloběžka' } },
+    { key: 'pěší', id: '5a587e1a051c181132cf83b1', value: { typ: 'pěší' } }
   ];
 
   expect(
@@ -623,11 +623,15 @@ it('prihlaska.typ - není narození', () => {
     }
   };
   const selected = [
-    { key: 'maraton', value: 'maraton' },
-    { key: 'půlmaraton', value: 'půlmaraton' },
-    { key: 'cyklo', value: 'cyklo' },
-    { key: 'koloběžka', id: '5a587e1b051c181132cf83d0', value: 'koloběžka - žena - 18 a více' },
-    { key: 'pěší', id: '5a587e1a051c181132cf83b1', value: 'pěší' }
+    { key: 'maraton', value: { typ: 'maraton' } },
+    { key: 'půlmaraton', value: { typ: 'půlmaraton' } },
+    { key: 'cyklo', value: { typ: 'cyklo' } },
+    {
+      key: 'koloběžka',
+      id: '5a587e1b051c181132cf83d0',
+      value: { pohlavi: 'žena', typ: 'koloběžka', vek: { min: 18, max: 150 } }
+    },
+    { key: 'pěší', id: '5a587e1a051c181132cf83b1', value: { typ: 'pěší' } }
   ];
 
   expect(
@@ -645,11 +649,27 @@ it('prihlaska.typ - muž', () => {
     }
   };
   const selected = [
-    { key: 'maraton', id: '5a587e1a051c181132cf83b8', value: 'maraton - muž - 18-39' },
-    { key: 'půlmaraton', id: '5a587e1b051c181132cf83d3', value: 'půlmaraton - muž - 18-39' },
-    { key: 'cyklo', id: '5a587e1a051c181132cf83b9', value: 'cyklo - muž - 36-45' },
-    { key: 'koloběžka', id: '5a587e1b051c181132cf83cf', value: 'koloběžka - muž - 18 a více' },
-    { key: 'pěší', id: '5a587e1a051c181132cf83b1', value: 'pěší' }
+    {
+      key: 'maraton',
+      id: '5a587e1a051c181132cf83b8',
+      value: { pohlavi: 'muž', typ: 'maraton', vek: { min: 18, max: 39 } }
+    },
+    {
+      key: 'půlmaraton',
+      id: '5a587e1b051c181132cf83d3',
+      value: { pohlavi: 'muž', typ: 'půlmaraton', vek: { min: 18, max: 39 } }
+    },
+    {
+      key: 'cyklo',
+      id: '5a587e1a051c181132cf83b9',
+      value: { pohlavi: 'muž', typ: 'cyklo', vek: { min: 36, max: 45 } }
+    },
+    {
+      key: 'koloběžka',
+      id: '5a587e1b051c181132cf83cf',
+      value: { pohlavi: 'muž', typ: 'koloběžka', vek: { min: 18, max: 150 } }
+    },
+    { key: 'pěší', id: '5a587e1a051c181132cf83b1', value: { typ: 'pěší' } }
   ];
 
   expect(

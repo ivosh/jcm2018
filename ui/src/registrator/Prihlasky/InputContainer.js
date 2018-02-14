@@ -16,7 +16,7 @@ const mapDispatchToProps = dispatch => ({
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { prihlasky, rocniky, ucastnici } = stateProps;
-  const { index, inline, name, popisek, Type, inputRef } = ownProps;
+  const { index, inline, name, popisek, Formatter, Type, inputRef } = ownProps;
   const [section, subName] = name.split('.');
   const rawValue = stateProps.prihlasky[section][subName];
 
@@ -24,6 +24,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     inline,
     name,
     popisek,
+    Formatter,
     Type,
     enabled: isInputEnabled(name, prihlasky, rocniky),
     options: inputOptions(name, prihlasky, rocniky, ucastnici),
@@ -41,6 +42,7 @@ InputContainer.propTypes = {
   inline: PropTypes.bool,
   name: PropTypes.string.isRequired,
   popisek: PropTypes.string.isRequired,
+  Formatter: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]),
   Type: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]),
   inputRef: PropTypes.func.isRequired
 };

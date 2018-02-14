@@ -664,7 +664,20 @@ exports[`dva přihlášení 1`] = `
                     }
                   }
                 >
-                  půlmaraton - muž - 60 a více
+                  <span>
+                    <img
+                      alt="půlmaraton"
+                      height={30}
+                      src="pulmaraton.png"
+                    />
+                     
+                    <img
+                      alt="muž"
+                      height={28}
+                      src="muz.png"
+                    />
+                    60 let a více
+                  </span>
                 </div>
                 <div
                   className="UcastniciTable_oddRow UcastniciTable_cell"
@@ -759,7 +772,20 @@ exports[`dva přihlášení 1`] = `
                     }
                   }
                 >
-                  půlmaraton - žena - 18-39
+                  <span>
+                    <img
+                      alt="půlmaraton"
+                      height={30}
+                      src="pulmaraton.png"
+                    />
+                     
+                    <img
+                      alt="žena"
+                      height={28}
+                      src="zena.png"
+                    />
+                    18 - 39 let
+                  </span>
                 </div>
                 <div
                   className="UcastniciTable_evenRow UcastniciTable_cell"
