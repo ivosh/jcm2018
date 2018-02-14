@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Glyphicon } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { barvaProTypKategorie } from '../../Util';
+import PopisekKategorie from '../../shared/PopisekKategorie/PopisekKategorie';
 import './KategorieFilter.css';
 
 const KategorieFilter = ({ typKategorie, active, onClick }) => {
@@ -12,7 +13,7 @@ const KategorieFilter = ({ typKategorie, active, onClick }) => {
   return (
     <span className="KategorieFilter">
       <Button onClick={onClick} style={style} active={active}>
-        <Glyphicon glyph="filter" /> {typKategorie}
+        <PopisekKategorie typ={typKategorie} typAsText={true} />
       </Button>
     </span>
   );

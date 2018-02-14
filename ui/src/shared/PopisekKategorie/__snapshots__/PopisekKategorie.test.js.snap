@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders cyklo 1`] = `
+<span>
+  <img
+    alt="cyklo"
+    height={30}
+    src="cyklo.png"
+  />
+   
+</span>
+`;
+
+exports[`renders cyklo and text 1`] = `
+<span>
+  <img
+    alt="cyklo"
+    height={30}
+    src="cyklo.png"
+  />
+   
+  cyklo
+</span>
+`;
+
+exports[`renders koloběžka with pohlaví 1`] = `
+<span>
+  <img
+    alt="koloběžka"
+    height={30}
+    src="kolobezka.png"
+  />
+   
+  <img
+    alt="žena"
+    height={30}
+    src="zena.png"
+  />
+</span>
+`;
+
+exports[`renders maraton with pohlaví and věk 1`] = `
+<span>
+  <img
+    alt="maraton"
+    height={30}
+    src="maraton.png"
+  />
+   
+  <img
+    alt="muž"
+    height={30}
+    src="muz.png"
+  />
+  18 - 39 let
+</span>
+`;
+
+exports[`renders půlmaraton with pohlaví and věk (max) 1`] = `
+<span>
+  <img
+    alt="půlmaraton"
+    height={30}
+    src="pulmaraton.png"
+  />
+   
+  <img
+    alt="žena"
+    height={30}
+    src="zena.png"
+  />
+  60 let a více
+</span>
+`;

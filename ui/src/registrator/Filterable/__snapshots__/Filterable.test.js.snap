@@ -28,11 +28,15 @@ exports[`renders 1`] = `
         }
         type="button"
       >
-        <span
-          className="glyphicon glyphicon-filter"
-        />
-         
-        maraton
+        <span>
+          <img
+            alt="maraton"
+            height={30}
+            src="maraton.png"
+          />
+           
+          maraton
+        </span>
       </button>
     </span>
     <span
@@ -49,11 +53,15 @@ exports[`renders 1`] = `
         }
         type="button"
       >
-        <span
-          className="glyphicon glyphicon-filter"
-        />
-         
-        půlmaraton
+        <span>
+          <img
+            alt="půlmaraton"
+            height={30}
+            src="pulmaraton.png"
+          />
+           
+          půlmaraton
+        </span>
       </button>
     </span>
     <span
@@ -70,11 +78,15 @@ exports[`renders 1`] = `
         }
         type="button"
       >
-        <span
-          className="glyphicon glyphicon-filter"
-        />
-         
-        cyklo
+        <span>
+          <img
+            alt="cyklo"
+            height={30}
+            src="cyklo.png"
+          />
+           
+          cyklo
+        </span>
       </button>
     </span>
     <span
@@ -91,11 +103,15 @@ exports[`renders 1`] = `
         }
         type="button"
       >
-        <span
-          className="glyphicon glyphicon-filter"
-        />
-         
-        koloběžka
+        <span>
+          <img
+            alt="koloběžka"
+            height={30}
+            src="kolobezka.png"
+          />
+           
+          koloběžka
+        </span>
       </button>
     </span>
     <span
@@ -112,11 +128,15 @@ exports[`renders 1`] = `
         }
         type="button"
       >
-        <span
-          className="glyphicon glyphicon-filter"
-        />
-         
-        pěší
+        <span>
+          <img
+            alt="pěší"
+            height={30}
+            src="pesi.png"
+          />
+           
+          pěší
+        </span>
       </button>
     </span>
   </div>
