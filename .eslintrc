@@ -35,6 +35,18 @@
     'indent': ['error', 2, { 'SwitchCase': 1 }],
     'object-curly-newline': ['error', { 'consistent': true }],
 
+    // Do not warn about mixed arithmetic operators; do warn about the rest.
+    'no-mixed-operators': ['error', {
+      groups: [
+        ['&', '|', '^', '~', '<<', '>>', '>>>'],
+        ['==', '!=', '===', '!==', '>', '>=', '<', '<='],
+        ['&&', '||'],
+        ['in', 'instanceof']
+      ],
+      allowSamePrecedence: false
+    }],
+
+
     // Do not warn about: 'use strict' is unnecessary inside of modules.
     // NodeJS does not support ES6 modules with import/export, yet.
     'strict': 0,
