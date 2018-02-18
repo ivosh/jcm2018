@@ -83,6 +83,9 @@ Object {
       "validateForm": false,
       "validatePlatba": false,
     },
+    "startujici": Object {
+      "fetching": false,
+    },
     "ucastniciDigest": Object {
       "fetching": false,
       "kategorieFilter": "",
@@ -178,6 +181,9 @@ Object {
       "validateForm": false,
       "validatePlatba": false,
     },
+    "startujici": Object {
+      "fetching": false,
+    },
     "ucastniciDigest": Object {
       "fetching": false,
       "kategorieFilter": "",
@@ -272,6 +278,9 @@ Object {
       },
       "validateForm": false,
       "validatePlatba": false,
+    },
+    "startujici": Object {
+      "fetching": false,
     },
     "ucastniciDigest": Object {
       "fetching": false,
