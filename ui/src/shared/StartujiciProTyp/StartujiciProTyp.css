@@ -1,0 +1,24 @@
+.StartujiciProTyp-table {
+  margin-top: 3ex;
+  margin-bottom: 1ex;
+  table-layout: fixed;
+  width: 1px; /* table occupies a minimum width possible */
+}
+
+.StartujiciProTyp-dokonceno, .StartujiciProTyp-na-trase, .StartujiciProTyp-nedokonceno {
+  width: 2em;
+  height: 2em;
+  text-align: center;
+}
+
+.StartujiciProTyp-dokonceno {
+  background-color: #60c860;
+}
+
+.StartujiciProTyp-na-trase {
+  background-color: #70a5ed;
+}
+
+.StartujiciProTyp-nedokonceno {
+  background-color: #9ec49e;
+}

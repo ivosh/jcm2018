@@ -6,7 +6,7 @@ const findStartCislo = (startujici, startCislo) =>
   startujici.find(element => element.startCislo === startCislo);
 
 export const getStartujiciProTyp = ({
-  prihlaseni,
+  prihlasky,
   rok = AKTUALNI_ROK,
   typ,
   kategorie,
@@ -19,7 +19,7 @@ export const getStartujiciProTyp = ({
     if (ucastnik[rok]) {
       const { prihlaska, vykon } = ucastnik[rok];
 
-      if (prihlaseni && prihlaska && prihlaska.startCislo) {
+      if (prihlasky && prihlaska && prihlaska.startCislo) {
         const { kategorie: kategorieId, startCislo } = prihlaska;
         if (typ === kategorie[kategorieId].typ) {
           results.push({ id, startCislo });
@@ -52,7 +52,7 @@ const populateRange = (start, end) => {
 };
 
 export const getStartCislaProTyp = ({
-  prihlaseni,
+  prihlasky,
   rok = AKTUALNI_ROK,
   typ,
   kategorie,
@@ -65,7 +65,7 @@ export const getStartCislaProTyp = ({
     return [];
   }
 
-  const startujici = getStartujiciProTyp({ prihlaseni, rok, typ, kategorie, ucastnici });
+  const startujici = getStartujiciProTyp({ prihlasky, rok, typ, kategorie, ucastnici });
   const results = [];
   startCisla.rozsahy.forEach(rozsah => {
     let range = [];
@@ -84,9 +84,4 @@ export const getStartCislaProTyp = ({
 };
 
 export const decorareStartujici = (startujici, filter, onClick) =>
-  startujici.map(jeden => {
-    if (filter(jeden)) {
-      return { ...jeden, onClick: () => onClick(jeden) };
-    }
-    return jeden;
-  });
+  startujici.map(jeden => (filter(jeden) ? { ...jeden, onClick: () => onClick(jeden) } : jeden));

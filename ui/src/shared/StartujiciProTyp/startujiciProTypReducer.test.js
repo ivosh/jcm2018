@@ -76,12 +76,12 @@ state.entities.ucastnici = {
   }
 };
 
-it('getStartujiciProTyp - přihlášeni 2013', () => {
+it('getStartujiciProTyp - přihlášky 2013', () => {
   deepFreeze(state);
   const selected = [{ id: 'id2', startCislo: 10 }, { id: 'id1', startCislo: 13 }];
 
   expect(
-    getStartujiciProTyp({ rok: 2013, typ: 'maraton', prihlaseni: true, ...state.entities })
+    getStartujiciProTyp({ rok: 2013, typ: 'maraton', prihlasky: true, ...state.entities })
   ).toEqual(selected);
 });
 
@@ -94,12 +94,12 @@ it('getStartujiciProTyp - výkony 2013', () => {
   expect(getStartujiciProTyp({ rok: 2013, typ: 'maraton', ...state.entities })).toEqual(selected);
 });
 
-it('getStartujiciProTyp - přihlášeni 2018', () => {
+it('getStartujiciProTyp - přihlášky 2018', () => {
   deepFreeze(state);
   const selected = [{ id: 'id3', startCislo: 10 }, { id: 'id1', startCislo: 15 }];
 
   expect(
-    getStartujiciProTyp({ rok: 2018, typ: 'koloběžka', prihlaseni: true, ...state.entities })
+    getStartujiciProTyp({ rok: 2018, typ: 'koloběžka', prihlasky: true, ...state.entities })
   ).toEqual(selected);
 });
 
@@ -111,11 +111,11 @@ it('getStartujiciProTyp - výkony 2018', () => {
   ];
 
   expect(
-    getStartujiciProTyp({ rok: 2018, typ: 'koloběžka', prihlaseni: false, ...state.entities })
+    getStartujiciProTyp({ rok: 2018, typ: 'koloběžka', prihlasky: false, ...state.entities })
   ).toEqual(selected);
 });
 
-it('getStartCislaProTyp - přihlášeni 2013', () => {
+it('getStartCislaProTyp - přihlášky 2013', () => {
   deepFreeze(state);
   const selected = [
     { id: 'id2', startCislo: 10 },
@@ -130,7 +130,7 @@ it('getStartCislaProTyp - přihlášeni 2013', () => {
   ];
 
   expect(
-    getStartCislaProTyp({ rok: 2013, typ: 'maraton', prihlaseni: true, ...state.entities })
+    getStartCislaProTyp({ rok: 2013, typ: 'maraton', prihlasky: true, ...state.entities })
   ).toEqual(selected);
 });
 
@@ -148,12 +148,10 @@ it('getStartCislaProTyp - výkony 2013', () => {
     { startCislo: 36 }
   ];
 
-  expect(
-    getStartCislaProTyp({ rok: 2013, typ: 'maraton', ...state.entities })
-  ).toEqual(selected);
+  expect(getStartCislaProTyp({ rok: 2013, typ: 'maraton', ...state.entities })).toEqual(selected);
 });
 
-it('getStartCislaProTyp - přihlášeni 2018', () => {
+it('getStartCislaProTyp - přihlášky 2018', () => {
   deepFreeze(state);
   const selected = [
     { id: 'id1', startCislo: 15 },
@@ -162,11 +160,11 @@ it('getStartCislaProTyp - přihlášeni 2018', () => {
     { startCislo: 12 },
     { startCislo: 11 },
     { id: 'id3', startCislo: 10 },
-    { startCislo: 16 },
+    { startCislo: 16 }
   ];
 
   expect(
-    getStartCislaProTyp({ rok: 2018, typ: 'koloběžka', prihlaseni: true, ...state.entities })
+    getStartCislaProTyp({ rok: 2018, typ: 'koloběžka', prihlasky: true, ...state.entities })
   ).toEqual(selected);
 });
 
@@ -179,10 +177,10 @@ it('getStartCislaProTyp - výkony 2018', () => {
     { startCislo: 12 },
     { startCislo: 11 },
     { id: 'id3', startCislo: 10 },
-    { startCislo: 16 },
+    { startCislo: 16 }
   ];
 
   expect(
-    getStartCislaProTyp({ rok: 2018, typ: 'koloběžka', prihlaseni: false, ...state.entities })
+    getStartCislaProTyp({ rok: 2018, typ: 'koloběžka', prihlasky: false, ...state.entities })
   ).toEqual(selected);
 });

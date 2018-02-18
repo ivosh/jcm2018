@@ -2227,12 +2227,12 @@ const state = {
             platby: [{ castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }],
             prihlaska: {
               datum: '2018-06-09T00:00:00.000Z',
-              kategorie: '5a587e1b051c181132cf83d7',
+              kategorie: '5a587e1b051c181132cf83d7', // půlmaraton
               startCislo: 17,
               kod: '10728864'
             },
             vykon: {
-              kategorie: '5a587e1b051c181132cf83d7',
+              kategorie: '5a587e1b051c181132cf83d7', // půlmaraton
               startCislo: 15,
               dokonceno: false
             }
@@ -2276,12 +2276,12 @@ const state = {
             platby: [{ castka: 100, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }],
             prihlaska: {
               datum: '2018-06-09T00:00:00.000Z',
-              kategorie: '5a587e1b051c181132cf83d9',
+              kategorie: '5a587e1b051c181132cf83d9', // půlmaraton
               startCislo: 10,
               kod: 'abc023skd204mvs345'
             },
             vykon: {
-              kategorie: '5a587e1b051c181132cf83d9',
+              kategorie: '5a587e1b051c181132cf83d9', // půlmaraton
               startCislo: 11,
               dokonceno: true,
               cas: 'PT2H06M32.6S'
