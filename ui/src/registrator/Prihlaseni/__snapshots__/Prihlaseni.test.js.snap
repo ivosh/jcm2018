@@ -36,6 +36,7 @@ exports[`dva přihlášení 1`] = `
               alt="maraton"
               height={30}
               src="maraton.png"
+              title="maraton"
             />
              
             maraton
@@ -61,6 +62,7 @@ exports[`dva přihlášení 1`] = `
               alt="půlmaraton"
               height={30}
               src="pulmaraton.png"
+              title="půlmaraton"
             />
              
             půlmaraton
@@ -86,6 +88,7 @@ exports[`dva přihlášení 1`] = `
               alt="cyklo"
               height={30}
               src="cyklo.png"
+              title="cyklo"
             />
              
             cyklo
@@ -111,6 +114,7 @@ exports[`dva přihlášení 1`] = `
               alt="koloběžka"
               height={30}
               src="kolobezka.png"
+              title="koloběžka"
             />
              
             koloběžka
@@ -136,6 +140,7 @@ exports[`dva přihlášení 1`] = `
               alt="pěší"
               height={30}
               src="pesi.png"
+              title="pěší"
             />
              
             pěší
@@ -669,12 +674,14 @@ exports[`dva přihlášení 1`] = `
                       alt="půlmaraton"
                       height={30}
                       src="pulmaraton.png"
+                      title="půlmaraton"
                     />
                      
                     <img
                       alt="muž"
                       height={28}
                       src="muz.png"
+                      title="muž"
                     />
                     60 let a více
                   </span>
@@ -777,12 +784,14 @@ exports[`dva přihlášení 1`] = `
                       alt="půlmaraton"
                       height={30}
                       src="pulmaraton.png"
+                      title="půlmaraton"
                     />
                      
                     <img
                       alt="žena"
                       height={28}
                       src="zena.png"
+                      title="žena"
                     />
                     18 - 39 let
                   </span>
@@ -893,6 +902,7 @@ exports[`žádný přihlášený 1`] = `
               alt="maraton"
               height={30}
               src="maraton.png"
+              title="maraton"
             />
              
             maraton
@@ -918,6 +928,7 @@ exports[`žádný přihlášený 1`] = `
               alt="půlmaraton"
               height={30}
               src="pulmaraton.png"
+              title="půlmaraton"
             />
              
             půlmaraton
@@ -943,6 +954,7 @@ exports[`žádný přihlášený 1`] = `
               alt="cyklo"
               height={30}
               src="cyklo.png"
+              title="cyklo"
             />
              
             cyklo
@@ -968,6 +980,7 @@ exports[`žádný přihlášený 1`] = `
               alt="koloběžka"
               height={30}
               src="kolobezka.png"
+              title="koloběžka"
             />
              
             koloběžka
@@ -993,6 +1006,7 @@ exports[`žádný přihlášený 1`] = `
               alt="pěší"
               height={30}
               src="pesi.png"
+              title="pěší"
             />
              
             pěší

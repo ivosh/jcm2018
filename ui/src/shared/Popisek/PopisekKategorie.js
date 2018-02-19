@@ -19,7 +19,7 @@ const renderTyp = ({ pohlavi, typAsText, vek }) => (!pohlavi && !vek) || typAsTe
 
 const PopisekKategorie = ({ pohlavi, typ, typAsText, vek }) => (
   <span>
-    <img src={typToImg[typ]} alt={typ} height={30} />{' '}
+    <img src={typToImg[typ]} alt={typ} title={typ} height={30} />{' '}
     {renderTyp({ pohlavi, typAsText, vek }) && typ}
     {pohlavi && <PopisekPohlavi pohlavi={pohlavi} />}
     {vek && `${vek.min} ${vek.max === 150 ? 'let a více' : `- ${vek.max} let`}`}

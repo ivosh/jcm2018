@@ -33,6 +33,7 @@ exports[`renders 1`] = `
             alt="maraton"
             height={30}
             src="maraton.png"
+            title="maraton"
           />
            
           maraton
@@ -58,6 +59,7 @@ exports[`renders 1`] = `
             alt="půlmaraton"
             height={30}
             src="pulmaraton.png"
+            title="půlmaraton"
           />
            
           půlmaraton
@@ -83,6 +85,7 @@ exports[`renders 1`] = `
             alt="cyklo"
             height={30}
             src="cyklo.png"
+            title="cyklo"
           />
            
           cyklo
@@ -108,6 +111,7 @@ exports[`renders 1`] = `
             alt="koloběžka"
             height={30}
             src="kolobezka.png"
+            title="koloběžka"
           />
            
           koloběžka
@@ -133,6 +137,7 @@ exports[`renders 1`] = `
             alt="pěší"
             height={30}
             src="pesi.png"
+            title="pěší"
           />
            
           pěší

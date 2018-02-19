@@ -9,7 +9,7 @@ const pohlaviToImg = {
 };
 
 const PopisekPohlavi = ({ pohlavi }) => (
-  <img src={pohlaviToImg[pohlavi]} alt={pohlavi} height={28} />
+  <img src={pohlaviToImg[pohlavi]} alt={pohlavi} title={pohlavi} height={28} />
 );
 
 PopisekPohlavi.propTypes = {
