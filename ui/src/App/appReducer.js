@@ -16,13 +16,26 @@ const connected = (state = false, action) => {
   }
 };
 
+const fetching = (state = false, action) => {
+  switch (action.type) {
+    case 'FETCH_UCASTNICI_REQUEST':
+      return true;
+    case 'FETCH_UCASTNICI_SUCCESS':
+    case 'FETCH_UCASTNICI_ERROR':
+      return false;
+    default:
+      return state;
+  }
+};
+
 const appReducer = combineReducers({
   auth: authReducer,
   casomeric: casomericReducer,
   startujici: startujiciReducer,
   registrator: registratorReducer,
   entities: entitiesReducer,
-  connected
+  connected,
+  fetching
 });
 
 export default appReducer;

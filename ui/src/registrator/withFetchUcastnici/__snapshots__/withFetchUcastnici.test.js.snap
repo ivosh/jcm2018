@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`po načtení 1`] = `
+<div>
+  baz
+</div>
+`;
+
+exports[`při načítání 1`] = `
+<div
+  className="PrihlaskyForm_div"
+>
+  <span
+    className="LoadingIndicator glyphicon glyphicon-repeat"
+  />
+   Načítám účastníky...
+</div>
+`;
