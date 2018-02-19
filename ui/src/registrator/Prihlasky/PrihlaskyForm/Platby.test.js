@@ -10,8 +10,10 @@ const state = {
   ...ucastniciTestData,
   registrator: {
     prihlasky: {
-      platby: [],
-      novaPlatba: {}
+      form: {
+        platby: [],
+        novaPlatba: {}
+      }
     }
   }
 };

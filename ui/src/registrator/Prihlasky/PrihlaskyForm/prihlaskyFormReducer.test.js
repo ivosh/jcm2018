@@ -1,11 +1,12 @@
 import deepFreeze from 'deep-freeze';
-import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
+import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import {
   fetchUcastniciRequest,
   fetchUcastniciSuccess,
   fetchUcastniciError
-} from '../../entities/ucastnici/ucastniciActions';
-import { predepsaneStartovne } from '../platby';
+} from '../../../entities/ucastnici/ucastniciActions';
+import { predepsaneStartovne } from '../../platby';
+import { ucastnikSelected } from '../PrihlaskyActions';
 import {
   addPlatba,
   hideError,
@@ -14,9 +15,8 @@ import {
   reset,
   saveUcastRequest,
   saveUcastSuccess,
-  saveUcastError,
-  ucastnikSelected
-} from './PrihlaskyActions';
+  saveUcastError
+} from './PrihlaskyFormActions';
 import prihlaskyReducer, {
   formatValue,
   formValid,
@@ -24,7 +24,7 @@ import prihlaskyReducer, {
   inputValid,
   isInputEnabled,
   novaPlatbaValid
-} from './prihlaskyReducer';
+} from './prihlaskyFormReducer';
 
 const unsuccessfulResponse = {
   code: 'neexistuje',
@@ -596,7 +596,9 @@ it('prihlaska.typ - není pohlaví', () => {
     ...ucastniciTestData,
     registrator: {
       prihlasky: {
-        udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: undefined }
+        form: {
+          udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: undefined }
+        }
       }
     }
   };
@@ -609,7 +611,7 @@ it('prihlaska.typ - není pohlaví', () => {
   ];
 
   expect(
-    inputOptions('prihlaska.typ', state.registrator.prihlasky, state.entities.rocniky)
+    inputOptions('prihlaska.typ', state.registrator.prihlasky.form, state.entities.rocniky)
   ).toEqual(selected);
 });
 
@@ -618,7 +620,9 @@ it('prihlaska.typ - není narození', () => {
     ...ucastniciTestData,
     registrator: {
       prihlasky: {
-        udaje: { narozeni: { den: undefined, mesic: undefined, rok: undefined }, pohlavi: 'žena' }
+        form: {
+          udaje: { narozeni: { den: undefined, mesic: undefined, rok: undefined }, pohlavi: 'žena' }
+        }
       }
     }
   };
@@ -635,7 +639,7 @@ it('prihlaska.typ - není narození', () => {
   ];
 
   expect(
-    inputOptions('prihlaska.typ', state.registrator.prihlasky, state.entities.rocniky)
+    inputOptions('prihlaska.typ', state.registrator.prihlasky.form, state.entities.rocniky)
   ).toEqual(selected);
 });
 
@@ -644,7 +648,9 @@ it('prihlaska.typ - muž', () => {
     ...ucastniciTestData,
     registrator: {
       prihlasky: {
-        udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: 'muž' }
+        form: {
+          udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: 'muž' }
+        }
       }
     }
   };
@@ -673,7 +679,7 @@ it('prihlaska.typ - muž', () => {
   ];
 
   expect(
-    inputOptions('prihlaska.typ', state.registrator.prihlasky, state.entities.rocniky)
+    inputOptions('prihlaska.typ', state.registrator.prihlasky.form, state.entities.rocniky)
   ).toEqual(selected);
 });
 
@@ -695,17 +701,19 @@ it('prihlaska.startCislo - kategorie má čísla', () => {
     ...ucastniciTestData,
     registrator: {
       prihlasky: {
-        udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: 'muž' },
-        prihlaska: { kategorie: '5a587e1b051c181132cf83d3', typ: 'půlmaraton', startCislo: 45 }
+        form: {
+          udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: 'muž' },
+          prihlaska: { kategorie: '5a587e1b051c181132cf83d3', typ: 'půlmaraton', startCislo: 45 }
+        }
       }
     }
   };
 
   expect(
-    isInputEnabled('prihlaska.startCislo', state.registrator.prihlasky, state.entities.rocniky)
+    isInputEnabled('prihlaska.startCislo', state.registrator.prihlasky.form, state.entities.rocniky)
   ).toBe(true);
   expect(
-    formatValue('prihlaska.startCislo', state.registrator.prihlasky.prihlaska.startCislo)
+    formatValue('prihlaska.startCislo', state.registrator.prihlasky.form.prihlaska.startCislo)
   ).toEqual('45');
 });
 
@@ -714,17 +722,19 @@ it('prihlaska.startCislo - kategorie nemá čísla', () => {
     ...ucastniciTestData,
     registrator: {
       prihlasky: {
-        udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: 'muž' },
-        prihlaska: { kategorie: '5a587e1a051c181132cf83b1', typ: 'pěší' }
+        form: {
+          udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: 'muž' },
+          prihlaska: { kategorie: '5a587e1a051c181132cf83b1', typ: 'pěší' }
+        }
       }
     }
   };
 
   expect(
-    isInputEnabled('prihlaska.startCislo', state.registrator.prihlasky, state.entities.rocniky)
+    isInputEnabled('prihlaska.startCislo', state.registrator.prihlasky.form, state.entities.rocniky)
   ).toBe(false);
   expect(
-    formatValue('prihlaska.startCislo', state.registrator.prihlasky.prihlaska.startCislo)
+    formatValue('prihlaska.startCislo', state.registrator.prihlasky.form.prihlaska.startCislo)
   ).toEqual('');
 });
 
@@ -785,11 +795,7 @@ it('ucastnikSelected - údaje i přihláška', () => {
   expect(
     prihlaskyReducer(
       stateBefore,
-      ucastnikSelected(
-        { id: '5a09b1fd371dec1e99b7e1c9' },
-        ucastniciTestData.entities.kategorie,
-        ucastniciTestData.entities.ucastnici
-      )
+      ucastnikSelected({ id: '5a09b1fd371dec1e99b7e1c9', ...ucastniciTestData.entities })
     )
   ).toEqual(stateAfter);
 });
@@ -851,11 +857,7 @@ it('ucastnikSelected - jen údaje', () => {
   expect(
     prihlaskyReducer(
       stateBefore,
-      ucastnikSelected(
-        { id: '6f09b1fd371dec1e99b7e1c9' },
-        ucastniciTestData.entities.kategorie,
-        ucastniciTestData.entities.ucastnici
-      )
+      ucastnikSelected({ id: '6f09b1fd371dec1e99b7e1c9', ...ucastniciTestData.entities })
     )
   ).toEqual(stateAfter);
 });
@@ -865,8 +867,10 @@ it('predepsaneStartovne - cyklo', () => {
     ...ucastniciTestData,
     registrator: {
       prihlasky: {
-        prihlaska: {
-          typ: 'cyklo'
+        form: {
+          prihlaska: {
+            typ: 'cyklo'
+          }
         }
       }
     }
@@ -878,7 +882,7 @@ it('predepsaneStartovne - cyklo', () => {
   expect(
     predepsaneStartovne({
       kategorie: state.entities.kategorie,
-      prihlaska: state.registrator.prihlasky.prihlaska,
+      prihlaska: state.registrator.prihlasky.form.prihlaska,
       rocniky: state.entities.rocniky
     })
   ).toEqual(selected);
@@ -889,8 +893,10 @@ it('predepsaneStartovne - půlmaraton', () => {
     ...ucastniciTestData,
     registrator: {
       prihlasky: {
-        prihlaska: {
-          kategorie: '5a587e1b051c181132cf83d4'
+        form: {
+          prihlaska: {
+            kategorie: '5a587e1b051c181132cf83d4'
+          }
         }
       }
     }
@@ -899,7 +905,7 @@ it('predepsaneStartovne - půlmaraton', () => {
   expect(
     predepsaneStartovne({
       kategorie: state.entities.kategorie,
-      prihlaska: state.registrator.prihlasky.prihlaska,
+      prihlaska: state.registrator.prihlasky.form.prihlaska,
       rocniky: state.entities.rocniky
     })
   ).toEqual(selected);

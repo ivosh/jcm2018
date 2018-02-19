@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
-import { saveUcastSuccess } from '../../registrator/Prihlasky/PrihlaskyActions';
+import { saveUcastSuccess } from '../../registrator/Prihlasky/PrihlaskyForm/PrihlaskyFormActions';
 import ucastniciReducer, {
   narozeniSortMethod,
   prijmeniJmenoNarozeniSortMethod

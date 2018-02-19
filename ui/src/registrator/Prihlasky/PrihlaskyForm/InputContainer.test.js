@@ -15,8 +15,10 @@ beforeEach(() => {
     ...ucastniciTestData,
     registrator: {
       prihlasky: {
-        udaje: {
-          jmeno: 'Klára'
+        form: {
+          udaje: {
+            jmeno: 'Klára'
+          }
         }
       }
     }
@@ -65,9 +67,11 @@ it('maps state to props - narození - jen rok', () => {
     ...ucastniciTestData,
     registrator: {
       prihlasky: {
-        validateForm: false,
-        udaje: {
-          narozeni: { den: undefined, mesic: undefined, rok: 1981 }
+        form: {
+          validateForm: false,
+          udaje: {
+            narozeni: { den: undefined, mesic: undefined, rok: 1981 }
+          }
         }
       }
     }
@@ -95,9 +99,11 @@ it('maps state to props - narození - celé', () => {
     ...ucastniciTestData,
     registrator: {
       prihlasky: {
-        validateForm: false,
-        udaje: {
-          narozeni: { den: 1, mesic: 6, rok: 1981 }
+        form: {
+          validateForm: false,
+          udaje: {
+            narozeni: { den: 1, mesic: 6, rok: 1981 }
+          }
         }
       }
     }

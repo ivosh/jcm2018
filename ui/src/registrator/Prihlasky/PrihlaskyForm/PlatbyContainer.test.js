@@ -13,22 +13,24 @@ beforeEach(() => {
     ...ucastniciTestData,
     registrator: {
       prihlasky: {
-        validatePlatba: false,
-        prihlaska: { typ: 'cyklo' },
-        platby: [
-          {
-            castka: 200,
-            datum: '2018-05-01T00:00:00.000Z',
-            typ: 'převodem',
-            poznamka: 'stále visí'
-          },
-          { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
-        ],
-        novaPlatba: {
-          castka: 150,
-          datum: 'rozepsáno',
-          typ: 'složenkou',
-          poznamka: undefined
+        form: {
+          validatePlatba: false,
+          prihlaska: { typ: 'cyklo' },
+          platby: [
+            {
+              castka: 200,
+              datum: '2018-05-01T00:00:00.000Z',
+              typ: 'převodem',
+              poznamka: 'stále visí'
+            },
+            { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
+          ],
+          novaPlatba: {
+            castka: 150,
+            datum: 'rozepsáno',
+            typ: 'složenkou',
+            poznamka: undefined
+          }
         }
       }
     }

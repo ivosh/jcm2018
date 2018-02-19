@@ -1,28 +1,26 @@
 import { connect } from 'react-redux';
-import { inputOptions } from '../prihlaskyReducer';
+import { getSearchOptions } from './prihlaskySearchReducer';
 import PrihlaskySearch from './PrihlaskySearch';
 import { ucastnikSelected } from '../PrihlaskyActions';
 
 const mapStateToProps = state => {
-  const { registrator: { prihlasky } } = state;
-  const { entities: { kategorie, rocniky, ucastnici } } = state;
+  const { entities } = state;
 
   return {
-    options: inputOptions('udaje.prijmeni+prihlaska.kod', prihlasky, rocniky, ucastnici),
-    kategorie,
-    ucastnici
+    entities,
+    options: getSearchOptions(entities)
   };
 };
 
 const mapDispatchToProps = dispatch => ({ dispatch });
 
 const mergeProps = (stateProps, dispatchProps) => {
-  const { options, kategorie, ucastnici } = stateProps;
+  const { entities, options } = stateProps;
   const { dispatch } = dispatchProps;
 
   return {
     options,
-    onSelect: option => dispatch(ucastnikSelected(option, kategorie, ucastnici))
+    onSelect: option => dispatch(ucastnikSelected({ ...option, ...entities }))
   };
 };
 

@@ -1,7 +1,7 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import WsClient from '../../WsClient';
-import { addValidatedPlatba, saveUcast } from './PrihlaskyActions';
+import WsClient from '../../../WsClient';
+import { addValidatedPlatba, saveUcast } from './PrihlaskyFormActions';
 
 const successfulResponseSaveUdaje = {
   code: 'ok',
@@ -52,7 +52,9 @@ it('saveUcast() should dispatch four successful actions', async () => {
   ];
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlasky: { validateForm: false, udaje: { narozeni: {} }, prihlaska: {} } }
+    registrator: {
+      prihlasky: { form: { validateForm: false, udaje: { narozeni: {} }, prihlaska: {} } }
+    }
   });
 
   await store.dispatch(saveUcast());
@@ -72,7 +74,7 @@ it('saveUcast() should dispatch two unsuccessful actions 1/2', async () => {
   responses = [unsuccessfulResponse, unsuccessfulResponse];
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlasky: { udaje: { narozeni: {} }, prihlaska: {} } }
+    registrator: { prihlasky: { form: { udaje: { narozeni: {} }, prihlaska: {} } } }
   });
 
   await store.dispatch(saveUcast());
@@ -92,7 +94,7 @@ it('saveUcast() should dispatch two unsuccessful actions 2/2', async () => {
   responses = [successfulResponseSaveUdaje, unsuccessfulResponse];
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlasky: { udaje: { narozeni: {} }, prihlaska: {} } }
+    registrator: { prihlasky: { form: { udaje: { narozeni: {} }, prihlaska: {} } } }
   });
 
   await store.dispatch(saveUcast());
@@ -112,7 +114,7 @@ it('saveUcast() should dispatch two unsuccessful actions on an invalid token', a
   responses = [authTokenInvalidResponse, unsuccessfulResponse];
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlasky: { udaje: { narozeni: {} }, prihlaska: {} } }
+    registrator: { prihlasky: { form: { udaje: { narozeni: {} }, prihlaska: {} } } }
   });
 
   await store.dispatch(saveUcast());
@@ -136,7 +138,9 @@ it('saveUcast() should dispatch validation error', async () => {
   ];
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlasky: { validateForm: true, udaje: { narozeni: {} }, prihlaska: {} } }
+    registrator: {
+      prihlasky: { form: { validateForm: true, udaje: { narozeni: {} }, prihlaska: {} } }
+    }
   });
 
   await store.dispatch(saveUcast());
@@ -154,7 +158,7 @@ it('saveUcast() should dispatch two unsuccessful actions on error', async () => 
   mockWsClient.sendRequest = async () => Promise.reject(new Error('Parse error!'));
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlasky: { udaje: { narozeni: {} }, prihlaska: {} } }
+    registrator: { prihlasky: { form: { udaje: { narozeni: {} }, prihlaska: {} } } }
   });
 
   await store.dispatch(saveUcast());
@@ -180,7 +184,7 @@ it('saveUcast() should use auth token if available', async () => {
   };
   const store = mockStore({
     auth: { token: '===token===' },
-    registrator: { prihlasky: { udaje: { narozeni: {} }, prihlaska: {} } }
+    registrator: { prihlasky: { form: { udaje: { narozeni: {} }, prihlaska: {} } } }
   });
 
   await store.dispatch(saveUcast());
@@ -191,8 +195,10 @@ it('addValidatedPlatba() should dispatch two successful actions', async () => {
   const store = mockStore({
     registrator: {
       prihlasky: {
-        validatePlatba: false,
-        novaPlatba: { castka: '200', datum: '2018-05-12T00:00:00Z', typ: 'převodem' }
+        form: {
+          validatePlatba: false,
+          novaPlatba: { castka: '200', datum: '2018-05-12T00:00:00Z', typ: 'převodem' }
+        }
       }
     }
   });
@@ -209,8 +215,10 @@ it('addValidatedPlatba() should dispatch only one action', async () => {
   const store = mockStore({
     registrator: {
       prihlasky: {
-        validatePlatba: false,
-        novaPlatba: { castka: 'rozepsáno', datum: '2018-05-12T00:00:00Z', typ: 'převodem' }
+        form: {
+          validatePlatba: false,
+          novaPlatba: { castka: 'rozepsáno', datum: '2018-05-12T00:00:00Z', typ: 'převodem' }
+        }
       }
     }
   });

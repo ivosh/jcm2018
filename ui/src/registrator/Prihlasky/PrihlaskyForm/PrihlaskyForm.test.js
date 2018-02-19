@@ -12,18 +12,20 @@ const state = {
   ...ucastniciTestData,
   registrator: {
     prihlasky: {
-      errorCode: '',
-      errorMessage: '',
-      showError: false,
-      fetching: false,
-      saved: false,
-      saving: true,
-      ucastnikId: '---id---',
-      validateForm: false,
-      udaje: { narozeni: {} },
-      prihlaska: {},
-      platby: [],
-      novaPlatba: {}
+      form: {
+        errorCode: '',
+        errorMessage: '',
+        showError: false,
+        fetching: false,
+        saved: false,
+        saving: true,
+        ucastnikId: '---id---',
+        validateForm: false,
+        udaje: { narozeni: {} },
+        prihlaska: {},
+        platby: [],
+        novaPlatba: {}
+      }
     }
   }
 };

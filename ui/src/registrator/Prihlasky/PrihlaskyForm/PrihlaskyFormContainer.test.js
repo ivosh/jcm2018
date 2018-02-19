@@ -13,14 +13,16 @@ beforeEach(() => {
     ...ucastniciTestData,
     registrator: {
       prihlasky: {
-        errorCode: 'Chybový kód.',
-        errorMessage: 'Chybová hláška trochu dlouhá.',
-        showError: true,
-        fetching: false,
-        saved: false,
-        saving: true,
-        ucastnikId: '---id---',
-        validateForm: false
+        form: {
+          errorCode: 'Chybový kód.',
+          errorMessage: 'Chybová hláška trochu dlouhá.',
+          showError: true,
+          fetching: false,
+          saved: false,
+          saving: true,
+          ucastnikId: '---id---',
+          validateForm: false
+        }
       }
     }
   };
