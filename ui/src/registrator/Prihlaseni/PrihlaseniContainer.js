@@ -1,28 +1,18 @@
 import { connect } from 'react-redux';
-import { fetchUcastnici } from '../../entities/ucastnici/ucastniciActions';
 import { getPrihlaseniSorted } from './prihlaseniReducer';
 import Prihlaseni from './Prihlaseni';
 
-const mapStateToProps = ({ entities, registrator }) => {
-  const { fetching } = registrator.prihlaseni;
-
-  // Don't forget to update areStatesEqual!
-  return {
-    prihlaseni: getPrihlaseniSorted({ ...entities, ...registrator.prihlaseni }),
-    actionPrefix: 'PRIHLASENI',
-    fetching,
-    reduxName: 'prihlaseni'
-  };
-};
+// Don't forget to update areStatesEqual!
+const mapStateToProps = ({ entities, registrator }) => ({
+  prihlaseni: getPrihlaseniSorted({ ...entities, ...registrator.prihlaseni }),
+  actionPrefix: 'PRIHLASENI',
+  reduxName: 'prihlaseni'
+});
 
 const areStatesEqual = (next, prev) =>
   prev.entities === next.entities && prev.registrator.prihlaseni === next.registrator.prihlaseni;
 
-const mapDispatchToProps = dispatch => ({
-  fetchUcastnici: () => dispatch(fetchUcastnici())
-});
-
-const PrihlaseniContainer = connect(mapStateToProps, mapDispatchToProps, null, {
+const PrihlaseniContainer = connect(mapStateToProps, null, null, {
   areStatesEqual
 })(Prihlaseni);
 

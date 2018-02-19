@@ -1,8 +1,7 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { barvaProTypKategorie } from '../../Util';
-import LoadingIndicator from '../../shared/LoadingIndicator';
 import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import FilterableContainer from '../Filterable/FilterableContainer';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
@@ -26,94 +25,77 @@ const zaplacenoStyler = ({ cellData, data, rowIndex }) => ({
   textAlign: 'right'
 });
 
-class Prihlaseni extends PureComponent {
-  componentDidMount = () => {
-    this.props.fetchUcastnici();
-  };
-
-  render = () => {
-    const { actionPrefix, fetching, reduxName, prihlaseni } = this.props;
-
-    if (fetching) {
-      return (
-        <div className="Prihlaseni_div">
-          <LoadingIndicator /> Účastníci se načítají...
-        </div>
-      );
+const Prihlaseni = ({ actionPrefix, reduxName, prihlaseni }) => {
+  const columns = [
+    {
+      cellStyler: alignLeftStyler,
+      key: 'prijmeni',
+      label: 'příjmení',
+      sortable: true,
+      width: 100
+    },
+    { cellStyler: alignLeftStyler, key: 'jmeno', label: 'jméno', sortable: true, width: 90 },
+    {
+      cellStyler: alignRightStyler,
+      key: 'narozeni',
+      label: 'narození',
+      sortable: true,
+      width: 100
+    },
+    { cellStyler: alignLeftStyler, key: 'obec', sortable: true, width: 90 },
+    {
+      cellStyler: alignRightStyler,
+      cellDataFormatter: datumFormat,
+      key: 'datum',
+      label: 'přihlášení',
+      sortable: true,
+      width: 110
+    },
+    {
+      cellStyler: kategorieStyler,
+      cellDataFormatter: kategorieFormat,
+      key: 'kategorie',
+      sortable: true,
+      width: 200
+    },
+    {
+      cellStyler: alignRightStyler,
+      key: 'startCislo',
+      label: 'start. číslo',
+      sortable: true,
+      width: 100
+    },
+    { cellStyler: kodStyler, key: 'kod', label: 'kód', width: 150 },
+    {
+      cellStyler: zaplacenoStyler,
+      cellDataFormatter: zaplacenoFormat,
+      key: 'zaplaceno',
+      width: 80
     }
+  ];
 
-    const columns = [
-      {
-        cellStyler: alignLeftStyler,
-        key: 'prijmeni',
-        label: 'příjmení',
-        sortable: true,
-        width: 100
-      },
-      { cellStyler: alignLeftStyler, key: 'jmeno', label: 'jméno', sortable: true, width: 90 },
-      {
-        cellStyler: alignRightStyler,
-        key: 'narozeni',
-        label: 'narození',
-        sortable: true,
-        width: 100
-      },
-      { cellStyler: alignLeftStyler, key: 'obec', sortable: true, width: 90 },
-      {
-        cellStyler: alignRightStyler,
-        cellDataFormatter: datumFormat,
-        key: 'datum',
-        label: 'přihlášení',
-        sortable: true,
-        width: 110
-      },
-      {
-        cellStyler: kategorieStyler,
-        cellDataFormatter: kategorieFormat,
-        key: 'kategorie',
-        sortable: true,
-        width: 200
-      },
-      {
-        cellStyler: alignRightStyler,
-        key: 'startCislo',
-        label: 'start. číslo',
-        sortable: true,
-        width: 100
-      },
-      { cellStyler: kodStyler, key: 'kod', label: 'kód', width: 150 },
-      {
-        cellStyler: zaplacenoStyler,
-        cellDataFormatter: zaplacenoFormat,
-        key: 'zaplaceno',
-        width: 80
-      }
-    ];
+  return (
+    <div className="Prihlaseni_div UcastniciTable_container">
+      <FilterableContainer
+        actionPrefix={actionPrefix}
+        reduxName={reduxName}
+        numberOfItems={prihlaseni.length}
+      />
 
-    return (
-      <div className="Prihlaseni_div UcastniciTable_container">
-        <FilterableContainer
-          actionPrefix={actionPrefix}
-          reduxName={reduxName}
-          numberOfItems={prihlaseni.length}
-        />
-
-        <UcastniciTableContainer
-          actionPrefix={actionPrefix}
-          columns={columns}
-          data={prihlaseni}
-          fixedColumnCount={3}
-          reduxName={reduxName}
-          rowHeight={35}
-        />
-      </div>
-    );
-  };
-}
+      <UcastniciTableContainer
+        actionPrefix={actionPrefix}
+        columns={columns}
+        data={prihlaseni}
+        fixedColumnCount={3}
+        reduxName={reduxName}
+        rowHeight={35}
+      />
+    </div>
+  );
+};
 
 Prihlaseni.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
-  fetching: PropTypes.bool,
   reduxName: PropTypes.string.isRequired,
   prihlaseni: PropTypes.arrayOf(
     PropTypes.shape({
@@ -131,8 +113,7 @@ Prihlaseni.propTypes = {
       predepsano: PropTypes.number.isRequired,
       zaplaceno: PropTypes.number.isRequired
     }).isRequired
-  ).isRequired,
-  fetchUcastnici: PropTypes.func.isRequired
+  ).isRequired
 };
 
 export default Prihlaseni;

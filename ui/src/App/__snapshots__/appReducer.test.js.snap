@@ -35,7 +35,6 @@ Object {
   "fetching": false,
   "registrator": Object {
     "prihlaseni": Object {
-      "fetching": false,
       "kategorieFilter": "",
       "sortColumn": undefined,
       "sortDir": "none",
@@ -134,7 +133,6 @@ Object {
   "fetching": false,
   "registrator": Object {
     "prihlaseni": Object {
-      "fetching": false,
       "kategorieFilter": "",
       "sortColumn": undefined,
       "sortDir": "none",
@@ -233,7 +231,6 @@ Object {
   "fetching": false,
   "registrator": Object {
     "prihlaseni": Object {
-      "fetching": false,
       "kategorieFilter": "",
       "sortColumn": undefined,
       "sortDir": "none",

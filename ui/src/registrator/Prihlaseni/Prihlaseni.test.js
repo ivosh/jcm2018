@@ -10,11 +10,7 @@ const state = { registrator: { prihlaseni: {} } };
 const store = mockStore(state);
 store.dispatch = jest.fn();
 
-const commonProps = {
-  actionPrefix: 'PRIHLASENI',
-  reduxName: 'prihlaseni',
-  fetchUcastnici: jest.fn()
-};
+const commonProps = { actionPrefix: 'PRIHLASENI', reduxName: 'prihlaseni' };
 
 const prihlaseni = [
   {
@@ -58,16 +54,7 @@ const prihlaseni = [
 it('žádný přihlášený', () => {
   const component = renderer.create(
     <Provider store={store}>
-      <Prihlaseni prihlaseni={[]} fetching={false} {...commonProps} />
-    </Provider>
-  );
-  expect(component.toJSON()).toMatchSnapshot();
-});
-
-it('načítá se', () => {
-  const component = renderer.create(
-    <Provider store={store}>
-      <Prihlaseni prihlaseni={prihlaseni} fetching={true} {...commonProps} />
+      <Prihlaseni prihlaseni={[]} {...commonProps} />
     </Provider>
   );
   expect(component.toJSON()).toMatchSnapshot();

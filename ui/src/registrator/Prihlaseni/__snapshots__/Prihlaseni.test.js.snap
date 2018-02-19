@@ -855,17 +855,6 @@ exports[`dva přihlášení 1`] = `
 </div>
 `;
 
-exports[`načítá se 1`] = `
-<div
-  className="Prihlaseni_div"
->
-  <span
-    className="LoadingIndicator glyphicon glyphicon-repeat"
-  />
-   Účastníci se načítají...
-</div>
-`;
-
 exports[`žádný přihlášený 1`] = `
 <div
   className="Prihlaseni_div UcastniciTable_container"

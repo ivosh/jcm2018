@@ -10,10 +10,7 @@ const state = { registrator: { ucastniciDigest: {} } };
 const store = mockStore(state);
 store.dispatch = jest.fn();
 
-const commonProps = {
-  actionPrefix: 'UCASTNICI_DIGEST',
-  reduxName: 'ucastniciDigest'
-};
+const commonProps = { actionPrefix: 'UCASTNICI_DIGEST', reduxName: 'ucastniciDigest' };
 
 const roky = [
   2001,
