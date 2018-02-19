@@ -1285,17 +1285,6 @@ exports[`dva účastníci 1`] = `
 </div>
 `;
 
-exports[`načítá se 1`] = `
-<div
-  className="UcastniciDigest_div"
->
-  <span
-    className="LoadingIndicator glyphicon glyphicon-repeat"
-  />
-   Účastníci se načítají...
-</div>
-`;
-
 exports[`žádný účastník 1`] = `
 <div
   className="UcastniciDigest_div UcastniciTable_container"

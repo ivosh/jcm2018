@@ -14,7 +14,6 @@ import {
 } from '../UcastniciTable/ucastniciTableReducer';
 
 export const initialState = {
-  fetching: false,
   ...filterableInitialState,
   ...ucastniciTableInitialState
 };
@@ -24,16 +23,7 @@ const ucastniciTableReducer = createUcastniciTableReducer('UCASTNICI_DIGEST');
 
 const ucastniciDigestReducer = (state = initialState, action) => {
   state = filterableReducer(state, action); // eslint-disable-line no-param-reassign
-  state = ucastniciTableReducer(state, action); // eslint-disable-line no-param-reassign
-  switch (action.type) {
-    case 'FETCH_UCASTNICI_REQUEST':
-      return { ...state, fetching: true };
-    case 'FETCH_UCASTNICI_SUCCESS':
-    case 'FETCH_UCASTNICI_ERROR':
-      return { ...state, fetching: false };
-    default:
-      return state;
-  }
+  return ucastniciTableReducer(state, action);
 };
 
 export default ucastniciDigestReducer;

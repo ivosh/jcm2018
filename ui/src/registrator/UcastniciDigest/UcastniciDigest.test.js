@@ -12,8 +12,7 @@ store.dispatch = jest.fn();
 
 const commonProps = {
   actionPrefix: 'UCASTNICI_DIGEST',
-  reduxName: 'ucastniciDigest',
-  fetchUcastnici: jest.fn()
+  reduxName: 'ucastniciDigest'
 };
 
 const roky = [
@@ -61,21 +60,7 @@ const ucastniciDigest = [
 it('žádný účastník', () => {
   const component = renderer.create(
     <Provider store={store}>
-      <UcastniciDigest roky={roky} ucastniciDigest={[]} fetching={false} {...commonProps} />
-    </Provider>
-  );
-  expect(component.toJSON()).toMatchSnapshot();
-});
-
-it('načítá se', () => {
-  const component = renderer.create(
-    <Provider store={store}>
-      <UcastniciDigest
-        roky={roky}
-        ucastniciDigest={ucastniciDigest}
-        fetching={true}
-        {...commonProps}
-      />
+      <UcastniciDigest roky={roky} ucastniciDigest={[]} {...commonProps} />
     </Provider>
   );
   expect(component.toJSON()).toMatchSnapshot();

@@ -32,6 +32,7 @@ Object {
       "byIds": Object {},
     },
   },
+  "fetching": false,
   "registrator": Object {
     "prihlaseni": Object {
       "fetching": false,
@@ -44,7 +45,6 @@ Object {
       "form": Object {
         "errorCode": "",
         "errorMessage": "",
-        "fetching": false,
         "novaPlatba": Object {
           "castka": undefined,
           "datum": undefined,
@@ -89,7 +89,6 @@ Object {
       "fetching": false,
     },
     "ucastniciDigest": Object {
-      "fetching": false,
       "kategorieFilter": "",
       "sortColumn": undefined,
       "sortDir": "none",
@@ -132,6 +131,7 @@ Object {
       "byIds": Object {},
     },
   },
+  "fetching": false,
   "registrator": Object {
     "prihlaseni": Object {
       "fetching": false,
@@ -144,7 +144,6 @@ Object {
       "form": Object {
         "errorCode": "",
         "errorMessage": "",
-        "fetching": false,
         "novaPlatba": Object {
           "castka": undefined,
           "datum": undefined,
@@ -189,7 +188,6 @@ Object {
       "fetching": false,
     },
     "ucastniciDigest": Object {
-      "fetching": false,
       "kategorieFilter": "",
       "sortColumn": undefined,
       "sortDir": "none",
@@ -232,6 +230,7 @@ Object {
       "byIds": Object {},
     },
   },
+  "fetching": false,
   "registrator": Object {
     "prihlaseni": Object {
       "fetching": false,
@@ -244,7 +243,6 @@ Object {
       "form": Object {
         "errorCode": "",
         "errorMessage": "",
-        "fetching": false,
         "novaPlatba": Object {
           "castka": undefined,
           "datum": undefined,
@@ -289,7 +287,6 @@ Object {
       "fetching": false,
     },
     "ucastniciDigest": Object {
-      "fetching": false,
       "kategorieFilter": "",
       "sortColumn": undefined,
       "sortDir": "none",

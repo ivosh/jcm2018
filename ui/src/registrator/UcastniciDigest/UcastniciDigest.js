@@ -1,7 +1,6 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { barvaProTypKategorie } from '../../Util';
-import LoadingIndicator from '../../shared/LoadingIndicator';
 import FilterableContainer from '../Filterable/FilterableContainer';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
 import './UcastniciDigest.css';
@@ -30,72 +29,55 @@ const vykonCellStyler = ({ cellData }) => {
   return {};
 };
 
-class UcastniciDigest extends PureComponent {
-  componentDidMount = () => {
-    this.props.fetchUcastnici();
-  };
+const UcastniciDigest = ({ actionPrefix, reduxName, roky, ucastniciDigest }) => {
+  const columns = [
+    {
+      cellStyler: alignLeftStyler,
+      key: 'prijmeni',
+      label: 'příjmení',
+      sortable: true,
+      width: 100
+    },
+    { cellStyler: alignLeftStyler, key: 'jmeno', label: 'jméno', sortable: true, width: 90 },
+    {
+      cellStyler: alignRightStyler,
+      key: 'narozeni',
+      label: 'narození',
+      sortable: true,
+      width: 100
+    },
+    ...roky.map(rok => ({
+      cellDataFormatter: vykonCellDataFormatter,
+      cellStyler: vykonCellStyler,
+      key: `${rok}`,
+      label: rok,
+      sortable: false,
+      width: 50
+    }))
+  ];
 
-  render = () => {
-    const { actionPrefix, fetching, reduxName, roky, ucastniciDigest } = this.props;
+  return (
+    <div className="UcastniciDigest_div UcastniciTable_container">
+      <FilterableContainer
+        actionPrefix={actionPrefix}
+        reduxName={reduxName}
+        numberOfItems={ucastniciDigest.length}
+      />
 
-    if (fetching) {
-      return (
-        <div className="UcastniciDigest_div">
-          <LoadingIndicator /> Účastníci se načítají...
-        </div>
-      );
-    }
-
-    const columns = [
-      {
-        cellStyler: alignLeftStyler,
-        key: 'prijmeni',
-        label: 'příjmení',
-        sortable: true,
-        width: 100
-      },
-      { cellStyler: alignLeftStyler, key: 'jmeno', label: 'jméno', sortable: true, width: 90 },
-      {
-        cellStyler: alignRightStyler,
-        key: 'narozeni',
-        label: 'narození',
-        sortable: true,
-        width: 100
-      },
-      ...roky.map(rok => ({
-        cellDataFormatter: vykonCellDataFormatter,
-        cellStyler: vykonCellStyler,
-        key: `${rok}`,
-        label: rok,
-        sortable: false,
-        width: 50
-      }))
-    ];
-
-    return (
-      <div className="UcastniciDigest_div UcastniciTable_container">
-        <FilterableContainer
-          actionPrefix={actionPrefix}
-          reduxName={reduxName}
-          numberOfItems={ucastniciDigest.length}
-        />
-
-        <UcastniciTableContainer
-          actionPrefix={actionPrefix}
-          columns={columns}
-          data={ucastniciDigest}
-          fixedColumnCount={3}
-          reduxName={reduxName}
-          rowHeight={35}
-        />
-      </div>
-    );
-  };
-}
+      <UcastniciTableContainer
+        actionPrefix={actionPrefix}
+        columns={columns}
+        data={ucastniciDigest}
+        fixedColumnCount={3}
+        reduxName={reduxName}
+        rowHeight={35}
+      />
+    </div>
+  );
+};
 
 UcastniciDigest.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
-  fetching: PropTypes.bool,
   reduxName: PropTypes.string.isRequired,
   roky: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
   ucastniciDigest: PropTypes.arrayOf(
@@ -105,8 +87,7 @@ UcastniciDigest.propTypes = {
       jmeno: PropTypes.string.isRequired,
       narozeni: PropTypes.string.isRequired
     }).isRequired
-  ).isRequired,
-  fetchUcastnici: PropTypes.func.isRequired
+  ).isRequired
 };
 
 export default UcastniciDigest;

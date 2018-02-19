@@ -13,7 +13,6 @@ beforeEach(() => {
     ...ucastniciTestData,
     registrator: {
       ucastniciDigest: {
-        fetching: false,
         kategorieFilter: '',
         textFilter: ''
       }
@@ -25,13 +24,6 @@ beforeEach(() => {
 });
 
 it('maps state and dispatch to props', () => {
-  expect(wrapper.props().fetching).toBe(false);
   expect(wrapper.props().ucastniciDigest).toBeTruthy();
   expect(wrapper.props().ucastniciDigest).toMatchSnapshot();
-});
-
-it('maps fetchUcastnici to dispatch', () => {
-  wrapper.props().fetchUcastnici();
-
-  expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
 });
