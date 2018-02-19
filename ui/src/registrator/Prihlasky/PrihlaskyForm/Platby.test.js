@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
-import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
+import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import Platby from './Platby';
 
 const mockStore = configureStore();

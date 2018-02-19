@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
-import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
-import PrihlaskyContainer from './PrihlaskyContainer';
+import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
+import PrihlaskyFormContainer from './PrihlaskyFormContainer';
 
 const mockStore = configureStore();
 
@@ -26,7 +26,7 @@ beforeEach(() => {
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
-  wrapper = shallow(<PrihlaskyContainer store={store} />);
+  wrapper = shallow(<PrihlaskyFormContainer store={store} />);
 });
 
 it('maps state and dispatch to props', () => {

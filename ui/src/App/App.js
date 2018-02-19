@@ -8,7 +8,7 @@ import withoutAuth from '../auth/withoutAuth';
 import SignInContainer from '../auth/SignIn/SignInContainer';
 import CasomericContainer from '../casomeric/Casomeric/CasomericContainer';
 import UcastniciDigestContainer from '../registrator/UcastniciDigest/UcastniciDigestContainer';
-import PrihlaskyContainer from '../registrator/Prihlasky/PrihlaskyContainer';
+import Prihlasky from '../registrator/Prihlasky/Prihlasky';
 import StartujiciContainer from '../registrator/Startujici/StartujiciContainer';
 import PrihlaseniContainer from '../registrator/Prihlaseni/PrihlaseniContainer';
 import SignOutContainer from '../auth/SignOut/SignOutContainer';
@@ -79,7 +79,7 @@ const App = ({ authenticated, connected, username }) => (
         <Route path="/signin" component={withoutAuth(SignInContainer)} />
         <Route path="/casomeric" component={withAuth(CasomericContainer)} />
         <Route path="/ucastnici" component={withAuth(UcastniciDigestContainer)} />
-        <Route path="/prihlasky" component={withAuth(PrihlaskyContainer)} />
+        <Route path="/prihlasky" component={withAuth(Prihlasky)} />
         <Route path="/prihlaseni" component={withAuth(PrihlaseniContainer)} />
         <Route path="/startujici" component={withAuth(StartujiciContainer)} />
         <Route path="/signout" component={withAuth(SignOutContainer)} />

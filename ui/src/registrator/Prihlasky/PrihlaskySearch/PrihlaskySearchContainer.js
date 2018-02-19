@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { inputOptions } from './prihlaskyReducer';
+import { inputOptions } from '../prihlaskyReducer';
 import PrihlaskySearch from './PrihlaskySearch';
-import { ucastnikSelected } from './PrihlaskyActions';
+import { ucastnikSelected } from '../PrihlaskyActions';
 
 const mapStateToProps = state => {
   const { registrator: { prihlasky } } = state;

@@ -4,8 +4,8 @@ import renderer from 'react-test-renderer';
 import { mount, shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import configureStore from 'redux-mock-store';
-import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
-import Prihlasky from './Prihlasky';
+import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
+import PrihlaskyForm from './PrihlaskyForm';
 
 const mockStore = configureStore();
 const state = {
@@ -31,7 +31,7 @@ const store = mockStore(state);
 
 it('při načítání', () => {
   const component = renderer.create(
-    <Prihlasky
+    <PrihlaskyForm
       fetching={true}
       saved={false}
       saving={false}
@@ -48,7 +48,7 @@ it('při načítání', () => {
 
 it('prázdný formulář', () => {
   const wrapper = shallow(
-    <Prihlasky
+    <PrihlaskyForm
       fetching={false}
       saved={false}
       saving={false}
@@ -65,7 +65,7 @@ it('prázdný formulář', () => {
 
 it('formulář s existujícím účastníkem', () => {
   const wrapper = shallow(
-    <Prihlasky
+    <PrihlaskyForm
       fetching={false}
       saved={false}
       saving={false}
@@ -82,7 +82,7 @@ it('formulář s existujícím účastníkem', () => {
 
 it('formulář s chybou', () => {
   const wrapper = shallow(
-    <Prihlasky
+    <PrihlaskyForm
       errorCode="chybový kód"
       errorMessage="Popisek chyby, která se stala."
       showError={true}
@@ -102,7 +102,7 @@ it('formulář s chybou', () => {
 
 it('formulář po uložení', () => {
   const wrapper = shallow(
-    <Prihlasky
+    <PrihlaskyForm
       errorCode="chybový kód"
       errorMessage="Popisek chyby, která se stala."
       showError={false}
@@ -125,7 +125,7 @@ it('handle succesfull form submit', () => {
 
   const wrapper = mount(
     <Provider store={store}>
-      <Prihlasky
+      <PrihlaskyForm
         fetching={false}
         saved={false}
         saving={false}
@@ -149,7 +149,7 @@ it('handle form reset', () => {
 
   const wrapper = mount(
     <Provider store={store}>
-      <Prihlasky
+      <PrihlaskyForm
         fetching={false}
         saved={false}
         saving={false}

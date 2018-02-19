@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { fetchUcastnici } from '../../entities/ucastnici/ucastniciActions';
-import Prihlasky from './Prihlasky';
-import { hideError, hideModal, reset, saveUcast } from './PrihlaskyActions';
+import { fetchUcastnici } from '../../../entities/ucastnici/ucastniciActions';
+import PrihlaskyForm from './PrihlaskyForm';
+import { hideError, hideModal, reset, saveUcast } from '../PrihlaskyActions';
 
 const mapStateToProps = state => {
   const { registrator: { prihlasky } } = state;
@@ -26,6 +26,6 @@ const mapDispatchToProps = dispatch => ({
   onSubmit: () => dispatch(saveUcast())
 });
 
-const PrihlaskyContainer = connect(mapStateToProps, mapDispatchToProps)(Prihlasky);
+const PrihlaskyFormContainer = connect(mapStateToProps, mapDispatchToProps)(PrihlaskyForm);
 
-export default PrihlaskyContainer;
+export default PrihlaskyFormContainer;

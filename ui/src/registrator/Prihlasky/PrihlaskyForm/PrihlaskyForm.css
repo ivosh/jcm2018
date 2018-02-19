@@ -1,0 +1,15 @@
+.PrihlaskyForm_div {
+  padding-left: 1em;
+}
+
+.PrihlaskyForm_form {
+  display: inline-block;
+}
+
+.PrihlaskyForm_reset {
+  margin-left: 2em;
+}
+
+.PrihlaskyForm_form > div > .panel > .panel-body > .form-group:last-child {
+  margin-bottom: 0px;
+}

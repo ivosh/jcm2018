@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
-import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
+import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import InputContainer from './InputContainer';
 import TextInput from './TextInput';
 
