@@ -1,159 +1,141 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`jeden startující 1`] = `
-<div>
-  <table
-    className="StartujiciProTyp-table table table-striped table-bordered table-condensed"
+<div
+  className="StartujiciProTyp-grid"
+>
+  <div
+    className="StartujiciProTyp-dokonceno"
+    onClick={[Function]}
   >
-    <tbody>
-      <tr>
-        <td
-          className="StartujiciProTyp-dokonceno"
-          onClick={[Function]}
-        >
-          7
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    7
+  </div>
 </div>
 `;
 
 exports[`třináct startujících 1`] = `
-<div>
-  <table
-    className="StartujiciProTyp-table table table-striped table-bordered table-condensed"
+<div
+  className="StartujiciProTyp-grid"
+>
+  <div
+    className="StartujiciProTyp-na-trase"
+    onClick={undefined}
   >
-    <tbody>
-      <tr>
-        <td
-          className="StartujiciProTyp-na-trase"
-          onClick={undefined}
-        >
-          7
-        </td>
-        <td
-          className="StartujiciProTyp-na-trase"
-          onClick={undefined}
-        >
-          4
-        </td>
-        <td
-          className="StartujiciProTyp-dokonceno"
-          onClick={[Function]}
-        >
-          16
-        </td>
-        <td
-          className="StartujiciProTyp-nedokonceno"
-          onClick={undefined}
-        >
-          25
-        </td>
-        <td
-          className="StartujiciProTyp-dokonceno"
-          onClick={[Function]}
-        >
-          9
-        </td>
-        <td
-          className="StartujiciProTyp-dokonceno"
-          onClick={[Function]}
-        >
-          15
-        </td>
-        <td
-          className="StartujiciProTyp-nedokonceno"
-          onClick={undefined}
-        >
-          1
-        </td>
-        <td
-          className="StartujiciProTyp-na-trase"
-          onClick={undefined}
-        >
-          8
-        </td>
-        <td
-          className="StartujiciProTyp-na-trase"
-          onClick={undefined}
-        >
-          59
-        </td>
-        <td
-          className="StartujiciProTyp-na-trase"
-          onClick={undefined}
-        >
-          43
-        </td>
-      </tr>
-      <tr>
-        <td
-          className="StartujiciProTyp-nedokonceno"
-          onClick={undefined}
-        >
-          42
-        </td>
-        <td
-          className="StartujiciProTyp-dokonceno"
-          onClick={[Function]}
-        >
-          33
-        </td>
-        <td
-          className="StartujiciProTyp-nedokonceno"
-          onClick={undefined}
-        >
-          21
-        </td>
-        <td
-          className="StartujiciProTyp-dokonceno"
-          onClick={[Function]}
-        >
-          24
-        </td>
-        <td
-          className="StartujiciProTyp-na-trase"
-          onClick={undefined}
-        >
-          25
-        </td>
-        <td
-          className="StartujiciProTyp-na-trase"
-          onClick={undefined}
-        >
-          22
-        </td>
-        <td
-          className="StartujiciProTyp-na-trase"
-          onClick={undefined}
-        >
-          30
-        </td>
-        <td
-          className="StartujiciProTyp-dokonceno"
-          onClick={[Function]}
-        >
-          23
-        </td>
-        <td
-          className="StartujiciProTyp-na-trase"
-          onClick={undefined}
-        >
-          26
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    7
+  </div>
+  <div
+    className="StartujiciProTyp-na-trase"
+    onClick={undefined}
+  >
+    4
+  </div>
+  <div
+    className="StartujiciProTyp-dokonceno"
+    onClick={[Function]}
+  >
+    16
+  </div>
+  <div
+    className="StartujiciProTyp-nedokonceno"
+    onClick={undefined}
+  >
+    25
+  </div>
+  <div
+    className="StartujiciProTyp-dokonceno"
+    onClick={[Function]}
+  >
+    9
+  </div>
+  <div
+    className="StartujiciProTyp-dokonceno"
+    onClick={[Function]}
+  >
+    15
+  </div>
+  <div
+    className="StartujiciProTyp-nedokonceno"
+    onClick={undefined}
+  >
+    1
+  </div>
+  <div
+    className="StartujiciProTyp-na-trase"
+    onClick={undefined}
+  >
+    8
+  </div>
+  <div
+    className="StartujiciProTyp-na-trase"
+    onClick={undefined}
+  >
+    59
+  </div>
+  <div
+    className="StartujiciProTyp-na-trase"
+    onClick={undefined}
+  >
+    43
+  </div>
+  <div
+    className="StartujiciProTyp-nedokonceno"
+    onClick={undefined}
+  >
+    42
+  </div>
+  <div
+    className="StartujiciProTyp-dokonceno"
+    onClick={[Function]}
+  >
+    33
+  </div>
+  <div
+    className="StartujiciProTyp-nedokonceno"
+    onClick={undefined}
+  >
+    21
+  </div>
+  <div
+    className="StartujiciProTyp-dokonceno"
+    onClick={[Function]}
+  >
+    24
+  </div>
+  <div
+    className="StartujiciProTyp-na-trase"
+    onClick={undefined}
+  >
+    27
+  </div>
+  <div
+    className="StartujiciProTyp-na-trase"
+    onClick={undefined}
+  >
+    22
+  </div>
+  <div
+    className="StartujiciProTyp-na-trase"
+    onClick={undefined}
+  >
+    30
+  </div>
+  <div
+    className="StartujiciProTyp-dokonceno"
+    onClick={[Function]}
+  >
+    23
+  </div>
+  <div
+    className="StartujiciProTyp-na-trase"
+    onClick={undefined}
+  >
+    26
+  </div>
 </div>
 `;
 
 exports[`žádný startující 1`] = `
-<div>
-  <table
-    className="StartujiciProTyp-table table table-striped table-bordered table-condensed"
-  >
-    <tbody />
-  </table>
-</div>
+<div
+  className="StartujiciProTyp-grid"
+/>
 `;

@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import { fetchUcastnici } from '../../entities/ucastnici/ucastniciActions';
+import { getTypyStartCisel } from './startujiciReducer';
 import Startujici from './Startujici';
 
 const mapStateToProps = state => {
-  const { registrator: { startujici: { fetching } } } = state;
+  const { entities: { rocniky }, registrator: { startujici: { fetching } } } = state;
+  const typy = getTypyStartCisel(rocniky);
 
-  return { fetching };
+  return { fetching, typy };
 };
 
 const mapDispatchToProps = dispatch => ({

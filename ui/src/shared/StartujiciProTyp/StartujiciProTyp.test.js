@@ -69,7 +69,7 @@ it('třináct startujících', () => {
       duration: moment.duration('PT3H33M14.15S'),
       onClick: jest.fn()
     },
-    { id: '34', startCislo: 25, dokonceno: null },
+    { id: '34', startCislo: 27, dokonceno: null },
     { id: '14', startCislo: 22, dokonceno: null },
     { id: '58', startCislo: 30, dokonceno: null },
     {

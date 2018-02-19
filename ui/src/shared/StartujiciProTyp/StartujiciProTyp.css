@@ -1,8 +1,8 @@
-.StartujiciProTyp-table {
-  margin-top: 3ex;
-  margin-bottom: 1ex;
-  table-layout: fixed;
-  width: 1px; /* table occupies a minimum width possible */
+.StartujiciProTyp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(2.5em, 2.5em));
+  grid-gap: 1px;
+  max-width: 53em; /* 20 columns, including gaps */
 }
 
 .StartujiciProTyp-dokonceno, .StartujiciProTyp-na-trase, .StartujiciProTyp-nedokonceno {

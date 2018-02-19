@@ -71,7 +71,7 @@ class Prihlasky extends PureComponent {
 
     if (fetching) {
       return (
-        <div>
+        <div className="Prihlasky_div">
           <LoadingIndicator /> Načítám účastníky...
         </div>
       );

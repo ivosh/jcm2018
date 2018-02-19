@@ -847,7 +847,9 @@ exports[`dva přihlášení 1`] = `
 `;
 
 exports[`načítá se 1`] = `
-<div>
+<div
+  className="Prihlaseni_div"
+>
   <span
     className="LoadingIndicator glyphicon glyphicon-repeat"
   />

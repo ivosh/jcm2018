@@ -40,7 +40,7 @@ class UcastniciDigest extends PureComponent {
 
     if (fetching) {
       return (
-        <div>
+        <div className="UcastniciDigest_div">
           <LoadingIndicator /> Účastníci se načítají...
         </div>
       );
