@@ -5,6 +5,7 @@ import { Glyphicon, Nav, Navbar, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import withAuth from '../auth/withAuth';
 import withoutAuth from '../auth/withoutAuth';
+import withFetchUcastnici from '../registrator/withFetchUcastnici/withFetchUcastnici';
 import SignInContainer from '../auth/SignIn/SignInContainer';
 import CasomericContainer from '../casomeric/Casomeric/CasomericContainer';
 import UcastniciDigestContainer from '../registrator/UcastniciDigest/UcastniciDigestContainer';
@@ -78,10 +79,13 @@ const App = ({ authenticated, connected, username }) => (
         <Route exact path="/" component={withAuth(CasomericContainer)} />
         <Route path="/signin" component={withoutAuth(SignInContainer)} />
         <Route path="/casomeric" component={withAuth(CasomericContainer)} />
-        <Route path="/ucastnici" component={withAuth(UcastniciDigestContainer)} />
+        <Route
+          path="/ucastnici"
+          component={withAuth(withFetchUcastnici(UcastniciDigestContainer))}
+        />
         <Route path="/prihlasky" component={withAuth(Prihlasky)} />
-        <Route path="/prihlaseni" component={withAuth(PrihlaseniContainer)} />
-        <Route path="/startujici" component={withAuth(StartujiciContainer)} />
+        <Route path="/prihlaseni" component={withAuth(withFetchUcastnici(PrihlaseniContainer))} />
+        <Route path="/startujici" component={withAuth(withFetchUcastnici(StartujiciContainer))} />
         <Route path="/signout" component={withAuth(SignOutContainer)} />
         <Route path="/about" component={() => <About username={username} />} />
         <Redirect to="/" />

@@ -84,9 +84,7 @@ Object {
         "validatePlatba": false,
       },
     },
-    "startujici": Object {
-      "fetching": false,
-    },
+    "startujici": Object {},
     "ucastniciDigest": Object {
       "kategorieFilter": "",
       "sortColumn": undefined,
@@ -182,9 +180,7 @@ Object {
         "validatePlatba": false,
       },
     },
-    "startujici": Object {
-      "fetching": false,
-    },
+    "startujici": Object {},
     "ucastniciDigest": Object {
       "kategorieFilter": "",
       "sortColumn": undefined,
@@ -280,9 +276,7 @@ Object {
         "validatePlatba": false,
       },
     },
-    "startujici": Object {
-      "fetching": false,
-    },
+    "startujici": Object {},
     "ucastniciDigest": Object {
       "kategorieFilter": "",
       "sortColumn": undefined,
