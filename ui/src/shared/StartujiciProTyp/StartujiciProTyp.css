@@ -8,7 +8,9 @@
 .StartujiciProTyp-dokonceno, .StartujiciProTyp-na-trase, .StartujiciProTyp-nedokonceno {
   width: 2.5em;
   height: 2em;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .StartujiciProTyp-dokonceno {
