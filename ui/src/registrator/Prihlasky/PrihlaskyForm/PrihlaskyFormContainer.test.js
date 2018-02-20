@@ -51,6 +51,54 @@ it('maps onHideModal to dispatch hideModal action', () => {
   expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASKY_SAVE_HIDE_MODAL' });
 });
 
+it('maps onLoadId to dispatch loadUcastnik action - existující přihláška', () => {
+  wrapper = shallow(<PrihlaskyFormContainer loadId="5a09b1fd371dec1e99b7e1c9" store={store} />);
+
+  expect(wrapper.props().onLoadId).toBeTruthy();
+  wrapper.props().onLoadId();
+
+  expect(store.dispatch).toHaveBeenCalledWith({
+    type: 'PRIHLASKY_UCASTNIK_LOAD',
+    id: '5a09b1fd371dec1e99b7e1c9',
+    udaje: {
+      jmeno: 'Roman',
+      narozeni: { rok: 1956 },
+      obec: 'Ostrava 2',
+      pohlavi: 'muž',
+      prijmeni: 'Balabák',
+      stat: 'Česká republika'
+    },
+    prihlaska: {
+      datum: '2018-06-09T00:00:00.000Z',
+      kategorie: '5a587e1b051c181132cf83d7',
+      typ: 'půlmaraton',
+      startCislo: 17,
+      kod: '10728864'
+    },
+    platby: [{ castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }]
+  });
+});
+
+it('maps onLoadId to dispatch ucastnikSelected action - starší účast', () => {
+  wrapper = shallow(<PrihlaskyFormContainer loadId="6f09b1fd371dec1e99b7e1c9" store={store} />);
+
+  expect(wrapper.props().onLoadId).toBeTruthy();
+  wrapper.props().onLoadId();
+
+  expect(store.dispatch).toHaveBeenCalledWith({
+    type: 'PRIHLASKY_UCASTNIK_LOAD',
+    id: '6f09b1fd371dec1e99b7e1c9',
+    udaje: {
+      prijmeni: 'Sukdoláková',
+      jmeno: 'Martina',
+      narozeni: { rok: 1963, mesic: 12, den: 7 },
+      pohlavi: 'žena',
+      obec: 'Zlín',
+      stat: 'Česká republika'
+    }
+  });
+});
+
 it('maps onReset to dispatch reset action', () => {
   wrapper.props().onReset();
 

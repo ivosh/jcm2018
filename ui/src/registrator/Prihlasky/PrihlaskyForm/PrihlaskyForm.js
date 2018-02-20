@@ -12,6 +12,16 @@ import TextInput from './TextInput';
 import './PrihlaskyForm.css';
 
 class PrihlaskyForm extends PureComponent {
+  componentWillMount = () => {
+    const { reset, onLoadId, onReset } = this.props;
+
+    if (onLoadId) {
+      onLoadId();
+    } else if (reset) {
+      onReset();
+    }
+  };
+
   handleKeyPress = ({ event, index }) => {
     if (event.which === 13) {
       event.preventDefault();
@@ -238,8 +248,10 @@ PrihlaskyForm.propTypes = {
   saved: PropTypes.bool.isRequired,
   saving: PropTypes.bool.isRequired,
   existujiciUcastnik: PropTypes.bool.isRequired,
+  reset: PropTypes.bool,
   onHideError: PropTypes.func.isRequired,
   onHideModal: PropTypes.func.isRequired,
+  onLoadId: PropTypes.func,
   onReset: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
 };

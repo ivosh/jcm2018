@@ -16,6 +16,26 @@ export const reset = () => ({
   type: 'PRIHLASKY_RESET'
 });
 
+export const loadUcastnik = ({ id, kategorie, ucastnici }) => {
+  const ucastnik = ucastnici.byIds[id];
+  const posledniRok = ucastnik.roky[0];
+  const ucast = ucastnik[posledniRok];
+  const action = {
+    type: 'PRIHLASKY_UCASTNIK_LOAD',
+    id,
+    udaje: ucast.udaje
+  };
+
+  const letosniUcast = ucastnik[AKTUALNI_ROK];
+  if (letosniUcast) {
+    // Předvyplň ostatní jen pro aktuální rok. Minulé roky už jsou pasé.
+    const { typ } = kategorie[letosniUcast.prihlaska.kategorie];
+    action.prihlaska = { ...letosniUcast.prihlaska, typ };
+    action.platby = letosniUcast.platby;
+  }
+  return action;
+};
+
 const validateForm = () => ({ type: 'PRIHLASKY_VALIDATE_FORM' });
 
 const validationError = () => ({

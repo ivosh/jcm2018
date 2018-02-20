@@ -103,7 +103,7 @@ const prihlaskyFormReducer = (state = initialState, action) => {
       }
       return { ...state, [section]: { ...state[section], [name]: value } };
     }
-    case 'PRIHLASKY_UCASTNIK_SELECTED':
+    case 'PRIHLASKY_UCASTNIK_LOAD':
       return {
         ...initialState,
         ucastnikId: action.id,

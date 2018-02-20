@@ -23,7 +23,7 @@ PrihlaskyMainWithRoute.propTypes = {
 const PrihlaskyFormWithFetchUcastnici = withFetchUcastnici(PrihlaskyFormContainer);
 
 const PrihlaskyFormWithFetchUcastniciWithId = ({ match }) => (
-  <PrihlaskyFormWithFetchUcastnici id={match.params.id} />
+  <PrihlaskyFormWithFetchUcastnici loadId={match.params.id} />
 );
 
 PrihlaskyFormWithFetchUcastniciWithId.propTypes = {
@@ -32,10 +32,15 @@ PrihlaskyFormWithFetchUcastniciWithId.propTypes = {
   })
 };
 
+const PrihlaskyFormWithFetchUcastniciWithReset = () => (
+  <PrihlaskyFormWithFetchUcastnici reset={true} />
+);
+
 const Prihlasky = ({ match }) => (
   <Switch>
     <Route path={`${match.path}/`} exact component={PrihlaskyMainWithRoute} />
-    <Route path={`${match.path}/novy`} component={PrihlaskyFormWithFetchUcastnici} />
+    <Route path={`${match.path}/edit`} component={PrihlaskyFormWithFetchUcastnici} />
+    <Route path={`${match.path}/reset`} component={PrihlaskyFormWithFetchUcastniciWithReset} />
     <Route path={`${match.path}/:id`} component={PrihlaskyFormWithFetchUcastniciWithId} />
   </Switch>
 );

@@ -15,8 +15,14 @@ const PrihlaskyMain = ({ path, routeOnSelect }) => (
         <PrihlaskySearchWithFetchUcastnici routeOnSelect={routeOnSelect} />
         <div>- nebo -</div>
         <div className="PrihlaskyMain-button">
-          <LinkContainer to={`${path}novy`}>
+          <LinkContainer to={`${path}reset`}>
             <Button bsStyle="primary">Nový účastník</Button>
+          </LinkContainer>
+        </div>
+        <div>- nebo -</div>
+        <div className="PrihlaskyMain-button">
+          <LinkContainer to={`${path}edit`}>
+            <Button bsStyle="primary">Pokračovat v editaci</Button>
           </LinkContainer>
         </div>
       </div>

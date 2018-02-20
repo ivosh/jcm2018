@@ -1,11 +1,11 @@
 import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import { predepsaneStartovne } from '../../platby';
-import { ucastnikSelected } from '../PrihlaskyActions';
 import {
   addPlatba,
   hideError,
   inputChanged,
+  loadUcastnik,
   removePlatba,
   reset,
   saveUcastRequest,
@@ -722,7 +722,7 @@ it('prihlaska.startCislo - kategorie nemá čísla', () => {
   ).toEqual('');
 });
 
-it('ucastnikSelected - údaje i přihláška', () => {
+it('loadUcastnik() - údaje i přihláška', () => {
   const stateBefore = {
     udaje: {
       prijmeni: 'Příjmení',
@@ -778,12 +778,12 @@ it('ucastnikSelected - údaje i přihláška', () => {
   expect(
     prihlaskyFormReducer(
       stateBefore,
-      ucastnikSelected({ id: '5a09b1fd371dec1e99b7e1c9', ...ucastniciTestData.entities })
+      loadUcastnik({ id: '5a09b1fd371dec1e99b7e1c9', ...ucastniciTestData.entities })
     )
   ).toEqual(stateAfter);
 });
 
-it('ucastnikSelected - jen údaje', () => {
+it('loadUcastnik() - jen údaje', () => {
   const stateBefore = {
     udaje: {
       prijmeni: 'Příjmení',
@@ -839,7 +839,7 @@ it('ucastnikSelected - jen údaje', () => {
   expect(
     prihlaskyFormReducer(
       stateBefore,
-      ucastnikSelected({ id: '6f09b1fd371dec1e99b7e1c9', ...ucastniciTestData.entities })
+      loadUcastnik({ id: '6f09b1fd371dec1e99b7e1c9', ...ucastniciTestData.entities })
     )
   ).toEqual(stateAfter);
 });
