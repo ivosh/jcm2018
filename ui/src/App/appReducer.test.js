@@ -1,4 +1,8 @@
 import deepFreeze from 'deep-freeze';
+import {
+  fetchUcastniciRequest,
+  fetchUcastniciSuccess
+} from '../entities/ucastnici/ucastniciActions';
 import appReducer from './appReducer';
 import { websocketConnected, websocketDisconnected } from './AppActions';
 
@@ -25,4 +29,20 @@ it('websocket disconnected', () => {
   const stateAfter = appReducer(stateBefore, websocketDisconnected());
   expect(stateAfter.connected).toEqual(false);
   expect(stateAfter).toMatchSnapshot();
+});
+
+it('fetchUcastniciRequest()', () => {
+  const stateBefore = { fetching: undefined };
+  deepFreeze(stateBefore);
+
+  const stateAfter = appReducer(stateBefore, fetchUcastniciRequest());
+  expect(stateAfter.fetching).toEqual('fetching');
+});
+
+it('fetchUcastniciSuccess()', () => {
+  const stateBefore = { fetching: 'fetching' };
+  deepFreeze(stateBefore);
+
+  const stateAfter = appReducer(stateBefore, fetchUcastniciSuccess({ response: { }}));
+  expect(stateAfter.fetching).toEqual('done');
 });
