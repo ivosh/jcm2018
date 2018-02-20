@@ -15,8 +15,22 @@ Foo.propTypes = {
 };
 const FooWithFetchUcastnici = withFetchUcastnici(Foo);
 
+it('na začátku', () => {
+  const store = mockStore({ fetching: 'init' });
+  store.dispatch = jest.fn();
+
+  const component = renderer.create(
+    <Provider store={store}>
+      <FooWithFetchUcastnici bar="baz" />
+    </Provider>
+  );
+
+  expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
+  expect(component.toJSON()).toMatchSnapshot();
+});
+
 it('při načítání', () => {
-  const store = mockStore({ fetching: true });
+  const store = mockStore({ fetching: 'fetching' });
   store.dispatch = jest.fn();
 
   const component = renderer.create(
@@ -30,7 +44,7 @@ it('při načítání', () => {
 });
 
 it('po načtení', () => {
-  const store = mockStore({ fetching: false });
+  const store = mockStore({ fetching: 'done' });
   store.dispatch = jest.fn();
 
   const component = renderer.create(

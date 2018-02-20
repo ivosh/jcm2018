@@ -32,7 +32,7 @@ Object {
       "byIds": Object {},
     },
   },
-  "fetching": false,
+  "fetching": "init",
   "registrator": Object {
     "prihlaseni": Object {
       "kategorieFilter": "",
@@ -128,7 +128,7 @@ Object {
       "byIds": Object {},
     },
   },
-  "fetching": false,
+  "fetching": "init",
   "registrator": Object {
     "prihlaseni": Object {
       "kategorieFilter": "",
@@ -224,7 +224,7 @@ Object {
       "byIds": Object {},
     },
   },
-  "fetching": false,
+  "fetching": "init",
   "registrator": Object {
     "prihlaseni": Object {
       "kategorieFilter": "",

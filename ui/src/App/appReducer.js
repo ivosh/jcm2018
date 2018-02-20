@@ -16,13 +16,13 @@ const connected = (state = false, action) => {
   }
 };
 
-const fetching = (state = false, action) => {
+const fetching = (state = 'init', action) => {
   switch (action.type) {
     case 'FETCH_UCASTNICI_REQUEST':
-      return true;
+      return 'fetching';
     case 'FETCH_UCASTNICI_SUCCESS':
     case 'FETCH_UCASTNICI_ERROR':
-      return false;
+      return 'done';
     default:
       return state;
   }

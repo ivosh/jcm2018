@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchUcastnici } from '../../entities/ucastnici/ucastniciActions';
+import { fetchUcastnici as fetchUcastniciAction } from '../../entities/ucastnici/ucastniciActions';
 import LoadingIndicator from '../../shared/LoadingIndicator';
 
 const withFetchUcastnici = WrappedComponent => {
@@ -11,21 +11,25 @@ const withFetchUcastnici = WrappedComponent => {
     };
 
     render = () => {
-      const { fetching } = this.props;
-      if (fetching) {
-        return (
-          <div className="PrihlaskyForm_div">
-            <LoadingIndicator /> Načítám účastníky...
-          </div>
-        );
-      }
+      const { fetching, fetchUcastnici, ...rest } = this.props;
 
-      return <WrappedComponent {...this.props} />;
+      switch (fetching) {
+        case 'fetching':
+          return (
+            <div className="PrihlaskyForm_div">
+              <LoadingIndicator /> Načítám účastníky...
+            </div>
+          );
+        case 'done':
+          return <WrappedComponent {...rest} />;
+        default:
+          return <div />;
+      }
     };
   }
 
   WithFetchUcastniciComponent.propTypes = {
-    fetching: PropTypes.bool.isRequired,
+    fetching: PropTypes.oneOf(['init', 'fetching', 'done']).isRequired,
     fetchUcastnici: PropTypes.func.isRequired
   };
 
@@ -35,7 +39,7 @@ const withFetchUcastnici = WrappedComponent => {
   });
 
   const mapDispatchToProps = dispatch => ({
-    fetchUcastnici: () => dispatch(fetchUcastnici())
+    fetchUcastnici: () => dispatch(fetchUcastniciAction())
   });
 
   return connect(mapStateToProps, mapDispatchToProps)(WithFetchUcastniciComponent);
