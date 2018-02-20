@@ -3,23 +3,26 @@ import { connect } from 'react-redux';
 import { sortDirChange } from './UcastniciTableActions';
 import UcastniciTableResponsive from './UcastniciTableResponsive';
 
-const mapStateToProps = state => state;
-const mapDispatchToProps = dispatch => ({ dispatch });
-
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { actionPrefix, reduxName, ...rest } = ownProps;
-  const { sortColumn, sortDir } = stateProps.registrator[reduxName];
-  const { dispatch } = dispatchProps;
+const mapStateToProps = (state, ownProps) => {
+  const { reduxName, ...rest } = ownProps;
+  const { sortColumn, sortDir } = state.registrator[reduxName];
 
   return {
     ...rest,
     sortColumn,
-    sortDir,
+    sortDir
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  const { actionPrefix } = ownProps;
+
+  return {
     onSortDirChange: sortCol => dispatch(sortDirChange(actionPrefix, sortCol))
   };
 };
 
-const UcastniciTableContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(
+const UcastniciTableContainer = connect(mapStateToProps, mapDispatchToProps)(
   UcastniciTableResponsive
 );
 

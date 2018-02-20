@@ -7,10 +7,8 @@ import {
 } from './startujiciProTypReducer';
 import StartujiciProTyp from './StartujiciProTyp';
 
-const mapStateToProps = state => state;
-
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { entities } = stateProps;
+const mapStateToProps = (state, ownProps) => {
+  const { entities } = state;
   const { jenStartujici, prihlasky, typ, onClick } = ownProps;
 
   const startujici = jenStartujici
@@ -25,7 +23,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   };
 };
 
-const StartujiciProTypContainer = connect(mapStateToProps, null, mergeProps)(StartujiciProTyp);
+const StartujiciProTypContainer = connect(mapStateToProps)(StartujiciProTyp);
 
 StartujiciProTypContainer.propTypes = {
   jenStartujici: PropTypes.bool.isRequired,

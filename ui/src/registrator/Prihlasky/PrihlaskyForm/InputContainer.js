@@ -11,11 +11,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  dispatch
+  onChange: (name, event) => dispatch(inputChanged(name, event))
 });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { prihlaskyForm, rocniky } = stateProps;
+  const { onChange } = dispatchProps;
   const { index, inline, name, popisek, Formatter, Type, inputRef } = ownProps;
   const [section, subName] = name.split('.');
   const rawValue = prihlaskyForm[section][subName];
@@ -31,7 +32,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     validationState: inputValid(name, rawValue, prihlaskyForm),
     value: formatValue(name, rawValue),
     inputRef: ref => inputRef(index, ref),
-    onChange: event => dispatchProps.dispatch(inputChanged(name, event))
+    onChange: event => onChange(name, event)
   };
 };
 

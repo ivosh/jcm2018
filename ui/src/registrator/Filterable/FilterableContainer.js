@@ -3,25 +3,28 @@ import { connect } from 'react-redux';
 import { kategorieFilterChange, textFilterChange } from './FilterableActions';
 import Filterable from './Filterable';
 
-const mapStateToProps = state => state;
-const mapDispatchToProps = dispatch => ({ dispatch });
-
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { actionPrefix, reduxName, numberOfItems } = ownProps;
-  const { kategorieFilter, textFilter } = stateProps.registrator[reduxName];
-  const { dispatch } = dispatchProps;
+const mapStateToProps = (state, ownProps) => {
+  const { reduxName, numberOfItems } = ownProps;
+  const { kategorieFilter, textFilter } = state.registrator[reduxName];
 
   return {
     kategorieFilter,
     numberOfItems,
-    textFilter,
+    textFilter
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  const { actionPrefix } = ownProps;
+
+  return {
     onTextFilterChange: text => dispatch(textFilterChange(actionPrefix, text)),
     onKategorieFilterChange: typKategorie =>
       dispatch(kategorieFilterChange(actionPrefix, typKategorie))
   };
 };
 
-const FilterableContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(Filterable);
+const FilterableContainer = connect(mapStateToProps, mapDispatchToProps)(Filterable);
 
 FilterableContainer.propTypes = {
   actionPrefix: PropTypes.string.isRequired,

@@ -29,21 +29,16 @@ const withFetchUcastnici = WrappedComponent => {
     fetchUcastnici: PropTypes.func.isRequired
   };
 
-  const mapStateToProps = state => ({
-    fetching: state.fetching
+  const mapStateToProps = (state, ownProps) => ({
+    fetching: state.fetching,
+    ...ownProps
   });
 
   const mapDispatchToProps = dispatch => ({
     fetchUcastnici: () => dispatch(fetchUcastnici())
   });
 
-  const mergeProps = (stateProps, dispatchProps, ownProps) => ({
-    ...stateProps,
-    ...dispatchProps,
-    ...ownProps
-  });
-
-  return connect(mapStateToProps, mapDispatchToProps, mergeProps)(WithFetchUcastniciComponent);
+  return connect(mapStateToProps, mapDispatchToProps)(WithFetchUcastniciComponent);
 };
 
 export default withFetchUcastnici;
