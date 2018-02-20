@@ -3,21 +3,15 @@ import PropTypes from 'prop-types';
 import { Button, Col, Form, Glyphicon, Grid, Modal, Panel } from 'react-bootstrap';
 import HideableError from '../../../shared/HideableError';
 import LoadingButton from '../../../shared/LoadingButton';
-import LoadingIndicator from '../../../shared/LoadingIndicator';
 import PopisekKategorie from '../../../shared/Popisek/PopisekKategorie';
 import PopisekPohlavi from '../../../shared/Popisek/PopisekPohlavi';
 import InputContainer from './InputContainer';
 import PlatbyContainer from './PlatbyContainer';
 import RadioInput from './RadioInput';
 import TextInput from './TextInput';
-import PrihlaskySearchContainer from '../PrihlaskySearch/PrihlaskySearchContainer';
 import './PrihlaskyForm.css';
 
 class PrihlaskyForm extends PureComponent {
-  componentDidMount = () => {
-    this.props.fetchUcastnici();
-  };
-
   handleKeyPress = ({ event, index }) => {
     if (event.which === 13) {
       event.preventDefault();
@@ -61,21 +55,12 @@ class PrihlaskyForm extends PureComponent {
       errorCode,
       errorMessage,
       showError,
-      fetching,
       saved,
       saving,
       existujiciUcastnik,
       onHideError,
       onHideModal
     } = this.props;
-
-    if (fetching) {
-      return (
-        <div className="PrihlaskyForm_div">
-          <LoadingIndicator /> Načítám účastníky...
-        </div>
-      );
-    }
 
     return (
       <div className="PrihlaskyForm_div">
@@ -91,7 +76,6 @@ class PrihlaskyForm extends PureComponent {
           </Modal.Footer>
         </Modal>
         <Grid fluid>
-          {!existujiciUcastnik && <PrihlaskySearchContainer />}
           <Form
             horizontal
             onSubmit={this.handleSubmit}
@@ -251,11 +235,9 @@ PrihlaskyForm.propTypes = {
   errorCode: PropTypes.string,
   errorMessage: PropTypes.string,
   showError: PropTypes.bool,
-  fetching: PropTypes.bool.isRequired,
   saved: PropTypes.bool.isRequired,
   saving: PropTypes.bool.isRequired,
   existujiciUcastnik: PropTypes.bool.isRequired,
-  fetchUcastnici: PropTypes.func.isRequired,
   onHideError: PropTypes.func.isRequired,
   onHideModal: PropTypes.func.isRequired,
   onReset: PropTypes.func.isRequired,

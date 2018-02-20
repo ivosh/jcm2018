@@ -8,7 +8,6 @@ const initialState = {
   errorCode: '',
   errorMessage: '',
   showError: false,
-  fetching: false,
   saved: false,
   saving: false,
   ucastnikId: undefined,
@@ -157,11 +156,6 @@ const prihlaskyFormReducer = (state = initialState, action) => {
         ...state,
         platby: [...state.platby.slice(0, action.idx), ...state.platby.slice(action.idx + 1)]
       };
-    case 'FETCH_UCASTNICI_REQUEST':
-      return { ...state, fetching: true };
-    case 'FETCH_UCASTNICI_SUCCESS':
-    case 'FETCH_UCASTNICI_ERROR':
-      return { ...state, fetching: false };
     default:
       return state;
   }

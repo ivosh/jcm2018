@@ -1,10 +1,5 @@
 import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
-import {
-  fetchUcastniciRequest,
-  fetchUcastniciSuccess,
-  fetchUcastniciError
-} from '../../../entities/ucastnici/ucastniciActions';
 import { predepsaneStartovne } from '../../platby';
 import { ucastnikSelected } from '../PrihlaskyActions';
 import {
@@ -17,7 +12,7 @@ import {
   saveUcastSuccess,
   saveUcastError
 } from './PrihlaskyFormActions';
-import prihlaskyReducer, {
+import prihlaskyFormReducer, {
   formatValue,
   formValid,
   inputOptions,
@@ -35,11 +30,10 @@ const unsuccessfulResponse = {
 it('na začátku', () => {
   const stateBefore = undefined;
 
-  const stateAfter = prihlaskyReducer(stateBefore, {});
+  const stateAfter = prihlaskyFormReducer(stateBefore, {});
   expect(stateAfter.errorCode).toEqual('');
   expect(stateAfter.errorMessage).toEqual('');
   expect(stateAfter.showError).toBe(false);
-  expect(stateAfter.fetching).toBe(false);
   expect(stateAfter.saving).toBe(false);
   expect(stateAfter.ucastnikId).toBe(undefined);
   expect(stateAfter.validateForm).toBe(false);
@@ -84,7 +78,7 @@ it('hideError()', () => {
   const stateAfter = { ...stateBefore, showError: false };
   deepFreeze(stateBefore);
 
-  expect(prihlaskyReducer(stateBefore, hideError())).toEqual(stateAfter);
+  expect(prihlaskyFormReducer(stateBefore, hideError())).toEqual(stateAfter);
 });
 
 it('reset()', () => {
@@ -92,7 +86,6 @@ it('reset()', () => {
     errorCode: 'chybový kód',
     errorMessage: 'Dlouhá chybová hláška.',
     showError: true,
-    fetching: false,
     saved: true,
     saving: true,
     ucastnikId: '===id===',
@@ -126,7 +119,6 @@ it('reset()', () => {
     errorCode: '',
     errorMessage: '',
     showError: false,
-    fetching: false,
     saved: false,
     saving: false,
     ucastnikId: undefined,
@@ -158,7 +150,7 @@ it('reset()', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(prihlaskyReducer(stateBefore, reset())).toEqual(stateAfter);
+  expect(prihlaskyFormReducer(stateBefore, reset())).toEqual(stateAfter);
 });
 
 it('saveUcastRequest()', () => {
@@ -166,7 +158,7 @@ it('saveUcastRequest()', () => {
   const stateAfter = { ...stateBefore, saving: true };
   deepFreeze(stateBefore);
 
-  expect(prihlaskyReducer(stateBefore, saveUcastRequest())).toEqual(stateAfter);
+  expect(prihlaskyFormReducer(stateBefore, saveUcastRequest())).toEqual(stateAfter);
 });
 
 it('saveUcastSuccess()', () => {
@@ -175,7 +167,10 @@ it('saveUcastSuccess()', () => {
   deepFreeze(stateBefore);
 
   expect(
-    prihlaskyReducer(stateBefore, saveUcastSuccess({ id: '===id===', udaje: {}, prihlaska: {} }))
+    prihlaskyFormReducer(
+      stateBefore,
+      saveUcastSuccess({ id: '===id===', udaje: {}, prihlaska: {} })
+    )
   ).toEqual(stateAfter);
 });
 
@@ -190,26 +185,9 @@ it('saveUcastError()', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(prihlaskyReducer(stateBefore, saveUcastError(unsuccessfulResponse))).toEqual(stateAfter);
-});
-
-it('fetchUcastniciRequest()', () => {
-  const stateBefore = { fetching: false };
-  const stateAfter = { fetching: true };
-  deepFreeze(stateBefore);
-
-  expect(prihlaskyReducer(stateBefore, fetchUcastniciRequest())).toEqual(stateAfter);
-});
-
-it('fetchUcastniciSuccess/Error()', () => {
-  const stateBefore = { fetching: true };
-  const stateAfter = { fetching: false };
-  deepFreeze(stateBefore);
-
-  expect(prihlaskyReducer(stateBefore, fetchUcastniciSuccess({ response: {} }))).toEqual(
+  expect(prihlaskyFormReducer(stateBefore, saveUcastError(unsuccessfulResponse))).toEqual(
     stateAfter
   );
-  expect(prihlaskyReducer(stateBefore, fetchUcastniciError({}))).toEqual(stateAfter);
 });
 
 it('validation of the initial state [validateForm,validatePlatba === false]', () => {
@@ -458,7 +436,7 @@ it('udaje.pohlavi - nahodí ženu', () => {
   const stateAfter = { udaje: { prijmeni: 'Sukdoláková', pohlavi: 'žena' } };
 
   expect(
-    prihlaskyReducer(
+    prihlaskyFormReducer(
       stateBefore,
       inputChanged('udaje.prijmeni', { target: { value: 'Sukdoláková' } })
     )
@@ -471,7 +449,10 @@ it('udaje.pohlavi - už nahodí ženu', () => {
   const stateAfter = { udaje: { prijmeni: 'Malová', pohlavi: 'muž' } };
 
   expect(
-    prihlaskyReducer(stateBefore, inputChanged('udaje.prijmeni', { target: { value: 'Malová' } }))
+    prihlaskyFormReducer(
+      stateBefore,
+      inputChanged('udaje.prijmeni', { target: { value: 'Malová' } })
+    )
   ).toEqual(stateAfter);
 });
 
@@ -487,7 +468,7 @@ it('udaje.narozeni - prázdné', () => {
   };
 
   expect(
-    prihlaskyReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '' } }))
+    prihlaskyFormReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '' } }))
   ).toEqual(stateAfter);
   expect(inputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toBe(undefined);
   expect(inputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual('error');
@@ -505,7 +486,7 @@ it('udaje.narozeni - neúplné', () => {
   };
 
   expect(
-    prihlaskyReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '1. ' } }))
+    prihlaskyFormReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '1. ' } }))
   ).toEqual(stateAfter);
   expect(inputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toBe(undefined);
   expect(inputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual('error');
@@ -523,7 +504,7 @@ it('udaje.narozeni - jen rok', () => {
   };
 
   expect(
-    prihlaskyReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '1978' } }))
+    prihlaskyFormReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '1978' } }))
   ).toEqual(stateAfter);
   expect(inputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toEqual('error');
   expect(inputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual('warning');
@@ -541,7 +522,10 @@ it('udaje.narozeni - celé', () => {
   };
 
   expect(
-    prihlaskyReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '1.7.1967' } }))
+    prihlaskyFormReducer(
+      stateBefore,
+      inputChanged('udaje.narozeni', { target: { value: '1.7.1967' } })
+    )
   ).toEqual(stateAfter);
   expect(inputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toEqual('error');
   expect(inputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual('success');
@@ -553,7 +537,7 @@ it('prihlaska.datum - neúplné', () => {
   const stateAfter = { prihlaska: { datum: '1. 7. 201' } };
 
   expect(
-    prihlaskyReducer(
+    prihlaskyFormReducer(
       stateBefore,
       inputChanged('prihlaska.datum', { target: { value: '1. 7. 201' } })
     )
@@ -567,7 +551,7 @@ it('prihlaska.datum - formát 1', () => {
   const stateAfter = { prihlaska: { datum: '2017-07-01T00:00:00.000Z' } };
 
   expect(
-    prihlaskyReducer(
+    prihlaskyFormReducer(
       stateBefore,
       inputChanged('prihlaska.datum', { target: { value: '1. 7. 2017' } })
     )
@@ -582,7 +566,7 @@ it('prihlaska.datum - formát 2', () => {
   const stateAfter = { prihlaska: { datum: '2017-07-01T00:00:00.000Z' } };
 
   expect(
-    prihlaskyReducer(
+    prihlaskyFormReducer(
       stateBefore,
       inputChanged('prihlaska.datum', { target: { value: '1.7.2017' } })
     )
@@ -689,7 +673,7 @@ it('prihlaska.typ - nahodí též kategorie', () => {
   const stateAfter = { prihlaska: { typ: 'maraton', kategorie: '===id===' } };
 
   expect(
-    prihlaskyReducer(
+    prihlaskyFormReducer(
       stateBefore,
       inputChanged('prihlaska.typ', { target: { value: 'maraton', id: '===id===' } })
     )
@@ -766,7 +750,6 @@ it('ucastnikSelected - údaje i přihláška', () => {
     errorCode: '',
     errorMessage: '',
     showError: false,
-    fetching: false,
     saved: false,
     saving: false,
     ucastnikId: '5a09b1fd371dec1e99b7e1c9',
@@ -793,7 +776,7 @@ it('ucastnikSelected - údaje i přihláška', () => {
   deepFreeze(stateBefore);
 
   expect(
-    prihlaskyReducer(
+    prihlaskyFormReducer(
       stateBefore,
       ucastnikSelected({ id: '5a09b1fd371dec1e99b7e1c9', ...ucastniciTestData.entities })
     )
@@ -828,7 +811,6 @@ it('ucastnikSelected - jen údaje', () => {
     errorCode: '',
     errorMessage: '',
     showError: false,
-    fetching: false,
     saved: false,
     saving: false,
     ucastnikId: '6f09b1fd371dec1e99b7e1c9',
@@ -855,7 +837,7 @@ it('ucastnikSelected - jen údaje', () => {
   deepFreeze(stateBefore);
 
   expect(
-    prihlaskyReducer(
+    prihlaskyFormReducer(
       stateBefore,
       ucastnikSelected({ id: '6f09b1fd371dec1e99b7e1c9', ...ucastniciTestData.entities })
     )
@@ -931,7 +913,7 @@ it('addPlatba()', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(prihlaskyReducer(stateBefore, addPlatba())).toEqual(stateAfter);
+  expect(prihlaskyFormReducer(stateBefore, addPlatba())).toEqual(stateAfter);
 });
 
 it('removePlatba()', () => {
@@ -956,6 +938,6 @@ it('removePlatba()', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(prihlaskyReducer(stateBefore, removePlatba(0))).toEqual(stateAfter0);
-  expect(prihlaskyReducer(stateBefore, removePlatba(2))).toEqual(stateAfter2);
+  expect(prihlaskyFormReducer(stateBefore, removePlatba(0))).toEqual(stateAfter0);
+  expect(prihlaskyFormReducer(stateBefore, removePlatba(2))).toEqual(stateAfter2);
 });

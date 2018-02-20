@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getSearchOptions } from './prihlaskySearchReducer';
 import PrihlaskySearch from './PrihlaskySearch';
@@ -14,18 +15,26 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({ dispatch });
 
-const mergeProps = (stateProps, dispatchProps) => {
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { entities, options } = stateProps;
   const { dispatch } = dispatchProps;
+  const { routeOnSelect } = ownProps;
 
   return {
     options,
-    onSelect: option => dispatch(ucastnikSelected({ ...option, ...entities }))
+    onSelect: async option => {
+      await dispatch(ucastnikSelected({ ...option, ...entities }));
+      routeOnSelect(option.id);
+    }
   };
 };
 
 const PrihlaskySearchContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(
   PrihlaskySearch
 );
+
+PrihlaskySearchContainer.propTypes = {
+  routeOnSelect: PropTypes.func.isRequired
+};
 
 export default PrihlaskySearchContainer;

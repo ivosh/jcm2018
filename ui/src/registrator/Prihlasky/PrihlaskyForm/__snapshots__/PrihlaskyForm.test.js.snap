@@ -864,7 +864,6 @@ exports[`prázdný formulář 1`] = `
     componentClass="div"
     fluid={true}
   >
-    <Connect(PrihlaskySearch) />
     <Form
       autoComplete="off"
       bsClass="form"
@@ -1056,16 +1055,5 @@ exports[`prázdný formulář 1`] = `
       </Col>
     </Form>
   </Grid>
-</div>
-`;
-
-exports[`při načítání 1`] = `
-<div
-  className="PrihlaskyForm_div"
->
-  <span
-    className="LoadingIndicator glyphicon glyphicon-repeat"
-  />
-   Načítám účastníky...
 </div>
 `;

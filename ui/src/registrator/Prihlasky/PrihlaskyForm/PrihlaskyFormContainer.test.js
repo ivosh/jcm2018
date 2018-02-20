@@ -17,7 +17,6 @@ beforeEach(() => {
           errorCode: 'Chybový kód.',
           errorMessage: 'Chybová hláška trochu dlouhá.',
           showError: true,
-          fetching: false,
           saved: false,
           saving: true,
           ucastnikId: '---id---',
@@ -35,16 +34,9 @@ it('maps state and dispatch to props', () => {
   expect(wrapper.props().errorCode).toEqual('Chybový kód.');
   expect(wrapper.props().errorMessage).toEqual('Chybová hláška trochu dlouhá.');
   expect(wrapper.props().showError).toBe(true);
-  expect(wrapper.props().fetching).toBe(false);
   expect(wrapper.props().saved).toBe(false);
   expect(wrapper.props().saving).toBe(true);
   expect(wrapper.props().existujiciUcastnik).toBe(true);
-});
-
-it('maps fetchUcastnici to dispatch', () => {
-  wrapper.props().fetchUcastnici();
-
-  expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
 });
 
 it('maps onHideError to dispatch hideError action', () => {

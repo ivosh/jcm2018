@@ -1,6 +1,5 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import renderer from 'react-test-renderer';
 import { mount, shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import configureStore from 'redux-mock-store';
@@ -16,7 +15,6 @@ const state = {
         errorCode: '',
         errorMessage: '',
         showError: false,
-        fetching: false,
         saved: false,
         saving: true,
         ucastnikId: '---id---',
@@ -31,31 +29,12 @@ const state = {
 };
 const store = mockStore(state);
 
-it('při načítání', () => {
-  const component = renderer.create(
-    <PrihlaskyForm
-      fetching={true}
-      saved={false}
-      saving={false}
-      existujiciUcastnik={false}
-      fetchUcastnici={jest.fn()}
-      onHideError={jest.fn()}
-      onHideModal={jest.fn()}
-      onReset={jest.fn()}
-      onSubmit={jest.fn()}
-    />
-  );
-  expect(component.toJSON()).toMatchSnapshot();
-});
-
 it('prázdný formulář', () => {
   const wrapper = shallow(
     <PrihlaskyForm
-      fetching={false}
       saved={false}
       saving={false}
       existujiciUcastnik={false}
-      fetchUcastnici={jest.fn()}
       onHideError={jest.fn()}
       onHideModal={jest.fn()}
       onReset={jest.fn()}
@@ -68,11 +47,9 @@ it('prázdný formulář', () => {
 it('formulář s existujícím účastníkem', () => {
   const wrapper = shallow(
     <PrihlaskyForm
-      fetching={false}
       saved={false}
       saving={false}
       existujiciUcastnik={true}
-      fetchUcastnici={jest.fn()}
       onHideError={jest.fn()}
       onHideModal={jest.fn()}
       onReset={jest.fn()}
@@ -88,11 +65,9 @@ it('formulář s chybou', () => {
       errorCode="chybový kód"
       errorMessage="Popisek chyby, která se stala."
       showError={true}
-      fetching={false}
       saved={false}
       saving={false}
       existujiciUcastnik={true}
-      fetchUcastnici={jest.fn()}
       onHideError={jest.fn()}
       onHideModal={jest.fn()}
       onReset={jest.fn()}
@@ -108,11 +83,9 @@ it('formulář po uložení', () => {
       errorCode="chybový kód"
       errorMessage="Popisek chyby, která se stala."
       showError={false}
-      fetching={false}
       saved={true}
       saving={false}
       existujiciUcastnik={true}
-      fetchUcastnici={jest.fn()}
       onHideError={jest.fn()}
       onHideModal={jest.fn()}
       onReset={jest.fn()}
@@ -128,11 +101,9 @@ it('handle succesfull form submit', () => {
   const wrapper = mount(
     <Provider store={store}>
       <PrihlaskyForm
-        fetching={false}
         saved={false}
         saving={false}
         existujiciUcastnik={true}
-        fetchUcastnici={jest.fn()}
         onHideError={jest.fn()}
         onHideModal={jest.fn()}
         onReset={jest.fn()}
@@ -152,11 +123,9 @@ it('handle form reset', () => {
   const wrapper = mount(
     <Provider store={store}>
       <PrihlaskyForm
-        fetching={false}
         saved={false}
         saving={false}
         existujiciUcastnik={true}
-        fetchUcastnici={jest.fn()}
         onHideError={jest.fn()}
         onHideModal={jest.fn()}
         onReset={onReset}

@@ -6,6 +6,7 @@ import PrihlaskySearchContainer from './PrihlaskySearchContainer';
 
 const mockStore = configureStore();
 
+let routeOnSelect;
 let store;
 let wrapper;
 beforeEach(() => {
@@ -17,7 +18,8 @@ beforeEach(() => {
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
-  wrapper = shallow(<PrihlaskySearchContainer store={store} />);
+  routeOnSelect = jest.fn();
+  wrapper = shallow(<PrihlaskySearchContainer routeOnSelect={routeOnSelect} store={store} />);
 });
 
 it('maps state and dispatch to props', () => {
@@ -25,8 +27,8 @@ it('maps state and dispatch to props', () => {
   expect(wrapper.props().onSelect).toEqual(expect.any(Function));
 });
 
-it('maps onSelect to dispatch ucastnikSelected action - existující přihláška', () => {
-  wrapper.props().onSelect({ id: '5a09b1fd371dec1e99b7e1c9' });
+it('maps onSelect to dispatch ucastnikSelected action - existující přihláška', async () => {
+  await wrapper.props().onSelect({ id: '5a09b1fd371dec1e99b7e1c9' });
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: 'PRIHLASKY_UCASTNIK_SELECTED',
@@ -48,10 +50,11 @@ it('maps onSelect to dispatch ucastnikSelected action - existující přihlášk
     },
     platby: [{ castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }]
   });
+  expect(routeOnSelect).toHaveBeenCalledWith('5a09b1fd371dec1e99b7e1c9');
 });
 
-it('maps onSelect to dispatch ucastnikSelected action - starší účast', () => {
-  wrapper.props().onSelect({ id: '6f09b1fd371dec1e99b7e1c9' });
+it('maps onSelect to dispatch ucastnikSelected action - starší účast', async () => {
+  await wrapper.props().onSelect({ id: '6f09b1fd371dec1e99b7e1c9' });
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: 'PRIHLASKY_UCASTNIK_SELECTED',
@@ -65,4 +68,5 @@ it('maps onSelect to dispatch ucastnikSelected action - starší účast', () =>
       stat: 'Česká republika'
     }
   });
+  expect(routeOnSelect).toHaveBeenCalledWith('6f09b1fd371dec1e99b7e1c9');
 });
