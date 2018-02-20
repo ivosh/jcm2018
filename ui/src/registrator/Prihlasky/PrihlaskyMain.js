@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Panel, Well } from 'react-bootstrap';
+import { Button, Glyphicon, Panel, Well } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import withFetchUcastnici from '../withFetchUcastnici/withFetchUcastnici';
 import PrihlaskySearchContainer from './PrihlaskySearch/PrihlaskySearchContainer';
@@ -10,17 +10,27 @@ const PrihlaskySearchWithFetchUcastnici = withFetchUcastnici(PrihlaskySearchCont
 
 const PrihlaskyMain = ({ path, routeOnSelect }) => (
   <Well>
-    <Panel header="Přihlášky" bsStyle="info" className="PrihlaskyMain-panel">
+    <Panel header="Přihlášky" bsStyle="info">
       <div className="PrihlaskyMain-div">
-        <PrihlaskySearchWithFetchUcastnici routeOnSelect={routeOnSelect} />
-        <div>- nebo -</div>
-        <div className="PrihlaskyMain-button">
+        <p>Vyber si jednu z akcí:</p>
+        <div className="PrihlaskyMain-item">
+          <div className="PrihlaskyMain-icon">
+            <Glyphicon glyph="search" />
+          </div>
+          <PrihlaskySearchWithFetchUcastnici routeOnSelect={routeOnSelect} />
+        </div>
+        <div className="PrihlaskyMain-item">
+          <div className="PrihlaskyMain-icon">
+            <Glyphicon glyph="remove" />
+          </div>
           <LinkContainer to={`${path}reset`}>
-            <Button bsStyle="primary">Nový účastník</Button>
+            <Button bsStyle="danger">Nový účastník</Button>
           </LinkContainer>
         </div>
-        <div>- nebo -</div>
-        <div className="PrihlaskyMain-button">
+        <div className="PrihlaskyMain-item">
+          <div className="PrihlaskyMain-icon">
+            <Glyphicon glyph="edit" />
+          </div>
           <LinkContainer to={`${path}edit`}>
             <Button bsStyle="primary">Pokračovat v editaci</Button>
           </LinkContainer>

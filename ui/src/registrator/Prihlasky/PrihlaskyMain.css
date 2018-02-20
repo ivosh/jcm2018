@@ -1,13 +1,20 @@
-.PrihlaskyMain-panel {
-  display: inline-block;
-}
-
 .PrihlaskyMain-div {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
-.PrihlaskyMain-button {
-  margin-top: 1ex;
+.PrihlaskyMain-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 2ex;
+  margin-bottom: 1ex;
+}
+
+.PrihlaskyMain-item > * {
+  padding-right: 1em;
+}
+
+.PrihlaskyMain-icon {
+  font-size: xx-large;
 }
