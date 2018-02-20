@@ -32,6 +32,8 @@ PrihlaskyFormWithFetchUcastniciWithId.propTypes = {
   })
 };
 
+const PrihlaskyFormWithFetchUcastniciWithEdit = () => <PrihlaskyFormWithFetchUcastnici />;
+
 const PrihlaskyFormWithFetchUcastniciWithReset = () => (
   <PrihlaskyFormWithFetchUcastnici reset={true} />
 );
@@ -39,7 +41,7 @@ const PrihlaskyFormWithFetchUcastniciWithReset = () => (
 const Prihlasky = ({ match }) => (
   <Switch>
     <Route path={`${match.path}/`} exact component={PrihlaskyMainWithRoute} />
-    <Route path={`${match.path}/edit`} component={PrihlaskyFormWithFetchUcastnici} />
+    <Route path={`${match.path}/edit`} component={PrihlaskyFormWithFetchUcastniciWithEdit} />
     <Route path={`${match.path}/reset`} component={PrihlaskyFormWithFetchUcastniciWithReset} />
     <Route path={`${match.path}/:id`} component={PrihlaskyFormWithFetchUcastniciWithId} />
   </Switch>

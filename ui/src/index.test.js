@@ -20,16 +20,15 @@ const store = mockStore({
     rocniky: { byRoky: {}, roky: [] },
     ucastnici: { allIds: [], byIds: {} }
   },
+  fetching: 'init',
   registrator: {
     prihlaseni: {
-      fetching: false,
       kategorieFilter: '',
       sortColumn: undefined,
       sortDir: 'none',
       textFilter: ''
     },
     ucastniciDigest: {
-      fetching: false,
       kategorieFilter: '',
       sortColumn: undefined,
       sortDir: 'none',

@@ -43,6 +43,6 @@ it('fetchUcastniciSuccess()', () => {
   const stateBefore = { fetching: 'fetching' };
   deepFreeze(stateBefore);
 
-  const stateAfter = appReducer(stateBefore, fetchUcastniciSuccess({ response: { }}));
+  const stateAfter = appReducer(stateBefore, fetchUcastniciSuccess({ response: {} }));
   expect(stateAfter.fetching).toEqual('done');
 });
