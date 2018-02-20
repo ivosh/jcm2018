@@ -1,4 +1,5 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
@@ -54,7 +55,9 @@ const prihlaseni = [
 it('žádný přihlášený', () => {
   const component = renderer.create(
     <Provider store={store}>
-      <Prihlaseni prihlaseni={[]} {...commonProps} />
+      <MemoryRouter>
+        <Prihlaseni prihlaseni={[]} {...commonProps} />
+      </MemoryRouter>
     </Provider>
   );
   expect(component.toJSON()).toMatchSnapshot();
@@ -63,7 +66,9 @@ it('žádný přihlášený', () => {
 it('dva přihlášení', () => {
   const component = renderer.create(
     <Provider store={store}>
-      <Prihlaseni prihlaseni={prihlaseni} {...commonProps} />
+      <MemoryRouter>
+        <Prihlaseni prihlaseni={prihlaseni} {...commonProps} />
+      </MemoryRouter>
     </Provider>
   );
   expect(component.toJSON()).toMatchSnapshot();

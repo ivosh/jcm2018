@@ -336,7 +336,12 @@ exports[`dva přihlášení 1`] = `
                 }
               }
             >
-              Balabák
+              <a
+                href="/prihlasky/5a09b1fd371dec1e99b7e1c9"
+                onClick={[Function]}
+              >
+                Balabák
+              </a>
             </div>
             <div
               className="UcastniciTable_oddRow UcastniciTable_cell"
@@ -381,7 +386,12 @@ exports[`dva přihlášení 1`] = `
                 }
               }
             >
-              Zralá
+              <a
+                href="/prihlasky/7a09b1fd371dec1e99b7e142"
+                onClick={[Function]}
+              >
+                Zralá
+              </a>
             </div>
             <div
               className="UcastniciTable_evenRow UcastniciTable_cell"

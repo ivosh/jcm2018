@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { barvaProTypKategorie } from '../../Util';
 import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
@@ -9,13 +10,21 @@ import './Prihlaseni.css';
 
 const alignLeftStyler = () => ({ textAlign: 'left' });
 const alignRightStyler = () => ({ textAlign: 'right' });
+
 const datumFormat = ({ data, rowIndex }) => moment.utc(data[rowIndex].datum).format('D. M. YYYY');
 const kategorieFormat = args => <PopisekKategorie {...args.cellData} />;
+
 const kategorieStyler = ({ cellData }) => ({
   backgroundColor: barvaProTypKategorie(cellData.typ, '0.4'),
   textAlign: 'left'
 });
+
 const kodStyler = () => ({ fontFamily: 'monospace', textAlign: 'left' });
+
+const prijmeniFormat = args => (
+  <Link to={`/prihlasky/${args.data[args.rowIndex].id}`}>{args.cellData}</Link>
+);
+
 const zaplacenoFormat = ({ cellData }) => `${cellData} Kč`;
 const zaplacenoStyler = ({ cellData, data, rowIndex }) => ({
   backgroundColor:
@@ -29,6 +38,7 @@ const Prihlaseni = ({ actionPrefix, reduxName, prihlaseni }) => {
   const columns = [
     {
       cellStyler: alignLeftStyler,
+      cellDataFormatter: prijmeniFormat,
       key: 'prijmeni',
       label: 'příjmení',
       sortable: true,
