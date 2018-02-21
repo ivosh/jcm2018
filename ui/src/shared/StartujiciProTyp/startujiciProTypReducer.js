@@ -60,9 +60,6 @@ export const getStartCislaProTyp = ({
   ucastnici
 }) => {
   const typKategorie = getTypKategorie({ rok, typ, rocniky });
-  if (!typKategorie) {
-    return []; // Initial render() when fetchRocniky has not yet even started.
-  }
   const { startCisla } = typKategorie;
   if (!startCisla) {
     return [];

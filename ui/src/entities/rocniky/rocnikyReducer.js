@@ -15,8 +15,5 @@ export default rocnikyReducer;
 
 export const getTypKategorie = ({ rok, typ, rocniky }) => {
   const rocnik = rocniky.byRoky[rok];
-  if (!rocnik) {
-    return undefined;
-  }
   return rocnik.kategorie[typ];
 };
