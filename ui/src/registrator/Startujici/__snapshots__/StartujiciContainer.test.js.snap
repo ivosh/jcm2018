@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`maps state to props 1`] = `
+Array [
+  "maraton",
+  "půlmaraton",
+  "cyklo",
+  "koloběžka",
+]
+`;
