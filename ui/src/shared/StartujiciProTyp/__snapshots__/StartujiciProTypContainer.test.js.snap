@@ -3,39 +3,30 @@
 exports[`maps state to props - půlmaraton, startovní čísla, přihlášky 1`] = `
 Array [
   Object {
-    "onClick": [Function],
     "startCislo": 1,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 2,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 3,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 4,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 5,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 6,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 7,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 8,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 9,
   },
   Object {
@@ -43,27 +34,21 @@ Array [
     "startCislo": 10,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 11,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 12,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 13,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 14,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 15,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 16,
   },
   Object {
@@ -71,335 +56,252 @@ Array [
     "startCislo": 17,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 18,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 19,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 20,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 21,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 22,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 23,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 24,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 25,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 26,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 27,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 28,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 29,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 30,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 31,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 32,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 33,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 34,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 35,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 36,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 37,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 38,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 39,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 40,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 41,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 42,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 43,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 44,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 45,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 46,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 47,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 48,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 49,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 50,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 51,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 52,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 53,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 54,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 55,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 56,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 57,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 58,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 59,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 60,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 61,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 62,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 63,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 64,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 65,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 66,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 67,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 68,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 69,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 70,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 71,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 72,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 73,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 74,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 75,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 76,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 77,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 78,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 79,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 80,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 81,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 82,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 83,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 84,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 85,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 86,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 87,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 88,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 89,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 90,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 91,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 92,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 93,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 94,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 95,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 96,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 97,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 98,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 99,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 100,
   },
 ]
@@ -408,43 +310,33 @@ Array [
 exports[`maps state to props - půlmaraton, startovní čísla, výkony 1`] = `
 Array [
   Object {
-    "onClick": [Function],
     "startCislo": 1,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 2,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 3,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 4,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 5,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 6,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 7,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 8,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 9,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 10,
   },
   Object {
@@ -454,15 +346,12 @@ Array [
     "startCislo": 11,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 12,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 13,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 14,
   },
   Object {
@@ -471,343 +360,258 @@ Array [
     "startCislo": 15,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 16,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 17,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 18,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 19,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 20,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 21,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 22,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 23,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 24,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 25,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 26,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 27,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 28,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 29,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 30,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 31,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 32,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 33,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 34,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 35,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 36,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 37,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 38,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 39,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 40,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 41,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 42,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 43,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 44,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 45,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 46,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 47,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 48,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 49,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 50,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 51,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 52,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 53,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 54,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 55,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 56,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 57,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 58,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 59,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 60,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 61,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 62,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 63,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 64,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 65,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 66,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 67,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 68,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 69,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 70,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 71,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 72,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 73,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 74,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 75,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 76,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 77,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 78,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 79,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 80,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 81,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 82,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 83,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 84,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 85,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 86,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 87,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 88,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 89,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 90,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 91,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 92,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 93,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 94,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 95,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 96,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 97,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 98,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 99,
   },
   Object {
-    "onClick": [Function],
     "startCislo": 100,
   },
 ]
@@ -817,12 +621,10 @@ exports[`maps state to props - půlmaraton, startující, přihlášky 1`] = `
 Array [
   Object {
     "id": "7a09b1fd371dec1e99b7e142",
-    "onClick": [Function],
     "startCislo": 10,
   },
   Object {
     "id": "5a09b1fd371dec1e99b7e1c9",
-    "onClick": [Function],
     "startCislo": 17,
   },
 ]
@@ -834,13 +636,11 @@ Array [
     "cas": "PT2H6M32.6S",
     "dokonceno": true,
     "id": "7a09b1fd371dec1e99b7e142",
-    "onClick": [Function],
     "startCislo": 11,
   },
   Object {
     "dokonceno": false,
     "id": "5a09b1fd371dec1e99b7e1c9",
-    "onClick": [Function],
     "startCislo": 15,
   },
 ]

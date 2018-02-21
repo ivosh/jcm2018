@@ -1,10 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import renderer from 'react-test-renderer';
 import moment from 'moment';
 import StartujiciProTyp from './StartujiciProTyp';
 
+const testRenderer = ({ startCislo }) => (
+  <div key={startCislo} className="StartujiciProTyp-item">
+    {startCislo}
+  </div>
+);
+testRenderer.propTypes = {
+  startCislo: PropTypes.number.isRequired
+};
+
 it('žádný startující', () => {
-  const component = renderer.create(<StartujiciProTyp startujici={[]} />);
+  const component = renderer.create(<StartujiciProTyp startujici={[]} renderer={testRenderer} />);
   expect(component.toJSON()).toMatchSnapshot();
 });
 
@@ -19,7 +29,9 @@ it('jeden startující', () => {
     }
   ];
 
-  const component = renderer.create(<StartujiciProTyp startujici={startujici} />);
+  const component = renderer.create(
+    <StartujiciProTyp startujici={startujici} renderer={testRenderer} />
+  );
   expect(component.toJSON()).toMatchSnapshot();
 });
 
@@ -82,6 +94,8 @@ it('třináct startujících', () => {
     { id: '59', startCislo: 26, dokonceno: null }
   ];
 
-  const component = renderer.create(<StartujiciProTyp startujici={startujici} />);
+  const component = renderer.create(
+    <StartujiciProTyp startujici={startujici} renderer={testRenderer} />
+  );
   expect(component.toJSON()).toMatchSnapshot();
 });

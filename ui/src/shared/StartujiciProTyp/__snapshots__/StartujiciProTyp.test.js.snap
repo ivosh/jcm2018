@@ -5,8 +5,7 @@ exports[`jeden startující 1`] = `
   className="StartujiciProTyp-grid"
 >
   <div
-    className="StartujiciProTyp-dokonceno"
-    onClick={[Function]}
+    className="StartujiciProTyp-item"
   >
     7
   </div>
@@ -18,116 +17,97 @@ exports[`třináct startujících 1`] = `
   className="StartujiciProTyp-grid"
 >
   <div
-    className="StartujiciProTyp-na-trase"
-    onClick={undefined}
+    className="StartujiciProTyp-item"
   >
     7
   </div>
   <div
-    className="StartujiciProTyp-na-trase"
-    onClick={undefined}
+    className="StartujiciProTyp-item"
   >
     4
   </div>
   <div
-    className="StartujiciProTyp-dokonceno"
-    onClick={[Function]}
+    className="StartujiciProTyp-item"
   >
     16
   </div>
   <div
-    className="StartujiciProTyp-nedokonceno"
-    onClick={undefined}
+    className="StartujiciProTyp-item"
   >
     25
   </div>
   <div
-    className="StartujiciProTyp-dokonceno"
-    onClick={[Function]}
+    className="StartujiciProTyp-item"
   >
     9
   </div>
   <div
-    className="StartujiciProTyp-dokonceno"
-    onClick={[Function]}
+    className="StartujiciProTyp-item"
   >
     15
   </div>
   <div
-    className="StartujiciProTyp-nedokonceno"
-    onClick={undefined}
+    className="StartujiciProTyp-item"
   >
     1
   </div>
   <div
-    className="StartujiciProTyp-na-trase"
-    onClick={undefined}
+    className="StartujiciProTyp-item"
   >
     8
   </div>
   <div
-    className="StartujiciProTyp-na-trase"
-    onClick={undefined}
+    className="StartujiciProTyp-item"
   >
     59
   </div>
   <div
-    className="StartujiciProTyp-na-trase"
-    onClick={undefined}
+    className="StartujiciProTyp-item"
   >
     43
   </div>
   <div
-    className="StartujiciProTyp-nedokonceno"
-    onClick={undefined}
+    className="StartujiciProTyp-item"
   >
     42
   </div>
   <div
-    className="StartujiciProTyp-dokonceno"
-    onClick={[Function]}
+    className="StartujiciProTyp-item"
   >
     33
   </div>
   <div
-    className="StartujiciProTyp-nedokonceno"
-    onClick={undefined}
+    className="StartujiciProTyp-item"
   >
     21
   </div>
   <div
-    className="StartujiciProTyp-dokonceno"
-    onClick={[Function]}
+    className="StartujiciProTyp-item"
   >
     24
   </div>
   <div
-    className="StartujiciProTyp-na-trase"
-    onClick={undefined}
+    className="StartujiciProTyp-item"
   >
     27
   </div>
   <div
-    className="StartujiciProTyp-na-trase"
-    onClick={undefined}
+    className="StartujiciProTyp-item"
   >
     22
   </div>
   <div
-    className="StartujiciProTyp-na-trase"
-    onClick={undefined}
+    className="StartujiciProTyp-item"
   >
     30
   </div>
   <div
-    className="StartujiciProTyp-dokonceno"
-    onClick={[Function]}
+    className="StartujiciProTyp-item"
   >
     23
   </div>
   <div
-    className="StartujiciProTyp-na-trase"
-    onClick={undefined}
+    className="StartujiciProTyp-item"
   >
     26
   </div>

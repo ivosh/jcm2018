@@ -82,6 +82,3 @@ export const getStartCislaProTyp = ({
 
   return results;
 };
-
-export const decorareStartujici = (startujici, filter, onClick) =>
-  startujici.map(jeden => (filter(jeden) ? { ...jeden, onClick: () => onClick(jeden) } : jeden));

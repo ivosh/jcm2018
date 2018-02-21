@@ -1,25 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import momentPropTypes from 'react-moment-proptypes';
-import { dokoncenoStr } from '../../Util';
 import './StartujiciProTyp.css';
 
-const Jeden = ({ startCislo, dokonceno, onClick }) => (
-  <div className={`StartujiciProTyp-${dokoncenoStr(dokonceno)[0]}`} onClick={onClick}>
-    {startCislo}
-  </div>
-);
-
-Jeden.propTypes = {
-  startCislo: PropTypes.number.isRequired,
-  dokonceno: PropTypes.bool,
-  onClick: PropTypes.func
-};
-
-const StartujiciProTyp = ({ startujici }) => (
-  <div className="StartujiciProTyp-grid">
-    {startujici.map(jeden => <Jeden key={jeden.startCislo} {...jeden} />)}
-  </div>
+const StartujiciProTyp = ({ startujici, renderer }) => (
+  <div className="StartujiciProTyp-grid">{startujici.map(jeden => renderer({ ...jeden }))}</div>
 );
 
 StartujiciProTyp.propTypes = {
@@ -28,10 +13,12 @@ StartujiciProTyp.propTypes = {
       id: PropTypes.string,
       startCislo: PropTypes.number.isRequired,
       dokonceno: PropTypes.bool,
-      duration: momentPropTypes.momentDurationObj,
-      onClick: PropTypes.func
+      duration: momentPropTypes.momentDurationObj
     }).isRequired
-  ).isRequired
+  ).isRequired,
+  // Input: { id, startCislo, dokonceno, cas }
+  // Returned element must set: key={startCislo} className="StartujiciProTyp-item"
+  renderer: PropTypes.func.isRequired
 };
 
 export default StartujiciProTyp;

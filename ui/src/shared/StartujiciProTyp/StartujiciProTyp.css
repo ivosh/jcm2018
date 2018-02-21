@@ -5,22 +5,10 @@
   max-width: 53em; /* 20 columns, including gaps */
 }
 
-.StartujiciProTyp-dokonceno, .StartujiciProTyp-na-trase, .StartujiciProTyp-nedokonceno {
+.StartujiciProTyp-item {
   width: 2.5em;
   height: 2em;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.StartujiciProTyp-dokonceno {
-  background-color: #60c860;
-}
-
-.StartujiciProTyp-na-trase {
-  background-color: #70a5ed;
-}
-
-.StartujiciProTyp-nedokonceno {
-  background-color: #9ec49e;
 }
