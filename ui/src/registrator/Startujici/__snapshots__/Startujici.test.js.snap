@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Legenda 1`] = `
+<div
+  className="Startujici_legenda"
+>
+  Legenda:
+  <span
+    className="Startujici_legenda_item Startujici-dokonceno label label-default"
+  >
+    dokončeno
+  </span>
+  <span
+    className="Startujici_legenda_item Startujici-nedokonceno label label-default"
+  >
+    nedokončeno
+  </span>
+  <span
+    className="Startujici_legenda_item Startujici-na-trase label label-default"
+  >
+    na trase
+  </span>
+  <span
+    className="Startujici_legenda_item Startujici-neaktivni label label-default"
+  >
+    neaktivní
+  </span>
+</div>
+`;
+
+exports[`renders Startujici 1`] = `
+<div
+  className="Startujici_div"
+>
+  <Component />
+  <div
+    className="Startujici_typ"
+    key="maraton"
+  >
+    <div
+      className="Startujici_popisek"
+    >
+      <PopisekKategorie
+        typ="maraton"
+      />
+    </div>
+    <Connect(StartujiciProTyp)
+      jenStartujici={false}
+      prihlasky={true}
+      renderer={[Function]}
+      typ="maraton"
+    />
+  </div>
+  <div
+    className="Startujici_typ"
+    key="půlmaraton"
+  >
+    <div
+      className="Startujici_popisek"
+    >
+      <PopisekKategorie
+        typ="půlmaraton"
+      />
+    </div>
+    <Connect(StartujiciProTyp)
+      jenStartujici={false}
+      prihlasky={true}
+      renderer={[Function]}
+      typ="půlmaraton"
+    />
+  </div>
+  <div
+    className="Startujici_typ"
+    key="cyklo"
+  >
+    <div
+      className="Startujici_popisek"
+    >
+      <PopisekKategorie
+        typ="cyklo"
+      />
+    </div>
+    <Connect(StartujiciProTyp)
+      jenStartujici={false}
+      prihlasky={true}
+      renderer={[Function]}
+      typ="cyklo"
+    />
+  </div>
+  <div
+    className="Startujici_typ"
+    key="koloběžka"
+  >
+    <div
+      className="Startujici_popisek"
+    >
+      <PopisekKategorie
+        typ="koloběžka"
+      />
+    </div>
+    <Connect(StartujiciProTyp)
+      jenStartujici={false}
+      prihlasky={true}
+      renderer={[Function]}
+      typ="koloběžka"
+    />
+  </div>
+</div>
+`;

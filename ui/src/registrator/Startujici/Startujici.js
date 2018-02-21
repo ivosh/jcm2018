@@ -29,7 +29,7 @@ Renderer.propTypes = {
   dokonceno: PropTypes.bool
 };
 
-const Legenda = () => (
+export const Legenda = () => (
   <div className="Startujici_legenda">
     Legenda:
     {dokoncenoArr.map(dokonceno => (
@@ -40,6 +40,7 @@ const Legenda = () => (
         {dokoncenoStr(dokonceno)[1]}
       </Label>
     ))}
+    <Label className="Startujici_legenda_item Startujici-neaktivni">neaktivní</Label>
   </div>
 );
 
