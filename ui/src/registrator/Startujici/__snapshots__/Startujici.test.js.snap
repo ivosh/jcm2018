@@ -1,5 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Renderer 1`] = `
+<div
+  className="StartujiciProTyp-grid"
+>
+  <a
+    aria-current={false}
+    className="StartujiciProTyp-item Startujici-dokonceno"
+    href="/prihlasky/10"
+    onClick={[Function]}
+    style={undefined}
+  >
+    7
+  </a>
+</div>
+`;
+
 exports[`renders Legenda 1`] = `
 <div
   className="Startujici_legenda"

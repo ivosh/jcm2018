@@ -8,7 +8,7 @@ import StartujiciProTypContainer from '../../shared/StartujiciProTyp/StartujiciP
 import './Startujici.css';
 
 // eslint-disable-next-line no-confusing-arrow
-const Renderer = ({ id, startCislo, dokonceno }) =>
+export const Renderer = ({ id, startCislo, dokonceno }) =>
   id ? (
     <NavLink
       to={`/prihlasky/${id}`}
