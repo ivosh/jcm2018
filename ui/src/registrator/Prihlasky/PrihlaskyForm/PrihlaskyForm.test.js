@@ -138,3 +138,57 @@ it('handle form reset', () => {
   wrapper.find('.btn-danger').simulate('click');
   expect(onReset).toHaveBeenCalledWith();
 });
+
+it('handle Enter key and move focus', () => {
+  const wrapper = mount(
+    <Provider store={store}>
+      <PrihlaskyForm
+        saved={false}
+        saving={false}
+        existujiciUcastnik={true}
+        onHideError={jest.fn()}
+        onHideModal={jest.fn()}
+        onReset={jest.fn()}
+        onSubmit={jest.fn()}
+      />
+    </Provider>
+  );
+
+  expect(wrapper.find({ id: 'udaje.jmeno' })).toHaveLength(1);
+  const focus = jest.fn();
+  wrapper.find({ id: 'udaje.jmeno' }).instance().focus = focus;
+
+  expect(wrapper.find(PrihlaskyForm)).toHaveLength(1);
+  wrapper
+    .find(PrihlaskyForm)
+    .instance()
+    .handleKeyPress({ event: { which: 13, preventDefault: jest.fn() }, index: 0 });
+  expect(focus).toHaveBeenCalledWith();
+});
+
+it('handle Enter key and move focus from last to first', () => {
+  const wrapper = mount(
+    <Provider store={store}>
+      <PrihlaskyForm
+        saved={false}
+        saving={false}
+        existujiciUcastnik={true}
+        onHideError={jest.fn()}
+        onHideModal={jest.fn()}
+        onReset={jest.fn()}
+        onSubmit={jest.fn()}
+      />
+    </Provider>
+  );
+
+  expect(wrapper.find({ id: 'udaje.prijmeni' })).toHaveLength(1);
+  const focus = jest.fn();
+  wrapper.find({ id: 'udaje.prijmeni' }).instance().focus = focus;
+
+  expect(wrapper.find(PrihlaskyForm)).toHaveLength(1);
+  wrapper
+    .find(PrihlaskyForm)
+    .instance()
+    .handleKeyPress({ event: { which: 13, preventDefault: jest.fn() }, index: 18 });
+  expect(focus).toHaveBeenCalledWith();
+});
