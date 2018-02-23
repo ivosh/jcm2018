@@ -3,6 +3,20 @@
   margin-right: 20px;
 }
 
+.Startujici_buttons {
+  margin-bottom: 1ex;
+}
+
+.Startujici_button {
+  margin-right: 5px;
+}
+
+.Startujici_buttons > .btn.active {
+  font-weight: bold;
+  border-radius: 5px;
+  border: 3px solid black !important;
+}
+
 .Startujici_typ {
   margin-bottom: 1.5ex;
 }

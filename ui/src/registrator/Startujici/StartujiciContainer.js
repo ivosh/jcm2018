@@ -3,7 +3,12 @@ import { getTypyStartCisel } from './startujiciReducer';
 import { changeOdstartovani } from './StartujiciActions';
 import Startujici from './Startujici';
 
-const mapStateToProps = ({ entities: { rocniky } }) => ({ typy: getTypyStartCisel(rocniky) });
+const mapStateToProps = state => {
+  const { entities: { rocniky } } = state;
+  const { registrator: { startujici: { odstartovani } } } = state;
+
+  return { odstartovani, typy: getTypyStartCisel(rocniky) };
+};
 
 const mapDispatchToProps = dispatch => ({
   onOdstartovaniChange: () => dispatch(changeOdstartovani())

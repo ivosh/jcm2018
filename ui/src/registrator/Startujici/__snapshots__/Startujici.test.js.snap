@@ -16,11 +16,34 @@ exports[`Renderer 1`] = `
 </div>
 `;
 
-exports[`renders Legenda 1`] = `
+exports[`renders LegendaOdstartovani 1`] = `
 <div
   className="Startujici_legenda"
 >
-  Legenda:
+  Legenda: 
+  <span
+    className="Startujici_legenda_item Startujici-dokonceno label label-default"
+  >
+    dokončeno
+  </span>
+  <span
+    className="Startujici_legenda_item Startujici-nedokonceno label label-default"
+  >
+    nedokončeno
+  </span>
+  <span
+    className="Startujici_legenda_item Startujici-na-trase label label-default"
+  >
+    na trase
+  </span>
+</div>
+`;
+
+exports[`renders LegendaPrihlaseni 1`] = `
+<div
+  className="Startujici_legenda"
+>
+  Legenda: 
   <span
     className="Startujici_legenda_item Startujici-dokonceno label label-default"
   >
@@ -48,6 +71,32 @@ exports[`renders Startujici 1`] = `
 <div
   className="Startujici_div"
 >
+  <div
+    className="Startujici_buttons"
+  >
+    <Button
+      active={true}
+      block={false}
+      bsClass="btn"
+      bsStyle="primary"
+      className="Startujici_button"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Přihlášeni
+    </Button>
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsStyle="success"
+      className="Startujici_button"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Odstartováni
+    </Button>
+  </div>
   <Component />
   <div
     className="Startujici_typ"

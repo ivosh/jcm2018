@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { Label } from 'react-bootstrap';
+import { Button, Label } from 'react-bootstrap';
 import { dokoncenoArr, dokoncenoStr } from '../../Util';
 import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import StartujiciProTypContainer from '../../shared/StartujiciProTyp/StartujiciProTypContainer';
@@ -29,32 +29,56 @@ Renderer.propTypes = {
   dokonceno: PropTypes.bool
 };
 
-export const Legenda = () => (
+const legendaCommon = () =>
+  dokoncenoArr.map(dokonceno => (
+    <Label
+      key={dokoncenoStr(dokonceno)[0]}
+      className={`Startujici_legenda_item Startujici-${dokoncenoStr(dokonceno)[0]}`}
+    >
+      {dokoncenoStr(dokonceno)[1]}
+    </Label>
+  ));
+
+export const LegendaPrihlaseni = () => (
   <div className="Startujici_legenda">
-    Legenda:
-    {dokoncenoArr.map(dokonceno => (
-      <Label
-        key={dokoncenoStr(dokonceno)[0]}
-        className={`Startujici_legenda_item Startujici-${dokoncenoStr(dokonceno)[0]}`}
-      >
-        {dokoncenoStr(dokonceno)[1]}
-      </Label>
-    ))}
+    Legenda: {legendaCommon()}
     <Label className="Startujici_legenda_item Startujici-neaktivni">neaktivní</Label>
   </div>
 );
 
-const Startujici = ({ typy }) => (
+export const LegendaOdstartovani = () => (
+  <div className="Startujici_legenda">Legenda: {legendaCommon()}</div>
+);
+
+const Startujici = ({ odstartovani, typy, onOdstartovaniChange }) => (
   <div className="Startujici_div">
-    <Legenda />
+    <div className="Startujici_buttons">
+      <Button
+        active={!odstartovani}
+        bsStyle="primary"
+        className="Startujici_button"
+        onClick={onOdstartovaniChange}
+      >
+        Přihlášeni
+      </Button>
+      <Button
+        active={odstartovani}
+        bsStyle="success"
+        className="Startujici_button"
+        onClick={onOdstartovaniChange}
+      >
+        Odstartováni
+      </Button>
+    </div>
+    {odstartovani ? <LegendaOdstartovani /> : <LegendaPrihlaseni />}
     {typy.map(typ => (
       <div key={typ} className="Startujici_typ">
         <div className="Startujici_popisek">
           <PopisekKategorie typ={typ} />
         </div>
         <StartujiciProTypContainer
-          jenStartujici={false}
-          odstartovani={false}
+          jenStartujici={odstartovani}
+          odstartovani={odstartovani}
           typ={typ}
           renderer={Renderer}
         />
@@ -64,7 +88,9 @@ const Startujici = ({ typy }) => (
 );
 
 Startujici.propTypes = {
-  typy: PropTypes.arrayOf(PropTypes.string).isRequired
+  odstartovani: PropTypes.bool.isRequired,
+  typy: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onOdstartovaniChange: PropTypes.func.isRequired
 };
 
 export default Startujici;
