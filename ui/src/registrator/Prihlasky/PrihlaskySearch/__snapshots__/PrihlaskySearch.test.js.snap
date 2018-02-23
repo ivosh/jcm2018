@@ -59,6 +59,7 @@ exports[`renders 1`] = `
             Object {
               "bottom": 0,
               "display": "block",
+              "pointerEvents": "none",
               "position": "absolute",
               "top": 0,
               "zIndex": 0,
