@@ -1,5 +1,315 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`maps state to props - půlmaraton, startovní čísla, odstartováni 1`] = `
+Array [
+  Object {
+    "startCislo": 1,
+  },
+  Object {
+    "startCislo": 2,
+  },
+  Object {
+    "startCislo": 3,
+  },
+  Object {
+    "startCislo": 4,
+  },
+  Object {
+    "startCislo": 5,
+  },
+  Object {
+    "startCislo": 6,
+  },
+  Object {
+    "startCislo": 7,
+  },
+  Object {
+    "startCislo": 8,
+  },
+  Object {
+    "startCislo": 9,
+  },
+  Object {
+    "startCislo": 10,
+  },
+  Object {
+    "cas": "PT2H6M32.6S",
+    "dokonceno": true,
+    "id": "7a09b1fd371dec1e99b7e142",
+    "startCislo": 11,
+  },
+  Object {
+    "startCislo": 12,
+  },
+  Object {
+    "startCislo": 13,
+  },
+  Object {
+    "startCislo": 14,
+  },
+  Object {
+    "dokonceno": false,
+    "id": "5a09b1fd371dec1e99b7e1c9",
+    "startCislo": 15,
+  },
+  Object {
+    "startCislo": 16,
+  },
+  Object {
+    "startCislo": 17,
+  },
+  Object {
+    "startCislo": 18,
+  },
+  Object {
+    "startCislo": 19,
+  },
+  Object {
+    "startCislo": 20,
+  },
+  Object {
+    "startCislo": 21,
+  },
+  Object {
+    "startCislo": 22,
+  },
+  Object {
+    "startCislo": 23,
+  },
+  Object {
+    "startCislo": 24,
+  },
+  Object {
+    "startCislo": 25,
+  },
+  Object {
+    "startCislo": 26,
+  },
+  Object {
+    "startCislo": 27,
+  },
+  Object {
+    "startCislo": 28,
+  },
+  Object {
+    "startCislo": 29,
+  },
+  Object {
+    "startCislo": 30,
+  },
+  Object {
+    "startCislo": 31,
+  },
+  Object {
+    "startCislo": 32,
+  },
+  Object {
+    "startCislo": 33,
+  },
+  Object {
+    "startCislo": 34,
+  },
+  Object {
+    "startCislo": 35,
+  },
+  Object {
+    "startCislo": 36,
+  },
+  Object {
+    "startCislo": 37,
+  },
+  Object {
+    "startCislo": 38,
+  },
+  Object {
+    "startCislo": 39,
+  },
+  Object {
+    "startCislo": 40,
+  },
+  Object {
+    "startCislo": 41,
+  },
+  Object {
+    "startCislo": 42,
+  },
+  Object {
+    "startCislo": 43,
+  },
+  Object {
+    "startCislo": 44,
+  },
+  Object {
+    "startCislo": 45,
+  },
+  Object {
+    "startCislo": 46,
+  },
+  Object {
+    "startCislo": 47,
+  },
+  Object {
+    "startCislo": 48,
+  },
+  Object {
+    "startCislo": 49,
+  },
+  Object {
+    "startCislo": 50,
+  },
+  Object {
+    "startCislo": 51,
+  },
+  Object {
+    "startCislo": 52,
+  },
+  Object {
+    "startCislo": 53,
+  },
+  Object {
+    "startCislo": 54,
+  },
+  Object {
+    "startCislo": 55,
+  },
+  Object {
+    "startCislo": 56,
+  },
+  Object {
+    "startCislo": 57,
+  },
+  Object {
+    "startCislo": 58,
+  },
+  Object {
+    "startCislo": 59,
+  },
+  Object {
+    "startCislo": 60,
+  },
+  Object {
+    "startCislo": 61,
+  },
+  Object {
+    "startCislo": 62,
+  },
+  Object {
+    "startCislo": 63,
+  },
+  Object {
+    "startCislo": 64,
+  },
+  Object {
+    "startCislo": 65,
+  },
+  Object {
+    "startCislo": 66,
+  },
+  Object {
+    "startCislo": 67,
+  },
+  Object {
+    "startCislo": 68,
+  },
+  Object {
+    "startCislo": 69,
+  },
+  Object {
+    "startCislo": 70,
+  },
+  Object {
+    "startCislo": 71,
+  },
+  Object {
+    "startCislo": 72,
+  },
+  Object {
+    "startCislo": 73,
+  },
+  Object {
+    "startCislo": 74,
+  },
+  Object {
+    "startCislo": 75,
+  },
+  Object {
+    "startCislo": 76,
+  },
+  Object {
+    "startCislo": 77,
+  },
+  Object {
+    "startCislo": 78,
+  },
+  Object {
+    "startCislo": 79,
+  },
+  Object {
+    "startCislo": 80,
+  },
+  Object {
+    "startCislo": 81,
+  },
+  Object {
+    "startCislo": 82,
+  },
+  Object {
+    "startCislo": 83,
+  },
+  Object {
+    "startCislo": 84,
+  },
+  Object {
+    "startCislo": 85,
+  },
+  Object {
+    "startCislo": 86,
+  },
+  Object {
+    "startCislo": 87,
+  },
+  Object {
+    "startCislo": 88,
+  },
+  Object {
+    "startCislo": 89,
+  },
+  Object {
+    "startCislo": 90,
+  },
+  Object {
+    "startCislo": 91,
+  },
+  Object {
+    "startCislo": 92,
+  },
+  Object {
+    "startCislo": 93,
+  },
+  Object {
+    "startCislo": 94,
+  },
+  Object {
+    "startCislo": 95,
+  },
+  Object {
+    "startCislo": 96,
+  },
+  Object {
+    "startCislo": 97,
+  },
+  Object {
+    "startCislo": 98,
+  },
+  Object {
+    "startCislo": 99,
+  },
+  Object {
+    "startCislo": 100,
+  },
+]
+`;
+
 exports[`maps state to props - půlmaraton, startovní čísla, přihlášky 1`] = `
 Array [
   Object {
@@ -307,38 +617,8 @@ Array [
 ]
 `;
 
-exports[`maps state to props - půlmaraton, startovní čísla, výkony 1`] = `
+exports[`maps state to props - půlmaraton, startující, odstartováni 1`] = `
 Array [
-  Object {
-    "startCislo": 1,
-  },
-  Object {
-    "startCislo": 2,
-  },
-  Object {
-    "startCislo": 3,
-  },
-  Object {
-    "startCislo": 4,
-  },
-  Object {
-    "startCislo": 5,
-  },
-  Object {
-    "startCislo": 6,
-  },
-  Object {
-    "startCislo": 7,
-  },
-  Object {
-    "startCislo": 8,
-  },
-  Object {
-    "startCislo": 9,
-  },
-  Object {
-    "startCislo": 10,
-  },
   Object {
     "cas": "PT2H6M32.6S",
     "dokonceno": true,
@@ -346,273 +626,9 @@ Array [
     "startCislo": 11,
   },
   Object {
-    "startCislo": 12,
-  },
-  Object {
-    "startCislo": 13,
-  },
-  Object {
-    "startCislo": 14,
-  },
-  Object {
     "dokonceno": false,
     "id": "5a09b1fd371dec1e99b7e1c9",
     "startCislo": 15,
-  },
-  Object {
-    "startCislo": 16,
-  },
-  Object {
-    "startCislo": 17,
-  },
-  Object {
-    "startCislo": 18,
-  },
-  Object {
-    "startCislo": 19,
-  },
-  Object {
-    "startCislo": 20,
-  },
-  Object {
-    "startCislo": 21,
-  },
-  Object {
-    "startCislo": 22,
-  },
-  Object {
-    "startCislo": 23,
-  },
-  Object {
-    "startCislo": 24,
-  },
-  Object {
-    "startCislo": 25,
-  },
-  Object {
-    "startCislo": 26,
-  },
-  Object {
-    "startCislo": 27,
-  },
-  Object {
-    "startCislo": 28,
-  },
-  Object {
-    "startCislo": 29,
-  },
-  Object {
-    "startCislo": 30,
-  },
-  Object {
-    "startCislo": 31,
-  },
-  Object {
-    "startCislo": 32,
-  },
-  Object {
-    "startCislo": 33,
-  },
-  Object {
-    "startCislo": 34,
-  },
-  Object {
-    "startCislo": 35,
-  },
-  Object {
-    "startCislo": 36,
-  },
-  Object {
-    "startCislo": 37,
-  },
-  Object {
-    "startCislo": 38,
-  },
-  Object {
-    "startCislo": 39,
-  },
-  Object {
-    "startCislo": 40,
-  },
-  Object {
-    "startCislo": 41,
-  },
-  Object {
-    "startCislo": 42,
-  },
-  Object {
-    "startCislo": 43,
-  },
-  Object {
-    "startCislo": 44,
-  },
-  Object {
-    "startCislo": 45,
-  },
-  Object {
-    "startCislo": 46,
-  },
-  Object {
-    "startCislo": 47,
-  },
-  Object {
-    "startCislo": 48,
-  },
-  Object {
-    "startCislo": 49,
-  },
-  Object {
-    "startCislo": 50,
-  },
-  Object {
-    "startCislo": 51,
-  },
-  Object {
-    "startCislo": 52,
-  },
-  Object {
-    "startCislo": 53,
-  },
-  Object {
-    "startCislo": 54,
-  },
-  Object {
-    "startCislo": 55,
-  },
-  Object {
-    "startCislo": 56,
-  },
-  Object {
-    "startCislo": 57,
-  },
-  Object {
-    "startCislo": 58,
-  },
-  Object {
-    "startCislo": 59,
-  },
-  Object {
-    "startCislo": 60,
-  },
-  Object {
-    "startCislo": 61,
-  },
-  Object {
-    "startCislo": 62,
-  },
-  Object {
-    "startCislo": 63,
-  },
-  Object {
-    "startCislo": 64,
-  },
-  Object {
-    "startCislo": 65,
-  },
-  Object {
-    "startCislo": 66,
-  },
-  Object {
-    "startCislo": 67,
-  },
-  Object {
-    "startCislo": 68,
-  },
-  Object {
-    "startCislo": 69,
-  },
-  Object {
-    "startCislo": 70,
-  },
-  Object {
-    "startCislo": 71,
-  },
-  Object {
-    "startCislo": 72,
-  },
-  Object {
-    "startCislo": 73,
-  },
-  Object {
-    "startCislo": 74,
-  },
-  Object {
-    "startCislo": 75,
-  },
-  Object {
-    "startCislo": 76,
-  },
-  Object {
-    "startCislo": 77,
-  },
-  Object {
-    "startCislo": 78,
-  },
-  Object {
-    "startCislo": 79,
-  },
-  Object {
-    "startCislo": 80,
-  },
-  Object {
-    "startCislo": 81,
-  },
-  Object {
-    "startCislo": 82,
-  },
-  Object {
-    "startCislo": 83,
-  },
-  Object {
-    "startCislo": 84,
-  },
-  Object {
-    "startCislo": 85,
-  },
-  Object {
-    "startCislo": 86,
-  },
-  Object {
-    "startCislo": 87,
-  },
-  Object {
-    "startCislo": 88,
-  },
-  Object {
-    "startCislo": 89,
-  },
-  Object {
-    "startCislo": 90,
-  },
-  Object {
-    "startCislo": 91,
-  },
-  Object {
-    "startCislo": 92,
-  },
-  Object {
-    "startCislo": 93,
-  },
-  Object {
-    "startCislo": 94,
-  },
-  Object {
-    "startCislo": 95,
-  },
-  Object {
-    "startCislo": 96,
-  },
-  Object {
-    "startCislo": 97,
-  },
-  Object {
-    "startCislo": 98,
-  },
-  Object {
-    "startCislo": 99,
-  },
-  Object {
-    "startCislo": 100,
   },
 ]
 `;
@@ -626,22 +642,6 @@ Array [
   Object {
     "id": "5a09b1fd371dec1e99b7e1c9",
     "startCislo": 17,
-  },
-]
-`;
-
-exports[`maps state to props - půlmaraton, startující, výkony 1`] = `
-Array [
-  Object {
-    "cas": "PT2H6M32.6S",
-    "dokonceno": true,
-    "id": "7a09b1fd371dec1e99b7e142",
-    "startCislo": 11,
-  },
-  Object {
-    "dokonceno": false,
-    "id": "5a09b1fd371dec1e99b7e1c9",
-    "startCislo": 15,
   },
 ]
 `;

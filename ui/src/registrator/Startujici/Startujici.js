@@ -54,7 +54,7 @@ const Startujici = ({ typy }) => (
         </div>
         <StartujiciProTypContainer
           jenStartujici={false}
-          prihlasky={true}
+          odstartovani={false}
           typ={typ}
           renderer={Renderer}
         />

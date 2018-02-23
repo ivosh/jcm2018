@@ -5,12 +5,12 @@ import StartujiciProTyp from './StartujiciProTyp';
 
 const mapStateToProps = (state, ownProps) => {
   const { entities } = state;
-  const { jenStartujici, prihlasky, typ, renderer } = ownProps;
+  const { jenStartujici, odstartovani, typ, renderer } = ownProps;
 
   return {
     startujici: jenStartujici
-      ? getStartujiciProTyp({ prihlasky, typ, ...entities })
-      : getStartCislaProTyp({ prihlasky, typ, ...entities }),
+      ? getStartujiciProTyp({ odstartovani, typ, ...entities })
+      : getStartCislaProTyp({ odstartovani, typ, ...entities }),
     renderer
   };
 };
@@ -19,7 +19,7 @@ const StartujiciProTypContainer = connect(mapStateToProps)(StartujiciProTyp);
 
 StartujiciProTypContainer.propTypes = {
   jenStartujici: PropTypes.bool.isRequired,
-  prihlasky: PropTypes.bool.isRequired,
+  odstartovani: PropTypes.bool.isRequired,
   typ: PropTypes.string.isRequired,
   renderer: PropTypes.func.isRequired
 };

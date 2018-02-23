@@ -17,7 +17,7 @@ it('maps state to props - půlmaraton, startovní čísla, přihlášky', () => 
   const wrapper = shallow(
     <StartujiciProTypContainer
       jenStartujici={false}
-      prihlasky={true}
+      odstartovani={false}
       typ="půlmaraton"
       renderer={jest.fn()}
       store={store}
@@ -31,7 +31,7 @@ it('maps state to props - půlmaraton, startující, přihlášky', () => {
   const wrapper = shallow(
     <StartujiciProTypContainer
       jenStartujici={true}
-      prihlasky={true}
+      odstartovani={false}
       typ="půlmaraton"
       renderer={jest.fn()}
       store={store}
@@ -41,11 +41,11 @@ it('maps state to props - půlmaraton, startující, přihlášky', () => {
   expect(wrapper.props().startujici).toMatchSnapshot();
 });
 
-it('maps state to props - půlmaraton, startovní čísla, výkony', () => {
+it('maps state to props - půlmaraton, startovní čísla, odstartováni', () => {
   const wrapper = shallow(
     <StartujiciProTypContainer
       jenStartujici={false}
-      prihlasky={false}
+      odstartovani={true}
       typ="půlmaraton"
       renderer={jest.fn()}
       store={store}
@@ -55,11 +55,11 @@ it('maps state to props - půlmaraton, startovní čísla, výkony', () => {
   expect(wrapper.props().startujici).toMatchSnapshot();
 });
 
-it('maps state to props - půlmaraton, startující, výkony', () => {
+it('maps state to props - půlmaraton, startující, odstartováni', () => {
   const wrapper = shallow(
     <StartujiciProTypContainer
       jenStartujici={true}
-      prihlasky={false}
+      odstartovani={true}
       typ="půlmaraton"
       renderer={jest.fn()}
       store={store}

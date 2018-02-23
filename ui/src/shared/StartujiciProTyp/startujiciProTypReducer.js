@@ -6,7 +6,7 @@ const findStartCislo = (startujici, startCislo) =>
   startujici.find(element => element.startCislo === startCislo);
 
 export const getStartujiciProTyp = ({
-  prihlasky,
+  odstartovani,
   rok = AKTUALNI_ROK,
   typ,
   kategorie,
@@ -19,12 +19,7 @@ export const getStartujiciProTyp = ({
     if (ucastnik[rok]) {
       const { prihlaska, vykon } = ucastnik[rok];
 
-      if (prihlasky && prihlaska && prihlaska.startCislo) {
-        const { kategorie: kategorieId, startCislo } = prihlaska;
-        if (typ === kategorie[kategorieId].typ) {
-          results.push({ id, startCislo });
-        }
-      } else if (vykon && vykon.startCislo) {
+      if (odstartovani && vykon && vykon.startCislo) {
         const { cas, dokonceno, kategorie: kategorieId, startCislo } = vykon;
         if (typ === kategorie[kategorieId].typ) {
           const result = { id, dokonceno, startCislo };
@@ -32,6 +27,11 @@ export const getStartujiciProTyp = ({
             result.cas = moment.duration(cas);
           }
           results.push(result);
+        }
+      } else if (!odstartovani && prihlaska && prihlaska.startCislo) {
+        const { kategorie: kategorieId, startCislo } = prihlaska;
+        if (typ === kategorie[kategorieId].typ) {
+          results.push({ id, startCislo });
         }
       }
     }
@@ -52,7 +52,7 @@ const populateRange = (start, end) => {
 };
 
 export const getStartCislaProTyp = ({
-  prihlasky,
+  odstartovani,
   rok = AKTUALNI_ROK,
   typ,
   kategorie,
@@ -65,7 +65,7 @@ export const getStartCislaProTyp = ({
     return [];
   }
 
-  const startujici = getStartujiciProTyp({ prihlasky, rok, typ, kategorie, ucastnici });
+  const startujici = getStartujiciProTyp({ odstartovani, rok, typ, kategorie, ucastnici });
   const results = [];
   startCisla.rozsahy.forEach(rozsah => {
     let range = [];

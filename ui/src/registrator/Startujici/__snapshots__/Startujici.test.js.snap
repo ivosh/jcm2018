@@ -62,7 +62,7 @@ exports[`renders Startujici 1`] = `
     </div>
     <Connect(StartujiciProTyp)
       jenStartujici={false}
-      prihlasky={true}
+      odstartovani={false}
       renderer={[Function]}
       typ="maraton"
     />
@@ -80,7 +80,7 @@ exports[`renders Startujici 1`] = `
     </div>
     <Connect(StartujiciProTyp)
       jenStartujici={false}
-      prihlasky={true}
+      odstartovani={false}
       renderer={[Function]}
       typ="půlmaraton"
     />
@@ -98,7 +98,7 @@ exports[`renders Startujici 1`] = `
     </div>
     <Connect(StartujiciProTyp)
       jenStartujici={false}
-      prihlasky={true}
+      odstartovani={false}
       renderer={[Function]}
       typ="cyklo"
     />
@@ -116,7 +116,7 @@ exports[`renders Startujici 1`] = `
     </div>
     <Connect(StartujiciProTyp)
       jenStartujici={false}
-      prihlasky={true}
+      odstartovani={false}
       renderer={[Function]}
       typ="koloběžka"
     />
