@@ -5,7 +5,9 @@
   width: 1px; /* table occupies a minimum width possible */
 }
 
-.Startujici-dokonceno, .Startujici-na-trase, .Startujici-nedokonceno {
+.Startujici-dokonceno,
+.Startujici-na-trase,
+.Startujici-nedokonceno {
   width: 2em;
   height: 2em;
   text-align: center;

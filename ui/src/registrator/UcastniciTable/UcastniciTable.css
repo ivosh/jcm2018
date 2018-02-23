@@ -11,7 +11,7 @@
 }
 
 .UcastniciTable_LeftSideGridContainer {
-	background-color: #ffffff; /* extremely important to specify one here */
+  background-color: #ffffff; /* extremely important to specify one here */
   border-left: 1px solid #d3d3d3;
   border-bottom: 1px solid #d3d3d3;
   flex-grow: 0;
@@ -57,7 +57,7 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding: 0 .5em;
+  padding: 0 0.5em;
   border-right: 1px solid #d3d3d3;
 }
 .UcastniciTable_headerCell,

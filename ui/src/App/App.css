@@ -20,7 +20,8 @@ main {
   font-size: 110%;
 }
 
-.App-logo, .App-logo-animated {
+.App-logo,
+.App-logo-animated {
   height: 50px;
 }
 
@@ -29,6 +30,10 @@ main {
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
