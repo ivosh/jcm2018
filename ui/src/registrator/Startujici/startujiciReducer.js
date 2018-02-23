@@ -1,9 +1,11 @@
 import { AKTUALNI_ROK } from '../../constants';
 
-export const initialState = {};
+export const initialState = { odstartovani: false };
 
 const startujiciReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'STARTUJICI_CHANGE_ODSTARTOVANI':
+      return { ...state, odstartovani: !state.odstartovani };
     default:
       return state;
   }
