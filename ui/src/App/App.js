@@ -32,7 +32,7 @@ const App = ({ authenticated, connected, username }) => (
           </LinkContainer>
           <LinkContainer key="ucastnici" to="/ucastnici">
             <NavItem eventKey={2}>
-              <Glyphicon glyph="list-alt" /> Účastníci
+              <Glyphicon glyph="list" /> Účastníci
             </NavItem>
           </LinkContainer>
           <LinkContainer key="prihlasky" to="/prihlasky">
@@ -42,7 +42,7 @@ const App = ({ authenticated, connected, username }) => (
           </LinkContainer>
           <LinkContainer key="prihlaseni" to="/prihlaseni">
             <NavItem eventKey={4}>
-              <Glyphicon glyph="road" /> Přihlášeni
+              <Glyphicon glyph="list-alt" /> Přihlášeni
             </NavItem>
           </LinkContainer>
           <LinkContainer key="startujici" to="/startujici">

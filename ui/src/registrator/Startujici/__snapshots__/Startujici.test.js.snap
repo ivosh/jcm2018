@@ -83,7 +83,11 @@ exports[`renders Startujici 1`] = `
       disabled={false}
       onClick={[Function]}
     >
-      Přihlášeni
+      <Glyphicon
+        bsClass="glyphicon"
+        glyph="list-alt"
+      />
+       Přihlášeni
     </Button>
     <Button
       active={false}
@@ -94,7 +98,11 @@ exports[`renders Startujici 1`] = `
       disabled={false}
       onClick={[Function]}
     >
-      Odstartováni
+      <Glyphicon
+        bsClass="glyphicon"
+        glyph="road"
+      />
+       Odstartováni
     </Button>
   </div>
   <Component />

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { Button, Label } from 'react-bootstrap';
+import { Button, Glyphicon, Label } from 'react-bootstrap';
 import { dokoncenoArr, dokoncenoStr } from '../../Util';
 import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import StartujiciProTypContainer from '../../shared/StartujiciProTyp/StartujiciProTypContainer';
@@ -59,7 +59,7 @@ const Startujici = ({ odstartovani, typy, onOdstartovaniChange }) => (
         className="Startujici_button"
         onClick={onOdstartovaniChange}
       >
-        Přihlášeni
+        <Glyphicon glyph="list-alt" /> Přihlášeni
       </Button>
       <Button
         active={odstartovani}
@@ -67,7 +67,7 @@ const Startujici = ({ odstartovani, typy, onOdstartovaniChange }) => (
         className="Startujici_button"
         onClick={onOdstartovaniChange}
       >
-        Odstartováni
+        <Glyphicon glyph="road" /> Odstartováni
       </Button>
     </div>
     {odstartovani ? <LegendaOdstartovani /> : <LegendaPrihlaseni />}

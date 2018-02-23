@@ -58,7 +58,7 @@ exports[`with websocket connected, authenticated 1`] = `
         >
           <Glyphicon
             bsClass="glyphicon"
-            glyph="list-alt"
+            glyph="list"
           />
            Účastníci
         </NavItem>
@@ -98,7 +98,7 @@ exports[`with websocket connected, authenticated 1`] = `
         >
           <Glyphicon
             bsClass="glyphicon"
-            glyph="road"
+            glyph="list-alt"
           />
            Přihlášeni
         </NavItem>
@@ -390,7 +390,7 @@ exports[`with websocket disconnected, authenticated 1`] = `
         >
           <Glyphicon
             bsClass="glyphicon"
-            glyph="list-alt"
+            glyph="list"
           />
            Účastníci
         </NavItem>
@@ -430,7 +430,7 @@ exports[`with websocket disconnected, authenticated 1`] = `
         >
           <Glyphicon
             bsClass="glyphicon"
-            glyph="road"
+            glyph="list-alt"
           />
            Přihlášeni
         </NavItem>
