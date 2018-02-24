@@ -12,11 +12,8 @@ const initialState = {
 
 const platbyReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'PRIHLASKY_INPUT_CHANGED': {
-      const [section, name] = action.name.split('.');
-      if (section !== 'novaPlatba') {
-        return state;
-      }
+    case 'NOVA_PLATBA_INPUT_CHANGED': {
+      const [, name] = action.name.split('.');
       let { value } = action;
       if (action.name === 'novaPlatba.datum') {
         value = parseDatum(action.value);
@@ -35,7 +32,7 @@ const platbyReducer = (state = initialState, action) => {
 
 export default platbyReducer;
 
-export const platbyInputValid = (name, value, novaPlatba) => {
+export const inputValid = (name, value, novaPlatba) => {
   switch (name) {
     case 'novaPlatba.poznamka':
       return undefined;
@@ -60,7 +57,7 @@ export const platbyInputValid = (name, value, novaPlatba) => {
 };
 
 const isInputValid = (name, value, novaPlatba) => {
-  const validationState = platbyInputValid(name, value, novaPlatba);
+  const validationState = inputValid(name, value, novaPlatba);
   if (
     validationState === undefined ||
     validationState === 'success' ||
@@ -77,7 +74,7 @@ export const novaPlatbaValid = novaPlatba =>
   isInputValid('novaPlatba.typ', novaPlatba.typ, novaPlatba) &&
   isInputValid('novaPlatba.poznamka', novaPlatba.poznamka, novaPlatba);
 
-export const platbyInputOptions = name => {
+export const inputOptions = name => {
   switch (name) {
     case 'novaPlatba.typ':
       return PLATBA_TYPY.map(typ => ({ key: typ, value: typ }));
@@ -86,9 +83,9 @@ export const platbyInputOptions = name => {
   }
 };
 
-export const platbyIsInputEnabled = () => true;
+export const isInputEnabled = () => true;
 
-export const platbyFormatValue = (name, rawValue) => {
+export const formatValue = (name, rawValue) => {
   switch (name) {
     case 'novaPlatba.datum':
       return datumValid(rawValue) ? moment.utc(rawValue).format('D. M. YYYY') : rawValue || '';

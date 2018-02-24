@@ -2,46 +2,32 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Input from './Input';
 import { inputChanged } from './InputActions';
-import {
-  platbyFormatValue,
-  platbyInputOptions,
-  platbyInputValid,
-  platbyIsInputEnabled
-} from '../Platby/platbyReducer';
-import {
-  prihlaskyFormatValue,
-  prihlaskyInputOptions,
-  prihlaskyInputValid,
-  prihlaskyIsInputEnabled
-} from '../PrihlaskyForm/prihlaskyFormReducer';
 
 const mapStateToProps = state => ({
-  novaPlatba: state.registrator.prihlasky.platby,
-  prihlaskyForm: state.registrator.prihlasky.form,
-  rocniky: state.entities.rocniky,
-  ucastnici: state.entities.ucastnici
+  rocniky: state.entities.rocniky
 });
 
-const mapDispatchToProps = dispatch => ({
-  onChange: (name, event) => dispatch(inputChanged(name, event))
-});
-
-const mapSection = (form, section, subName) => ({
-  rawValue: section === 'novaPlatba' ? form[subName] : form[section][subName],
-  isInputEnabled: section === 'novaPlatba' ? platbyIsInputEnabled : prihlaskyIsInputEnabled,
-  inputOptions: section === 'novaPlatba' ? platbyInputOptions : prihlaskyInputOptions,
-  inputValid: section === 'novaPlatba' ? platbyInputValid : prihlaskyInputValid,
-  formatValue: section === 'novaPlatba' ? platbyFormatValue : prihlaskyFormatValue
-});
+const mapDispatchToProps = dispatch => ({ dispatch });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { novaPlatba, prihlaskyForm, rocniky } = stateProps;
-  const { onChange } = dispatchProps;
-  const { index, inline, name, popisek, Formatter, Type, inputRef } = ownProps;
-
-  const [section, subName] = name.split('.');
-  const form = section === 'novaPlatba' ? novaPlatba : prihlaskyForm;
-  const mapped = mapSection(form, section, subName);
+  const { rocniky } = stateProps;
+  const { dispatch } = dispatchProps;
+  const {
+    actionPrefix,
+    form,
+    index,
+    inline,
+    name,
+    popisek,
+    rawValue,
+    Formatter,
+    Type,
+    formatValue,
+    inputRef,
+    inputOptions,
+    inputValid,
+    isInputEnabled
+  } = ownProps;
 
   return {
     inline,
@@ -49,25 +35,32 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     popisek,
     Formatter,
     Type,
-    enabled: mapped.isInputEnabled(name, form, rocniky),
-    options: mapped.inputOptions(name, form, rocniky),
-    validationState: mapped.inputValid(name, mapped.rawValue, form),
-    value: mapped.formatValue(name, mapped.rawValue),
+    enabled: isInputEnabled(name, form, rocniky),
+    options: inputOptions(name, form, rocniky),
+    validationState: inputValid(name, rawValue, form),
+    value: formatValue(name, rawValue),
     inputRef: ref => inputRef(index, ref),
-    onChange: event => onChange(name, event)
+    onChange: event => dispatch(inputChanged(actionPrefix, name, event))
   };
 };
 
 const InputContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(Input);
 
 InputContainer.propTypes = {
+  actionPrefix: PropTypes.string.isRequired,
+  form: PropTypes.object.isRequired,
   index: PropTypes.number.isRequired,
   inline: PropTypes.bool,
   name: PropTypes.string.isRequired,
   popisek: PropTypes.string.isRequired,
+  rawValue: PropTypes.any,
   Formatter: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]),
-  Type: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]),
-  inputRef: PropTypes.func.isRequired
+  Type: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]).isRequired,
+  formatValue: PropTypes.func.isRequired,
+  inputRef: PropTypes.func.isRequired,
+  inputOptions: PropTypes.func.isRequired,
+  inputValid: PropTypes.func.isRequired,
+  isInputEnabled: PropTypes.func.isRequired
 };
 
 export default InputContainer;

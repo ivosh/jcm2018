@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Glyphicon, Panel } from 'react-bootstrap';
-import InputContainer from '../Input/InputContainer';
 import SelectInput from '../Input/SelectInput';
 import TextInput from '../Input/TextInput';
+import NovaPlatbaInputContainer from './NovaPlatbaInputContainer';
 import './NovaPlatba.css';
 
 const NovaPlatba = ({ startIndex, inputRef, onAdd }) => {
@@ -12,28 +12,28 @@ const NovaPlatba = ({ startIndex, inputRef, onAdd }) => {
   /* eslint-disable no-plusplus */
   return (
     <Panel bsStyle="info" header="Nová platba" className="NovaPlatba">
-      <InputContainer
+      <NovaPlatbaInputContainer
         index={index++}
         inputRef={inputRef}
         name="novaPlatba.castka"
         popisek="částka"
         Type={TextInput}
       />
-      <InputContainer
+      <NovaPlatbaInputContainer
         index={index++}
         inputRef={inputRef}
         name="novaPlatba.datum"
         popisek="datum"
         Type={TextInput}
       />
-      <InputContainer
+      <NovaPlatbaInputContainer
         index={index++}
         inputRef={inputRef}
         name="novaPlatba.typ"
         popisek="jak?"
         Type={SelectInput}
       />
-      <InputContainer
+      <NovaPlatbaInputContainer
         index={index++}
         inputRef={inputRef}
         name="novaPlatba.poznamka"

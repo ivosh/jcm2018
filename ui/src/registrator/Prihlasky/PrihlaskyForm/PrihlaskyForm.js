@@ -5,10 +5,10 @@ import HideableError from '../../../shared/HideableError';
 import LoadingButton from '../../../shared/LoadingButton';
 import PopisekKategorie from '../../../shared/Popisek/PopisekKategorie';
 import PopisekPohlavi from '../../../shared/Popisek/PopisekPohlavi';
-import InputContainer from '../Input/InputContainer';
 import RadioInput from '../Input/RadioInput';
 import TextInput from '../Input/TextInput';
 import PlatbyContainer from '../Platby/PlatbyContainer';
+import PrihlaskyFormInputContainer from './PrihlaskyFormInputContainer';
 import './PrihlaskyForm.css';
 
 class PrihlaskyForm extends PureComponent {
@@ -94,28 +94,28 @@ class PrihlaskyForm extends PureComponent {
           >
             <Col sm={4}>
               <Panel bsStyle="primary" header="Údaje">
-                <InputContainer
+                <PrihlaskyFormInputContainer
                   index={0}
                   inputRef={this.inputRef}
                   name="udaje.prijmeni"
                   popisek="příjmení"
                   Type={TextInput}
                 />
-                <InputContainer
+                <PrihlaskyFormInputContainer
                   index={1}
                   inputRef={this.inputRef}
                   name="udaje.jmeno"
                   popisek="jméno"
                   Type={TextInput}
                 />
-                <InputContainer
+                <PrihlaskyFormInputContainer
                   index={2}
                   inputRef={this.inputRef}
                   name="udaje.narozeni"
                   popisek="narození"
                   Type={TextInput}
                 />
-                <InputContainer
+                <PrihlaskyFormInputContainer
                   index={3}
                   inline={true}
                   inputRef={this.inputRef}
@@ -124,49 +124,49 @@ class PrihlaskyForm extends PureComponent {
                   Type={RadioInput}
                   Formatter={PopisekPohlavi}
                 />
-                <InputContainer
+                <PrihlaskyFormInputContainer
                   index={4}
                   inputRef={this.inputRef}
                   name="udaje.adresa"
                   popisek="adresa"
                   Type={TextInput}
                 />
-                <InputContainer
+                <PrihlaskyFormInputContainer
                   index={5}
                   inputRef={this.inputRef}
                   name="udaje.obec"
                   popisek="obec"
                   Type={TextInput}
                 />
-                <InputContainer
+                <PrihlaskyFormInputContainer
                   index={6}
                   inputRef={this.inputRef}
                   name="udaje.psc"
                   popisek="PSČ"
                   Type={TextInput}
                 />
-                <InputContainer
+                <PrihlaskyFormInputContainer
                   index={7}
                   inputRef={this.inputRef}
                   name="udaje.stat"
                   popisek="stát"
                   Type={TextInput}
                 />
-                <InputContainer
+                <PrihlaskyFormInputContainer
                   index={8}
                   inputRef={this.inputRef}
                   name="udaje.klub"
                   popisek="klub"
                   Type={TextInput}
                 />
-                <InputContainer
+                <PrihlaskyFormInputContainer
                   index={9}
                   inputRef={this.inputRef}
                   name="udaje.email"
                   popisek="email"
                   Type={TextInput}
                 />
-                <InputContainer
+                <PrihlaskyFormInputContainer
                   index={10}
                   inputRef={this.inputRef}
                   name="udaje.telefon"
@@ -177,14 +177,14 @@ class PrihlaskyForm extends PureComponent {
             </Col>
             <Col sm={4}>
               <Panel bsStyle="primary" header="Přihláška">
-                <InputContainer
+                <PrihlaskyFormInputContainer
                   index={11}
                   inputRef={this.inputRef}
                   name="prihlaska.datum"
                   popisek="datum"
                   Type={TextInput}
                 />
-                <InputContainer
+                <PrihlaskyFormInputContainer
                   index={12}
                   inputRef={this.inputRef}
                   name="prihlaska.typ"
@@ -192,14 +192,14 @@ class PrihlaskyForm extends PureComponent {
                   Formatter={PopisekKategorie}
                   Type={RadioInput}
                 />
-                <InputContainer
+                <PrihlaskyFormInputContainer
                   index={13}
                   inputRef={this.inputRef}
                   name="prihlaska.startCislo"
                   popisek="číslo"
                   Type={TextInput}
                 />
-                <InputContainer
+                <PrihlaskyFormInputContainer
                   index={14}
                   inputRef={this.inputRef}
                   name="prihlaska.kod"

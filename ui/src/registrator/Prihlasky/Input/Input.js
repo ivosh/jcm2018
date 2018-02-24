@@ -51,7 +51,7 @@ Input.propTypes = {
   validationState: PropTypes.string,
   value: PropTypes.string,
   Formatter: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]),
-  Type: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]),
+  Type: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]).isRequired,
   inputRef: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired
 };

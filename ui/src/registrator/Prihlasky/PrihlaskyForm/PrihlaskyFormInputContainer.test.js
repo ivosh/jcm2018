@@ -1,9 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { Provider } from 'react-redux';
+import { mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
-import InputContainer from './InputContainer';
-import TextInput from './TextInput';
+import TextInput from '../Input/TextInput';
+import PrihlaskyFormInputContainer from './PrihlaskyFormInputContainer';
 
 const mockStore = configureStore();
 
@@ -25,16 +26,18 @@ beforeEach(() => {
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
-  wrapper = shallow(
-    <InputContainer
-      index={1}
-      name="udaje.jmeno"
-      popisek="jméno"
-      type={TextInput}
-      store={store}
-      inputRef={inputRef}
-    />
+  const component = mount(
+    <Provider store={store}>
+      <PrihlaskyFormInputContainer
+        index={1}
+        name="udaje.jmeno"
+        popisek="jméno"
+        Type={TextInput}
+        inputRef={inputRef}
+      />
+    </Provider>
   );
+  wrapper = component.find('Input');
 });
 
 it('maps state and dispatch to props - jmeno', () => {
@@ -77,16 +80,18 @@ it('maps state to props - narození - jen rok', () => {
     }
   };
   store = mockStore(state);
-  wrapper = shallow(
-    <InputContainer
-      index={0}
-      name="udaje.narozeni"
-      popisek="narození"
-      type={TextInput}
-      store={store}
-      inputRef={jest.fn()}
-    />
+  const component = mount(
+    <Provider store={store}>
+      <PrihlaskyFormInputContainer
+        index={0}
+        name="udaje.narozeni"
+        popisek="narození"
+        Type={TextInput}
+        inputRef={jest.fn()}
+      />
+    </Provider>
   );
+  wrapper = component.find('Input');
 
   expect(wrapper.props().name).toEqual('udaje.narozeni');
   expect(wrapper.props().popisek).toEqual('narození');
@@ -109,16 +114,18 @@ it('maps state to props - narození - celé', () => {
     }
   };
   store = mockStore(state);
-  wrapper = shallow(
-    <InputContainer
-      index={1}
-      name="udaje.narozeni"
-      popisek="narození"
-      type={TextInput}
-      store={store}
-      inputRef={jest.fn()}
-    />
+  const component = mount(
+    <Provider store={store}>
+      <PrihlaskyFormInputContainer
+        index={1}
+        name="udaje.narozeni"
+        popisek="narození"
+        Type={TextInput}
+        inputRef={jest.fn()}
+      />
+    </Provider>
   );
+  wrapper = component.find('Input');
 
   expect(wrapper.props().name).toEqual('udaje.narozeni');
   expect(wrapper.props().popisek).toEqual('narození');

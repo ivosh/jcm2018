@@ -65,9 +65,6 @@ const prihlaskyFormReducer = (state = initialState, action) => {
       return { ...state, showError: false };
     case 'PRIHLASKY_INPUT_CHANGED': {
       const [section, name] = action.name.split('.');
-      if (section === 'novaPlatba') {
-        return state;
-      }
       let { value } = action;
       switch (action.name) {
         case 'udaje.prijmeni':
@@ -181,7 +178,7 @@ const narozeniValid = (value, validate, requireDenMesic) => {
   return 'error';
 };
 
-export const prihlaskyInputValid = (name, value, prihlaskyForm) => {
+export const inputValid = (name, value, prihlaskyForm) => {
   switch (name) {
     case 'udaje.prijmeni':
     case 'udaje.jmeno':
@@ -221,7 +218,7 @@ export const prihlaskyInputValid = (name, value, prihlaskyForm) => {
 };
 
 const isInputValid = (name, value, prihlaskyForm) => {
-  const validationState = prihlaskyInputValid(name, value, prihlaskyForm);
+  const validationState = inputValid(name, value, prihlaskyForm);
   if (
     validationState === undefined ||
     validationState === 'success' ||
@@ -249,7 +246,7 @@ export const formValid = prihlaskyForm => {
   );
 };
 
-export const prihlaskyIsInputEnabled = (name, prihlaskyForm, rocniky) => {
+export const isInputEnabled = (name, prihlaskyForm, rocniky) => {
   switch (name) {
     case 'prihlaska.startCislo': {
       const { typ } = prihlaskyForm.prihlaska;
@@ -264,7 +261,7 @@ export const prihlaskyIsInputEnabled = (name, prihlaskyForm, rocniky) => {
   }
 };
 
-export const prihlaskyInputOptions = (name, prihlaskyForm, rocniky) => {
+export const inputOptions = (name, prihlaskyForm, rocniky) => {
   switch (name) {
     case 'udaje.pohlavi':
       return [
@@ -299,7 +296,7 @@ export const prihlaskyInputOptions = (name, prihlaskyForm, rocniky) => {
   }
 };
 
-export const prihlaskyFormatValue = (name, rawValue) => {
+export const formatValue = (name, rawValue) => {
   switch (name) {
     case 'udaje.narozeni':
       return narozeniToStr(rawValue);
