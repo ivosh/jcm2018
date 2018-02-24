@@ -11,9 +11,9 @@ const state = {
   registrator: {
     prihlasky: {
       form: {
-        platby: [],
-        novaPlatba: {}
-      }
+        platby: []
+      },
+      platby: {}
     }
   }
 };

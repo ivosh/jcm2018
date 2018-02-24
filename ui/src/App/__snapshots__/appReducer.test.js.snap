@@ -44,12 +44,6 @@ Object {
       "form": Object {
         "errorCode": "",
         "errorMessage": "",
-        "novaPlatba": Object {
-          "castka": undefined,
-          "datum": undefined,
-          "poznamka": undefined,
-          "typ": "hotově",
-        },
         "platby": Array [],
         "prihlaska": Object {
           "datum": undefined,
@@ -81,7 +75,13 @@ Object {
           "telefon": undefined,
         },
         "validateForm": false,
-        "validatePlatba": false,
+      },
+      "platby": Object {
+        "castka": undefined,
+        "datum": undefined,
+        "poznamka": undefined,
+        "typ": "hotově",
+        "validate": false,
       },
     },
     "startujici": Object {
@@ -142,12 +142,6 @@ Object {
       "form": Object {
         "errorCode": "",
         "errorMessage": "",
-        "novaPlatba": Object {
-          "castka": undefined,
-          "datum": undefined,
-          "poznamka": undefined,
-          "typ": "hotově",
-        },
         "platby": Array [],
         "prihlaska": Object {
           "datum": undefined,
@@ -179,7 +173,13 @@ Object {
           "telefon": undefined,
         },
         "validateForm": false,
-        "validatePlatba": false,
+      },
+      "platby": Object {
+        "castka": undefined,
+        "datum": undefined,
+        "poznamka": undefined,
+        "typ": "hotově",
+        "validate": false,
       },
     },
     "startujici": Object {
@@ -240,12 +240,6 @@ Object {
       "form": Object {
         "errorCode": "",
         "errorMessage": "",
-        "novaPlatba": Object {
-          "castka": undefined,
-          "datum": undefined,
-          "poznamka": undefined,
-          "typ": "hotově",
-        },
         "platby": Array [],
         "prihlaska": Object {
           "datum": undefined,
@@ -277,7 +271,13 @@ Object {
           "telefon": undefined,
         },
         "validateForm": false,
-        "validatePlatba": false,
+      },
+      "platby": Object {
+        "castka": undefined,
+        "datum": undefined,
+        "poznamka": undefined,
+        "typ": "hotově",
+        "validate": false,
       },
     },
     "startujici": Object {

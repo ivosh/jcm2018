@@ -1,7 +1,7 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import WsClient from '../../../WsClient';
-import { addValidatedPlatba, saveUcast } from './PrihlaskyFormActions';
+import { saveUcast } from './PrihlaskyFormActions';
 
 const successfulResponseSaveUdaje = {
   code: 'ok',
@@ -189,42 +189,4 @@ it('saveUcast() should use auth token if available', async () => {
 
   await store.dispatch(saveUcast());
   expect(tokenSent.tokenSent).toBe(true);
-});
-
-it('addValidatedPlatba() should dispatch two successful actions', async () => {
-  const store = mockStore({
-    registrator: {
-      prihlasky: {
-        form: {
-          validatePlatba: false,
-          novaPlatba: { castka: '200', datum: '2018-05-12T00:00:00Z', typ: 'převodem' }
-        }
-      }
-    }
-  });
-
-  await store.dispatch(addValidatedPlatba());
-  const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'PRIHLASKY_VALIDATE_PLATBA' });
-  expect(actions[1]).toEqual({
-    type: 'PRIHLASKY_ADD_PLATBA'
-  });
-});
-
-it('addValidatedPlatba() should dispatch only one action', async () => {
-  const store = mockStore({
-    registrator: {
-      prihlasky: {
-        form: {
-          validatePlatba: false,
-          novaPlatba: { castka: 'rozepsáno', datum: '2018-05-12T00:00:00Z', typ: 'převodem' }
-        }
-      }
-    }
-  });
-
-  await store.dispatch(addValidatedPlatba());
-  const actions = store.getActions();
-  expect(actions).toHaveLength(1);
-  expect(actions[0]).toEqual({ type: 'PRIHLASKY_VALIDATE_PLATBA' });
 });

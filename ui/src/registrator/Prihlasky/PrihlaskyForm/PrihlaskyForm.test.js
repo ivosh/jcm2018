@@ -21,9 +21,9 @@ const state = {
         validateForm: false,
         udaje: { narozeni: {} },
         prihlaska: {},
-        platby: [],
-        novaPlatba: {}
-      }
+        platby: []
+      },
+      platby: {}
     }
   }
 };

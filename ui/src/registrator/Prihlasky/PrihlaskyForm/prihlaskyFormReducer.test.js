@@ -2,12 +2,11 @@ import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import { predepsaneStartovne } from '../../platby';
 import { inputChanged } from '../Input/InputActions';
+import { addPlatba, removePlatba } from '../Platby/PlatbyActions';
 import {
-  addPlatba,
   hideError,
   hideModal,
   loadUcastnik,
-  removePlatba,
   reset,
   saveUcastRequest,
   saveUcastSuccess,
@@ -15,12 +14,11 @@ import {
   showModal
 } from './PrihlaskyFormActions';
 import prihlaskyFormReducer, {
-  formatValue,
+  prihlaskyFormatValue,
   formValid,
-  inputOptions,
-  inputValid,
-  isInputEnabled,
-  novaPlatbaValid
+  prihlaskyInputOptions,
+  prihlaskyInputValid,
+  prihlaskyIsInputEnabled
 } from './prihlaskyFormReducer';
 
 const unsuccessfulResponse = {
@@ -39,7 +37,6 @@ it('na začátku', () => {
   expect(stateAfter.saving).toBe(false);
   expect(stateAfter.ucastnikId).toBe(undefined);
   expect(stateAfter.validateForm).toBe(false);
-  expect(stateAfter.validatePlatba).toBe(false);
   expect(stateAfter.udaje).toEqual({
     prijmeni: undefined,
     jmeno: undefined,
@@ -62,12 +59,6 @@ it('na začátku', () => {
     mladistvyPotvrzen: undefined
   });
   expect(stateAfter.platby).toEqual([]);
-  expect(stateAfter.novaPlatba).toEqual({
-    castka: undefined,
-    datum: undefined,
-    typ: 'hotově',
-    poznamka: undefined
-  });
 });
 
 it('hideError()', () => {
@@ -92,7 +83,6 @@ it('reset()', () => {
     saving: true,
     ucastnikId: '===id===',
     validateForm: true,
-    validatePlatba: true,
     udaje: {
       prijmeni: 'Hudák',
       jmeno: 'Jan',
@@ -114,8 +104,7 @@ it('reset()', () => {
       kod: '===kod==',
       mladistvyPotvrzen: false
     },
-    platby: [{ castka: 200, datum: new Date(), typ: 'převodem' }],
-    novaPlatba: { castka: undefined, datum: undefined, typ: 'složenkou', poznamka: 'haha' }
+    platby: [{ castka: 200, datum: new Date(), typ: 'převodem' }]
   };
   const stateAfter = {
     errorCode: '',
@@ -125,7 +114,6 @@ it('reset()', () => {
     saving: false,
     ucastnikId: undefined,
     validateForm: false,
-    validatePlatba: false,
     udaje: {
       prijmeni: undefined,
       jmeno: undefined,
@@ -147,8 +135,7 @@ it('reset()', () => {
       kod: undefined,
       mladistvyPotvrzen: undefined
     },
-    platby: [],
-    novaPlatba: { castka: undefined, datum: undefined, typ: 'hotově', poznamka: undefined }
+    platby: []
   };
   deepFreeze(stateBefore);
 
@@ -212,10 +199,9 @@ it('saveUcastError()', () => {
   );
 });
 
-it('validation of the initial state [validateForm,validatePlatba === false]', () => {
+it('validation of the initial state [validateForm === false]', () => {
   const state = {
     validateForm: false,
-    validatePlatba: false,
     udaje: {
       prijmeni: undefined,
       jmeno: undefined,
@@ -237,46 +223,43 @@ it('validation of the initial state [validateForm,validatePlatba === false]', ()
       kod: undefined,
       mladistvyPotvrzen: undefined
     },
-    platby: [],
-    novaPlatba: { castka: undefined, datum: undefined, typ: 'hotově', poznamka: undefined }
+    platby: []
   };
   deepFreeze(state);
 
-  expect(inputValid('udaje.prijmeni', state.udaje.prijmeni, state)).toBe(undefined);
-  expect(inputValid('udaje.jmeno', state.udaje.jmeno, state)).toBe(undefined);
-  expect(inputValid('udaje.narozeni', state.udaje.narozeni, state)).toBe(undefined);
-  expect(inputValid('udaje.pohlavi', state.udaje.pohlavi, state)).toBe(undefined);
-  expect(inputValid('udaje.adresa', state.udaje.adresa, state)).toBe(undefined);
-  expect(inputValid('udaje.obec', state.udaje.obec, state)).toBe(undefined);
-  expect(inputValid('udaje.psc', state.udaje.psc, state)).toBe(undefined);
-  expect(inputValid('udaje.stat', state.udaje.stat, state)).toBe('success');
-  expect(inputValid('udaje.klub', state.udaje.klub, state)).toBe(undefined);
-  expect(inputValid('udaje.telefon', state.udaje.telefon, state)).toBe(undefined);
-  expect(inputValid('udaje.email', state.udaje.email, state)).toBe(undefined);
-  expect(inputValid('prihlaska.datum', state.prihlaska.datum, state)).toBe(undefined);
-  expect(inputValid('prihlaska.kategorie', state.prihlaska.kategorie, state)).toBe(undefined);
-  expect(inputValid('prihlaska.typ', state.prihlaska.typ, state)).toBe(undefined);
-  expect(inputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toBe(undefined);
-  expect(inputValid('prihlaska.kod', state.prihlaska.kod, state)).toBe(undefined);
-  expect(inputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)).toBe(
+  expect(prihlaskyInputValid('udaje.prijmeni', state.udaje.prijmeni, state)).toBe(undefined);
+  expect(prihlaskyInputValid('udaje.jmeno', state.udaje.jmeno, state)).toBe(undefined);
+  expect(prihlaskyInputValid('udaje.narozeni', state.udaje.narozeni, state)).toBe(undefined);
+  expect(prihlaskyInputValid('udaje.pohlavi', state.udaje.pohlavi, state)).toBe(undefined);
+  expect(prihlaskyInputValid('udaje.adresa', state.udaje.adresa, state)).toBe(undefined);
+  expect(prihlaskyInputValid('udaje.obec', state.udaje.obec, state)).toBe(undefined);
+  expect(prihlaskyInputValid('udaje.psc', state.udaje.psc, state)).toBe(undefined);
+  expect(prihlaskyInputValid('udaje.stat', state.udaje.stat, state)).toBe('success');
+  expect(prihlaskyInputValid('udaje.klub', state.udaje.klub, state)).toBe(undefined);
+  expect(prihlaskyInputValid('udaje.telefon', state.udaje.telefon, state)).toBe(undefined);
+  expect(prihlaskyInputValid('udaje.email', state.udaje.email, state)).toBe(undefined);
+  expect(prihlaskyInputValid('prihlaska.datum', state.prihlaska.datum, state)).toBe(undefined);
+  expect(prihlaskyInputValid('prihlaska.kategorie', state.prihlaska.kategorie, state)).toBe(
     undefined
   );
-  expect(inputValid('novaPlatba.castka', state.novaPlatba.castka, state)).toBe(undefined);
-  expect(inputValid('novaPlatba.datum', state.novaPlatba.datum, state)).toBe(undefined);
-  expect(inputValid('novaPlatba.typ', state.novaPlatba.typ, state)).toEqual(undefined);
-  expect(inputValid('novaPlatba.poznamka', state.novaPlatba.poznamka, state)).toBe(undefined);
-  expect(inputValid('complete.nonsense', 'huh', state)).toBe('error');
-  expect(formValid(state)).toBe(true);
-  expect(novaPlatbaValid(state)).toBe(true);
-  expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
-    false
+  expect(prihlaskyInputValid('prihlaska.typ', state.prihlaska.typ, state)).toBe(undefined);
+  expect(prihlaskyInputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toBe(
+    undefined
   );
+  expect(prihlaskyInputValid('prihlaska.kod', state.prihlaska.kod, state)).toBe(undefined);
+  expect(
+    prihlaskyInputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)
+  ).toBe(undefined);
+  expect(prihlaskyInputValid('complete.nonsense', 'huh', state)).toBe('error');
+  expect(formValid(state)).toBe(true);
+  expect(
+    prihlaskyIsInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)
+  ).toBe(false);
 });
 
-it('validation of the initial state [validateForm,validatePlatba === true]', () => {
+it('validation of the initial state [validateForm === true]', () => {
   const state = {
     validateForm: true,
-    validatePlatba: true,
     udaje: {
       prijmeni: undefined,
       jmeno: undefined,
@@ -298,45 +281,42 @@ it('validation of the initial state [validateForm,validatePlatba === true]', () 
       kod: undefined,
       mladistvyPotvrzen: undefined
     },
-    platby: [],
-    novaPlatba: { castka: undefined, datum: undefined, typ: 'hotově', poznamka: undefined }
+    platby: []
   };
   deepFreeze(state);
 
-  expect(inputValid('udaje.prijmeni', state.udaje.prijmeni, state)).toEqual('error');
-  expect(inputValid('udaje.jmeno', state.udaje.jmeno, state)).toEqual('error');
-  expect(inputValid('udaje.narozeni', state.udaje.narozeni, state)).toEqual('error');
-  expect(inputValid('udaje.pohlavi', state.udaje.pohlavi, state)).toEqual('error');
-  expect(inputValid('udaje.adresa', state.udaje.adresa, state)).toBe(undefined);
-  expect(inputValid('udaje.obec', state.udaje.obec, state)).toEqual('error');
-  expect(inputValid('udaje.psc', state.udaje.psc, state)).toEqual('error');
-  expect(inputValid('udaje.stat', state.udaje.stat, state)).toEqual('success');
-  expect(inputValid('udaje.klub', state.udaje.klub, state)).toBe(undefined);
-  expect(inputValid('udaje.telefon', state.udaje.telefon, state)).toBe(undefined);
-  expect(inputValid('udaje.email', state.udaje.email, state)).toBe(undefined);
-  expect(inputValid('prihlaska.datum', state.prihlaska.datum, state)).toEqual('error');
-  expect(inputValid('prihlaska.kategorie', state.prihlaska.kategorie, state)).toEqual('error');
-  expect(inputValid('prihlaska.typ', state.prihlaska.typ, state)).toEqual('error');
-  expect(inputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toBe(undefined);
-  expect(inputValid('prihlaska.kod', state.prihlaska.kod, state)).toBe(undefined);
-  expect(inputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)).toBe(
+  expect(prihlaskyInputValid('udaje.prijmeni', state.udaje.prijmeni, state)).toEqual('error');
+  expect(prihlaskyInputValid('udaje.jmeno', state.udaje.jmeno, state)).toEqual('error');
+  expect(prihlaskyInputValid('udaje.narozeni', state.udaje.narozeni, state)).toEqual('error');
+  expect(prihlaskyInputValid('udaje.pohlavi', state.udaje.pohlavi, state)).toEqual('error');
+  expect(prihlaskyInputValid('udaje.adresa', state.udaje.adresa, state)).toBe(undefined);
+  expect(prihlaskyInputValid('udaje.obec', state.udaje.obec, state)).toEqual('error');
+  expect(prihlaskyInputValid('udaje.psc', state.udaje.psc, state)).toEqual('error');
+  expect(prihlaskyInputValid('udaje.stat', state.udaje.stat, state)).toEqual('success');
+  expect(prihlaskyInputValid('udaje.klub', state.udaje.klub, state)).toBe(undefined);
+  expect(prihlaskyInputValid('udaje.telefon', state.udaje.telefon, state)).toBe(undefined);
+  expect(prihlaskyInputValid('udaje.email', state.udaje.email, state)).toBe(undefined);
+  expect(prihlaskyInputValid('prihlaska.datum', state.prihlaska.datum, state)).toEqual('error');
+  expect(prihlaskyInputValid('prihlaska.kategorie', state.prihlaska.kategorie, state)).toEqual(
+    'error'
+  );
+  expect(prihlaskyInputValid('prihlaska.typ', state.prihlaska.typ, state)).toEqual('error');
+  expect(prihlaskyInputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toBe(
     undefined
   );
-  expect(inputValid('novaPlatba.castka', state.novaPlatba.castka, state)).toEqual('error');
-  expect(inputValid('novaPlatba.datum', state.novaPlatba.datum, state)).toEqual('error');
-  expect(inputValid('novaPlatba.typ', state.novaPlatba.typ, state)).toEqual(undefined);
-  expect(inputValid('novaPlatba.poznamka', state.novaPlatba.poznamka, state)).toBe(undefined);
+  expect(prihlaskyInputValid('prihlaska.kod', state.prihlaska.kod, state)).toBe(undefined);
+  expect(
+    prihlaskyInputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)
+  ).toBe(undefined);
   expect(formValid(state)).toBe(false);
-  expect(novaPlatbaValid(state)).toBe(false);
-  expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
-    false
-  );
+  expect(
+    prihlaskyIsInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)
+  ).toBe(false);
 });
 
-it('validation of some invalid state [validateForm,validatePlatba === false]', () => {
+it('validation of some invalid state [validateForm === false]', () => {
   const state = {
     validateForm: false,
-    validatePlatba: false,
     udaje: {
       prijmeni: '',
       jmeno: undefined,
@@ -358,45 +338,42 @@ it('validation of some invalid state [validateForm,validatePlatba === false]', (
       kod: '===kód===',
       mladistvyPotvrzen: undefined
     },
-    platby: [{ castka: 220, datum: new Date(), typ: 'převodem' }],
-    novaPlatba: { castka: 200, datum: '1. 5.', typ: 'hotově', poznamka: undefined }
+    platby: [{ castka: 220, datum: new Date(), typ: 'převodem' }]
   };
   deepFreeze(state);
 
-  expect(inputValid('udaje.prijmeni', state.udaje.prijmeni, state)).toEqual('error');
-  expect(inputValid('udaje.jmeno', state.udaje.jmeno, state)).toBe(undefined);
-  expect(inputValid('udaje.narozeni', state.udaje.narozeni, state)).toEqual('error');
-  expect(inputValid('udaje.pohlavi', state.udaje.pohlavi, state)).toEqual('success');
-  expect(inputValid('udaje.adresa', state.udaje.adresa, state)).toBe(undefined);
-  expect(inputValid('udaje.obec', state.udaje.obec, state)).toEqual('success');
-  expect(inputValid('udaje.psc', state.udaje.psc, state)).toBe(undefined);
-  expect(inputValid('udaje.stat', state.udaje.stat, state)).toEqual('success');
-  expect(inputValid('udaje.klub', state.udaje.klub, state)).toBe(undefined);
-  expect(inputValid('udaje.telefon', state.udaje.telefon, state)).toBe(undefined);
-  expect(inputValid('udaje.email', state.udaje.email, state)).toBe(undefined);
-  expect(inputValid('prihlaska.datum', state.prihlaska.datum, state)).toEqual('success');
-  expect(inputValid('prihlaska.kategorie', state.prihlaska.kategorie, state)).toBe(undefined);
-  expect(inputValid('prihlaska.typ', state.prihlaska.typ, state)).toBe(undefined);
-  expect(inputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toBe(undefined);
-  expect(inputValid('prihlaska.kod', state.prihlaska.kod, state)).toBe(undefined);
-  expect(inputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)).toBe(
+  expect(prihlaskyInputValid('udaje.prijmeni', state.udaje.prijmeni, state)).toEqual('error');
+  expect(prihlaskyInputValid('udaje.jmeno', state.udaje.jmeno, state)).toBe(undefined);
+  expect(prihlaskyInputValid('udaje.narozeni', state.udaje.narozeni, state)).toEqual('error');
+  expect(prihlaskyInputValid('udaje.pohlavi', state.udaje.pohlavi, state)).toEqual('success');
+  expect(prihlaskyInputValid('udaje.adresa', state.udaje.adresa, state)).toBe(undefined);
+  expect(prihlaskyInputValid('udaje.obec', state.udaje.obec, state)).toEqual('success');
+  expect(prihlaskyInputValid('udaje.psc', state.udaje.psc, state)).toBe(undefined);
+  expect(prihlaskyInputValid('udaje.stat', state.udaje.stat, state)).toEqual('success');
+  expect(prihlaskyInputValid('udaje.klub', state.udaje.klub, state)).toBe(undefined);
+  expect(prihlaskyInputValid('udaje.telefon', state.udaje.telefon, state)).toBe(undefined);
+  expect(prihlaskyInputValid('udaje.email', state.udaje.email, state)).toBe(undefined);
+  expect(prihlaskyInputValid('prihlaska.datum', state.prihlaska.datum, state)).toEqual('success');
+  expect(prihlaskyInputValid('prihlaska.kategorie', state.prihlaska.kategorie, state)).toBe(
     undefined
   );
-  expect(inputValid('novaPlatba.castka', state.novaPlatba.castka, state)).toEqual('success');
-  expect(inputValid('novaPlatba.datum', state.novaPlatba.datum, state)).toEqual('error');
-  expect(inputValid('novaPlatba.typ', state.novaPlatba.typ, state)).toEqual(undefined);
-  expect(inputValid('novaPlatba.poznamka', state.novaPlatba.poznamka, state)).toBe(undefined);
-  expect(formValid(state)).toBe(false);
-  expect(novaPlatbaValid(state)).toBe(false);
-  expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
-    false
+  expect(prihlaskyInputValid('prihlaska.typ', state.prihlaska.typ, state)).toBe(undefined);
+  expect(prihlaskyInputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toBe(
+    undefined
   );
+  expect(prihlaskyInputValid('prihlaska.kod', state.prihlaska.kod, state)).toBe(undefined);
+  expect(
+    prihlaskyInputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)
+  ).toBe(undefined);
+  expect(formValid(state)).toBe(false);
+  expect(
+    prihlaskyIsInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)
+  ).toBe(false);
 });
 
-it('validation of some invalid state [validateForm,validatePlatba === true]', () => {
+it('validation of some invalid state [validateForm === true]', () => {
   const state = {
     validateForm: true,
-    validatePlatba: true,
     udaje: {
       prijmeni: '',
       jmeno: undefined,
@@ -418,39 +395,37 @@ it('validation of some invalid state [validateForm,validatePlatba === true]', ()
       kod: '===kód===',
       mladistvyPotvrzen: undefined
     },
-    platby: [{ castka: 200, datum: '3. 1. 2015', typ: 'převodem' }],
-    novaPlatba: { castka: undefined, datum: '3. 1. 2015', typ: undefined, poznamka: 'haha' }
+    platby: [{ castka: 200, datum: '3. 1. 2015', typ: 'převodem' }]
   };
   deepFreeze(state);
 
-  expect(inputValid('udaje.prijmeni', state.udaje.prijmeni, state)).toEqual('error');
-  expect(inputValid('udaje.jmeno', state.udaje.jmeno, state)).toEqual('error');
-  expect(inputValid('udaje.narozeni', state.udaje.narozeni, state)).toEqual('error');
-  expect(inputValid('udaje.pohlavi', state.udaje.pohlavi, state)).toEqual('success');
-  expect(inputValid('udaje.adresa', state.udaje.adresa, state)).toBe(undefined);
-  expect(inputValid('udaje.obec', state.udaje.obec, state)).toEqual('success');
-  expect(inputValid('udaje.psc', state.udaje.psc, state)).toEqual('error');
-  expect(inputValid('udaje.stat', state.udaje.stat, state)).toEqual('success');
-  expect(inputValid('udaje.klub', state.udaje.klub, state)).toBe(undefined);
-  expect(inputValid('udaje.telefon', state.udaje.telefon, state)).toBe(undefined);
-  expect(inputValid('udaje.email', state.udaje.email, state)).toBe(undefined);
-  expect(inputValid('prihlaska.datum', state.prihlaska.datum, state)).toEqual('success');
-  expect(inputValid('prihlaska.kategorie', state.prihlaska.kategorie, state)).toEqual('error');
-  expect(inputValid('prihlaska.typ', state.prihlaska.typ, state)).toEqual('error');
-  expect(inputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toBe(undefined);
-  expect(inputValid('prihlaska.kod', state.prihlaska.kod, state)).toBe(undefined);
-  expect(inputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)).toBe(
+  expect(prihlaskyInputValid('udaje.prijmeni', state.udaje.prijmeni, state)).toEqual('error');
+  expect(prihlaskyInputValid('udaje.jmeno', state.udaje.jmeno, state)).toEqual('error');
+  expect(prihlaskyInputValid('udaje.narozeni', state.udaje.narozeni, state)).toEqual('error');
+  expect(prihlaskyInputValid('udaje.pohlavi', state.udaje.pohlavi, state)).toEqual('success');
+  expect(prihlaskyInputValid('udaje.adresa', state.udaje.adresa, state)).toBe(undefined);
+  expect(prihlaskyInputValid('udaje.obec', state.udaje.obec, state)).toEqual('success');
+  expect(prihlaskyInputValid('udaje.psc', state.udaje.psc, state)).toEqual('error');
+  expect(prihlaskyInputValid('udaje.stat', state.udaje.stat, state)).toEqual('success');
+  expect(prihlaskyInputValid('udaje.klub', state.udaje.klub, state)).toBe(undefined);
+  expect(prihlaskyInputValid('udaje.telefon', state.udaje.telefon, state)).toBe(undefined);
+  expect(prihlaskyInputValid('udaje.email', state.udaje.email, state)).toBe(undefined);
+  expect(prihlaskyInputValid('prihlaska.datum', state.prihlaska.datum, state)).toEqual('success');
+  expect(prihlaskyInputValid('prihlaska.kategorie', state.prihlaska.kategorie, state)).toEqual(
+    'error'
+  );
+  expect(prihlaskyInputValid('prihlaska.typ', state.prihlaska.typ, state)).toEqual('error');
+  expect(prihlaskyInputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toBe(
     undefined
   );
-  expect(inputValid('novaPlatba.castka', state.novaPlatba.castka, state)).toEqual('error');
-  expect(inputValid('novaPlatba.datum', state.novaPlatba.datum, state)).toEqual('success');
-  expect(inputValid('novaPlatba.typ', state.novaPlatba.typ, state)).toEqual('error');
-  expect(inputValid('novaPlatba.poznamka', state.novaPlatba.poznamka, state)).toBe(undefined);
+  expect(prihlaskyInputValid('prihlaska.kod', state.prihlaska.kod, state)).toBe(undefined);
+  expect(
+    prihlaskyInputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)
+  ).toBe(undefined);
   expect(formValid(state)).toBe(false);
-  expect(novaPlatbaValid(state)).toBe(false);
-  expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
-    false
-  );
+  expect(
+    prihlaskyIsInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)
+  ).toBe(false);
 });
 
 it('udaje.pohlavi - nahodí ženu', () => {
@@ -493,8 +468,12 @@ it('udaje.narozeni - prázdné', () => {
   expect(
     prihlaskyFormReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '' } }))
   ).toEqual(stateAfter);
-  expect(inputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toBe(undefined);
-  expect(inputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual('error');
+  expect(prihlaskyInputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toBe(
+    undefined
+  );
+  expect(prihlaskyInputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual(
+    'error'
+  );
 });
 
 it('udaje.narozeni - neúplné', () => {
@@ -511,8 +490,12 @@ it('udaje.narozeni - neúplné', () => {
   expect(
     prihlaskyFormReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '1. ' } }))
   ).toEqual(stateAfter);
-  expect(inputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toBe(undefined);
-  expect(inputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual('error');
+  expect(prihlaskyInputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toBe(
+    undefined
+  );
+  expect(prihlaskyInputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual(
+    'error'
+  );
 });
 
 it('udaje.narozeni - jen rok', () => {
@@ -529,8 +512,12 @@ it('udaje.narozeni - jen rok', () => {
   expect(
     prihlaskyFormReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '1978' } }))
   ).toEqual(stateAfter);
-  expect(inputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toEqual('error');
-  expect(inputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual('warning');
+  expect(prihlaskyInputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toEqual(
+    'error'
+  );
+  expect(prihlaskyInputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual(
+    'warning'
+  );
 });
 
 it('udaje.narozeni - celé', () => {
@@ -550,8 +537,12 @@ it('udaje.narozeni - celé', () => {
       inputChanged('udaje.narozeni', { target: { value: '1.7.1967' } })
     )
   ).toEqual(stateAfter);
-  expect(inputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toEqual('error');
-  expect(inputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual('success');
+  expect(prihlaskyInputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toEqual(
+    'error'
+  );
+  expect(prihlaskyInputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual(
+    'success'
+  );
 });
 
 it('prihlaska.datum - neúplné', () => {
@@ -565,7 +556,9 @@ it('prihlaska.datum - neúplné', () => {
       inputChanged('prihlaska.datum', { target: { value: '1. 7. 201' } })
     )
   ).toEqual(stateAfter);
-  expect(inputValid('prihlaska.datum', stateAfter.prihlaska.datum, stateAfter)).toEqual('error');
+  expect(prihlaskyInputValid('prihlaska.datum', stateAfter.prihlaska.datum, stateAfter)).toEqual(
+    'error'
+  );
 });
 
 it('prihlaska.datum - formát 1', () => {
@@ -579,8 +572,10 @@ it('prihlaska.datum - formát 1', () => {
       inputChanged('prihlaska.datum', { target: { value: '1. 7. 2017' } })
     )
   ).toEqual(stateAfter);
-  expect(inputValid('prihlaska.datum', stateAfter.prihlaska.datum, stateAfter)).toEqual('success');
-  expect(formatValue('prihlaska.datum', stateAfter.prihlaska.datum)).toEqual('1. 7. 2017');
+  expect(prihlaskyInputValid('prihlaska.datum', stateAfter.prihlaska.datum, stateAfter)).toEqual(
+    'success'
+  );
+  expect(prihlaskyFormatValue('prihlaska.datum', stateAfter.prihlaska.datum)).toEqual('1. 7. 2017');
 });
 
 it('prihlaska.datum - formát 2', () => {
@@ -594,8 +589,10 @@ it('prihlaska.datum - formát 2', () => {
       inputChanged('prihlaska.datum', { target: { value: '1.7.2017' } })
     )
   ).toEqual(stateAfter);
-  expect(inputValid('prihlaska.datum', stateAfter.prihlaska.datum, stateAfter)).toEqual('success');
-  expect(formatValue('prihlaska.datum', stateAfter.prihlaska.datum)).toEqual('1. 7. 2017');
+  expect(prihlaskyInputValid('prihlaska.datum', stateAfter.prihlaska.datum, stateAfter)).toEqual(
+    'success'
+  );
+  expect(prihlaskyFormatValue('prihlaska.datum', stateAfter.prihlaska.datum)).toEqual('1. 7. 2017');
 });
 
 it('prihlaska.typ - není pohlaví', () => {
@@ -618,7 +615,7 @@ it('prihlaska.typ - není pohlaví', () => {
   ];
 
   expect(
-    inputOptions('prihlaska.typ', state.registrator.prihlasky.form, state.entities.rocniky)
+    prihlaskyInputOptions('prihlaska.typ', state.registrator.prihlasky.form, state.entities.rocniky)
   ).toEqual(selected);
 });
 
@@ -646,7 +643,7 @@ it('prihlaska.typ - není narození', () => {
   ];
 
   expect(
-    inputOptions('prihlaska.typ', state.registrator.prihlasky.form, state.entities.rocniky)
+    prihlaskyInputOptions('prihlaska.typ', state.registrator.prihlasky.form, state.entities.rocniky)
   ).toEqual(selected);
 });
 
@@ -686,7 +683,7 @@ it('prihlaska.typ - muž', () => {
   ];
 
   expect(
-    inputOptions('prihlaska.typ', state.registrator.prihlasky.form, state.entities.rocniky)
+    prihlaskyInputOptions('prihlaska.typ', state.registrator.prihlasky.form, state.entities.rocniky)
   ).toEqual(selected);
 });
 
@@ -717,10 +714,17 @@ it('prihlaska.startCislo - kategorie má čísla', () => {
   };
 
   expect(
-    isInputEnabled('prihlaska.startCislo', state.registrator.prihlasky.form, state.entities.rocniky)
+    prihlaskyIsInputEnabled(
+      'prihlaska.startCislo',
+      state.registrator.prihlasky.form,
+      state.entities.rocniky
+    )
   ).toBe(true);
   expect(
-    formatValue('prihlaska.startCislo', state.registrator.prihlasky.form.prihlaska.startCislo)
+    prihlaskyFormatValue(
+      'prihlaska.startCislo',
+      state.registrator.prihlasky.form.prihlaska.startCislo
+    )
   ).toEqual('45');
 });
 
@@ -738,10 +742,17 @@ it('prihlaska.startCislo - kategorie nemá čísla', () => {
   };
 
   expect(
-    isInputEnabled('prihlaska.startCislo', state.registrator.prihlasky.form, state.entities.rocniky)
+    prihlaskyIsInputEnabled(
+      'prihlaska.startCislo',
+      state.registrator.prihlasky.form,
+      state.entities.rocniky
+    )
   ).toBe(false);
   expect(
-    formatValue('prihlaska.startCislo', state.registrator.prihlasky.form.prihlaska.startCislo)
+    prihlaskyFormatValue(
+      'prihlaska.startCislo',
+      state.registrator.prihlasky.form.prihlaska.startCislo
+    )
   ).toEqual('');
 });
 
@@ -777,7 +788,6 @@ it('loadUcastnik() - údaje i přihláška', () => {
     saving: false,
     ucastnikId: '5a09b1fd371dec1e99b7e1c9',
     validateForm: false,
-    validatePlatba: false,
     udaje: {
       prijmeni: 'Balabák',
       jmeno: 'Roman',
@@ -793,8 +803,7 @@ it('loadUcastnik() - údaje i přihláška', () => {
       startCislo: 17,
       kod: '10728864'
     },
-    platby: [{ castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }],
-    novaPlatba: { castka: undefined, datum: undefined, typ: 'hotově', poznamka: undefined }
+    platby: [{ castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }]
   };
   deepFreeze(stateBefore);
 
@@ -838,7 +847,6 @@ it('loadUcastnik() - jen údaje', () => {
     saving: false,
     ucastnikId: '6f09b1fd371dec1e99b7e1c9',
     validateForm: false,
-    validatePlatba: false,
     udaje: {
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
@@ -854,8 +862,7 @@ it('loadUcastnik() - jen údaje', () => {
       startCislo: undefined,
       kod: undefined
     },
-    platby: [],
-    novaPlatba: { castka: undefined, datum: undefined, typ: 'hotově', poznamka: undefined }
+    platby: []
   };
   deepFreeze(stateBefore);
 
@@ -918,25 +925,26 @@ it('predepsaneStartovne - půlmaraton', () => {
 
 it('addPlatba()', () => {
   const stateBefore = {
-    validatePlatba: true,
     platby: [
       { castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' },
       { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
-    ],
-    novaPlatba: { castka: '133', datum: '2018-05-13T00:00:00.000Z', typ: 'převodem' }
+    ]
   };
   const stateAfter = {
-    validatePlatba: false,
     platby: [
       { castka: 133, datum: '2018-05-13T00:00:00.000Z', typ: 'převodem' },
       { castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' },
       { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
-    ],
-    novaPlatba: { castka: undefined, datum: undefined, typ: 'hotově', poznamka: undefined }
+    ]
   };
   deepFreeze(stateBefore);
 
-  expect(prihlaskyFormReducer(stateBefore, addPlatba())).toEqual(stateAfter);
+  expect(
+    prihlaskyFormReducer(
+      stateBefore,
+      addPlatba({ castka: '133', datum: '2018-05-13T00:00:00.000Z', typ: 'převodem' })
+    )
+  ).toEqual(stateAfter);
 });
 
 it('removePlatba()', () => {

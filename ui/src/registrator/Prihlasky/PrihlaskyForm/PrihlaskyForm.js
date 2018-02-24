@@ -8,7 +8,7 @@ import PopisekPohlavi from '../../../shared/Popisek/PopisekPohlavi';
 import InputContainer from '../Input/InputContainer';
 import RadioInput from '../Input/RadioInput';
 import TextInput from '../Input/TextInput';
-import PlatbyContainer from './PlatbyContainer';
+import PlatbyContainer from '../Platby/PlatbyContainer';
 import './PrihlaskyForm.css';
 
 class PrihlaskyForm extends PureComponent {

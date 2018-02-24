@@ -1,7 +1,7 @@
 import moment from 'moment';
-import { findKategorie, CODE_OK, PLATBA_TYPY } from '../../../common';
+import { findKategorie, CODE_OK } from '../../../common';
 import { AKTUALNI_ROK, TYPY_KATEGORII } from '../../../constants';
-import { narozeniToStr } from '../../../Util';
+import { datumValid, narozeniToStr, parseDatum, validDatumFormats } from '../../../Util';
 import { getTypKategorie } from '../../../entities/rocniky/rocnikyReducer';
 
 const initialState = {
@@ -12,7 +12,6 @@ const initialState = {
   saving: false,
   ucastnikId: undefined,
   validateForm: false,
-  validatePlatba: false,
   udaje: {
     prijmeni: undefined,
     jmeno: undefined,
@@ -34,11 +33,8 @@ const initialState = {
     kod: undefined,
     mladistvyPotvrzen: undefined
   },
-  platby: [],
-  novaPlatba: { castka: undefined, datum: undefined, typ: PLATBA_TYPY[0], poznamka: undefined }
+  platby: []
 };
-
-const validFormats = ['D.M.YYYY', 'D. M. YYYY', moment.ISO_8601];
 
 const parseNarozeni = value => {
   if (value === undefined) {
@@ -56,22 +52,12 @@ const parseNarozeni = value => {
   const den = split[0] && split[0].trim();
   const mesic = split[1] && split[1].trim();
   const rok = split[2] && split[2].trim();
-  const maybeParsed = moment(`${den}.${mesic}.${rok}`, validFormats[0], true);
+  const maybeParsed = moment(`${den}.${mesic}.${rok}`, validDatumFormats[0], true);
   if (maybeParsed.isValid()) {
     return { den: maybeParsed.date(), mesic: maybeParsed.month() + 1, rok: maybeParsed.year() };
   }
   return { den: undefined, mesic: undefined, rok: value };
 };
-
-const datumValid = value => validFormats.some(format => moment(value, format, true).isValid());
-
-const parseDatum = value =>
-  validFormats.reduce((accumulator, format) => {
-    if (!accumulator && moment(value, format, true).isValid()) {
-      return moment.utc(value, format, true).toJSON();
-    }
-    return accumulator;
-  }, undefined) || value;
 
 const prihlaskyFormReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -79,6 +65,9 @@ const prihlaskyFormReducer = (state = initialState, action) => {
       return { ...state, showError: false };
     case 'PRIHLASKY_INPUT_CHANGED': {
       const [section, name] = action.name.split('.');
+      if (section === 'novaPlatba') {
+        return state;
+      }
       let { value } = action;
       switch (action.name) {
         case 'udaje.prijmeni':
@@ -91,7 +80,6 @@ const prihlaskyFormReducer = (state = initialState, action) => {
           value = parseNarozeni(action.value);
           break;
         case 'prihlaska.datum':
-        case 'novaPlatba.datum':
           value = parseDatum(action.value);
           break;
         case 'prihlaska.typ':
@@ -115,8 +103,6 @@ const prihlaskyFormReducer = (state = initialState, action) => {
       return initialState;
     case 'PRIHLASKY_VALIDATE_FORM':
       return { ...state, validateForm: true };
-    case 'PRIHLASKY_VALIDATE_PLATBA':
-      return { ...state, validatePlatba: true };
     case 'PRIHLASKY_FORM_INVALID':
       return {
         ...state,
@@ -141,15 +127,9 @@ const prihlaskyFormReducer = (state = initialState, action) => {
     case 'PRIHLASKY_SAVE_HIDE_MODAL':
       return { ...state, saved: false };
     case 'PRIHLASKY_ADD_PLATBA': {
-      const { castka, ...novaPlatba } = state.novaPlatba;
-      const platby = [...state.platby, { castka: parseInt(castka, 10), ...novaPlatba }];
+      const platby = [...state.platby, action.platba];
       platby.sort((a, b) => moment.utc(a.datum) - moment.utc(b.datum));
-      return {
-        ...state,
-        validatePlatba: false,
-        platby,
-        novaPlatba: initialState.novaPlatba
-      };
+      return { ...state, platby };
     }
     case 'PRIHLASKY_REMOVE_PLATBA':
       return {
@@ -201,16 +181,7 @@ const narozeniValid = (value, validateForm, requireDenMesic) => {
   return 'error';
 };
 
-const numberValid = (value, validatePlatba) => {
-  if (value === undefined && !validatePlatba) {
-    return undefined;
-  }
-
-  const cislo = parseInt(value, 10);
-  return Number.isNaN(cislo) ? 'error' : 'success';
-};
-
-export const inputValid = (name, value, prihlaskyForm) => {
+export const prihlaskyInputValid = (name, value, prihlaskyForm) => {
   switch (name) {
     case 'udaje.prijmeni':
     case 'udaje.jmeno':
@@ -227,7 +198,6 @@ export const inputValid = (name, value, prihlaskyForm) => {
     case 'prihlaska.startCislo': // Může nechat nevyplněné, doplní se později.
     case 'prihlaska.kod':
     case 'prihlaska.mladistvyPotvrzen':
-    case 'novaPlatba.poznamka':
       return undefined;
     case 'udaje.narozeni':
       // TODO: kategorie presne => den + mesic required === true
@@ -245,28 +215,13 @@ export const inputValid = (name, value, prihlaskyForm) => {
         return undefined;
       }
       return datumValid(value) ? 'success' : 'error';
-    case 'novaPlatba.castka':
-      return numberValid(value, prihlaskyForm.validatePlatba);
-    case 'novaPlatba.datum':
-      if (value === undefined) {
-        if (prihlaskyForm.validatePlatba) {
-          return 'error';
-        }
-        return undefined;
-      }
-      return datumValid(value) ? 'success' : 'error';
-    case 'novaPlatba.typ':
-      if (value === undefined && !prihlaskyForm.validatePlatba) {
-        return undefined;
-      }
-      return PLATBA_TYPY.includes(value) ? undefined : 'error';
     default:
       return 'error';
   }
 };
 
 const isInputValid = (name, value, prihlaskyForm) => {
-  const validationState = inputValid(name, value, prihlaskyForm);
+  const validationState = prihlaskyInputValid(name, value, prihlaskyForm);
   if (
     validationState === undefined ||
     validationState === 'success' ||
@@ -294,18 +249,7 @@ export const formValid = prihlaskyForm => {
   );
 };
 
-export const novaPlatbaValid = prihlaskyForm => {
-  const { novaPlatba } = prihlaskyForm;
-
-  return (
-    isInputValid('novaPlatba.castka', novaPlatba.castka, prihlaskyForm) &&
-    isInputValid('novaPlatba.datum', novaPlatba.datum, prihlaskyForm) &&
-    isInputValid('novaPlatba.typ', novaPlatba.typ, prihlaskyForm) &&
-    isInputValid('novaPlatba.poznamka', novaPlatba.poznamka, prihlaskyForm)
-  );
-};
-
-export const isInputEnabled = (name, prihlaskyForm, rocniky) => {
+export const prihlaskyIsInputEnabled = (name, prihlaskyForm, rocniky) => {
   switch (name) {
     case 'prihlaska.startCislo': {
       const { typ } = prihlaskyForm.prihlaska;
@@ -320,7 +264,7 @@ export const isInputEnabled = (name, prihlaskyForm, rocniky) => {
   }
 };
 
-export const inputOptions = (name, prihlaskyForm, rocniky) => {
+export const prihlaskyInputOptions = (name, prihlaskyForm, rocniky) => {
   switch (name) {
     case 'udaje.pohlavi':
       return [
@@ -350,19 +294,16 @@ export const inputOptions = (name, prihlaskyForm, rocniky) => {
       });
       return list;
     }
-    case 'novaPlatba.typ':
-      return PLATBA_TYPY.map(typ => ({ key: typ, value: typ }));
     default:
       return null;
   }
 };
 
-export const formatValue = (name, rawValue) => {
+export const prihlaskyFormatValue = (name, rawValue) => {
   switch (name) {
     case 'udaje.narozeni':
       return narozeniToStr(rawValue);
     case 'prihlaska.datum':
-    case 'novaPlatba.datum':
       return datumValid(rawValue) ? moment.utc(rawValue).format('D. M. YYYY') : rawValue || '';
     default:
       return rawValue ? `${rawValue}` : '';

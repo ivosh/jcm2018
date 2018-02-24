@@ -1,7 +1,7 @@
 import { CODE_OK, CODE_TOKEN_INVALID, savePlatby, savePrihlaska, saveUdaje } from '../../../common';
 import { AKTUALNI_ROK, PRIHLASKY_SAVE_MODAL_TIMEOUT } from '../../../constants';
 import { authTokenExpired } from '../../../auth/SignIn/SignInActions';
-import { formValid, novaPlatbaValid } from './prihlaskyFormReducer';
+import { formValid } from './prihlaskyFormReducer';
 
 export const hideError = () => ({ type: 'PRIHLASKY_HIDE_ERROR' });
 
@@ -127,21 +127,3 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
     dispatch(saveUcastError({ code: 'internal error', err }));
   }
 };
-
-/* ------------------------------------- platby ------------------------------------------------- */
-
-export const addPlatba = () => ({ type: 'PRIHLASKY_ADD_PLATBA' });
-const validatePlatba = () => ({ type: 'PRIHLASKY_VALIDATE_PLATBA' });
-
-export const addValidatedPlatba = () => async (dispatch, getState) => {
-  await dispatch(validatePlatba());
-
-  const { registrator: { prihlasky: { form: prihlaskyForm } } } = getState();
-  if (!novaPlatbaValid(prihlaskyForm)) {
-    return;
-  }
-
-  dispatch(addPlatba());
-};
-
-export const removePlatba = idx => ({ type: 'PRIHLASKY_REMOVE_PLATBA', idx });
