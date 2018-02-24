@@ -1,56 +1,30 @@
-.Startujici_div {
+.Startujici-div {
   margin-left: 30px;
   margin-right: 20px;
 }
 
-.Startujici_buttons {
+.Startujici-buttons {
   margin-bottom: 1ex;
 }
 
-.Startujici_button {
+.Startujici-button {
   margin-right: 5px;
 }
 
-.Startujici_buttons > .btn.active {
+.Startujici-buttons > .btn.active {
   font-weight: bold;
   border-radius: 5px;
   border: 3px solid black !important;
 }
 
-.Startujici_typ {
+.Startujici-typ {
   margin-bottom: 1.5ex;
 }
 
-.Startujici_popisek {
+.Startujici-popisek {
   padding-bottom: 0.7ex;
 }
 
 .Startujici_legenda {
-  font-size: 120%;
   margin-bottom: 1ex;
-}
-
-.Startujici_legenda_item {
-  font-size: 100%;
-  margin-left: 0.5em;
-}
-
-.Startujici-dokonceno {
-  background-color: #35841f;
-  color: white;
-}
-
-.Startujici-nedokonceno {
-  background-color: #0b3056;
-  color: white;
-}
-
-.Startujici-na-trase {
-  background-color: #683102;
-  color: white;
-}
-
-.Startujici-neaktivni {
-  background-color: #868686;
-  color: black;
 }

@@ -5,9 +5,9 @@ import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import StartujiciProTyp from '../../shared/StartujiciProTyp/StartujiciProTyp';
-import Startujici, { LegendaPrihlaseni, LegendaOdstartovani, Renderer } from './Startujici';
+import Startujici, { Renderer } from './Startujici';
 
-it('renders Startujici', () => {
+it('renders Startujici - přihlášeni', () => {
   const typy = ['maraton', 'půlmaraton', 'cyklo', 'koloběžka'];
   const wrapper = shallow(
     <Startujici odstartovani={false} typy={typy} onOdstartovaniChange={jest.fn()} />
@@ -15,14 +15,12 @@ it('renders Startujici', () => {
   expect(toJSON(wrapper)).toMatchSnapshot();
 });
 
-it('renders LegendaPrihlaseni', () => {
-  const component = renderer.create(<LegendaPrihlaseni />);
-  expect(component.toJSON()).toMatchSnapshot();
-});
-
-it('renders LegendaOdstartovani', () => {
-  const component = renderer.create(<LegendaOdstartovani />);
-  expect(component.toJSON()).toMatchSnapshot();
+it('renders Startujici - odstartováni', () => {
+  const typy = ['maraton', 'půlmaraton', 'cyklo', 'koloběžka'];
+  const wrapper = shallow(
+    <Startujici odstartovani={true} typy={typy} onOdstartovaniChange={jest.fn()} />
+  );
+  expect(toJSON(wrapper)).toMatchSnapshot();
 });
 
 it('Renderer', () => {

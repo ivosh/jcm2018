@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders dokončeno + neaktivní 1`] = `
+<div
+  className="Legenda"
+>
+  Legenda: 
+  <span
+    className="Legenda-item Legenda-item-dokonceno label label-default"
+  >
+    dokončeno
+  </span>
+  <span
+    className="Legenda-item Legenda-item-nedokonceno label label-default"
+  >
+    nedokončeno
+  </span>
+  <span
+    className="Legenda-item Legenda-item-na-trase label label-default"
+  >
+    na trase
+  </span>
+  <span
+    className="Legenda-item Legenda-item-neaktivni label label-default"
+  >
+    neaktivní
+  </span>
+</div>
+`;
+
+exports[`renders dokončeno 1`] = `
+<div
+  className="Legenda"
+>
+  Legenda: 
+  <span
+    className="Legenda-item Legenda-item-dokonceno label label-default"
+  >
+    dokončeno
+  </span>
+  <span
+    className="Legenda-item Legenda-item-nedokonceno label label-default"
+  >
+    nedokončeno
+  </span>
+  <span
+    className="Legenda-item Legenda-item-na-trase label label-default"
+  >
+    na trase
+  </span>
+</div>
+`;

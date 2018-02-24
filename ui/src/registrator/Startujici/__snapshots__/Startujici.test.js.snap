@@ -6,7 +6,7 @@ exports[`Renderer 1`] = `
 >
   <a
     aria-current={false}
-    className="StartujiciProTyp-item Startujici-dokonceno"
+    className="StartujiciProTyp-item Legenda-item-dokonceno"
     href="/prihlasky/10"
     onClick={[Function]}
     style={undefined}
@@ -16,70 +16,158 @@ exports[`Renderer 1`] = `
 </div>
 `;
 
-exports[`renders LegendaOdstartovani 1`] = `
+exports[`renders Startujici - odstartováni 1`] = `
 <div
-  className="Startujici_legenda"
->
-  Legenda: 
-  <span
-    className="Startujici_legenda_item Startujici-dokonceno label label-default"
-  >
-    dokončeno
-  </span>
-  <span
-    className="Startujici_legenda_item Startujici-nedokonceno label label-default"
-  >
-    nedokončeno
-  </span>
-  <span
-    className="Startujici_legenda_item Startujici-na-trase label label-default"
-  >
-    na trase
-  </span>
-</div>
-`;
-
-exports[`renders LegendaPrihlaseni 1`] = `
-<div
-  className="Startujici_legenda"
->
-  Legenda: 
-  <span
-    className="Startujici_legenda_item Startujici-dokonceno label label-default"
-  >
-    dokončeno
-  </span>
-  <span
-    className="Startujici_legenda_item Startujici-nedokonceno label label-default"
-  >
-    nedokončeno
-  </span>
-  <span
-    className="Startujici_legenda_item Startujici-na-trase label label-default"
-  >
-    na trase
-  </span>
-  <span
-    className="Startujici_legenda_item Startujici-neaktivni label label-default"
-  >
-    neaktivní
-  </span>
-</div>
-`;
-
-exports[`renders Startujici 1`] = `
-<div
-  className="Startujici_div"
+  className="Startujici-div"
 >
   <div
-    className="Startujici_buttons"
+    className="Startujici-buttons"
+  >
+    <Button
+      active={false}
+      block={false}
+      bsClass="btn"
+      bsStyle="primary"
+      className="Startujici-button"
+      disabled={false}
+      onClick={[Function]}
+    >
+      <Glyphicon
+        bsClass="glyphicon"
+        glyph="list-alt"
+      />
+       Přihlášeni
+    </Button>
+    <Button
+      active={true}
+      block={false}
+      bsClass="btn"
+      bsStyle="success"
+      className="Startujici-button"
+      disabled={false}
+      onClick={[Function]}
+    >
+      <Glyphicon
+        bsClass="glyphicon"
+        glyph="road"
+      />
+       Odstartováni
+    </Button>
+  </div>
+  <div
+    className="Startujici_legenda"
+  >
+    <Legenda
+      legenda={
+        Array [
+          Object {
+            "name": "dokonceno",
+            "popisek": "dokončeno",
+          },
+          Object {
+            "name": "nedokonceno",
+            "popisek": "nedokončeno",
+          },
+          Object {
+            "name": "na-trase",
+            "popisek": "na trase",
+          },
+          Object {
+            "name": "neaktivni",
+            "popisek": "neaktivní",
+          },
+        ]
+      }
+    />
+  </div>
+  <div
+    className="Startujici-typ"
+    key="maraton"
+  >
+    <div
+      className="Startujici-popisek"
+    >
+      <PopisekKategorie
+        typ="maraton"
+      />
+    </div>
+    <Connect(StartujiciProTyp)
+      jenStartujici={true}
+      odstartovani={true}
+      renderer={[Function]}
+      typ="maraton"
+    />
+  </div>
+  <div
+    className="Startujici-typ"
+    key="půlmaraton"
+  >
+    <div
+      className="Startujici-popisek"
+    >
+      <PopisekKategorie
+        typ="půlmaraton"
+      />
+    </div>
+    <Connect(StartujiciProTyp)
+      jenStartujici={true}
+      odstartovani={true}
+      renderer={[Function]}
+      typ="půlmaraton"
+    />
+  </div>
+  <div
+    className="Startujici-typ"
+    key="cyklo"
+  >
+    <div
+      className="Startujici-popisek"
+    >
+      <PopisekKategorie
+        typ="cyklo"
+      />
+    </div>
+    <Connect(StartujiciProTyp)
+      jenStartujici={true}
+      odstartovani={true}
+      renderer={[Function]}
+      typ="cyklo"
+    />
+  </div>
+  <div
+    className="Startujici-typ"
+    key="koloběžka"
+  >
+    <div
+      className="Startujici-popisek"
+    >
+      <PopisekKategorie
+        typ="koloběžka"
+      />
+    </div>
+    <Connect(StartujiciProTyp)
+      jenStartujici={true}
+      odstartovani={true}
+      renderer={[Function]}
+      typ="koloběžka"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders Startujici - přihlášeni 1`] = `
+<div
+  className="Startujici-div"
+>
+  <div
+    className="Startujici-buttons"
   >
     <Button
       active={true}
       block={false}
       bsClass="btn"
       bsStyle="primary"
-      className="Startujici_button"
+      className="Startujici-button"
       disabled={false}
       onClick={[Function]}
     >
@@ -94,7 +182,7 @@ exports[`renders Startujici 1`] = `
       block={false}
       bsClass="btn"
       bsStyle="success"
-      className="Startujici_button"
+      className="Startujici-button"
       disabled={false}
       onClick={[Function]}
     >
@@ -105,13 +193,34 @@ exports[`renders Startujici 1`] = `
        Odstartováni
     </Button>
   </div>
-  <Component />
   <div
-    className="Startujici_typ"
+    className="Startujici_legenda"
+  >
+    <Legenda
+      legenda={
+        Array [
+          Object {
+            "name": "dokonceno",
+            "popisek": "dokončeno",
+          },
+          Object {
+            "name": "nedokonceno",
+            "popisek": "nedokončeno",
+          },
+          Object {
+            "name": "na-trase",
+            "popisek": "na trase",
+          },
+        ]
+      }
+    />
+  </div>
+  <div
+    className="Startujici-typ"
     key="maraton"
   >
     <div
-      className="Startujici_popisek"
+      className="Startujici-popisek"
     >
       <PopisekKategorie
         typ="maraton"
@@ -125,11 +234,11 @@ exports[`renders Startujici 1`] = `
     />
   </div>
   <div
-    className="Startujici_typ"
+    className="Startujici-typ"
     key="půlmaraton"
   >
     <div
-      className="Startujici_popisek"
+      className="Startujici-popisek"
     >
       <PopisekKategorie
         typ="půlmaraton"
@@ -143,11 +252,11 @@ exports[`renders Startujici 1`] = `
     />
   </div>
   <div
-    className="Startujici_typ"
+    className="Startujici-typ"
     key="cyklo"
   >
     <div
-      className="Startujici_popisek"
+      className="Startujici-popisek"
     >
       <PopisekKategorie
         typ="cyklo"
@@ -161,11 +270,11 @@ exports[`renders Startujici 1`] = `
     />
   </div>
   <div
-    className="Startujici_typ"
+    className="Startujici-typ"
     key="koloběžka"
   >
     <div
-      className="Startujici_popisek"
+      className="Startujici-popisek"
     >
       <PopisekKategorie
         typ="koloběžka"
