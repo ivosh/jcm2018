@@ -74,7 +74,7 @@ Object {
           "stat": "Česká republika",
           "telefon": undefined,
         },
-        "validateForm": false,
+        "validate": false,
       },
       "platby": Object {
         "castka": undefined,
@@ -172,7 +172,7 @@ Object {
           "stat": "Česká republika",
           "telefon": undefined,
         },
-        "validateForm": false,
+        "validate": false,
       },
       "platby": Object {
         "castka": undefined,
@@ -270,7 +270,7 @@ Object {
           "stat": "Česká republika",
           "telefon": undefined,
         },
-        "validateForm": false,
+        "validate": false,
       },
       "platby": Object {
         "castka": undefined,

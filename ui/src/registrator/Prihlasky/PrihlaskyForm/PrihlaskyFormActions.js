@@ -29,7 +29,7 @@ export const loadUcastnik = ({ id, kategorie, ucastnici }) => {
   return action;
 };
 
-const validateForm = () => ({ type: 'PRIHLASKY_VALIDATE_FORM' });
+const validate = () => ({ type: 'PRIHLASKY_VALIDATE_FORM' });
 
 const validationError = () => ({
   type: 'PRIHLASKY_FORM_INVALID',
@@ -80,7 +80,7 @@ const showModalWithTimeout = dispatch => {
 };
 
 export const saveUcast = () => async (dispatch, getState, wsClient) => {
-  await dispatch(validateForm());
+  await dispatch(validate());
 
   const state = getState();
   const { registrator: { prihlasky: { form: prihlaskyForm } } } = state;

@@ -18,7 +18,7 @@ const state = {
         saved: false,
         saving: true,
         ucastnikId: '---id---',
-        validateForm: false,
+        validate: false,
         udaje: { narozeni: {} },
         prihlaska: {},
         platby: []

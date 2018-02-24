@@ -36,7 +36,7 @@ it('na začátku', () => {
   expect(stateAfter.showError).toBe(false);
   expect(stateAfter.saving).toBe(false);
   expect(stateAfter.ucastnikId).toBe(undefined);
-  expect(stateAfter.validateForm).toBe(false);
+  expect(stateAfter.validate).toBe(false);
   expect(stateAfter.udaje).toEqual({
     prijmeni: undefined,
     jmeno: undefined,
@@ -82,7 +82,7 @@ it('reset()', () => {
     saved: true,
     saving: true,
     ucastnikId: '===id===',
-    validateForm: true,
+    validate: true,
     udaje: {
       prijmeni: 'Hudák',
       jmeno: 'Jan',
@@ -113,7 +113,7 @@ it('reset()', () => {
     saved: false,
     saving: false,
     ucastnikId: undefined,
-    validateForm: false,
+    validate: false,
     udaje: {
       prijmeni: undefined,
       jmeno: undefined,
@@ -199,9 +199,9 @@ it('saveUcastError()', () => {
   );
 });
 
-it('validation of the initial state [validateForm === false]', () => {
+it('validation of the initial state [validate === false]', () => {
   const state = {
-    validateForm: false,
+    validate: false,
     udaje: {
       prijmeni: undefined,
       jmeno: undefined,
@@ -257,9 +257,9 @@ it('validation of the initial state [validateForm === false]', () => {
   ).toBe(false);
 });
 
-it('validation of the initial state [validateForm === true]', () => {
+it('validation of the initial state [validate === true]', () => {
   const state = {
-    validateForm: true,
+    validate: true,
     udaje: {
       prijmeni: undefined,
       jmeno: undefined,
@@ -314,9 +314,9 @@ it('validation of the initial state [validateForm === true]', () => {
   ).toBe(false);
 });
 
-it('validation of some invalid state [validateForm === false]', () => {
+it('validation of some invalid state [validate === false]', () => {
   const state = {
-    validateForm: false,
+    validate: false,
     udaje: {
       prijmeni: '',
       jmeno: undefined,
@@ -371,9 +371,9 @@ it('validation of some invalid state [validateForm === false]', () => {
   ).toBe(false);
 });
 
-it('validation of some invalid state [validateForm === true]', () => {
+it('validation of some invalid state [validate === true]', () => {
   const state = {
-    validateForm: true,
+    validate: true,
     udaje: {
       prijmeni: '',
       jmeno: undefined,
@@ -456,12 +456,12 @@ it('udaje.pohlavi - už nahodí ženu', () => {
 
 it('udaje.narozeni - prázdné', () => {
   const stateBefore = {
-    validateForm: false,
+    validate: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: undefined } }
   };
   deepFreeze(stateBefore);
   const stateAfter = {
-    validateForm: false,
+    validate: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: '' } }
   };
 
@@ -478,12 +478,12 @@ it('udaje.narozeni - prázdné', () => {
 
 it('udaje.narozeni - neúplné', () => {
   const stateBefore = {
-    validateForm: false,
+    validate: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: undefined } }
   };
   deepFreeze(stateBefore);
   const stateAfter = {
-    validateForm: false,
+    validate: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: '1. ' } }
   };
 
@@ -500,12 +500,12 @@ it('udaje.narozeni - neúplné', () => {
 
 it('udaje.narozeni - jen rok', () => {
   const stateBefore = {
-    validateForm: false,
+    validate: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: '197' } }
   };
   deepFreeze(stateBefore);
   const stateAfter = {
-    validateForm: false,
+    validate: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1978 } }
   };
 
@@ -522,12 +522,12 @@ it('udaje.narozeni - jen rok', () => {
 
 it('udaje.narozeni - celé', () => {
   const stateBefore = {
-    validateForm: false,
+    validate: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: '1.7.196' } }
   };
   deepFreeze(stateBefore);
   const stateAfter = {
-    validateForm: false,
+    validate: false,
     udaje: { narozeni: { den: 1, mesic: 7, rok: 1967 } }
   };
 
@@ -787,7 +787,7 @@ it('loadUcastnik() - údaje i přihláška', () => {
     saved: false,
     saving: false,
     ucastnikId: '5a09b1fd371dec1e99b7e1c9',
-    validateForm: false,
+    validate: false,
     udaje: {
       prijmeni: 'Balabák',
       jmeno: 'Roman',
@@ -846,7 +846,7 @@ it('loadUcastnik() - jen údaje', () => {
     saved: false,
     saving: false,
     ucastnikId: '6f09b1fd371dec1e99b7e1c9',
-    validateForm: false,
+    validate: false,
     udaje: {
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',

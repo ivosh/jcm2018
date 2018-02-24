@@ -53,7 +53,7 @@ it('saveUcast() should dispatch four successful actions', async () => {
   const store = mockStore({
     auth: { token: '===token===' },
     registrator: {
-      prihlasky: { form: { validateForm: false, udaje: { narozeni: {} }, prihlaska: {} } }
+      prihlasky: { form: { validate: false, udaje: { narozeni: {} }, prihlaska: {} } }
     }
   });
 
@@ -139,7 +139,7 @@ it('saveUcast() should dispatch validation error', async () => {
   const store = mockStore({
     auth: { token: '===token===' },
     registrator: {
-      prihlasky: { form: { validateForm: true, udaje: { narozeni: {} }, prihlaska: {} } }
+      prihlasky: { form: { validate: true, udaje: { narozeni: {} }, prihlaska: {} } }
     }
   });
 

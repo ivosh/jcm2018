@@ -11,7 +11,7 @@ const initialState = {
   saved: false,
   saving: false,
   ucastnikId: undefined,
-  validateForm: false,
+  validate: false,
   udaje: {
     prijmeni: undefined,
     jmeno: undefined,
@@ -102,7 +102,7 @@ const prihlaskyFormReducer = (state = initialState, action) => {
     case 'PRIHLASKY_RESET':
       return initialState;
     case 'PRIHLASKY_VALIDATE_FORM':
-      return { ...state, validateForm: true };
+      return { ...state, validate: true };
     case 'PRIHLASKY_FORM_INVALID':
       return {
         ...state,
@@ -143,9 +143,9 @@ const prihlaskyFormReducer = (state = initialState, action) => {
 
 export default prihlaskyFormReducer;
 
-const nonEmptyInputValid = (value, validateForm) => {
+const nonEmptyInputValid = (value, validate) => {
   if (value === undefined) {
-    if (validateForm) {
+    if (validate) {
       return 'error';
     }
     return undefined;
@@ -155,10 +155,10 @@ const nonEmptyInputValid = (value, validateForm) => {
   return 'success';
 };
 
-const narozeniValid = (value, validateForm, requireDenMesic) => {
+const narozeniValid = (value, validate, requireDenMesic) => {
   const { den, mesic, rok } = value;
   if (den === undefined && mesic === undefined && rok === undefined) {
-    if (validateForm) {
+    if (validate) {
       return 'error';
     }
     return undefined;
@@ -190,7 +190,7 @@ export const prihlaskyInputValid = (name, value, prihlaskyForm) => {
     case 'udaje.stat':
     case 'prihlaska.kategorie':
     case 'prihlaska.typ':
-      return nonEmptyInputValid(value, prihlaskyForm.validateForm);
+      return nonEmptyInputValid(value, prihlaskyForm.validate);
     case 'udaje.adresa':
     case 'udaje.klub':
     case 'udaje.email':
@@ -201,15 +201,15 @@ export const prihlaskyInputValid = (name, value, prihlaskyForm) => {
       return undefined;
     case 'udaje.narozeni':
       // TODO: kategorie presne => den + mesic required === true
-      return narozeniValid(value, prihlaskyForm.validateForm, false);
+      return narozeniValid(value, prihlaskyForm.validate, false);
     case 'udaje.psc':
       if (prihlaskyForm.udaje.stat === 'Česká republika') {
-        return nonEmptyInputValid(value, prihlaskyForm.validateForm);
+        return nonEmptyInputValid(value, prihlaskyForm.validate);
       }
       return undefined;
     case 'prihlaska.datum':
       if (value === undefined) {
-        if (prihlaskyForm.validateForm) {
+        if (prihlaskyForm.validate) {
           return 'error';
         }
         return undefined;

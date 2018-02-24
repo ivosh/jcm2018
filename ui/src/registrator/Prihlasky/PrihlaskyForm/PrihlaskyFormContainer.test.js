@@ -20,7 +20,7 @@ beforeEach(() => {
           saved: false,
           saving: true,
           ucastnikId: '---id---',
-          validateForm: false
+          validate: false
         }
       }
     }
