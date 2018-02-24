@@ -241,7 +241,7 @@ it('validation of the initial state [validateForm,validatePlatba === false]', ()
   );
   expect(inputValid('novaPlatba.castka', state.novaPlatba.castka, state)).toBe(undefined);
   expect(inputValid('novaPlatba.datum', state.novaPlatba.datum, state)).toBe(undefined);
-  expect(inputValid('novaPlatba.typ', state.novaPlatba.typ, state)).toEqual('success');
+  expect(inputValid('novaPlatba.typ', state.novaPlatba.typ, state)).toEqual(undefined);
   expect(inputValid('novaPlatba.poznamka', state.novaPlatba.poznamka, state)).toBe(undefined);
   expect(formValid(state)).toBe(true);
   expect(novaPlatbaValid(state)).toBe(true);
@@ -301,7 +301,7 @@ it('validation of the initial state [validateForm,validatePlatba === true]', () 
   );
   expect(inputValid('novaPlatba.castka', state.novaPlatba.castka, state)).toEqual('error');
   expect(inputValid('novaPlatba.datum', state.novaPlatba.datum, state)).toEqual('error');
-  expect(inputValid('novaPlatba.typ', state.novaPlatba.typ, state)).toEqual('success');
+  expect(inputValid('novaPlatba.typ', state.novaPlatba.typ, state)).toEqual(undefined);
   expect(inputValid('novaPlatba.poznamka', state.novaPlatba.poznamka, state)).toBe(undefined);
   expect(formValid(state)).toBe(false);
   expect(novaPlatbaValid(state)).toBe(false);
@@ -361,7 +361,7 @@ it('validation of some invalid state [validateForm,validatePlatba === false]', (
   );
   expect(inputValid('novaPlatba.castka', state.novaPlatba.castka, state)).toEqual('success');
   expect(inputValid('novaPlatba.datum', state.novaPlatba.datum, state)).toEqual('error');
-  expect(inputValid('novaPlatba.typ', state.novaPlatba.typ, state)).toEqual('success');
+  expect(inputValid('novaPlatba.typ', state.novaPlatba.typ, state)).toEqual(undefined);
   expect(inputValid('novaPlatba.poznamka', state.novaPlatba.poznamka, state)).toBe(undefined);
   expect(formValid(state)).toBe(false);
   expect(novaPlatbaValid(state)).toBe(false);

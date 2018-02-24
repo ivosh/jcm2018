@@ -259,7 +259,7 @@ export const inputValid = (name, value, prihlaskyForm) => {
       if (value === undefined && !prihlaskyForm.validatePlatba) {
         return undefined;
       }
-      return PLATBA_TYPY.includes(value) ? 'success' : 'error';
+      return PLATBA_TYPY.includes(value) ? undefined : 'error';
     default:
       return 'error';
   }
