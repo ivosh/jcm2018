@@ -80,7 +80,7 @@ const handleErrors = (dispatch, response) => {
 };
 
 export const hideModal = () => ({ type: 'PRIHLASKY_SAVE_HIDE_MODAL' });
-const showModal = () => ({ type: 'PRIHLASKY_SAVE_SHOW_MODAL' });
+export const showModal = () => ({ type: 'PRIHLASKY_SAVE_SHOW_MODAL' });
 const showModalWithTimeout = dispatch => {
   dispatch(showModal());
   setTimeout(() => dispatch(hideModal()), PRIHLASKY_SAVE_MODAL_TIMEOUT);

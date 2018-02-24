@@ -4,13 +4,15 @@ import { predepsaneStartovne } from '../../platby';
 import {
   addPlatba,
   hideError,
+  hideModal,
   inputChanged,
   loadUcastnik,
   removePlatba,
   reset,
   saveUcastRequest,
   saveUcastSuccess,
-  saveUcastError
+  saveUcastError,
+  showModal
 } from './PrihlaskyFormActions';
 import prihlaskyFormReducer, {
   formatValue,
@@ -153,6 +155,26 @@ it('reset()', () => {
   expect(prihlaskyFormReducer(stateBefore, reset())).toEqual(stateAfter);
 });
 
+it('hideModal()', () => {
+  const stateBefore = {
+    saved: true
+  };
+  const stateAfter = { ...stateBefore, saved: false };
+  deepFreeze(stateBefore);
+
+  expect(prihlaskyFormReducer(stateBefore, hideModal())).toEqual(stateAfter);
+});
+
+it('showModal()', () => {
+  const stateBefore = {
+    saved: false
+  };
+  const stateAfter = { ...stateBefore, saved: true };
+  deepFreeze(stateBefore);
+
+  expect(prihlaskyFormReducer(stateBefore, showModal())).toEqual(stateAfter);
+});
+
 it('saveUcastRequest()', () => {
   const stateBefore = { saving: false };
   const stateAfter = { ...stateBefore, saving: true };
@@ -243,6 +265,7 @@ it('validation of the initial state [validateForm,validatePlatba === false]', ()
   expect(inputValid('novaPlatba.datum', state.novaPlatba.datum, state)).toBe(undefined);
   expect(inputValid('novaPlatba.typ', state.novaPlatba.typ, state)).toEqual(undefined);
   expect(inputValid('novaPlatba.poznamka', state.novaPlatba.poznamka, state)).toBe(undefined);
+  expect(inputValid('complete.nonsense', 'huh', state)).toBe('error');
   expect(formValid(state)).toBe(true);
   expect(novaPlatbaValid(state)).toBe(true);
   expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
