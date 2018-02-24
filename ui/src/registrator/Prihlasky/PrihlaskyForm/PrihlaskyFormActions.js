@@ -5,13 +5,6 @@ import { formValid, novaPlatbaValid } from './prihlaskyFormReducer';
 
 export const hideError = () => ({ type: 'PRIHLASKY_HIDE_ERROR' });
 
-export const inputChanged = (name, event) => ({
-  type: 'PRIHLASKY_INPUT_CHANGED',
-  name,
-  id: event.target.id,
-  value: event.target.value
-});
-
 export const reset = () => ({
   type: 'PRIHLASKY_RESET'
 });

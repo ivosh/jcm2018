@@ -1,8 +1,13 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Input from './Input';
-import { inputChanged } from './PrihlaskyFormActions';
-import { formatValue, inputOptions, inputValid, isInputEnabled } from './prihlaskyFormReducer';
+import { inputChanged } from './InputActions';
+import {
+  formatValue,
+  inputOptions,
+  inputValid,
+  isInputEnabled
+} from '../PrihlaskyForm/prihlaskyFormReducer';
 
 const mapStateToProps = state => ({
   prihlaskyForm: state.registrator.prihlasky.form,

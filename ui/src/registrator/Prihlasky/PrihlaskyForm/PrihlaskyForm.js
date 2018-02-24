@@ -5,10 +5,10 @@ import HideableError from '../../../shared/HideableError';
 import LoadingButton from '../../../shared/LoadingButton';
 import PopisekKategorie from '../../../shared/Popisek/PopisekKategorie';
 import PopisekPohlavi from '../../../shared/Popisek/PopisekPohlavi';
-import InputContainer from './InputContainer';
+import InputContainer from '../Input/InputContainer';
+import RadioInput from '../Input/RadioInput';
+import TextInput from '../Input/TextInput';
 import PlatbyContainer from './PlatbyContainer';
-import RadioInput from './RadioInput';
-import TextInput from './TextInput';
 import './PrihlaskyForm.css';
 
 class PrihlaskyForm extends PureComponent {

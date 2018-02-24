@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Glyphicon, Panel } from 'react-bootstrap';
-import InputContainer from './InputContainer';
-import SelectInput from './SelectInput';
-import TextInput from './TextInput';
+import InputContainer from '../Input/InputContainer';
+import SelectInput from '../Input/SelectInput';
+import TextInput from '../Input/TextInput';
 import './NovaPlatba.css';
 
 const NovaPlatba = ({ startIndex, inputRef, onAdd }) => {

@@ -1,11 +1,11 @@
 import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import { predepsaneStartovne } from '../../platby';
+import { inputChanged } from '../Input/InputActions';
 import {
   addPlatba,
   hideError,
   hideModal,
-  inputChanged,
   loadUcastnik,
   removePlatba,
   reset,
