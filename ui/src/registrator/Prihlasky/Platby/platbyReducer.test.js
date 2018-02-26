@@ -2,8 +2,6 @@ import deepFreeze from 'deep-freeze';
 import { reset } from './PlatbyActions';
 import platbyReducer, { inputValid, novaPlatbaValid } from './platbyReducer';
 
-const actionPrefix = 'NOVA_PLATBA';
-
 it('na začátku', () => {
   const stateBefore = undefined;
 

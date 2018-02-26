@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Input from './Input';
-import { inputChanged } from './InputActions';
 
 const mapStateToProps = state => ({
   rocniky: state.entities.rocniky
@@ -13,7 +12,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { rocniky } = stateProps;
   const { dispatch } = dispatchProps;
   const {
-    actionPrefix,
     form,
     index,
     inline,
@@ -23,6 +21,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     Formatter,
     Type,
     formatValue,
+    inputChanged,
     inputRef,
     inputOptions,
     inputValid,
@@ -40,14 +39,13 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     validationState: inputValid(name, rawValue, form),
     value: formatValue(name, rawValue),
     inputRef: ref => inputRef(index, ref),
-    onChange: event => dispatch(inputChanged(actionPrefix, name, event))
+    onChange: event => dispatch(inputChanged(name, event))
   };
 };
 
 const InputContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(Input);
 
 InputContainer.propTypes = {
-  actionPrefix: PropTypes.string.isRequired,
   form: PropTypes.object.isRequired,
   index: PropTypes.number.isRequired,
   inline: PropTypes.bool,
@@ -57,6 +55,7 @@ InputContainer.propTypes = {
   Formatter: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]),
   Type: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]).isRequired,
   formatValue: PropTypes.func.isRequired,
+  inputChanged: PropTypes.func.isRequired,
   inputRef: PropTypes.func.isRequired,
   inputOptions: PropTypes.func.isRequired,
   inputValid: PropTypes.func.isRequired,

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import InputContainer from '../Input/InputContainer';
+import { inputChanged } from './PrihlaskyFormActions';
 import { formatValue, inputOptions, inputValid, isInputEnabled } from './prihlaskyFormReducer';
 
 const mapStateToProps = state => ({
@@ -14,7 +15,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const rawValue = form[section][subName];
 
   return {
-    actionPrefix: 'PRIHLASKY',
     form,
     index,
     inline,
@@ -24,6 +24,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     Formatter,
     Type,
     formatValue,
+    inputChanged,
     inputOptions,
     inputValid,
     isInputEnabled,

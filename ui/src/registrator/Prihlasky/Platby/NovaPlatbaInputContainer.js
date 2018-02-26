@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import InputContainer from '../Input/InputContainer';
+import { inputChanged } from './PlatbyActions';
 import { formatValue, inputOptions, inputValid, isInputEnabled } from './platbyReducer';
 
 const mapStateToProps = state => ({
@@ -14,7 +15,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const rawValue = form[subName];
 
   return {
-    actionPrefix: 'NOVA_PLATBA',
     form,
     index,
     inline,
@@ -24,6 +24,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     Formatter,
     Type,
     formatValue,
+    inputChanged,
     inputOptions,
     inputValid,
     isInputEnabled,

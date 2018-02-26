@@ -30,7 +30,10 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   onHideError: () => dispatch(hideError()),
   onHideModal: () => dispatch(hideModal()),
-  onReset: () => {dispatch(resetForm()); dispatch(resetNovaPlatba())},
+  onReset: () => {
+    dispatch(resetForm());
+    dispatch(resetNovaPlatba());
+  },
   onSubmit: () => dispatch(saveUcast()),
   dispatch
 });

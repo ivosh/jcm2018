@@ -1,11 +1,11 @@
 import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import { predepsaneStartovne } from '../../platby';
-import { inputChanged } from '../Input/InputActions';
 import { addPlatba, removePlatba } from '../Platby/PlatbyActions';
 import {
   hideError,
   hideModal,
+  inputChanged,
   loadUcastnik,
   reset,
   saveUcastRequest,
@@ -20,8 +20,6 @@ import prihlaskyFormReducer, {
   inputValid,
   isInputEnabled
 } from './prihlaskyFormReducer';
-
-const actionPrefix = 'PRIHLASKY';
 
 const unsuccessfulResponse = {
   code: 'neexistuje',
@@ -422,7 +420,7 @@ it('udaje.pohlavi - nahodí ženu', () => {
   expect(
     prihlaskyFormReducer(
       stateBefore,
-      inputChanged(actionPrefix, 'udaje.prijmeni', { target: { value: 'Sukdoláková' } })
+      inputChanged('udaje.prijmeni', { target: { value: 'Sukdoláková' } })
     )
   ).toEqual(stateAfter);
 });
@@ -435,7 +433,7 @@ it('udaje.pohlavi - už nahodí ženu', () => {
   expect(
     prihlaskyFormReducer(
       stateBefore,
-      inputChanged(actionPrefix, 'udaje.prijmeni', { target: { value: 'Malová' } })
+      inputChanged('udaje.prijmeni', { target: { value: 'Malová' } })
     )
   ).toEqual(stateAfter);
 });
@@ -452,10 +450,7 @@ it('udaje.narozeni - prázdné', () => {
   };
 
   expect(
-    prihlaskyFormReducer(
-      stateBefore,
-      inputChanged(actionPrefix, 'udaje.narozeni', { target: { value: '' } })
-    )
+    prihlaskyFormReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '' } }))
   ).toEqual(stateAfter);
   expect(inputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toBe(undefined);
   expect(inputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual('error');
@@ -473,10 +468,7 @@ it('udaje.narozeni - neúplné', () => {
   };
 
   expect(
-    prihlaskyFormReducer(
-      stateBefore,
-      inputChanged(actionPrefix, 'udaje.narozeni', { target: { value: '1. ' } })
-    )
+    prihlaskyFormReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '1. ' } }))
   ).toEqual(stateAfter);
   expect(inputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toBe(undefined);
   expect(inputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual('error');
@@ -494,10 +486,7 @@ it('udaje.narozeni - jen rok', () => {
   };
 
   expect(
-    prihlaskyFormReducer(
-      stateBefore,
-      inputChanged(actionPrefix, 'udaje.narozeni', { target: { value: '1978' } })
-    )
+    prihlaskyFormReducer(stateBefore, inputChanged('udaje.narozeni', { target: { value: '1978' } }))
   ).toEqual(stateAfter);
   expect(inputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toEqual('error');
   expect(inputValid('udaje.narozeni', stateAfter.udaje.narozeni, stateAfter)).toEqual('warning');
@@ -517,7 +506,7 @@ it('udaje.narozeni - celé', () => {
   expect(
     prihlaskyFormReducer(
       stateBefore,
-      inputChanged(actionPrefix, 'udaje.narozeni', { target: { value: '1.7.1967' } })
+      inputChanged('udaje.narozeni', { target: { value: '1.7.1967' } })
     )
   ).toEqual(stateAfter);
   expect(inputValid('udaje.narozeni', stateBefore.udaje.narozeni, stateBefore)).toEqual('error');
@@ -532,7 +521,7 @@ it('prihlaska.datum - neúplné', () => {
   expect(
     prihlaskyFormReducer(
       stateBefore,
-      inputChanged(actionPrefix, 'prihlaska.datum', { target: { value: '1. 7. 201' } })
+      inputChanged('prihlaska.datum', { target: { value: '1. 7. 201' } })
     )
   ).toEqual(stateAfter);
   expect(inputValid('prihlaska.datum', stateAfter.prihlaska.datum, stateAfter)).toEqual('error');
@@ -546,7 +535,7 @@ it('prihlaska.datum - formát 1', () => {
   expect(
     prihlaskyFormReducer(
       stateBefore,
-      inputChanged(actionPrefix, 'prihlaska.datum', { target: { value: '1. 7. 2017' } })
+      inputChanged('prihlaska.datum', { target: { value: '1. 7. 2017' } })
     )
   ).toEqual(stateAfter);
   expect(inputValid('prihlaska.datum', stateAfter.prihlaska.datum, stateAfter)).toEqual('success');
@@ -561,7 +550,7 @@ it('prihlaska.datum - formát 2', () => {
   expect(
     prihlaskyFormReducer(
       stateBefore,
-      inputChanged(actionPrefix, 'prihlaska.datum', { target: { value: '1.7.2017' } })
+      inputChanged('prihlaska.datum', { target: { value: '1.7.2017' } })
     )
   ).toEqual(stateAfter);
   expect(inputValid('prihlaska.datum', stateAfter.prihlaska.datum, stateAfter)).toEqual('success');
@@ -668,7 +657,7 @@ it('prihlaska.typ - nahodí též kategorie', () => {
   expect(
     prihlaskyFormReducer(
       stateBefore,
-      inputChanged(actionPrefix, 'prihlaska.typ', { target: { value: 'maraton', id: '===id===' } })
+      inputChanged('prihlaska.typ', { target: { value: 'maraton', id: '===id===' } })
     )
   ).toEqual(stateAfter);
 });

@@ -1,7 +1,10 @@
 import { CODE_OK, CODE_TOKEN_INVALID, savePlatby, savePrihlaska, saveUdaje } from '../../../common';
 import { AKTUALNI_ROK, PRIHLASKY_SAVE_MODAL_TIMEOUT } from '../../../constants';
 import { authTokenExpired } from '../../../auth/SignIn/SignInActions';
+import { inputChanged as genericInputChanged } from '../Input/InputActions';
 import { formValid } from './prihlaskyFormReducer';
+
+export const inputChanged = (name, event) => genericInputChanged('PRIHLASKY', name, event);
 
 export const hideError = () => ({ type: 'PRIHLASKY_HIDE_ERROR' });
 

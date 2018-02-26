@@ -1,4 +1,7 @@
+import { inputChanged as genericInputChanged } from '../Input/InputActions';
 import { novaPlatbaValid } from './platbyReducer';
+
+export const inputChanged = (name, event) => genericInputChanged('NOVA_PLATBA', name, event);
 
 export const addPlatba = ({ castka, datum, typ, poznamka }) => ({
   type: 'PRIHLASKY_ADD_PLATBA',
