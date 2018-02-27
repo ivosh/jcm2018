@@ -25,7 +25,8 @@ const store = mockStore({
       },
       platby: {
         novaPlatbaMinified: true
-      }
+      },
+      startCislo: { showing: false }
     }
   }
 });

@@ -84,6 +84,9 @@ Object {
         "typ": "hotově",
         "validate": false,
       },
+      "startCislo": Object {
+        "showing": false,
+      },
     },
     "startujici": Object {
       "odstartovani": false,
@@ -183,6 +186,9 @@ Object {
         "typ": "hotově",
         "validate": false,
       },
+      "startCislo": Object {
+        "showing": false,
+      },
     },
     "startujici": Object {
       "odstartovani": false,
@@ -281,6 +287,9 @@ Object {
         "poznamka": undefined,
         "typ": "hotově",
         "validate": false,
+      },
+      "startCislo": Object {
+        "showing": false,
       },
     },
     "startujici": Object {

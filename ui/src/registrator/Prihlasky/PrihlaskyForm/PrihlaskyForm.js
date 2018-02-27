@@ -6,6 +6,7 @@ import LoadingButton from '../../../shared/LoadingButton';
 import PopisekKategorie from '../../../shared/Popisek/PopisekKategorie';
 import PopisekPohlavi from '../../../shared/Popisek/PopisekPohlavi';
 import RadioInput from '../Input/RadioInput';
+import StartCisloInputContainer from '../StartCislo/StartCisloInputContainer';
 import TextInput from '../Input/TextInput';
 import PlatbyContainer from '../Platby/PlatbyContainer';
 import PrihlaskyFormInputContainer from './PrihlaskyFormInputContainer';
@@ -197,7 +198,7 @@ class PrihlaskyForm extends PureComponent {
                   inputRef={this.inputRef}
                   name="prihlaska.startCislo"
                   popisek="číslo"
-                  Type={TextInput}
+                  Type={StartCisloInputContainer}
                 />
                 <PrihlaskyFormInputContainer
                   index={14}

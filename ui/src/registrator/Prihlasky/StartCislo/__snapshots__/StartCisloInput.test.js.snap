@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders disabled 1`] = `
+<React.Fragment>
+  <TextInput
+    enabled={false}
+    inputRef={[Function]}
+    onChange={[Function]}
+    value=""
+  />
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsStyle="info"
+    disabled={true}
+    onClick={[Function]}
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="plus"
+    />
+     Vybrat
+  </Button>
+</React.Fragment>
+`;
+
+exports[`renders not showing 1`] = `
+<React.Fragment>
+  <TextInput
+    enabled={true}
+    inputRef={[Function]}
+    onChange={[Function]}
+    value="10"
+  />
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsStyle="info"
+    disabled={false}
+    onClick={[Function]}
+  >
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="plus"
+    />
+     Vybrat
+  </Button>
+</React.Fragment>
+`;
+
+exports[`renders showing 1`] = `
+<React.Fragment>
+  <TextInput
+    enabled={true}
+    inputRef={[Function]}
+    onChange={[Function]}
+    value="10"
+  />
+  <Modal
+    animation={true}
+    autoFocus={true}
+    backdrop={true}
+    bsClass="modal"
+    bsSize="small"
+    dialogComponentClass={[Function]}
+    enforceFocus={true}
+    keyboard={true}
+    manager={
+      ModalManager {
+        "add": [Function],
+        "containers": Array [],
+        "data": Array [],
+        "handleContainerOverflow": true,
+        "hideSiblingNodes": true,
+        "isTopModal": [Function],
+        "modals": Array [],
+        "remove": [Function],
+      }
+    }
+    onHide={[Function]}
+    renderBackdrop={[Function]}
+    restoreFocus={true}
+    show={true}
+  >
+    <ModalHeader
+      bsClass="modal-header"
+      closeButton={true}
+      closeLabel="Close"
+    >
+      <ModalTitle
+        bsClass="modal-title"
+        componentClass="h4"
+      >
+        Výběr startovního čísla
+      </ModalTitle>
+    </ModalHeader>
+    <ModalBody
+      bsClass="modal-body"
+      componentClass="div"
+    >
+      :TODO:
+    </ModalBody>
+    <ModalFooter
+      bsClass="modal-footer"
+      componentClass="div"
+    >
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="primary"
+        disabled={false}
+        onClick={[Function]}
+      >
+        Zavřít
+      </Button>
+    </ModalFooter>
+  </Modal>
+</React.Fragment>
+`;

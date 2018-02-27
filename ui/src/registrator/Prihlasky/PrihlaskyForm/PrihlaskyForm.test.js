@@ -25,7 +25,8 @@ const state = {
       },
       platby: {
         novaPlatbaMinified: true
-      }
+      },
+      startCislo: { showing: false }
     }
   }
 };
