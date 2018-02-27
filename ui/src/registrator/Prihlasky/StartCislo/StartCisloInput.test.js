@@ -8,10 +8,12 @@ it('renders not showing', () => {
     <StartCisloInput
       enabled={true}
       showing={false}
+      typ="maraton"
       value="10"
       inputRef={jest.fn()}
       onChange={jest.fn()}
       onHide={jest.fn()}
+      onSelect={jest.fn()}
       onShow={jest.fn()}
     />
   );
@@ -23,10 +25,12 @@ it('renders showing', () => {
     <StartCisloInput
       enabled={true}
       showing={true}
+      typ="půlmaraton"
       value="10"
       inputRef={jest.fn()}
       onChange={jest.fn()}
       onHide={jest.fn()}
+      onSelect={jest.fn()}
       onShow={jest.fn()}
     />
   );
@@ -38,10 +42,12 @@ it('renders disabled', () => {
     <StartCisloInput
       enabled={false}
       showing={false}
+      typ="cyklo"
       value=""
       inputRef={jest.fn()}
       onChange={jest.fn()}
       onHide={jest.fn()}
+      onSelect={jest.fn()}
       onShow={jest.fn()}
     />
   );

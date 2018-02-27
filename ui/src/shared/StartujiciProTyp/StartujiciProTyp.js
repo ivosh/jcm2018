@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import momentPropTypes from 'react-moment-proptypes';
 import './StartujiciProTyp.css';
 
-const StartujiciProTyp = ({ startujici, renderer }) => (
-  <div className="StartujiciProTyp-grid">{startujici.map(jeden => renderer({ ...jeden }))}</div>
+const StartujiciProTyp = ({ startujici, renderer, ...rest }) => (
+  <div className="StartujiciProTyp-grid">
+    {startujici.map(jeden => renderer({ ...jeden, ...rest }))}
+  </div>
 );
 
 StartujiciProTyp.propTypes = {

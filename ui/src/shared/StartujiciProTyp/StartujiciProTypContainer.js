@@ -5,13 +5,14 @@ import StartujiciProTyp from './StartujiciProTyp';
 
 const mapStateToProps = (state, ownProps) => {
   const { entities } = state;
-  const { jenStartujici, odstartovani, typ, renderer } = ownProps;
+  const { jenStartujici, odstartovani, typ, renderer, ...restOwnProps } = ownProps;
 
   return {
     startujici: jenStartujici
       ? getStartujiciProTyp({ odstartovani, typ, ...entities })
       : getStartCislaProTyp({ odstartovani, typ, ...entities }),
-    renderer
+    renderer,
+    ...restOwnProps
   };
 };
 

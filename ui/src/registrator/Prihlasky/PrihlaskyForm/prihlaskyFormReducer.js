@@ -83,6 +83,9 @@ const prihlaskyFormReducer = (state = initialState, action) => {
           // eslint-disable-next-line no-param-reassign
           state = { ...state, prihlaska: { ...state.prihlaska, kategorie: action.id } };
           break;
+        case 'prihlaska.startCislo':
+          value = parseInt(action.value, 10);
+          break;
         default:
           break;
       }

@@ -8,6 +8,69 @@ exports[`renders disabled 1`] = `
     onChange={[Function]}
     value=""
   />
+  <Modal
+    animation={true}
+    autoFocus={true}
+    backdrop={true}
+    bsClass="modal"
+    bsSize="large"
+    dialogComponentClass={[Function]}
+    enforceFocus={true}
+    keyboard={true}
+    manager={
+      ModalManager {
+        "add": [Function],
+        "containers": Array [],
+        "data": Array [],
+        "handleContainerOverflow": true,
+        "hideSiblingNodes": true,
+        "isTopModal": [Function],
+        "modals": Array [],
+        "remove": [Function],
+      }
+    }
+    onHide={[Function]}
+    renderBackdrop={[Function]}
+    restoreFocus={true}
+    show={false}
+  >
+    <ModalHeader
+      bsClass="modal-header"
+      closeButton={true}
+      closeLabel="Close"
+    >
+      <ModalTitle
+        bsClass="modal-title"
+        componentClass="h4"
+      >
+        Výběr startovního čísla
+      </ModalTitle>
+    </ModalHeader>
+    <ModalBody
+      bsClass="modal-body"
+      componentClass="div"
+    >
+      <VyberStartCislo
+        onSelect={[Function]}
+        typ="cyklo"
+      />
+    </ModalBody>
+    <ModalFooter
+      bsClass="modal-footer"
+      componentClass="div"
+    >
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="primary"
+        disabled={false}
+        onClick={[Function]}
+      >
+        Zavřít
+      </Button>
+    </ModalFooter>
+  </Modal>
   <Button
     active={false}
     block={false}
@@ -33,6 +96,69 @@ exports[`renders not showing 1`] = `
     onChange={[Function]}
     value="10"
   />
+  <Modal
+    animation={true}
+    autoFocus={true}
+    backdrop={true}
+    bsClass="modal"
+    bsSize="large"
+    dialogComponentClass={[Function]}
+    enforceFocus={true}
+    keyboard={true}
+    manager={
+      ModalManager {
+        "add": [Function],
+        "containers": Array [],
+        "data": Array [],
+        "handleContainerOverflow": true,
+        "hideSiblingNodes": true,
+        "isTopModal": [Function],
+        "modals": Array [],
+        "remove": [Function],
+      }
+    }
+    onHide={[Function]}
+    renderBackdrop={[Function]}
+    restoreFocus={true}
+    show={false}
+  >
+    <ModalHeader
+      bsClass="modal-header"
+      closeButton={true}
+      closeLabel="Close"
+    >
+      <ModalTitle
+        bsClass="modal-title"
+        componentClass="h4"
+      >
+        Výběr startovního čísla
+      </ModalTitle>
+    </ModalHeader>
+    <ModalBody
+      bsClass="modal-body"
+      componentClass="div"
+    >
+      <VyberStartCislo
+        onSelect={[Function]}
+        typ="maraton"
+      />
+    </ModalBody>
+    <ModalFooter
+      bsClass="modal-footer"
+      componentClass="div"
+    >
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="primary"
+        disabled={false}
+        onClick={[Function]}
+      >
+        Zavřít
+      </Button>
+    </ModalFooter>
+  </Modal>
   <Button
     active={false}
     block={false}
@@ -63,7 +189,7 @@ exports[`renders showing 1`] = `
     autoFocus={true}
     backdrop={true}
     bsClass="modal"
-    bsSize="small"
+    bsSize="large"
     dialogComponentClass={[Function]}
     enforceFocus={true}
     keyboard={true}
@@ -100,7 +226,10 @@ exports[`renders showing 1`] = `
       bsClass="modal-body"
       componentClass="div"
     >
-      :TODO:
+      <VyberStartCislo
+        onSelect={[Function]}
+        typ="půlmaraton"
+      />
     </ModalBody>
     <ModalFooter
       bsClass="modal-footer"

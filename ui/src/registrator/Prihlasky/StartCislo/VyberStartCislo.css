@@ -1,0 +1,10 @@
+.VyberStartCislo-zabrane {
+  background-color: #868686;
+  color: black;
+}
+
+.VyberStartCislo-volne {
+  background-color: #0e7235;
+  color: white;
+  cursor: pointer;
+}
