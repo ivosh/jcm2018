@@ -55,7 +55,7 @@ export const inputValid = (name, value, novaPlatba) => {
       if (value === undefined && !novaPlatba.validate) {
         return undefined;
       }
-      return PLATBA_TYPY.includes(value) ? undefined : 'error';
+      return PLATBA_TYPY.includes(value) ? 'success' : 'error';
     default:
       return 'error';
   }

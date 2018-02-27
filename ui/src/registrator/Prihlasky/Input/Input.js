@@ -8,6 +8,7 @@ const Input = ({
   name,
   popisek,
   options,
+  showFeedback = true,
   validationState,
   value,
   Type,
@@ -29,7 +30,7 @@ const Input = ({
         onChange={onChange}
         {...rest}
       />
-      <FormControl.Feedback className="Input_feedback" />
+      {showFeedback && <FormControl.Feedback className="Input_feedback" />}
     </Col>
   </FormGroup>
 );
@@ -45,6 +46,7 @@ Input.propTypes = {
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired
     })
   ), // for RadioInput
+  showFeedback: PropTypes.bool,
   validationState: PropTypes.string,
   value: PropTypes.string,
   Type: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]).isRequired,

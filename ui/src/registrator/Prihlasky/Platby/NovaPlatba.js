@@ -38,6 +38,7 @@ const NovaPlatba = ({ showMinified, startIndex, inputRef, onAdd, onExpand }) => 
         index={index++}
         inputRef={inputRef}
         name="novaPlatba.typ"
+        showFeedback={false}
         popisek="jak?"
         Type={SelectInput}
       />

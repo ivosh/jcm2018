@@ -92,7 +92,7 @@ exports[`platby v mínusu 1`] = `
         </div>
       </div>
       <div
-        className="form-group has-feedback"
+        className="form-group"
       >
         <label
           className="col-sm-3 control-label"
@@ -458,7 +458,7 @@ exports[`platby v plusu, novaPlatba expanded 1`] = `
         </div>
       </div>
       <div
-        className="form-group has-feedback"
+        className="form-group"
       >
         <label
           className="col-sm-3 control-label"
