@@ -5,16 +5,15 @@ import './Input.css';
 
 const Input = ({
   enabled,
-  inline,
   name,
   popisek,
   options,
   validationState,
   value,
-  Formatter,
   Type,
   inputRef,
-  onChange
+  onChange,
+  ...rest
 }) => (
   <FormGroup controlId={name} validationState={validationState}>
     <Col componentClass={ControlLabel} sm={3}>
@@ -23,13 +22,12 @@ const Input = ({
     <Col sm={9}>
       <Type
         enabled={enabled}
-        inline={inline}
         name={name}
         options={options}
         value={value}
-        Formatter={Formatter}
         inputRef={inputRef}
         onChange={onChange}
+        {...rest}
       />
       <FormControl.Feedback className="Input_feedback" />
     </Col>
@@ -38,7 +36,6 @@ const Input = ({
 
 Input.propTypes = {
   enabled: PropTypes.bool.isRequired,
-  inline: PropTypes.bool,
   name: PropTypes.string.isRequired,
   popisek: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(
@@ -50,7 +47,6 @@ Input.propTypes = {
   ), // for RadioInput
   validationState: PropTypes.string,
   value: PropTypes.string,
-  Formatter: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]),
   Type: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]).isRequired,
   inputRef: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired
