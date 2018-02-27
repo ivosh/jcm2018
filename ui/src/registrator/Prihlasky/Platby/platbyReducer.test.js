@@ -1,5 +1,5 @@
 import deepFreeze from 'deep-freeze';
-import { reset } from './PlatbyActions';
+import { inputChanged, reset } from './PlatbyActions';
 import platbyReducer, { inputValid, novaPlatbaValid } from './platbyReducer';
 
 it('na začátku', () => {
@@ -102,4 +102,29 @@ it('validation of some invalid state [validate === true]', () => {
   expect(inputValid('novaPlatba.typ', state.typ, state)).toEqual('error');
   expect(inputValid('novaPlatba.poznamka', state.poznamka, state)).toBe(undefined);
   expect(novaPlatbaValid(state)).toBe(false);
+});
+
+it('novaPlatba.datum - neúplné', () => {
+  const stateBefore = { datum: undefined };
+  deepFreeze(stateBefore);
+  const stateAfter = { datum: '1. 7. 201' };
+
+  expect(
+    platbyReducer(stateBefore, inputChanged('novaPlatba.datum', { target: { value: '1. 7. 201' } }))
+  ).toEqual(stateAfter);
+  expect(inputValid('novaPlatba.datum', stateAfter.datum, stateAfter)).toEqual('error');
+});
+
+it('novaPlatba.datum - úplné', () => {
+  const stateBefore = { datum: '1. 7. 201' };
+  deepFreeze(stateBefore);
+  const stateAfter = { datum: '2017-07-01T00:00:00.000Z' };
+
+  expect(
+    platbyReducer(
+      stateBefore,
+      inputChanged('novaPlatba.datum', { target: { value: '1. 7. 2017' } })
+    )
+  ).toEqual(stateAfter);
+  expect(inputValid('novaPlatba.datum', stateAfter.datum, stateAfter)).toEqual('success');
 });
