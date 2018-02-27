@@ -277,6 +277,130 @@ exports[`platby v plusu 1`] = `
       </tr>
     </tbody>
   </table>
+  <button
+    className="btn btn-primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="glyphicon glyphicon-plus"
+    />
+     Nová platba
+  </button>
+</div>
+`;
+
+exports[`platby v plusu, novaPlatba expanded 1`] = `
+<div>
+  <div
+    className="Platby_paragraph"
+  >
+    Zaplaceno:
+     
+    <span
+      className="Platby_zaplaceno label label-success"
+    >
+      220
+       Kč
+    </span>
+  </div>
+  <div
+    className="Platby_paragraph"
+  >
+    <div>
+      Předepsané startovné:
+    </div>
+    <div>
+      <b>
+        200
+      </b>
+       Kč 
+      předem
+    </div>
+    <div>
+      <b>
+        20
+      </b>
+       Kč 
+      záloha
+    </div>
+  </div>
+  <table
+    className="table table-condensed"
+  >
+    <thead>
+      <tr>
+        <th>
+          částka
+        </th>
+        <th>
+          datum
+        </th>
+        <th>
+          jak?
+        </th>
+        <th>
+          pozn.
+        </th>
+        <th />
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          200
+           Kč
+        </td>
+        <td>
+          10. 12. 2017
+        </td>
+        <td>
+          převodem
+        </td>
+        <td>
+          stále visí
+        </td>
+        <td>
+          <button
+            className="btn btn-xs btn-danger"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <span
+              className="glyphicon glyphicon-remove"
+            />
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          20
+           Kč
+        </td>
+        <td>
+          11. 12. 2017
+        </td>
+        <td>
+          hotově
+        </td>
+        <td />
+        <td>
+          <button
+            className="btn btn-xs btn-danger"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <span
+              className="glyphicon glyphicon-remove"
+            />
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
   <div
     className="NovaPlatba panel panel-info"
     id={undefined}

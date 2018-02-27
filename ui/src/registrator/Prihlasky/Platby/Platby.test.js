@@ -45,11 +45,30 @@ it('platby v plusu', () => {
   const component = renderer.create(
     <Provider store={store}>
       <Platby
+        novaPlatbaMinified={true}
         startIndex={10}
         predepsano={predepsano220}
         provedeno={provedeno220}
         inputRef={jest.fn()}
         onAdd={jest.fn()}
+        onExpand={jest.fn()}
+      />
+    </Provider>
+  );
+  expect(component.toJSON()).toMatchSnapshot();
+});
+
+it('platby v plusu, novaPlatba expanded', () => {
+  const component = renderer.create(
+    <Provider store={store}>
+      <Platby
+        novaPlatbaMinified={false}
+        startIndex={10}
+        predepsano={predepsano220}
+        provedeno={provedeno220}
+        inputRef={jest.fn()}
+        onAdd={jest.fn()}
+        onExpand={jest.fn()}
       />
     </Provider>
   );
@@ -60,11 +79,13 @@ it('platby v mínusu', () => {
   const component = renderer.create(
     <Provider store={store}>
       <Platby
+        novaPlatbaMinified={false}
         startIndex={10}
         predepsano={predepsano220}
         provedeno={provedeno0}
         inputRef={jest.fn()}
         onAdd={jest.fn()}
+        onExpand={jest.fn()}
       />
     </Provider>
   );

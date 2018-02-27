@@ -6,41 +6,55 @@ import PlatbyContainer from './PlatbyContainer';
 
 const mockStore = configureStore();
 
+const state = {
+  ...ucastniciTestData,
+  registrator: {
+    prihlasky: {
+      form: {
+        validatePlatba: false,
+        prihlaska: { typ: 'cyklo' },
+        platby: [
+          {
+            castka: 200,
+            datum: '2018-05-01T00:00:00.000Z',
+            typ: 'převodem',
+            poznamka: 'stále visí'
+          },
+          { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
+        ]
+      },
+      platby: {
+        castka: 150,
+        datum: 'rozepsáno',
+        typ: 'složenkou',
+        poznamka: undefined,
+        novaPlatbaMinified: true
+      }
+    }
+  }
+};
+
 let store;
 let wrapper;
 beforeEach(() => {
-  const state = {
-    ...ucastniciTestData,
-    registrator: {
-      prihlasky: {
-        form: {
-          validatePlatba: false,
-          prihlaska: { typ: 'cyklo' },
-          platby: [
-            {
-              castka: 200,
-              datum: '2018-05-01T00:00:00.000Z',
-              typ: 'převodem',
-              poznamka: 'stále visí'
-            },
-            { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
-          ],
-          novaPlatba: {
-            castka: 150,
-            datum: 'rozepsáno',
-            typ: 'složenkou',
-            poznamka: undefined
-          }
-        }
-      }
-    }
-  };
   store = mockStore(state);
   store.dispatch = jest.fn();
   wrapper = shallow(<PlatbyContainer startIndex={10} store={store} inputRef={jest.fn()} />);
 });
 
 it('maps state and dispatch to props', () => {
+  expect(wrapper.props().novaPlatbaMinified).toBe(true);
+  expect(wrapper.props().predepsano).toMatchSnapshot();
+  expect(wrapper.props().provedeno).toMatchSnapshot();
+});
+
+it('nastav novaPlatbaMinified pokud provedeno < předepsáno', () => {
+  const state2 = JSON.parse(JSON.stringify(state)); // deep copy
+  state2.registrator.prihlasky.form.platby = state2.registrator.prihlasky.form.platby.slice(0, 1);
+  store = mockStore(state2);
+  wrapper = shallow(<PlatbyContainer startIndex={10} store={store} inputRef={jest.fn()} />);
+
+  expect(wrapper.props().novaPlatbaMinified).toBe(false);
   expect(wrapper.props().predepsano).toMatchSnapshot();
   expect(wrapper.props().provedeno).toMatchSnapshot();
 });
@@ -49,6 +63,12 @@ it('maps onAdd to dispatch addValidatedPlatba', () => {
   wrapper.props().onAdd();
 
   expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
+});
+
+it('maps onExpand to dispatch expandNovaPlatba', () => {
+  wrapper.props().onExpand();
+
+  expect(store.dispatch).toHaveBeenCalledWith({ type: 'NOVA_PLATBA_EXPAND' });
 });
 
 it('maps provedeno.platby[0].onRemove to dispatch removePlatba action', () => {

@@ -79,6 +79,7 @@ Object {
       "platby": Object {
         "castka": undefined,
         "datum": undefined,
+        "novaPlatbaMinified": true,
         "poznamka": undefined,
         "typ": "hotově",
         "validate": false,
@@ -177,6 +178,7 @@ Object {
       "platby": Object {
         "castka": undefined,
         "datum": undefined,
+        "novaPlatbaMinified": true,
         "poznamka": undefined,
         "typ": "hotově",
         "validate": false,
@@ -275,6 +277,7 @@ Object {
       "platby": Object {
         "castka": undefined,
         "datum": undefined,
+        "novaPlatbaMinified": true,
         "poznamka": undefined,
         "typ": "hotově",
         "validate": false,

@@ -7,6 +7,7 @@ const initialState = {
   datum: undefined,
   typ: PLATBA_TYPY[0],
   poznamka: undefined,
+  novaPlatbaMinified: true,
   validate: false
 };
 
@@ -25,6 +26,10 @@ const platbyReducer = (state = initialState, action) => {
       return initialState;
     case 'NOVA_PLATBA_VALIDATE':
       return { ...state, validate: true };
+    case 'NOVA_PLATBA_EXPAND':
+      return { ...state, novaPlatbaMinified: false };
+    case 'PRIHLASKY_ADD_PLATBA':
+      return { ...state, novaPlatbaMinified: true };
     default:
       return state;
   }

@@ -23,7 +23,9 @@ const store = mockStore({
         prihlaska: {},
         platby: []
       },
-      platby: {}
+      platby: {
+        novaPlatbaMinified: true
+      }
     }
   }
 });

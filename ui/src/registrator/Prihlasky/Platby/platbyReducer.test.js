@@ -1,5 +1,5 @@
 import deepFreeze from 'deep-freeze';
-import { inputChanged, reset } from './PlatbyActions';
+import { expandNovaPlatba, inputChanged, reset } from './PlatbyActions';
 import platbyReducer, { inputValid, novaPlatbaValid } from './platbyReducer';
 
 it('na začátku', () => {
@@ -11,6 +11,7 @@ it('na začátku', () => {
     datum: undefined,
     typ: 'hotově',
     poznamka: undefined,
+    novaPlatbaMinified: true,
     validate: false
   });
 });
@@ -21,6 +22,7 @@ it('reset()', () => {
     datum: undefined,
     typ: 'složenkou',
     poznamka: 'haha',
+    novaPlatbaMinified: false,
     validate: true
   };
   const stateAfter = {
@@ -28,6 +30,7 @@ it('reset()', () => {
     datum: undefined,
     typ: 'hotově',
     poznamka: undefined,
+    novaPlatbaMinified: true,
     validate: false
   };
   deepFreeze(stateBefore);
@@ -127,4 +130,12 @@ it('novaPlatba.datum - úplné', () => {
     )
   ).toEqual(stateAfter);
   expect(inputValid('novaPlatba.datum', stateAfter.datum, stateAfter)).toEqual('success');
+});
+
+it('novaPlatba.minified - expand', () => {
+  const stateBefore = { novaPlatbaMinified: true };
+  deepFreeze(stateBefore);
+  const stateAfter = { novaPlatbaMinified: false };
+
+  expect(platbyReducer(stateBefore, expandNovaPlatba())).toEqual(stateAfter);
 });

@@ -23,7 +23,9 @@ const state = {
         prihlaska: {},
         platby: []
       },
-      platby: {}
+      platby: {
+        novaPlatbaMinified: true
+      }
     }
   }
 };

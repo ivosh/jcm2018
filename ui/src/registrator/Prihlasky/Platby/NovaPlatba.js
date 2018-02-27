@@ -6,8 +6,16 @@ import TextInput from '../Input/TextInput';
 import NovaPlatbaInputContainer from './NovaPlatbaInputContainer';
 import './NovaPlatba.css';
 
-const NovaPlatba = ({ startIndex, inputRef, onAdd }) => {
+const NovaPlatba = ({ showMinified, startIndex, inputRef, onAdd, onExpand }) => {
   let index = startIndex;
+
+  if (showMinified) {
+    return (
+      <Button bsStyle="primary" onClick={onExpand}>
+        <Glyphicon glyph="plus" /> Nová platba
+      </Button>
+    );
+  }
 
   /* eslint-disable no-plusplus */
   return (
@@ -49,9 +57,11 @@ const NovaPlatba = ({ startIndex, inputRef, onAdd }) => {
 };
 
 NovaPlatba.propTypes = {
+  showMinified: PropTypes.bool,
   startIndex: PropTypes.number.isRequired,
   inputRef: PropTypes.func.isRequired,
-  onAdd: PropTypes.func.isRequired
+  onAdd: PropTypes.func.isRequired,
+  onExpand: PropTypes.func.isRequired
 };
 
 export default NovaPlatba;

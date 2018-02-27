@@ -29,3 +29,5 @@ export const addValidatedPlatba = () => async (dispatch, getState) => {
 };
 
 export const removePlatba = idx => ({ type: 'PRIHLASKY_REMOVE_PLATBA', idx });
+
+export const expandNovaPlatba = () => ({ type: 'NOVA_PLATBA_EXPAND' });

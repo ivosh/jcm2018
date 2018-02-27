@@ -36,3 +36,34 @@ Object {
   "suma": 220,
 }
 `;
+
+exports[`nastav novaPlatbaMinified pokud provedeno < předepsáno 1`] = `
+Object {
+  "polozky": Array [
+    Object {
+      "castka": 200,
+      "duvod": "předem",
+    },
+    Object {
+      "castka": 20,
+      "duvod": "záloha",
+    },
+  ],
+  "suma": 220,
+}
+`;
+
+exports[`nastav novaPlatbaMinified pokud provedeno < předepsáno 2`] = `
+Object {
+  "platby": Array [
+    Object {
+      "castka": 200,
+      "datum": "1. 5. 2018",
+      "onRemove": [Function],
+      "poznamka": "stále visí",
+      "typ": "převodem",
+    },
+  ],
+  "suma": 200,
+}
+`;

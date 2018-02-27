@@ -15,7 +15,15 @@ const zaplacenoStyle = (zaplaceno, predepsano) => {
   return 'danger';
 };
 
-const Platby = ({ predepsano, provedeno, startIndex, inputRef, onAdd }) => (
+const Platby = ({
+  novaPlatbaMinified,
+  predepsano,
+  provedeno,
+  startIndex,
+  inputRef,
+  onAdd,
+  onExpand
+}) => (
   <div>
     <div className="Platby_paragraph">
       Zaplaceno:{' '}
@@ -36,11 +44,18 @@ const Platby = ({ predepsano, provedeno, startIndex, inputRef, onAdd }) => (
     )}
 
     {provedeno.platby.length > 0 && <PlatbyTable platby={provedeno.platby} />}
-    <NovaPlatba startIndex={startIndex} inputRef={inputRef} onAdd={onAdd} />
+    <NovaPlatba
+      showMinified={novaPlatbaMinified}
+      startIndex={startIndex}
+      inputRef={inputRef}
+      onAdd={onAdd}
+      onExpand={onExpand}
+    />
   </div>
 );
 
 Platby.propTypes = {
+  novaPlatbaMinified: PropTypes.bool.isRequired,
   predepsano: PropTypes.shape({
     polozky: PropTypes.arrayOf(
       PropTypes.shape({
@@ -64,7 +79,8 @@ Platby.propTypes = {
   }).isRequired,
   startIndex: PropTypes.number.isRequired,
   inputRef: PropTypes.func.isRequired,
-  onAdd: PropTypes.func.isRequired
+  onAdd: PropTypes.func.isRequired,
+  onExpand: PropTypes.func.isRequired
 };
 
 export default Platby;
