@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renderer 1`] = `
+<div
+  className="StartujiciProTyp-grid"
+>
+  <div
+    className="StartujiciProTyp-item VyberStartCislo-zabrane"
+  >
+    7
+  </div>
+  <div
+    className="StartujiciProTyp-item VyberStartCislo-volne"
+    onClick={[Function]}
+  >
+    10
+  </div>
+</div>
+`;
+
+exports[`renders VyberStartCislo 1`] = `
+<Connect(StartujiciProTyp)
+  jenStartujici={false}
+  odstartovani={false}
+  onSelect={[Function]}
+  renderer={[Function]}
+  typ="koloběžka"
+/>
+`;
