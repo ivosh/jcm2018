@@ -52,7 +52,7 @@ export const narozeniToStr = narozeni => {
 /* ---------------------------------------------------------------------------------------------- */
 
 export const numberValid = (value, validate) => {
-  if (value === undefined && !validate) {
+  if ((value === undefined || value === '') && !validate) {
     return undefined;
   }
 

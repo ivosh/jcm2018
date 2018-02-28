@@ -326,7 +326,7 @@ it('validation of some invalid state [validate === false]', () => {
       datum: '1. 12. 2017',
       kategorie: undefined,
       typ: undefined,
-      startCislo: undefined,
+      startCislo: 'aha',
       kod: '===kód===',
       mladistvyPotvrzen: undefined
     },
@@ -348,7 +348,7 @@ it('validation of some invalid state [validate === false]', () => {
   expect(inputValid('prihlaska.datum', state.prihlaska.datum, state)).toEqual('success');
   expect(inputValid('prihlaska.kategorie', state.prihlaska.kategorie, state)).toBe(undefined);
   expect(inputValid('prihlaska.typ', state.prihlaska.typ, state)).toBe(undefined);
-  expect(inputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toBe(undefined);
+  expect(inputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toEqual('error');
   expect(inputValid('prihlaska.kod', state.prihlaska.kod, state)).toBe(undefined);
   expect(inputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)).toBe(
     undefined
@@ -379,7 +379,7 @@ it('validation of some invalid state [validate === true]', () => {
       datum: '1. 12. 2017',
       kategorie: undefined,
       typ: undefined,
-      startCislo: undefined,
+      startCislo: 'oho12',
       kod: '===kód===',
       mladistvyPotvrzen: undefined
     },
@@ -401,7 +401,7 @@ it('validation of some invalid state [validate === true]', () => {
   expect(inputValid('prihlaska.datum', state.prihlaska.datum, state)).toEqual('success');
   expect(inputValid('prihlaska.kategorie', state.prihlaska.kategorie, state)).toEqual('error');
   expect(inputValid('prihlaska.typ', state.prihlaska.typ, state)).toEqual('error');
-  expect(inputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toBe(undefined);
+  expect(inputValid('prihlaska.startCislo', state.prihlaska.startCislo, state)).toEqual('error');
   expect(inputValid('prihlaska.kod', state.prihlaska.kod, state)).toBe(undefined);
   expect(inputValid('prihlaska.mladistvyPotvrzen', state.prihlaska.mladistvyPotvrzen, state)).toBe(
     undefined
@@ -674,13 +674,11 @@ it('prihlaska.startCislo - kategorie má čísla', () => {
       }
     }
   };
+  const { form } = state.registrator.prihlasky;
 
-  expect(
-    isInputEnabled('prihlaska.startCislo', state.registrator.prihlasky.form, state.entities.rocniky)
-  ).toBe(true);
-  expect(
-    formatValue('prihlaska.startCislo', state.registrator.prihlasky.form.prihlaska.startCislo)
-  ).toEqual('45');
+  expect(isInputEnabled('prihlaska.startCislo', form, state.entities.rocniky)).toBe(true);
+  expect(formatValue('prihlaska.startCislo', form.prihlaska.startCislo)).toEqual('45');
+  expect(inputValid('prihlaska.startCislo', form.prihlaska.startCislo, form)).toEqual('success');
 });
 
 it('prihlaska.startCislo - kategorie nemá čísla', () => {
@@ -695,13 +693,27 @@ it('prihlaska.startCislo - kategorie nemá čísla', () => {
       }
     }
   };
+  const { form } = state.registrator.prihlasky;
+
+  expect(isInputEnabled('prihlaska.startCislo', form, state.entities.rocniky)).toBe(false);
+  expect(formatValue('prihlaska.startCislo', form.prihlaska.startCislo)).toEqual('');
+  expect(inputValid('prihlaska.startCislo', form.prihlaska.startCislo, form)).toBe(undefined);
+});
+
+it('prihlaska.startCislo - vymazání', () => {
+  const stateBefore = { prihlaska: { startCislo: 43 } };
+  deepFreeze(stateBefore);
+  const stateAfter = { prihlaska: { startCislo: undefined } };
 
   expect(
-    isInputEnabled('prihlaska.startCislo', state.registrator.prihlasky.form, state.entities.rocniky)
-  ).toBe(false);
-  expect(
-    formatValue('prihlaska.startCislo', state.registrator.prihlasky.form.prihlaska.startCislo)
-  ).toEqual('');
+    prihlaskyFormReducer(
+      stateBefore,
+      inputChanged('prihlaska.startCislo', { target: { value: '' } })
+    )
+  ).toEqual(stateAfter);
+  expect(inputValid('prihlaska.startCislo', stateAfter.prihlaska.startCislo, stateAfter)).toBe(
+    undefined
+  );
 });
 
 it('loadUcastnik() - údaje i přihláška', () => {

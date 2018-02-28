@@ -1,7 +1,13 @@
 import moment from 'moment';
 import { findKategorie, CODE_OK } from '../../../common';
 import { AKTUALNI_ROK, TYPY_KATEGORII } from '../../../constants';
-import { datumValid, narozeniToStr, parseDatum, validDatumFormats } from '../../../Util';
+import {
+  datumValid,
+  narozeniToStr,
+  numberValid,
+  parseDatum,
+  validDatumFormats
+} from '../../../Util';
 import { getTypKategorie } from '../../../entities/rocniky/rocnikyReducer';
 
 const initialState = {
@@ -84,7 +90,14 @@ const prihlaskyFormReducer = (state = initialState, action) => {
           state = { ...state, prihlaska: { ...state.prihlaska, kategorie: action.id } };
           break;
         case 'prihlaska.startCislo':
-          value = parseInt(action.value, 10);
+          if (action.value === '') {
+            value = undefined;
+          } else {
+            value = parseInt(action.value, 10);
+            if (Number.isNaN(value)) {
+              ({ value } = action);
+            }
+          }
           break;
         default:
           break;
@@ -195,7 +208,6 @@ export const inputValid = (name, value, prihlaskyForm) => {
     case 'udaje.klub':
     case 'udaje.email':
     case 'udaje.telefon':
-    case 'prihlaska.startCislo': // Může nechat nevyplněné, doplní se později.
     case 'prihlaska.kod':
     case 'prihlaska.mladistvyPotvrzen':
       return undefined;
@@ -215,6 +227,8 @@ export const inputValid = (name, value, prihlaskyForm) => {
         return undefined;
       }
       return datumValid(value) ? 'success' : 'error';
+    case 'prihlaska.startCislo':
+      return numberValid(value, false); // Může nechat nevyplněné, doplní později.
     default:
       return 'error';
   }
