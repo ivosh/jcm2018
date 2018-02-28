@@ -3,17 +3,28 @@
 const util = require('util');
 const logger = require('heroku-logger');
 const Actions = require('../../../common/common');
+const Ucastnik = require('../../model/Ucastnik/Ucastnik');
 const findAllRocniky = require('../Rocnik/findAllRocniky');
 const createUcast = require('./createUcast');
 
 const deepPrint = obj => util.inspect(obj, false, null);
+
+const findUcasti = async ({ rok, startCislo, typ }) => {
+  const ucastnici = await Ucastnik.find(
+    { 'ucasti.rok': rok, 'ucasti.prihlaska.startCislo': startCislo },
+    { ucasti: { $elemMatch: { rok } } }
+  ).populate({
+    path: 'ucasti.prihlaska.kategorie'
+  });
+
+  return ucastnici.filter(ucastnik => ucastnik.ucasti[0].prihlaska.kategorie.typ === typ);
+};
 
 const savePrihlaska = async ({ request }) => {
   const { id, rok, prihlaska } = request;
 
   // :TODO: zkontrolovat mladistveho
   // :TODO: zkontrolovat vyplnene cele narozeni pokud je vybrana kategorie vek.presne
-  // :TODO: startovní číslo?
 
   const responseRocniky = await findAllRocniky();
   if (responseRocniky.code !== Actions.CODE_OK) {
@@ -65,6 +76,23 @@ const savePrihlaska = async ({ request }) => {
   delete prihlaska.typ;
   if (!rocniky[rok].kategorie[typ].startCisla) {
     delete prihlaska.startCislo;
+  }
+
+  if (prihlaska.startCislo) {
+    const kandidati = await findUcasti({
+      rok,
+      startCislo: prihlaska.startCislo,
+      typ
+    });
+    if (kandidati.length > 1 || (kandidati.length === 1 && kandidati[0].id !== id)) {
+      const { jmeno, prijmeni } = kandidati[0].ucasti[0].udaje;
+      return {
+        code: Actions.CODE_DUPLICIT_START_CISLO,
+        status: `Startovní číslo ${
+          prihlaska.startCislo
+        } je již obsazené v kategorii ${typ} účastníkem: ${prijmeni} ${jmeno}`
+      };
+    }
   }
 
   ucast.prihlaska = prihlaska;

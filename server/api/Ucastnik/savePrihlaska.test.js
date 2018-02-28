@@ -86,6 +86,12 @@ beforeAll(async () => {
     startCisla: { rozsahy: ['1-100'] },
     startovne: { predem: 150, naMiste: 200 }
   });
+  rocnik3.kategorie.push({
+    typ: 'půlmaraton',
+    kategorie: [kategorie3.id, kategorie4.id, kategorie5.id],
+    startCisla: { rozsahy: ['1-100'] },
+    startovne: { predem: 150, naMiste: 200 }
+  });
   rocnik3.ubytovani.push({ den: 'pátek', poplatek: 50 });
   rocnik3.ubytovani.push({ den: 'sobota', poplatek: 60 });
   await rocnik3.save();
@@ -264,6 +270,135 @@ it('přepiš existující přihlášku', async () => {
   ucastnici[0].ucasti[1].prihlaska.kategorie._id = '===k2===';
   ucastnici[0].ucasti[2].prihlaska.kategorie._id = '===k3===';
   ucastnici[0].ucasti[3].prihlaska.kategorie._id = '===k4===';
+  expect(ucastnici).toMatchSnapshot();
+
+  await Ucastnik.collection.drop();
+});
+
+const setup = async () => {
+  const ucastnik1 = new Ucastnik();
+  ucastnik1.ucasti.push({
+    rok: 2018,
+    udaje: {
+      prijmeni: 'Sukdoláková',
+      jmeno: 'Božena',
+      narozeni: { rok: 1967 },
+      pohlavi: 'žena',
+      obec: 'Kladno Rozdělov',
+      psc: '327 41'
+    },
+    prihlaska: {
+      datum: new Date('2018-05-03Z'),
+      kategorie: kategorie4.id, // půlmaraton
+      startCislo: 7,
+      kod: '===kod1==='
+    }
+  });
+  await ucastnik1.save();
+
+  const ucastnik2 = new Ucastnik();
+  const udaje2 = {
+    prijmeni: 'Balabák',
+    jmeno: 'František',
+    narozeni: { rok: 1953 },
+    pohlavi: 'muž',
+    obec: 'Ostrava 1'
+  };
+  const prihlaska2 = {
+    datum: new Date('2018-02-07Z'),
+    kategorie: kategorie5.id, // půlmaraton
+    startCislo: 15,
+    kod: '===kod2==='
+  };
+  ucastnik2.ucasti.push({ rok: 2018, udaje: udaje2, prihlaska: prihlaska2 });
+  ucastnik2.ucasti.push({
+    rok: 2017,
+    udaje: udaje2,
+    prihlaska: { ...prihlaska2, datum: new Date('2017-04-02') }
+  });
+  await ucastnik2.save();
+
+  const ucastnik3 = new Ucastnik();
+  ucastnik3.ucasti.push({
+    rok: 2018,
+    udaje: {
+      prijmeni: 'Moulová',
+      jmeno: 'Milena',
+      narozeni: { den: 6, mesic: 5, rok: 1973 },
+      pohlavi: 'žena',
+      obec: 'Nusle'
+    },
+    prihlaska: {
+      datum: new Date('2018-02-07Z'),
+      kategorie: kategorie1.id, // maraton
+      startCislo: 8,
+      kod: '===kod3==='
+    }
+  });
+  await ucastnik3.save();
+
+  return [ucastnik2.id, prihlaska2];
+};
+
+it('ulož startovní číslo - sám sebe', async () => {
+  const [id2, prihlaska2] = await setup();
+  const { requestId, ...response } = await wsClient.sendRequest(
+    Actions.savePrihlaska({ id: id2, rok: 2018, prihlaska: prihlaska2 }, generateTestToken())
+  );
+
+  expect(response.code).toEqual('ok'); // sám sebe musí projít
+  expect(response).toMatchSnapshot();
+
+  const ucastnici = await Ucastnik.find({}, { _id: 0 })
+    .populate('ucasti.prihlaska.kategorie')
+    .lean();
+  ucastnici[0].ucasti[0].prihlaska.kategorie._id = '===k1===';
+  ucastnici[1].ucasti[0].prihlaska.kategorie._id = '===k2===';
+  ucastnici[2].ucasti[0].prihlaska.kategorie._id = '===k3===';
+  expect(ucastnici).toMatchSnapshot();
+
+  await Ucastnik.collection.drop();
+});
+
+it('ulož startovní číslo - startovní číslo obsazené v jiné kategorii', async () => {
+  const [id2, prihlaska2] = await setup();
+  const { requestId, ...response } = await wsClient.sendRequest(
+    Actions.savePrihlaska(
+      { id: id2, rok: 2018, prihlaska: { ...prihlaska2, startCislo: 8 } },
+      generateTestToken()
+    )
+  );
+  expect(response.code).toEqual('ok'); // 8 je obsazeno v jiném typu kategorie, musí projít
+  expect(response).toMatchSnapshot();
+
+  const ucastnici = await Ucastnik.find({}, { _id: 0 })
+    .populate('ucasti.prihlaska.kategorie')
+    .lean();
+  ucastnici[0].ucasti[0].prihlaska.kategorie._id = '===k1===';
+  ucastnici[1].ucasti[0].prihlaska.kategorie._id = '===k2===';
+  ucastnici[2].ucasti[0].prihlaska.kategorie._id = '===k3===';
+  expect(ucastnici).toMatchSnapshot();
+
+  await Ucastnik.collection.drop();
+});
+
+it('ulož startovní číslo - duplicitní v kategorii', async () => {
+  const [id2, prihlaska2] = await setup();
+  const { requestId, ...response } = await wsClient.sendRequest(
+    Actions.savePrihlaska(
+      { id: id2, rok: 2018, prihlaska: { ...prihlaska2, startCislo: 7 } },
+      generateTestToken()
+    )
+  );
+  expect(response.code).not.toEqual('ok'); // nesmí projít
+  expect(response).toMatchSnapshot();
+
+  const ucastnici = await Ucastnik.find({}, { _id: 0 })
+    .populate('ucasti.prihlaska.kategorie')
+    .lean();
+  ucastnici[0].ucasti[0].prihlaska.kategorie._id = '===k1===';
+  ucastnici[1].ucasti[0].prihlaska.kategorie._id = '===k2===';
+  ucastnici[2].ucasti[0].prihlaska.kategorie._id = '===k3===';
   expect(ucastnici).toMatchSnapshot();
 
   await Ucastnik.collection.drop();
