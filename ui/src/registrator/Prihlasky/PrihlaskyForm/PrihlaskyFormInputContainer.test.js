@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import TextInput from '../Input/TextInput';
+import StartCisloInputContainer from '../StartCislo/StartCisloInputContainer';
 import PrihlaskyFormInputContainer from './PrihlaskyFormInputContainer';
 
 const mockStore = configureStore();
@@ -131,4 +132,70 @@ it('maps state to props - narození - celé', () => {
   expect(wrapper.props().popisek).toEqual('narození');
   expect(wrapper.props().value).toEqual('1. 6. 1981');
   expect(wrapper.props().validationState).toEqual('success');
+});
+
+it('maps state to props - startCislo ok', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      prihlasky: {
+        form: {
+          validate: false,
+          prihlaska: { typ: 'půlmaraton', startCislo: 11 }
+        },
+        startCislo: { showing: false }
+      }
+    }
+  };
+  store = mockStore(state);
+  const component = mount(
+    <Provider store={store}>
+      <PrihlaskyFormInputContainer
+        index={13}
+        name="prihlaska.startCislo"
+        popisek="číslo"
+        Type={StartCisloInputContainer}
+        inputRef={jest.fn()}
+      />
+    </Provider>
+  );
+  wrapper = component.find('Input');
+
+  expect(wrapper.props().name).toEqual('prihlaska.startCislo');
+  expect(wrapper.props().popisek).toEqual('číslo');
+  expect(wrapper.props().value).toEqual('11');
+  expect(wrapper.props().validationState).toEqual('success');
+});
+
+it('maps state to props - startCislo duplicitní', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      prihlasky: {
+        form: {
+          validate: false,
+          prihlaska: { typ: 'půlmaraton', startCislo: 10 }
+        },
+        startCislo: { showing: false }
+      }
+    }
+  };
+  store = mockStore(state);
+  const component = mount(
+    <Provider store={store}>
+      <PrihlaskyFormInputContainer
+        index={13}
+        name="prihlaska.startCislo"
+        popisek="číslo"
+        Type={StartCisloInputContainer}
+        inputRef={jest.fn()}
+      />
+    </Provider>
+  );
+  wrapper = component.find('Input');
+
+  expect(wrapper.props().name).toEqual('prihlaska.startCislo');
+  expect(wrapper.props().popisek).toEqual('číslo');
+  expect(wrapper.props().value).toEqual('10');
+  expect(wrapper.props().validationState).toEqual('warning');
 });

@@ -1,7 +1,11 @@
 import deepFreeze from 'deep-freeze';
 import moment from 'moment';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
-import { getStartCislaProTyp, getStartujiciProTyp } from './startujiciProTypReducer';
+import {
+  getStartCislaProTyp,
+  getStartujiciProTyp,
+  isStartCisloTaken
+} from './startujiciProTypReducer';
 
 const state = JSON.parse(JSON.stringify(ucastniciTestData)); // deep copy
 state.entities.rocniky.byRoky[2013].kategorie.maraton.startCisla.rozsahy = ['10-15', '23', '35-36'];
@@ -83,6 +87,24 @@ it('getStartujiciProTyp - přihlášky 2013', () => {
   expect(
     getStartujiciProTyp({ rok: 2013, typ: 'maraton', odstartovani: false, ...state.entities })
   ).toEqual(selected);
+  expect(
+    isStartCisloTaken({
+      odstartovani: false,
+      rok: 2013,
+      typ: 'maraton',
+      startCislo: 10,
+      ...state.entities
+    })
+  ).toBe(true);
+  expect(
+    isStartCisloTaken({
+      odstartovani: false,
+      rok: 2013,
+      typ: 'maraton',
+      startCislo: 11,
+      ...state.entities
+    })
+  ).toBe(false);
 });
 
 it('getStartujiciProTyp - výkony 2013', () => {
@@ -94,6 +116,24 @@ it('getStartujiciProTyp - výkony 2013', () => {
   expect(
     getStartujiciProTyp({ rok: 2013, typ: 'maraton', odstartovani: true, ...state.entities })
   ).toEqual(selected);
+  expect(
+    isStartCisloTaken({
+      odstartovani: true,
+      rok: 2013,
+      typ: 'maraton',
+      startCislo: 12,
+      ...state.entities
+    })
+  ).toBe(true);
+  expect(
+    isStartCisloTaken({
+      odstartovani: true,
+      rok: 2013,
+      typ: 'maraton',
+      startCislo: 11,
+      ...state.entities
+    })
+  ).toBe(false);
 });
 
 it('getStartujiciProTyp - přihlášky 2018', () => {

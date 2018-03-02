@@ -40,6 +40,18 @@ export const getStartujiciProTyp = ({
   return results.sort((a, b) => a.startCislo - b.startCislo);
 };
 
+export const isStartCisloTaken = ({
+  odstartovani,
+  rok = AKTUALNI_ROK,
+  startCislo,
+  typ,
+  kategorie,
+  ucastnici
+}) =>
+  !!getStartujiciProTyp({ odstartovani, rok, typ, kategorie, ucastnici }).find(
+    startujici => startujici.startCislo === startCislo
+  );
+
 const populateRange = (start, end) => {
   if (end >= start) {
     return Array(end - start + 1)
