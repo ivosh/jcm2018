@@ -7,7 +7,7 @@ const Rocnik = require('./Rocnik/Rocnik');
 const Ucastnik = require('./Ucastnik/Ucastnik');
 
 beforeAll(async () => {
-  await db.dropDatabase();
+  await db.connect();
 });
 
 afterAll(async () => {
@@ -33,9 +33,6 @@ it('naimportuj ročník', async () => {
     .populate('kategorie.kategorie', { _id: 0 })
     .lean();
   expect(rocniky).toMatchSnapshot();
-
-  await Rocnik.collection.drop();
-  await Kategorie.collection.drop();
 });
 
 it('naimportuj dva ročníky', async () => {
@@ -138,9 +135,6 @@ it('naimportuj dva ročníky', async () => {
 
   const kategorie = await Kategorie.find({}, { _id: 0 }).lean();
   expect(kategorie.length).toEqual(30);
-
-  await Rocnik.collection.drop();
-  await Kategorie.collection.drop();
 });
 
 it('naimportuj všechny ročníky', async () => {
@@ -678,9 +672,6 @@ it('naimportuj všechny ročníky', async () => {
     expect(elements).toHaveLength(1);
   });
   expect(kategorie.length).toEqual(39);
-
-  await Rocnik.collection.drop();
-  await Kategorie.collection.drop();
 });
 
 it('naimportuj účastníka', async () => {

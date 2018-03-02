@@ -7,7 +7,11 @@ const User = require('./User');
 const ONE_DAY = 24 * 60 * 60 * 1000;
 
 beforeAll(async () => {
-  await db.dropDatabase();
+  await db.connect();
+});
+
+beforeEach(async () => {
+  await db.dropCollection(User);
 });
 
 afterAll(async () => {
@@ -28,8 +32,6 @@ it('vytvoř uživatele', async () => {
   await user.save();
 
   await usersMatchSnapshot();
-
-  await User.collection.drop();
 });
 
 it('vytvoř uživatele s prázdným heslem', async () => {
@@ -47,8 +49,6 @@ it('ověř heslo uživatele napřímo', async () => {
 
   const isMatch2 = await user1.comparePassword('jcm2017');
   expect(isMatch2).toBe(false);
-
-  await User.collection.drop();
 });
 
 it('autentizuj uživatele úspěšně', async () => {
@@ -59,8 +59,6 @@ it('autentizuj uživatele úspěšně', async () => {
   expect(code).toEqual({ code: codes.CODE_OK });
 
   await usersMatchSnapshot();
-
-  await User.collection.drop();
 });
 
 it('autentizuj neexistujícího uživatele', async () => {
@@ -69,8 +67,6 @@ it('autentizuj neexistujícího uživatele', async () => {
 
   const code = await User.authenticate('tom', 'jcm2018');
   expect(code).toEqual({ code: codes.CODE_NONEXISTING });
-
-  await User.collection.drop();
 });
 
 it('autentizuj uživatele neúspěšně', async () => {
@@ -81,8 +77,6 @@ it('autentizuj uživatele neúspěšně', async () => {
   expect(code).toEqual({ code: codes.CODE_PASSWORD_INCORRECT });
 
   await usersMatchSnapshot();
-
-  await User.collection.drop();
 });
 
 const authAttempt = async () => {
@@ -103,8 +97,6 @@ it('autentizuj uživatele neúspěšně až se zamkne', async () => {
   expect(code).toEqual({ code: codes.CODE_MAX_LOGIN_ATTEMPTS });
 
   await usersMatchSnapshot();
-
-  await User.collection.drop();
 });
 
 it('autentizuj zamknutého uživatele úspěšně', async () => {
@@ -121,8 +113,6 @@ it('autentizuj zamknutého uživatele úspěšně', async () => {
   expect(code).toEqual({ code: codes.CODE_OK });
 
   await usersMatchSnapshot();
-
-  await User.collection.drop();
 });
 
 it('autentizuj zamknutého uživatele neúspěšně', async () => {
@@ -139,8 +129,6 @@ it('autentizuj zamknutého uživatele neúspěšně', async () => {
   expect(code).toEqual({ code: codes.CODE_PASSWORD_INCORRECT });
 
   await usersMatchSnapshot();
-
-  await User.collection.drop();
 });
 
 it('vytvoř a změň uživatele', async () => {
@@ -155,6 +143,4 @@ it('vytvoř a změň uživatele', async () => {
   await usersMatchSnapshot();
   // Password hashes should remain equal.
   expect(password1).toEqual(password2);
-
-  await User.collection.drop();
 });

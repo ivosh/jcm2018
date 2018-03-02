@@ -5,7 +5,12 @@ const Kategorie = require('../Kategorie/Kategorie');
 const Ucastnik = require('./Ucastnik');
 
 beforeAll(async () => {
-  await db.dropDatabase();
+  await db.connect();
+});
+
+beforeEach(async () => {
+  await db.dropCollection(Kategorie);
+  await db.dropCollection(Ucastnik);
 });
 
 afterAll(async () => {
@@ -34,8 +39,6 @@ it('vytvoř účastníka s minimální účastí', async () => {
 
   const ucastnici = await Ucastnik.find({}, { _id: 0 });
   expect(ucastnici).toMatchSnapshot();
-
-  await Ucastnik.collection.drop();
 });
 
 it('přihlaš účastníka', async () => {
@@ -78,9 +81,6 @@ it('přihlaš účastníka', async () => {
     _id: 0
   });
   expect(ucastnici).toMatchSnapshot();
-
-  await Kategorie.collection.drop();
-  await Ucastnik.collection.drop();
 });
 
 it('účastník zaplatil ubytování', async () => {
@@ -105,6 +105,4 @@ it('účastník zaplatil ubytování', async () => {
 
   const ucastnici = await Ucastnik.find({}, { _id: 0 });
   expect(ucastnici).toMatchSnapshot();
-
-  await Ucastnik.collection.drop();
 });

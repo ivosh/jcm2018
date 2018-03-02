@@ -15,7 +15,11 @@ beforeAll(async () => {
   wsServer.httpServer().listen(port);
   await wsClient.open();
 
-  await db.dropDatabase();
+  await db.connect();
+});
+
+beforeEach(async () => {
+  await db.dropCollection(Ucastnik);
 });
 
 afterAll(async () => {
@@ -43,8 +47,6 @@ it('vytvoř minimálního účastníka', async () => {
 
   const ucastnici = await Ucastnik.find({}, { _id: 0, __v: 0 });
   expect(ucastnici).toMatchSnapshot();
-
-  await Ucastnik.collection.drop();
 });
 
 it('vytvoř dvě účasti', async () => {
@@ -71,8 +73,6 @@ it('vytvoř dvě účasti', async () => {
 
   const ucastnici = await Ucastnik.find({}, { _id: 0, __v: 0 });
   expect(ucastnici).toMatchSnapshot();
-
-  await Ucastnik.collection.drop();
 });
 
 it('přepiš existující účast', async () => {
@@ -112,8 +112,6 @@ it('přepiš existující účast', async () => {
 
   const ucastnici = await Ucastnik.find({}, { _id: 0, __v: 0 });
   expect(ucastnici).toMatchSnapshot();
-
-  await Ucastnik.collection.drop();
 });
 
 it('účastník neexistuje', async () => {

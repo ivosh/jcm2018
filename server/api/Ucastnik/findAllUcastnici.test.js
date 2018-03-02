@@ -16,11 +16,16 @@ beforeAll(async () => {
   wsServer.httpServer().listen(port);
   await wsClient.open();
 
-  await db.dropDatabase();
+  await db.connect();
+  await db.dropCollection(Kategorie);
 
   const kategorie1 = new Kategorie({ typ: 'maraton', pohlavi: 'žena', vek: { min: 18, max: 60 } });
   const kategorie2 = new Kategorie({ typ: 'maraton', pohlavi: 'muž', vek: { min: 18, max: 60 } });
   await Promise.all([kategorie1.save(), kategorie2.save()]);
+});
+
+beforeEach(async () => {
+  await db.dropCollection(Ucastnik);
 });
 
 afterAll(async () => {
@@ -114,8 +119,6 @@ it('findAllUcastnici', async () => {
     status,
     response: { id1: response[ids[0]], id2: response[ids[1]] }
   }).toMatchSnapshot();
-
-  await Ucastnik.collection.drop();
 });
 
 it('findAllUcastnici [not authenticated]', async () => {

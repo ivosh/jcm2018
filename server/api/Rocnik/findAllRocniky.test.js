@@ -16,7 +16,12 @@ beforeAll(async () => {
   wsServer.httpServer().listen(port);
   await wsClient.open();
 
-  await db.dropDatabase();
+  await db.connect();
+});
+
+beforeEach(async () => {
+  await db.dropCollection(Kategorie);
+  await db.dropCollection(Rocnik);
 });
 
 afterAll(async () => {
@@ -127,9 +132,6 @@ it('findAllRocniky', async () => {
   checkAndReplaceId(rocniky[2018].kategorie['pěší'], ids);
 
   expect(response).toMatchSnapshot();
-
-  await Kategorie.collection.drop();
-  await Rocnik.collection.drop();
 });
 
 it('findAllRocniky [not authenticated]', async () => {

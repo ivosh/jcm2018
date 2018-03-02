@@ -17,7 +17,11 @@ beforeAll(async () => {
   wsServer.httpServer().listen(port);
   await wsClient.open();
 
-  await db.dropDatabase();
+  await db.connect();
+});
+
+beforeEach(async () => {
+  await db.dropCollection(User);
 });
 
 afterAll(async () => {
@@ -42,8 +46,6 @@ it('signIn successfully', async () => {
 
   response.response.token = '===token===';
   expect(response).toMatchSnapshot();
-
-  await User.collection.drop();
 });
 
 it('signIn unsuccessfully (špatné heslo)', async () => {
@@ -54,8 +56,6 @@ it('signIn unsuccessfully (špatné heslo)', async () => {
     Actions.signIn('tumáš', 'jcm2017', 'ab87cxf')
   );
   expect(response).toMatchSnapshot();
-
-  await User.collection.drop();
 });
 
 it('signIn unsuccessfully (špatný uživatel)', async () => {
@@ -66,8 +66,6 @@ it('signIn unsuccessfully (špatný uživatel)', async () => {
     Actions.signIn('tomáš', 'jcm2018', '29cms4487')
   );
   expect(response).toMatchSnapshot();
-
-  await User.collection.drop();
 });
 
 it('signIn unsuccessfully (zamčený uživatel)', async () => {
@@ -85,6 +83,4 @@ it('signIn unsuccessfully (zamčený uživatel)', async () => {
     Actions.signIn('tumáš', 'jcm2018', '75z7wax')
   );
   expect(response).toMatchSnapshot();
-
-  await User.collection.drop();
 });

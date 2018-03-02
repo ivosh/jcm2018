@@ -22,7 +22,9 @@ beforeAll(async () => {
   wsServer.httpServer().listen(port);
   await wsClient.open();
 
-  await db.dropDatabase();
+  await db.connect();
+  await db.dropCollection(Kategorie);
+  await db.dropCollection(Rocnik);
 
   kategorie1 = new Kategorie({
     typ: 'maraton',
@@ -118,10 +120,11 @@ beforeAll(async () => {
   await rocnik4.save();
 });
 
-afterAll(async () => {
-  await Kategorie.collection.drop();
-  await Rocnik.collection.drop();
+beforeEach(async () => {
+  await db.dropCollection(Ucastnik);
+});
 
+afterAll(async () => {
   await wsClient.close();
   wsServer.httpServer().close();
 
@@ -158,8 +161,6 @@ it('vytvoř minimálního účastníka', async () => {
     .lean();
   ucastnici[0].ucasti[0].prihlaska.kategorie._id = '===k1===';
   expect(ucastnici).toMatchSnapshot();
-
-  await Ucastnik.collection.drop();
 });
 
 it('vytvoř dvě účasti s přihláškami', async () => {
@@ -217,8 +218,6 @@ it('vytvoř dvě účasti s přihláškami', async () => {
   ucastnici[0].ucasti[0].prihlaska.kategorie._id = '===k1===';
   ucastnici[0].ucasti[1].prihlaska.kategorie._id = '===k2===';
   expect(ucastnici).toMatchSnapshot();
-
-  await Ucastnik.collection.drop();
 });
 
 it('přepiš existující přihlášku', async () => {
@@ -271,8 +270,6 @@ it('přepiš existující přihlášku', async () => {
   ucastnici[0].ucasti[2].prihlaska.kategorie._id = '===k3===';
   ucastnici[0].ucasti[3].prihlaska.kategorie._id = '===k4===';
   expect(ucastnici).toMatchSnapshot();
-
-  await Ucastnik.collection.drop();
 });
 
 const setup = async () => {
@@ -356,8 +353,6 @@ it('ulož startovní číslo - sám sebe', async () => {
   ucastnici[1].ucasti[0].prihlaska.kategorie._id = '===k2===';
   ucastnici[2].ucasti[0].prihlaska.kategorie._id = '===k3===';
   expect(ucastnici).toMatchSnapshot();
-
-  await Ucastnik.collection.drop();
 });
 
 it('ulož startovní číslo - startovní číslo obsazené v jiné kategorii', async () => {
@@ -378,8 +373,6 @@ it('ulož startovní číslo - startovní číslo obsazené v jiné kategorii', 
   ucastnici[1].ucasti[0].prihlaska.kategorie._id = '===k2===';
   ucastnici[2].ucasti[0].prihlaska.kategorie._id = '===k3===';
   expect(ucastnici).toMatchSnapshot();
-
-  await Ucastnik.collection.drop();
 });
 
 it('ulož startovní číslo - duplicitní v kategorii', async () => {
@@ -400,8 +393,6 @@ it('ulož startovní číslo - duplicitní v kategorii', async () => {
   ucastnici[1].ucasti[0].prihlaska.kategorie._id = '===k2===';
   ucastnici[2].ucasti[0].prihlaska.kategorie._id = '===k3===';
   expect(ucastnici).toMatchSnapshot();
-
-  await Ucastnik.collection.drop();
 });
 
 it('přihláška na pěší', async () => {
@@ -436,8 +427,6 @@ it('přihláška na pěší', async () => {
     .lean();
   ucastnici[0].ucasti[0].prihlaska.kategorie._id = '===k1===';
   expect(ucastnici).toMatchSnapshot();
-
-  await Ucastnik.collection.drop();
 });
 
 it('účastník neexistuje', async () => {
@@ -480,8 +469,6 @@ it('kategorie neexistuje', async () => {
     Actions.savePrihlaska({ id, rok: 2018, prihlaska }, generateTestToken())
   );
   expect(response).toMatchSnapshot();
-
-  await Ucastnik.collection.drop();
 });
 
 it('chybná kategorie (věk)', async () => {
@@ -510,8 +497,6 @@ it('chybná kategorie (věk)', async () => {
   );
   response.status = response.status.replace(/[a-f\d]{24}/g, '==id==');
   expect(response).toMatchSnapshot();
-
-  await Ucastnik.collection.drop();
 });
 
 it('savePrihlaska [not authenticated]', async () => {

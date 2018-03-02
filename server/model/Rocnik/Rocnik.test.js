@@ -5,7 +5,12 @@ const Kategorie = require('../Kategorie/Kategorie');
 const Rocnik = require('./Rocnik');
 
 beforeAll(async () => {
-  await db.dropDatabase();
+  await db.connect();
+});
+
+beforeEach(async () => {
+  await db.dropCollection(Kategorie);
+  await db.dropCollection(Rocnik);
 });
 
 afterAll(async () => {
@@ -31,8 +36,6 @@ it('vytvoř ročník s jednou kategorií', async () => {
 
   const rocniky = await Rocnik.find({}, { _id: 0 }).populate('kategorie.kategorie', { _id: 0 });
   expect(rocniky).toMatchSnapshot();
-
-  await Rocnik.collection.drop();
 });
 
 it('vytvoř ročník s ubytováním', async () => {
@@ -62,6 +65,4 @@ it('vytvoř ročník s ubytováním', async () => {
 
   const rocniky = await Rocnik.find({}, { _id: 0 }).populate('kategorie.kategorie', { _id: 0 });
   expect(rocniky).toMatchSnapshot();
-
-  await Rocnik.collection.drop();
 });

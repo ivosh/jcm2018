@@ -14,7 +14,11 @@ beforeAll(async () => {
   wsServer.httpServer().listen(port);
   await wsClient.open();
 
-  await db.dropDatabase();
+  await db.connect();
+});
+
+beforeEach(async () => {
+  await db.dropCollection(User);
 });
 
 afterAll(async () => {
@@ -36,8 +40,6 @@ it('signOut successfully', async () => {
 
   ({ requestId, ...response } = await wsClient.sendRequest(Actions.signOut(token)));
   expect(response.response).toMatchSnapshot();
-
-  await User.collection.drop();
 });
 
 it('signOut unsuccessful (bogus token)', async () => {
