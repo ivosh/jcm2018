@@ -140,8 +140,9 @@ it('maps state to props - startCislo ok', () => {
     registrator: {
       prihlasky: {
         form: {
+          ucastnikId: '7a09b1fd371dec1e99b7e142',
           validate: false,
-          prihlaska: { typ: 'půlmaraton', startCislo: 11 }
+          prihlaska: { typ: 'půlmaraton', startCislo: 10 }
         },
         startCislo: { showing: false }
       }
@@ -163,7 +164,7 @@ it('maps state to props - startCislo ok', () => {
 
   expect(wrapper.props().name).toEqual('prihlaska.startCislo');
   expect(wrapper.props().popisek).toEqual('číslo');
-  expect(wrapper.props().value).toEqual('11');
+  expect(wrapper.props().value).toEqual('10');
   expect(wrapper.props().validationState).toEqual('success');
 });
 
@@ -173,6 +174,7 @@ it('maps state to props - startCislo duplicitní', () => {
     registrator: {
       prihlasky: {
         form: {
+          ucastnikId: '6f09b1fd371dec1e99b7e1c9',
           validate: false,
           prihlaska: { typ: 'půlmaraton', startCislo: 10 }
         },

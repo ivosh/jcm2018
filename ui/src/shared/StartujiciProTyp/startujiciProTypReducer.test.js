@@ -89,6 +89,7 @@ it('getStartujiciProTyp - přihlášky 2013', () => {
   ).toEqual(selected);
   expect(
     isStartCisloTaken({
+      id: 'id4',
       odstartovani: false,
       rok: 2013,
       typ: 'maraton',
@@ -98,6 +99,17 @@ it('getStartujiciProTyp - přihlášky 2013', () => {
   ).toBe(true);
   expect(
     isStartCisloTaken({
+      id: 'id2',
+      odstartovani: false,
+      rok: 2013,
+      typ: 'maraton',
+      startCislo: 10,
+      ...state.entities
+    })
+  ).toBe(false);
+  expect(
+    isStartCisloTaken({
+      id: 'id4',
       odstartovani: false,
       rok: 2013,
       typ: 'maraton',
@@ -118,6 +130,7 @@ it('getStartujiciProTyp - výkony 2013', () => {
   ).toEqual(selected);
   expect(
     isStartCisloTaken({
+      id: 'id4',
       odstartovani: true,
       rok: 2013,
       typ: 'maraton',
@@ -127,6 +140,17 @@ it('getStartujiciProTyp - výkony 2013', () => {
   ).toBe(true);
   expect(
     isStartCisloTaken({
+      id: 'id2',
+      odstartovani: true,
+      rok: 2013,
+      typ: 'maraton',
+      startCislo: 12,
+      ...state.entities
+    })
+  ).toBe(false);
+  expect(
+    isStartCisloTaken({
+      id: 'id4',
       odstartovani: true,
       rok: 2013,
       typ: 'maraton',

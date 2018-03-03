@@ -9,7 +9,14 @@ const startCisloValid = ({ typ, kategorie, ucastnici }) => (name, rawValue, form
   const validationState = inputValid(name, rawValue, form);
   if (validationState === 'success') {
     if (
-      isStartCisloTaken({ odstartovani: false, startCislo: rawValue, typ, kategorie, ucastnici })
+      isStartCisloTaken({
+        id: form.ucastnikId,
+        odstartovani: false,
+        startCislo: rawValue,
+        typ,
+        kategorie,
+        ucastnici
+      })
     ) {
       return 'warning';
     }

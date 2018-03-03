@@ -40,7 +40,9 @@ export const getStartujiciProTyp = ({
   return results.sort((a, b) => a.startCislo - b.startCislo);
 };
 
+// Looks for startCislo and also id (so that it won't mark itself).
 export const isStartCisloTaken = ({
+  id,
   odstartovani,
   rok = AKTUALNI_ROK,
   startCislo,
@@ -49,7 +51,7 @@ export const isStartCisloTaken = ({
   ucastnici
 }) =>
   !!getStartujiciProTyp({ odstartovani, rok, typ, kategorie, ucastnici }).find(
-    startujici => startujici.startCislo === startCislo
+    startujici => startujici.startCislo === startCislo && startujici.id !== id
   );
 
 const populateRange = (start, end) => {
