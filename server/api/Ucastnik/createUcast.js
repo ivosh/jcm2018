@@ -1,7 +1,7 @@
 'use strict';
 
-const logger = require('heroku-logger');
 const Actions = require('../../../common/common');
+const logger = require('../../logger');
 const Ucastnik = require('../../model/Ucastnik/Ucastnik');
 
 /* Creates účast and účastník if necessary. Returns {code, ucastnik: Ucastnik instance}. */
@@ -26,7 +26,8 @@ const createUcast = async ({ id, rok, udaje }) => {
       return { code: Actions.CODE_NONEXISTING, status: `Účastník s id ${id} neexistuje.` };
     }
 
-    logger.debug(`Účastník id ${id} found: ${ucastnik}`);
+    logger.debug(`Účastník id ${id} found.`);
+    logger.silly(`Účastník id ${id} found: ${ucastnik}`);
   }
 
   const existujiciUcast = ucastnik.ucasti.find(ucast => ucast.rok === rok);

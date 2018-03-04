@@ -1,10 +1,10 @@
 'use strict';
 
 const fs = require('async-file');
-const logger = require('heroku-logger');
 const http = require('http');
 const path = require('path');
 const url = require('url');
+const logger = require('./logger');
 
 const STATIC_ASSETS_PATH = '../ui/build';
 const INITIAL_FILE = 'index.html';
@@ -77,7 +77,7 @@ const streamFile = async (filename, response) => {
     responseAbend(response, message);
   });
 
-  logger.info(`Streaming file ${file} of size ${stats.size} with content type ${contentType}.`);
+  logger.verbose(`Streaming file ${file} of size ${stats.size} with content type ${contentType}.`);
   rs.pipe(response);
 
   return true;
@@ -97,7 +97,7 @@ const streamRequest = async (pathname, response) => {
 };
 
 const server = http.createServer((request, response) => {
-  logger.info(`HTTP request for ${request.url}.`);
+  logger.verbose(`HTTP request for ${request.url}.`);
 
   response.on('error', err => {
     const message = `Problem while writing HTTP response: ${err.message}`;

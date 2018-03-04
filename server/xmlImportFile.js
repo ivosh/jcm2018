@@ -5,8 +5,8 @@
        LOG_LEVEL=debug NODE_ENV={development,test,production} node ./server/xmlImportFile jcm.xml
 */
 
-const logger = require('heroku-logger');
 const db = require('./db');
+const logger = require('./logger');
 const importFromXML = require('./model/importFromXML');
 
 const file = process.argv[2] || '<no file specified>';

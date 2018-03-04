@@ -1,8 +1,8 @@
 'use strict';
 
-const logger = require('heroku-logger');
 const mongoose = require('mongoose');
 const config = require('./config');
+const logger = require('./logger');
 
 /* Use native ES6 promises. */
 mongoose.Promise = global.Promise;

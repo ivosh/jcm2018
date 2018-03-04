@@ -1,7 +1,7 @@
 'use strict';
 
-const logger = require('heroku-logger');
 const Actions = require('../../../common/common');
+const logger = require('../../logger');
 const createUcast = require('./createUcast');
 
 const savePlatby = async ({ request }) => {

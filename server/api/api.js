@@ -1,10 +1,10 @@
 'use strict';
 
-const logger = require('heroku-logger');
 const jwt = require('jsonwebtoken');
 const Actions = require('../../common/common');
 const config = require('../config');
 const db = require('../db');
+const logger = require('../logger');
 const findAllRocniky = require('./Rocnik/findAllRocniky');
 const findAllUcastnici = require('./Ucastnik/findAllUcastnici');
 const savePlatby = require('./Ucastnik/savePlatby');
@@ -78,11 +78,13 @@ const sendResponse = ({ connection, code, status, response, requestId }) => {
   const data = { code, status, response, requestId };
   const json = JSON.stringify(data);
   connection.sendUTF(json);
-  logger.debug(`Responded: ${json}`);
+  logger.debug(`Response for request ${requestId} sent.`);
+  logger.silly(`Responded: ${json}`);
 };
 
 const processMessage = async (connection, message) => {
-  logger.debug(`Received: ${message.utf8Data}`);
+  logger.debug('Received request.');
+  logger.silly(`Received: ${message.utf8Data}`);
 
   try {
     const { action, request, token, requestId } = JSON.parse(message.utf8Data);

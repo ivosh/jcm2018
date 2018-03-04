@@ -7,9 +7,9 @@
 
 const fs = require('fs');
 const readline = require('readline');
-const logger = require('heroku-logger');
 const config = require('./config');
 const db = require('./db');
+const logger = require('./logger');
 const User = require('./model/User/User');
 
 const file = process.argv[2] || '<no file specified>';

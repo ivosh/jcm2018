@@ -1,9 +1,9 @@
 'use strict';
 
 const jwt = require('jsonwebtoken');
-const logger = require('heroku-logger');
 const Actions = require('../../../common/common');
 const config = require('../../config');
+const logger = require('../../logger');
 const User = require('../../model/User/User');
 
 const generateToken = ({ username, nonce, secret, expireTime }) => {

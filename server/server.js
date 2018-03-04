@@ -1,9 +1,9 @@
 'use strict';
 
 require('newrelic');
-const logger = require('heroku-logger');
 const common = require('../common/common');
 const db = require('./db');
+const logger = require('./logger');
 const httpServer = require('./staticHttpServer');
 const createWsServer = require('./createWsServer');
 
@@ -22,11 +22,11 @@ const requestAllowed = wsRequest => {
   if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
     const proto = wsRequest.httpRequest.headers['x-forwarded-proto'];
     if (proto === 'https') {
-      logger.debug(`Allowing originating protocol ${proto} in production.`);
+      logger.debug(`Allowing originating protocol '${proto}' in production.`);
       return true;
     }
-    logger.debug(`Disallowing originating protocol ${proto} in production.`);
-    logger.debug(JSON.stringify(wsRequest.httpRequest.headers));
+    logger.debug(`Disallowing originating protocol '${proto}' in production.`);
+    logger.silly(JSON.stringify(wsRequest.httpRequest.headers));
     return false;
   }
   logger.debug('Allowing any access, not in production.');

@@ -1,8 +1,8 @@
 'use strict';
 
 const http = require('http');
-const logger = require('heroku-logger');
 const WebSocketServer = require('websocket').server;
+const logger = require('./logger');
 const processMessage = require('./api/api');
 
 const createWsServer = ({ httpServer, requestAllowed }) => {

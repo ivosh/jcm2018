@@ -1,8 +1,8 @@
 'use strict';
 
 const util = require('util');
-const logger = require('heroku-logger');
 const Actions = require('../../../common/common');
+const logger = require('../../logger');
 const Ucastnik = require('../../model/Ucastnik/Ucastnik');
 const findAllRocniky = require('../Rocnik/findAllRocniky');
 const createUcast = require('./createUcast');

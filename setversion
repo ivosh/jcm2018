@@ -1,11 +1,13 @@
+#!/usr/bin/env node
+
 'use strict';
 
 /* Sets version of package*.json files.
    Usage: node ./setversion */
 
 const fs = require('fs');
-const logger = require('heroku-logger');
 const updater = require('jsonfile-updater');
+const logger = require('./server/logger');
 
 const version = process.argv[2];
 process.title = 'setversion';
