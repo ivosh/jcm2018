@@ -15,6 +15,20 @@ const createWsServer = ({ httpServer, requestAllowed }) => {
 
   ws.httpServer = () => wsHttpServer;
 
+  ws.authConnections = [];
+  ws.addAuthConnection = connection => {
+    const index = ws.authConnections.indexOf(connection);
+    if (index === -1) {
+      ws.authConnections.push(connection);
+    }
+  };
+  ws.removeAuthConnection = connection => {
+    const index = ws.authConnections.indexOf(connection);
+    if (index !== -1) {
+      ws.authConnections.splice(index, 1);
+    }
+  };
+
   ws.on('request', wsRequest => {
     if (requestAllowed && !requestAllowed(wsRequest)) {
       wsRequest.reject(401);
@@ -34,11 +48,13 @@ const createWsServer = ({ httpServer, requestAllowed }) => {
           wsRequest.origin
         }' accepted.`
       );
+      logger.debug(`Number of authenticated connections: ${ws.authConnections.length}`);
 
       connection.on('message', async message => {
         if (message.type !== 'utf8') {
           connection.drop(connection.CLOSE_REASON_INVALID_DATA);
           logger.warn(`Message with unknown type ${message.type}.`);
+          ws.removeAuthConnection(connection);
           return;
         }
 
@@ -49,7 +65,20 @@ const createWsServer = ({ httpServer, requestAllowed }) => {
         logger.info(
           `Connection ${connection.remoteAddress} disconnected with ${reasonCode}: ${description}.`
         );
+        ws.removeAuthConnection(connection);
       });
+
+      connection.onAuth = auth => {
+        connection.authenticated = auth;
+        if (auth) {
+          logger.debug(`Connection ${connection.remoteAddress} authenticated successfully.`);
+          ws.addAuthConnection(connection);
+        } else {
+          logger.debug(`Connection ${connection.remoteAddress} is not authenticated.`);
+          ws.removeAuthConnection(connection);
+        }
+        logger.debug(`Number of authenticated connections: ${ws.authConnections.length}`);
+      };
     } catch (err) {
       logger.debug(`Connection rejected: ${err}`);
     }

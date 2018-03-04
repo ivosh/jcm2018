@@ -16,10 +16,12 @@ const signOut = require('./User/signOut');
 const processAuthentication = ({ token, connection }) => {
   try {
     jwt.verify(token, config.jwt.secret);
-    connection.authenticated = true; // eslint-disable-line no-param-reassign
+    if (!connection.authenticated) {
+      connection.onAuth(true);
+    }
     return { code: Actions.CODE_OK };
   } catch (err) {
-    connection.authenticated = false; // eslint-disable-line no-param-reassign
+    connection.onAuth(false);
     logger.warn(`Failed to verify authentication token: ${token}`);
     logger.debug(err);
     return {
@@ -29,7 +31,7 @@ const processAuthentication = ({ token, connection }) => {
   }
 };
 
-const processRequest = async ({ action = '', request, token, connection }) => {
+const processRequest = async ({ action = '', request, requestId, token, connection }) => {
   if (!db.isConnected()) {
     return {
       code: Actions.CODE_DB_DISCONNECTED,
@@ -59,9 +61,9 @@ const processRequest = async ({ action = '', request, token, connection }) => {
 
   const processMessageAction = actions[action] || actions.default;
   logger.debug(
-    `Dispatching to action ${processMessageAction.action}, authorization required: ${
-      processMessageAction.authRequired
-    }`
+    `Dispatching request ${requestId} to action ${
+      processMessageAction.action
+    }, authentication required: ${processMessageAction.authRequired}`
   );
 
   if (processMessageAction.authRequired) {
@@ -92,6 +94,7 @@ const processMessage = async (connection, message) => {
       const { code, status, response } = await processRequest({
         action,
         request,
+        requestId,
         token,
         connection
       });

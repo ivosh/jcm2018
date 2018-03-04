@@ -3,7 +3,7 @@
 const Actions = require('../../../common/common');
 
 const signOut = async ({ connection }) => {
-  connection.authenticated = false; // eslint-disable-line no-param-reassign
+  connection.onAuth(false);
 
   return {
     code: Actions.CODE_OK,

@@ -26,7 +26,7 @@ const signIn = async ({ request, connection }) => {
     };
   }
 
-  connection.authenticated = true; // eslint-disable-line no-param-reassign
+  connection.onAuth(true);
   return {
     code: Actions.CODE_OK,
     status: undefined,
