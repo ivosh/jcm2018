@@ -16,9 +16,7 @@ const signOut = require('./User/signOut');
 const processAuthentication = ({ token, connection }) => {
   try {
     jwt.verify(token, config.jwt.secret);
-    if (!connection.authenticated) {
-      connection.onAuth(true);
-    }
+    connection.onAuth(true);
     return { code: Actions.CODE_OK };
   } catch (err) {
     connection.onAuth(false);
@@ -91,7 +89,7 @@ const processMessage = async (connection, message) => {
   try {
     const { action, request, token, requestId } = JSON.parse(message.utf8Data);
     try {
-      const { code, status, response } = await processRequest({
+      const { broadcast, code, status, response } = await processRequest({
         action,
         request,
         requestId,
@@ -99,6 +97,7 @@ const processMessage = async (connection, message) => {
         connection
       });
       sendResponse({ connection, code, status, response, requestId });
+      return { broadcast, debugMessage: `Message for ${requestId} broadcasted.` };
     } catch (err) {
       logger.warn(`Failed to process the API request: ${err}`);
       logger.debug(err);
@@ -117,6 +116,8 @@ const processMessage = async (connection, message) => {
       requestId: null
     });
   }
+
+  return {};
 };
 
 module.exports = processMessage;

@@ -3,9 +3,13 @@
 const http = require('http');
 const WebSocketServer = require('websocket').server;
 const logger = require('./logger');
-const processMessage = require('./api/api');
+const processMessageAPI = require('./api/api');
 
-const createWsServer = ({ httpServer, requestAllowed }) => {
+// eslint-disable-next-line no-confusing-arrow
+const remoteSocketEndpoint = ({ remoteAddress, remoteFamily, remotePort }) =>
+  remoteFamily === 'IPv4' ? `${remoteAddress}:${remotePort}` : `[${remoteAddress}]:${remotePort}`;
+
+const createWsServer = ({ httpServer, processMessage = processMessageAPI, requestAllowed }) => {
   const wsHttpServer = httpServer || http.createServer(); // for testing
 
   const ws = new WebSocketServer({
@@ -28,13 +32,23 @@ const createWsServer = ({ httpServer, requestAllowed }) => {
       ws.authConnections.splice(index, 1);
     }
   };
+  ws.broadcast = ({ debugMessage, excludedConnection, message }) => {
+    const json = JSON.stringify(message);
+    ws.authConnections
+      .filter(connection => connection !== excludedConnection)
+      .forEach(connection => {
+        connection.sendUTF(json);
+        logger.silly(`Broadcasted: ${json} to ${remoteSocketEndpoint(connection.socket)}`);
+      });
+    logger.debug(debugMessage);
+  };
 
   ws.on('request', wsRequest => {
     if (requestAllowed && !requestAllowed(wsRequest)) {
       wsRequest.reject(401);
       logger.warn('Request for websocket connection rejected.');
       logger.debug(
-        `Host: ${wsRequest.host}, remoteAddress: ${wsRequest.remoteAddress}, origin: ${
+        `Host: ${wsRequest.host}, remote: ${remoteSocketEndpoint(wsRequest.socket)}, origin: ${
           wsRequest.origin
         }.`
       );
@@ -44,7 +58,7 @@ const createWsServer = ({ httpServer, requestAllowed }) => {
     try {
       const connection = wsRequest.accept('jcm2018', wsRequest.origin);
       logger.info(
-        `Connection from remoteAddress '${wsRequest.remoteAddress}' and origin '${
+        `Connection from '${remoteSocketEndpoint(wsRequest.socket)}' and origin '${
           wsRequest.origin
         }' accepted.`
       );
@@ -58,23 +72,36 @@ const createWsServer = ({ httpServer, requestAllowed }) => {
           return;
         }
 
-        await processMessage(connection, message);
+        const { broadcast, debugMessage } = await processMessage(connection, message);
+        if (broadcast) {
+          ws.broadcast({ debugMessage, excludedConnection: connection, message: broadcast });
+        }
       });
 
       connection.on('close', (reasonCode, description) => {
         logger.info(
-          `Connection ${connection.remoteAddress} disconnected with ${reasonCode}: ${description}.`
+          `Connection ${remoteSocketEndpoint(
+            connection.socket
+          )} disconnected with ${reasonCode}: ${description}.`
         );
         ws.removeAuthConnection(connection);
       });
 
       connection.onAuth = auth => {
+        if (connection.authenticated === auth) {
+          return;
+        }
+
         connection.authenticated = auth;
         if (auth) {
-          logger.debug(`Connection ${connection.remoteAddress} authenticated successfully.`);
+          logger.debug(
+            `Connection ${remoteSocketEndpoint(connection.socket)} authenticated successfully.`
+          );
           ws.addAuthConnection(connection);
         } else {
-          logger.debug(`Connection ${connection.remoteAddress} is not authenticated.`);
+          logger.debug(
+            `Connection ${remoteSocketEndpoint(connection.socket)} is not authenticated.`
+          );
           ws.removeAuthConnection(connection);
         }
         logger.debug(`Number of authenticated connections: ${ws.authConnections.length}`);

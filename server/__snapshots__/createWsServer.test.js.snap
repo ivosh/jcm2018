@@ -1,5 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`broadcast 1`] = `
+Object {
+  "broadcast": "test",
+  "data": Object {
+    "message": "from client 2",
+  },
+}
+`;
+
 exports[`connect fails because of invalid origin 1`] = `[Error: WebSocket closed with reason: connection failed (1006).]`;
 
 exports[`connect fails because of invalid protocol 1`] = `[Error: WebSocket closed with reason: connection failed (1006).]`;

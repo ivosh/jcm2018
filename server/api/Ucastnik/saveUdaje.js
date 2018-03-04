@@ -2,6 +2,7 @@
 
 const Actions = require('../../../common/common');
 const logger = require('../../logger');
+const broadcastUcastnik = require('./broadcastUcastnik');
 const createUcast = require('./createUcast');
 
 const saveUdaje = async ({ request }) => {
@@ -16,7 +17,13 @@ const saveUdaje = async ({ request }) => {
     const ucast = ucastnik.ucasti.find(oneUcast => oneUcast.rok === rok);
     ucast.udaje = udaje;
     await ucastnik.save();
-    return { code: Actions.CODE_OK, status: 'uloženo v pořádku', response: { id: ucastnik.id } };
+    const broadcast = await broadcastUcastnik(id); // :TODO: could broadcast only Udaje in future.
+    return {
+      broadcast,
+      code: Actions.CODE_OK,
+      status: 'uloženo v pořádku',
+      response: { id: ucastnik.id }
+    };
   }
 
   return { code, status };

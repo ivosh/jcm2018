@@ -2,22 +2,7 @@
 
 const Actions = require('../../../common/common');
 const Ucastnik = require('../../model/Ucastnik/Ucastnik');
-
-const normalizeUcastnik = ucastnik => {
-  const roky = [];
-  const ucasti = {};
-
-  ucastnik.ucasti.forEach(ucast => {
-    const { rok, ...ucastBezRoku } = ucast;
-    roky.push(rok);
-    ucasti[rok] = ucastBezRoku;
-  });
-
-  // První element je vždycky nejvyšší rok.
-  roky.sort((a, b) => b - a);
-
-  return { roky, ucasti };
-};
+const normalizeUcastnik = require('./normalizeUcastnik');
 
 const normalizeUcastnici = ucastnici => {
   const normalized = {};
