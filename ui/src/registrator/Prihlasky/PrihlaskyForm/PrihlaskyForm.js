@@ -23,6 +23,12 @@ class PrihlaskyForm extends PureComponent {
     }
   };
 
+  componentDidMount = () => {
+    if (this.inputs && this.inputs[0]) {
+      this.inputs[0].focus();
+    }
+  };
+
   handleKeyPress = ({ event, index }) => {
     if (event.which === 13) {
       event.preventDefault();
