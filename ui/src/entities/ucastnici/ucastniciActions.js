@@ -31,7 +31,9 @@ export const fetchUcastniciError = ({ code, status, err }) => ({
 export const fetchUcastnici = () => async (dispatch, getState, wsClient) => {
   const { auth, entities: { ucastnici } } = getState();
   if (ucastnici && ucastnici.allIds && ucastnici.allIds.length > 0) {
-    return; // Use cached value.
+    if (!ucastnici.invalidated) {
+      return; // Use cached value if not invalidated.
+    }
   }
 
   dispatch(fetchUcastniciRequest());

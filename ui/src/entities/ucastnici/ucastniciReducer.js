@@ -1,4 +1,4 @@
-export const initialState = { allIds: [], byIds: {} };
+export const initialState = { allIds: [], byIds: {}, invalidated: false };
 
 // První element je vždycky nejvyšší rok.
 const addRokAndSort = (roky, rok) => [...roky, rok].sort((a, b) => b - a);
@@ -21,7 +21,7 @@ const updateUcast = (state, id, rok, name, obj) => {
   ucast = { ...ucast, [name]: obj };
   ucastnik = { ...ucastnik, [rok]: ucast };
   byIds = { ...byIds, [id]: ucastnik };
-  return { allIds, byIds };
+  return { ...state, allIds, byIds };
 };
 
 const ucastniciReducer = (state = initialState, action) => {
@@ -32,7 +32,7 @@ const ucastniciReducer = (state = initialState, action) => {
       return state.byIds[id] ? updated : { ...updated, allIds: [...updated.allIds, id] };
     }
     case 'FETCH_UCASTNICI_SUCCESS':
-      return action.data;
+      return { ...action.data, invalidated: false };
     case 'PRIHLASKY_SAVE_SUCCESS': {
       const { id, rok, udaje, prihlaska, platby } = action;
       const state1 = updateUcast(state, id, rok, 'udaje', udaje);
@@ -41,6 +41,8 @@ const ucastniciReducer = (state = initialState, action) => {
     }
     case 'SIGN_OUT_SUCCESS':
       return initialState;
+    case 'WEBSOCKET_DISCONNECTED':
+      return { ...state, invalidated: true };
     default:
       return state;
   }

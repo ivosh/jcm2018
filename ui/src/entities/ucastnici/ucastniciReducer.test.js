@@ -1,4 +1,5 @@
 import deepFreeze from 'deep-freeze';
+import { websocketDisconnected } from '../../App/AppActions';
 import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
 import { saveUcastSuccess } from '../../registrator/Prihlasky/PrihlaskyForm/PrihlaskyFormActions';
 import ucastniciReducer, {
@@ -14,11 +15,11 @@ it('nic se nestalo 1', () => {
   const stateBefore = undefined;
 
   const stateAfter = ucastniciReducer(stateBefore, {});
-  expect(stateAfter).toEqual({ allIds: [], byIds: {} });
+  expect(stateAfter).toEqual({ allIds: [], byIds: {}, invalidated: false });
 });
 
 it('nic se nestalo 2', () => {
-  const stateBefore = { allIds: [1], byIds: { 1: { 2017: { udaje: null } } } };
+  const stateBefore = { allIds: [1], byIds: { 1: { 2017: { udaje: null } } }, invalidated: false };
   const stateAfter = { ...stateBefore };
   deepFreeze(stateBefore);
 
@@ -86,7 +87,7 @@ it('po načtení účastníků', () => {
     requestId: '0.9310306652587377'
   };
 
-  const stateBefore = { allIds: [1], byIds: { 1: { 2017: { udaje: null } } } };
+  const stateBefore = { allIds: [1], byIds: { 1: { 2017: { udaje: null } } }, invalidated: true };
   const stateAfter = {
     allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
     byIds: {
@@ -143,7 +144,8 @@ it('po načtení účastníků', () => {
           }
         }
       }
-    }
+    },
+    invalidated: false
   };
   deepFreeze(stateBefore);
 
@@ -152,10 +154,18 @@ it('po načtení účastníků', () => {
 
 it('po odhlášení', () => {
   const stateBefore = ucastniciTestData.entities.ucastnici;
-  const stateAfter = { allIds: [], byIds: {} };
+  const stateAfter = { allIds: [], byIds: {}, invalidated: false };
   deepFreeze(stateBefore);
 
   expect(ucastniciReducer(stateBefore, signOutSuccess())).toEqual(stateAfter);
+});
+
+it('after disconnect', () => {
+  const stateBefore = { invalidated: false };
+  const stateAfter = { invalidated: true };
+  deepFreeze(stateBefore);
+
+  expect(ucastniciReducer(stateBefore, websocketDisconnected())).toEqual(stateAfter);
 });
 
 it('narozeniSort(desc=false) - nulls', () => {
