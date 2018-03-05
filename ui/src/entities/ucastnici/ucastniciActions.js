@@ -29,7 +29,10 @@ export const fetchUcastniciError = ({ code, status, err }) => ({
 });
 
 export const fetchUcastnici = () => async (dispatch, getState, wsClient) => {
-  const { auth } = getState();
+  const { auth, entities: { ucastnici } } = getState();
+  if (ucastnici && ucastnici.allIds && ucastnici.allIds.length > 0) {
+    return; // Use cached value.
+  }
 
   dispatch(fetchUcastniciRequest());
 

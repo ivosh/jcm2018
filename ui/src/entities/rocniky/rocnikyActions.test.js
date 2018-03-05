@@ -206,7 +206,7 @@ it('fetchRocniky() should not dispatch anything if rocniky cached', async () => 
 
 it('fetchRocniky() should dispatch three successful actions if rocniky not cached', async () => {
   mockWsClient.sendRequest = async () => successfulResponse;
-  const store = mockStore({});
+  const store = mockStore({ entities: { rocniky: {} } });
 
   await store.dispatch(fetchRocniky());
   const actions = store.getActions();
@@ -232,7 +232,7 @@ it('fetchRocniky() should use auth token if available', async () => {
       tokenSent.tokenSent = true;
     }
   };
-  const store = mockStore({ auth: { token: '===token===' } });
+  const store = mockStore({ auth: { token: '===token===' }, entities: {} });
 
   await store.dispatch(fetchRocniky());
   expect(tokenSent.tokenSent).toBe(true);
@@ -240,7 +240,7 @@ it('fetchRocniky() should use auth token if available', async () => {
 
 it('fetchRocniky() should dispatch two unsuccessful actions if rocniky not cached', async () => {
   mockWsClient.sendRequest = async () => unsuccessfulResponse;
-  const store = mockStore({});
+  const store = mockStore({ entities: {} });
 
   await store.dispatch(fetchRocniky());
   const actions = store.getActions();
@@ -263,7 +263,7 @@ it('fetchRocniky() should dispatch two unsuccessful actions if rocniky not cache
 
 it('fetchRocniky() should dispatch two unsuccessful actions on error', async () => {
   mockWsClient.sendRequest = async () => Promise.reject(new Error('Parse error!'));
-  const store = mockStore({});
+  const store = mockStore({ entities: {} });
 
   await store.dispatch(fetchRocniky());
   const actions = store.getActions();
@@ -286,7 +286,7 @@ it('fetchRocniky() should dispatch two unsuccessful actions on error', async () 
 
 it('fetchRocniky() should dispatch two unsuccessful actions on invalid token', async () => {
   mockWsClient.sendRequest = async () => authTokenInvalidResponse;
-  const store = mockStore({});
+  const store = mockStore({ entities: {} });
 
   await store.dispatch(fetchRocniky());
   const actions = store.getActions();

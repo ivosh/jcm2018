@@ -79,6 +79,14 @@ const authTokenInvalidResponse = {
 const middlewares = [thunk.withExtraArgument(mockWsClient)];
 const mockStore = configureStore(middlewares);
 
+it('fetchUcastnici() should not dispatch anything if účastníci cached', async () => {
+  const store = mockStore({
+    entities: { rocniky: { roky: [2011] }, ucastnici: { allIds: ['id1'], byIds: { id1: {} } } }
+  });
+  await store.dispatch(fetchUcastnici());
+  expect(store.getActions()).toHaveLength(0);
+});
+
 it('fetchUcastnici() should dispatch two successful actions [ročníky cached]', async () => {
   mockWsClient.sendRequest = async () => successfulResponse;
   const store = mockStore({ entities: { rocniky: { roky: [2011] } } });
@@ -104,7 +112,7 @@ it('fetchUcastnici() should use auth token if available', async () => {
       tokenSent.tokenSent = true;
     }
   };
-  const store = mockStore({ auth: { token: '===token===' } });
+  const store = mockStore({ auth: { token: '===token===' }, entities: {} });
 
   await store.dispatch(fetchUcastnici());
   expect(tokenSent.tokenSent).toBe(true);

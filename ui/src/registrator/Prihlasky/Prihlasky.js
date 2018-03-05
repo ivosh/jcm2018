@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
-import withFetchUcastnici from '../withFetchUcastnici/withFetchUcastnici';
+import withFetchUcastnici from '../../entities/withFetchUcastnici/withFetchUcastnici';
 import PrihlaskyMain from './PrihlaskyMain';
 import PrihlaskyFormContainer from './PrihlaskyForm/PrihlaskyFormContainer';
 
