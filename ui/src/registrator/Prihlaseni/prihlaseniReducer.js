@@ -1,10 +1,14 @@
 import { AKTUALNI_ROK } from '../../constants';
-import { narozeniToStr, SortDirTypes } from '../../Util';
 import {
   csStringSortMethod,
+  datumSortMethod,
+  kategorieSortMethod,
   narozeniSortMethod,
-  prijmeniJmenoNarozeniSortMethod
-} from '../../entities/ucastnici/ucastniciReducer';
+  narozeniToStr,
+  numberAndUndefinedSortMethod,
+  prijmeniJmenoNarozeniSortMethod,
+  SortDirTypes
+} from '../../Util';
 import { predepsaneStartovne, provedenePlatby } from '../platby';
 import {
   createFilterableReducer,
@@ -45,7 +49,7 @@ export const getPrihlaseniSorted = ({
     const ucastnik = ucastnici.byIds[id];
     if (ucastnik.roky[0] === rok) {
       const ucast = ucastnik[rok];
-      const { udaje: { prijmeni, jmeno, narozeni, obec }, prihlaska, platby } = ucast;
+      const { udaje: { prijmeni, jmeno, narozeni, obec, email }, prihlaska, platby } = ucast;
       const { datum, kategorie: kategorieId, startCislo, kod } = prihlaska;
       const jednaKategorie = kategorie[kategorieId];
       const predepsano = predepsaneStartovne({ kategorie, prihlaska, rocniky, rok }).suma;
@@ -62,6 +66,7 @@ export const getPrihlaseniSorted = ({
             jmeno,
             narozeni,
             obec,
+            email: email || '',
             datum,
             kategorie: jednaKategorie,
             startCislo,
@@ -77,7 +82,14 @@ export const getPrihlaseniSorted = ({
   const sortMethods = {
     prijmeni: (a, b) => csStringSortMethod(a.prijmeni, b.prijmeni),
     jmeno: (a, b) => csStringSortMethod(a.jmeno, b.jmeno),
-    narozeni: (a, b) => narozeniSortMethod(a.narozeni, b.narozeni)
+    narozeni: (a, b) => narozeniSortMethod(a.narozeni, b.narozeni),
+    obec: (a, b) => csStringSortMethod(a.obec, b.obec),
+    email: (a, b) => csStringSortMethod(a.email, b.email),
+    datum: (a, b) => datumSortMethod(a.datum, b.datum),
+    kategorie: (a, b) => kategorieSortMethod(a.kategorie, b.kategorie),
+    startCislo: (a, b) =>
+      numberAndUndefinedSortMethod(a.startCislo, b.startCislo, sortDir === SortDirTypes.DESC),
+    zaplaceno: (a, b) => a.zaplaceno - b.zaplaceno
   };
 
   const sortMethod = sortMethods[sortColumn] || prijmeniJmenoNarozeniSortMethod;

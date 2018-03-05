@@ -1,5 +1,5 @@
 import { AKTUALNI_ROK } from '../../../constants';
-import { prijmeniJmenoNarozeniSortMethod } from '../../../entities/ucastnici/ucastniciReducer';
+import { prijmeniJmenoNarozeniSortMethod } from '../../../Util';
 
 // eslint-disable-next-line import/prefer-default-export
 export const getSearchOptions = ({ ucastnici }) => {

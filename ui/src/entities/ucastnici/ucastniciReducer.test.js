@@ -2,14 +2,9 @@ import deepFreeze from 'deep-freeze';
 import { websocketDisconnected } from '../../App/AppActions';
 import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
 import { saveUcastSuccess } from '../../registrator/Prihlasky/PrihlaskyForm/PrihlaskyFormActions';
-import ucastniciReducer, {
-  narozeniSortMethod,
-  prijmeniJmenoNarozeniSortMethod
-} from './ucastniciReducer';
+import ucastniciReducer from './ucastniciReducer';
 import { fetchUcastniciSuccess } from './ucastniciActions';
 import ucastniciTestData from './ucastniciTestData';
-
-const narozeniSortMethodDescending = (a, b) => narozeniSortMethod(a, b, true);
 
 it('nic se nestalo 1', () => {
   const stateBefore = undefined;
@@ -166,139 +161,6 @@ it('after disconnect', () => {
   deepFreeze(stateBefore);
 
   expect(ucastniciReducer(stateBefore, websocketDisconnected())).toEqual(stateAfter);
-});
-
-it('narozeniSort(desc=false) - nulls', () => {
-  const narozeni = [null, { rok: 1978, mesic: 8, den: 7 }, null];
-  expect(narozeni.sort(narozeniSortMethod)).toEqual([{ rok: 1978, mesic: 8, den: 7 }, null, null]);
-});
-
-it('narozeniSort(desc=false) - jen roky', () => {
-  const narozeni = [{ rok: 1978 }, { rok: 1956 }, { rok: 2001 }];
-  expect(narozeni.sort(narozeniSortMethod)).toEqual([{ rok: 1956 }, { rok: 1978 }, { rok: 2001 }]);
-});
-
-it('narozeniSort(desc=false) - roky, dny, měsíce', () => {
-  const narozeni = [
-    { rok: 1978, mesic: 4, den: 7 },
-    { rok: 1956, mesic: 2, den: 25 },
-    { rok: 2001, mesic: 4, den: 13 },
-    { rok: 1956, mesic: 1, den: 26 },
-    { rok: 2001, mesic: 4, den: 12 },
-    { rok: 1956, mesic: 2, den: 25 }
-  ];
-  expect(narozeni.sort(narozeniSortMethod)).toEqual([
-    { rok: 1956, mesic: 1, den: 26 },
-    { rok: 1956, mesic: 2, den: 25 },
-    { rok: 1956, mesic: 2, den: 25 },
-    { rok: 1978, mesic: 4, den: 7 },
-    { rok: 2001, mesic: 4, den: 12 },
-    { rok: 2001, mesic: 4, den: 13 }
-  ]);
-});
-
-it('narozeniSort(desc=false) - prázdný měsíc a den', () => {
-  const narozeni = [
-    { rok: 1978, mesic: 8, den: 7 },
-    { rok: 1978 },
-    { rok: 1978, mesic: 8, den: 6 }
-  ];
-  expect(narozeni.sort(narozeniSortMethod)).toEqual([
-    { rok: 1978, mesic: 8, den: 6 },
-    { rok: 1978, mesic: 8, den: 7 },
-    { rok: 1978 }
-  ]);
-});
-
-it('narozeniSort(desc=true) - nulls', () => {
-  const narozeni = [null, { rok: 1978, mesic: 8, den: 7 }, null];
-  expect(narozeni.sort(narozeniSortMethodDescending)).toEqual([
-    null,
-    null,
-    { rok: 1978, mesic: 8, den: 7 }
-  ]);
-});
-
-it('narozeniSort(desc=true) - jen roky', () => {
-  const narozeni = [{ rok: 1978 }, { rok: 1956 }, { rok: 2001 }];
-  expect(narozeni.sort(narozeniSortMethodDescending)).toEqual([
-    { rok: 1956 },
-    { rok: 1978 },
-    { rok: 2001 }
-  ]);
-});
-
-it('narozeniSort(desc=true) - roky, dny, měsíce', () => {
-  const narozeni = [
-    { rok: 1978, mesic: 4, den: 7 },
-    { rok: 1956, mesic: 2, den: 25 },
-    { rok: 2001, mesic: 4, den: 13 },
-    { rok: 1956, mesic: 1, den: 26 },
-    { rok: 2001, mesic: 4, den: 12 },
-    { rok: 1956, mesic: 2, den: 25 }
-  ];
-  expect(narozeni.sort(narozeniSortMethodDescending)).toEqual([
-    { rok: 1956, mesic: 1, den: 26 },
-    { rok: 1956, mesic: 2, den: 25 },
-    { rok: 1956, mesic: 2, den: 25 },
-    { rok: 1978, mesic: 4, den: 7 },
-    { rok: 2001, mesic: 4, den: 12 },
-    { rok: 2001, mesic: 4, den: 13 }
-  ]);
-});
-
-it('narozeniSort(desc=true) - prázdný měsíc a den', () => {
-  const narozeni = [
-    { rok: 1978, mesic: 8, den: 7, id: 1 },
-    { rok: 1978, id: 2 },
-    { rok: 1978, mesic: 10, id: 3 },
-    { rok: 1978, mesic: 10, id: 4 },
-    { rok: 1978, mesic: 8, den: 6, id: 5 },
-    { rok: 1978, mesic: 8, den: 5, id: 6 },
-    { rok: 1978, mesic: 9, id: 7 },
-    { rok: 1978, mesic: 10, id: 8 }
-  ];
-  expect(narozeni.sort(narozeniSortMethodDescending)).toEqual([
-    { rok: 1978, id: 2 },
-    { rok: 1978, mesic: 8, den: 5, id: 6 },
-    { rok: 1978, mesic: 8, den: 6, id: 5 },
-    { rok: 1978, mesic: 8, den: 7, id: 1 },
-    { rok: 1978, mesic: 9, id: 7 },
-    { rok: 1978, mesic: 10, id: 3 },
-    { rok: 1978, mesic: 10, id: 4 },
-    { rok: 1978, mesic: 10, id: 8 }
-  ]);
-});
-
-it('narozeniSort(desc=true) - prázdný den', () => {
-  const narozeni = [{ rok: 1978, mesic: 8 }, { rok: 1978 }, { rok: 1978, mesic: 8, den: 6 }];
-  expect(narozeni.sort(narozeniSortMethodDescending)).toEqual([
-    { rok: 1978 },
-    { rok: 1978, mesic: 8 },
-    { rok: 1978, mesic: 8, den: 6 }
-  ]);
-});
-
-it('prijmeniJmenoNarozeniSortMethod - podle jména', () => {
-  const ucastnici = [
-    { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1978, mesic: 8, den: 7 } },
-    { prijmeni: 'Bubáková', jmeno: 'Alena', narozeni: { rok: 1999, mesic: 1, den: 23 } }
-  ];
-  expect(ucastnici.sort(prijmeniJmenoNarozeniSortMethod)).toEqual([
-    { prijmeni: 'Bubáková', jmeno: 'Alena', narozeni: { rok: 1999, mesic: 1, den: 23 } },
-    { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1978, mesic: 8, den: 7 } }
-  ]);
-});
-
-it('prijmeniJmenoNarozeniSortMethod - podle narození', () => {
-  const ucastnici = [
-    { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1999, mesic: 8, den: 7 } },
-    { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1968, mesic: 1, den: 23 } }
-  ];
-  expect(ucastnici.sort(prijmeniJmenoNarozeniSortMethod)).toEqual([
-    { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1968, mesic: 1, den: 23 } },
-    { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1999, mesic: 8, den: 7 } }
-  ]);
 });
 
 it('saveUcastSuccess() - stávající účastník - nový rok', () => {

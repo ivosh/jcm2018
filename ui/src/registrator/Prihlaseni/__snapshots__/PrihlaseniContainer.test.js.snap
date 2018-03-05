@@ -4,6 +4,7 @@ exports[`maps state and dispatch to props 1`] = `
 Array [
   Object {
     "datum": "2018-06-09T00:00:00.000Z",
+    "email": "",
     "id": "5a09b1fd371dec1e99b7e1c9",
     "jmeno": "Roman",
     "kategorie": Object {
@@ -25,6 +26,7 @@ Array [
   },
   Object {
     "datum": "2018-06-09T00:00:00.000Z",
+    "email": "zrala.kl@s.cz",
     "id": "7a09b1fd371dec1e99b7e142",
     "jmeno": "Hana",
     "kategorie": Object {

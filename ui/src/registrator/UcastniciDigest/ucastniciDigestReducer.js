@@ -1,9 +1,10 @@
-import { narozeniToStr, SortDirTypes } from '../../Util';
 import {
   csStringSortMethod,
   narozeniSortMethod,
-  prijmeniJmenoNarozeniSortMethod
-} from '../../entities/ucastnici/ucastniciReducer';
+  narozeniToStr,
+  prijmeniJmenoNarozeniSortMethod,
+  SortDirTypes
+} from '../../Util';
 import {
   createFilterableReducer,
   initialState as filterableInitialState

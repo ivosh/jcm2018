@@ -53,6 +53,7 @@ const Prihlaseni = ({ actionPrefix, reduxName, prihlaseni }) => {
       width: 100
     },
     { cellStyler: alignLeftStyler, key: 'obec', sortable: true, width: 90 },
+    { cellStyler: alignLeftStyler, key: 'email', sortable: true, width: 200 },
     {
       cellStyler: alignRightStyler,
       cellDataFormatter: datumFormat,
@@ -71,16 +72,17 @@ const Prihlaseni = ({ actionPrefix, reduxName, prihlaseni }) => {
     {
       cellStyler: alignRightStyler,
       key: 'startCislo',
-      label: 'start. číslo',
+      label: 'číslo',
       sortable: true,
-      width: 100
+      width: 60
     },
     { cellStyler: kodStyler, key: 'kod', label: 'kód', width: 150 },
     {
       cellStyler: zaplacenoStyler,
       cellDataFormatter: zaplacenoFormat,
       key: 'zaplaceno',
-      width: 80
+      sortable: true,
+      width: 100
     }
   ];
 
@@ -114,6 +116,7 @@ Prihlaseni.propTypes = {
       jmeno: PropTypes.string.isRequired,
       narozeni: PropTypes.string.isRequired,
       obec: PropTypes.string.isRequired,
+      email: PropTypes.string,
       datum: PropTypes.string.isRequired,
       kategorie: PropTypes.shape({
         typ: PropTypes.string.isRequired

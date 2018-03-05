@@ -152,6 +152,7 @@ it('getPrihlaseniSorted() by default', () => {
       jmeno: 'Roman',
       narozeni: '1956',
       obec: 'Ostrava 2',
+      email: '',
       datum: '2018-06-09T00:00:00.000Z',
       kategorie: {
         id: '5a587e1b051c181132cf83d7',
@@ -170,6 +171,7 @@ it('getPrihlaseniSorted() by default', () => {
       jmeno: 'Hana',
       narozeni: '25. 7. 1999',
       obec: 'Bučovice',
+      email: 'zrala.kl@s.cz',
       datum: '2018-06-09T00:00:00.000Z',
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
@@ -208,6 +210,7 @@ it('getPrihlaseniSorted() filtrováno na z', () => {
       jmeno: 'Hana',
       narozeni: '25. 7. 1999',
       obec: 'Bučovice',
+      email: 'zrala.kl@s.cz',
       datum: '2018-06-09T00:00:00.000Z',
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
@@ -246,6 +249,7 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       jmeno: 'Roman',
       narozeni: '1956',
       obec: 'Ostrava 2',
+      email: '',
       datum: '2018-06-09T00:00:00.000Z',
       kategorie: {
         id: '5a587e1b051c181132cf83d7',
@@ -264,6 +268,7 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       jmeno: 'Hana',
       narozeni: '25. 7. 1999',
       obec: 'Bučovice',
+      email: 'zrala.kl@s.cz',
       datum: '2018-06-09T00:00:00.000Z',
       kategorie: {
         id: '5a587e1b051c181132cf83d9',

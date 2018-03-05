@@ -434,7 +434,7 @@ exports[`dva přihlášení 1`] = `
             style={
               Object {
                 "height": 35,
-                "width": 730,
+                "width": 910,
               }
             }
           >
@@ -454,7 +454,7 @@ exports[`dva přihlášení 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 1020,
+                  "width": 1200,
                   "willChange": "transform",
                 }
               }
@@ -467,11 +467,11 @@ exports[`dva přihlášení 1`] = `
                   Object {
                     "height": 35,
                     "maxHeight": 35,
-                    "maxWidth": 1020,
+                    "maxWidth": 1200,
                     "overflow": "hidden",
                     "pointerEvents": "",
                     "position": "relative",
-                    "width": 1020,
+                    "width": 1200,
                   }
                 }
               >
@@ -504,6 +504,27 @@ exports[`dva přihlášení 1`] = `
                       "left": 380,
                       "position": "absolute",
                       "top": 0,
+                      "width": 200,
+                    }
+                  }
+                >
+                  <a
+                    className="SortHeader_a"
+                    onClick={[Function]}
+                  >
+                    email
+                     
+                    
+                  </a>
+                </div>
+                <div
+                  className="UcastniciTable_headerCell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 580,
+                      "position": "absolute",
+                      "top": 0,
                       "width": 110,
                     }
                   }
@@ -522,7 +543,7 @@ exports[`dva přihlášení 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 490,
+                      "left": 690,
                       "position": "absolute",
                       "top": 0,
                       "width": 200,
@@ -543,10 +564,10 @@ exports[`dva přihlášení 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 690,
+                      "left": 890,
                       "position": "absolute",
                       "top": 0,
-                      "width": 100,
+                      "width": 60,
                     }
                   }
                 >
@@ -554,7 +575,7 @@ exports[`dva přihlášení 1`] = `
                     className="SortHeader_a"
                     onClick={[Function]}
                   >
-                    start. číslo
+                    číslo
                      
                     
                   </a>
@@ -564,7 +585,7 @@ exports[`dva přihlášení 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 790,
+                      "left": 950,
                       "position": "absolute",
                       "top": 0,
                       "width": 150,
@@ -578,14 +599,21 @@ exports[`dva přihlášení 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 940,
+                      "left": 1100,
                       "position": "absolute",
                       "top": 0,
-                      "width": 80,
+                      "width": 100,
                     }
                   }
                 >
-                  zaplaceno
+                  <a
+                    className="SortHeader_a"
+                    onClick={[Function]}
+                  >
+                    zaplaceno
+                     
+                    
+                  </a>
                 </div>
               </div>
             </div>
@@ -594,7 +622,7 @@ exports[`dva přihlášení 1`] = `
             style={
               Object {
                 "height": 70,
-                "width": 1020,
+                "width": 1200,
               }
             }
           >
@@ -614,7 +642,7 @@ exports[`dva přihlášení 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 1020,
+                  "width": 1200,
                   "willChange": "transform",
                 }
               }
@@ -627,11 +655,11 @@ exports[`dva přihlášení 1`] = `
                   Object {
                     "height": 70,
                     "maxHeight": 70,
-                    "maxWidth": 1020,
+                    "maxWidth": 1200,
                     "overflow": "hidden",
                     "pointerEvents": "",
                     "position": "relative",
-                    "width": 1020,
+                    "width": 1200,
                   }
                 }
               >
@@ -657,6 +685,19 @@ exports[`dva přihlášení 1`] = `
                       "height": 35,
                       "left": 380,
                       "position": "absolute",
+                      "textAlign": "left",
+                      "top": 0,
+                      "width": 200,
+                    }
+                  }
+                />
+                <div
+                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 580,
+                      "position": "absolute",
                       "textAlign": "right",
                       "top": 0,
                       "width": 110,
@@ -671,7 +712,7 @@ exports[`dva přihlášení 1`] = `
                     Object {
                       "backgroundColor": "rgba(255, 131, 122, 0.4)",
                       "height": 35,
-                      "left": 490,
+                      "left": 690,
                       "position": "absolute",
                       "textAlign": "left",
                       "top": 0,
@@ -701,11 +742,11 @@ exports[`dva přihlášení 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 690,
+                      "left": 890,
                       "position": "absolute",
                       "textAlign": "right",
                       "top": 0,
-                      "width": 100,
+                      "width": 60,
                     }
                   }
                 >
@@ -717,7 +758,7 @@ exports[`dva přihlášení 1`] = `
                     Object {
                       "fontFamily": "monospace",
                       "height": 35,
-                      "left": 790,
+                      "left": 950,
                       "position": "absolute",
                       "textAlign": "left",
                       "top": 0,
@@ -735,11 +776,11 @@ exports[`dva přihlášení 1`] = `
                       "color": "white",
                       "fontWeight": "bold",
                       "height": 35,
-                      "left": 940,
+                      "left": 1100,
                       "position": "absolute",
                       "textAlign": "right",
                       "top": 0,
-                      "width": 80,
+                      "width": 100,
                     }
                   }
                 >
@@ -767,6 +808,19 @@ exports[`dva přihlášení 1`] = `
                       "height": 35,
                       "left": 380,
                       "position": "absolute",
+                      "textAlign": "left",
+                      "top": 35,
+                      "width": 200,
+                    }
+                  }
+                />
+                <div
+                  className="UcastniciTable_evenRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 580,
+                      "position": "absolute",
                       "textAlign": "right",
                       "top": 35,
                       "width": 110,
@@ -781,7 +835,7 @@ exports[`dva přihlášení 1`] = `
                     Object {
                       "backgroundColor": "rgba(255, 131, 122, 0.4)",
                       "height": 35,
-                      "left": 490,
+                      "left": 690,
                       "position": "absolute",
                       "textAlign": "left",
                       "top": 35,
@@ -811,11 +865,11 @@ exports[`dva přihlášení 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 690,
+                      "left": 890,
                       "position": "absolute",
                       "textAlign": "right",
                       "top": 35,
-                      "width": 100,
+                      "width": 60,
                     }
                   }
                 >
@@ -827,7 +881,7 @@ exports[`dva přihlášení 1`] = `
                     Object {
                       "fontFamily": "monospace",
                       "height": 35,
-                      "left": 790,
+                      "left": 950,
                       "position": "absolute",
                       "textAlign": "left",
                       "top": 35,
@@ -845,11 +899,11 @@ exports[`dva přihlášení 1`] = `
                       "color": "white",
                       "fontWeight": "bold",
                       "height": 35,
-                      "left": 940,
+                      "left": 1100,
                       "position": "absolute",
                       "textAlign": "right",
                       "top": 35,
-                      "width": 80,
+                      "width": 100,
                     }
                   }
                 >
@@ -1182,7 +1236,7 @@ exports[`žádný přihlášený 1`] = `
             style={
               Object {
                 "height": 35,
-                "width": 730,
+                "width": 910,
               }
             }
           >
@@ -1202,7 +1256,7 @@ exports[`žádný přihlášený 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 1020,
+                  "width": 1200,
                   "willChange": "transform",
                 }
               }
@@ -1215,11 +1269,11 @@ exports[`žádný přihlášený 1`] = `
                   Object {
                     "height": 35,
                     "maxHeight": 35,
-                    "maxWidth": 1020,
+                    "maxWidth": 1200,
                     "overflow": "hidden",
                     "pointerEvents": "",
                     "position": "relative",
-                    "width": 1020,
+                    "width": 1200,
                   }
                 }
               >
@@ -1252,6 +1306,27 @@ exports[`žádný přihlášený 1`] = `
                       "left": 380,
                       "position": "absolute",
                       "top": 0,
+                      "width": 200,
+                    }
+                  }
+                >
+                  <a
+                    className="SortHeader_a"
+                    onClick={[Function]}
+                  >
+                    email
+                     
+                    
+                  </a>
+                </div>
+                <div
+                  className="UcastniciTable_headerCell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 580,
+                      "position": "absolute",
+                      "top": 0,
                       "width": 110,
                     }
                   }
@@ -1270,7 +1345,7 @@ exports[`žádný přihlášený 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 490,
+                      "left": 690,
                       "position": "absolute",
                       "top": 0,
                       "width": 200,
@@ -1291,10 +1366,10 @@ exports[`žádný přihlášený 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 690,
+                      "left": 890,
                       "position": "absolute",
                       "top": 0,
-                      "width": 100,
+                      "width": 60,
                     }
                   }
                 >
@@ -1302,7 +1377,7 @@ exports[`žádný přihlášený 1`] = `
                     className="SortHeader_a"
                     onClick={[Function]}
                   >
-                    start. číslo
+                    číslo
                      
                     
                   </a>
@@ -1312,7 +1387,7 @@ exports[`žádný přihlášený 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 790,
+                      "left": 950,
                       "position": "absolute",
                       "top": 0,
                       "width": 150,
@@ -1326,14 +1401,21 @@ exports[`žádný přihlášený 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 940,
+                      "left": 1100,
                       "position": "absolute",
                       "top": 0,
-                      "width": 80,
+                      "width": 100,
                     }
                   }
                 >
-                  zaplaceno
+                  <a
+                    className="SortHeader_a"
+                    onClick={[Function]}
+                  >
+                    zaplaceno
+                     
+                    
+                  </a>
                 </div>
               </div>
             </div>
@@ -1342,7 +1424,7 @@ exports[`žádný přihlášený 1`] = `
             style={
               Object {
                 "height": 0,
-                "width": 1020,
+                "width": 1200,
               }
             }
           >
@@ -1362,7 +1444,7 @@ exports[`žádný přihlášený 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 1020,
+                  "width": 1200,
                   "willChange": "transform",
                 }
               }
