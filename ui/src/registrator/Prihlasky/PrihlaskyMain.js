@@ -2,11 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Glyphicon, Panel, Well } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import withFetchUcastnici from '../withFetchUcastnici/withFetchUcastnici';
 import PrihlaskySearchContainer from './PrihlaskySearch/PrihlaskySearchContainer';
 import './PrihlaskyMain.css';
-
-const PrihlaskySearchWithFetchUcastnici = withFetchUcastnici(PrihlaskySearchContainer);
 
 const PrihlaskyMain = ({ path, routeOnSelect }) => (
   <Well>
@@ -17,7 +14,7 @@ const PrihlaskyMain = ({ path, routeOnSelect }) => (
           <div className="PrihlaskyMain-icon">
             <Glyphicon glyph="search" />
           </div>
-          <PrihlaskySearchWithFetchUcastnici routeOnSelect={routeOnSelect} />
+          <PrihlaskySearchContainer routeOnSelect={routeOnSelect} />
         </div>
         <div className="PrihlaskyMain-item">
           <div className="PrihlaskyMain-icon">

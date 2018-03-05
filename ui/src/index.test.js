@@ -1,11 +1,13 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import { MemoryRouter, Route } from 'react-router-dom';
 import { mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import AppContainer from './App/AppContainer';
 
-const mockStore = configureStore();
+const middlewares = [thunk];
+const mockStore = configureStore(middlewares);
 const store = mockStore({
   auth: {
     authenticated: true,
@@ -20,7 +22,7 @@ const store = mockStore({
     rocniky: { byRoky: {}, roky: [] },
     ucastnici: { allIds: [], byIds: {} }
   },
-  fetching: 'init',
+  fetching: 'done',
   registrator: {
     prihlaseni: {
       kategorieFilter: '',

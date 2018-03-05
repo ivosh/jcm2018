@@ -1,8 +1,8 @@
 import React from 'react';
 import { MemoryRouter, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import configureStore from 'redux-mock-store';
 import { mount } from 'enzyme';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import Prihlasky from './Prihlasky';
@@ -32,7 +32,6 @@ const store = mockStore({
 });
 
 it('renders /prihlasky route', () => {
-  store.dispatch = jest.fn();
   const wrapper = mount(
     <Provider store={store}>
       <MemoryRouter initialEntries={['/prihlasky']}>
@@ -42,7 +41,6 @@ it('renders /prihlasky route', () => {
   );
 
   expect(wrapper.find(PrihlaskyMain)).toHaveLength(1);
-  expect(store.dispatch).toHaveBeenCalledTimes(1); // fetchUcastnici
 });
 
 it('renders /prihlasky/edit route', () => {

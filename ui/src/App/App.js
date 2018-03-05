@@ -76,14 +76,14 @@ const App = ({ authenticated, connected, username }) => (
     </Navbar>
     <main>
       <Switch>
-        <Route exact path="/" component={withAuth(CasomericContainer)} />
+        <Route exact path="/" component={withAuth(withFetchUcastnici(CasomericContainer))} />
         <Route path="/signin" component={withoutAuth(SignInContainer)} />
-        <Route path="/casomeric" component={withAuth(CasomericContainer)} />
+        <Route path="/casomeric" component={withAuth(withFetchUcastnici(CasomericContainer))} />
         <Route
           path="/ucastnici"
           component={withAuth(withFetchUcastnici(UcastniciDigestContainer))}
         />
-        <Route path="/prihlasky" component={withAuth(Prihlasky)} />
+        <Route path="/prihlasky" component={withAuth(withFetchUcastnici(Prihlasky))} />
         <Route path="/prihlaseni" component={withAuth(withFetchUcastnici(PrihlaseniContainer))} />
         <Route path="/startujici" component={withAuth(withFetchUcastnici(StartujiciContainer))} />
         <Route path="/signout" component={withAuth(SignOutContainer)} />
