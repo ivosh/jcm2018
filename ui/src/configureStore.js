@@ -1,8 +1,10 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import { BROADCAST_UCASTNIK } from './common';
 import appReducer from './App/appReducer';
 import { websocketConnected, websocketDisconnected } from './App/AppActions';
 import { setHighestMezicasId } from './casomeric/Mezicasy/MezicasyActions';
+import { broadcastUcastnik } from './entities/ucastnici/ucastniciActions';
 
 const demoStartujiciState = {
   startujici: [
@@ -52,9 +54,12 @@ const saveState = state => {
 
 const setupWsClient = (wsClient, store) => {
   wsClient.setCallbacks({
-    onConnect: () => {
-      store.dispatch(websocketConnected());
+    onBroadcast: ({ broadcast, data }) => {
+      if (broadcast === BROADCAST_UCASTNIK) {
+        store.dispatch(broadcastUcastnik(data));
+      }
     },
+    onConnect: () => store.dispatch(websocketConnected()),
     onClose: () => store.dispatch(websocketDisconnected())
   });
 

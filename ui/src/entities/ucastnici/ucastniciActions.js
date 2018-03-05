@@ -48,3 +48,9 @@ export const fetchUcastnici = () => async (dispatch, getState, wsClient) => {
     dispatch(fetchUcastniciError({ code: 'internal error', err }));
   }
 };
+
+export const broadcastUcastnik = json => ({
+  type: 'BROADCAST_UCASTNIK',
+  data: json,
+  receivedAt: Date.now()
+});

@@ -26,6 +26,11 @@ const updateUcast = (state, id, rok, name, obj) => {
 
 const ucastniciReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'BROADCAST_UCASTNIK': {
+      const { id, roky, ...ucasti } = action.data;
+      const updated = { ...state, byIds: { ...state.byIds, [id]: { roky, ...ucasti } } };
+      return state.byIds[id] ? updated : { ...updated, allIds: [...updated.allIds, id] };
+    }
     case 'FETCH_UCASTNICI_SUCCESS':
       return action.data;
     case 'PRIHLASKY_SAVE_SUCCESS': {

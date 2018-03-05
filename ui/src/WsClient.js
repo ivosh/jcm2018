@@ -15,6 +15,7 @@ class WsClient {
     port = PORT,
     reconnectInterval = WEBSOCKET_RECONNECT_INTERVAL,
     requestTimeout = WEBSOCKET_REQUEST_TIMEOUT,
+    onBroadcast,
     onConnect,
     onClose
   } = {}) {
@@ -26,7 +27,7 @@ class WsClient {
     }
     this.reconnectInterval = reconnectInterval;
     this.requestTimeout = requestTimeout;
-    this.setCallbacks({ onConnect, onClose });
+    this.setCallbacks({ onBroadcast, onConnect, onClose });
     this.channel = new Channel();
     this.channel.addListener(this.onRequestAvailable);
     this.channel.mute({ accumulate: true });
@@ -50,6 +51,7 @@ class WsClient {
     }
 
     ws.onClose.addListener(this.handleClose);
+    ws.onMessage.addListener(this.handleMessage);
     this.ws = ws;
     this.channel.unmute();
 
@@ -92,9 +94,17 @@ class WsClient {
     this.retryConnect(request);
   };
 
-  setCallbacks = ({ onConnect, onClose }) => {
+  setCallbacks = ({ onBroadcast, onConnect, onClose }) => {
+    this.onBroadcastCallback = onBroadcast;
     this.onConnectCallback = onConnect;
     this.onCloseCallback = onClose;
+  };
+
+  handleMessage = message => {
+    const { broadcast, data } = JSON.parse(message);
+    if (broadcast && this.onBroadcastCallback) {
+      this.onBroadcastCallback({ broadcast, data });
+    }
   };
 
   onRequestAvailable = async request => {
