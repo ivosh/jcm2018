@@ -6,10 +6,9 @@ const normalizeUcastnik = require('./normalizeUcastnik');
 
 const broadcastUcastnik = async id => {
   const found = await Ucastnik.findById(id).lean();
-  const ucastnik = normalizeUcastnik(found);
-  ucastnik.id = id;
+  const { roky, ucasti } = normalizeUcastnik(found);
 
-  return { broadcast: Actions.BROADCAST_UCASTNIK, data: ucastnik };
+  return { broadcast: Actions.BROADCAST_UCASTNIK, data: { id, roky, ...ucasti } };
 };
 
 module.exports = broadcastUcastnik;

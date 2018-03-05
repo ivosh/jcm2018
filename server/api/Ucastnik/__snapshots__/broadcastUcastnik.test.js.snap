@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`broadcast 1`] = `
+Object {
+  "broadcast": "broadcastUcastnik",
+  "data": Object {
+    "2017": Object {
+      "platby": Array [],
+      "ubytovani": Array [],
+      "udaje": Object {
+        "jmeno": "Roman",
+        "narozeni": Object {
+          "rok": 1956,
+        },
+        "obec": "Ostrava 1",
+        "pohlavi": "muž",
+        "prijmeni": "Balabák",
+        "stat": "Česká republika",
+      },
+      "vykon": Object {
+        "cas": "PT1H25M32.6S",
+        "dokonceno": true,
+        "kategorie": "===k1===",
+        "startCislo": 34,
+      },
+    },
+    "2018": Object {
+      "platby": Array [],
+      "ubytovani": Array [],
+      "udaje": Object {
+        "jmeno": "Roman",
+        "narozeni": Object {
+          "rok": 1956,
+        },
+        "obec": "Ostrava 2",
+        "pohlavi": "muž",
+        "prijmeni": "Balabák",
+        "stat": "Česká republika",
+      },
+      "vykon": Object {
+        "dokonceno": false,
+        "kategorie": "===k2===",
+        "startCislo": 15,
+      },
+    },
+    "id": "===id===",
+    "roky": Array [
+      2018,
+      2017,
+    ],
+  },
+}
+`;
