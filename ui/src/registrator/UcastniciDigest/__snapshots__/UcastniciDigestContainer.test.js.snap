@@ -13,7 +13,9 @@ Array [
     },
     "id": "5a09b1fd371dec1e99b7e1c9",
     "jmeno": "Roman",
-    "narozeni": "1956",
+    "narozeni": Object {
+      "rok": 1956,
+    },
     "prijmeni": "Balabák",
   },
   Object {
@@ -23,7 +25,11 @@ Array [
     },
     "id": "6f09b1fd371dec1e99b7e1c9",
     "jmeno": "Martina",
-    "narozeni": "7. 12. 1963",
+    "narozeni": Object {
+      "den": 7,
+      "mesic": 12,
+      "rok": 1963,
+    },
     "prijmeni": "Sukdoláková",
   },
   Object {
@@ -33,7 +39,11 @@ Array [
     },
     "id": "7a09b1fd371dec1e99b7e142",
     "jmeno": "Hana",
-    "narozeni": "25. 7. 1999",
+    "narozeni": Object {
+      "den": 25,
+      "mesic": 7,
+      "rok": 1999,
+    },
     "prijmeni": "Zralá",
   },
 ]

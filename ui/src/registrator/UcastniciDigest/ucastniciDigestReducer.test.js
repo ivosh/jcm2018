@@ -154,7 +154,7 @@ it('getUcastniciDigestSorted() by default', () => {
       id: '5a09b1fd371dec1e99b7e1c9',
       prijmeni: 'Balabák',
       jmeno: 'Roman',
-      narozeni: '1956',
+      narozeni: { rok: 1956 },
       2017: { dokonceno: true, kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' }
     },
@@ -162,14 +162,14 @@ it('getUcastniciDigestSorted() by default', () => {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
-      narozeni: '7. 12. 1963',
+      narozeni: { den: 7, mesic: 12, rok: 1963 },
       2016: { dokonceno: true, kategorie: 'maraton' }
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
       prijmeni: 'Zralá',
       jmeno: 'Hana',
-      narozeni: '25. 7. 1999',
+      narozeni: { den: 25, mesic: 7, rok: 1999 },
       2018: { dokonceno: true, kategorie: 'půlmaraton' }
     }
   ];
@@ -198,21 +198,21 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
       id: '7a09b1fd371dec1e99b7e142',
       prijmeni: 'Zralá',
       jmeno: 'Hana',
-      narozeni: '25. 7. 1999',
+      narozeni: { den: 25, mesic: 7, rok: 1999 },
       2018: { dokonceno: true, kategorie: 'půlmaraton' }
     },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
-      narozeni: '7. 12. 1963',
+      narozeni: { den: 7, mesic: 12, rok: 1963 },
       2016: { dokonceno: true, kategorie: 'maraton' }
     },
     {
       id: '5a09b1fd371dec1e99b7e1c9',
       prijmeni: 'Balabák',
       jmeno: 'Roman',
-      narozeni: '1956',
+      narozeni: { rok: 1956 },
       2017: { dokonceno: true, kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' }
     }
@@ -242,21 +242,21 @@ it('getUcastniciDigestSorted() podle jména vzestupně', () => {
       id: '7a09b1fd371dec1e99b7e142',
       prijmeni: 'Zralá',
       jmeno: 'Hana',
-      narozeni: '25. 7. 1999',
+      narozeni: { den: 25, mesic: 7, rok: 1999 },
       2018: { dokonceno: true, kategorie: 'půlmaraton' }
     },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
-      narozeni: '7. 12. 1963',
+      narozeni: { den: 7, mesic: 12, rok: 1963 },
       2016: { dokonceno: true, kategorie: 'maraton' }
     },
     {
       id: '5a09b1fd371dec1e99b7e1c9',
       prijmeni: 'Balabák',
       jmeno: 'Roman',
-      narozeni: '1956',
+      narozeni: { rok: 1956 },
       2017: { dokonceno: true, kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' }
     }
@@ -286,21 +286,21 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
       id: '7a09b1fd371dec1e99b7e142',
       prijmeni: 'Zralá',
       jmeno: 'Hana',
-      narozeni: '25. 7. 1999',
+      narozeni: { den: 25, mesic: 7, rok: 1999 },
       2018: { dokonceno: true, kategorie: 'půlmaraton' }
     },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
-      narozeni: '7. 12. 1963',
+      narozeni: { den: 7, mesic: 12, rok: 1963 },
       2016: { dokonceno: true, kategorie: 'maraton' }
     },
     {
       id: '5a09b1fd371dec1e99b7e1c9',
       prijmeni: 'Balabák',
       jmeno: 'Roman',
-      narozeni: '1956',
+      narozeni: { rok: 1956 },
       2017: { dokonceno: true, kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' }
     }
@@ -330,7 +330,7 @@ it('getUcastniciDigestSorted() filtrováno na r', () => {
       id: '5a09b1fd371dec1e99b7e1c9',
       prijmeni: 'Balabák',
       jmeno: 'Roman',
-      narozeni: '1956',
+      narozeni: { rok: 1956 },
       2017: { dokonceno: true, kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' }
     }
@@ -360,7 +360,7 @@ it('getUcastniciDigestSorted() filtrováno na kategorii výkonu půlmaraton', ()
       id: '5a09b1fd371dec1e99b7e1c9',
       prijmeni: 'Balabák',
       jmeno: 'Roman',
-      narozeni: '1956',
+      narozeni: { rok: 1956 },
       2017: { dokonceno: true, kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' }
     },
@@ -368,7 +368,7 @@ it('getUcastniciDigestSorted() filtrováno na kategorii výkonu půlmaraton', ()
       id: '7a09b1fd371dec1e99b7e142',
       prijmeni: 'Zralá',
       jmeno: 'Hana',
-      narozeni: '25. 7. 1999',
+      narozeni: { den: 25, mesic: 7, rok: 1999 },
       2018: { dokonceno: true, kategorie: 'půlmaraton' }
     }
   ];

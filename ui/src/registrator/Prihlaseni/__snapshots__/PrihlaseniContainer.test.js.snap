@@ -3,7 +3,7 @@
 exports[`maps state and dispatch to props 1`] = `
 Array [
   Object {
-    "datum": "2018-06-09T00:00:00.000Z",
+    "datum": 2018-06-09T00:00:00.000Z,
     "email": "",
     "id": "5a09b1fd371dec1e99b7e1c9",
     "jmeno": "Roman",
@@ -17,7 +17,9 @@ Array [
       },
     },
     "kod": "10728864",
-    "narozeni": "1956",
+    "narozeni": Object {
+      "rok": 1956,
+    },
     "obec": "Ostrava 2",
     "predepsano": 200,
     "prijmeni": "Balabák",
@@ -25,7 +27,7 @@ Array [
     "zaplaceno": 250,
   },
   Object {
-    "datum": "2018-06-09T00:00:00.000Z",
+    "datum": 2018-06-09T00:00:00.000Z,
     "email": "zrala.kl@s.cz",
     "id": "7a09b1fd371dec1e99b7e142",
     "jmeno": "Hana",
@@ -39,7 +41,11 @@ Array [
       },
     },
     "kod": "abc023skd204mvs345",
-    "narozeni": "25. 7. 1999",
+    "narozeni": Object {
+      "den": 25,
+      "mesic": 7,
+      "rok": 1999,
+    },
     "obec": "Bučovice",
     "predepsano": 200,
     "prijmeni": "Zralá",

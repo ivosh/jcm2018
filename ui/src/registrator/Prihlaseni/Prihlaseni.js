@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import { barvaProTypKategorie } from '../../Util';
+import { barvaProTypKategorie, narozeniToStr } from '../../Util';
 import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import FilterableContainer from '../Filterable/FilterableContainer';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
@@ -11,15 +11,17 @@ import './Prihlaseni.css';
 const alignLeftStyler = () => ({ textAlign: 'left' });
 const alignRightStyler = () => ({ textAlign: 'right' });
 
-const datumFormat = ({ data, rowIndex }) => moment.utc(data[rowIndex].datum).format('D. M. YYYY');
-const kategorieFormat = args => <PopisekKategorie {...args.cellData} />;
+const datumFormat = ({ cellData }) => moment.utc(cellData).format('D. M. YYYY');
 
+const kategorieFormat = args => <PopisekKategorie {...args.cellData} />;
 const kategorieStyler = ({ cellData }) => ({
   backgroundColor: barvaProTypKategorie(cellData.typ, '0.4'),
   textAlign: 'left'
 });
 
 const kodStyler = () => ({ fontFamily: 'monospace', textAlign: 'left' });
+
+const narozeniFormat = ({ cellData }) => narozeniToStr(cellData);
 
 const prijmeniFormat = args => (
   <Link to={`/prihlasky/${args.data[args.rowIndex].id}`}>{args.cellData}</Link>
@@ -37,8 +39,8 @@ const zaplacenoStyler = ({ cellData, data, rowIndex }) => ({
 const Prihlaseni = ({ actionPrefix, reduxName, prihlaseni }) => {
   const columns = [
     {
-      cellStyler: alignLeftStyler,
       cellDataFormatter: prijmeniFormat,
+      cellStyler: alignLeftStyler,
       key: 'prijmeni',
       label: 'příjmení',
       sortable: true,
@@ -46,6 +48,7 @@ const Prihlaseni = ({ actionPrefix, reduxName, prihlaseni }) => {
     },
     { cellStyler: alignLeftStyler, key: 'jmeno', label: 'jméno', sortable: true, width: 90 },
     {
+      cellDataFormatter: narozeniFormat,
       cellStyler: alignRightStyler,
       key: 'narozeni',
       label: 'narození',
@@ -55,16 +58,16 @@ const Prihlaseni = ({ actionPrefix, reduxName, prihlaseni }) => {
     { cellStyler: alignLeftStyler, key: 'obec', sortable: true, width: 90 },
     { cellStyler: alignLeftStyler, key: 'email', sortable: true, width: 200 },
     {
-      cellStyler: alignRightStyler,
       cellDataFormatter: datumFormat,
+      cellStyler: alignRightStyler,
       key: 'datum',
       label: 'přihlášení',
       sortable: true,
       width: 110
     },
     {
-      cellStyler: kategorieStyler,
       cellDataFormatter: kategorieFormat,
+      cellStyler: kategorieStyler,
       key: 'kategorie',
       sortable: true,
       width: 200
@@ -78,8 +81,8 @@ const Prihlaseni = ({ actionPrefix, reduxName, prihlaseni }) => {
     },
     { cellStyler: kodStyler, key: 'kod', label: 'kód', width: 150 },
     {
-      cellStyler: zaplacenoStyler,
       cellDataFormatter: zaplacenoFormat,
+      cellStyler: zaplacenoStyler,
       key: 'zaplaceno',
       sortable: true,
       width: 100
@@ -114,10 +117,14 @@ Prihlaseni.propTypes = {
       id: PropTypes.string.isRequired,
       prijmeni: PropTypes.string.isRequired,
       jmeno: PropTypes.string.isRequired,
-      narozeni: PropTypes.string.isRequired,
+      narozeni: PropTypes.shape({
+        den: PropTypes.number,
+        mesic: PropTypes.number,
+        rok: PropTypes.number.isRequired
+      }).isRequired,
       obec: PropTypes.string.isRequired,
       email: PropTypes.string,
-      datum: PropTypes.string.isRequired,
+      datum: PropTypes.instanceOf(Date).isRequired,
       kategorie: PropTypes.shape({
         typ: PropTypes.string.isRequired
       }).isRequired,

@@ -4,7 +4,6 @@ import {
   datumSortMethod,
   kategorieSortMethod,
   narozeniSortMethod,
-  narozeniToStr,
   numberAndUndefinedSortMethod,
   prijmeniJmenoNarozeniSortMethod,
   SortDirTypes
@@ -67,7 +66,7 @@ export const getPrihlaseniSorted = ({
             narozeni,
             obec,
             email: email || '',
-            datum,
+            datum: new Date(datum),
             kategorie: jednaKategorie,
             startCislo,
             kod,
@@ -98,8 +97,5 @@ export const getPrihlaseniSorted = ({
     sorted.reverse();
   }
 
-  return sorted.map(ucastnik => {
-    const { narozeni, ...ostatek } = ucastnik;
-    return { ...ostatek, narozeni: narozeniToStr(narozeni) };
-  });
+  return sorted;
 };

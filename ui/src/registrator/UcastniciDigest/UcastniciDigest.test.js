@@ -38,7 +38,7 @@ const ucastniciDigest = [
     id: '5a09b1fd371dec1e99b7e1c9',
     prijmeni: 'Balabák',
     jmeno: 'Roman',
-    narozeni: '1956',
+    narozeni: { rok: 1956 },
     2016: { dokonceno: false },
     2017: { dokonceno: true, kategorie: 'maraton' },
     2018: { dokonceno: true, kategorie: 'půlmaraton' }
@@ -47,7 +47,7 @@ const ucastniciDigest = [
     id: '6f09b1fd371dec1e99b7e1c9',
     prijmeni: 'Sukdoláková',
     jmeno: 'Martina',
-    narozeni: '7. 12. 1963',
+    narozeni: { den: 7, mesic: 12, rok: 1963 },
     2015: { dokonceno: false },
     2017: { dokonceno: true, kategorie: 'maraton' },
     2018: { dokonceno: undefined, kategorie: 'půlmaraton' }

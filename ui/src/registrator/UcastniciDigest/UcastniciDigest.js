@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { barvaProTypKategorie } from '../../Util';
+import { barvaProTypKategorie, narozeniToStr } from '../../Util';
 import FilterableContainer from '../Filterable/FilterableContainer';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
 import './UcastniciDigest.css';
 
 const alignLeftStyler = () => ({ textAlign: 'left' });
 const alignRightStyler = () => ({ textAlign: 'right' });
+
+const narozeniFormat = ({ cellData }) => narozeniToStr(cellData);
 
 const vykonCellDataFormatter = ({ cellData }) => {
   if (cellData) {
@@ -40,6 +42,7 @@ const UcastniciDigest = ({ actionPrefix, reduxName, roky, ucastniciDigest }) => 
     },
     { cellStyler: alignLeftStyler, key: 'jmeno', label: 'jméno', sortable: true, width: 90 },
     {
+      cellDataFormatter: narozeniFormat,
       cellStyler: alignRightStyler,
       key: 'narozeni',
       label: 'narození',
@@ -85,7 +88,11 @@ UcastniciDigest.propTypes = {
       id: PropTypes.string.isRequired,
       prijmeni: PropTypes.string.isRequired,
       jmeno: PropTypes.string.isRequired,
-      narozeni: PropTypes.string.isRequired
+      narozeni: PropTypes.shape({
+        den: PropTypes.number,
+        mesic: PropTypes.number,
+        rok: PropTypes.number.isRequired
+      }).isRequired
     }).isRequired
   ).isRequired
 };

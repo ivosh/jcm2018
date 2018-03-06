@@ -181,12 +181,7 @@ export const narozeniSortMethod = (a, b, desc = false) => {
 const collator = new Intl.Collator('cs');
 export const csStringSortMethod = (a, b) => collator.compare(a, b);
 
-export const datumSortMethod = (a, b) => {
-  if (a.getTime && b.getTime) {
-    return b.getTime() - a.getTime();
-  }
-  return csStringSortMethod(a, b);
-};
+export const datumSortMethod = (a, b) => a.getTime() - b.getTime();
 
 export const kategorieSortMethod = (a, b) => {
   let rv = csStringSortMethod(a.typ, b.typ);

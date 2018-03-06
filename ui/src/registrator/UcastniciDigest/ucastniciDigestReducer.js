@@ -1,7 +1,6 @@
 import {
   csStringSortMethod,
   narozeniSortMethod,
-  narozeniToStr,
   prijmeniJmenoNarozeniSortMethod,
   SortDirTypes
 } from '../../Util';
@@ -93,8 +92,5 @@ export const getUcastniciDigestSorted = ({
     sorted.reverse();
   }
 
-  return sorted.map(ucastnik => {
-    const { narozeni, ...ostatek } = ucastnik;
-    return { ...ostatek, narozeni: narozeniToStr(narozeni) };
-  });
+  return sorted;
 };
