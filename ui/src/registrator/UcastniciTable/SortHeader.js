@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { SortDirTypes } from '../../Util';
+import { SortDirTypes } from '../../sort';
 import './SortHeader.css';
 
 const sortDirs = {

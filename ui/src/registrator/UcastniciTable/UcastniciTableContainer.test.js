@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
-import { SortDirTypes } from '../../Util';
+import { SortDirTypes } from '../../sort';
 import UcastniciTableContainer from './UcastniciTableContainer';
 
 const mockStore = configureStore();

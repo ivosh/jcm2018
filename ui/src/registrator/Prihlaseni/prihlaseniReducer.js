@@ -1,13 +1,5 @@
 import { AKTUALNI_ROK } from '../../constants';
-import {
-  csStringSortMethod,
-  datumSortMethod,
-  kategorieSortMethod,
-  narozeniSortMethod,
-  numberAndUndefinedSortMethod,
-  prijmeniJmenoNarozeniSortMethod,
-  SortDirTypes
-} from '../../Util';
+import { sortForColumn } from '../../sort';
 import { predepsaneStartovne, provedenePlatby } from '../platby';
 import {
   createFilterableReducer,
@@ -78,24 +70,5 @@ export const getPrihlaseniSorted = ({
     }
   });
 
-  const sortMethods = {
-    prijmeni: (a, b) => csStringSortMethod(a.prijmeni, b.prijmeni),
-    jmeno: (a, b) => csStringSortMethod(a.jmeno, b.jmeno),
-    narozeni: (a, b) => narozeniSortMethod(a.narozeni, b.narozeni),
-    obec: (a, b) => csStringSortMethod(a.obec, b.obec),
-    email: (a, b) => csStringSortMethod(a.email, b.email),
-    datum: (a, b) => datumSortMethod(a.datum, b.datum),
-    kategorie: (a, b) => kategorieSortMethod(a.kategorie, b.kategorie),
-    startCislo: (a, b) =>
-      numberAndUndefinedSortMethod(a.startCislo, b.startCislo, sortDir === SortDirTypes.DESC),
-    zaplaceno: (a, b) => a.zaplaceno - b.zaplaceno
-  };
-
-  const sortMethod = sortMethods[sortColumn] || prijmeniJmenoNarozeniSortMethod;
-  const sorted = result.sort(sortMethod);
-  if (sortDir === SortDirTypes.DESC) {
-    sorted.reverse();
-  }
-
-  return sorted;
+  return sortForColumn({ data: result, sortColumn, sortDir });
 };

@@ -1,9 +1,4 @@
-import {
-  csStringSortMethod,
-  narozeniSortMethod,
-  prijmeniJmenoNarozeniSortMethod,
-  SortDirTypes
-} from '../../Util';
+import { sortForColumn } from '../../sort';
 import {
   createFilterableReducer,
   initialState as filterableInitialState
@@ -80,17 +75,5 @@ export const getUcastniciDigestSorted = ({
     }
   });
 
-  const sortMethods = {
-    prijmeni: (a, b) => csStringSortMethod(a.prijmeni, b.prijmeni),
-    jmeno: (a, b) => csStringSortMethod(a.jmeno, b.jmeno),
-    narozeni: (a, b) => narozeniSortMethod(a.narozeni, b.narozeni)
-  };
-
-  const sortMethod = sortMethods[sortColumn] || prijmeniJmenoNarozeniSortMethod;
-  const sorted = result.sort(sortMethod);
-  if (sortDir === SortDirTypes.DESC) {
-    sorted.reverse();
-  }
-
-  return sorted;
+  return sortForColumn({ data: result, sortColumn, sortDir });
 };

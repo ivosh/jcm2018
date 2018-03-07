@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
-import { SortDirTypes } from '../../Util';
+import { SortDirTypes } from '../../sort';
 import prihlaseniReducer, { getPrihlaseniSorted } from './prihlaseniReducer';
 import { kategorieFilterChange, textFilterChange } from '../Filterable/FilterableActions';
 import { sortDirChange } from '../UcastniciTable/UcastniciTableActions';

@@ -2203,10 +2203,10 @@ const state = {
             },
             prihlaska: {
               datum: '2016-06-11T00:00:00.000Z',
-              kategorie: '5a587e1a051c181132cf83c2'
+              kategorie: '5a587e1a051c181132cf83c2' // maraton
             },
             vykon: {
-              kategorie: '5a587e1a051c181132cf83c2',
+              kategorie: '5a587e1a051c181132cf83c2', // maraton
               startCislo: 11,
               dokonceno: true,
               cas: 'PT3H42M32.6S'

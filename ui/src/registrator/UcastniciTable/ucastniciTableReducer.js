@@ -1,4 +1,4 @@
-import { reverseSortDirType, SortDirTypes } from '../../Util';
+import { reverseSortDirType, SortDirTypes } from '../../sort';
 
 export const initialState = {
   sortColumn: undefined,

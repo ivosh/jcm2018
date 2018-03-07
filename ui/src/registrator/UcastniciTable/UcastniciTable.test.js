@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import { SortDirTypes } from '../../Util';
+import { SortDirTypes } from '../../sort';
 import UcastniciTable from './UcastniciTable';
 
 const columns = [

@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
-import { SortDirTypes } from '../../Util';
+import { SortDirTypes } from '../../sort';
 import SortHeader from './SortHeader';
 
 it('renders the default', () => {
