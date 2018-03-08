@@ -9,8 +9,7 @@ beforeAll(async () => {
 });
 
 beforeEach(async () => {
-  await db.dropCollection(Kategorie);
-  await db.dropCollection(Ucastnik);
+  await Promise.all([Kategorie.remove(), Ucastnik.remove()]);
 });
 
 afterAll(async () => {

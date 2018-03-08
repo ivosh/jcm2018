@@ -17,7 +17,7 @@ beforeAll(async () => {
   await wsClient.open();
 
   await db.connect();
-  await db.dropCollection(Kategorie);
+  await Kategorie.remove();
 
   const kategorie1 = new Kategorie({ typ: 'maraton', pohlavi: 'žena', vek: { min: 18, max: 60 } });
   const kategorie2 = new Kategorie({ typ: 'maraton', pohlavi: 'muž', vek: { min: 18, max: 60 } });
@@ -25,7 +25,7 @@ beforeAll(async () => {
 });
 
 beforeEach(async () => {
-  await db.dropCollection(Ucastnik);
+  await Ucastnik.remove();
 });
 
 afterAll(async () => {

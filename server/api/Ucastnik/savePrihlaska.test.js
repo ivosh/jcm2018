@@ -23,8 +23,7 @@ beforeAll(async () => {
   await wsClient.open();
 
   await db.connect();
-  await db.dropCollection(Kategorie);
-  await db.dropCollection(Rocnik);
+  await Promise.all([Kategorie.remove(), Rocnik.remove()]);
 
   kategorie1 = new Kategorie({
     typ: 'maraton',
@@ -121,7 +120,7 @@ beforeAll(async () => {
 });
 
 beforeEach(async () => {
-  await db.dropCollection(Ucastnik);
+  await Ucastnik.remove();
 });
 
 afterAll(async () => {

@@ -59,18 +59,6 @@ class DB {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  async dropCollection(model) {
-    try {
-      await model.collection.drop();
-    } catch (err) {
-      // Ignore if the collection does not exist (yet).
-      if (err.codeName !== 'NamespaceNotFound') {
-        throw err;
-      }
-    }
-  }
-
-  // eslint-disable-next-line class-methods-use-this
   async disconnect() {
     await mongoose.disconnect();
   }

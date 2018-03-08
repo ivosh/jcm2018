@@ -20,8 +20,7 @@ beforeAll(async () => {
 });
 
 beforeEach(async () => {
-  await db.dropCollection(Kategorie);
-  await db.dropCollection(Rocnik);
+  await Promise.all([Kategorie.remove(), Rocnik.remove()]);
 });
 
 afterAll(async () => {

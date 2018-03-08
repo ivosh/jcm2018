@@ -19,7 +19,7 @@ beforeAll(async () => {
 });
 
 beforeEach(async () => {
-  await db.dropCollection(Ucastnik);
+  await Ucastnik.remove();
 });
 
 afterAll(async () => {

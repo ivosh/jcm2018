@@ -11,7 +11,7 @@ beforeAll(async () => {
 });
 
 beforeEach(async () => {
-  await db.dropCollection(User);
+  await User.remove();
 });
 
 afterAll(async () => {
