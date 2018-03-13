@@ -9,6 +9,7 @@ const findAllRocniky = require('./Rocnik/findAllRocniky');
 const findAllUcastnici = require('./Ucastnik/findAllUcastnici');
 const savePlatby = require('./Ucastnik/savePlatby');
 const savePrihlaska = require('./Ucastnik/savePrihlaska');
+const saveUbytovani = require('./Ucastnik/saveUbytovani');
 const saveUdaje = require('./Ucastnik/saveUdaje');
 const signIn = require('./User/signIn');
 const signOut = require('./User/signOut');
@@ -45,6 +46,7 @@ const processRequest = async ({ action = '', request, requestId, token, connecti
     },
     [Actions.SAVE_PLATBY]: { authRequired: true, action: async req => savePlatby(req) },
     [Actions.SAVE_PRIHLASKA]: { authRequired: true, action: async req => savePrihlaska(req) },
+    [Actions.SAVE_UBYTOVANI]: { authRequired: true, action: async req => saveUbytovani(req) },
     [Actions.SAVE_UDAJE]: { authRequired: true, action: async req => saveUdaje(req) },
     [Actions.SIGN_IN]: { authRequired: false, action: async req => signIn(req) },
     [Actions.SIGN_OUT]: { authRequired: false, action: async req => signOut(req) },

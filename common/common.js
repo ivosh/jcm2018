@@ -21,6 +21,7 @@ const FIND_ALL_ROCNIKY = 'findAllRocniky';
 const FIND_ALL_UCASTNICI = 'findAllUcastnici';
 const SAVE_PLATBY = 'savePlatby';
 const SAVE_PRIHLASKA = 'savePrihlaska';
+const SAVE_UBYTOVANI = 'saveUbytovani';
 const SAVE_UDAJE = 'saveUdaje';
 const SIGN_IN = 'signIn';
 const SIGN_OUT = 'signOut';
@@ -61,6 +62,12 @@ const savePlatby = ({ id, rok, platby }, token) => ({
 const savePrihlaska = ({ id, rok, prihlaska }, token) => ({
   action: SAVE_PRIHLASKA,
   request: { id, rok, prihlaska },
+  token
+});
+
+const saveUbytovani = ({ id, rok, ubytovani }, token) => ({
+  action: SAVE_UBYTOVANI,
+  request: { id, rok, ubytovani },
   token
 });
 
@@ -197,6 +204,7 @@ module.exports = {
   FIND_ALL_UCASTNICI,
   SAVE_PLATBY,
   SAVE_PRIHLASKA,
+  SAVE_UBYTOVANI,
   SAVE_UDAJE,
   SIGN_IN,
   SIGN_OUT,
@@ -219,6 +227,7 @@ module.exports = {
   findKategorie,
   savePlatby,
   savePrihlaska,
+  saveUbytovani,
   saveUdaje,
   signIn,
   signOut
