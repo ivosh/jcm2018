@@ -21,7 +21,8 @@ const state = {
         validate: false,
         udaje: { narozeni: {} },
         prihlaska: {},
-        platby: []
+        platby: [],
+        ubytovani: {}
       },
       platby: {
         novaPlatbaMinified: true
@@ -192,6 +193,6 @@ it('handle Enter key and move focus from last to first', () => {
   wrapper
     .find(PrihlaskyForm)
     .instance()
-    .handleKeyPress({ event: { which: 13, preventDefault: jest.fn() }, index: 18 });
+    .handleKeyPress({ event: { which: 13, preventDefault: jest.fn() }, index: 20 });
   expect(focus).toHaveBeenCalledWith();
 });

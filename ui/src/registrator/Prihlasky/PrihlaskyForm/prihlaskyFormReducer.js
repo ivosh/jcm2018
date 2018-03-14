@@ -39,7 +39,8 @@ const initialState = {
     kod: undefined,
     mladistvyPotvrzen: undefined
   },
-  platby: []
+  platby: [],
+  ubytovani: {}
 };
 
 const parseNarozeni = value => {
@@ -63,6 +64,14 @@ const parseNarozeni = value => {
     return { den: maybeParsed.date(), mesic: maybeParsed.month() + 1, rok: maybeParsed.year() };
   }
   return { den: undefined, mesic: undefined, rok: value };
+};
+
+const reduceUbytovani = ({ den, value, ubytovani }) => {
+  if (!value && (ubytovani[den] && ubytovani[den].absolvovano)) {
+    return ubytovani; // Pokud již ubytování absolvoval, nelze se odhlásit.
+  }
+
+  return { ...ubytovani, [den]: { ...ubytovani[den], prihlaseno: value } };
 };
 
 const prihlaskyFormReducer = (state = initialState, action) => {
@@ -102,6 +111,12 @@ const prihlaskyFormReducer = (state = initialState, action) => {
         default:
           break;
       }
+      if (section === 'ubytovani') {
+        return {
+          ...state,
+          ubytovani: reduceUbytovani({ den: name, value, ubytovani: state.ubytovani })
+        };
+      }
       return { ...state, [section]: { ...state[section], [name]: value } };
     }
     case 'PRIHLASKY_UCASTNIK_LOAD':
@@ -109,8 +124,9 @@ const prihlaskyFormReducer = (state = initialState, action) => {
         ...initialState,
         ucastnikId: action.id,
         udaje: action.udaje,
-        prihlaska: action.prihlaska ? action.prihlaska : initialState.prihlaska,
-        platby: action.platby ? action.platby : initialState.platby
+        prihlaska: action.prihlaska || initialState.prihlaska,
+        platby: action.platby || initialState.platby,
+        ubytovani: action.ubytovani || initialState.ubytovani
       };
     case 'PRIHLASKY_RESET':
       return initialState;
@@ -210,6 +226,8 @@ export const inputValid = (name, value, prihlaskyForm) => {
     case 'udaje.telefon':
     case 'prihlaska.kod':
     case 'prihlaska.mladistvyPotvrzen':
+    case 'ubytovani.pátek':
+    case 'ubytovani.sobota':
       return undefined;
     case 'udaje.narozeni':
       // TODO: kategorie presne => den + mesic required === true
@@ -263,7 +281,22 @@ export const formValid = prihlaskyForm => {
   );
 };
 
+export const isInputVisible = (name, prihlaskyForm, rocniky) => {
+  const [section, subsection] = name.split('.');
+  if (section === 'ubytovani') {
+    return !!rocniky.byRoky[AKTUALNI_ROK].ubytovani[subsection];
+  }
+  return true;
+};
+
 export const isInputEnabled = (name, prihlaskyForm, rocniky) => {
+  const [section, subsection] = name.split('.');
+  if (section === 'ubytovani') {
+    return !(
+      prihlaskyForm.ubytovani[subsection] && prihlaskyForm.ubytovani[subsection].absolvovano
+    );
+  }
+
   switch (name) {
     case 'prihlaska.startCislo': {
       const { typ } = prihlaskyForm.prihlaska;
@@ -313,12 +346,26 @@ export const inputOptions = (name, prihlaskyForm, rocniky) => {
   }
 };
 
+export const getValue = (name, form) => {
+  const [section, subsection] = name.split('.');
+  if (section === 'ubytovani') {
+    if (form[section][subsection]) {
+      return form[section][subsection].prihlaseno;
+    }
+    return false;
+  }
+  return form[section][subsection];
+};
+
 export const formatValue = (name, rawValue) => {
   switch (name) {
     case 'udaje.narozeni':
       return narozeniToStr(rawValue);
     case 'prihlaska.datum':
       return datumValid(rawValue) ? moment.utc(rawValue).format('D. M. YYYY') : rawValue || '';
+    case 'ubytovani.pátek':
+    case 'ubytovani.sobota':
+      return rawValue ? 'on' : 'off';
     default:
       return rawValue ? `${rawValue}` : '';
   }

@@ -57,6 +57,7 @@ Object {
         "saved": false,
         "saving": false,
         "showError": false,
+        "ubytovani": Object {},
         "ucastnikId": undefined,
         "udaje": Object {
           "adresa": undefined,
@@ -160,6 +161,7 @@ Object {
         "saved": false,
         "saving": false,
         "showError": false,
+        "ubytovani": Object {},
         "ucastnikId": undefined,
         "udaje": Object {
           "adresa": undefined,
@@ -263,6 +265,7 @@ Object {
         "saved": false,
         "saving": false,
         "showError": false,
+        "ubytovani": Object {},
         "ucastnikId": undefined,
         "udaje": Object {
           "adresa": undefined,

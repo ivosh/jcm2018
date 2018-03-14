@@ -89,6 +89,7 @@ export const inputOptions = name => {
 };
 
 export const isInputEnabled = () => true;
+export const isInputVisible = () => true;
 
 export const formatValue = (name, rawValue) => {
   switch (name) {

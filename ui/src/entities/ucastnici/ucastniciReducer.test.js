@@ -180,9 +180,13 @@ it('saveUcastSuccess() - stávající účastník - nový rok', () => {
     mladistvyPotvrzen: undefined
   };
   const platby = [{ castka: 200, datum: '2018-05-12T00:00:00.000Z', typ: 'převodem' }];
+  const ubytovani = { pátek: { prihlaseno: true } };
 
   expect(
-    ucastniciReducer(stateBefore, saveUcastSuccess({ id, rok, udaje, prihlaska, platby }))
+    ucastniciReducer(
+      stateBefore,
+      saveUcastSuccess({ id, rok, udaje, prihlaska, platby, ubytovani })
+    )
   ).toMatchSnapshot();
 });
 
@@ -224,8 +228,12 @@ it('saveUcastSuccess() - nový účastník', () => {
     mladistvyPotvrzen: undefined
   };
   const platby = [{ castka: 200, datum: '2018-05-12T00:00:00.000Z', typ: 'složenkou' }];
+  const ubytovani = { pátek: { prihlaseno: true, absolvovano: true } };
 
   expect(
-    ucastniciReducer(stateBefore, saveUcastSuccess({ id, rok, udaje, prihlaska, platby }))
+    ucastniciReducer(
+      stateBefore,
+      saveUcastSuccess({ id, rok, udaje, prihlaska, platby, ubytovani })
+    )
   ).toMatchSnapshot();
 });

@@ -3,7 +3,14 @@ import { connect } from 'react-redux';
 import { isStartCisloTaken } from '../../../shared/StartujiciProTyp/startujiciProTypReducer';
 import InputContainer from '../Input/InputContainer';
 import { inputChanged } from './PrihlaskyFormActions';
-import { formatValue, inputOptions, inputValid, isInputEnabled } from './prihlaskyFormReducer';
+import {
+  formatValue,
+  getValue,
+  inputOptions,
+  inputValid,
+  isInputEnabled,
+  isInputVisible
+} from './prihlaskyFormReducer';
 
 const startCisloValid = ({ typ, kategorie, ucastnici }) => (name, rawValue, form) => {
   const validationState = inputValid(name, rawValue, form);
@@ -27,8 +34,7 @@ const startCisloValid = ({ typ, kategorie, ucastnici }) => (name, rawValue, form
 const mapStateToProps = (state, ownProps) => {
   const { form } = state.registrator.prihlasky;
   const { name } = ownProps;
-  const [section, subName] = name.split('.');
-  const rawValue = form[section][subName];
+  const rawValue = getValue(name, form);
 
   return {
     form,
@@ -41,7 +47,8 @@ const mapStateToProps = (state, ownProps) => {
       name === 'prihlaska.startCislo'
         ? startCisloValid({ typ: form.prihlaska.typ, ...state.entities })
         : inputValid,
-    isInputEnabled
+    isInputEnabled,
+    isInputVisible
   };
 };
 

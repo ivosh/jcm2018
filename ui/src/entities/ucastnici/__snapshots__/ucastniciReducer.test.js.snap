@@ -47,6 +47,12 @@ Object {
           "kod": "10728864",
           "startCislo": 17,
         },
+        "ubytovani": Object {
+          "pátek": Object {
+            "absolvovano": true,
+            "prihlaseno": true,
+          },
+        },
         "udaje": Object {
           "jmeno": "Roman",
           "narozeni": Object {
@@ -112,6 +118,12 @@ Object {
           "kod": "===kod===",
           "mladistvyPotvrzen": undefined,
           "startCislo": 15,
+        },
+        "ubytovani": Object {
+          "pátek": Object {
+            "absolvovano": true,
+            "prihlaseno": true,
+          },
         },
         "udaje": Object {
           "adresa": "Za elektrárnou 21",
@@ -222,6 +234,12 @@ Object {
           "kod": "10728864",
           "startCislo": 17,
         },
+        "ubytovani": Object {
+          "pátek": Object {
+            "absolvovano": true,
+            "prihlaseno": true,
+          },
+        },
         "udaje": Object {
           "jmeno": "Roman",
           "narozeni": Object {
@@ -282,6 +300,11 @@ Object {
           "kod": "===kod===",
           "mladistvyPotvrzen": undefined,
           "startCislo": 15,
+        },
+        "ubytovani": Object {
+          "pátek": Object {
+            "prihlaseno": true,
+          },
         },
         "udaje": Object {
           "jmeno": "Martina",
@@ -387,6 +410,7 @@ Object {
           "kod": "10728864",
           "startCislo": 18,
         },
+        "ubytovani": Object {},
         "udaje": Object {
           "jmeno": "Roman",
           "narozeni": Object {

@@ -22,6 +22,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     inputOptions,
     inputValid,
     isInputEnabled,
+    isInputVisible,
     ...restOwnProps
   } = ownProps;
 
@@ -31,6 +32,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     options: inputOptions(name, form, rocniky),
     validationState: inputValid(name, rawValue, form),
     value: formatValue(name, rawValue),
+    visible: isInputVisible(name, form, rocniky),
     inputRef: ref => inputRef(index, ref),
     onChange: event => dispatch(inputChanged(name, event)),
     ...restOwnProps

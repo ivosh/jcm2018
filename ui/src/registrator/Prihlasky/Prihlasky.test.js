@@ -21,7 +21,8 @@ const store = mockStore({
         saving: false,
         udaje: { narozeni: {} },
         prihlaska: {},
-        platby: []
+        platby: [],
+        ubytovani: {}
       },
       platby: {
         novaPlatbaMinified: true

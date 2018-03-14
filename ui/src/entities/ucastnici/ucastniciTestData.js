@@ -557,7 +557,7 @@ const state = {
             }
           },
           datum: '2005-06-04T00:00:00.000Z',
-          ubytovani: { pátek: 30 }
+          ubytovani: { pátek: { poplatek: 30 } }
         },
         2006: {
           id: '5a587e1a051c181132cf83c4',
@@ -669,7 +669,7 @@ const state = {
             }
           },
           datum: '2006-06-10T00:00:00.000Z',
-          ubytovani: { pátek: 30 }
+          ubytovani: { pátek: { poplatek: 30 } }
         },
         2007: {
           id: '5a587e1a051c181132cf83c5',
@@ -781,7 +781,7 @@ const state = {
             }
           },
           datum: '2007-06-09T00:00:00.000Z',
-          ubytovani: { pátek: 40, sobota: 40 }
+          ubytovani: { pátek: { poplatek: 40 }, sobota: { poplatek: 40 } }
         },
         2008: {
           id: '5a587e1a051c181132cf83c6',
@@ -893,7 +893,7 @@ const state = {
             }
           },
           datum: '2008-06-07T00:00:00.000Z',
-          ubytovani: { pátek: 30 }
+          ubytovani: { pátek: { poplatek: 30 } }
         },
         2009: {
           id: '5a587e1a051c181132cf83c7',
@@ -1005,7 +1005,7 @@ const state = {
             }
           },
           datum: '2009-06-13T00:00:00.000Z',
-          ubytovani: { pátek: 30 }
+          ubytovani: { pátek: { poplatek: 30 } }
         },
         2010: {
           id: '5a587e1b051c181132cf83c9',
@@ -1120,7 +1120,7 @@ const state = {
             }
           },
           datum: '2010-06-12T00:00:00.000Z',
-          ubytovani: { pátek: 30 }
+          ubytovani: { pátek: { poplatek: 30 } }
         },
         2011: {
           id: '5a587e1b051c181132cf83ca',
@@ -1235,7 +1235,7 @@ const state = {
             }
           },
           datum: '2011-06-11T00:00:00.000Z',
-          ubytovani: { pátek: 30 }
+          ubytovani: { pátek: { poplatek: 30 } }
         },
         2012: {
           id: '5a587e1b051c181132cf83cb',
@@ -1350,7 +1350,7 @@ const state = {
             }
           },
           datum: '2012-06-09T00:00:00.000Z',
-          ubytovani: { pátek: 30 }
+          ubytovani: { pátek: { poplatek: 30 } }
         },
         2013: {
           id: '5a587e1b051c181132cf83cc',
@@ -1480,7 +1480,7 @@ const state = {
             }
           },
           datum: '2013-06-08T00:00:00.000Z',
-          ubytovani: { pátek: 30 }
+          ubytovani: { pátek: { poplatek: 30 } }
         },
         2014: {
           id: '5a587e1b051c181132cf83cd',
@@ -1595,7 +1595,7 @@ const state = {
             }
           },
           datum: '2014-06-14T00:00:00.000Z',
-          ubytovani: { pátek: 50 }
+          ubytovani: { pátek: { poplatek: 50 } }
         },
         2015: {
           id: '5a587e1b051c181132cf83ce',
@@ -1710,7 +1710,7 @@ const state = {
             }
           },
           datum: '2015-06-13T00:00:00.000Z',
-          ubytovani: { pátek: 50 }
+          ubytovani: { pátek: { poplatek: 50 } }
         },
         2016: {
           id: '5a587e1b051c181132cf83d1',
@@ -1845,7 +1845,7 @@ const state = {
             }
           },
           datum: '2016-06-11T00:00:00.000Z',
-          ubytovani: { pátek: 50 }
+          ubytovani: { pátek: { poplatek: 50 } }
         },
         2017: {
           id: '5a587e1b051c181132cf83d2',
@@ -1980,7 +1980,7 @@ const state = {
             }
           },
           datum: '2017-06-10T00:00:00.000Z',
-          ubytovani: { pátek: 50 }
+          ubytovani: { pátek: { poplatek: 50 } }
         },
         2018: {
           id: '5a587e1b051c181132cf83df',
@@ -2183,7 +2183,7 @@ const state = {
             }
           },
           datum: '2018-06-09T00:00:00.000Z',
-          ubytovani: { pátek: 50 }
+          ubytovani: { pátek: { poplatek: 50 } }
         }
       }
     },
@@ -2235,7 +2235,8 @@ const state = {
               kategorie: '5a587e1b051c181132cf83d7', // půlmaraton
               startCislo: 15,
               dokonceno: false
-            }
+            },
+            ubytovani: { pátek: { prihlaseno: true, absolvovano: true } }
           },
           2017: {
             udaje: {

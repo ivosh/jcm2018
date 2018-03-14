@@ -210,6 +210,22 @@ exports[`formulář po uložení 1`] = `
             name="prihlaska.kod"
             popisek="kód"
           />
+          <Connect(Connect(Input))
+            Type={[Function]}
+            index={15}
+            inputRef={[Function]}
+            name="ubytovani.pátek"
+            option="pátek"
+            popisek="ubytování"
+          />
+          <Connect(Connect(Input))
+            Type={[Function]}
+            index={16}
+            inputRef={[Function]}
+            name="ubytovani.sobota"
+            option="sobota"
+            popisek=""
+          />
         </Panel>
         <LoadingButton
           bsStyle="success"
@@ -254,7 +270,7 @@ exports[`formulář po uložení 1`] = `
         >
           <Connect(Platby)
             inputRef={[Function]}
-            startIndex={15}
+            startIndex={17}
           />
         </Panel>
       </Col>
@@ -473,6 +489,22 @@ exports[`formulář s chybou 1`] = `
             name="prihlaska.kod"
             popisek="kód"
           />
+          <Connect(Connect(Input))
+            Type={[Function]}
+            index={15}
+            inputRef={[Function]}
+            name="ubytovani.pátek"
+            option="pátek"
+            popisek="ubytování"
+          />
+          <Connect(Connect(Input))
+            Type={[Function]}
+            index={16}
+            inputRef={[Function]}
+            name="ubytovani.sobota"
+            option="sobota"
+            popisek=""
+          />
         </Panel>
         <LoadingButton
           bsStyle="success"
@@ -517,7 +549,7 @@ exports[`formulář s chybou 1`] = `
         >
           <Connect(Platby)
             inputRef={[Function]}
-            startIndex={15}
+            startIndex={17}
           />
         </Panel>
       </Col>
@@ -742,6 +774,22 @@ exports[`formulář s existujícím účastníkem 1`] = `
             name="prihlaska.kod"
             popisek="kód"
           />
+          <Connect(Connect(Input))
+            Type={[Function]}
+            index={15}
+            inputRef={[Function]}
+            name="ubytovani.pátek"
+            option="pátek"
+            popisek="ubytování"
+          />
+          <Connect(Connect(Input))
+            Type={[Function]}
+            index={16}
+            inputRef={[Function]}
+            name="ubytovani.sobota"
+            option="sobota"
+            popisek=""
+          />
         </Panel>
         <LoadingButton
           bsStyle="success"
@@ -786,7 +834,7 @@ exports[`formulář s existujícím účastníkem 1`] = `
         >
           <Connect(Platby)
             inputRef={[Function]}
-            startIndex={15}
+            startIndex={17}
           />
         </Panel>
       </Col>
@@ -1005,6 +1053,22 @@ exports[`prázdný formulář 1`] = `
             name="prihlaska.kod"
             popisek="kód"
           />
+          <Connect(Connect(Input))
+            Type={[Function]}
+            index={15}
+            inputRef={[Function]}
+            name="ubytovani.pátek"
+            option="pátek"
+            popisek="ubytování"
+          />
+          <Connect(Connect(Input))
+            Type={[Function]}
+            index={16}
+            inputRef={[Function]}
+            name="ubytovani.sobota"
+            option="sobota"
+            popisek=""
+          />
         </Panel>
         <LoadingButton
           bsStyle="success"
@@ -1049,7 +1113,7 @@ exports[`prázdný formulář 1`] = `
         >
           <Connect(Platby)
             inputRef={[Function]}
-            startIndex={15}
+            startIndex={17}
           />
         </Panel>
       </Col>

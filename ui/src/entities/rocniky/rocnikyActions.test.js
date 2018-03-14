@@ -94,8 +94,8 @@ const successfulResponse = {
           }
         },
         ubytovani: {
-          pátek: 50,
-          sobota: 60
+          pátek: { poplatek: 50 },
+          sobota: { poplatek: 60 }
         }
       },
       2018: {
@@ -177,7 +177,7 @@ const successfulResponse = {
           }
         },
         ubytovani: {
-          pátek: 60
+          pátek: { poplatek: 60 }
         }
       }
     }

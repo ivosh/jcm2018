@@ -18,7 +18,8 @@ import prihlaskyFormReducer, {
   formValid,
   inputOptions,
   inputValid,
-  isInputEnabled
+  isInputEnabled,
+  isInputVisible
 } from './prihlaskyFormReducer';
 
 const unsuccessfulResponse = {
@@ -104,7 +105,8 @@ it('reset()', () => {
       kod: '===kod==',
       mladistvyPotvrzen: false
     },
-    platby: [{ castka: 200, datum: new Date(), typ: 'převodem' }]
+    platby: [{ castka: 200, datum: new Date(), typ: 'převodem' }],
+    ubytovani: { pátek: { prihlaseno: true } }
   };
   const stateAfter = {
     errorCode: '',
@@ -135,7 +137,8 @@ it('reset()', () => {
       kod: undefined,
       mladistvyPotvrzen: undefined
     },
-    platby: []
+    platby: [],
+    ubytovani: {}
   };
   deepFreeze(stateBefore);
 
@@ -178,7 +181,7 @@ it('saveUcastSuccess()', () => {
   expect(
     prihlaskyFormReducer(
       stateBefore,
-      saveUcastSuccess({ id: '===id===', udaje: {}, prihlaska: {} })
+      saveUcastSuccess({ id: '===id===', udaje: {}, prihlaska: {}, platby: [], ubytovani: {} })
     )
   ).toEqual(stateAfter);
 });
@@ -223,7 +226,8 @@ it('validation of the initial state [validate === false]', () => {
       kod: undefined,
       mladistvyPotvrzen: undefined
     },
-    platby: []
+    platby: [],
+    ubytovani: {}
   };
   deepFreeze(state);
 
@@ -251,6 +255,7 @@ it('validation of the initial state [validate === false]', () => {
   expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
     false
   );
+  expect(isInputEnabled('ubytovani.pátek', state, ucastniciTestData.entities.rocniky)).toBe(true);
 });
 
 it('validation of the initial state [validate === true]', () => {
@@ -277,7 +282,8 @@ it('validation of the initial state [validate === true]', () => {
       kod: undefined,
       mladistvyPotvrzen: undefined
     },
-    platby: []
+    platby: [],
+    ubytovani: {}
   };
   deepFreeze(state);
 
@@ -304,6 +310,7 @@ it('validation of the initial state [validate === true]', () => {
   expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
     false
   );
+  expect(isInputEnabled('ubytovani.pátek', state, ucastniciTestData.entities.rocniky)).toBe(true);
 });
 
 it('validation of some invalid state [validate === false]', () => {
@@ -330,7 +337,8 @@ it('validation of some invalid state [validate === false]', () => {
       kod: '===kód===',
       mladistvyPotvrzen: undefined
     },
-    platby: [{ castka: 220, datum: new Date(), typ: 'převodem' }]
+    platby: [{ castka: 220, datum: new Date(), typ: 'převodem' }],
+    ubytovani: { pátek: { prihlaseno: false, absolvovano: true } }
   };
   deepFreeze(state);
 
@@ -357,6 +365,9 @@ it('validation of some invalid state [validate === false]', () => {
   expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
     false
   );
+  expect(isInputEnabled('ubytovani.pátek', state, ucastniciTestData.entities.rocniky)).toBe(false);
+  expect(isInputVisible('ubytovani.pátek', state, ucastniciTestData.entities.rocniky)).toBe(true);
+  expect(isInputVisible('ubytovani.sobota', state, ucastniciTestData.entities.rocniky)).toBe(false);
 });
 
 it('validation of some invalid state [validate === true]', () => {
@@ -383,7 +394,8 @@ it('validation of some invalid state [validate === true]', () => {
       kod: '===kód===',
       mladistvyPotvrzen: undefined
     },
-    platby: [{ castka: 200, datum: '3. 1. 2015', typ: 'převodem' }]
+    platby: [{ castka: 200, datum: '3. 1. 2015', typ: 'převodem' }],
+    ubytovani: { pátek: { prihlaseno: true } }
   };
   deepFreeze(state);
 
@@ -410,6 +422,9 @@ it('validation of some invalid state [validate === true]', () => {
   expect(isInputEnabled('prihlaska.startCislo', state, ucastniciTestData.entities.rocniky)).toBe(
     false
   );
+  expect(isInputEnabled('ubytovani.pátek', state, ucastniciTestData.entities.rocniky)).toBe(true);
+  expect(isInputVisible('ubytovani.pátek', state, ucastniciTestData.entities.rocniky)).toBe(true);
+  expect(isInputVisible('ubytovani.sobota', state, ucastniciTestData.entities.rocniky)).toBe(false);
 });
 
 it('udaje.pohlavi - nahodí ženu', () => {
@@ -763,7 +778,8 @@ it('loadUcastnik() - údaje i přihláška', () => {
       startCislo: 17,
       kod: '10728864'
     },
-    platby: [{ castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }]
+    platby: [{ castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }],
+    ubytovani: { pátek: { prihlaseno: true, absolvovano: true } }
   };
   deepFreeze(stateBefore);
 
@@ -822,7 +838,8 @@ it('loadUcastnik() - jen údaje', () => {
       startCislo: undefined,
       kod: undefined
     },
-    platby: []
+    platby: [],
+    ubytovani: {}
   };
   deepFreeze(stateBefore);
 

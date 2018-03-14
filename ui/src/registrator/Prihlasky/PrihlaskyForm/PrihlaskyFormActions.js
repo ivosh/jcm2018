@@ -1,4 +1,11 @@
-import { CODE_OK, CODE_TOKEN_INVALID, savePlatby, savePrihlaska, saveUdaje } from '../../../common';
+import {
+  CODE_OK,
+  CODE_TOKEN_INVALID,
+  savePlatby,
+  savePrihlaska,
+  saveUbytovani,
+  saveUdaje
+} from '../../../common';
 import { AKTUALNI_ROK, PRIHLASKY_SAVE_MODAL_TIMEOUT } from '../../../constants';
 import { authTokenExpired } from '../../../auth/SignIn/SignInActions';
 import { inputChanged as genericInputChanged } from '../Input/InputActions';
@@ -28,6 +35,7 @@ export const loadUcastnik = ({ id, kategorie, ucastnici }) => {
     const { typ } = kategorie[letosniUcast.prihlaska.kategorie];
     action.prihlaska = { ...letosniUcast.prihlaska, typ };
     action.platby = letosniUcast.platby;
+    action.ubytovani = letosniUcast.ubytovani;
   }
   return action;
 };
@@ -44,7 +52,7 @@ export const saveUcastRequest = () => ({
   type: 'PRIHLASKY_SAVE_REQUEST'
 });
 
-export const saveUcastSuccess = ({ id, rok, udaje, prihlaska, platby = [] }) => {
+export const saveUcastSuccess = ({ id, rok, udaje, prihlaska, platby = [], ubytovani = {} }) => {
   const { typ, ...jenPrihlaska } = prihlaska;
 
   return {
@@ -54,6 +62,7 @@ export const saveUcastSuccess = ({ id, rok, udaje, prihlaska, platby = [] }) => 
     udaje,
     prihlaska: jenPrihlaska,
     platby,
+    ubytovani,
     receivedAt: Date.now()
   };
 };
@@ -95,7 +104,7 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
   dispatch(saveUcastRequest());
 
   const rok = AKTUALNI_ROK;
-  const { udaje, prihlaska, platby } = prihlaskyForm;
+  const { udaje, prihlaska, platby, ubytovani } = prihlaskyForm;
   try {
     let response = await wsClient.sendRequest(
       saveUdaje(
@@ -120,8 +129,14 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
     }
 
     response = await wsClient.sendRequest(savePlatby({ id, rok, platby }, state.auth.token));
+    if (response.code !== CODE_OK) {
+      handleErrors(dispatch, response);
+      return;
+    }
+
+    response = await wsClient.sendRequest(saveUbytovani({ id, rok, ubytovani }, state.auth.token));
     if (response.code === CODE_OK) {
-      dispatch(saveUcastSuccess({ id, rok, udaje, prihlaska, platby }));
+      dispatch(saveUcastSuccess({ id, rok, udaje, prihlaska, platby, ubytovani }));
       showModalWithTimeout(dispatch);
     } else {
       handleErrors(dispatch, response);

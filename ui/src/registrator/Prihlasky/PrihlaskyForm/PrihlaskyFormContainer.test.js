@@ -75,7 +75,8 @@ it('maps onLoadId to dispatch loadUcastnik action - existující přihláška', 
       startCislo: 17,
       kod: '10728864'
     },
-    platby: [{ castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }]
+    platby: [{ castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }],
+    ubytovani: { pátek: { prihlaseno: true, absolvovano: true } }
   });
 });
 

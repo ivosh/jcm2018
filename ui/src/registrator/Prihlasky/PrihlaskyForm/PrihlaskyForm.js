@@ -5,6 +5,7 @@ import HideableError from '../../../shared/HideableError';
 import LoadingButton from '../../../shared/LoadingButton';
 import PopisekKategorie from '../../../shared/Popisek/PopisekKategorie';
 import PopisekPohlavi from '../../../shared/Popisek/PopisekPohlavi';
+import CheckboxInput from '../Input/CheckboxInput';
 import RadioInput from '../Input/RadioInput';
 import StartCisloInputContainer from '../StartCislo/StartCisloInputContainer';
 import TextInput from '../Input/TextInput';
@@ -213,6 +214,22 @@ class PrihlaskyForm extends PureComponent {
                   popisek="kód"
                   Type={TextInput}
                 />
+                <PrihlaskyFormInputContainer
+                  index={15}
+                  inputRef={this.inputRef}
+                  name="ubytovani.pátek"
+                  popisek="ubytování"
+                  option="pátek"
+                  Type={CheckboxInput}
+                />
+                <PrihlaskyFormInputContainer
+                  index={16}
+                  inputRef={this.inputRef}
+                  name="ubytovani.sobota"
+                  popisek=""
+                  option="sobota"
+                  Type={TextInput}
+                />
               </Panel>
               <LoadingButton
                 type="submit"
@@ -230,7 +247,7 @@ class PrihlaskyForm extends PureComponent {
             </Col>
             <Col sm={4}>
               <Panel bsStyle="primary" header="Platby">
-                <PlatbyContainer startIndex={15} inputRef={this.inputRef} />
+                <PlatbyContainer startIndex={17} inputRef={this.inputRef} />
               </Panel>
             </Col>
           </Form>

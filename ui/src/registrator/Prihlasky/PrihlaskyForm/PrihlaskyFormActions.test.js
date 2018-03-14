@@ -21,6 +21,11 @@ const successfulResponseSavePlatby = {
   requestId: '0.9310306652587377'
 };
 
+const successfulResponseSaveUbytovani = {
+  code: 'ok',
+  requestId: '0.9310306652587377'
+};
+
 const unsuccessfulResponse = {
   code: 'unfulfilled request',
   status: 'A strange error occurred.'
@@ -48,7 +53,8 @@ it('saveUcast() should dispatch four successful actions', async () => {
   responses = [
     successfulResponseSaveUdaje,
     successfulResponseSavePrihlaska,
-    successfulResponseSavePlatby
+    successfulResponseSavePlatby,
+    successfulResponseSaveUbytovani
   ];
   const store = mockStore({
     auth: { token: '===token===' },

@@ -2,7 +2,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import InputContainer from '../Input/InputContainer';
 import { inputChanged } from './PlatbyActions';
-import { formatValue, inputOptions, inputValid, isInputEnabled } from './platbyReducer';
+import {
+  formatValue,
+  inputOptions,
+  inputValid,
+  isInputEnabled,
+  isInputVisible
+} from './platbyReducer';
 
 const mapStateToProps = (state, ownProps) => {
   const form = state.registrator.prihlasky.platby;
@@ -18,6 +24,7 @@ const mapStateToProps = (state, ownProps) => {
     inputOptions,
     inputValid,
     isInputEnabled,
+    isInputVisible,
     ...ownProps
   };
 };
