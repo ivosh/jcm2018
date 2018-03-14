@@ -32,19 +32,17 @@ const processPohlavi = pohlavi => {
 };
 
 const vytvorUbytovaniRocniku = rocnik => {
-  const list = [];
+  const ubytovani = {};
 
   if (rocnik.ubytovaniPaSo) {
-    const patecni = { den: 'pátek', poplatek: rocnik.ubytovaniPaSo[0] };
-    list.push(patecni);
+    ubytovani.pátek = { poplatek: rocnik.ubytovaniPaSo[0] };
   }
 
   if (rocnik.ubytovaniSoNe) {
-    const sobotni = { den: 'sobota', poplatek: rocnik.ubytovaniSoNe[0] };
-    list.push(sobotni);
+    ubytovani.sobota = { poplatek: rocnik.ubytovaniSoNe[0] };
   }
 
-  return list.length > 0 ? list : undefined;
+  return ubytovani;
 };
 
 const najdiCiUlozKategorii = async kategorie => {
@@ -286,31 +284,23 @@ const vytvorPlatbu = (ucast, datum, typ = 'hotově') => {
 };
 
 const vytvorUbytovaniUcastnika = (prihlaska, ucast) => {
-  const list = [];
+  const ubytovani = {};
 
-  const patecni = { den: 'pátek' };
   if (prihlaska && prihlaska.ubytovaniPaSo !== undefined) {
-    patecni.prihlaseno = true;
+    ubytovani.pátek = { prihlaseno: true };
   }
   if (ucast && ucast.ubytovaniPaSo !== undefined) {
-    patecni.absolvovano = true;
-  }
-  if (patecni.prihlaseno || patecni.absolvovano) {
-    list.push(patecni);
+    ubytovani.pátek = { ...ubytovani.pátek, absolvovano: true };
   }
 
-  const sobotni = { den: 'sobota' };
   if (prihlaska && prihlaska.ubytovaniSoNe) {
-    sobotni.prihlaseno = true;
+    ubytovani.sobota = { prihlaseno: true };
   }
   if (ucast && ucast.ubytovaniSoNe) {
-    sobotni.absolvovano = true;
-  }
-  if (sobotni.prihlaseno || sobotni.absolvovano) {
-    list.push(sobotni);
+    ubytovani.sobota = { ...ubytovani.sobota, absolvovano: true };
   }
 
-  return list.length > 0 ? list : undefined;
+  return ubytovani;
 };
 
 const processZajem = async (rocniky, zajem, udaje) => {
@@ -339,13 +329,10 @@ const processZajem = async (rocniky, zajem, udaje) => {
     );
   }
 
-  const ubytovani = vytvorUbytovaniUcastnika(
+  ucast.ubytovani = vytvorUbytovaniUcastnika(
     zajem.prihlaska && zajem.prihlaska[0],
     zajem.ucast && zajem.ucast[0]
   );
-  if (ubytovani) {
-    ucast.ubytovani = ubytovani;
-  }
 
   if (zajem.ucast && zajem.ucast[0]) {
     ucast.platby = [vytvorPlatbu(zajem.ucast[0], rocniky[rok].datum)];

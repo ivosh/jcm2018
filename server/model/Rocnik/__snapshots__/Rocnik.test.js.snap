@@ -31,7 +31,6 @@ Array [
       },
     ],
     "rok": 2017,
-    "ubytovani": Array [],
   },
 ]
 `;
@@ -76,16 +75,14 @@ Array [
       },
     ],
     "rok": 2017,
-    "ubytovani": Array [
-      Object {
-        "den": "pátek",
+    "ubytovani": Object {
+      "pátek": Object {
         "poplatek": 50,
       },
-      Object {
-        "den": "sobota",
+      "sobota": Object {
         "poplatek": 60,
       },
-    ],
+    },
   },
 ]
 `;

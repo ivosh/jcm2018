@@ -15,7 +15,6 @@ Array [
       Object {
         "platby": Array [],
         "rok": 2016,
-        "ubytovani": Array [],
         "udaje": Object {
           "jmeno": "František",
           "narozeni": Object {
@@ -42,7 +41,7 @@ Object {
 exports[`ubytování nevypsáno 1`] = `
 Object {
   "code": "neexistuje",
-  "status": "Nelze se přihlásit na ubytování v den: sobota. Není vypsáno.",
+  "status": "Nelze se přihlásit na ubytování v sobotu. Není vypsáno.",
 }
 `;
 
@@ -54,7 +53,6 @@ Array [
       Object {
         "platby": Array [],
         "rok": 2018,
-        "ubytovani": Array [],
         "udaje": Object {
           "jmeno": "František",
           "narozeni": Object {
@@ -81,23 +79,21 @@ Object {
 exports[`vytvoř minimálního účastníka 2`] = `
 Array [
   Object {
-    "__v": 2,
+    "__v": 1,
     "ucasti": Array [
       Object {
         "platby": Array [],
         "rok": 2017,
-        "ubytovani": Array [
-          Object {
+        "ubytovani": Object {
+          "pátek": Object {
             "absolvovano": false,
-            "den": "pátek",
             "prihlaseno": true,
           },
-          Object {
+          "sobota": Object {
             "absolvovano": true,
-            "den": "sobota",
             "prihlaseno": true,
           },
-        ],
+        },
         "udaje": Object {
           "jmeno": "František",
           "narozeni": Object {

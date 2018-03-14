@@ -65,8 +65,8 @@ beforeAll(async () => {
     startCisla: { rozsahy: ['1-100'] },
     startovne: { predem: 150, naMiste: 200 }
   });
-  rocnik1.ubytovani.push({ den: 'pátek', poplatek: 50 });
-  rocnik1.ubytovani.push({ den: 'sobota', poplatek: 60 });
+  rocnik1.ubytovani.pátek = { poplatek: 50 };
+  rocnik1.ubytovani.sobota = { poplatek: 60 };
   await rocnik1.save();
 
   const rocnik2 = new Rocnik({ rok: 2016, datum: '2016-06-01' });
@@ -76,8 +76,8 @@ beforeAll(async () => {
     startCisla: { rozsahy: ['1-100'] },
     startovne: { predem: 150, naMiste: 200 }
   });
-  rocnik2.ubytovani.push({ den: 'pátek', poplatek: 50 });
-  rocnik2.ubytovani.push({ den: 'sobota', poplatek: 60 });
+  rocnik2.ubytovani.pátek = { poplatek: 50 };
+  rocnik2.ubytovani.sobota = { poplatek: 60 };
   await rocnik2.save();
 
   const rocnik3 = new Rocnik({ rok: 2017, datum: '2017-06-10' });
@@ -93,8 +93,8 @@ beforeAll(async () => {
     startCisla: { rozsahy: ['1-100'] },
     startovne: { predem: 150, naMiste: 200 }
   });
-  rocnik3.ubytovani.push({ den: 'pátek', poplatek: 50 });
-  rocnik3.ubytovani.push({ den: 'sobota', poplatek: 60 });
+  rocnik3.ubytovani.pátek = { poplatek: 50 };
+  rocnik3.ubytovani.sobota = { poplatek: 60 };
   await rocnik3.save();
 
   const rocnik4 = new Rocnik({ rok: 2018, datum: '2018-06-08' });
@@ -115,7 +115,7 @@ beforeAll(async () => {
     kategorie: [kategorie6.id],
     startovne: { predem: 25, naMiste: 25 }
   });
-  rocnik4.ubytovani.push({ den: 'pátek', poplatek: 60 });
+  rocnik4.ubytovani.pátek = { poplatek: 60 };
   await rocnik4.save();
 });
 

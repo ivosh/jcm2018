@@ -100,8 +100,12 @@ Object {
           },
         },
         "ubytovani": Object {
-          "pátek": 50,
-          "sobota": 60,
+          "pátek": Object {
+            "poplatek": 50,
+          },
+          "sobota": Object {
+            "poplatek": 60,
+          },
         },
       },
       "2018": Object {
@@ -191,7 +195,9 @@ Object {
           },
         },
         "ubytovani": Object {
-          "pátek": 60,
+          "pátek": Object {
+            "poplatek": 60,
+          },
         },
       },
     },

@@ -22,7 +22,6 @@ Array [
           "startCislo": 44,
         },
         "rok": 2017,
-        "ubytovani": Array [],
         "udaje": Object {
           "adresa": "Za Kohoutem 194/2",
           "email": "sk@nudle.cz",
@@ -54,7 +53,6 @@ Array [
       Object {
         "platby": Array [],
         "rok": 2017,
-        "ubytovani": Array [],
         "udaje": Object {
           "jmeno": "Roman",
           "narozeni": Object {
@@ -74,7 +72,7 @@ Array [
 exports[`účastník zaplatil ubytování 1`] = `
 Array [
   Object {
-    "__v": 1,
+    "__v": 0,
     "ucasti": Array [
       Object {
         "platby": Array [
@@ -85,12 +83,11 @@ Array [
           },
         ],
         "rok": 2016,
-        "ubytovani": Array [
-          Object {
-            "den": "pátek",
+        "ubytovani": Object {
+          "pátek": Object {
             "prihlaseno": true,
           },
-        ],
+        },
         "udaje": Object {
           "jmeno": "Roman",
           "narozeni": Object {

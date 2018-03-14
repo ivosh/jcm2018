@@ -16,17 +16,6 @@ const normalizeKategorie = kategorie => {
   return normalized;
 };
 
-const normalizeUbytovani = ubytovani => {
-  const normalized = {};
-
-  ubytovani.forEach(element => {
-    const { den, poplatek } = element;
-    normalized[den] = poplatek;
-  });
-
-  return normalized;
-};
-
 const normalizeKategorieProTyp = kategorieList => {
   let normalized = {};
 
@@ -62,16 +51,12 @@ const normalizeRocniky = rocniky => {
   const normalized = {};
 
   rocniky.forEach(element => {
-    const { rok, __v, _id, kategorie, ubytovani, ...rocnikBezRoku } = element;
+    const { rok, __v, _id, kategorie, ...rocnikBezRoku } = element;
     const rocnik = {
       id: _id,
       kategorie: normalizeTypyKategorii(kategorie),
       ...rocnikBezRoku
     };
-
-    if (ubytovani.length > 0) {
-      rocnik.ubytovani = normalizeUbytovani(ubytovani);
-    }
 
     normalized[rok] = rocnik;
   });

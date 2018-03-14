@@ -58,8 +58,8 @@ it('vytvoř ročník s ubytováním', async () => {
     startCisla: { rozsahy: ['1-100'] },
     startovne: { predem: 150, naMiste: 200 }
   });
-  rocnik.ubytovani.push({ den: 'pátek', poplatek: 50 });
-  rocnik.ubytovani.push({ den: 'sobota', poplatek: 60 });
+  rocnik.ubytovani.pátek = { poplatek: 50 };
+  rocnik.ubytovani.sobota = { poplatek: 60 };
   await rocnik.save();
 
   const rocniky = await Rocnik.find({}, { _id: 0 }).populate('kategorie.kategorie', { _id: 0 });

@@ -24,11 +24,16 @@ const saveUbytovani = async ({ request }) => {
     };
   }
 
-  const notFound = ubytovani.filter(ubytko => !rocnik.ubytovani[ubytko.den]);
-  if (notFound.length > 0) {
+  if (ubytovani.pátek && !rocnik.ubytovani.pátek) {
     return {
       code: Actions.CODE_NONEXISTING,
-      status: `Nelze se přihlásit na ubytování v den: ${notFound[0].den}. Není vypsáno.`
+      status: 'Nelze se přihlásit na ubytování v pátek. Není vypsáno.'
+    };
+  }
+  if (ubytovani.sobota && !rocnik.ubytovani.sobota) {
+    return {
+      code: Actions.CODE_NONEXISTING,
+      status: 'Nelze se přihlásit na ubytování v sobotu. Není vypsáno.'
     };
   }
 

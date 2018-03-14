@@ -220,12 +220,11 @@ Array [
       },
     ],
     "rok": 2017,
-    "ubytovani": Array [
-      Object {
-        "den": "pátek",
+    "ubytovani": Object {
+      "pátek": Object {
         "poplatek": 50,
       },
-    ],
+    },
   },
   Object {
     "__v": 0,
@@ -547,12 +546,11 @@ Array [
       },
     ],
     "rok": 2018,
-    "ubytovani": Array [
-      Object {
-        "den": "pátek",
+    "ubytovani": Object {
+      "pátek": Object {
         "poplatek": 50,
       },
-    ],
+    },
   },
 ]
 `;
@@ -578,7 +576,6 @@ Array [
           },
         },
         "rok": 2015,
-        "ubytovani": Array [],
         "udaje": Object {
           "email": "sk@s.cz",
           "jmeno": "Karel",
@@ -624,13 +621,12 @@ Array [
           },
         },
         "rok": 2015,
-        "ubytovani": Array [
-          Object {
+        "ubytovani": Object {
+          "pátek": Object {
             "absolvovano": true,
-            "den": "pátek",
             "prihlaseno": true,
           },
-        ],
+        },
         "udaje": Object {
           "adresa": "17. listopadu 1314",
           "jmeno": "Václav",
@@ -697,7 +693,6 @@ Array [
       },
     ],
     "rok": 2017,
-    "ubytovani": Array [],
   },
 ]
 `;
@@ -778,7 +773,6 @@ Array [
       },
     ],
     "rok": 2001,
-    "ubytovani": Array [],
   },
   Object {
     "__v": 0,
@@ -872,7 +866,6 @@ Array [
       },
     ],
     "rok": 2002,
-    "ubytovani": Array [],
   },
   Object {
     "__v": 0,
@@ -966,7 +959,6 @@ Array [
       },
     ],
     "rok": 2003,
-    "ubytovani": Array [],
   },
   Object {
     "__v": 0,
@@ -1073,7 +1065,6 @@ Array [
       },
     ],
     "rok": 2004,
-    "ubytovani": Array [],
   },
   Object {
     "__v": 0,
@@ -1212,12 +1203,11 @@ Array [
       },
     ],
     "rok": 2005,
-    "ubytovani": Array [
-      Object {
-        "den": "pátek",
+    "ubytovani": Object {
+      "pátek": Object {
         "poplatek": 30,
       },
-    ],
+    },
   },
   Object {
     "__v": 0,
@@ -1392,12 +1382,11 @@ Array [
       },
     ],
     "rok": 2006,
-    "ubytovani": Array [
-      Object {
-        "den": "pátek",
+    "ubytovani": Object {
+      "pátek": Object {
         "poplatek": 30,
       },
-    ],
+    },
   },
   Object {
     "__v": 0,
@@ -1572,16 +1561,14 @@ Array [
       },
     ],
     "rok": 2007,
-    "ubytovani": Array [
-      Object {
-        "den": "pátek",
+    "ubytovani": Object {
+      "pátek": Object {
         "poplatek": 40,
       },
-      Object {
-        "den": "sobota",
+      "sobota": Object {
         "poplatek": 40,
       },
-    ],
+    },
   },
   Object {
     "__v": 0,
@@ -1756,12 +1743,11 @@ Array [
       },
     ],
     "rok": 2008,
-    "ubytovani": Array [
-      Object {
-        "den": "pátek",
+    "ubytovani": Object {
+      "pátek": Object {
         "poplatek": 30,
       },
-    ],
+    },
   },
   Object {
     "__v": 0,
@@ -1936,12 +1922,11 @@ Array [
       },
     ],
     "rok": 2009,
-    "ubytovani": Array [
-      Object {
-        "den": "pátek",
+    "ubytovani": Object {
+      "pátek": Object {
         "poplatek": 30,
       },
-    ],
+    },
   },
   Object {
     "__v": 0,
@@ -2125,12 +2110,11 @@ Array [
       },
     ],
     "rok": 2010,
-    "ubytovani": Array [
-      Object {
-        "den": "pátek",
+    "ubytovani": Object {
+      "pátek": Object {
         "poplatek": 30,
       },
-    ],
+    },
   },
   Object {
     "__v": 0,
@@ -2314,12 +2298,11 @@ Array [
       },
     ],
     "rok": 2011,
-    "ubytovani": Array [
-      Object {
-        "den": "pátek",
+    "ubytovani": Object {
+      "pátek": Object {
         "poplatek": 30,
       },
-    ],
+    },
   },
   Object {
     "__v": 0,
@@ -2503,12 +2486,11 @@ Array [
       },
     ],
     "rok": 2012,
-    "ubytovani": Array [
-      Object {
-        "den": "pátek",
+    "ubytovani": Object {
+      "pátek": Object {
         "poplatek": 30,
       },
-    ],
+    },
   },
   Object {
     "__v": 0,
@@ -2703,12 +2685,11 @@ Array [
       },
     ],
     "rok": 2013,
-    "ubytovani": Array [
-      Object {
-        "den": "pátek",
+    "ubytovani": Object {
+      "pátek": Object {
         "poplatek": 30,
       },
-    ],
+    },
   },
   Object {
     "__v": 0,
@@ -2892,12 +2873,11 @@ Array [
       },
     ],
     "rok": 2014,
-    "ubytovani": Array [
-      Object {
-        "den": "pátek",
+    "ubytovani": Object {
+      "pátek": Object {
         "poplatek": 50,
       },
-    ],
+    },
   },
   Object {
     "__v": 0,
@@ -3081,12 +3061,11 @@ Array [
       },
     ],
     "rok": 2015,
-    "ubytovani": Array [
-      Object {
-        "den": "pátek",
+    "ubytovani": Object {
+      "pátek": Object {
         "poplatek": 50,
       },
-    ],
+    },
   },
   Object {
     "__v": 0,
@@ -3306,12 +3285,11 @@ Array [
       },
     ],
     "rok": 2016,
-    "ubytovani": Array [
-      Object {
-        "den": "pátek",
+    "ubytovani": Object {
+      "pátek": Object {
         "poplatek": 50,
       },
-    ],
+    },
   },
   Object {
     "__v": 0,
@@ -3527,12 +3505,11 @@ Array [
       },
     ],
     "rok": 2017,
-    "ubytovani": Array [
-      Object {
-        "den": "pátek",
+    "ubytovani": Object {
+      "pátek": Object {
         "poplatek": 50,
       },
-    ],
+    },
   },
   Object {
     "__v": 0,
@@ -3854,12 +3831,11 @@ Array [
       },
     ],
     "rok": 2018,
-    "ubytovani": Array [
-      Object {
-        "den": "pátek",
+    "ubytovani": Object {
+      "pátek": Object {
         "poplatek": 50,
       },
-    ],
+    },
   },
 ]
 `;
@@ -3886,7 +3862,6 @@ Array [
           },
         },
         "rok": 2003,
-        "ubytovani": Array [],
         "udaje": Object {
           "adresa": "17. listopadu 1314",
           "jmeno": "Václav",
@@ -3935,7 +3910,6 @@ Array [
           },
         },
         "rok": 2004,
-        "ubytovani": Array [],
         "udaje": Object {
           "adresa": "17. listopadu 1314",
           "jmeno": "Václav",
@@ -3988,16 +3962,14 @@ Array [
           },
         },
         "rok": 2005,
-        "ubytovani": Array [
-          Object {
+        "ubytovani": Object {
+          "pátek": Object {
             "absolvovano": true,
-            "den": "pátek",
           },
-          Object {
+          "sobota": Object {
             "absolvovano": true,
-            "den": "sobota",
           },
-        ],
+        },
         "udaje": Object {
           "adresa": "17. listopadu 1314",
           "jmeno": "Václav",
@@ -4051,17 +4023,15 @@ Array [
           },
         },
         "rok": 2008,
-        "ubytovani": Array [
-          Object {
+        "ubytovani": Object {
+          "pátek": Object {
             "absolvovano": true,
-            "den": "pátek",
             "prihlaseno": true,
           },
-          Object {
-            "den": "sobota",
+          "sobota": Object {
             "prihlaseno": true,
           },
-        ],
+        },
         "udaje": Object {
           "adresa": "17. listopadu 1314",
           "jmeno": "Václav",
@@ -4114,7 +4084,6 @@ Array [
           },
         },
         "rok": 2013,
-        "ubytovani": Array [],
         "udaje": Object {
           "adresa": "17. listopadu 1314",
           "jmeno": "Václav",
@@ -4156,12 +4125,11 @@ Array [
           },
         },
         "rok": 2014,
-        "ubytovani": Array [
-          Object {
-            "den": "pátek",
+        "ubytovani": Object {
+          "pátek": Object {
             "prihlaseno": true,
           },
-        ],
+        },
         "udaje": Object {
           "adresa": "17. listopadu 1314",
           "jmeno": "Václav",
@@ -4196,13 +4164,12 @@ Array [
           },
         },
         "rok": 2015,
-        "ubytovani": Array [
-          Object {
+        "ubytovani": Object {
+          "pátek": Object {
             "absolvovano": true,
-            "den": "pátek",
             "prihlaseno": true,
           },
-        ],
+        },
         "udaje": Object {
           "adresa": "17. listopadu 1314",
           "jmeno": "Václav",

@@ -98,7 +98,7 @@ it('účastník zaplatil ubytování', async () => {
   ucastnik.ucasti.push(ucast);
   await ucastnik.save();
 
-  ucastnik.ucasti[0].ubytovani.push({ den: 'pátek', prihlaseno: true });
+  ucastnik.ucasti[0].ubytovani.pátek = { prihlaseno: true };
   ucastnik.ucasti[0].platby.push({ castka: 50, datum: '2017-11-19', typ: 'hotově' });
   await ucastnik.save();
 

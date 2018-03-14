@@ -1,15 +1,18 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const TypKategorie = require('./TypKategorie');
-const Ubytovani = require('./Ubytovani');
+const TypKategorieSchema = require('./TypKategorie');
+const UbytovaniSchema = require('./Ubytovani');
 
 const RocnikSchema = new mongoose.Schema(
   {
     rok: { type: Number, required: true },
     datum: { type: Date, required: true },
-    kategorie: { type: [TypKategorie], required: true },
-    ubytovani: { type: [Ubytovani], default: null }
+    kategorie: { type: [TypKategorieSchema], required: true },
+    ubytovani: {
+      pátek: { type: UbytovaniSchema },
+      sobota: { type: UbytovaniSchema }
+    }
   },
   { bufferCommands: false, usePushEach: true }
 );

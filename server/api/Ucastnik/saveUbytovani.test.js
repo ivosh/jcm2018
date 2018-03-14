@@ -35,8 +35,8 @@ beforeAll(async () => {
     startCisla: { rozsahy: ['1-100'] },
     startovne: { predem: 150, naMiste: 200 }
   });
-  rocnik1.ubytovani.push({ den: 'pátek', poplatek: 50 });
-  rocnik1.ubytovani.push({ den: 'sobota', poplatek: 60 });
+  rocnik1.ubytovani.pátek = { poplatek: 50 };
+  rocnik1.ubytovani.sobota = { poplatek: 60 };
   await rocnik1.save();
 
   const rocnik2 = new Rocnik({ rok: 2018, datum: '2018-06-08' });
@@ -46,7 +46,7 @@ beforeAll(async () => {
     startCisla: { rozsahy: ['5-95'] },
     startovne: { predem: 200, naMiste: 250 }
   });
-  rocnik2.ubytovani.push({ den: 'pátek', poplatek: 60 });
+  rocnik2.ubytovani.pátek = { poplatek: 60 };
   await rocnik2.save();
 });
 
@@ -69,10 +69,10 @@ it('vytvoř minimálního účastníka', async () => {
     pohlavi: 'muž',
     obec: 'Ostrava 1'
   };
-  const ubytovani = [
-    { den: 'pátek', prihlaseno: true, absolvovano: false },
-    { den: 'sobota', prihlaseno: true, absolvovano: true }
-  ];
+  const ubytovani = {
+    pátek: { prihlaseno: true, absolvovano: false },
+    sobota: { prihlaseno: true, absolvovano: true }
+  };
 
   const response1 = await wsClient.sendRequest(
     Actions.saveUdaje({ rok: 2017, udaje }, generateTestToken())
@@ -97,7 +97,7 @@ it('ročník neexistuje', async () => {
     pohlavi: 'muž',
     obec: 'Ostrava 1'
   };
-  const ubytovani = [{ den: 'pátek', prihlaseno: true, absolvovano: false }];
+  const ubytovani = { pátek: { prihlaseno: true, absolvovano: false } };
 
   const response1 = await wsClient.sendRequest(
     Actions.saveUdaje({ rok: 2016, udaje }, generateTestToken())
@@ -122,7 +122,7 @@ it('ubytování nevypsáno', async () => {
     pohlavi: 'muž',
     obec: 'Ostrava 1'
   };
-  const ubytovani = [{ den: 'sobota', prihlaseno: true, absolvovano: false }];
+  const ubytovani = { sobota: { prihlaseno: true, absolvovano: false } };
 
   const response1 = await wsClient.sendRequest(
     Actions.saveUdaje({ rok: 2018, udaje }, generateTestToken())
@@ -140,7 +140,7 @@ it('ubytování nevypsáno', async () => {
 });
 
 it('účastník neexistuje', async () => {
-  const ubytovani = [];
+  const ubytovani = {};
 
   const { requestId, ...response } = await wsClient.sendRequest(
     Actions.saveUbytovani(

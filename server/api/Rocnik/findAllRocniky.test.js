@@ -77,8 +77,8 @@ it('findAllRocniky', async () => {
     startCisla: { rozsahy: ['1-100'] },
     startovne: { predem: 150, naMiste: 200 }
   });
-  rocnik1.ubytovani.push({ den: 'pátek', poplatek: 50 });
-  rocnik1.ubytovani.push({ den: 'sobota', poplatek: 60 });
+  rocnik1.ubytovani.pátek = { poplatek: 50 };
+  rocnik1.ubytovani.sobota = { poplatek: 60 };
   await rocnik1.save();
 
   const rocnik2 = new Rocnik({ rok: 2018, datum: '2018-06-08' });
@@ -99,7 +99,7 @@ it('findAllRocniky', async () => {
     kategorie: [kategorie6.id],
     startovne: { predem: 25, naMiste: 25 }
   });
-  rocnik2.ubytovani.push({ den: 'pátek', poplatek: 60 });
+  rocnik2.ubytovani.pátek = { poplatek: 60 };
   await rocnik2.save();
 
   const { requestId, ...response } = await wsClient.sendRequest(
