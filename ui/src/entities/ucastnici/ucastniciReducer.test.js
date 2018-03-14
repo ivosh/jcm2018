@@ -3,7 +3,7 @@ import { websocketDisconnected } from '../../App/AppActions';
 import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
 import { saveUcastSuccess } from '../../registrator/Prihlasky/PrihlaskyForm/PrihlaskyFormActions';
 import ucastniciReducer from './ucastniciReducer';
-import { fetchUcastniciSuccess } from './ucastniciActions';
+import { broadcastUcastnik, fetchUcastniciSuccess } from './ucastniciActions';
 import ucastniciTestData from './ucastniciTestData';
 
 it('nic se nestalo 1', () => {
@@ -235,5 +235,44 @@ it('saveUcastSuccess() - nový účastník', () => {
       stateBefore,
       saveUcastSuccess({ id, rok, udaje, prihlaska, platby, ubytovani })
     )
+  ).toMatchSnapshot();
+});
+
+it('broadcastUcastnik - změna', () => {
+  const stateBefore = { ...ucastniciTestData.entities.ucastnici };
+  deepFreeze(stateBefore);
+  const id = '7a09b1fd371dec1e99b7e142';
+  const roky = [2018];
+  const ucasti = {
+    2018: {
+      udaje: {
+        prijmeni: 'Zralá',
+        jmeno: 'Hana',
+        narozeni: { rok: 1999, mesic: 7, den: 25 },
+        pohlavi: 'žena',
+        obec: 'Luhačovice',
+        psc: '654 21',
+        stat: 'Česká republika',
+        klub: 'SK Nudle',
+        email: 'zrala.kl@s.cz'
+      },
+      platby: [{ castka: 100, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }],
+      prihlaska: {
+        datum: '2018-06-08T00:00:00.000Z',
+        kategorie: '5a587e1b051c181132cf83d9', // půlmaraton
+        startCislo: 9,
+        kod: 'abc023skd204mvs345'
+      },
+      vykon: {
+        kategorie: '5a587e1b051c181132cf83d9', // půlmaraton
+        startCislo: 9,
+        dokonceno: true,
+        cas: 'PT2H06M32.6S'
+      }
+    }
+  };
+
+  expect(
+    ucastniciReducer(stateBefore, broadcastUcastnik({ id, roky, ...ucasti }))
   ).toMatchSnapshot();
 });
