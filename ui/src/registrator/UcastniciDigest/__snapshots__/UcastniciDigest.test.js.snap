@@ -324,13 +324,12 @@ exports[`dva účastníci 1`] = `
             }
           >
             <div
-              className="UcastniciTable_oddRow UcastniciTable_cell"
+              className="align-left UcastniciTable_oddRow UcastniciTable_cell"
               style={
                 Object {
                   "height": 35,
                   "left": 0,
                   "position": "absolute",
-                  "textAlign": "left",
                   "top": 0,
                   "width": 100,
                 }
@@ -339,13 +338,12 @@ exports[`dva účastníci 1`] = `
               Balabák
             </div>
             <div
-              className="UcastniciTable_oddRow UcastniciTable_cell"
+              className="align-left UcastniciTable_oddRow UcastniciTable_cell"
               style={
                 Object {
                   "height": 35,
                   "left": 100,
                   "position": "absolute",
-                  "textAlign": "left",
                   "top": 0,
                   "width": 90,
                 }
@@ -354,13 +352,12 @@ exports[`dva účastníci 1`] = `
               Roman
             </div>
             <div
-              className="UcastniciTable_oddRow UcastniciTable_cell"
+              className="align-right UcastniciTable_oddRow UcastniciTable_cell"
               style={
                 Object {
                   "height": 35,
                   "left": 190,
                   "position": "absolute",
-                  "textAlign": "right",
                   "top": 0,
                   "width": 100,
                 }
@@ -369,13 +366,12 @@ exports[`dva účastníci 1`] = `
               1956
             </div>
             <div
-              className="UcastniciTable_evenRow UcastniciTable_cell"
+              className="align-left UcastniciTable_evenRow UcastniciTable_cell"
               style={
                 Object {
                   "height": 35,
                   "left": 0,
                   "position": "absolute",
-                  "textAlign": "left",
                   "top": 35,
                   "width": 100,
                 }
@@ -384,13 +380,12 @@ exports[`dva účastníci 1`] = `
               Sukdoláková
             </div>
             <div
-              className="UcastniciTable_evenRow UcastniciTable_cell"
+              className="align-left UcastniciTable_evenRow UcastniciTable_cell"
               style={
                 Object {
                   "height": 35,
                   "left": 100,
                   "position": "absolute",
-                  "textAlign": "left",
                   "top": 35,
                   "width": 90,
                 }
@@ -399,13 +394,12 @@ exports[`dva účastníci 1`] = `
               Martina
             </div>
             <div
-              className="UcastniciTable_evenRow UcastniciTable_cell"
+              className="align-right UcastniciTable_evenRow UcastniciTable_cell"
               style={
                 Object {
                   "height": 35,
                   "left": 190,
                   "position": "absolute",
-                  "textAlign": "right",
                   "top": 35,
                   "width": 100,
                 }
@@ -976,10 +970,9 @@ exports[`dva účastníci 1`] = `
                   
                 </div>
                 <div
-                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  className="UcastniciDigest--undefined UcastniciTable_oddRow UcastniciTable_cell"
                   style={
                     Object {
-                      "backgroundColor": "",
                       "height": 35,
                       "left": 1040,
                       "position": "absolute",
@@ -991,10 +984,9 @@ exports[`dva účastníci 1`] = `
                   ✗
                 </div>
                 <div
-                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  className="UcastniciDigest--maraton UcastniciTable_oddRow UcastniciTable_cell"
                   style={
                     Object {
-                      "backgroundColor": "rgba(176, 255, 181, 1.0)",
                       "height": 35,
                       "left": 1090,
                       "position": "absolute",
@@ -1006,10 +998,9 @@ exports[`dva účastníci 1`] = `
                   ✓
                 </div>
                 <div
-                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  className="UcastniciDigest--půlmaraton UcastniciTable_oddRow UcastniciTable_cell"
                   style={
                     Object {
-                      "backgroundColor": "rgba(255, 131, 122, 1.0)",
                       "height": 35,
                       "left": 1140,
                       "position": "absolute",
@@ -1217,10 +1208,9 @@ exports[`dva účastníci 1`] = `
                   
                 </div>
                 <div
-                  className="UcastniciTable_evenRow UcastniciTable_cell"
+                  className="UcastniciDigest--undefined UcastniciTable_evenRow UcastniciTable_cell"
                   style={
                     Object {
-                      "backgroundColor": "",
                       "height": 35,
                       "left": 990,
                       "position": "absolute",
@@ -1246,10 +1236,9 @@ exports[`dva účastníci 1`] = `
                   
                 </div>
                 <div
-                  className="UcastniciTable_evenRow UcastniciTable_cell"
+                  className="UcastniciDigest--maraton UcastniciTable_evenRow UcastniciTable_cell"
                   style={
                     Object {
-                      "backgroundColor": "rgba(176, 255, 181, 1.0)",
                       "height": 35,
                       "left": 1090,
                       "position": "absolute",
@@ -1261,10 +1250,9 @@ exports[`dva účastníci 1`] = `
                   ✓
                 </div>
                 <div
-                  className="UcastniciTable_evenRow UcastniciTable_cell"
+                  className="UcastniciDigest--půlmaraton UcastniciTable_evenRow UcastniciTable_cell"
                   style={
                     Object {
-                      "backgroundColor": "rgba(255, 131, 122, 1.0)",
                       "height": 35,
                       "left": 1140,
                       "position": "absolute",

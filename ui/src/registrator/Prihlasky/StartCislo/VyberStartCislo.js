@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import StartujiciProTypContainer from '../../../shared/StartujiciProTyp/StartujiciProTypContainer';
 import './VyberStartCislo.css';
 
-// eslint-disable-next-line no-confusing-arrow
 export const Renderer = ({ id, startCislo, onSelect }) =>
   id ? (
     <div className="StartujiciProTyp-item VyberStartCislo-zabrane" key={startCislo}>

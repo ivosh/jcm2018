@@ -8,7 +8,6 @@ import StartujiciProTypContainer from '../../shared/StartujiciProTyp/StartujiciP
 import Legenda from '../../shared/StartujiciProTyp/Legenda';
 import './Startujici.css';
 
-// eslint-disable-next-line no-confusing-arrow
 export const Renderer = ({ id, startCislo, dokonceno }) =>
   id ? (
     <NavLink

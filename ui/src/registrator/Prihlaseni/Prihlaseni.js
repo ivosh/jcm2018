@@ -2,24 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import { barvaProTypKategorie, narozeniToStr } from '../../Util';
+import { narozeniToStr } from '../../Util';
 import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import FilterableContainer from '../Filterable/FilterableContainer';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
 import './Prihlaseni.css';
 
-const alignLeftStyler = () => ({ textAlign: 'left' });
-const alignRightStyler = () => ({ textAlign: 'right' });
-
 const datumFormat = ({ cellData }) => moment.utc(cellData).format('D. M. YYYY');
 
 const kategorieFormat = args => <PopisekKategorie {...args.cellData} />;
-const kategorieStyler = ({ cellData }) => ({
-  backgroundColor: barvaProTypKategorie(cellData.typ, '0.4'),
-  textAlign: 'left'
-});
-
-const kodStyler = () => ({ fontFamily: 'monospace', textAlign: 'left' });
 
 const narozeniFormat = ({ cellData }) => narozeniToStr(cellData);
 
@@ -28,61 +19,63 @@ const prijmeniFormat = args => (
 );
 
 const zaplacenoFormat = ({ cellData }) => `${cellData} Kč`;
-const zaplacenoStyler = ({ cellData, data, rowIndex }) => ({
-  backgroundColor:
-    cellData >= data[rowIndex].predepsano ? 'rgba(48, 199, 90, 1.0)' : 'rgba(226, 57, 73, 1.0)',
-  color: 'white',
-  fontWeight: 'bold',
-  textAlign: 'right'
-});
 
 const Prihlaseni = ({ actionPrefix, reduxName, prihlaseni }) => {
   const columns = [
     {
+      cellClassNames: () => ['align-left'],
       cellDataFormatter: prijmeniFormat,
-      cellStyler: alignLeftStyler,
       key: 'prijmeni',
       label: 'příjmení',
       sortable: true,
       width: 100
     },
-    { cellStyler: alignLeftStyler, key: 'jmeno', label: 'jméno', sortable: true, width: 90 },
     {
+      cellClassNames: () => ['align-left'],
+      key: 'jmeno',
+      label: 'jméno',
+      sortable: true,
+      width: 90
+    },
+    {
+      cellClassNames: () => ['align-right'],
       cellDataFormatter: narozeniFormat,
-      cellStyler: alignRightStyler,
       key: 'narozeni',
       label: 'narození',
       sortable: true,
       width: 100
     },
-    { cellStyler: alignLeftStyler, key: 'obec', sortable: true, width: 90 },
-    { cellStyler: alignLeftStyler, key: 'email', sortable: true, width: 200 },
+    { cellClassNames: () => ['align-left'], key: 'obec', sortable: true, width: 90 },
+    { cellClassNames: () => ['align-left'], key: 'email', sortable: true, width: 200 },
     {
+      cellClassNames: () => ['align-right'],
       cellDataFormatter: datumFormat,
-      cellStyler: alignRightStyler,
       key: 'datum',
       label: 'přihlášení',
       sortable: true,
       width: 110
     },
     {
+      cellClassNames: ({ cellData }) => ['align-left', `Prihlaseni--${cellData.typ}`],
       cellDataFormatter: kategorieFormat,
-      cellStyler: kategorieStyler,
       key: 'kategorie',
       sortable: true,
       width: 200
     },
     {
-      cellStyler: alignRightStyler,
+      cellClassNames: () => ['align-right'],
       key: 'startCislo',
       label: 'číslo',
       sortable: true,
       width: 60
     },
-    { cellStyler: kodStyler, key: 'kod', label: 'kód', width: 150 },
+    { cellClassNames: () => ['align-left', 'monospace'], key: 'kod', label: 'kód', width: 150 },
     {
+      cellClassNames: ({ cellData, data, rowIndex }) =>
+        cellData >= data[rowIndex].predepsano
+          ? ['Prihlaseni--zaplaceno']
+          : ['Prihlaseni--nezaplaceno'],
       cellDataFormatter: zaplacenoFormat,
-      cellStyler: zaplacenoStyler,
       key: 'zaplaceno',
       sortable: true,
       width: 100

@@ -15,3 +15,22 @@ html {
   flex: 1 0 auto;
   flex-direction: column;
 }
+
+.align-left {
+  text-align: left;
+}
+.align-right {
+  text-align: right;
+}
+
+.monospace {
+  font-family: monospace;
+}
+
+:root {
+  --maraton: 176, 255, 181;
+  --půlmaraton: 255, 131, 122;
+  --cyklo: 239, 224, 35;
+  --koloběžka: 80, 124, 239;
+  --pěší: 215, 147, 255;
+}

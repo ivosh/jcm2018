@@ -324,13 +324,12 @@ exports[`dva přihlášení 1`] = `
             }
           >
             <div
-              className="UcastniciTable_oddRow UcastniciTable_cell"
+              className="align-left UcastniciTable_oddRow UcastniciTable_cell"
               style={
                 Object {
                   "height": 35,
                   "left": 0,
                   "position": "absolute",
-                  "textAlign": "left",
                   "top": 0,
                   "width": 100,
                 }
@@ -344,13 +343,12 @@ exports[`dva přihlášení 1`] = `
               </a>
             </div>
             <div
-              className="UcastniciTable_oddRow UcastniciTable_cell"
+              className="align-left UcastniciTable_oddRow UcastniciTable_cell"
               style={
                 Object {
                   "height": 35,
                   "left": 100,
                   "position": "absolute",
-                  "textAlign": "left",
                   "top": 0,
                   "width": 90,
                 }
@@ -359,13 +357,12 @@ exports[`dva přihlášení 1`] = `
               Roman
             </div>
             <div
-              className="UcastniciTable_oddRow UcastniciTable_cell"
+              className="align-right UcastniciTable_oddRow UcastniciTable_cell"
               style={
                 Object {
                   "height": 35,
                   "left": 190,
                   "position": "absolute",
-                  "textAlign": "right",
                   "top": 0,
                   "width": 100,
                 }
@@ -374,13 +371,12 @@ exports[`dva přihlášení 1`] = `
               1956
             </div>
             <div
-              className="UcastniciTable_evenRow UcastniciTable_cell"
+              className="align-left UcastniciTable_evenRow UcastniciTable_cell"
               style={
                 Object {
                   "height": 35,
                   "left": 0,
                   "position": "absolute",
-                  "textAlign": "left",
                   "top": 35,
                   "width": 100,
                 }
@@ -394,13 +390,12 @@ exports[`dva přihlášení 1`] = `
               </a>
             </div>
             <div
-              className="UcastniciTable_evenRow UcastniciTable_cell"
+              className="align-left UcastniciTable_evenRow UcastniciTable_cell"
               style={
                 Object {
                   "height": 35,
                   "left": 100,
                   "position": "absolute",
-                  "textAlign": "left",
                   "top": 35,
                   "width": 90,
                 }
@@ -409,13 +404,12 @@ exports[`dva přihlášení 1`] = `
               Hana
             </div>
             <div
-              className="UcastniciTable_evenRow UcastniciTable_cell"
+              className="align-right UcastniciTable_evenRow UcastniciTable_cell"
               style={
                 Object {
                   "height": 35,
                   "left": 190,
                   "position": "absolute",
-                  "textAlign": "right",
                   "top": 35,
                   "width": 100,
                 }
@@ -664,13 +658,12 @@ exports[`dva přihlášení 1`] = `
                 }
               >
                 <div
-                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  className="align-left UcastniciTable_oddRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
                       "left": 290,
                       "position": "absolute",
-                      "textAlign": "left",
                       "top": 0,
                       "width": 90,
                     }
@@ -679,26 +672,24 @@ exports[`dva přihlášení 1`] = `
                   Ostrava 2
                 </div>
                 <div
-                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  className="align-left UcastniciTable_oddRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
                       "left": 380,
                       "position": "absolute",
-                      "textAlign": "left",
                       "top": 0,
                       "width": 200,
                     }
                   }
                 />
                 <div
-                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  className="align-right UcastniciTable_oddRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
                       "left": 580,
                       "position": "absolute",
-                      "textAlign": "right",
                       "top": 0,
                       "width": 110,
                     }
@@ -707,14 +698,12 @@ exports[`dva přihlášení 1`] = `
                   9. 6. 2018
                 </div>
                 <div
-                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  className="align-left Prihlaseni--půlmaraton UcastniciTable_oddRow UcastniciTable_cell"
                   style={
                     Object {
-                      "backgroundColor": "rgba(255, 131, 122, 0.4)",
                       "height": 35,
                       "left": 690,
                       "position": "absolute",
-                      "textAlign": "left",
                       "top": 0,
                       "width": 200,
                     }
@@ -738,13 +727,12 @@ exports[`dva přihlášení 1`] = `
                   </span>
                 </div>
                 <div
-                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  className="align-right UcastniciTable_oddRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
                       "left": 890,
                       "position": "absolute",
-                      "textAlign": "right",
                       "top": 0,
                       "width": 60,
                     }
@@ -753,14 +741,12 @@ exports[`dva přihlášení 1`] = `
                   17
                 </div>
                 <div
-                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  className="align-left monospace UcastniciTable_oddRow UcastniciTable_cell"
                   style={
                     Object {
-                      "fontFamily": "monospace",
                       "height": 35,
                       "left": 950,
                       "position": "absolute",
-                      "textAlign": "left",
                       "top": 0,
                       "width": 150,
                     }
@@ -769,16 +755,12 @@ exports[`dva přihlášení 1`] = `
                   10728864
                 </div>
                 <div
-                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  className="Prihlaseni--zaplaceno UcastniciTable_oddRow UcastniciTable_cell"
                   style={
                     Object {
-                      "backgroundColor": "rgba(48, 199, 90, 1.0)",
-                      "color": "white",
-                      "fontWeight": "bold",
                       "height": 35,
                       "left": 1100,
                       "position": "absolute",
-                      "textAlign": "right",
                       "top": 0,
                       "width": 100,
                     }
@@ -787,13 +769,12 @@ exports[`dva přihlášení 1`] = `
                   250 Kč
                 </div>
                 <div
-                  className="UcastniciTable_evenRow UcastniciTable_cell"
+                  className="align-left UcastniciTable_evenRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
                       "left": 290,
                       "position": "absolute",
-                      "textAlign": "left",
                       "top": 35,
                       "width": 90,
                     }
@@ -802,26 +783,24 @@ exports[`dva přihlášení 1`] = `
                   Bučovice
                 </div>
                 <div
-                  className="UcastniciTable_evenRow UcastniciTable_cell"
+                  className="align-left UcastniciTable_evenRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
                       "left": 380,
                       "position": "absolute",
-                      "textAlign": "left",
                       "top": 35,
                       "width": 200,
                     }
                   }
                 />
                 <div
-                  className="UcastniciTable_evenRow UcastniciTable_cell"
+                  className="align-right UcastniciTable_evenRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
                       "left": 580,
                       "position": "absolute",
-                      "textAlign": "right",
                       "top": 35,
                       "width": 110,
                     }
@@ -830,14 +809,12 @@ exports[`dva přihlášení 1`] = `
                   9. 6. 2018
                 </div>
                 <div
-                  className="UcastniciTable_evenRow UcastniciTable_cell"
+                  className="align-left Prihlaseni--půlmaraton UcastniciTable_evenRow UcastniciTable_cell"
                   style={
                     Object {
-                      "backgroundColor": "rgba(255, 131, 122, 0.4)",
                       "height": 35,
                       "left": 690,
                       "position": "absolute",
-                      "textAlign": "left",
                       "top": 35,
                       "width": 200,
                     }
@@ -861,13 +838,12 @@ exports[`dva přihlášení 1`] = `
                   </span>
                 </div>
                 <div
-                  className="UcastniciTable_evenRow UcastniciTable_cell"
+                  className="align-right UcastniciTable_evenRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
                       "left": 890,
                       "position": "absolute",
-                      "textAlign": "right",
                       "top": 35,
                       "width": 60,
                     }
@@ -876,14 +852,12 @@ exports[`dva přihlášení 1`] = `
                   10
                 </div>
                 <div
-                  className="UcastniciTable_evenRow UcastniciTable_cell"
+                  className="align-left monospace UcastniciTable_evenRow UcastniciTable_cell"
                   style={
                     Object {
-                      "fontFamily": "monospace",
                       "height": 35,
                       "left": 950,
                       "position": "absolute",
-                      "textAlign": "left",
                       "top": 35,
                       "width": 150,
                     }
@@ -892,16 +866,12 @@ exports[`dva přihlášení 1`] = `
                   abc023skd204mvs345
                 </div>
                 <div
-                  className="UcastniciTable_evenRow UcastniciTable_cell"
+                  className="Prihlaseni--nezaplaceno UcastniciTable_evenRow UcastniciTable_cell"
                   style={
                     Object {
-                      "backgroundColor": "rgba(226, 57, 73, 1.0)",
-                      "color": "white",
-                      "fontWeight": "bold",
                       "height": 35,
                       "left": 1100,
                       "position": "absolute",
-                      "textAlign": "right",
                       "top": 35,
                       "width": 100,
                     }

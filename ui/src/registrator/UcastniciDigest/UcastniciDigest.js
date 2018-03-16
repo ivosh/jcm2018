@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { barvaProTypKategorie, narozeniToStr } from '../../Util';
+import { narozeniToStr } from '../../Util';
 import FilterableContainer from '../Filterable/FilterableContainer';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
 import './UcastniciDigest.css';
-
-const alignLeftStyler = () => ({ textAlign: 'left' });
-const alignRightStyler = () => ({ textAlign: 'right' });
 
 const narozeniFormat = ({ cellData }) => narozeniToStr(cellData);
 
@@ -22,36 +19,34 @@ const vykonCellDataFormatter = ({ cellData }) => {
   return '';
 };
 
-const vykonCellStyler = ({ cellData }) => {
-  if (cellData) {
-    return {
-      backgroundColor: barvaProTypKategorie(cellData.kategorie)
-    };
-  }
-  return {};
-};
-
 const UcastniciDigest = ({ actionPrefix, reduxName, roky, ucastniciDigest }) => {
   const columns = [
     {
-      cellStyler: alignLeftStyler,
+      cellClassNames: () => ['align-left'],
       key: 'prijmeni',
       label: 'příjmení',
       sortable: true,
       width: 100
     },
-    { cellStyler: alignLeftStyler, key: 'jmeno', label: 'jméno', sortable: true, width: 90 },
     {
+      cellClassNames: () => ['align-left'],
+      key: 'jmeno',
+      label: 'jméno',
+      sortable: true,
+      width: 90
+    },
+    {
+      cellClassNames: () => ['align-right'],
       cellDataFormatter: narozeniFormat,
-      cellStyler: alignRightStyler,
       key: 'narozeni',
       label: 'narození',
       sortable: true,
       width: 100
     },
     ...roky.map(rok => ({
+      cellClassNames: ({ cellData }) =>
+        cellData ? [`UcastniciDigest--${cellData.kategorie}`] : [],
       cellDataFormatter: vykonCellDataFormatter,
-      cellStyler: vykonCellStyler,
       key: `${rok}`,
       label: rok,
       sortable: false,

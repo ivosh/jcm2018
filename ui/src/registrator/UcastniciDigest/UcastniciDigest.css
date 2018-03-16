@@ -2,3 +2,19 @@
   padding-left: 30px;
   padding-right: 50px;
 }
+
+.UcastniciDigest--maraton {
+  background-color: rgba(var(--maraton), 1);
+}
+.UcastniciDigest--půlmaraton {
+  background-color: rgba(var(--půlmaraton), 1);
+}
+.UcastniciDigest--cyklo {
+  background-color: rgba(var(--cyklo), 1);
+}
+.UcastniciDigest--koloběžka {
+  background-color: rgba(var(--koloběžka), 1);
+}
+.UcastniciDigest--pěší {
+  background-color: rgba(var(--pěší), 1);
+}

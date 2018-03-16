@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Col, ControlLabel, FormGroup, FormControl } from 'react-bootstrap';
 import './Input.css';
 
-// eslint-disable-next-line no-confusing-arrow
 const Input = ({
   enabled,
   name,

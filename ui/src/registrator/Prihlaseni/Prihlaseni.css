@@ -2,3 +2,32 @@
   padding-left: 30px;
   padding-right: 50px;
 }
+
+.Prihlaseni--maraton {
+  background-color: rgba(var(--maraton), 0.4);
+}
+.Prihlaseni--půlmaraton {
+  background-color: rgba(var(--půlmaraton), 0.4);
+}
+.Prihlaseni--cyklo {
+  background-color: rgba(var(--cyklo), 0.4);
+}
+.Prihlaseni--koloběžka {
+  background-color: rgba(var(--koloběžka), 0.4);
+}
+.Prihlaseni--pěší {
+  background-color: rgba(var(--pěší), 0.4);
+}
+
+.Prihlaseni--zaplaceno,
+.Prihlaseni--nezaplaceno {
+  color: white;
+  font-weight: bold;
+  text-align: right;
+}
+.Prihlaseni--zaplaceno {
+  background-color: rgba(48, 199, 90, 1);
+}
+.Prihlaseni--nezaplaceno {
+  background-color: rgba(226, 57, 73, 1);
+}

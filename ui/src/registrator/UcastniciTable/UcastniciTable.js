@@ -85,11 +85,14 @@ class UcastniciTable extends PureComponent {
 
   renderLeftSideCell = ({ columnIndex, key, rowIndex, style }) => {
     const rowClass = rowIndex % 2 === 1 ? 'UcastniciTable_evenRow' : 'UcastniciTable_oddRow';
-    const classNames = `${rowClass} UcastniciTable_cell`;
 
     const { columns, data } = this.props;
-    const { cellDataFormatter, cellStyler, key: columnKey } = columns[columnIndex];
+    const { cellClassNames, cellDataFormatter, cellStyler, key: columnKey } = columns[columnIndex];
     const cellData = data[rowIndex][columnKey];
+    const classNames = cellClassNames
+      ? cellClassNames({ cellData, data, rowIndex, columnKey })
+      : [];
+    classNames.push(rowClass, 'UcastniciTable_cell');
     const formattedData = cellDataFormatter
       ? cellDataFormatter({ cellData, data, rowIndex, columnKey })
       : cellData;
@@ -97,7 +100,7 @@ class UcastniciTable extends PureComponent {
     const mergedStyle = { ...style, ...cellStyle };
 
     return (
-      <div className={classNames} key={key} style={mergedStyle}>
+      <div className={classNames.join(' ')} key={key} style={mergedStyle}>
         {formattedData}
       </div>
     );
@@ -241,6 +244,8 @@ class UcastniciTable extends PureComponent {
 UcastniciTable.propTypes = {
   columns: PropTypes.arrayOf(
     PropTypes.shape({
+      // cellClassNames = ({ cellData, columnKey, data, rowIndex }) => [className]
+      cellClassNames: PropTypes.func,
       // cellDataFormatter = ({ cellData, columnKey, data, rowIndex }) => formattedData
       cellDataFormatter: PropTypes.func,
       cellStyler: PropTypes.func, // ({ cellData, columnKey, data, rowIndex }) => style
