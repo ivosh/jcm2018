@@ -26,3 +26,11 @@ it('get /nonexistent => index.html', async () => {
   expect(typeof response.text).toBe('string');
   expect(response.text.length).toBeGreaterThan(0);
 });
+
+it('get /api', async () => {
+  const response = await request(server).get('/api');
+
+  expect(response.statusCode).toBe(200);
+  expect(typeof response.text).toBe('string');
+  expect(response.text.length).toBeGreaterThan(0);
+});
