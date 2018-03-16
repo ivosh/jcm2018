@@ -18,14 +18,9 @@ exports[`renders 1`] = `
       className="KategorieFilter"
     >
       <button
-        className="btn btn-default"
+        className="KategorieFilter--maraton--inactive btn btn-default"
         disabled={false}
         onClick={[Function]}
-        style={
-          Object {
-            "backgroundColor": "rgba(176, 255, 181, 0.5)",
-          }
-        }
         type="button"
       >
         <span>
@@ -44,14 +39,9 @@ exports[`renders 1`] = `
       className="KategorieFilter"
     >
       <button
-        className="btn btn-default"
+        className="KategorieFilter--půlmaraton--inactive btn btn-default"
         disabled={false}
         onClick={[Function]}
-        style={
-          Object {
-            "backgroundColor": "rgba(255, 131, 122, 0.5)",
-          }
-        }
         type="button"
       >
         <span>
@@ -70,14 +60,9 @@ exports[`renders 1`] = `
       className="KategorieFilter"
     >
       <button
-        className="btn btn-default"
+        className="KategorieFilter--cyklo--inactive btn btn-default"
         disabled={false}
         onClick={[Function]}
-        style={
-          Object {
-            "backgroundColor": "rgba(239, 224, 35, 0.5)",
-          }
-        }
         type="button"
       >
         <span>
@@ -96,14 +81,9 @@ exports[`renders 1`] = `
       className="KategorieFilter"
     >
       <button
-        className="btn btn-default"
+        className="KategorieFilter--koloběžka--inactive btn btn-default"
         disabled={false}
         onClick={[Function]}
-        style={
-          Object {
-            "backgroundColor": "rgba(80, 124, 239, 0.5)",
-          }
-        }
         type="button"
       >
         <span>
@@ -122,14 +102,9 @@ exports[`renders 1`] = `
       className="KategorieFilter"
     >
       <button
-        className="btn btn-default"
+        className="KategorieFilter--pěší--inactive btn btn-default"
         disabled={false}
         onClick={[Function]}
-        style={
-          Object {
-            "backgroundColor": "rgba(215, 147, 255, 0.5)",
-          }
-        }
         type="button"
       >
         <span>

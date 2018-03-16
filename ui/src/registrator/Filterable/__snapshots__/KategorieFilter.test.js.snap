@@ -9,13 +9,9 @@ exports[`renders active 1`] = `
     block={false}
     bsClass="btn"
     bsStyle="default"
+    className="KategorieFilter--pěší--active"
     disabled={false}
     onClick={[Function]}
-    style={
-      Object {
-        "backgroundColor": "rgba(215, 147, 255, 1.0)",
-      }
-    }
   >
     <PopisekKategorie
       typ="pěší"
@@ -33,13 +29,9 @@ exports[`renders nonactive 1`] = `
     block={false}
     bsClass="btn"
     bsStyle="default"
+    className="KategorieFilter--koloběžka--inactive"
     disabled={false}
     onClick={[Function]}
-    style={
-      Object {
-        "backgroundColor": "rgba(80, 124, 239, 0.5)",
-      }
-    }
   >
     <PopisekKategorie
       typ="koloběžka"

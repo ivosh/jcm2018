@@ -7,3 +7,35 @@
   border-radius: 5px;
   border: 3px solid black !important;
 }
+
+.KategorieFilter--maraton--active {
+  background-color: rgba(var(--maraton), 1) !important;
+}
+.KategorieFilter--půlmaraton--active {
+  background-color: rgba(var(--půlmaraton), 1) !important;
+}
+.KategorieFilter--cyklo--active {
+  background-color: rgba(var(--cyklo), 1) !important;
+}
+.KategorieFilter--koloběžka--active {
+  background-color: rgba(var(--koloběžka), 1) !important;
+}
+.KategorieFilter--pěší--active {
+  background-color: rgba(var(--pěší), 1) !important;
+}
+
+.KategorieFilter--maraton--inactive {
+  background-color: rgba(var(--maraton), 0.5) !important;
+}
+.KategorieFilter--půlmaraton--inactive {
+  background-color: rgba(var(--půlmaraton), 0.5) !important;
+}
+.KategorieFilter--cyklo--inactive {
+  background-color: rgba(var(--cyklo), 0.5) !important;
+}
+.KategorieFilter--koloběžka--inactive {
+  background-color: rgba(var(--koloběžka), 0.5) !important;
+}
+.KategorieFilter--pěší--inactive {
+  background-color: rgba(var(--pěší), 0.5) !important;
+}
