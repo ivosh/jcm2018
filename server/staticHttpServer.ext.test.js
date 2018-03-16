@@ -1,7 +1,7 @@
 'use strict';
 
 jest.mock('async-file');
-const fs = require('async-file');
+require('async-file');
 
 const request = require('supertest');
 const server = require('./staticHttpServer');

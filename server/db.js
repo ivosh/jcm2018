@@ -51,10 +51,8 @@ class DB {
     return mongoose.connection && mongoose.connection.readyState === 1;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   async dropDatabase() {
-    if (!this.isConnected()) {
-      await this.connect();
-    }
     await mongoose.connection.db.dropDatabase();
   }
 
