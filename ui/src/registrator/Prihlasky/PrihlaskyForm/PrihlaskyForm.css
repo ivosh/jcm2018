@@ -1,15 +1,21 @@
-.PrihlaskyForm_div {
+.PrihlaskyForm__div {
   padding-left: 1em;
 }
 
-.PrihlaskyForm_form {
-  display: inline-block;
+.PrihlaskyForm__form {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: row wrap;
 }
 
-.PrihlaskyForm_reset {
+.PrihlaskyForm__column {
+  margin: 0 1ex;
+}
+
+.PrihlaskyForm__reset {
   margin-left: 2em;
 }
 
-.PrihlaskyForm_form > div > .panel > .panel-body > .form-group:last-child {
+.PrihlaskyForm__form > .panel > .panel-body > .form-group:last-child {
   margin-bottom: 0px;
 }
