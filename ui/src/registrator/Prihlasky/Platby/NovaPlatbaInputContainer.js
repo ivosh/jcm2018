@@ -29,7 +29,7 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const PlatbyInputContainer = connect(mapStateToProps)(InputContainer);
+const PlatbyInputContainer = connect(mapStateToProps, {})(InputContainer);
 
 PlatbyInputContainer.propTypes = {
   name: PropTypes.string.isRequired

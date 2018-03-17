@@ -33,7 +33,7 @@ const startCisloValid = ({ typ, kategorie, ucastnici }) => (name, rawValue, form
 
 const mapStateToProps = (state, ownProps) => {
   const { form } = state.registrator.prihlasky;
-  const { name } = ownProps;
+  const { name, ...restOwnProps } = ownProps;
   const rawValue = getValue(name, form);
 
   return {
@@ -48,11 +48,12 @@ const mapStateToProps = (state, ownProps) => {
         ? startCisloValid({ typ: form.prihlaska.typ, ...state.entities })
         : inputValid,
     isInputEnabled,
-    isInputVisible
+    isInputVisible,
+    ...restOwnProps
   };
 };
 
-const PrihlaskyFormInputContainer = connect(mapStateToProps)(InputContainer);
+const PrihlaskyFormInputContainer = connect(mapStateToProps, {})(InputContainer);
 
 PrihlaskyFormInputContainer.propTypes = {
   name: PropTypes.string.isRequired
