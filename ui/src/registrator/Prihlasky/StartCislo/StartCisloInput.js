@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Button, Glyphicon, Modal } from 'react-bootstrap';
 import TextInput from '../Input/TextInput';
 import VyberStartCislo from './VyberStartCislo';
+import './StartCisloInput.css';
 
 const StartCisloInput = ({
   enabled,
@@ -16,7 +17,13 @@ const StartCisloInput = ({
   onShow
 }) => (
   <React.Fragment>
-    <TextInput enabled={enabled} value={value} inputRef={inputRef} onChange={onChange} />
+    <TextInput
+      className="StartCisloInput__input"
+      enabled={enabled}
+      value={value}
+      inputRef={inputRef}
+      onChange={onChange}
+    />
     <Modal keyboard={true} show={showing} onHide={onHide} bsSize="large">
       <Modal.Header closeButton>
         <Modal.Title>Výběr startovního čísla</Modal.Title>
@@ -31,7 +38,12 @@ const StartCisloInput = ({
       </Modal.Footer>
     </Modal>
     {!showing && (
-      <Button bsStyle="info" disabled={!enabled} onClick={onShow}>
+      <Button
+        bsStyle="info"
+        className="StartCisloInput__button"
+        disabled={!enabled}
+        onClick={onShow}
+      >
         <Glyphicon glyph="plus" /> Vybrat
       </Button>
     )}

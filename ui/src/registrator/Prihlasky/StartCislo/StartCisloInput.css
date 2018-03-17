@@ -1,0 +1,9 @@
+.StartCisloInput__input {
+  display: inline-block;
+  padding-right: 12px !important;
+  width: 30%;
+}
+
+.StartCisloInput__button {
+  display: inline-block;
+}

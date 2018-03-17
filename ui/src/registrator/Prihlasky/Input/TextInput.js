@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormControl } from 'react-bootstrap';
 
-const TextInput = ({ enabled, value, inputRef, onChange }) => (
+const TextInput = ({ className, enabled, value, inputRef, onChange }) => (
   <FormControl
     type="text"
+    className={className}
     disabled={!enabled}
     value={value}
     inputRef={ref => inputRef(ref)}
@@ -13,6 +14,7 @@ const TextInput = ({ enabled, value, inputRef, onChange }) => (
 );
 
 TextInput.propTypes = {
+  className: PropTypes.string,
   enabled: PropTypes.bool.isRequired,
   value: PropTypes.string,
   inputRef: PropTypes.func.isRequired,

@@ -3,6 +3,7 @@
 exports[`renders disabled 1`] = `
 <React.Fragment>
   <TextInput
+    className="StartCisloInput__input"
     enabled={false}
     inputRef={[Function]}
     onChange={[Function]}
@@ -76,6 +77,7 @@ exports[`renders disabled 1`] = `
     block={false}
     bsClass="btn"
     bsStyle="info"
+    className="StartCisloInput__button"
     disabled={true}
     onClick={[Function]}
   >
@@ -91,6 +93,7 @@ exports[`renders disabled 1`] = `
 exports[`renders not showing 1`] = `
 <React.Fragment>
   <TextInput
+    className="StartCisloInput__input"
     enabled={true}
     inputRef={[Function]}
     onChange={[Function]}
@@ -164,6 +167,7 @@ exports[`renders not showing 1`] = `
     block={false}
     bsClass="btn"
     bsStyle="info"
+    className="StartCisloInput__button"
     disabled={false}
     onClick={[Function]}
   >
@@ -179,6 +183,7 @@ exports[`renders not showing 1`] = `
 exports[`renders showing 1`] = `
 <React.Fragment>
   <TextInput
+    className="StartCisloInput__input"
     enabled={true}
     inputRef={[Function]}
     onChange={[Function]}
