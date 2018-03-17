@@ -29,6 +29,9 @@ exports[`renders 1`] = `
         }
       >
         <input
+          aria-autocomplete="list"
+          aria-expanded={false}
+          aria-haspopup="true"
           autoComplete="off"
           className="rbt-input-main"
           disabled={false}
@@ -39,6 +42,7 @@ exports[`renders 1`] = `
           onFocus={[Function]}
           onKeyDown={[Function]}
           placeholder="Začni psát příjmení nebo vlož kód přihlášky."
+          role="combobox"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -69,7 +73,6 @@ exports[`renders 1`] = `
           <input
             aria-hidden={true}
             className="rbt-input-hint"
-            id={undefined}
             style={
               Object {
                 "backgroundColor": "transparent",
