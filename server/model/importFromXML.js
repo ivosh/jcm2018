@@ -290,14 +290,14 @@ const vytvorUbytovaniUcastnika = (prihlaska, ucast) => {
     ubytovani.pátek = { prihlaseno: true };
   }
   if (ucast && ucast.ubytovaniPaSo !== undefined) {
-    ubytovani.pátek = { ...ubytovani.pátek, absolvovano: true };
+    ubytovani.pátek = { ...ubytovani.pátek, prespano: true };
   }
 
   if (prihlaska && prihlaska.ubytovaniSoNe) {
     ubytovani.sobota = { prihlaseno: true };
   }
   if (ucast && ucast.ubytovaniSoNe) {
-    ubytovani.sobota = { ...ubytovani.sobota, absolvovano: true };
+    ubytovani.sobota = { ...ubytovani.sobota, prespano: true };
   }
 
   return ubytovani;

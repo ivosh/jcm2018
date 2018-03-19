@@ -70,8 +70,8 @@ it('vytvoř minimálního účastníka', async () => {
     obec: 'Ostrava 1'
   };
   const ubytovani = {
-    pátek: { prihlaseno: true, absolvovano: false },
-    sobota: { prihlaseno: true, absolvovano: true }
+    pátek: { prihlaseno: true, prespano: false },
+    sobota: { prihlaseno: true, prespano: true }
   };
 
   const response1 = await wsClient.sendRequest(
@@ -97,7 +97,7 @@ it('ročník neexistuje', async () => {
     pohlavi: 'muž',
     obec: 'Ostrava 1'
   };
-  const ubytovani = { pátek: { prihlaseno: true, absolvovano: false } };
+  const ubytovani = { pátek: { prihlaseno: true, prespano: false } };
 
   const response1 = await wsClient.sendRequest(
     Actions.saveUdaje({ rok: 2016, udaje }, generateTestToken())
@@ -122,7 +122,7 @@ it('ubytování nevypsáno', async () => {
     pohlavi: 'muž',
     obec: 'Ostrava 1'
   };
-  const ubytovani = { sobota: { prihlaseno: true, absolvovano: false } };
+  const ubytovani = { sobota: { prihlaseno: true, prespano: false } };
 
   const response1 = await wsClient.sendRequest(
     Actions.saveUdaje({ rok: 2018, udaje }, generateTestToken())

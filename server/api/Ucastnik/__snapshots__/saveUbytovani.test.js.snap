@@ -86,11 +86,11 @@ Array [
         "rok": 2017,
         "ubytovani": Object {
           "pátek": Object {
-            "absolvovano": false,
+            "prespano": false,
             "prihlaseno": true,
           },
           "sobota": Object {
-            "absolvovano": true,
+            "prespano": true,
             "prihlaseno": true,
           },
         },

@@ -623,7 +623,7 @@ Array [
         "rok": 2015,
         "ubytovani": Object {
           "pátek": Object {
-            "absolvovano": true,
+            "prespano": true,
             "prihlaseno": true,
           },
         },
@@ -3964,10 +3964,10 @@ Array [
         "rok": 2005,
         "ubytovani": Object {
           "pátek": Object {
-            "absolvovano": true,
+            "prespano": true,
           },
           "sobota": Object {
-            "absolvovano": true,
+            "prespano": true,
           },
         },
         "udaje": Object {
@@ -4025,7 +4025,7 @@ Array [
         "rok": 2008,
         "ubytovani": Object {
           "pátek": Object {
-            "absolvovano": true,
+            "prespano": true,
             "prihlaseno": true,
           },
           "sobota": Object {
@@ -4166,7 +4166,7 @@ Array [
         "rok": 2015,
         "ubytovani": Object {
           "pátek": Object {
-            "absolvovano": true,
+            "prespano": true,
             "prihlaseno": true,
           },
         },
