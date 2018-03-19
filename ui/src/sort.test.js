@@ -2,6 +2,7 @@ import deepFreeze from 'deep-freeze';
 import {
   narozeniSortMethod,
   prijmeniJmenoNarozeniSortMethod,
+  reverseSortDirType,
   sortForColumn,
   SortDirTypes
 } from './sort';
@@ -27,21 +28,35 @@ const data = [
     predepsano: 200
   },
   {
+    prijmeni: 'Kyselová',
+    jmeno: 'Slavěna',
+    narozeni: { den: 13, mesic: 8, rok: 2001 },
+    obec: 'Aš',
+    email: 'sks@por.cz',
+    datum: new Date('2018-06-09T00:00:00.000Z'),
+    kategorie: {
+      typ: 'půlmaraton',
+      pohlavi: 'žena',
+      vek: { min: 40, max: 49 }
+    },
+    zaplaceno: 0,
+    predepsano: 200
+  },
+  {
     prijmeni: 'Sukdoláková',
     jmeno: 'Martina',
     narozeni: { rok: 1963, mesic: 12, den: 7 },
     pohlavi: 'žena',
     obec: 'Zlín',
-    stat: 'Česká republika',
+    email: '',
     datum: new Date('2016-06-11T00:00:00.000Z'),
     kategorie: {
-      pohlavi: 'žena',
       typ: 'maraton',
+      pohlavi: 'žena',
       vek: { min: 50, max: 59 }
     },
     zaplaceno: 0
   },
-
   {
     prijmeni: 'Zralá',
     jmeno: 'Hana',
@@ -61,6 +76,18 @@ const data = [
   }
 ];
 deepFreeze(data);
+
+it('reverseSortDirType - default', () => {
+  expect(reverseSortDirType(undefined)).toEqual('asc');
+});
+
+it('reverseSortDirType - asc->desc', () => {
+  expect(reverseSortDirType(SortDirTypes.ASC)).toEqual('desc');
+});
+
+it('reverseSortDirType - desc->asc', () => {
+  expect(reverseSortDirType(SortDirTypes.DESC)).toEqual('asc');
+});
 
 it('narozeniSort(desc=false) - nulls', () => {
   const narozeni = [null, { rok: 1978, mesic: 8, den: 7 }, null];
@@ -199,12 +226,14 @@ it('sortForColumn - prijmeni ASC', () => {
   expect(sortForColumn({ data, sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC })).toEqual([
     data[0],
     data[1],
-    data[2]
+    data[2],
+    data[3]
   ]);
 });
 
 it('sortForColumn - prijmeni DESC', () => {
   expect(sortForColumn({ data, sortColumn: 'prijmeni', sortDir: SortDirTypes.DESC })).toEqual([
+    data[3],
     data[2],
     data[1],
     data[0]
@@ -213,63 +242,89 @@ it('sortForColumn - prijmeni DESC', () => {
 
 it('sortForColumn - jmeno ASC', () => {
   expect(sortForColumn({ data, sortColumn: 'jmeno', sortDir: SortDirTypes.ASC })).toEqual([
+    data[3],
     data[2],
-    data[1],
-    data[0]
+    data[0],
+    data[1]
   ]);
 });
 
 it('sortForColumn - jmeno DESC', () => {
   expect(sortForColumn({ data, sortColumn: 'jmeno', sortDir: SortDirTypes.DESC })).toEqual([
-    data[0],
     data[1],
+    data[0],
+    data[2],
+    data[3]
+  ]);
+});
+
+it('sortForColumn - obec ASC', () => {
+  expect(sortForColumn({ data, sortColumn: 'obec', sortDir: SortDirTypes.ASC })).toEqual([
+    data[1],
+    data[3],
+    data[0],
     data[2]
+  ]);
+});
+
+it('sortForColumn - email DESC', () => {
+  expect(sortForColumn({ data, sortColumn: 'email', sortDir: SortDirTypes.DESC })).toEqual([
+    data[3],
+    data[1],
+    data[2],
+    data[0]
   ]);
 });
 
 it('sortForColumn - datum ASC', () => {
   expect(sortForColumn({ data, sortColumn: 'datum', sortDir: SortDirTypes.ASC })).toEqual([
-    data[1],
+    data[2],
     data[0],
-    data[2]
+    data[1],
+    data[3]
   ]);
 });
 
 it('sortForColumn - datum DESC', () => {
   expect(sortForColumn({ data, sortColumn: 'datum', sortDir: SortDirTypes.DESC })).toEqual([
-    data[2],
-    data[0],
-    data[1]
-  ]);
-});
-
-it('sortForColumn - kategorie ASC', () => {
-  expect(sortForColumn({ data, sortColumn: 'kategorie', sortDir: SortDirTypes.ASC })).toEqual([
+    data[3],
     data[1],
     data[0],
     data[2]
   ]);
 });
 
-it('sortForColumn - kategorie DESC', () => {
-  expect(sortForColumn({ data, sortColumn: 'kategorie', sortDir: SortDirTypes.DESC })).toEqual([
+it('sortForColumn - kategorie ASC', () => {
+  expect(sortForColumn({ data, sortColumn: 'kategorie', sortDir: SortDirTypes.ASC })).toEqual([
     data[2],
     data[0],
+    data[3],
     data[1]
+  ]);
+});
+
+it('sortForColumn - kategorie DESC', () => {
+  expect(sortForColumn({ data, sortColumn: 'kategorie', sortDir: SortDirTypes.DESC })).toEqual([
+    data[1],
+    data[3],
+    data[0],
+    data[2]
   ]);
 });
 
 it('sortForColumn - startCislo ASC', () => {
   expect(sortForColumn({ data, sortColumn: 'startCislo', sortDir: SortDirTypes.ASC })).toEqual([
-    data[2],
+    data[3],
     data[0],
-    data[1]
+    data[1],
+    data[2]
   ]);
 });
 
 it('sortForColumn - startCislo DESC', () => {
   expect(sortForColumn({ data, sortColumn: 'startCislo', sortDir: SortDirTypes.DESC })).toEqual([
     data[0],
+    data[3],
     data[2],
     data[1]
   ]);
@@ -279,6 +334,7 @@ it('sortForColumn - zaplaceno ASC', () => {
   expect(sortForColumn({ data, sortColumn: 'zaplaceno', sortDir: SortDirTypes.ASC })).toEqual([
     data[1],
     data[2],
+    data[3],
     data[0]
   ]);
 });
@@ -286,6 +342,7 @@ it('sortForColumn - zaplaceno ASC', () => {
 it('sortForColumn - zaplaceno DESC', () => {
   expect(sortForColumn({ data, sortColumn: 'zaplaceno', sortDir: SortDirTypes.DESC })).toEqual([
     data[0],
+    data[3],
     data[2],
     data[1]
   ]);
