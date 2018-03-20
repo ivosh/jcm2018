@@ -48,7 +48,7 @@ Object {
         },
         "ubytovani": Object {
           "pátek": Object {
-            "absolvovano": true,
+            "prespano": true,
             "prihlaseno": true,
           },
         },
@@ -196,7 +196,7 @@ Object {
         },
         "ubytovani": Object {
           "pátek": Object {
-            "absolvovano": true,
+            "prespano": true,
             "prihlaseno": true,
           },
         },
@@ -268,7 +268,7 @@ Object {
         },
         "ubytovani": Object {
           "pátek": Object {
-            "absolvovano": true,
+            "prespano": true,
             "prihlaseno": true,
           },
         },
@@ -383,7 +383,7 @@ Object {
         },
         "ubytovani": Object {
           "pátek": Object {
-            "absolvovano": true,
+            "prespano": true,
             "prihlaseno": true,
           },
         },

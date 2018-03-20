@@ -338,7 +338,7 @@ it('validation of some invalid state [validate === false]', () => {
       mladistvyPotvrzen: undefined
     },
     platby: [{ castka: 220, datum: new Date(), typ: 'převodem' }],
-    ubytovani: { pátek: { prihlaseno: false, absolvovano: true } }
+    ubytovani: { pátek: { prihlaseno: false, prespano: true } }
   };
   deepFreeze(state);
 
@@ -779,7 +779,7 @@ it('loadUcastnik() - údaje i přihláška', () => {
       kod: '10728864'
     },
     platby: [{ castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }],
-    ubytovani: { pátek: { prihlaseno: true, absolvovano: true } }
+    ubytovani: { pátek: { prihlaseno: true, prespano: true } }
   };
   deepFreeze(stateBefore);
 

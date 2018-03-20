@@ -228,7 +228,7 @@ it('saveUcastSuccess() - nový účastník', () => {
     mladistvyPotvrzen: undefined
   };
   const platby = [{ castka: 200, datum: '2018-05-12T00:00:00.000Z', typ: 'složenkou' }];
-  const ubytovani = { pátek: { prihlaseno: true, absolvovano: true } };
+  const ubytovani = { pátek: { prihlaseno: true, prespano: true } };
 
   expect(
     ucastniciReducer(

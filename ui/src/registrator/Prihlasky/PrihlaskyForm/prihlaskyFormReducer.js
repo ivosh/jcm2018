@@ -67,7 +67,7 @@ const parseNarozeni = value => {
 };
 
 const reduceUbytovani = ({ den, value, ubytovani }) => {
-  if (!value && (ubytovani[den] && ubytovani[den].absolvovano)) {
+  if (!value && (ubytovani[den] && ubytovani[den].prespano)) {
     return ubytovani; // Pokud již ubytování absolvoval, nelze se odhlásit.
   }
 
@@ -292,9 +292,7 @@ export const isInputVisible = (name, prihlaskyForm, rocniky) => {
 export const isInputEnabled = (name, prihlaskyForm, rocniky) => {
   const [section, subsection] = name.split('.');
   if (section === 'ubytovani') {
-    return !(
-      prihlaskyForm.ubytovani[subsection] && prihlaskyForm.ubytovani[subsection].absolvovano
-    );
+    return !(prihlaskyForm.ubytovani[subsection] && prihlaskyForm.ubytovani[subsection].prespano);
   }
 
   switch (name) {

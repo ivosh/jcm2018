@@ -2236,7 +2236,7 @@ const state = {
               startCislo: 15,
               dokonceno: false
             },
-            ubytovani: { pátek: { prihlaseno: true, absolvovano: true } }
+            ubytovani: { pátek: { prihlaseno: true, prespano: true } }
           },
           2017: {
             udaje: {
