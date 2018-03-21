@@ -12,7 +12,7 @@ exports[`renders 1`] = `
     value=""
   />
   <div
-    className="Filterable_kategorie btn-group"
+    className="Filterable__kategorie btn-group"
   >
     <span
       className="KategorieFilter"
@@ -121,7 +121,7 @@ exports[`renders 1`] = `
     </span>
   </div>
   <span
-    className="Filterable_zobrazeno"
+    className="Zobrazeno"
   >
     zobrazeno: 
     <span

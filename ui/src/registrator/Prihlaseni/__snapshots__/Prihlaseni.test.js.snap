@@ -15,7 +15,7 @@ exports[`dva přihlášení 1`] = `
       value=""
     />
     <div
-      className="Filterable_kategorie btn-group"
+      className="Filterable__kategorie btn-group"
     >
       <span
         className="KategorieFilter"
@@ -124,7 +124,7 @@ exports[`dva přihlášení 1`] = `
       </span>
     </div>
     <span
-      className="Filterable_zobrazeno"
+      className="Zobrazeno"
     >
       zobrazeno: 
       <span
@@ -879,7 +879,7 @@ exports[`žádný přihlášený 1`] = `
       value=""
     />
     <div
-      className="Filterable_kategorie btn-group"
+      className="Filterable__kategorie btn-group"
     >
       <span
         className="KategorieFilter"
@@ -988,7 +988,7 @@ exports[`žádný přihlášený 1`] = `
       </span>
     </div>
     <span
-      className="Filterable_zobrazeno"
+      className="Zobrazeno"
     >
       zobrazeno: 
       <span

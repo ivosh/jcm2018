@@ -1,12 +1,3 @@
-.Filterable_input {
-  padding: 1ex;
-  margin-bottom: 1ex;
-}
-
-.Filterable_zobrazeno {
-  margin-left: 2em;
-}
-
-.Filterable_kategorie {
+.Filterable__kategorie {
   margin-left: 2em;
 }

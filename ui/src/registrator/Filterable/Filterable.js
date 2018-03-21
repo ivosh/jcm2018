@@ -4,6 +4,7 @@ import { Badge, ButtonGroup } from 'react-bootstrap';
 import { TYPY_KATEGORII } from '../../constants';
 import KategorieFilter from './KategorieFilter';
 import TextFilter from './TextFilter';
+import Zobrazeno from './Zobrazeno';
 import './Filterable.css';
 
 const Filterable = ({
@@ -16,7 +17,7 @@ const Filterable = ({
   <div>
     <TextFilter filter={textFilter} onChange={onTextFilterChange} />
 
-    <ButtonGroup className="Filterable_kategorie">
+    <ButtonGroup className="Filterable__kategorie">
       {TYPY_KATEGORII.map(typKategorie => (
         <KategorieFilter
           key={typKategorie}
@@ -27,9 +28,7 @@ const Filterable = ({
       ))}
     </ButtonGroup>
 
-    <span className="Filterable_zobrazeno">
-      zobrazeno: <Badge>{numberOfItems}</Badge>
-    </span>
+    <Zobrazeno numberOfItems={numberOfItems} />
   </div>
 );
 
