@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<input
+  className="TextFilter__input"
+  onBlur={[Function]}
+  onChange={[Function]}
+  onKeyDown={[Function]}
+  placeholder="Filtr na příjmení a jméno"
+  type="text"
+  value=""
+/>
+`;

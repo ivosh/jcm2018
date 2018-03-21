@@ -1,59 +1,37 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Badge, ButtonGroup } from 'react-bootstrap';
-import DebounceInput from 'react-debounce-input';
 import { TYPY_KATEGORII } from '../../constants';
 import KategorieFilter from './KategorieFilter';
+import TextFilter from './TextFilter';
 import './Filterable.css';
 
-class Filterable extends Component {
-  componentDidMount = () => {
-    if (process.env.NODE_ENV !== 'test') {
-      this.input.focus();
-    }
-  };
+const Filterable = ({
+  kategorieFilter,
+  numberOfItems,
+  textFilter,
+  onKategorieFilterChange,
+  onTextFilterChange
+}) => (
+  <div>
+    <TextFilter filter={textFilter} onChange={onTextFilterChange} />
 
-  render = () => {
-    const {
-      kategorieFilter,
-      numberOfItems,
-      textFilter,
-      onKategorieFilterChange,
-      onTextFilterChange
-    } = this.props;
-
-    return (
-      <div>
-        <DebounceInput
-          className="Filterable_input"
-          debounceTimeout={500}
-          minLength={0}
-          placeholder="Filtr na příjmení a jméno"
-          value={textFilter}
-          inputRef={ref => {
-            this.input = ref;
-          }}
-          onChange={e => onTextFilterChange(e.target.value)}
+    <ButtonGroup className="Filterable_kategorie">
+      {TYPY_KATEGORII.map(typKategorie => (
+        <KategorieFilter
+          key={typKategorie}
+          typKategorie={typKategorie}
+          onClick={() => onKategorieFilterChange(typKategorie)}
+          active={kategorieFilter === typKategorie}
         />
+      ))}
+    </ButtonGroup>
 
-        <ButtonGroup className="Filterable_kategorie">
-          {TYPY_KATEGORII.map(typKategorie => (
-            <KategorieFilter
-              key={typKategorie}
-              typKategorie={typKategorie}
-              onClick={() => onKategorieFilterChange(typKategorie)}
-              active={kategorieFilter === typKategorie}
-            />
-          ))}
-        </ButtonGroup>
-
-        <span className="Filterable_zobrazeno">
-          zobrazeno: <Badge>{numberOfItems}</Badge>
-        </span>
-      </div>
-    );
-  };
-}
+    <span className="Filterable_zobrazeno">
+      zobrazeno: <Badge>{numberOfItems}</Badge>
+    </span>
+  </div>
+);
 
 Filterable.propTypes = {
   kategorieFilter: PropTypes.string,

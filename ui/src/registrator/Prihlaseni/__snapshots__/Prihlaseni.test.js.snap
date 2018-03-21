@@ -6,7 +6,7 @@ exports[`dva přihlášení 1`] = `
 >
   <div>
     <input
-      className="Filterable_input"
+      className="TextFilter__input"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
@@ -870,7 +870,7 @@ exports[`žádný přihlášený 1`] = `
 >
   <div>
     <input
-      className="Filterable_input"
+      className="TextFilter__input"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}

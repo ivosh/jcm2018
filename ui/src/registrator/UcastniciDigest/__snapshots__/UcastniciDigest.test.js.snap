@@ -6,7 +6,7 @@ exports[`dva účastníci 1`] = `
 >
   <div>
     <input
-      className="Filterable_input"
+      className="TextFilter__input"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}
@@ -1254,7 +1254,7 @@ exports[`žádný účastník 1`] = `
 >
   <div>
     <input
-      className="Filterable_input"
+      className="TextFilter__input"
       onBlur={[Function]}
       onChange={[Function]}
       onKeyDown={[Function]}

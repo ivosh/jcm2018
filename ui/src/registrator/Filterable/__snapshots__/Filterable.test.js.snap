@@ -3,7 +3,7 @@
 exports[`renders 1`] = `
 <div>
   <input
-    className="Filterable_input"
+    className="TextFilter__input"
     onBlur={[Function]}
     onChange={[Function]}
     onKeyDown={[Function]}
