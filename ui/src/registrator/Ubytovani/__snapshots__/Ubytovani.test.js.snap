@@ -294,7 +294,7 @@ exports[`dva ubytovaní 1`] = `
             style={
               Object {
                 "height": 35,
-                "width": 580,
+                "width": 590,
               }
             }
           >
@@ -314,7 +314,7 @@ exports[`dva ubytovaní 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 870,
+                  "width": 880,
                   "willChange": "transform",
                 }
               }
@@ -327,11 +327,11 @@ exports[`dva ubytovaní 1`] = `
                   Object {
                     "height": 35,
                     "maxHeight": 35,
-                    "maxWidth": 870,
+                    "maxWidth": 880,
                     "overflow": "hidden",
                     "pointerEvents": "",
                     "position": "relative",
-                    "width": 870,
+                    "width": 880,
                   }
                 }
               >
@@ -406,39 +406,25 @@ exports[`dva ubytovaní 1`] = `
                       "left": 690,
                       "position": "absolute",
                       "top": 0,
-                      "width": 90,
+                      "width": 100,
                     }
                   }
                 >
-                  <a
-                    className="SortHeader_a"
-                    onClick={[Function]}
-                  >
-                    přihlášeno
-                     
-                    
-                  </a>
+                  přihlášeno
                 </div>
                 <div
                   className="UcastniciTable_headerCell"
                   style={
                     Object {
                       "height": 35,
-                      "left": 780,
+                      "left": 790,
                       "position": "absolute",
                       "top": 0,
                       "width": 90,
                     }
                   }
                 >
-                  <a
-                    className="SortHeader_a"
-                    onClick={[Function]}
-                  >
-                    přespáno
-                     
-                    
-                  </a>
+                  přespáno
                 </div>
               </div>
             </div>
@@ -447,7 +433,7 @@ exports[`dva ubytovaní 1`] = `
             style={
               Object {
                 "height": 70,
-                "width": 870,
+                "width": 880,
               }
             }
           >
@@ -467,7 +453,7 @@ exports[`dva ubytovaní 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 870,
+                  "width": 880,
                   "willChange": "transform",
                 }
               }
@@ -480,11 +466,11 @@ exports[`dva ubytovaní 1`] = `
                   Object {
                     "height": 70,
                     "maxHeight": 70,
-                    "maxWidth": 870,
+                    "maxWidth": 880,
                     "overflow": "hidden",
                     "pointerEvents": "",
                     "position": "relative",
-                    "width": 870,
+                    "width": 880,
                   }
                 }
               >
@@ -529,25 +515,25 @@ exports[`dva ubytovaní 1`] = `
                   9. 6. 2018
                 </div>
                 <div
-                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  className="Ubytovani--prihlaseno UcastniciTable_oddRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
                       "left": 690,
                       "position": "absolute",
                       "top": 0,
-                      "width": 90,
+                      "width": 100,
                     }
                   }
                 >
                   ✓
                 </div>
                 <div
-                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  className="Ubytovani--prespano UcastniciTable_oddRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
-                      "left": 780,
+                      "left": 790,
                       "position": "absolute",
                       "top": 0,
                       "width": 90,
@@ -597,25 +583,25 @@ exports[`dva ubytovaní 1`] = `
                   9. 6. 2018
                 </div>
                 <div
-                  className="UcastniciTable_evenRow UcastniciTable_cell"
+                  className="Ubytovani--prihlaseno UcastniciTable_evenRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
                       "left": 690,
                       "position": "absolute",
                       "top": 35,
-                      "width": 90,
+                      "width": 100,
                     }
                   }
                 >
                   ✓
                 </div>
                 <div
-                  className="UcastniciTable_evenRow UcastniciTable_cell"
+                  className="Ubytovani--nevime UcastniciTable_evenRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
-                      "left": 780,
+                      "left": 790,
                       "position": "absolute",
                       "top": 35,
                       "width": 90,
@@ -817,7 +803,7 @@ exports[`žádný ubytovaný 1`] = `
             style={
               Object {
                 "height": 35,
-                "width": 580,
+                "width": 590,
               }
             }
           >
@@ -837,7 +823,7 @@ exports[`žádný ubytovaný 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 870,
+                  "width": 880,
                   "willChange": "transform",
                 }
               }
@@ -850,11 +836,11 @@ exports[`žádný ubytovaný 1`] = `
                   Object {
                     "height": 35,
                     "maxHeight": 35,
-                    "maxWidth": 870,
+                    "maxWidth": 880,
                     "overflow": "hidden",
                     "pointerEvents": "",
                     "position": "relative",
-                    "width": 870,
+                    "width": 880,
                   }
                 }
               >
@@ -929,39 +915,25 @@ exports[`žádný ubytovaný 1`] = `
                       "left": 690,
                       "position": "absolute",
                       "top": 0,
-                      "width": 90,
+                      "width": 100,
                     }
                   }
                 >
-                  <a
-                    className="SortHeader_a"
-                    onClick={[Function]}
-                  >
-                    přihlášeno
-                     
-                    
-                  </a>
+                  přihlášeno
                 </div>
                 <div
                   className="UcastniciTable_headerCell"
                   style={
                     Object {
                       "height": 35,
-                      "left": 780,
+                      "left": 790,
                       "position": "absolute",
                       "top": 0,
                       "width": 90,
                     }
                   }
                 >
-                  <a
-                    className="SortHeader_a"
-                    onClick={[Function]}
-                  >
-                    přespáno
-                     
-                    
-                  </a>
+                  přespáno
                 </div>
               </div>
             </div>
@@ -970,7 +942,7 @@ exports[`žádný ubytovaný 1`] = `
             style={
               Object {
                 "height": 0,
-                "width": 870,
+                "width": 880,
               }
             }
           >
@@ -990,7 +962,7 @@ exports[`žádný ubytovaný 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 870,
+                  "width": 880,
                   "willChange": "transform",
                 }
               }

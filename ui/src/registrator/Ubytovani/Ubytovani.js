@@ -13,6 +13,7 @@ const datumFormat = ({ cellData }) => moment.utc(cellData).format('D. M. YYYY');
 const narozeniFormat = ({ cellData }) => narozeniToStr(cellData);
 
 const prihlasenoFormat = ({ cellData }) => (cellData ? '✓' : '✗');
+
 const prespanoFormat = ({ cellData }) => {
   if (cellData === true) {
     return '✓';
@@ -20,6 +21,15 @@ const prespanoFormat = ({ cellData }) => {
     return '✗';
   }
   return '?';
+};
+
+const prespanoClasses = ({ cellData }) => {
+  if (cellData === true) {
+    return ['Ubytovani--prespano'];
+  } else if (cellData === false) {
+    return ['Ubytovani--neprespano'];
+  }
+  return ['Ubytovani--nevime'];
 };
 
 const prijmeniFormat = args => (
@@ -63,16 +73,16 @@ const Ubytovani = ({ actionPrefix, reduxName, textFilter, ubytovani, onTextFilte
     },
     {
       cellDataFormatter: prihlasenoFormat,
+      cellClassNames: ({ cellData }) => (cellData === true ? ['Ubytovani--prihlaseno'] : []),
       key: 'prihlaseno',
       label: 'přihlášeno',
-      sortable: true,
-      width: 90
+      width: 100
     },
     {
       cellDataFormatter: prespanoFormat,
+      cellClassNames: prespanoClasses,
       key: 'prespano',
       label: 'přespáno',
-      sortable: true,
       width: 90
     }
   ];
