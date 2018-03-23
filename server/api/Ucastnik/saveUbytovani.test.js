@@ -89,6 +89,37 @@ it('vytvoř minimálního účastníka', async () => {
   expect(ucastnici).toMatchSnapshot();
 });
 
+it('přihlaš a zase odhlaš', async () => {
+  const udaje = {
+    prijmeni: 'Balabák',
+    jmeno: 'František',
+    narozeni: { rok: 1953 },
+    pohlavi: 'muž',
+    obec: 'Ostrava 1'
+  };
+  const ubytovaniPrihlaseno = { pátek: { prihlaseno: true, prespano: false } };
+  const ubytovaniOdhlaseno = { pátek: { prihlaseno: false, prespano: false } };
+
+  const response1 = await wsClient.sendRequest(
+    Actions.saveUdaje({ rok: 2018, udaje }, generateTestToken())
+  );
+  const { id } = response1.response;
+  expect(id).toBeTruthy();
+
+  let { requestId, ...response } = await wsClient.sendRequest(
+    Actions.saveUbytovani({ id, rok: 2018, ubytovani: ubytovaniPrihlaseno }, generateTestToken())
+  );
+  expect(response).toMatchSnapshot();
+
+  ({ requestId, ...response } = await wsClient.sendRequest(
+    Actions.saveUbytovani({ id, rok: 2018, ubytovani: ubytovaniOdhlaseno }, generateTestToken())
+  ));
+  expect(response).toMatchSnapshot();
+
+  const ucastnici = await Ucastnik.find({}, { _id: 0 }).lean();
+  expect(ucastnici).toMatchSnapshot();
+});
+
 it('ročník neexistuje', async () => {
   const udaje = {
     prijmeni: 'Balabák',

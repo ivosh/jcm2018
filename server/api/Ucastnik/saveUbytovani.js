@@ -24,6 +24,13 @@ const saveUbytovani = async ({ request }) => {
     };
   }
 
+  if (ubytovani.pátek && !ubytovani.pátek.prihlaseno && !ubytovani.pátek.prespano) {
+    delete ubytovani.pátek;
+  }
+  if (ubytovani.sobota && !ubytovani.sobota.prihlaseno && !ubytovani.sobota.prespano) {
+    delete ubytovani.sobota;
+  }
+
   if (ubytovani.pátek && !rocnik.ubytovani.pátek) {
     return {
       code: Actions.CODE_NONEXISTING,
@@ -48,6 +55,7 @@ const saveUbytovani = async ({ request }) => {
   const ucast = ucastnik.ucasti.find(oneUcast => oneUcast.rok === rok);
   ucast.ubytovani = ubytovani;
   await ucastnik.save();
+
   const broadcast = await broadcastUcastnik(id); // :TODO: could broadcast only Ubytovani in future.
   return { broadcast, code: Actions.CODE_OK, status: 'uloženo v pořádku' };
 };
