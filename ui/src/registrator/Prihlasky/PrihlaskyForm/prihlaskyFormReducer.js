@@ -67,11 +67,11 @@ const parseNarozeni = value => {
 };
 
 const reduceUbytovani = ({ den, value, ubytovani }) => {
-  if (!value && (ubytovani[den] && ubytovani[den].prespano)) {
-    return ubytovani; // Pokud již ubytování absolvoval, nelze se odhlásit.
+  const state = { ...ubytovani, [den]: { ...ubytovani[den], prihlaseno: value } };
+  if (state[den] && !state[den].prihlaseno && !state[den].prespano) {
+    delete state[den];
   }
-
-  return { ...ubytovani, [den]: { ...ubytovani[den], prihlaseno: value } };
+  return state;
 };
 
 const prihlaskyFormReducer = (state = initialState, action) => {
