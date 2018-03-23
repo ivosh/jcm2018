@@ -7,11 +7,7 @@ const mapStateToProps = (state, ownProps) => {
   const { reduxName, numberOfItems } = ownProps;
   const { kategorieFilter, textFilter } = state.registrator[reduxName];
 
-  return {
-    kategorieFilter,
-    numberOfItems,
-    textFilter
-  };
+  return { kategorieFilter, numberOfItems, textFilter };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {

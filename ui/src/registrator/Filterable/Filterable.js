@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Badge, ButtonGroup } from 'react-bootstrap';
+import { ButtonGroup } from 'react-bootstrap';
 import { TYPY_KATEGORII } from '../../constants';
 import KategorieFilter from './KategorieFilter';
 import TextFilter from './TextFilter';
