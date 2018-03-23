@@ -1,9 +1,10 @@
 import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { SortDirTypes } from '../../sort';
-import ubytovaniReducer, { getUbytovaniSorted } from './ubytovaniReducer';
 import { textFilterChange } from '../Filterable/FilterableActions';
 import { sortDirChange } from '../UcastniciTable/UcastniciTableActions';
+import { changeUbytovani } from './UbytovaniActions';
+import ubytovaniReducer, { getUbytovaniSorted } from './ubytovaniReducer';
 
 const actionPrefix = 'UBYTOVANI';
 
@@ -15,6 +16,21 @@ it('na začátku', () => {
   expect(stateAfter.textFilter).toEqual('');
   expect(stateAfter.sortColumn).toBe(undefined);
   expect(stateAfter.sortDir).toEqual(SortDirTypes.NONE);
+});
+
+it('přepínání jenUbytovani - tam', () => {
+  const stateBefore = { jenUbytovani: true };
+  const stateAfter = { jenUbytovani: false };
+
+  expect(ubytovaniReducer(stateBefore, changeUbytovani())).toEqual(stateAfter);
+});
+
+it('přepínání jenUbytovani - a zpět', () => {
+  const stateBefore = { jenUbytovani: false };
+  const stateAfter = { jenUbytovani: true };
+  deepFreeze(stateBefore);
+
+  expect(ubytovaniReducer(stateBefore, changeUbytovani())).toEqual(stateAfter);
 });
 
 it('řadit dle příjmení vzestupně', () => {

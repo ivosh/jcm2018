@@ -17,7 +17,14 @@ const ucastniciTableReducer = createUcastniciTableReducer('UBYTOVANI');
 
 const ubytovaniReducer = (state = initialState, action) => {
   state = filterableReducer(state, action); // eslint-disable-line no-param-reassign
-  return ucastniciTableReducer(state, action);
+  state = ucastniciTableReducer(state, action); // eslint-disable-line no-param-reassign
+
+  switch (action.type) {
+    case 'UBYTOVANI_CHANGE_UBYTOVANI':
+      return { ...state, jenUbytovani: !state.jenUbytovani };
+    default:
+      return state;
+  }
 };
 
 export default ubytovaniReducer;

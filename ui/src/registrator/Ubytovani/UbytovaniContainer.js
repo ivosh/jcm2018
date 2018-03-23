@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { textFilterChange } from '../Filterable/FilterableActions';
+import { changeUbytovani } from './UbytovaniActions';
 import { getUbytovaniSorted } from './ubytovaniReducer';
 import Ubytovani from './Ubytovani';
 
@@ -17,7 +18,8 @@ const mapStateToProps = ({ entities, registrator: { ubytovani } }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onTextFilterChange: text => dispatch(textFilterChange('UBYTOVANI', text))
+  onTextFilterChange: text => dispatch(textFilterChange('UBYTOVANI', text)),
+  onUbytovaniChange: () => dispatch(changeUbytovani())
 });
 
 const areStatesEqual = (next, prev) =>

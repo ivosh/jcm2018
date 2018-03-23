@@ -13,9 +13,11 @@ store.dispatch = jest.fn();
 
 const commonProps = {
   actionPrefix: 'UBYTOVANI',
+  jenUbytovani: true,
   reduxName: 'ubytovani',
   textFilter: '',
-  onTextFilterChange: jest.fn()
+  onTextFilterChange: jest.fn(),
+  onUbytovaniChange: jest.fn()
 };
 
 const ubytovani = [

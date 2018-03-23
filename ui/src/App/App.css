@@ -16,6 +16,11 @@ main {
   margin-left: 0px;
 }
 
+/* Override react-bootstrap styling for Navbar's active item. */
+.active > a {
+  font-weight: bold;
+}
+
 .App-Nav {
   font-size: 110%;
 }

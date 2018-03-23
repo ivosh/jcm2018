@@ -30,6 +30,12 @@ it('maps state and dispatch to props', () => {
   expect(wrapper.props().ubytovani).toMatchSnapshot();
 });
 
+it('maps onUbytovaniChange to dispatch changeUbytovani action', () => {
+  wrapper.props().onUbytovaniChange();
+
+  expect(store.dispatch).toHaveBeenCalledWith({ type: 'UBYTOVANI_CHANGE_UBYTOVANI' });
+});
+
 it('maps onTextFilterChange to dispatch textFilterChange action', () => {
   wrapper.props().onTextFilterChange('Kl');
 

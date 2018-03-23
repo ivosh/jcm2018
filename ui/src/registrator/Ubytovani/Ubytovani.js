@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Button, Glyphicon } from 'react-bootstrap';
 import moment from 'moment';
 import { narozeniToStr } from '../../Util';
 import TextFilter from '../Filterable/TextFilter';
@@ -36,7 +37,15 @@ const prijmeniFormat = args => (
   <Link to={`/prihlasky/${args.data[args.rowIndex].id}`}>{args.cellData}</Link>
 );
 
-const Ubytovani = ({ actionPrefix, reduxName, textFilter, ubytovani, onTextFilterChange }) => {
+const Ubytovani = ({
+  actionPrefix,
+  jenUbytovani,
+  reduxName,
+  textFilter,
+  ubytovani,
+  onTextFilterChange,
+  onUbytovaniChange
+}) => {
   const columns = [
     {
       cellClassNames: () => ['align-left'],
@@ -91,6 +100,26 @@ const Ubytovani = ({ actionPrefix, reduxName, textFilter, ubytovani, onTextFilte
     <div className="Ubytovani__div UcastniciTable_container">
       <div>
         <TextFilter filter={textFilter} onChange={onTextFilterChange} />
+
+        <span className="Ubytovani__buttons">
+          <Button
+            active={jenUbytovani}
+            bsStyle="success"
+            className="Ubytovani__button"
+            onClick={onUbytovaniChange}
+          >
+            <Glyphicon glyph="list-alt" /> Jen ubytovaní
+          </Button>
+          <Button
+            active={!jenUbytovani}
+            bsStyle="primary"
+            className="Ubytovani__button"
+            onClick={onUbytovaniChange}
+          >
+            <Glyphicon glyph="road" /> Všichni přihlášeni
+          </Button>
+        </span>
+
         <Zobrazeno numberOfItems={ubytovani.length} />
       </div>
 
@@ -108,6 +137,7 @@ const Ubytovani = ({ actionPrefix, reduxName, textFilter, ubytovani, onTextFilte
 
 Ubytovani.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
+  jenUbytovani: PropTypes.bool.isRequired,
   reduxName: PropTypes.string.isRequired,
   textFilter: PropTypes.string.isRequired,
   ubytovani: PropTypes.arrayOf(
@@ -125,7 +155,8 @@ Ubytovani.propTypes = {
       datum: PropTypes.instanceOf(Date).isRequired
     }).isRequired
   ).isRequired,
-  onTextFilterChange: PropTypes.func.isRequired
+  onTextFilterChange: PropTypes.func.isRequired,
+  onUbytovaniChange: PropTypes.func.isRequired
 };
 
 export default Ubytovani;
