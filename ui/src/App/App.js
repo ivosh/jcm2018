@@ -12,6 +12,7 @@ import UcastniciDigestContainer from '../registrator/UcastniciDigest/UcastniciDi
 import Prihlasky from '../registrator/Prihlasky/Prihlasky';
 import StartujiciContainer from '../registrator/Startujici/StartujiciContainer';
 import PrihlaseniContainer from '../registrator/Prihlaseni/PrihlaseniContainer';
+import UbytovaniContainer from '../registrator/Ubytovani/UbytovaniContainer';
 import SignOutContainer from '../auth/SignOut/SignOutContainer';
 import About from './About';
 import './App.css';
@@ -50,25 +51,30 @@ const App = ({ authenticated, connected, username }) => (
               <Glyphicon glyph="sound-5-1" /> Startující
             </NavItem>
           </LinkContainer>
+          <LinkContainer key="ubytovani" to="/ubytovani">
+            <NavItem eventKey={6}>
+              <Glyphicon glyph="XXX" /> Ubytovaní
+            </NavItem>
+          </LinkContainer>
         </Nav>
       )}
       <Nav className="App-Nav" pullRight>
         {!authenticated && (
           <LinkContainer to="/signin">
-            <NavItem eventKey={6}>
+            <NavItem eventKey={7}>
               <Glyphicon glyph="log-in" /> Přihlášení
             </NavItem>
           </LinkContainer>
         )}
         {authenticated && (
           <LinkContainer key="signout" to="/signout">
-            <NavItem eventKey={7}>
+            <NavItem eventKey={8}>
               <Glyphicon glyph="log-out" /> Odhlášení
             </NavItem>
           </LinkContainer>
         )}
         <LinkContainer to="/about">
-          <NavItem eventKey={8}>
+          <NavItem eventKey={9}>
             <Glyphicon glyph="question-sign" /> O aplikaci
           </NavItem>
         </LinkContainer>
@@ -86,6 +92,7 @@ const App = ({ authenticated, connected, username }) => (
         <Route path="/prihlasky" component={withAuth(withFetchUcastnici(Prihlasky))} />
         <Route path="/prihlaseni" component={withAuth(withFetchUcastnici(PrihlaseniContainer))} />
         <Route path="/startujici" component={withAuth(withFetchUcastnici(StartujiciContainer))} />
+        <Route path="/ubytovani" component={withAuth(withFetchUcastnici(UbytovaniContainer))} />
         <Route path="/signout" component={withAuth(SignOutContainer)} />
         <Route path="/about" component={() => <About username={username} />} />
         <Redirect to="/" />

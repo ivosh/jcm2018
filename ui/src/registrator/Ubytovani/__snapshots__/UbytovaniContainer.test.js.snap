@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`maps state and dispatch to props 1`] = `
+Array [
+  Object {
+    "datum": 2018-06-09T00:00:00.000Z,
+    "email": "",
+    "id": "5a09b1fd371dec1e99b7e1c9",
+    "jmeno": "Roman",
+    "narozeni": Object {
+      "rok": 1956,
+    },
+    "obec": "Ostrava 2",
+    "prespano": true,
+    "prihlaseno": true,
+    "prijmeni": "Balabák",
+  },
+  Object {
+    "datum": 2018-06-09T00:00:00.000Z,
+    "email": "zrala.kl@s.cz",
+    "id": "7a09b1fd371dec1e99b7e142",
+    "jmeno": "Hana",
+    "narozeni": Object {
+      "den": 25,
+      "mesic": 7,
+      "rok": 1999,
+    },
+    "obec": "Bučovice",
+    "prespano": undefined,
+    "prihlaseno": true,
+    "prijmeni": "Zralá",
+  },
+]
+`;

@@ -93,6 +93,12 @@ Object {
     "startujici": Object {
       "odstartovani": false,
     },
+    "ubytovani": Object {
+      "jenUbytovani": true,
+      "sortColumn": undefined,
+      "sortDir": "none",
+      "textFilter": "",
+    },
     "ucastniciDigest": Object {
       "kategorieFilter": "",
       "sortColumn": undefined,
@@ -197,6 +203,12 @@ Object {
     "startujici": Object {
       "odstartovani": false,
     },
+    "ubytovani": Object {
+      "jenUbytovani": true,
+      "sortColumn": undefined,
+      "sortDir": "none",
+      "textFilter": "",
+    },
     "ucastniciDigest": Object {
       "kategorieFilter": "",
       "sortColumn": undefined,
@@ -300,6 +312,12 @@ Object {
     },
     "startujici": Object {
       "odstartovani": false,
+    },
+    "ubytovani": Object {
+      "jenUbytovani": true,
+      "sortColumn": undefined,
+      "sortDir": "none",
+      "textFilter": "",
     },
     "ucastniciDigest": Object {
       "kategorieFilter": "",

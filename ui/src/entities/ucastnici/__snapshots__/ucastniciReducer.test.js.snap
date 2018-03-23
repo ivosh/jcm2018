@@ -305,6 +305,11 @@ Object {
           "kod": "abc023skd204mvs345",
           "startCislo": 10,
         },
+        "ubytovani": Object {
+          "pátek": Object {
+            "prihlaseno": true,
+          },
+        },
         "udaje": Object {
           "email": "zrala.kl@s.cz",
           "jmeno": "Hana",
@@ -487,6 +492,11 @@ Object {
           "kod": "abc023skd204mvs345",
           "startCislo": 10,
         },
+        "ubytovani": Object {
+          "pátek": Object {
+            "prihlaseno": true,
+          },
+        },
         "udaje": Object {
           "email": "zrala.kl@s.cz",
           "jmeno": "Hana",
@@ -622,6 +632,11 @@ Object {
           "kategorie": "5a587e1b051c181132cf83d9",
           "kod": "abc023skd204mvs345",
           "startCislo": 10,
+        },
+        "ubytovani": Object {
+          "pátek": Object {
+            "prihlaseno": true,
+          },
         },
         "udaje": Object {
           "email": "zrala.kl@s.cz",

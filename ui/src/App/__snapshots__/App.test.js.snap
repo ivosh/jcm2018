@@ -123,6 +123,26 @@ exports[`with websocket connected, authenticated 1`] = `
            Startující
         </NavItem>
       </LinkContainer>
+      <LinkContainer
+        activeClassName="active"
+        exact={false}
+        key="ubytovani"
+        replace={false}
+        strict={false}
+        to="/ubytovani"
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey={6}
+        >
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="XXX"
+          />
+           Ubytovaní
+        </NavItem>
+      </LinkContainer>
     </Nav>
     <Nav
       bsClass="nav"
@@ -143,7 +163,7 @@ exports[`with websocket connected, authenticated 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={7}
+          eventKey={8}
         >
           <Glyphicon
             bsClass="glyphicon"
@@ -162,7 +182,7 @@ exports[`with websocket connected, authenticated 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={8}
+          eventKey={9}
         >
           <Glyphicon
             bsClass="glyphicon"
@@ -203,6 +223,10 @@ exports[`with websocket connected, authenticated 1`] = `
       <Route
         component={[Function]}
         path="/startujici"
+      />
+      <Route
+        component={[Function]}
+        path="/ubytovani"
       />
       <Route
         component={[Function]}
@@ -254,7 +278,7 @@ exports[`with websocket connected, not authenticated 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={6}
+          eventKey={7}
         >
           <Glyphicon
             bsClass="glyphicon"
@@ -273,7 +297,7 @@ exports[`with websocket connected, not authenticated 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={8}
+          eventKey={9}
         >
           <Glyphicon
             bsClass="glyphicon"
@@ -314,6 +338,10 @@ exports[`with websocket connected, not authenticated 1`] = `
       <Route
         component={[Function]}
         path="/startujici"
+      />
+      <Route
+        component={[Function]}
+        path="/ubytovani"
       />
       <Route
         component={[Function]}
@@ -455,6 +483,26 @@ exports[`with websocket disconnected, authenticated 1`] = `
            Startující
         </NavItem>
       </LinkContainer>
+      <LinkContainer
+        activeClassName="active"
+        exact={false}
+        key="ubytovani"
+        replace={false}
+        strict={false}
+        to="/ubytovani"
+      >
+        <NavItem
+          active={false}
+          disabled={false}
+          eventKey={6}
+        >
+          <Glyphicon
+            bsClass="glyphicon"
+            glyph="XXX"
+          />
+           Ubytovaní
+        </NavItem>
+      </LinkContainer>
     </Nav>
     <Nav
       bsClass="nav"
@@ -475,7 +523,7 @@ exports[`with websocket disconnected, authenticated 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={7}
+          eventKey={8}
         >
           <Glyphicon
             bsClass="glyphicon"
@@ -494,7 +542,7 @@ exports[`with websocket disconnected, authenticated 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={8}
+          eventKey={9}
         >
           <Glyphicon
             bsClass="glyphicon"
@@ -535,6 +583,10 @@ exports[`with websocket disconnected, authenticated 1`] = `
       <Route
         component={[Function]}
         path="/startujici"
+      />
+      <Route
+        component={[Function]}
+        path="/ubytovani"
       />
       <Route
         component={[Function]}

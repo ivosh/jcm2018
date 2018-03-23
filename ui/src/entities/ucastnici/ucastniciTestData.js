@@ -2286,7 +2286,8 @@ const state = {
               startCislo: 11,
               dokonceno: true,
               cas: 'PT2H06M32.6S'
-            }
+            },
+            ubytovani: { pátek: { prihlaseno: true } }
           }
         }
       }
