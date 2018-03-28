@@ -44,3 +44,9 @@ it('maps onTextFilterChange to dispatch textFilterChange action', () => {
     textFilter: 'Kl'
   });
 });
+
+it('maps onSelect to dispatch saveUbytovani action', () => {
+  wrapper.props().ubytovani[0].akce.onSelect({ target: { value: 'Odhlásit' } });
+
+  expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
+});
