@@ -12,7 +12,13 @@
    diff -u common/__snapshots__/common.test.js.snap ui/src/__snapshots__/common.test.js.snap
  */
 
-const { findKategorie } = require('./common');
+const {
+  findKategorie,
+  ubytovaniOdhlasit,
+  ubytovaniNeprespano,
+  ubytovaniPrespano,
+  ubytovaniPrihlasit
+} = require('./common');
 
 it('findKategorie() - ročník neexistuje', () => {
   const rocniky = {};
@@ -380,4 +386,40 @@ it('findKategorie() - junior a cyklo přesný věk - mladistvý - těsně za hra
   });
   expect(nalezeno.kategorie).toBeTruthy();
   expect(nalezeno).toMatchSnapshot();
+});
+
+it('ubytovaniPrihlasit - default', () => {
+  const stateBefore = undefined;
+  const stateAfter = { pátek: { prihlaseno: true } };
+  expect(ubytovaniPrihlasit({ den: 'pátek', ubytovani: stateBefore })).toEqual(stateAfter);
+});
+
+it('ubytovaniPrespano - default', () => {
+  const stateBefore = undefined;
+  const stateAfter = { pátek: { prespano: true } };
+  expect(ubytovaniPrespano({ den: 'pátek', ubytovani: stateBefore })).toEqual(stateAfter);
+});
+
+it('ubytovaniNeprespano - default', () => {
+  const stateBefore = undefined;
+  const stateAfter = { pátek: { prespano: false } };
+  expect(ubytovaniNeprespano({ den: 'pátek', ubytovani: stateBefore })).toEqual(stateAfter);
+});
+
+it('ubytovaniNeprespano - přihlášeno', () => {
+  const stateBefore = { sobota: { prihlaseno: true } };
+  const stateAfter = { sobota: { prihlaseno: true, prespano: false } };
+  expect(ubytovaniNeprespano({ den: 'sobota', ubytovani: stateBefore })).toEqual(stateAfter);
+});
+
+it('ubytovaniOdhlasit - default', () => {
+  const stateBefore = undefined;
+  const stateAfter = {};
+  expect(ubytovaniOdhlasit({ den: 'pátek', ubytovani: stateBefore })).toEqual(stateAfter);
+});
+
+it('ubytovaniOdhlasit - přihlášeno', () => {
+  const stateBefore = { pátek: { prihlaseno: true } };
+  const stateAfter = {};
+  expect(ubytovaniOdhlasit({ den: 'pátek', ubytovani: stateBefore })).toEqual(stateAfter);
 });

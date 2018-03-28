@@ -97,8 +97,11 @@ it('přihlaš a zase odhlaš', async () => {
     pohlavi: 'muž',
     obec: 'Ostrava 1'
   };
-  const ubytovaniPrihlaseno = { pátek: { prihlaseno: true, prespano: false } };
-  const ubytovaniOdhlaseno = { pátek: { prihlaseno: false, prespano: false } };
+  const ubytovaniPrihlaseno = Actions.ubytovaniPrihlasit({ den: 'pátek' });
+  const ubytovaniOdhlaseno = Actions.ubytovaniOdhlasit({
+    den: 'pátek',
+    ubytovani: ubytovaniPrihlaseno
+  });
 
   const response1 = await wsClient.sendRequest(
     Actions.saveUdaje({ rok: 2018, udaje }, generateTestToken())

@@ -24,13 +24,6 @@ const saveUbytovani = async ({ request }) => {
     };
   }
 
-  if (ubytovani.pátek && !ubytovani.pátek.prihlaseno && !ubytovani.pátek.prespano) {
-    delete ubytovani.pátek;
-  }
-  if (ubytovani.sobota && !ubytovani.sobota.prihlaseno && !ubytovani.sobota.prespano) {
-    delete ubytovani.sobota;
-  }
-
   if (ubytovani.pátek && !rocnik.ubytovani.pátek) {
     return {
       code: Actions.CODE_NONEXISTING,

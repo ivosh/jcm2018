@@ -196,6 +196,23 @@ const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyPotvrzen
   };
 };
 
+const ubytovaniPrihlasit = ({ den, ubytovani = {} }) => ({
+  ...ubytovani,
+  [den]: { ...ubytovani[den], prihlaseno: true }
+});
+const ubytovaniOdhlasit = ({ den, ubytovani = {} }) => {
+  const { [den]: remove, ...rest } = ubytovani;
+  return rest;
+};
+const ubytovaniPrespano = ({ den, ubytovani = {} }) => ({
+  ...ubytovani,
+  [den]: { ...ubytovani[den], prespano: true }
+});
+const ubytovaniNeprespano = ({ den, ubytovani = {} }) => ({
+  ...ubytovani,
+  [den]: { ...ubytovani[den], prespano: false }
+});
+
 module.exports = {
   PORT,
   PLATBA_TYPY,
@@ -230,5 +247,9 @@ module.exports = {
   saveUbytovani,
   saveUdaje,
   signIn,
-  signOut
+  signOut,
+  ubytovaniNeprespano,
+  ubytovaniOdhlasit,
+  ubytovaniPrespano,
+  ubytovaniPrihlasit
 };
