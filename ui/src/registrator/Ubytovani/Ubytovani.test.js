@@ -36,6 +36,19 @@ const ubytovani = [
     }
   },
   {
+    id: '6f09b1fd371dec1e99b7e1c9',
+    prijmeni: 'Sukdoláková',
+    jmeno: 'Martina',
+    narozeni: { rok: 1963, mesic: 12, den: 7 },
+    obec: 'Zlín',
+    datum: new Date('2016-06-11T00:00:00.000Z'),
+    prespano: false,
+    akce: {
+      options: ['Přihlásit', 'Přespáno'],
+      onSelect: jest.fn()
+    }
+  },
+  {
     id: '7a09b1fd371dec1e99b7e142',
     prijmeni: 'Zralá',
     jmeno: 'Hana',
@@ -61,7 +74,7 @@ it('žádný ubytovaný', () => {
   expect(component.toJSON()).toMatchSnapshot();
 });
 
-it('dva ubytovaní', () => {
+it('tři ubytovaní', () => {
   const component = renderer.create(
     <Provider store={store}>
       <MemoryRouter>

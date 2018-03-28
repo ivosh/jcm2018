@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`dva ubytovaní 1`] = `
+exports[`tři ubytovaní 1`] = `
 <div
   className="Ubytovani__div UcastniciTable_container"
 >
@@ -47,7 +47,7 @@ exports[`dva ubytovaní 1`] = `
       <span
         className="badge"
       >
-        2
+        3
       </span>
     </span>
   </div>
@@ -190,7 +190,7 @@ exports[`dva ubytovaní 1`] = `
               "WebkitOverflowScrolling": "touch",
               "boxSizing": "border-box",
               "direction": "ltr",
-              "height": 70,
+              "height": 105,
               "overflowX": "hidden",
               "overflowY": "hidden",
               "position": "relative",
@@ -205,8 +205,8 @@ exports[`dva ubytovaní 1`] = `
             role="rowgroup"
             style={
               Object {
-                "height": 70,
-                "maxHeight": 70,
+                "height": 105,
+                "maxHeight": 105,
                 "maxWidth": 290,
                 "overflow": "hidden",
                 "pointerEvents": "",
@@ -275,10 +275,10 @@ exports[`dva ubytovaní 1`] = `
               }
             >
               <a
-                href="/prihlasky/7a09b1fd371dec1e99b7e142"
+                href="/prihlasky/6f09b1fd371dec1e99b7e1c9"
                 onClick={[Function]}
               >
-                Zralá
+                Sukdoláková
               </a>
             </div>
             <div
@@ -293,7 +293,7 @@ exports[`dva ubytovaní 1`] = `
                 }
               }
             >
-              Hana
+              Martina
             </div>
             <div
               className="align-right UcastniciTable_evenRow UcastniciTable_cell"
@@ -303,6 +303,53 @@ exports[`dva ubytovaní 1`] = `
                   "left": 190,
                   "position": "absolute",
                   "top": 35,
+                  "width": 100,
+                }
+              }
+            >
+              7. 12. 1963
+            </div>
+            <div
+              className="align-left UcastniciTable_oddRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 70,
+                  "width": 100,
+                }
+              }
+            >
+              <a
+                href="/prihlasky/7a09b1fd371dec1e99b7e142"
+                onClick={[Function]}
+              >
+                Zralá
+              </a>
+            </div>
+            <div
+              className="align-left UcastniciTable_oddRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 100,
+                  "position": "absolute",
+                  "top": 70,
+                  "width": 90,
+                }
+              }
+            >
+              Hana
+            </div>
+            <div
+              className="align-right UcastniciTable_oddRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 190,
+                  "position": "absolute",
+                  "top": 70,
                   "width": 100,
                 }
               }
@@ -472,7 +519,7 @@ exports[`dva ubytovaní 1`] = `
           <div
             style={
               Object {
-                "height": 70,
+                "height": 105,
                 "width": 1000,
               }
             }
@@ -489,7 +536,7 @@ exports[`dva ubytovaní 1`] = `
                   "WebkitOverflowScrolling": "touch",
                   "boxSizing": "border-box",
                   "direction": "ltr",
-                  "height": 70,
+                  "height": 105,
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
@@ -504,8 +551,8 @@ exports[`dva ubytovaní 1`] = `
                 role="rowgroup"
                 style={
                   Object {
-                    "height": 70,
-                    "maxHeight": 70,
+                    "height": 105,
+                    "maxHeight": 105,
                     "maxWidth": 1000,
                     "overflow": "hidden",
                     "pointerEvents": "",
@@ -625,7 +672,7 @@ exports[`dva ubytovaní 1`] = `
                     }
                   }
                 >
-                  Bučovice
+                  Zlín
                 </div>
                 <div
                   className="align-left UcastniciTable_evenRow UcastniciTable_cell"
@@ -651,10 +698,10 @@ exports[`dva ubytovaní 1`] = `
                     }
                   }
                 >
-                  9. 6. 2018
+                  11. 6. 2016
                 </div>
                 <div
-                  className="Ubytovani--prihlaseno UcastniciTable_evenRow UcastniciTable_cell"
+                  className="UcastniciTable_evenRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
@@ -665,10 +712,10 @@ exports[`dva ubytovaní 1`] = `
                     }
                   }
                 >
-                  ✓
+                  ✗
                 </div>
                 <div
-                  className="Ubytovani--nevime UcastniciTable_evenRow UcastniciTable_cell"
+                  className="Ubytovani--neprespano UcastniciTable_evenRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
@@ -679,7 +726,7 @@ exports[`dva ubytovaní 1`] = `
                     }
                   }
                 >
-                  ?
+                  ✗
                 </div>
                 <div
                   className="UcastniciTable_evenRow UcastniciTable_cell"
@@ -689,6 +736,105 @@ exports[`dva ubytovaní 1`] = `
                       "left": 880,
                       "position": "absolute",
                       "top": 35,
+                      "width": 120,
+                    }
+                  }
+                >
+                  <select
+                    className="form-control"
+                    id={undefined}
+                    name="akce"
+                    onChange={[Function]}
+                    type={undefined}
+                  >
+                    <option
+                      value="Přihlásit"
+                    >
+                      Přihlásit
+                    </option>
+                    <option
+                      value="Přespáno"
+                    >
+                      Přespáno
+                    </option>
+                  </select>
+                </div>
+                <div
+                  className="align-left UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 290,
+                      "position": "absolute",
+                      "top": 70,
+                      "width": 90,
+                    }
+                  }
+                >
+                  Bučovice
+                </div>
+                <div
+                  className="align-left UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 380,
+                      "position": "absolute",
+                      "top": 70,
+                      "width": 200,
+                    }
+                  }
+                />
+                <div
+                  className="align-right UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 580,
+                      "position": "absolute",
+                      "top": 70,
+                      "width": 110,
+                    }
+                  }
+                >
+                  9. 6. 2018
+                </div>
+                <div
+                  className="Ubytovani--prihlaseno UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 690,
+                      "position": "absolute",
+                      "top": 70,
+                      "width": 100,
+                    }
+                  }
+                >
+                  ✓
+                </div>
+                <div
+                  className="Ubytovani--nevime UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 790,
+                      "position": "absolute",
+                      "top": 70,
+                      "width": 90,
+                    }
+                  }
+                >
+                  ?
+                </div>
+                <div
+                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 880,
+                      "position": "absolute",
+                      "top": 70,
                       "width": 120,
                     }
                   }
