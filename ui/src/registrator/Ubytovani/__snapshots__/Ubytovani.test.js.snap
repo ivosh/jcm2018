@@ -24,7 +24,7 @@ exports[`dva ubytovaní 1`] = `
         type="button"
       >
         <span
-          className="glyphicon glyphicon-list-alt"
+          className="glyphicon glyphicon-bed"
         />
          Jen ubytovaní
       </button>
@@ -35,7 +35,7 @@ exports[`dva ubytovaní 1`] = `
         type="button"
       >
         <span
-          className="glyphicon glyphicon-road"
+          className="glyphicon glyphicon-list-alt"
         />
          Všichni přihlášeni
       </button>
@@ -320,7 +320,7 @@ exports[`dva ubytovaní 1`] = `
             style={
               Object {
                 "height": 35,
-                "width": 590,
+                "width": 710,
               }
             }
           >
@@ -340,7 +340,7 @@ exports[`dva ubytovaní 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 880,
+                  "width": 1000,
                   "willChange": "transform",
                 }
               }
@@ -353,11 +353,11 @@ exports[`dva ubytovaní 1`] = `
                   Object {
                     "height": 35,
                     "maxHeight": 35,
-                    "maxWidth": 880,
+                    "maxWidth": 1000,
                     "overflow": "hidden",
                     "pointerEvents": "",
                     "position": "relative",
-                    "width": 880,
+                    "width": 1000,
                   }
                 }
               >
@@ -452,6 +452,20 @@ exports[`dva ubytovaní 1`] = `
                 >
                   přespáno
                 </div>
+                <div
+                  className="UcastniciTable_headerCell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 880,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 120,
+                    }
+                  }
+                >
+                  akce
+                </div>
               </div>
             </div>
           </div>
@@ -459,7 +473,7 @@ exports[`dva ubytovaní 1`] = `
             style={
               Object {
                 "height": 70,
-                "width": 880,
+                "width": 1000,
               }
             }
           >
@@ -479,7 +493,7 @@ exports[`dva ubytovaní 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 880,
+                  "width": 1000,
                   "willChange": "transform",
                 }
               }
@@ -492,11 +506,11 @@ exports[`dva ubytovaní 1`] = `
                   Object {
                     "height": 70,
                     "maxHeight": 70,
-                    "maxWidth": 880,
+                    "maxWidth": 1000,
                     "overflow": "hidden",
                     "pointerEvents": "",
                     "position": "relative",
-                    "width": 880,
+                    "width": 1000,
                   }
                 }
               >
@@ -569,6 +583,37 @@ exports[`dva ubytovaní 1`] = `
                   ✓
                 </div>
                 <div
+                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 880,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 120,
+                    }
+                  }
+                >
+                  <select
+                    className="form-control"
+                    id={undefined}
+                    name="akce"
+                    onChange={[Function]}
+                    type={undefined}
+                  >
+                    <option
+                      value="Odhlásit"
+                    >
+                      Odhlásit
+                    </option>
+                    <option
+                      value="Nepřespáno"
+                    >
+                      Nepřespáno
+                    </option>
+                  </select>
+                </div>
+                <div
                   className="align-left UcastniciTable_evenRow UcastniciTable_cell"
                   style={
                     Object {
@@ -636,6 +681,42 @@ exports[`dva ubytovaní 1`] = `
                 >
                   ?
                 </div>
+                <div
+                  className="UcastniciTable_evenRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 880,
+                      "position": "absolute",
+                      "top": 35,
+                      "width": 120,
+                    }
+                  }
+                >
+                  <select
+                    className="form-control"
+                    id={undefined}
+                    name="akce"
+                    onChange={[Function]}
+                    type={undefined}
+                  >
+                    <option
+                      value="Odhlásit"
+                    >
+                      Odhlásit
+                    </option>
+                    <option
+                      value="Nepřespáno"
+                    >
+                      Nepřespáno
+                    </option>
+                    <option
+                      value="Přespáno"
+                    >
+                      Přespáno
+                    </option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
@@ -670,7 +751,7 @@ exports[`žádný ubytovaný 1`] = `
         type="button"
       >
         <span
-          className="glyphicon glyphicon-list-alt"
+          className="glyphicon glyphicon-bed"
         />
          Jen ubytovaní
       </button>
@@ -681,7 +762,7 @@ exports[`žádný ubytovaný 1`] = `
         type="button"
       >
         <span
-          className="glyphicon glyphicon-road"
+          className="glyphicon glyphicon-list-alt"
         />
          Všichni přihlášeni
       </button>
@@ -855,7 +936,7 @@ exports[`žádný ubytovaný 1`] = `
             style={
               Object {
                 "height": 35,
-                "width": 590,
+                "width": 710,
               }
             }
           >
@@ -875,7 +956,7 @@ exports[`žádný ubytovaný 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 880,
+                  "width": 1000,
                   "willChange": "transform",
                 }
               }
@@ -888,11 +969,11 @@ exports[`žádný ubytovaný 1`] = `
                   Object {
                     "height": 35,
                     "maxHeight": 35,
-                    "maxWidth": 880,
+                    "maxWidth": 1000,
                     "overflow": "hidden",
                     "pointerEvents": "",
                     "position": "relative",
-                    "width": 880,
+                    "width": 1000,
                   }
                 }
               >
@@ -987,6 +1068,20 @@ exports[`žádný ubytovaný 1`] = `
                 >
                   přespáno
                 </div>
+                <div
+                  className="UcastniciTable_headerCell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 880,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 120,
+                    }
+                  }
+                >
+                  akce
+                </div>
               </div>
             </div>
           </div>
@@ -994,7 +1089,7 @@ exports[`žádný ubytovaný 1`] = `
             style={
               Object {
                 "height": 0,
-                "width": 880,
+                "width": 1000,
               }
             }
           >
@@ -1014,7 +1109,7 @@ exports[`žádný ubytovaný 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 880,
+                  "width": 1000,
                   "willChange": "transform",
                 }
               }

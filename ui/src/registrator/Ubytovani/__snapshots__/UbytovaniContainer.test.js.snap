@@ -3,6 +3,14 @@
 exports[`maps state and dispatch to props 1`] = `
 Array [
   Object {
+    "akce": Object {
+      "onSelect": [Function],
+      "options": Array [
+        " ",
+        "Odhlásit",
+        "Nepřespáno",
+      ],
+    },
     "datum": 2018-06-09T00:00:00.000Z,
     "email": "",
     "id": "5a09b1fd371dec1e99b7e1c9",
@@ -16,6 +24,15 @@ Array [
     "prijmeni": "Balabák",
   },
   Object {
+    "akce": Object {
+      "onSelect": [Function],
+      "options": Array [
+        " ",
+        "Odhlásit",
+        "Přespáno",
+        "Nepřespáno",
+      ],
+    },
     "datum": 2018-06-09T00:00:00.000Z,
     "email": "zrala.kl@s.cz",
     "id": "7a09b1fd371dec1e99b7e142",

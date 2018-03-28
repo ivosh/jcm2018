@@ -29,7 +29,11 @@ const ubytovani = [
     obec: 'Ostrava 2',
     datum: new Date('2018-06-09T00:00:00.000Z'),
     prihlaseno: true,
-    prespano: true
+    prespano: true,
+    akce: {
+      options: ['Odhlásit', 'Nepřespáno'],
+      onSelect: jest.fn()
+    }
   },
   {
     id: '7a09b1fd371dec1e99b7e142',
@@ -38,7 +42,11 @@ const ubytovani = [
     narozeni: { den: 25, mesic: 7, rok: 1999 },
     obec: 'Bučovice',
     datum: new Date('2018-06-09T00:00:00.000Z'),
-    prihlaseno: true
+    prihlaseno: true,
+    akce: {
+      options: ['Odhlásit', 'Nepřespáno', 'Přespáno'],
+      onSelect: jest.fn()
+    }
   }
 ];
 

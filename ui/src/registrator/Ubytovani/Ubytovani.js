@@ -1,13 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Button, Glyphicon } from 'react-bootstrap';
+import { Button, FormControl, Glyphicon } from 'react-bootstrap';
 import moment from 'moment';
 import { narozeniToStr } from '../../Util';
 import TextFilter from '../Filterable/TextFilter';
 import Zobrazeno from '../Filterable/Zobrazeno';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
 import './Ubytovani.css';
+
+const akceFormat = ({ cellData: { options, onSelect } }) => (
+  <FormControl componentClass="select" name="akce" onChange={onSelect}>
+    {options.map(option => (
+      <option key={option} value={option}>
+        {option}
+      </option>
+    ))}
+  </FormControl>
+);
+akceFormat.propTypes = {
+  cellData: PropTypes.shape({
+    options: PropTypes.arrayOf(PropTypes.string).isRequired,
+    onSelect: PropTypes.func.isRequired
+  })
+};
 
 const datumFormat = ({ cellData }) => moment.utc(cellData).format('D. M. YYYY');
 
@@ -93,7 +109,8 @@ const Ubytovani = ({
       key: 'prespano',
       label: 'přespáno',
       width: 90
-    }
+    },
+    { cellDataFormatter: akceFormat, key: 'akce', label: 'akce', width: 120 }
   ];
 
   return (
@@ -108,7 +125,7 @@ const Ubytovani = ({
             className="Ubytovani__button"
             onClick={onUbytovaniChange}
           >
-            <Glyphicon glyph="list-alt" /> Jen ubytovaní
+            <Glyphicon glyph="bed" /> Jen ubytovaní
           </Button>
           <Button
             active={!jenUbytovani}
@@ -116,7 +133,7 @@ const Ubytovani = ({
             className="Ubytovani__button"
             onClick={onUbytovaniChange}
           >
-            <Glyphicon glyph="road" /> Všichni přihlášeni
+            <Glyphicon glyph="list-alt" /> Všichni přihlášeni
           </Button>
         </span>
 
@@ -152,7 +169,13 @@ Ubytovani.propTypes = {
       }).isRequired,
       obec: PropTypes.string.isRequired,
       email: PropTypes.string,
-      datum: PropTypes.instanceOf(Date).isRequired
+      datum: PropTypes.instanceOf(Date).isRequired,
+      prihlaseno: PropTypes.bool,
+      prespano: PropTypes.bool,
+      akce: PropTypes.shape({
+        options: PropTypes.arrayOf(PropTypes.string.isRequired),
+        onSelect: PropTypes.func.isRequired
+      }).isRequired
     }).isRequired
   ).isRequired,
   onTextFilterChange: PropTypes.func.isRequired,
