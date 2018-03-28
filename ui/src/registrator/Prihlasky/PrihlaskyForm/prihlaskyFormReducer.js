@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { findKategorie, CODE_OK } from '../../../common';
+import { findKategorie, ubytovaniOdhlasit, ubytovaniPrihlasit, CODE_OK } from '../../../common';
 import { AKTUALNI_ROK, TYPY_KATEGORII } from '../../../constants';
 import {
   datumValid,
@@ -67,11 +67,10 @@ const parseNarozeni = value => {
 };
 
 const reduceUbytovani = ({ den, value, ubytovani }) => {
-  const state = { ...ubytovani, [den]: { ...ubytovani[den], prihlaseno: value } };
-  if (state[den] && !state[den].prihlaseno && !state[den].prespano) {
-    delete state[den];
+  if (value) {
+    return ubytovaniPrihlasit({ den, ubytovani });
   }
-  return state;
+  return ubytovaniOdhlasit({ den, ubytovani });
 };
 
 const prihlaskyFormReducer = (state = initialState, action) => {
