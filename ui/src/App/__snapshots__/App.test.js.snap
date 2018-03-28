@@ -138,7 +138,7 @@ exports[`with websocket connected, authenticated 1`] = `
         >
           <Glyphicon
             bsClass="glyphicon"
-            glyph="XXX"
+            glyph="bed"
           />
            Ubytovaní
         </NavItem>
@@ -498,7 +498,7 @@ exports[`with websocket disconnected, authenticated 1`] = `
         >
           <Glyphicon
             bsClass="glyphicon"
-            glyph="XXX"
+            glyph="bed"
           />
            Ubytovaní
         </NavItem>

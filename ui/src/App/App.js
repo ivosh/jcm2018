@@ -53,7 +53,7 @@ const App = ({ authenticated, connected, username }) => (
           </LinkContainer>
           <LinkContainer key="ubytovani" to="/ubytovani">
             <NavItem eventKey={6}>
-              <Glyphicon glyph="XXX" /> Ubytovaní
+              <Glyphicon glyph="bed" /> Ubytovaní
             </NavItem>
           </LinkContainer>
         </Nav>
