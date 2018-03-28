@@ -149,6 +149,42 @@ Array [
 ]
 `;
 
+exports[`zapiš nepřespáno 1`] = `
+Object {
+  "code": "ok",
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`zapiš nepřespáno 2`] = `
+Array [
+  Object {
+    "__v": 1,
+    "ucasti": Array [
+      Object {
+        "platby": Array [],
+        "rok": 2018,
+        "ubytovani": Object {
+          "pátek": Object {
+            "prespano": false,
+          },
+        },
+        "udaje": Object {
+          "jmeno": "František",
+          "narozeni": Object {
+            "rok": 1953,
+          },
+          "obec": "Ostrava 1",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+      },
+    ],
+  },
+]
+`;
+
 exports[`účastník neexistuje 1`] = `
 Object {
   "code": "neexistuje",

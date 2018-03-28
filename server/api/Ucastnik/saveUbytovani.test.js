@@ -123,6 +123,31 @@ it('přihlaš a zase odhlaš', async () => {
   expect(ucastnici).toMatchSnapshot();
 });
 
+it('zapiš nepřespáno', async () => {
+  const udaje = {
+    prijmeni: 'Balabák',
+    jmeno: 'František',
+    narozeni: { rok: 1953 },
+    pohlavi: 'muž',
+    obec: 'Ostrava 1'
+  };
+  const ubytovaniNeprespano = Actions.ubytovaniNeprespano({ den: 'pátek' });
+
+  const response1 = await wsClient.sendRequest(
+    Actions.saveUdaje({ rok: 2018, udaje }, generateTestToken())
+  );
+  const { id } = response1.response;
+  expect(id).toBeTruthy();
+
+  const { requestId, ...response } = await wsClient.sendRequest(
+    Actions.saveUbytovani({ id, rok: 2018, ubytovani: ubytovaniNeprespano }, generateTestToken())
+  );
+  expect(response).toMatchSnapshot();
+
+  const ucastnici = await Ucastnik.find({}, { _id: 0 }).lean();
+  expect(ucastnici).toMatchSnapshot();
+});
+
 it('ročník neexistuje', async () => {
   const udaje = {
     prijmeni: 'Balabák',
