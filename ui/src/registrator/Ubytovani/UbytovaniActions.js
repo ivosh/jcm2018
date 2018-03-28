@@ -5,7 +5,12 @@ export const changeUbytovani = () => ({
   type: 'UBYTOVANI_CHANGE_UBYTOVANI'
 });
 
-export const saveUbytovaniRequest = ({ id, rok }) => ({ type: 'UBYTOVANI_SAVE_REQUEST', id, rok });
+export const saveUbytovaniRequest = ({ id, rok }) => ({
+  type: 'UBYTOVANI_SAVE_REQUEST',
+  id,
+  rok,
+  receivedAt: Date.now()
+});
 
 export const saveUbytovaniError = ({ code, status, err, ...rest }) => ({
   type: 'UBYTOVANI_SAVE_ERROR',
