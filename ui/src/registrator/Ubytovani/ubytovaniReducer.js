@@ -7,6 +7,7 @@ import {
 } from '../UcastniciTable/ucastniciTableReducer';
 
 export const initialState = {
+  loading: {},
   jenUbytovani: true,
   textFilter: '',
   ...ucastniciTableInitialState
@@ -22,6 +23,13 @@ const ubytovaniReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'UBYTOVANI_CHANGE_UBYTOVANI':
       return { ...state, jenUbytovani: !state.jenUbytovani };
+    case 'UBYTOVANI_SAVE_REQUEST':
+      return { ...state, loading: { ...state.loading, [action.id]: true } };
+    case 'UBYTOVANI_SAVE_SUCCESS':
+    case 'UBYTOVANI_SAVE_ERROR': {
+      const { [action.id]: remove, ...rest } = state.loading;
+      return { ...state, loading: rest };
+    }
     default:
       return state;
   }

@@ -30,7 +30,7 @@ export const hideSuccess = ({ id, rok }) => ({
   rok,
   receivedAt: Date.now()
 });
-export const showSuccess = ({ id, rok, ubytovani }) => ({
+export const saveUbytovaniSuccess = ({ id, rok, ubytovani }) => ({
   type: 'UBYTOVANI_SAVE_SUCCESS',
   id,
   rok,
@@ -38,7 +38,7 @@ export const showSuccess = ({ id, rok, ubytovani }) => ({
   receivedAt: Date.now()
 });
 export const saveUbytovaniSuccessWithTimeout = ({ dispatch, id, rok, ubytovani }) => {
-  dispatch(showSuccess({ id, rok, ubytovani }));
+  dispatch(saveUbytovaniSuccess({ id, rok, ubytovani }));
   setTimeout(() => dispatch(hideSuccess({ id, rok })), UBYTOVANI_SAVE_SUCCESS_TIMEOUT);
 };
 

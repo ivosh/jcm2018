@@ -3,7 +3,7 @@ import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { SortDirTypes } from '../../sort';
 import { textFilterChange } from '../Filterable/FilterableActions';
 import { sortDirChange } from '../UcastniciTable/UcastniciTableActions';
-import { changeUbytovani } from './UbytovaniActions';
+import { changeUbytovani, saveUbytovaniRequest, saveUbytovaniSuccess } from './UbytovaniActions';
 import ubytovaniReducer, { getUbytovaniSorted } from './ubytovaniReducer';
 
 const actionPrefix = 'UBYTOVANI';
@@ -12,6 +12,7 @@ it('na začátku', () => {
   const stateBefore = undefined;
 
   const stateAfter = ubytovaniReducer(stateBefore, {});
+  expect(stateAfter.loading).toEqual({});
   expect(stateAfter.jenUbytovani).toBe(true);
   expect(stateAfter.textFilter).toEqual('');
   expect(stateAfter.sortColumn).toBe(undefined);
@@ -31,6 +32,32 @@ it('přepínání jenUbytovani - a zpět', () => {
   deepFreeze(stateBefore);
 
   expect(ubytovaniReducer(stateBefore, changeUbytovani())).toEqual(stateAfter);
+});
+
+it('loading - zapnutí', () => {
+  const stateBefore = { loading: {} };
+  const stateAfter = { loading: { '5a09b1fd371dec1e99b7e1c9': true } };
+  deepFreeze(stateBefore);
+
+  expect(
+    ubytovaniReducer(
+      stateBefore,
+      saveUbytovaniRequest({ id: '5a09b1fd371dec1e99b7e1c9', rok: 2018 })
+    )
+  ).toEqual(stateAfter);
+});
+
+it('loading - vypnutí', () => {
+  const stateBefore = { loading: { '5a09b1fd371dec1e99b7e1c9': true } };
+  const stateAfter = { loading: {} };
+  deepFreeze(stateBefore);
+
+  expect(
+    ubytovaniReducer(
+      stateBefore,
+      saveUbytovaniSuccess({ id: '5a09b1fd371dec1e99b7e1c9', rok: 2018 })
+    )
+  ).toEqual(stateAfter);
 });
 
 it('řadit dle příjmení vzestupně', () => {

@@ -45,7 +45,7 @@ const mergeProps = (stateProps, dispatchProps) => {
   const ubytovaniWithActions = ubytovani.map(jeden => {
     const { id, prihlaseno, prespano } = jeden;
 
-    const akceOptions = [' '];
+    const akceOptions = ['<vyber>'];
     akceOptions.push(prihlaseno ? 'Odhlásit' : 'Přihlásit');
     if (!prespano) {
       akceOptions.push('Přespáno');

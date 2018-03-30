@@ -95,6 +95,7 @@ Object {
     },
     "ubytovani": Object {
       "jenUbytovani": true,
+      "loading": Object {},
       "sortColumn": undefined,
       "sortDir": "none",
       "textFilter": "",
@@ -205,6 +206,7 @@ Object {
     },
     "ubytovani": Object {
       "jenUbytovani": true,
+      "loading": Object {},
       "sortColumn": undefined,
       "sortDir": "none",
       "textFilter": "",
@@ -315,6 +317,7 @@ Object {
     },
     "ubytovani": Object {
       "jenUbytovani": true,
+      "loading": Object {},
       "sortColumn": undefined,
       "sortDir": "none",
       "textFilter": "",

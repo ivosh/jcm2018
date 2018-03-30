@@ -6,7 +6,7 @@ Array [
     "akce": Object {
       "onSelect": [Function],
       "options": Array [
-        " ",
+        "<vyber>",
         "Odhlásit",
         "Nepřespáno",
       ],
@@ -27,7 +27,7 @@ Array [
     "akce": Object {
       "onSelect": [Function],
       "options": Array [
-        " ",
+        "<vyber>",
         "Odhlásit",
         "Přespáno",
         "Nepřespáno",
