@@ -1,4 +1,11 @@
-import { CODE_OK, saveUbytovani as saveUbytovaniAPI } from '../../common';
+import {
+  CODE_OK,
+  saveUbytovani as saveUbytovaniAPI,
+  ubytovaniNeprespano,
+  ubytovaniOdhlasit,
+  ubytovaniPrespano,
+  ubytovaniPrihlasit
+} from '../../common';
 import { AKTUALNI_ROK } from '../../constants';
 
 export const changeUbytovani = () => ({
@@ -32,11 +39,23 @@ export const saveUbytovaniSuccess = ({ id, rok, ubytovani }) => ({
   receivedAt: Date.now()
 });
 
-export const saveUbytovani = ({ id, den = 'pátek', reducer }) => async (
+const reducers = {
+  Nepřespáno: ubytovaniNeprespano,
+  Odhlásit: ubytovaniOdhlasit,
+  Přespáno: ubytovaniPrespano,
+  Přihlásit: ubytovaniPrihlasit
+};
+
+export const saveUbytovani = ({ akce, den = 'pátek', id }) => async (
   dispatch,
   getState,
   wsClient
 ) => {
+  const reducer = reducers[akce];
+  if (!reducer) {
+    return;
+  }
+
   const rok = AKTUALNI_ROK;
   dispatch(saveUbytovaniRequest({ id, rok }));
 

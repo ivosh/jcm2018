@@ -153,7 +153,10 @@ it('getUbytovaniSorted() by default', () => {
       email: '',
       datum: new Date('2018-06-09T00:00:00.000Z'),
       prihlaseno: true,
-      prespano: true
+      prespano: true,
+      akce: {
+        options: ['<vyber>', 'Odhlásit', 'Nepřespáno']
+      }
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
@@ -163,7 +166,10 @@ it('getUbytovaniSorted() by default', () => {
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
       datum: new Date('2018-06-09T00:00:00.000Z'),
-      prihlaseno: true
+      prihlaseno: true,
+      akce: {
+        options: ['<vyber>', 'Odhlásit', 'Přespáno', 'Nepřespáno']
+      }
     }
   ];
   deepFreeze(state);
@@ -193,7 +199,10 @@ it('getUbytovaniSorted() filtrováno na z', () => {
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
       datum: new Date('2018-06-09T00:00:00.000Z'),
-      prihlaseno: true
+      prihlaseno: true,
+      akce: {
+        options: ['<vyber>', 'Odhlásit', 'Přespáno', 'Nepřespáno']
+      }
     }
   ];
   deepFreeze(state);

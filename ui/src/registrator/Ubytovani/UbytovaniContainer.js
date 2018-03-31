@@ -1,10 +1,4 @@
 import { connect } from 'react-redux';
-import {
-  ubytovaniNeprespano,
-  ubytovaniOdhlasit,
-  ubytovaniPrespano,
-  ubytovaniPrihlasit
-} from '../../common';
 import { textFilterChange } from '../Filterable/FilterableActions';
 import { changeUbytovani, saveUbytovani } from './UbytovaniActions';
 import { getUbytovaniSorted } from './ubytovaniReducer';
@@ -23,17 +17,8 @@ const mapStateToProps = ({ entities, registrator: { ubytovani } }) => {
   };
 };
 
-const reducers = {
-  Nepřespáno: ubytovaniNeprespano,
-  Odhlásit: ubytovaniOdhlasit,
-  Přespáno: ubytovaniPrespano,
-  Přihlásit: ubytovaniPrihlasit
-};
-const chooseReducer = text => reducers[text] || (() => {});
-
 const mapDispatchToProps = dispatch => ({
-  onAkceSelect: (id, event) =>
-    dispatch(saveUbytovani({ id, reducer: chooseReducer(event.target.value) })),
+  onAkceSelect: (id, event) => dispatch(saveUbytovani({ id, akce: event.target.value })),
   onTextFilterChange: text => dispatch(textFilterChange('UBYTOVANI', text)),
   onUbytovaniChange: () => dispatch(changeUbytovani())
 });
@@ -42,23 +27,10 @@ const mergeProps = (stateProps, dispatchProps) => {
   const { ubytovani } = stateProps;
   const { onAkceSelect, onTextFilterChange, onUbytovaniChange } = dispatchProps;
 
-  const ubytovaniWithActions = ubytovani.map(jeden => {
-    const { id, prihlaseno, prespano } = jeden;
-
-    const akceOptions = ['<vyber>'];
-    akceOptions.push(prihlaseno ? 'Odhlásit' : 'Přihlásit');
-    if (!prespano) {
-      akceOptions.push('Přespáno');
-    }
-    if (prespano === true || prespano === undefined) {
-      akceOptions.push('Nepřespáno');
-    }
-
-    return {
-      ...jeden,
-      akce: { options: akceOptions, onSelect: event => onAkceSelect(id, event) }
-    };
-  });
+  const ubytovaniWithActions = ubytovani.map(jeden => ({
+    ...jeden,
+    akce: { ...jeden.akce, onSelect: event => onAkceSelect(jeden.id, event) }
+  }));
 
   return { ...stateProps, ubytovani: ubytovaniWithActions, onTextFilterChange, onUbytovaniChange };
 };

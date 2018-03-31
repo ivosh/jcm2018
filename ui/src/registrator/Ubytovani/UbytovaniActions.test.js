@@ -30,7 +30,7 @@ it('saveUbytovani() should dispatch three successful actions', async () => {
     registrator: { ubytovani: {} }
   });
 
-  await store.dispatch(saveUbytovani({ id: '7a09b1fd371dec1e99b7e142', reducer: jest.fn() }));
+  await store.dispatch(saveUbytovani({ akce: 'Přihlásit', id: '7a09b1fd371dec1e99b7e142' }));
 
   const actions = store.getActions();
   expect(actions[0]).toEqual(
@@ -58,7 +58,7 @@ it('saveUbytovani() should dispatch two unsuccessful actions', async () => {
     registrator: { ubytovani: {} }
   });
 
-  await store.dispatch(saveUbytovani({ id: '7a09b1fd371dec1e99b7e142', reducer: jest.fn() }));
+  await store.dispatch(saveUbytovani({ akce: 'Odhlásit', id: '7a09b1fd371dec1e99b7e142' }));
   const actions = store.getActions();
   expect(actions[0]).toEqual(
     expect.objectContaining({
@@ -85,7 +85,7 @@ it('saveUbytovani() should dispatch two unsuccessful actions on error', async ()
     registrator: { ubytovani: {} }
   });
 
-  await store.dispatch(saveUbytovani({ id: '5a09b1fd371dec1e99b7e1c9', reducer: jest.fn() }));
+  await store.dispatch(saveUbytovani({ akce: 'Přespáno', id: '5a09b1fd371dec1e99b7e1c9' }));
   const actions = store.getActions();
   expect(actions[0]).toEqual(
     expect.objectContaining({
@@ -117,6 +117,6 @@ it('saveUbytovani() should use auth token if available', async () => {
     registrator: { ubytovani: {} }
   });
 
-  await store.dispatch(saveUbytovani({ id: '5a09b1fd371dec1e99b7e1c9', reducer: jest.fn() }));
+  await store.dispatch(saveUbytovani({ akce: 'Nepřespáno', id: '5a09b1fd371dec1e99b7e1c9' }));
   expect(tokenSent.tokenSent).toBe(true);
 });

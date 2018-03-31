@@ -58,6 +58,18 @@ export const getUbytovaniSorted = ({
         jmeno.toLowerCase().startsWith(textFilter)
       ) {
         if (!jenUbytovani || ubytovani.pátek) {
+          const prihlaseno = ubytovani.pátek && ubytovani.pátek.prihlaseno;
+          const prespano = ubytovani.pátek && ubytovani.pátek.prespano;
+
+          const akceOptions = ['<vyber>'];
+          akceOptions.push(prihlaseno ? 'Odhlásit' : 'Přihlásit');
+          if (!prespano) {
+            akceOptions.push('Přespáno');
+          }
+          if (prespano === true || prespano === undefined) {
+            akceOptions.push('Nepřespáno');
+          }
+
           result.push({
             id,
             prijmeni,
@@ -66,8 +78,9 @@ export const getUbytovaniSorted = ({
             obec,
             email: email || '',
             datum: new Date(datum),
-            prihlaseno: ubytovani.pátek && ubytovani.pátek.prihlaseno,
-            prespano: ubytovani.pátek && ubytovani.pátek.prespano
+            prihlaseno,
+            prespano,
+            akce: { options: akceOptions }
           });
         }
       }
