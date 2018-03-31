@@ -4,8 +4,6 @@ import WsClient from '../../WsClient';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { saveUbytovani } from './UbytovaniActions';
 
-jest.useFakeTimers();
-
 const successfulResponse = {
   code: 'ok',
   response: {
@@ -33,7 +31,6 @@ it('saveUbytovani() should dispatch three successful actions', async () => {
   });
 
   await store.dispatch(saveUbytovani({ id: '7a09b1fd371dec1e99b7e142', reducer: jest.fn() }));
-  jest.runAllTimers();
 
   const actions = store.getActions();
   expect(actions[0]).toEqual(
@@ -48,13 +45,6 @@ it('saveUbytovani() should dispatch three successful actions', async () => {
       id: '7a09b1fd371dec1e99b7e142',
       rok: 2018,
       type: 'UBYTOVANI_SAVE_SUCCESS'
-    })
-  );
-  expect(actions[2]).toEqual(
-    expect.objectContaining({
-      id: '7a09b1fd371dec1e99b7e142',
-      rok: 2018,
-      type: 'UBYTOVANI_SAVE_HIDE_SUCCESS'
     })
   );
 });

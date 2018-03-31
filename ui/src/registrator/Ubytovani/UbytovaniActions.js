@@ -1,5 +1,5 @@
 import { CODE_OK, saveUbytovani as saveUbytovaniAPI } from '../../common';
-import { AKTUALNI_ROK, UBYTOVANI_SAVE_SUCCESS_TIMEOUT } from '../../constants';
+import { AKTUALNI_ROK } from '../../constants';
 
 export const changeUbytovani = () => ({
   type: 'UBYTOVANI_CHANGE_UBYTOVANI'
@@ -24,12 +24,6 @@ export const saveUbytovaniError = ({ code, status, err, ...rest }) => ({
 export const hideError = () => ({ type: 'UBYTOVANI_HIDE_ERROR' });
 export const showError = () => ({ type: 'UBYTOVANI_SHOW_ERROR' });
 
-export const hideSuccess = ({ id, rok }) => ({
-  type: 'UBYTOVANI_SAVE_HIDE_SUCCESS',
-  id,
-  rok,
-  receivedAt: Date.now()
-});
 export const saveUbytovaniSuccess = ({ id, rok, ubytovani }) => ({
   type: 'UBYTOVANI_SAVE_SUCCESS',
   id,
@@ -37,10 +31,6 @@ export const saveUbytovaniSuccess = ({ id, rok, ubytovani }) => ({
   ubytovani,
   receivedAt: Date.now()
 });
-export const saveUbytovaniSuccessWithTimeout = ({ dispatch, id, rok, ubytovani }) => {
-  dispatch(saveUbytovaniSuccess({ id, rok, ubytovani }));
-  setTimeout(() => dispatch(hideSuccess({ id, rok })), UBYTOVANI_SAVE_SUCCESS_TIMEOUT);
-};
 
 export const saveUbytovani = ({ id, den = 'pátek', reducer }) => async (
   dispatch,
@@ -58,7 +48,7 @@ export const saveUbytovani = ({ id, den = 'pátek', reducer }) => async (
       saveUbytovaniAPI({ id, rok, ubytovani }, state.auth.token)
     );
     if (response.code === CODE_OK) {
-      saveUbytovaniSuccessWithTimeout({ dispatch, id, rok, ubytovani });
+      dispatch(saveUbytovaniSuccess({ id, rok, ubytovani }));
     } else {
       dispatch(saveUbytovaniError(response));
     }
