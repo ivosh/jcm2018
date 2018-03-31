@@ -4,6 +4,7 @@ exports[`maps state and dispatch to props 1`] = `
 Array [
   Object {
     "akce": Object {
+      "loading": false,
       "onSelect": [Function],
       "options": Array [
         "<vyber>",
@@ -25,6 +26,7 @@ Array [
   },
   Object {
     "akce": Object {
+      "loading": false,
       "onSelect": [Function],
       "options": Array [
         "<vyber>",

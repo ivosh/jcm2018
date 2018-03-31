@@ -136,6 +136,7 @@ it('getUbytovaniSorted() by default', () => {
     ...ucastniciTestData,
     registrator: {
       prihlaseni: {
+        loading: { '7a09b1fd371dec1e99b7e142': true },
         jenUbytovani: true,
         sortColumn: undefined,
         sortDir: undefined,
@@ -155,6 +156,7 @@ it('getUbytovaniSorted() by default', () => {
       prihlaseno: true,
       prespano: true,
       akce: {
+        loading: false,
         options: ['<vyber>', 'Odhlásit', 'Nepřespáno']
       }
     },
@@ -168,6 +170,7 @@ it('getUbytovaniSorted() by default', () => {
       datum: new Date('2018-06-09T00:00:00.000Z'),
       prihlaseno: true,
       akce: {
+        loading: true,
         options: ['<vyber>', 'Odhlásit', 'Přespáno', 'Nepřespáno']
       }
     }
@@ -183,6 +186,7 @@ it('getUbytovaniSorted() filtrováno na z', () => {
     ...ucastniciTestData,
     registrator: {
       prihlaseni: {
+        loading: {},
         jenUbytovani: true,
         sortColumn: undefined,
         sortDir: undefined,
@@ -201,6 +205,7 @@ it('getUbytovaniSorted() filtrováno na z', () => {
       datum: new Date('2018-06-09T00:00:00.000Z'),
       prihlaseno: true,
       akce: {
+        loading: false,
         options: ['<vyber>', 'Odhlásit', 'Přespáno', 'Nepřespáno']
       }
     }

@@ -39,6 +39,7 @@ export default ubytovaniReducer;
 
 export const getUbytovaniSorted = ({
   ucastnici,
+  loading,
   jenUbytovani,
   textFilter,
   sortColumn,
@@ -80,7 +81,7 @@ export const getUbytovaniSorted = ({
             datum: new Date(datum),
             prihlaseno,
             prespano,
-            akce: { options: akceOptions }
+            akce: { loading: !!loading[id], options: akceOptions }
           });
         }
       }

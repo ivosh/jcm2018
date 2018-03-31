@@ -13,6 +13,7 @@ beforeEach(() => {
     ...ucastniciTestData,
     registrator: {
       ubytovani: {
+        loading: {},
         jenUbytovani: true,
         textFilter: ''
       }

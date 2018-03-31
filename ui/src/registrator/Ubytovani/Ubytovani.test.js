@@ -31,6 +31,7 @@ const ubytovani = [
     prihlaseno: true,
     prespano: true,
     akce: {
+      loading: false,
       options: ['Odhlásit', 'Nepřespáno'],
       onSelect: jest.fn()
     }
@@ -44,6 +45,7 @@ const ubytovani = [
     datum: new Date('2016-06-11T00:00:00.000Z'),
     prespano: false,
     akce: {
+      loading: true,
       options: ['Přihlásit', 'Přespáno'],
       onSelect: jest.fn()
     }
@@ -57,6 +59,7 @@ const ubytovani = [
     datum: new Date('2018-06-09T00:00:00.000Z'),
     prihlaseno: true,
     akce: {
+      loading: false,
       options: ['Odhlásit', 'Nepřespáno', 'Přespáno'],
       onSelect: jest.fn()
     }

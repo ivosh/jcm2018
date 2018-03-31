@@ -740,24 +740,9 @@ exports[`tři ubytovaní 1`] = `
                     }
                   }
                 >
-                  <select
-                    className="form-control"
-                    id={undefined}
-                    name="akce"
-                    onChange={[Function]}
-                    type={undefined}
-                  >
-                    <option
-                      value="Přihlásit"
-                    >
-                      Přihlásit
-                    </option>
-                    <option
-                      value="Přespáno"
-                    >
-                      Přespáno
-                    </option>
-                  </select>
+                  <span
+                    className="LoadingIndicator glyphicon glyphicon-repeat"
+                  />
                 </div>
                 <div
                   className="align-left UcastniciTable_oddRow UcastniciTable_cell"

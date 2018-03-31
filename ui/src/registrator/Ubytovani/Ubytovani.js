@@ -4,22 +4,27 @@ import { Link } from 'react-router-dom';
 import { Button, FormControl, Glyphicon } from 'react-bootstrap';
 import moment from 'moment';
 import { narozeniToStr } from '../../Util';
+import LoadingIndicator from '../../shared/LoadingIndicator';
 import TextFilter from '../Filterable/TextFilter';
 import Zobrazeno from '../Filterable/Zobrazeno';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
 import './Ubytovani.css';
 
-const akceFormat = ({ cellData: { options, onSelect } }) => (
-  <FormControl componentClass="select" name="akce" onChange={onSelect}>
-    {options.map(option => (
-      <option key={option} value={option}>
-        {option}
-      </option>
-    ))}
-  </FormControl>
-);
+const akceFormat = ({ cellData: { loading, options, onSelect } }) =>
+  loading ? (
+    <LoadingIndicator />
+  ) : (
+    <FormControl componentClass="select" name="akce" onChange={onSelect}>
+      {options.map(option => (
+        <option key={option} value={option}>
+          {option}
+        </option>
+      ))}
+    </FormControl>
+  );
 akceFormat.propTypes = {
   cellData: PropTypes.shape({
+    loading: PropTypes.bool.isRequired,
     options: PropTypes.arrayOf(PropTypes.string).isRequired,
     onSelect: PropTypes.func.isRequired
   })
@@ -173,6 +178,7 @@ Ubytovani.propTypes = {
       prihlaseno: PropTypes.bool,
       prespano: PropTypes.bool,
       akce: PropTypes.shape({
+        loading: PropTypes.bool.isRequired,
         options: PropTypes.arrayOf(PropTypes.string.isRequired),
         onSelect: PropTypes.func.isRequired
       }).isRequired
