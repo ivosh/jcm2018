@@ -1,7 +1,9 @@
 import deepFreeze from 'deep-freeze';
+import { ubytovaniNeprespano } from '../../common';
 import { websocketDisconnected } from '../../App/AppActions';
 import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
 import { saveUcastSuccess } from '../../registrator/Prihlasky/PrihlaskyForm/PrihlaskyFormActions';
+import { saveUbytovaniSuccess } from '../../registrator/Ubytovani/UbytovaniActions';
 import ucastniciReducer from './ucastniciReducer';
 import { broadcastUcastnik, fetchUcastniciSuccess } from './ucastniciActions';
 import ucastniciTestData from './ucastniciTestData';
@@ -161,6 +163,19 @@ it('after disconnect', () => {
   deepFreeze(stateBefore);
 
   expect(ucastniciReducer(stateBefore, websocketDisconnected())).toEqual(stateAfter);
+});
+
+it('saveUbytovaniSuccess()', () => {
+  const stateBefore = { ...ucastniciTestData.entities.ucastnici };
+  deepFreeze(stateBefore);
+  const id = '5a09b1fd371dec1e99b7e1c9';
+  const rok = 2018;
+  const ucastnik = ucastniciTestData.entities.ucastnici.byIds[id];
+  const ubytovani = ubytovaniNeprespano({ den: 'pátek', ubytovani: ucastnik[2018].ubytovani });
+
+  expect(
+    ucastniciReducer(stateBefore, saveUbytovaniSuccess({ id, rok, ubytovani }))
+  ).toMatchSnapshot();
 });
 
 it('saveUcastSuccess() - stávající účastník - nový rok', () => {
