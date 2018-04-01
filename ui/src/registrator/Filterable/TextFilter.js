@@ -4,9 +4,15 @@ import DebounceInput from 'react-debounce-input';
 import './TextFilter.css';
 
 class TextFilter extends Component {
+  constructor(props) {
+    super(props);
+
+    this.inputRef = React.createRef();
+  }
+
   componentDidMount = () => {
     if (process.env.NODE_ENV !== 'test') {
-      this.input.focus();
+      this.inputRef.current.focus();
     }
   };
 
@@ -20,9 +26,7 @@ class TextFilter extends Component {
         minLength={0}
         placeholder="Filtr na příjmení a jméno"
         value={filter}
-        inputRef={ref => {
-          this.input = ref;
-        }}
+        inputRef={this.inputRef}
         onChange={e => onChange(e.target.value)}
       />
     );

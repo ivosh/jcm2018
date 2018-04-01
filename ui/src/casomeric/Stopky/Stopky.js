@@ -6,8 +6,14 @@ import StopkyDisplej from './StopkyDisplej';
 import './Stopky.css';
 
 class Stopky extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.displej = React.createRef();
+  }
+
   start = () => {
-    this.displej.startTimer();
+    this.displej.current.startTimer();
     this.props.onStart(new Date());
   };
 
@@ -18,7 +24,7 @@ class Stopky extends PureComponent {
   };
 
   stop = () => {
-    this.displej.stopTimer();
+    this.displej.current.stopTimer();
     this.props.onStop();
   };
 
@@ -29,13 +35,7 @@ class Stopky extends PureComponent {
     return (
       <div className="Stopky">
         <div className="Stopky-mezera">
-          <StopkyDisplej
-            base={base}
-            running={running}
-            ref={displej => {
-              this.displej = displej;
-            }}
-          />
+          <StopkyDisplej base={base} running={running} ref={this.displej} />
         </div>
         <div>
           <StopkyButtons
