@@ -14,17 +14,17 @@ import PrihlaskyFormInputContainer from './PrihlaskyFormInputContainer';
 import './PrihlaskyForm.css';
 
 class PrihlaskyForm extends PureComponent {
-  componentWillMount = () => {
+  componentDidMount = () => {
     const { reset, onLoadId, onReset } = this.props;
 
     if (onLoadId) {
       onLoadId();
+      return;
     } else if (reset) {
       onReset();
+      return;
     }
-  };
 
-  componentDidMount = () => {
     if (this.inputs && this.inputs[0]) {
       this.inputs[0].focus();
     }
