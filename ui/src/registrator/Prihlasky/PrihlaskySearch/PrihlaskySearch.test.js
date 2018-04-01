@@ -13,7 +13,14 @@ it('renders', () => {
   const component = renderer.create(
     <PrihlaskySearch options={options} onChange={jest.fn()} onSelect={jest.fn()} />
   );
-  expect(component.toJSON()).toMatchSnapshot();
+
+  // Typeahead component contains dynamic 'aria-owns' prop. This destroys snapshot testing.
+  const json = component.toJSON();
+  const input = json.children[0].children[0].children[0].children[0];
+  expect(input.type).toEqual('input');
+  expect(input.props['aria-owns']).toEqual(expect.stringContaining('rbt-menu-'));
+  input.props['aria-owns'] = 'rbt-menu-*';
+  expect(json).toMatchSnapshot();
 });
 
 it('handle select', () => {
