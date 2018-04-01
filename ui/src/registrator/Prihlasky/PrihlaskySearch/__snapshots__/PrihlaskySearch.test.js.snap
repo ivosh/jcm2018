@@ -29,9 +29,11 @@ exports[`renders 1`] = `
         }
       >
         <input
-          aria-autocomplete="list"
+          aria-activedescendant=""
+          aria-autocomplete="both"
           aria-expanded={false}
-          aria-haspopup="true"
+          aria-haspopup="listbox"
+          aria-owns="rbt-menu-ehtlnc8qfzm"
           autoComplete="off"
           className="rbt-input-main"
           disabled={false}
