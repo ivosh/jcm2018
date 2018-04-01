@@ -12,8 +12,8 @@ const withoutAuth = WrappedComponent => {
       }
     }
 
-    componentWillReceiveProps = nextProps => {
-      if (nextProps.authenticated) {
+    componentDidUpdate = () => {
+      if (this.props.authenticated) {
         this.props.history.push('/');
       }
     };
