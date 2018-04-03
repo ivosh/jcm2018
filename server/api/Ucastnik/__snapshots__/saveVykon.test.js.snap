@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`saveVykon [not authenticated] 1`] = `
+Object {
+  "code": "authentication token invalid",
+  "status": "Špatný ověřovací token. Zkus se přihlásit znovu. Detaily: JsonWebTokenError: jwt must be provided",
+}
+`;
+
+exports[`vytvoř minimálního účastníka 1`] = `
+Object {
+  "code": "ok",
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`vytvoř minimálního účastníka 2`] = `
+Array [
+  Object {
+    "__v": 1,
+    "ucasti": Array [
+      Object {
+        "platby": Array [],
+        "rok": 2018,
+        "udaje": Object {
+          "jmeno": "Božena",
+          "narozeni": Object {
+            "rok": 1973,
+          },
+          "obec": "Kladno",
+          "pohlavi": "žena",
+          "prijmeni": "Sukdoláková",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "T3:24:15.048S",
+          "dokonceno": true,
+          "kategorie": "===id===",
+          "startCislo": 15,
+        },
+      },
+    ],
+  },
+]
+`;
