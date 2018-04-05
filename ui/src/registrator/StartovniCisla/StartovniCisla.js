@@ -43,7 +43,7 @@ const legendaOdstartovani = () => {
 
 const StartovniCisla = ({ odstartovani, typy, onOdstartovaniChange }) => (
   <div className="StartovniCisla__div">
-    <div className="StartovniCisla__buttons">
+    <div className="StartovniCisla__buttons Bootstrap-buttons--active">
       <Button
         active={!odstartovani}
         bsStyle="primary"

@@ -11,12 +11,6 @@
   margin-right: 5px;
 }
 
-.StartovniCisla__buttons > .btn.active {
-  font-weight: bold;
-  border-radius: 5px;
-  border: 3px solid black !important;
-}
-
 .StartovniCisla__typ {
   margin-bottom: 1.5ex;
 }

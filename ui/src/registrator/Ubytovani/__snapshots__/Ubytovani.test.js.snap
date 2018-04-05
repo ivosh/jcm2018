@@ -15,7 +15,7 @@ exports[`tři ubytovaní 1`] = `
       value=""
     />
     <span
-      className="Ubytovani__buttons"
+      className="Ubytovani__buttons Bootstrap-buttons--active"
     >
       <button
         className="Ubytovani__button btn btn-success active"
@@ -873,7 +873,7 @@ exports[`žádný ubytovaný 1`] = `
       value=""
     />
     <span
-      className="Ubytovani__buttons"
+      className="Ubytovani__buttons Bootstrap-buttons--active"
     >
       <button
         className="Ubytovani__button btn btn-success active"

@@ -18,7 +18,7 @@ exports[`dva účastníci 1`] = `
       className="Filterable__kategorie btn-group"
     >
       <span
-        className="KategorieFilter"
+        className="KategorieFilter Bootstrap-buttons--active"
       >
         <button
           className="KategorieFilter--maraton--inactive btn btn-default"
@@ -39,7 +39,7 @@ exports[`dva účastníci 1`] = `
         </button>
       </span>
       <span
-        className="KategorieFilter"
+        className="KategorieFilter Bootstrap-buttons--active"
       >
         <button
           className="KategorieFilter--půlmaraton--inactive btn btn-default"
@@ -60,7 +60,7 @@ exports[`dva účastníci 1`] = `
         </button>
       </span>
       <span
-        className="KategorieFilter"
+        className="KategorieFilter Bootstrap-buttons--active"
       >
         <button
           className="KategorieFilter--cyklo--inactive btn btn-default"
@@ -81,7 +81,7 @@ exports[`dva účastníci 1`] = `
         </button>
       </span>
       <span
-        className="KategorieFilter"
+        className="KategorieFilter Bootstrap-buttons--active"
       >
         <button
           className="KategorieFilter--koloběžka--inactive btn btn-default"
@@ -102,7 +102,7 @@ exports[`dva účastníci 1`] = `
         </button>
       </span>
       <span
-        className="KategorieFilter"
+        className="KategorieFilter Bootstrap-buttons--active"
       >
         <button
           className="KategorieFilter--pěší--inactive btn btn-default"
@@ -1266,7 +1266,7 @@ exports[`žádný účastník 1`] = `
       className="Filterable__kategorie btn-group"
     >
       <span
-        className="KategorieFilter"
+        className="KategorieFilter Bootstrap-buttons--active"
       >
         <button
           className="KategorieFilter--maraton--inactive btn btn-default"
@@ -1287,7 +1287,7 @@ exports[`žádný účastník 1`] = `
         </button>
       </span>
       <span
-        className="KategorieFilter"
+        className="KategorieFilter Bootstrap-buttons--active"
       >
         <button
           className="KategorieFilter--půlmaraton--inactive btn btn-default"
@@ -1308,7 +1308,7 @@ exports[`žádný účastník 1`] = `
         </button>
       </span>
       <span
-        className="KategorieFilter"
+        className="KategorieFilter Bootstrap-buttons--active"
       >
         <button
           className="KategorieFilter--cyklo--inactive btn btn-default"
@@ -1329,7 +1329,7 @@ exports[`žádný účastník 1`] = `
         </button>
       </span>
       <span
-        className="KategorieFilter"
+        className="KategorieFilter Bootstrap-buttons--active"
       >
         <button
           className="KategorieFilter--koloběžka--inactive btn btn-default"
@@ -1350,7 +1350,7 @@ exports[`žádný účastník 1`] = `
         </button>
       </span>
       <span
-        className="KategorieFilter"
+        className="KategorieFilter Bootstrap-buttons--active"
       >
         <button
           className="KategorieFilter--pěší--inactive btn btn-default"

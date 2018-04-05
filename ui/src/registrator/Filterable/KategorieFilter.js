@@ -5,7 +5,7 @@ import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import './KategorieFilter.css';
 
 const KategorieFilter = ({ typKategorie, active, onClick }) => (
-  <span className="KategorieFilter">
+  <span className="KategorieFilter Bootstrap-buttons--active">
     <Button
       onClick={onClick}
       className={`KategorieFilter--${typKategorie}--${active ? 'active' : 'inactive'}`}

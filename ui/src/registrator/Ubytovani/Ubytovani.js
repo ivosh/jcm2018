@@ -123,7 +123,7 @@ const Ubytovani = ({
       <div>
         <TextFilter filter={textFilter} onChange={onTextFilterChange} />
 
-        <span className="Ubytovani__buttons">
+        <span className="Ubytovani__buttons Bootstrap-buttons--active">
           <Button
             active={jenUbytovani}
             bsStyle="success"

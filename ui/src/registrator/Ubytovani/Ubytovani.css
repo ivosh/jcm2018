@@ -7,12 +7,6 @@
   margin-left: 1em;
 }
 
-.Ubytovani__buttons > .btn.active {
-  font-weight: bold;
-  border-radius: 5px;
-  border: 3px solid black !important;
-}
-
 .Ubytovani__button {
   margin-left: 5px;
 }

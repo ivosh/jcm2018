@@ -21,7 +21,7 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
   className="StartovniCisla__div"
 >
   <div
-    className="StartovniCisla__buttons"
+    className="StartovniCisla__buttons Bootstrap-buttons--active"
   >
     <Button
       active={false}
@@ -160,7 +160,7 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
   className="StartovniCisla__div"
 >
   <div
-    className="StartovniCisla__buttons"
+    className="StartovniCisla__buttons Bootstrap-buttons--active"
   >
     <Button
       active={true}
