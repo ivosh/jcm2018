@@ -16,19 +16,19 @@ exports[`Renderer 1`] = `
 </div>
 `;
 
-exports[`renders Startujici - odstartováni 1`] = `
+exports[`renders StartovniCisla - odstartováni 1`] = `
 <div
-  className="Startujici-div"
+  className="StartovniCisla__div"
 >
   <div
-    className="Startujici-buttons"
+    className="StartovniCisla__buttons"
   >
     <Button
       active={false}
       block={false}
       bsClass="btn"
       bsStyle="primary"
-      className="Startujici-button"
+      className="StartovniCisla__button"
       disabled={false}
       onClick={[Function]}
     >
@@ -43,7 +43,7 @@ exports[`renders Startujici - odstartováni 1`] = `
       block={false}
       bsClass="btn"
       bsStyle="success"
-      className="Startujici-button"
+      className="StartovniCisla__button"
       disabled={false}
       onClick={[Function]}
     >
@@ -55,7 +55,7 @@ exports[`renders Startujici - odstartováni 1`] = `
     </Button>
   </div>
   <div
-    className="Startujici_legenda"
+    className="StartovniCisla__legenda"
   >
     <Legenda
       legenda={
@@ -81,11 +81,11 @@ exports[`renders Startujici - odstartováni 1`] = `
     />
   </div>
   <div
-    className="Startujici-typ"
+    className="StartovniCisla__typ"
     key="maraton"
   >
     <div
-      className="Startujici-popisek"
+      className="StartovniCisla__popisek"
     >
       <PopisekKategorie
         typ="maraton"
@@ -99,11 +99,11 @@ exports[`renders Startujici - odstartováni 1`] = `
     />
   </div>
   <div
-    className="Startujici-typ"
+    className="StartovniCisla__typ"
     key="půlmaraton"
   >
     <div
-      className="Startujici-popisek"
+      className="StartovniCisla__popisek"
     >
       <PopisekKategorie
         typ="půlmaraton"
@@ -117,11 +117,11 @@ exports[`renders Startujici - odstartováni 1`] = `
     />
   </div>
   <div
-    className="Startujici-typ"
+    className="StartovniCisla__typ"
     key="cyklo"
   >
     <div
-      className="Startujici-popisek"
+      className="StartovniCisla__popisek"
     >
       <PopisekKategorie
         typ="cyklo"
@@ -135,11 +135,11 @@ exports[`renders Startujici - odstartováni 1`] = `
     />
   </div>
   <div
-    className="Startujici-typ"
+    className="StartovniCisla__typ"
     key="koloběžka"
   >
     <div
-      className="Startujici-popisek"
+      className="StartovniCisla__popisek"
     >
       <PopisekKategorie
         typ="koloběžka"
@@ -155,19 +155,19 @@ exports[`renders Startujici - odstartováni 1`] = `
 </div>
 `;
 
-exports[`renders Startujici - přihlášeni 1`] = `
+exports[`renders StartovniCisla - přihlášeni 1`] = `
 <div
-  className="Startujici-div"
+  className="StartovniCisla__div"
 >
   <div
-    className="Startujici-buttons"
+    className="StartovniCisla__buttons"
   >
     <Button
       active={true}
       block={false}
       bsClass="btn"
       bsStyle="primary"
-      className="Startujici-button"
+      className="StartovniCisla__button"
       disabled={false}
       onClick={[Function]}
     >
@@ -182,7 +182,7 @@ exports[`renders Startujici - přihlášeni 1`] = `
       block={false}
       bsClass="btn"
       bsStyle="success"
-      className="Startujici-button"
+      className="StartovniCisla__button"
       disabled={false}
       onClick={[Function]}
     >
@@ -194,7 +194,7 @@ exports[`renders Startujici - přihlášeni 1`] = `
     </Button>
   </div>
   <div
-    className="Startujici_legenda"
+    className="StartovniCisla__legenda"
   >
     <Legenda
       legenda={
@@ -216,11 +216,11 @@ exports[`renders Startujici - přihlášeni 1`] = `
     />
   </div>
   <div
-    className="Startujici-typ"
+    className="StartovniCisla__typ"
     key="maraton"
   >
     <div
-      className="Startujici-popisek"
+      className="StartovniCisla__popisek"
     >
       <PopisekKategorie
         typ="maraton"
@@ -234,11 +234,11 @@ exports[`renders Startujici - přihlášeni 1`] = `
     />
   </div>
   <div
-    className="Startujici-typ"
+    className="StartovniCisla__typ"
     key="půlmaraton"
   >
     <div
-      className="Startujici-popisek"
+      className="StartovniCisla__popisek"
     >
       <PopisekKategorie
         typ="půlmaraton"
@@ -252,11 +252,11 @@ exports[`renders Startujici - přihlášeni 1`] = `
     />
   </div>
   <div
-    className="Startujici-typ"
+    className="StartovniCisla__typ"
     key="cyklo"
   >
     <div
-      className="Startujici-popisek"
+      className="StartovniCisla__popisek"
     >
       <PopisekKategorie
         typ="cyklo"
@@ -270,11 +270,11 @@ exports[`renders Startujici - přihlášeni 1`] = `
     />
   </div>
   <div
-    className="Startujici-typ"
+    className="StartovniCisla__typ"
     key="koloběžka"
   >
     <div
-      className="Startujici-popisek"
+      className="StartovniCisla__popisek"
     >
       <PopisekKategorie
         typ="koloběžka"

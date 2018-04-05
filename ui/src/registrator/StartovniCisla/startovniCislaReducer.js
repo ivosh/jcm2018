@@ -2,16 +2,16 @@ import { AKTUALNI_ROK } from '../../constants';
 
 export const initialState = { odstartovani: false };
 
-const startujiciReducer = (state = initialState, action) => {
+const startovniCislaReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'STARTUJICI_CHANGE_ODSTARTOVANI':
+    case 'STARTOVNI_CISLA_CHANGE_ODSTARTOVANI':
       return { ...state, odstartovani: !state.odstartovani };
     default:
       return state;
   }
 };
 
-export default startujiciReducer;
+export default startovniCislaReducer;
 
 export const getTypyStartCisel = (rocniky, rok = AKTUALNI_ROK) => {
   const rocnik = rocniky.byRoky[rok];

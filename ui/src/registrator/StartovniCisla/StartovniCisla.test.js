@@ -5,20 +5,20 @@ import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import StartujiciProTyp from '../../shared/StartujiciProTyp/StartujiciProTyp';
-import Startujici, { Renderer } from './Startujici';
+import StartovniCisla, { Renderer } from './StartovniCisla';
 
-it('renders Startujici - přihlášeni', () => {
+it('renders StartovniCisla - přihlášeni', () => {
   const typy = ['maraton', 'půlmaraton', 'cyklo', 'koloběžka'];
   const wrapper = shallow(
-    <Startujici odstartovani={false} typy={typy} onOdstartovaniChange={jest.fn()} />
+    <StartovniCisla odstartovani={false} typy={typy} onOdstartovaniChange={jest.fn()} />
   );
   expect(toJSON(wrapper)).toMatchSnapshot();
 });
 
-it('renders Startujici - odstartováni', () => {
+it('renders StartovniCisla - odstartováni', () => {
   const typy = ['maraton', 'půlmaraton', 'cyklo', 'koloběžka'];
   const wrapper = shallow(
-    <Startujici odstartovani={true} typy={typy} onOdstartovaniChange={jest.fn()} />
+    <StartovniCisla odstartovani={true} typy={typy} onOdstartovaniChange={jest.fn()} />
   );
   expect(toJSON(wrapper)).toMatchSnapshot();
 });

@@ -90,7 +90,7 @@ Object {
         "showing": false,
       },
     },
-    "startujici": Object {
+    "startovniCisla": Object {
       "odstartovani": false,
     },
     "ubytovani": Object {
@@ -201,7 +201,7 @@ Object {
         "showing": false,
       },
     },
-    "startujici": Object {
+    "startovniCisla": Object {
       "odstartovani": false,
     },
     "ubytovani": Object {
@@ -312,7 +312,7 @@ Object {
         "showing": false,
       },
     },
-    "startujici": Object {
+    "startovniCisla": Object {
       "odstartovani": false,
     },
     "ubytovani": Object {

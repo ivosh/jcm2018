@@ -6,7 +6,7 @@ import { dokoncenoArr, dokoncenoStr } from '../../Util';
 import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import StartujiciProTypContainer from '../../shared/StartujiciProTyp/StartujiciProTypContainer';
 import Legenda from '../../shared/StartujiciProTyp/Legenda';
-import './Startujici.css';
+import './StartovniCisla.css';
 
 export const Renderer = ({ id, startCislo, dokonceno }) =>
   id ? (
@@ -41,13 +41,13 @@ const legendaOdstartovani = () => {
   return legenda;
 };
 
-const Startujici = ({ odstartovani, typy, onOdstartovaniChange }) => (
-  <div className="Startujici-div">
-    <div className="Startujici-buttons">
+const StartovniCisla = ({ odstartovani, typy, onOdstartovaniChange }) => (
+  <div className="StartovniCisla__div">
+    <div className="StartovniCisla__buttons">
       <Button
         active={!odstartovani}
         bsStyle="primary"
-        className="Startujici-button"
+        className="StartovniCisla__button"
         onClick={onOdstartovaniChange}
       >
         <Glyphicon glyph="list-alt" /> Přihlášeni
@@ -55,18 +55,18 @@ const Startujici = ({ odstartovani, typy, onOdstartovaniChange }) => (
       <Button
         active={odstartovani}
         bsStyle="success"
-        className="Startujici-button"
+        className="StartovniCisla__button"
         onClick={onOdstartovaniChange}
       >
         <Glyphicon glyph="road" /> Odstartováni
       </Button>
     </div>
-    <div className="Startujici_legenda">
+    <div className="StartovniCisla__legenda">
       <Legenda legenda={odstartovani ? legendaOdstartovani() : legendaPrihlaseni()} />
     </div>
     {typy.map(typ => (
-      <div key={typ} className="Startujici-typ">
-        <div className="Startujici-popisek">
+      <div key={typ} className="StartovniCisla__typ">
+        <div className="StartovniCisla__popisek">
           <PopisekKategorie typ={typ} />
         </div>
         <StartujiciProTypContainer
@@ -80,10 +80,10 @@ const Startujici = ({ odstartovani, typy, onOdstartovaniChange }) => (
   </div>
 );
 
-Startujici.propTypes = {
+StartovniCisla.propTypes = {
   odstartovani: PropTypes.bool.isRequired,
   typy: PropTypes.arrayOf(PropTypes.string).isRequired,
   onOdstartovaniChange: PropTypes.func.isRequired
 };
 
-export default Startujici;
+export default StartovniCisla;

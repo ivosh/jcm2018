@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
-import StartujiciContainer from './StartujiciContainer';
+import StartovniCislaContainer from './StartovniCislaContainer';
 
 const mockStore = configureStore();
 
@@ -12,14 +12,14 @@ beforeEach(() => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      startujici: {
+      startovniCisla: {
         odstartovani: false
       }
     }
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
-  wrapper = shallow(<StartujiciContainer store={store} />);
+  wrapper = shallow(<StartovniCislaContainer store={store} />);
 });
 
 it('maps state and dispatch to props', () => {
@@ -31,5 +31,5 @@ it('maps state and dispatch to props', () => {
 it('maps onOdstartovaniChange to dispatch changeOdstartovani action', () => {
   wrapper.props().onOdstartovaniChange();
 
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'STARTUJICI_CHANGE_ODSTARTOVANI' });
+  expect(store.dispatch).toHaveBeenCalledWith({ type: 'STARTOVNI_CISLA_CHANGE_ODSTARTOVANI' });
 });

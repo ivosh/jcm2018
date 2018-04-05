@@ -1,20 +1,20 @@
 import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
-import startujiciReducer, { getTypyStartCisel } from './startujiciReducer';
-import { changeOdstartovani } from './StartujiciActions';
+import startovniCislaReducer, { getTypyStartCisel } from './startovniCislaReducer';
+import { changeOdstartovani } from './StartovniCislaActions';
 
 it('na začátku', () => {
   const stateBefore = undefined;
   const stateAfter = { odstartovani: false };
 
-  expect(startujiciReducer(stateBefore, {})).toEqual(stateAfter);
+  expect(startovniCislaReducer(stateBefore, {})).toEqual(stateAfter);
 });
 
 it('přepínání odstartovani - tam', () => {
   const stateBefore = undefined;
   const stateAfter = { odstartovani: true };
 
-  expect(startujiciReducer(stateBefore, changeOdstartovani())).toEqual(stateAfter);
+  expect(startovniCislaReducer(stateBefore, changeOdstartovani())).toEqual(stateAfter);
 });
 
 it('přepínání odstartovani - a zpět', () => {
@@ -22,7 +22,7 @@ it('přepínání odstartovani - a zpět', () => {
   const stateAfter = { odstartovani: false };
   deepFreeze(stateBefore);
 
-  expect(startujiciReducer(stateBefore, changeOdstartovani())).toEqual(stateAfter);
+  expect(startovniCislaReducer(stateBefore, changeOdstartovani())).toEqual(stateAfter);
 });
 
 it('getTypyStartCisel()', () => {

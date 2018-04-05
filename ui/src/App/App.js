@@ -10,7 +10,7 @@ import CasomericContainer from '../casomeric/Casomeric/CasomericContainer';
 import withFetchUcastnici from '../entities/withFetchUcastnici/withFetchUcastnici';
 import UcastniciDigestContainer from '../registrator/UcastniciDigest/UcastniciDigestContainer';
 import Prihlasky from '../registrator/Prihlasky/Prihlasky';
-import StartujiciContainer from '../registrator/Startujici/StartujiciContainer';
+import StartovniCislaContainer from '../registrator/StartovniCisla/StartovniCislaContainer';
 import PrihlaseniContainer from '../registrator/Prihlaseni/PrihlaseniContainer';
 import UbytovaniContainer from '../registrator/Ubytovani/UbytovaniContainer';
 import SignOutContainer from '../auth/SignOut/SignOutContainer';
@@ -46,9 +46,9 @@ const App = ({ authenticated, connected, username }) => (
               <Glyphicon glyph="list-alt" /> Přihlášeni
             </NavItem>
           </LinkContainer>
-          <LinkContainer key="startujici" to="/startujici">
+          <LinkContainer key="startujici" to="/startovni-cisla">
             <NavItem eventKey={5}>
-              <Glyphicon glyph="sound-5-1" /> Startující
+              <Glyphicon glyph="sound-5-1" /> Startovní čísla
             </NavItem>
           </LinkContainer>
           <LinkContainer key="ubytovani" to="/ubytovani">
@@ -91,7 +91,10 @@ const App = ({ authenticated, connected, username }) => (
         />
         <Route path="/prihlasky" component={withAuth(withFetchUcastnici(Prihlasky))} />
         <Route path="/prihlaseni" component={withAuth(withFetchUcastnici(PrihlaseniContainer))} />
-        <Route path="/startujici" component={withAuth(withFetchUcastnici(StartujiciContainer))} />
+        <Route
+          path="/startovni-cisla"
+          component={withAuth(withFetchUcastnici(StartovniCislaContainer))}
+        />
         <Route path="/ubytovani" component={withAuth(withFetchUcastnici(UbytovaniContainer))} />
         <Route path="/signout" component={withAuth(SignOutContainer)} />
         <Route path="/about" component={() => <About username={username} />} />

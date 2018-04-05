@@ -1,30 +1,30 @@
-.Startujici-div {
+.StartovniCisla__div {
   margin-left: 30px;
   margin-right: 20px;
 }
 
-.Startujici-buttons {
+.StartovniCisla__buttons {
   margin-bottom: 1ex;
 }
 
-.Startujici-button {
+.StartovniCisla__button {
   margin-right: 5px;
 }
 
-.Startujici-buttons > .btn.active {
+.StartovniCisla__buttons > .btn.active {
   font-weight: bold;
   border-radius: 5px;
   border: 3px solid black !important;
 }
 
-.Startujici-typ {
+.StartovniCisla__typ {
   margin-bottom: 1.5ex;
 }
 
-.Startujici-popisek {
+.StartovniCisla__popisek {
   padding-bottom: 0.7ex;
 }
 
-.Startujici_legenda {
+.StartovniCisla__legenda {
   margin-bottom: 1ex;
 }
