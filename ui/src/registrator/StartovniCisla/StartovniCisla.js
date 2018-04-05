@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 import { Button, Glyphicon } from 'react-bootstrap';
 import { dokoncenoArr, dokoncenoStr } from '../../Util';
 import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
-import StartujiciProTypContainer from '../../shared/StartujiciProTyp/StartujiciProTypContainer';
-import Legenda from '../../shared/StartujiciProTyp/Legenda';
+import StartovniCislaProTypContainer from '../../shared/StartovniCislaProTyp/StartovniCislaProTypContainer';
+import Legenda from '../../shared/StartovniCislaProTyp/Legenda';
 import './StartovniCisla.css';
 
 export const Renderer = ({ id, startCislo, dokonceno }) =>
@@ -13,12 +13,12 @@ export const Renderer = ({ id, startCislo, dokonceno }) =>
     <NavLink
       to={`/prihlasky/${id}`}
       key={startCislo}
-      className={`StartujiciProTyp-item Legenda-item-${dokoncenoStr(dokonceno)[0]}`}
+      className={`StartovniCislaProTyp__item Legenda-item-${dokoncenoStr(dokonceno)[0]}`}
     >
       {startCislo}
     </NavLink>
   ) : (
-    <div className="StartujiciProTyp-item Legenda-item-neaktivni" key={startCislo}>
+    <div className="StartovniCislaProTyp__item Legenda-item-neaktivni" key={startCislo}>
       {startCislo}
     </div>
   );
@@ -69,7 +69,7 @@ const StartovniCisla = ({ odstartovani, typy, onOdstartovaniChange }) => (
         <div className="StartovniCisla__popisek">
           <PopisekKategorie typ={typ} />
         </div>
-        <StartujiciProTypContainer
+        <StartovniCislaProTypContainer
           jenStartujici={odstartovani}
           odstartovani={odstartovani}
           typ={typ}

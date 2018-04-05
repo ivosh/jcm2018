@@ -2,10 +2,7 @@ import moment from 'moment';
 import { AKTUALNI_ROK } from '../../constants';
 import { getTypKategorie } from '../../entities/rocniky/rocnikyReducer';
 
-const findStartCislo = (startujici, startCislo) =>
-  startujici.find(element => element.startCislo === startCislo);
-
-export const getStartujiciProTyp = ({
+export const getStartovniCislaProTyp = ({
   odstartovani,
   rok = AKTUALNI_ROK,
   typ,
@@ -50,9 +47,12 @@ export const isStartCisloTaken = ({
   kategorie,
   ucastnici
 }) =>
-  !!getStartujiciProTyp({ odstartovani, rok, typ, kategorie, ucastnici }).find(
-    startujici => startujici.startCislo === startCislo && startujici.id !== id
+  !!getStartovniCislaProTyp({ odstartovani, rok, typ, kategorie, ucastnici }).find(
+    startovniCislo => startovniCislo.startCislo === startCislo && startovniCislo.id !== id
   );
+
+const findStartCislo = (startovniCisla, startCislo) =>
+  startovniCisla.find(element => element.startCislo === startCislo);
 
 const populateRange = (start, end) => {
   if (end >= start) {
@@ -65,7 +65,7 @@ const populateRange = (start, end) => {
     .map((val, index) => start - index);
 };
 
-export const getStartCislaProTyp = ({
+export const getStartovniCislaProTypVsechna = ({
   odstartovani,
   rok = AKTUALNI_ROK,
   typ,
@@ -74,14 +74,14 @@ export const getStartCislaProTyp = ({
   ucastnici
 }) => {
   const typKategorie = getTypKategorie({ rok, typ, rocniky });
-  const { startCisla } = typKategorie;
-  if (!startCisla) {
+  const { startCisla: povolenaStartovniCisla } = typKategorie;
+  if (!povolenaStartovniCisla) {
     return [];
   }
 
-  const startujici = getStartujiciProTyp({ odstartovani, rok, typ, kategorie, ucastnici });
+  const startovniCisla = getStartovniCislaProTyp({ odstartovani, rok, typ, kategorie, ucastnici });
   const results = [];
-  startCisla.rozsahy.forEach(rozsah => {
+  povolenaStartovniCisla.rozsahy.forEach(rozsah => {
     let range = [];
 
     const parsed = rozsah.match(/(\d+)-(\d+)/);
@@ -90,7 +90,9 @@ export const getStartCislaProTyp = ({
     } else {
       range = [parseInt(rozsah, 10)];
     }
-    const result = range.map(cislo => findStartCislo(startujici, cislo) || { startCislo: cislo });
+    const result = range.map(
+      cislo => findStartCislo(startovniCisla, cislo) || { startCislo: cislo }
+    );
     results.push(...result);
   });
 

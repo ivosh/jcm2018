@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { isStartCisloTaken } from '../../../shared/StartujiciProTyp/startujiciProTypReducer';
+import { isStartCisloTaken } from '../../../shared/StartovniCislaProTyp/startovniCislaProTypReducer';
 import InputContainer from '../Input/InputContainer';
 import { inputChanged } from './PrihlaskyFormActions';
 import {

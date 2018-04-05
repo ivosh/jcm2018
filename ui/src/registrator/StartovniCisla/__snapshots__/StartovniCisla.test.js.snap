@@ -2,11 +2,11 @@
 
 exports[`Renderer 1`] = `
 <div
-  className="StartujiciProTyp-grid"
+  className="StartovniCislaProTyp__grid"
 >
   <a
     aria-current={false}
-    className="StartujiciProTyp-item Legenda-item-dokonceno"
+    className="StartovniCislaProTyp__item Legenda-item-dokonceno"
     href="/prihlasky/10"
     onClick={[Function]}
     style={undefined}
@@ -91,7 +91,7 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
         typ="maraton"
       />
     </div>
-    <Connect(StartujiciProTyp)
+    <Connect(StartovniCislaProTyp)
       jenStartujici={true}
       odstartovani={true}
       renderer={[Function]}
@@ -109,7 +109,7 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
         typ="půlmaraton"
       />
     </div>
-    <Connect(StartujiciProTyp)
+    <Connect(StartovniCislaProTyp)
       jenStartujici={true}
       odstartovani={true}
       renderer={[Function]}
@@ -127,7 +127,7 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
         typ="cyklo"
       />
     </div>
-    <Connect(StartujiciProTyp)
+    <Connect(StartovniCislaProTyp)
       jenStartujici={true}
       odstartovani={true}
       renderer={[Function]}
@@ -145,7 +145,7 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
         typ="koloběžka"
       />
     </div>
-    <Connect(StartujiciProTyp)
+    <Connect(StartovniCislaProTyp)
       jenStartujici={true}
       odstartovani={true}
       renderer={[Function]}
@@ -226,7 +226,7 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
         typ="maraton"
       />
     </div>
-    <Connect(StartujiciProTyp)
+    <Connect(StartovniCislaProTyp)
       jenStartujici={false}
       odstartovani={false}
       renderer={[Function]}
@@ -244,7 +244,7 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
         typ="půlmaraton"
       />
     </div>
-    <Connect(StartujiciProTyp)
+    <Connect(StartovniCislaProTyp)
       jenStartujici={false}
       odstartovani={false}
       renderer={[Function]}
@@ -262,7 +262,7 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
         typ="cyklo"
       />
     </div>
-    <Connect(StartujiciProTyp)
+    <Connect(StartovniCislaProTyp)
       jenStartujici={false}
       odstartovani={false}
       renderer={[Function]}
@@ -280,7 +280,7 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
         typ="koloběžka"
       />
     </div>
-    <Connect(StartujiciProTyp)
+    <Connect(StartovniCislaProTyp)
       jenStartujici={false}
       odstartovani={false}
       renderer={[Function]}

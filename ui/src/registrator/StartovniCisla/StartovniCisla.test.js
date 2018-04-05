@@ -4,7 +4,7 @@ import moment from 'moment';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import StartujiciProTyp from '../../shared/StartujiciProTyp/StartujiciProTyp';
+import StartovniCislaProTyp from '../../shared/StartovniCislaProTyp/StartovniCislaProTyp';
 import StartovniCisla, { Renderer } from './StartovniCisla';
 
 it('renders StartovniCisla - přihlášeni', () => {
@@ -24,7 +24,7 @@ it('renders StartovniCisla - odstartováni', () => {
 });
 
 it('Renderer', () => {
-  const startujici = [
+  const startovniCisla = [
     {
       id: '10',
       startCislo: 7,
@@ -35,7 +35,7 @@ it('Renderer', () => {
 
   const component = renderer.create(
     <MemoryRouter>
-      <StartujiciProTyp startujici={startujici} renderer={Renderer} />
+      <StartovniCislaProTyp startovniCisla={startovniCisla} renderer={Renderer} />
     </MemoryRouter>
   );
   expect(component.toJSON()).toMatchSnapshot();

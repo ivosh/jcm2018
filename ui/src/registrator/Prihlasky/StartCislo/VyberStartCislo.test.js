@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount, shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import StartujiciProTyp from '../../../shared/StartujiciProTyp/StartujiciProTyp';
+import StartovniCislaProTyp from '../../../shared/StartovniCislaProTyp/StartovniCislaProTyp';
 import VyberStartCislo, { Renderer } from './VyberStartCislo';
 
 it('renders VyberStartCislo', () => {
@@ -11,22 +11,26 @@ it('renders VyberStartCislo', () => {
 });
 
 it('Renderer', () => {
-  const startujici = [{ id: '10', startCislo: 7 }, { startCislo: 10 }];
+  const startovniCisla = [{ id: '10', startCislo: 7 }, { startCislo: 10 }];
 
   const component = renderer.create(
-    <StartujiciProTyp startujici={startujici} renderer={Renderer} onSelect={jest.fn()} />
+    <StartovniCislaProTyp
+      startovniCisla={startovniCisla}
+      renderer={Renderer}
+      onSelect={jest.fn()}
+    />
   );
   expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('Renderer - onClick', () => {
-  const startujici = [{ startCislo: 10 }];
+  const startovniCisla = [{ startCislo: 10 }];
   const onSelect = jest.fn();
   const wrapper = mount(
-    <StartujiciProTyp startujici={startujici} renderer={Renderer} onSelect={onSelect} />
+    <StartovniCislaProTyp startovniCisla={startovniCisla} renderer={Renderer} onSelect={onSelect} />
   );
 
-  expect(wrapper.find('.StartujiciProTyp-item')).toHaveLength(1);
-  wrapper.find('.StartujiciProTyp-item').simulate('click');
+  expect(wrapper.find('.StartovniCislaProTyp__item')).toHaveLength(1);
+  wrapper.find('.StartovniCislaProTyp__item').simulate('click');
   expect(onSelect).toHaveBeenCalledWith(10);
 });

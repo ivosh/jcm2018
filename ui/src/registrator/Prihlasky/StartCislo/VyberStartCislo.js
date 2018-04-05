@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StartujiciProTypContainer from '../../../shared/StartujiciProTyp/StartujiciProTypContainer';
+import StartovniCislaProTypContainer from '../../../shared/StartovniCislaProTyp/StartovniCislaProTypContainer';
 import './VyberStartCislo.css';
 
 export const Renderer = ({ id, startCislo, onSelect }) =>
   id ? (
-    <div className="StartujiciProTyp-item VyberStartCislo-zabrane" key={startCislo}>
+    <div className="StartovniCislaProTyp__item VyberStartCislo-zabrane" key={startCislo}>
       {startCislo}
     </div>
   ) : (
     <div
-      className="StartujiciProTyp-item VyberStartCislo-volne"
+      className="StartovniCislaProTyp__item VyberStartCislo-volne"
       key={startCislo}
       onClick={() => onSelect(startCislo)}
     >
@@ -25,7 +25,7 @@ Renderer.propTypes = {
 };
 
 const VyberStartCislo = ({ typ, onSelect }) => (
-  <StartujiciProTypContainer
+  <StartovniCislaProTypContainer
     jenStartujici={false}
     odstartovani={false}
     typ={typ}

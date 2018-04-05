@@ -1,11 +1,11 @@
-.StartujiciProTyp-grid {
+.StartovniCislaProTyp__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(2.5em, 2.5em));
   grid-gap: 1px;
   max-width: 53em; /* 20 columns, including gaps */
 }
 
-.StartujiciProTyp-item {
+.StartovniCislaProTyp__item {
   width: 2.5em;
   height: 2em;
   display: flex;

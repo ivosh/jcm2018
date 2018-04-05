@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`jedno startovní číslo 1`] = `
+<div
+  className="StartovniCislaProTyp__grid"
+>
+  <div
+    className="StartovniCislaProTyp__item"
+  >
+    7
+  </div>
+</div>
+`;
+
+exports[`třináct startovních čísel 1`] = `
+<div
+  className="StartovniCislaProTyp__grid"
+>
+  <div
+    className="StartovniCislaProTyp__item"
+  >
+    7
+  </div>
+  <div
+    className="StartovniCislaProTyp__item"
+  >
+    4
+  </div>
+  <div
+    className="StartovniCislaProTyp__item"
+  >
+    16
+  </div>
+  <div
+    className="StartovniCislaProTyp__item"
+  >
+    25
+  </div>
+  <div
+    className="StartovniCislaProTyp__item"
+  >
+    9
+  </div>
+  <div
+    className="StartovniCislaProTyp__item"
+  >
+    15
+  </div>
+  <div
+    className="StartovniCislaProTyp__item"
+  >
+    1
+  </div>
+  <div
+    className="StartovniCislaProTyp__item"
+  >
+    8
+  </div>
+  <div
+    className="StartovniCislaProTyp__item"
+  >
+    59
+  </div>
+  <div
+    className="StartovniCislaProTyp__item"
+  >
+    43
+  </div>
+  <div
+    className="StartovniCislaProTyp__item"
+  >
+    42
+  </div>
+  <div
+    className="StartovniCislaProTyp__item"
+  >
+    33
+  </div>
+  <div
+    className="StartovniCislaProTyp__item"
+  >
+    21
+  </div>
+  <div
+    className="StartovniCislaProTyp__item"
+  >
+    24
+  </div>
+  <div
+    className="StartovniCislaProTyp__item"
+  >
+    27
+  </div>
+  <div
+    className="StartovniCislaProTyp__item"
+  >
+    22
+  </div>
+  <div
+    className="StartovniCislaProTyp__item"
+  >
+    30
+  </div>
+  <div
+    className="StartovniCislaProTyp__item"
+  >
+    23
+  </div>
+  <div
+    className="StartovniCislaProTyp__item"
+  >
+    26
+  </div>
+</div>
+`;
+
+exports[`žádná startovní čísla 1`] = `
+<div
+  className="StartovniCislaProTyp__grid"
+/>
+`;

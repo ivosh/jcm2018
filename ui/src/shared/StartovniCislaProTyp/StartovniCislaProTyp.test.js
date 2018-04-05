@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import renderer from 'react-test-renderer';
 import moment from 'moment';
-import StartujiciProTyp from './StartujiciProTyp';
+import StartovniCislaProTyp from './StartovniCislaProTyp';
 
 const testRenderer = ({ startCislo }) => (
-  <div key={startCislo} className="StartujiciProTyp-item">
+  <div key={startCislo} className="StartovniCislaProTyp__item">
     {startCislo}
   </div>
 );
@@ -13,13 +13,15 @@ testRenderer.propTypes = {
   startCislo: PropTypes.number.isRequired
 };
 
-it('žádný startující', () => {
-  const component = renderer.create(<StartujiciProTyp startujici={[]} renderer={testRenderer} />);
+it('žádná startovní čísla', () => {
+  const component = renderer.create(
+    <StartovniCislaProTyp startovniCisla={[]} renderer={testRenderer} />
+  );
   expect(component.toJSON()).toMatchSnapshot();
 });
 
-it('jeden startující', () => {
-  const startujici = [
+it('jedno startovní číslo', () => {
+  const startovniCisla = [
     {
       id: '10',
       startCislo: 7,
@@ -29,13 +31,13 @@ it('jeden startující', () => {
   ];
 
   const component = renderer.create(
-    <StartujiciProTyp startujici={startujici} renderer={testRenderer} />
+    <StartovniCislaProTyp startovniCisla={startovniCisla} renderer={testRenderer} />
   );
   expect(component.toJSON()).toMatchSnapshot();
 });
 
-it('třináct startujících', () => {
-  const startujici = [
+it('třináct startovních čísel', () => {
+  const startovniCisla = [
     { id: '0', startCislo: 7, dokonceno: null },
     { id: '1', startCislo: 4, dokonceno: null },
     {
@@ -88,7 +90,7 @@ it('třináct startujících', () => {
   ];
 
   const component = renderer.create(
-    <StartujiciProTyp startujici={startujici} renderer={testRenderer} />
+    <StartovniCislaProTyp startovniCisla={startovniCisla} renderer={testRenderer} />
   );
   expect(component.toJSON()).toMatchSnapshot();
 });

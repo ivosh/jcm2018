@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
-import StartujiciProTypContainer from './StartujiciProTypContainer';
+import StartovniCislaProTypContainer from './StartovniCislaProTypContainer';
 
 const mockStore = configureStore();
 
@@ -15,7 +15,7 @@ beforeEach(() => {
 
 it('maps state to props - půlmaraton, startovní čísla, přihlášky', () => {
   const wrapper = shallow(
-    <StartujiciProTypContainer
+    <StartovniCislaProTypContainer
       jenStartujici={false}
       odstartovani={false}
       typ="půlmaraton"
@@ -23,13 +23,13 @@ it('maps state to props - půlmaraton, startovní čísla, přihlášky', () => 
       store={store}
     />
   );
-  expect(wrapper.props().startujici).toBeTruthy();
-  expect(wrapper.props().startujici).toMatchSnapshot();
+  expect(wrapper.props().startovniCisla).toBeTruthy();
+  expect(wrapper.props().startovniCisla).toMatchSnapshot();
 });
 
 it('maps state to props - půlmaraton, startující, přihlášky', () => {
   const wrapper = shallow(
-    <StartujiciProTypContainer
+    <StartovniCislaProTypContainer
       jenStartujici={true}
       odstartovani={false}
       typ="půlmaraton"
@@ -37,13 +37,13 @@ it('maps state to props - půlmaraton, startující, přihlášky', () => {
       store={store}
     />
   );
-  expect(wrapper.props().startujici).toBeTruthy();
-  expect(wrapper.props().startujici).toMatchSnapshot();
+  expect(wrapper.props().startovniCisla).toBeTruthy();
+  expect(wrapper.props().startovniCisla).toMatchSnapshot();
 });
 
 it('maps state to props - půlmaraton, startovní čísla, odstartováni', () => {
   const wrapper = shallow(
-    <StartujiciProTypContainer
+    <StartovniCislaProTypContainer
       jenStartujici={false}
       odstartovani={true}
       typ="půlmaraton"
@@ -51,13 +51,13 @@ it('maps state to props - půlmaraton, startovní čísla, odstartováni', () =>
       store={store}
     />
   );
-  expect(wrapper.props().startujici).toBeTruthy();
-  expect(wrapper.props().startujici).toMatchSnapshot();
+  expect(wrapper.props().startovniCisla).toBeTruthy();
+  expect(wrapper.props().startovniCisla).toMatchSnapshot();
 });
 
 it('maps state to props - půlmaraton, startující, odstartováni', () => {
   const wrapper = shallow(
-    <StartujiciProTypContainer
+    <StartovniCislaProTypContainer
       jenStartujici={true}
       odstartovani={true}
       typ="půlmaraton"
@@ -65,6 +65,6 @@ it('maps state to props - půlmaraton, startující, odstartováni', () => {
       store={store}
     />
   );
-  expect(wrapper.props().startujici).toBeTruthy();
-  expect(wrapper.props().startujici).toMatchSnapshot();
+  expect(wrapper.props().startovniCisla).toBeTruthy();
+  expect(wrapper.props().startovniCisla).toMatchSnapshot();
 });
