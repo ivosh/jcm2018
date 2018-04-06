@@ -1,3 +1,5 @@
+import { AKTUALNI_ROK } from '../../constants';
+
 export const initialState = { allIds: [], byIds: {}, invalidated: false };
 
 // První element je vždycky nejvyšší rok.
@@ -54,3 +56,16 @@ const ucastniciReducer = (state = initialState, action) => {
 };
 
 export default ucastniciReducer;
+
+export const getUcastiProRok = ({ ucastnici, rok = AKTUALNI_ROK }) => {
+  const result = ucastnici.allIds.map(id => {
+    const ucastnik = ucastnici.byIds[id];
+    if (ucastnik.roky[0] === rok) {
+      const ucast = ucastnik[rok];
+      return { id, rok, ucast };
+    }
+    return undefined;
+  });
+
+  return result.filter(ucasti => ucasti !== undefined);
+};

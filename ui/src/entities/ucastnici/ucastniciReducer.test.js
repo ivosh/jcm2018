@@ -4,7 +4,7 @@ import { websocketDisconnected } from '../../App/AppActions';
 import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
 import { saveUcastSuccess } from '../../registrator/Prihlasky/PrihlaskyForm/PrihlaskyFormActions';
 import { saveUbytovaniSuccess } from '../../registrator/Ubytovani/UbytovaniActions';
-import ucastniciReducer from './ucastniciReducer';
+import ucastniciReducer, { getUcastiProRok } from './ucastniciReducer';
 import { broadcastUcastnik, fetchUcastniciSuccess } from './ucastniciActions';
 import ucastniciTestData from './ucastniciTestData';
 
@@ -290,4 +290,10 @@ it('broadcastUcastnik - změna', () => {
   expect(
     ucastniciReducer(stateBefore, broadcastUcastnik({ id, roky, ...ucasti }))
   ).toMatchSnapshot();
+});
+
+it('getUcastiProRok', () => {
+  const state = { ...ucastniciTestData };
+
+  expect(getUcastiProRok({ ...state.entities })).toMatchSnapshot();
 });

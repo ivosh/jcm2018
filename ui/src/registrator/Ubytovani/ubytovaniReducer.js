@@ -1,5 +1,6 @@
 import { AKTUALNI_ROK } from '../../constants';
 import { sortForColumn } from '../../sort';
+import { getUcastiProRok } from '../../entities/ucastnici/ucastniciReducer';
 import { createFilterableReducer } from '../Filterable/filterableReducer';
 import {
   createUcastniciTableReducer,
@@ -41,52 +42,52 @@ export const getUbytovaniSorted = ({
   ucastnici,
   loading,
   jenUbytovani,
+  rok = AKTUALNI_ROK,
   textFilter,
   sortColumn,
   sortDir
 }) => {
-  const rok = AKTUALNI_ROK;
-  const result = [];
-  ucastnici.allIds.forEach(id => {
-    const ucastnik = ucastnici.byIds[id];
-    if (ucastnik.roky[0] === rok) {
-      const ucast = ucastnik[rok];
-      const { udaje: { prijmeni, jmeno, narozeni, obec, email }, prihlaska: { datum } } = ucast;
-      const ubytovani = ucast.ubytovani || {};
+  const ucasti = getUcastiProRok({ rok, ucastnici });
+  const mapped = ucasti.map(jeden => {
+    const { id, ucast } = jeden;
+    const { udaje: { prijmeni, jmeno, narozeni, obec, email }, prihlaska: { datum } } = ucast;
+    const ubytovani = ucast.ubytovani || {};
 
-      if (
-        prijmeni.toLowerCase().startsWith(textFilter) ||
-        jmeno.toLowerCase().startsWith(textFilter)
-      ) {
-        if (!jenUbytovani || ubytovani.pátek) {
-          const prihlaseno = ubytovani.pátek && ubytovani.pátek.prihlaseno;
-          const prespano = ubytovani.pátek && ubytovani.pátek.prespano;
+    if (
+      prijmeni.toLowerCase().startsWith(textFilter) ||
+      jmeno.toLowerCase().startsWith(textFilter)
+    ) {
+      if (!jenUbytovani || ubytovani.pátek) {
+        const prihlaseno = ubytovani.pátek && ubytovani.pátek.prihlaseno;
+        const prespano = ubytovani.pátek && ubytovani.pátek.prespano;
 
-          const akceOptions = ['<vyber>'];
-          akceOptions.push(prihlaseno ? 'Odhlásit' : 'Přihlásit');
-          if (!prespano) {
-            akceOptions.push('Přespáno');
-          }
-          if (prespano === true || prespano === undefined) {
-            akceOptions.push('Nepřespáno');
-          }
-
-          result.push({
-            id,
-            prijmeni,
-            jmeno,
-            narozeni,
-            obec,
-            email: email || '',
-            datum: new Date(datum),
-            prihlaseno,
-            prespano,
-            akce: { loading: !!loading[id], options: akceOptions }
-          });
+        const akceOptions = ['<vyber>'];
+        akceOptions.push(prihlaseno ? 'Odhlásit' : 'Přihlásit');
+        if (!prespano) {
+          akceOptions.push('Přespáno');
         }
+        if (prespano === true || prespano === undefined) {
+          akceOptions.push('Nepřespáno');
+        }
+
+        return {
+          id,
+          prijmeni,
+          jmeno,
+          narozeni,
+          obec,
+          email: email || '',
+          datum: new Date(datum),
+          prihlaseno,
+          prespano,
+          akce: { loading: !!loading[id], options: akceOptions }
+        };
       }
     }
-  });
 
-  return sortForColumn({ data: result, sortColumn, sortDir });
+    return undefined;
+  });
+  const filtered = mapped.filter(jeden => jeden !== undefined);
+
+  return sortForColumn({ data: filtered, sortColumn, sortDir });
 };

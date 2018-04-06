@@ -1,5 +1,6 @@
 import { AKTUALNI_ROK } from '../../constants';
 import { sortForColumn } from '../../sort';
+import { getUcastiProRok } from '../../entities/ucastnici/ucastniciReducer';
 import { predepsaneStartovne, provedenePlatby } from '../platby';
 import {
   createFilterableReducer,
@@ -30,45 +31,45 @@ export const getPrihlaseniSorted = ({
   rocniky,
   ucastnici,
   kategorieFilter,
+  rok = AKTUALNI_ROK,
   textFilter,
   sortColumn,
   sortDir
 }) => {
-  const rok = AKTUALNI_ROK;
-  const result = [];
-  ucastnici.allIds.forEach(id => {
-    const ucastnik = ucastnici.byIds[id];
-    if (ucastnik.roky[0] === rok) {
-      const ucast = ucastnik[rok];
-      const { udaje: { prijmeni, jmeno, narozeni, obec, email }, prihlaska, platby } = ucast;
-      const { datum, kategorie: kategorieId, startCislo, kod } = prihlaska;
-      const jednaKategorie = kategorie[kategorieId];
-      const predepsano = predepsaneStartovne({ kategorie, prihlaska, rocniky, rok }).suma;
-      const zaplaceno = provedenePlatby(platby).suma;
+  const ucasti = getUcastiProRok({ rok, ucastnici });
+  const mapped = ucasti.map(jeden => {
+    const { id, ucast } = jeden;
+    const { udaje: { prijmeni, jmeno, narozeni, obec, email }, prihlaska, platby } = ucast;
+    const { datum, kategorie: kategorieId, startCislo, kod } = prihlaska;
+    const jednaKategorie = kategorie[kategorieId];
+    const predepsano = predepsaneStartovne({ kategorie, prihlaska, rocniky, rok }).suma;
+    const zaplaceno = provedenePlatby(platby).suma;
 
-      if (
-        prijmeni.toLowerCase().startsWith(textFilter) ||
-        jmeno.toLowerCase().startsWith(textFilter)
-      ) {
-        if (kategorieFilter === '' || kategorieFilter === jednaKategorie.typ) {
-          result.push({
-            id,
-            prijmeni,
-            jmeno,
-            narozeni,
-            obec,
-            email: email || '',
-            datum: new Date(datum),
-            kategorie: jednaKategorie,
-            startCislo,
-            kod,
-            predepsano,
-            zaplaceno
-          });
-        }
+    if (
+      prijmeni.toLowerCase().startsWith(textFilter) ||
+      jmeno.toLowerCase().startsWith(textFilter)
+    ) {
+      if (kategorieFilter === '' || kategorieFilter === jednaKategorie.typ) {
+        return {
+          id,
+          prijmeni,
+          jmeno,
+          narozeni,
+          obec,
+          email: email || '',
+          datum: new Date(datum),
+          kategorie: jednaKategorie,
+          startCislo,
+          kod,
+          predepsano,
+          zaplaceno
+        };
       }
     }
-  });
 
-  return sortForColumn({ data: result, sortColumn, sortDir });
+    return undefined;
+  });
+  const filtered = mapped.filter(jeden => jeden !== undefined);
+
+  return sortForColumn({ data: filtered, sortColumn, sortDir });
 };
