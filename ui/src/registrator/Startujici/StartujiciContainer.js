@@ -2,14 +2,10 @@ import { connect } from 'react-redux';
 import { getPrihlaseni, getOdstartovani } from './startujiciReducer';
 import Startujici from './Startujici';
 
-const mapStateToProps = state => {
-  const { entities } = state;
-
-  return {
-    prihlaseni: getPrihlaseni({ ...entities }),
-    odstartovani: getOdstartovani({ ...entities })
-  };
-};
+const mapStateToProps = state => ({
+  prihlaseni: getPrihlaseni({ ...state.entities }),
+  odstartovani: getOdstartovani({ ...state.entities })
+});
 
 const StartujiciContainer = connect(mapStateToProps, null)(Startujici);
 
