@@ -14,10 +14,12 @@ const StartujiciPanel = ({ bsStyle, popisek, seznam }) => (
       <div className="StartujiciPanel__header">číslo</div>
       {seznam.map(({ id, prijmeni, jmeno, narozeni, kategorie, startCislo }) => (
         <React.Fragment key={id}>
-          <div className="StartujiciPanel__cell">{prijmeni}</div>
-          <div className="StartujiciPanel__leftCell">{jmeno}</div>
+          <div className="StartujiciPanel__prijmeni">{prijmeni}</div>
+          <div className="StartujiciPanel__jmeno">{jmeno}</div>
           <div className="StartujiciPanel__narozeni">{narozeni.rok}</div>
-          <div className="StartujiciPanel__middleCell">
+          <div
+            className={`StartujiciPanel__kategorie StartujiciPanel__kategorie--${kategorie.typ}`}
+          >
             <PopisekKategorie {...kategorie} />
           </div>
           <div className="StartujiciPanel__startCislo">{startCislo}</div>

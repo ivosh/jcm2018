@@ -5,24 +5,24 @@
   justify-content: stretch;
 }
 
-.StartujiciPanel__cell,
-.StartujiciPanel__leftCell,
-.StartujiciPanel__middleCell,
 .StartujiciPanel__leftHeader,
 .StartujiciPanel__middleHeader,
 .StartujiciPanel__header,
+.StartujiciPanel__jmeno,
+.StartujiciPanel__kategorie,
 .StartujiciPanel__narozeni,
+.StartujiciPanel__prijmeni,
 .StartujiciPanel__startCislo {
   padding: 5px;
 }
 
-.StartujiciPanel__leftCell,
+.StartujiciPanel__jmeno,
 .StartujiciPanel__leftHeader {
   border-left: 1px solid #d3d3d3;
   border-right: 1px solid #d3d3d3;
 }
-.StartujiciPanel__middleCell,
 .StartujiciPanel__middleHeader,
+.StartujiciPanel__kategorie,
 .StartujiciPanel__narozeni {
   border-right: 1px solid #d3d3d3;
 }
@@ -44,4 +44,27 @@
 
 .StartujiciPanel__startCislo {
   text-align: right;
+}
+
+.StartujiciPanel__jmeno:nth-child(2n),
+.StartujiciPanel__narozeni:nth-child(2n + 1),
+.StartujiciPanel__prijmeni:nth-child(2n + 1),
+.StartujiciPanel__startCislo:nth-child(2n + 1) {
+  background-color: #f6f7f8;
+}
+
+.StartujiciPanel__kategorie--maraton {
+  background-color: rgba(var(--maraton), 0.4);
+}
+.StartujiciPanel__kategorie--půlmaraton {
+  background-color: rgba(var(--půlmaraton), 0.4);
+}
+.StartujiciPanel__kategorie--cyklo {
+  background-color: rgba(var(--cyklo), 0.4);
+}
+.StartujiciPanel__kategorie--koloběžka {
+  background-color: rgba(var(--koloběžka), 0.4);
+}
+.StartujiciPanel__kategorie--pěší {
+  background-color: rgba(var(--pěší), 0.4);
 }
