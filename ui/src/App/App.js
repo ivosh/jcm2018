@@ -10,8 +10,9 @@ import CasomericContainer from '../casomeric/Casomeric/CasomericContainer';
 import withFetchUcastnici from '../entities/withFetchUcastnici/withFetchUcastnici';
 import UcastniciDigestContainer from '../registrator/UcastniciDigest/UcastniciDigestContainer';
 import Prihlasky from '../registrator/Prihlasky/Prihlasky';
-import StartovniCislaContainer from '../registrator/StartovniCisla/StartovniCislaContainer';
 import PrihlaseniContainer from '../registrator/Prihlaseni/PrihlaseniContainer';
+import StartovniCislaContainer from '../registrator/StartovniCisla/StartovniCislaContainer';
+import StartujiciContainer from '../registrator/Startujici/StartujiciContainer';
 import UbytovaniContainer from '../registrator/Ubytovani/UbytovaniContainer';
 import SignOutContainer from '../auth/SignOut/SignOutContainer';
 import About from './About';
@@ -46,13 +47,18 @@ const App = ({ authenticated, connected, username }) => (
               <Glyphicon glyph="list-alt" /> Přihlášeni
             </NavItem>
           </LinkContainer>
-          <LinkContainer key="startujici" to="/startovni-cisla">
+          <LinkContainer key="startujici" to="/startujici">
             <NavItem eventKey={5}>
+              <Glyphicon glyph="road" /> Startující
+            </NavItem>
+          </LinkContainer>
+          <LinkContainer key="startovni-cisla" to="/startovni-cisla">
+            <NavItem eventKey={6}>
               <Glyphicon glyph="sound-5-1" /> Startovní čísla
             </NavItem>
           </LinkContainer>
           <LinkContainer key="ubytovani" to="/ubytovani">
-            <NavItem eventKey={6}>
+            <NavItem eventKey={7}>
               <Glyphicon glyph="bed" /> Ubytovaní
             </NavItem>
           </LinkContainer>
@@ -61,20 +67,20 @@ const App = ({ authenticated, connected, username }) => (
       <Nav className="App-Nav" pullRight>
         {!authenticated && (
           <LinkContainer to="/signin">
-            <NavItem eventKey={7}>
+            <NavItem eventKey={8}>
               <Glyphicon glyph="log-in" /> Přihlášení
             </NavItem>
           </LinkContainer>
         )}
         {authenticated && (
           <LinkContainer key="signout" to="/signout">
-            <NavItem eventKey={8}>
+            <NavItem eventKey={9}>
               <Glyphicon glyph="log-out" /> Odhlášení
             </NavItem>
           </LinkContainer>
         )}
         <LinkContainer to="/about">
-          <NavItem eventKey={9}>
+          <NavItem eventKey={10}>
             <Glyphicon glyph="question-sign" /> O aplikaci
           </NavItem>
         </LinkContainer>
@@ -91,6 +97,7 @@ const App = ({ authenticated, connected, username }) => (
         />
         <Route path="/prihlasky" component={withAuth(withFetchUcastnici(Prihlasky))} />
         <Route path="/prihlaseni" component={withAuth(withFetchUcastnici(PrihlaseniContainer))} />
+        <Route path="/startujici" component={withAuth(withFetchUcastnici(StartujiciContainer))} />
         <Route
           path="/startovni-cisla"
           component={withAuth(withFetchUcastnici(StartovniCislaContainer))}

@@ -1,0 +1,47 @@
+import { AKTUALNI_ROK } from '../../constants';
+import { sortForColumn } from '../../sort';
+import { getUcastiProRok } from '../../entities/ucastnici/ucastniciReducer';
+
+export const getPrihlaseni = ({ kategorie, ucastnici, rok = AKTUALNI_ROK }) => {
+  const ucasti = getUcastiProRok({ rok, ucastnici });
+  const mapped = ucasti.map(jeden => {
+    const { id, ucast } = jeden;
+    const { udaje: { prijmeni, jmeno, narozeni }, prihlaska } = ucast;
+    const { kategorie: kategorieId, startCislo } = prihlaska;
+
+    return {
+      id,
+      prijmeni,
+      jmeno,
+      narozeni,
+      kategorie: kategorie[kategorieId],
+      startCislo
+    };
+  });
+
+  return sortForColumn({ data: mapped, sortColumn: '', sortDir: undefined });
+};
+
+export const getOdstartovani = ({ kategorie, ucastnici, rok = AKTUALNI_ROK }) => {
+  const ucasti = getUcastiProRok({ rok, ucastnici });
+  const mapped = ucasti.map(jeden => {
+    const { id, ucast } = jeden;
+    const { udaje: { prijmeni, jmeno, narozeni }, vykon } = ucast;
+    if (!vykon) {
+      return undefined;
+    }
+    const { kategorie: kategorieId, startCislo } = vykon;
+
+    return {
+      id,
+      prijmeni,
+      jmeno,
+      narozeni,
+      kategorie: kategorie[kategorieId],
+      startCislo
+    };
+  });
+  const filtered = mapped.filter(jeden => jeden !== undefined);
+
+  return sortForColumn({ data: filtered, sortColumn: '', sortDir: undefined });
+};
