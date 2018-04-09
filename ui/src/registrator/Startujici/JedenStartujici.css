@@ -1,10 +1,15 @@
+.JedenStartujici__prijmeni {
+  cursor: move;
+  padding-left: 0px !important;
+}
+
 .JedenStartujici__narozeni {
+  justify-content: flex-end;
   padding-right: 0.5em;
-  text-align: right;
 }
 
 .JedenStartujici__startCislo {
-  text-align: right;
+  justify-content: flex-end;
 }
 
 .JedenStartujici__prijmeni:nth-child(2n + 1),
@@ -28,4 +33,22 @@
 }
 .JedenStartujici__kategorie--pěší {
   background-color: rgba(var(--pěší), 0.4);
+}
+
+.JedenStartujici__grip {
+  color: #cccccc;
+  display: inline-block;
+  font-size: 14px;
+  font-family: sans-serif;
+  letter-spacing: 2px;
+  line-height: 5px;
+  margin-top: -0.7em;
+  margin-right: 1em;
+  padding: 3px 4px;
+  text-shadow: 1px 0 1px black;
+  width: 10px;
+}
+
+.JedenStartujici__grip::after {
+  content: '.. .. .. ..';
 }

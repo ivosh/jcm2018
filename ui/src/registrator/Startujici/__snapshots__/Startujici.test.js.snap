@@ -49,7 +49,11 @@ exports[`dva odstartovaní 1`] = `
         </div>
         <div
           className="StartujiciPanel__cell JedenStartujici__prijmeni"
+          id="5a09b1fd371dec1e99b7e1c9"
         >
+          <span
+            className="JedenStartujici__grip"
+          />
           Balabák
         </div>
         <div
@@ -89,7 +93,11 @@ exports[`dva odstartovaní 1`] = `
         </div>
         <div
           className="StartujiciPanel__cell JedenStartujici__prijmeni"
+          id="7a09b1fd371dec1e99b7e142"
         >
+          <span
+            className="JedenStartujici__grip"
+          />
           Zralá
         </div>
         <div
@@ -175,7 +183,11 @@ exports[`dva odstartovaní 1`] = `
         </div>
         <div
           className="StartujiciPanel__cell JedenStartujici__prijmeni"
+          id="5a09b1fd371dec1e99b7e1c9"
         >
+          <span
+            className="JedenStartujici__grip"
+          />
           Balabák
         </div>
         <div
@@ -215,7 +227,11 @@ exports[`dva odstartovaní 1`] = `
         </div>
         <div
           className="StartujiciPanel__cell JedenStartujici__prijmeni"
+          id="7a09b1fd371dec1e99b7e142"
         >
+          <span
+            className="JedenStartujici__grip"
+          />
           Zralá
         </div>
         <div
@@ -308,7 +324,11 @@ exports[`žádný odstartovaný 1`] = `
         </div>
         <div
           className="StartujiciPanel__cell JedenStartujici__prijmeni"
+          id="5a09b1fd371dec1e99b7e1c9"
         >
+          <span
+            className="JedenStartujici__grip"
+          />
           Balabák
         </div>
         <div
@@ -348,7 +368,11 @@ exports[`žádný odstartovaný 1`] = `
         </div>
         <div
           className="StartujiciPanel__cell JedenStartujici__prijmeni"
+          id="7a09b1fd371dec1e99b7e142"
         >
+          <span
+            className="JedenStartujici__grip"
+          />
           Zralá
         </div>
         <div

@@ -1,7 +1,7 @@
 .StartujiciPanel__grid {
   align-items: stretch;
   display: grid;
-  grid-template-columns: 7em 5em 5em 11em 3em;
+  grid-template-columns: 9em 7em 5em 11em 3em;
   justify-content: stretch;
 }
 
@@ -11,6 +11,8 @@
 .StartujiciPanel__cell,
 .StartujiciPanel__leftCell,
 .StartujiciPanel__middleCell {
+  align-items: center;
+  display: flex;
   padding: 5px;
 }
 
@@ -31,5 +33,5 @@
   background: linear-gradient(#ffffff, #efefef);
   border-bottom: 1px solid #d3d3d3;
   font-weight: bold;
-  text-align: center;
+  justify-content: center;
 }

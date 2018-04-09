@@ -1,11 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { DragSource } from 'react-dnd';
+import { ItemTypes } from '../../constants';
 import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import './JedenStartujici.css';
 
-const JedenStartujici = ({ id, prijmeni, jmeno, narozeni, kategorie, startCislo }) => (
-  <React.Fragment key={id}>
-    <div className="StartujiciPanel__cell JedenStartujici__prijmeni">{prijmeni}</div>
+const JedenStartujici = ({
+  connectDragSource,
+  id,
+  prijmeni,
+  jmeno,
+  narozeni,
+  kategorie,
+  startCislo
+}) => (
+  <React.Fragment>
+    {connectDragSource(
+      <div className="StartujiciPanel__cell JedenStartujici__prijmeni" id={id}>
+        <span className="JedenStartujici__grip" />
+        {prijmeni}
+      </div>
+    )}
     <div className="StartujiciPanel__leftCell JedenStartujici__jmeno">{jmeno}</div>
     <div className="StartujiciPanel__middleCell JedenStartujici__narozeni">{narozeni.rok}</div>
     <div
@@ -20,6 +35,8 @@ const JedenStartujici = ({ id, prijmeni, jmeno, narozeni, kategorie, startCislo 
 );
 
 JedenStartujici.propTypes = {
+  connectDragSource: PropTypes.func.isRequired,
+  isDragging: PropTypes.bool.isRequired,
   id: PropTypes.string.isRequired,
   prijmeni: PropTypes.string.isRequired,
   jmeno: PropTypes.string.isRequired,
@@ -32,4 +49,17 @@ JedenStartujici.propTypes = {
   startCislo: PropTypes.number
 };
 
-export default JedenStartujici;
+const dragSource = {
+  beginDrag(props) {
+    return { id: props.id };
+  }
+};
+
+const collectDrag = (connect, monitor) => ({
+  connectDragSource: connect.dragSource(),
+  isDragging: monitor.isDragging()
+});
+
+// :TODO: When decorators are supported by babel in ES7, do:
+// @DragSource(ItemTypes.JEDEN_STARTUJICI, dragSource, collect)
+export default DragSource(ItemTypes.JEDEN_STARTUJICI, dragSource, collectDrag)(JedenStartujici);
