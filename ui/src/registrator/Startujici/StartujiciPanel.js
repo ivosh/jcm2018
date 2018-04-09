@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Panel } from 'react-bootstrap';
-import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
+import JedenStartujici from './JedenStartujici';
 import './StartujiciPanel.css';
 
 const StartujiciPanel = ({ bsStyle, popisek, seznam }) => (
@@ -12,19 +12,7 @@ const StartujiciPanel = ({ bsStyle, popisek, seznam }) => (
       <div className="StartujiciPanel__middleHeader">narození</div>
       <div className="StartujiciPanel__middleHeader">kategorie</div>
       <div className="StartujiciPanel__header">číslo</div>
-      {seznam.map(({ id, prijmeni, jmeno, narozeni, kategorie, startCislo }) => (
-        <React.Fragment key={id}>
-          <div className="StartujiciPanel__prijmeni">{prijmeni}</div>
-          <div className="StartujiciPanel__jmeno">{jmeno}</div>
-          <div className="StartujiciPanel__narozeni">{narozeni.rok}</div>
-          <div
-            className={`StartujiciPanel__kategorie StartujiciPanel__kategorie--${kategorie.typ}`}
-          >
-            <PopisekKategorie {...kategorie} />
-          </div>
-          <div className="StartujiciPanel__startCislo">{startCislo}</div>
-        </React.Fragment>
-      ))}
+      {seznam.map(jeden => <JedenStartujici key={jeden.id} {...jeden} />)}
     </div>
   </Panel>
 );

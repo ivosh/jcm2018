@@ -48,22 +48,22 @@ exports[`dva odstartovaní 1`] = `
           číslo
         </div>
         <div
-          className="StartujiciPanel__prijmeni"
+          className="StartujiciPanel__cell JedenStartujici__prijmeni"
         >
           Balabák
         </div>
         <div
-          className="StartujiciPanel__jmeno"
+          className="StartujiciPanel__leftCell JedenStartujici__jmeno"
         >
           Roman
         </div>
         <div
-          className="StartujiciPanel__narozeni"
+          className="StartujiciPanel__middleCell JedenStartujici__narozeni"
         >
           1956
         </div>
         <div
-          className="StartujiciPanel__kategorie StartujiciPanel__kategorie--půlmaraton"
+          className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
         >
           <span>
             <img
@@ -83,27 +83,27 @@ exports[`dva odstartovaní 1`] = `
           </span>
         </div>
         <div
-          className="StartujiciPanel__startCislo"
+          className="StartujiciPanel__cell JedenStartujici__startCislo"
         >
           17
         </div>
         <div
-          className="StartujiciPanel__prijmeni"
+          className="StartujiciPanel__cell JedenStartujici__prijmeni"
         >
           Zralá
         </div>
         <div
-          className="StartujiciPanel__jmeno"
+          className="StartujiciPanel__leftCell JedenStartujici__jmeno"
         >
           Hana
         </div>
         <div
-          className="StartujiciPanel__narozeni"
+          className="StartujiciPanel__middleCell JedenStartujici__narozeni"
         >
           1999
         </div>
         <div
-          className="StartujiciPanel__kategorie StartujiciPanel__kategorie--půlmaraton"
+          className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
         >
           <span>
             <img
@@ -123,7 +123,7 @@ exports[`dva odstartovaní 1`] = `
           </span>
         </div>
         <div
-          className="StartujiciPanel__startCislo"
+          className="StartujiciPanel__cell JedenStartujici__startCislo"
         >
           10
         </div>
@@ -174,22 +174,22 @@ exports[`dva odstartovaní 1`] = `
           číslo
         </div>
         <div
-          className="StartujiciPanel__prijmeni"
+          className="StartujiciPanel__cell JedenStartujici__prijmeni"
         >
           Balabák
         </div>
         <div
-          className="StartujiciPanel__jmeno"
+          className="StartujiciPanel__leftCell JedenStartujici__jmeno"
         >
           Roman
         </div>
         <div
-          className="StartujiciPanel__narozeni"
+          className="StartujiciPanel__middleCell JedenStartujici__narozeni"
         >
           1956
         </div>
         <div
-          className="StartujiciPanel__kategorie StartujiciPanel__kategorie--půlmaraton"
+          className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
         >
           <span>
             <img
@@ -209,27 +209,27 @@ exports[`dva odstartovaní 1`] = `
           </span>
         </div>
         <div
-          className="StartujiciPanel__startCislo"
+          className="StartujiciPanel__cell JedenStartujici__startCislo"
         >
           15
         </div>
         <div
-          className="StartujiciPanel__prijmeni"
+          className="StartujiciPanel__cell JedenStartujici__prijmeni"
         >
           Zralá
         </div>
         <div
-          className="StartujiciPanel__jmeno"
+          className="StartujiciPanel__leftCell JedenStartujici__jmeno"
         >
           Hana
         </div>
         <div
-          className="StartujiciPanel__narozeni"
+          className="StartujiciPanel__middleCell JedenStartujici__narozeni"
         >
           1999
         </div>
         <div
-          className="StartujiciPanel__kategorie StartujiciPanel__kategorie--půlmaraton"
+          className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
         >
           <span>
             <img
@@ -249,7 +249,7 @@ exports[`dva odstartovaní 1`] = `
           </span>
         </div>
         <div
-          className="StartujiciPanel__startCislo"
+          className="StartujiciPanel__cell JedenStartujici__startCislo"
         >
           11
         </div>
@@ -307,22 +307,22 @@ exports[`žádný odstartovaný 1`] = `
           číslo
         </div>
         <div
-          className="StartujiciPanel__prijmeni"
+          className="StartujiciPanel__cell JedenStartujici__prijmeni"
         >
           Balabák
         </div>
         <div
-          className="StartujiciPanel__jmeno"
+          className="StartujiciPanel__leftCell JedenStartujici__jmeno"
         >
           Roman
         </div>
         <div
-          className="StartujiciPanel__narozeni"
+          className="StartujiciPanel__middleCell JedenStartujici__narozeni"
         >
           1956
         </div>
         <div
-          className="StartujiciPanel__kategorie StartujiciPanel__kategorie--půlmaraton"
+          className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
         >
           <span>
             <img
@@ -342,27 +342,27 @@ exports[`žádný odstartovaný 1`] = `
           </span>
         </div>
         <div
-          className="StartujiciPanel__startCislo"
+          className="StartujiciPanel__cell JedenStartujici__startCislo"
         >
           17
         </div>
         <div
-          className="StartujiciPanel__prijmeni"
+          className="StartujiciPanel__cell JedenStartujici__prijmeni"
         >
           Zralá
         </div>
         <div
-          className="StartujiciPanel__jmeno"
+          className="StartujiciPanel__leftCell JedenStartujici__jmeno"
         >
           Hana
         </div>
         <div
-          className="StartujiciPanel__narozeni"
+          className="StartujiciPanel__middleCell JedenStartujici__narozeni"
         >
           1999
         </div>
         <div
-          className="StartujiciPanel__kategorie StartujiciPanel__kategorie--půlmaraton"
+          className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
         >
           <span>
             <img
@@ -382,7 +382,7 @@ exports[`žádný odstartovaný 1`] = `
           </span>
         </div>
         <div
-          className="StartujiciPanel__startCislo"
+          className="StartujiciPanel__cell JedenStartujici__startCislo"
         >
           10
         </div>
