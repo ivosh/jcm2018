@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Glyphicon } from 'react-bootstrap';
-import { ItemTypes } from '../../constants';
+import { DragTypes } from '../../constants';
 import StartujiciPanel from './StartujiciPanel';
 import './Startujici.css';
 
@@ -9,7 +9,7 @@ const Startujici = ({ prihlaseni, odstartovani }) => (
   <div className="Startujici__div">
     <StartujiciPanel
       bsStyle="primary"
-      dragType={ItemTypes.JEDEN_STARTUJICI}
+      dragType={DragTypes.STARTUJICI_PRIHLASEN}
       popisek={
         <React.Fragment>
           <Glyphicon glyph="list-alt" /> Přihlášeni
@@ -19,7 +19,7 @@ const Startujici = ({ prihlaseni, odstartovani }) => (
     />
     <StartujiciPanel
       bsStyle="success"
-      dragType={ItemTypes.JEDEN_STARTUJICI}
+      dragType={DragTypes.STARTUJICI_ODSTARTOVAN}
       popisek={
         <React.Fragment>
           <Glyphicon glyph="road" /> Odstartováni

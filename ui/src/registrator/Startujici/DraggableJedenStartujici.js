@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { DragSource } from 'react-dnd';
-import { ItemTypes } from '../../constants';
+import { DragTypes } from '../../constants';
 import JedenStartujici from './JedenStartujici';
 
 const dragSource = {
@@ -20,7 +20,8 @@ const DraggableJedenStartujici = ({ dragType, ...rest }) => {
 };
 
 DraggableJedenStartujici.propTypes = {
-  dragType: PropTypes.oneOf([ItemTypes.JEDEN_STARTUJICI]).isRequired
+  dragType: PropTypes.oneOf([DragTypes.STARTUJICI_PRIHLASEN, DragTypes.STARTUJICI_ODSTARTOVAN])
+    .isRequired
 };
 
 export default DraggableJedenStartujici;

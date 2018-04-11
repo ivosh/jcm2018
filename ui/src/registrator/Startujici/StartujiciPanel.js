@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Panel } from 'react-bootstrap';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-import { ItemTypes } from '../../constants';
+import { DragTypes } from '../../constants';
 import DraggableJedenStartujici from './DraggableJedenStartujici';
 import './StartujiciPanel.css';
 
@@ -30,7 +30,8 @@ class StartujiciPanel extends Component {
 
 StartujiciPanel.propTypes = {
   bsStyle: PropTypes.string.isRequired,
-  dragType: PropTypes.oneOf([ItemTypes.JEDEN_STARTUJICI]).isRequired,
+  dragType: PropTypes.oneOf([DragTypes.STARTUJICI_PRIHLASEN, DragTypes.STARTUJICI_ODSTARTOVAN])
+    .isRequired,
   popisek: PropTypes.any.isRequired,
   seznam: PropTypes.arrayOf(
     PropTypes.shape({
