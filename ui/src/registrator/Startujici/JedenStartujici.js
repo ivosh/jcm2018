@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DragSource } from 'react-dnd';
-import { ItemTypes } from '../../constants';
 import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import './JedenStartujici.css';
 
@@ -49,17 +47,4 @@ JedenStartujici.propTypes = {
   startCislo: PropTypes.number
 };
 
-const dragSource = {
-  beginDrag(props) {
-    return { id: props.id };
-  }
-};
-
-const collectDrag = (connect, monitor) => ({
-  connectDragSource: connect.dragSource(),
-  isDragging: monitor.isDragging()
-});
-
-// :TODO: When decorators are supported by babel in ES7, do:
-// @DragSource(ItemTypes.JEDEN_STARTUJICI, dragSource, collect)
-export default DragSource(ItemTypes.JEDEN_STARTUJICI, dragSource, collectDrag)(JedenStartujici);
+export default JedenStartujici;

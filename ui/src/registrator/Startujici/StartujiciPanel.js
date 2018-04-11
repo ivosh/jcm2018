@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import { Panel } from 'react-bootstrap';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-import JedenStartujici from './JedenStartujici';
+import { ItemTypes } from '../../constants';
+import DraggableJedenStartujici from './DraggableJedenStartujici';
 import './StartujiciPanel.css';
 
 class StartujiciPanel extends Component {
   render = () => {
-    const { bsStyle, popisek, seznam } = this.props;
+    const { bsStyle, dragType, popisek, seznam } = this.props;
 
     return (
       <Panel bsStyle={bsStyle} header={popisek}>
@@ -18,7 +19,9 @@ class StartujiciPanel extends Component {
           <div className="StartujiciPanel__middleHeader">narození</div>
           <div className="StartujiciPanel__middleHeader">kategorie</div>
           <div className="StartujiciPanel__header">číslo</div>
-          {seznam.map(jeden => <JedenStartujici key={jeden.id} {...jeden} />)}
+          {seznam.map(jeden => (
+            <DraggableJedenStartujici key={jeden.id} dragType={dragType} {...jeden} />
+          ))}
         </div>
       </Panel>
     );
@@ -27,6 +30,7 @@ class StartujiciPanel extends Component {
 
 StartujiciPanel.propTypes = {
   bsStyle: PropTypes.string.isRequired,
+  dragType: PropTypes.oneOf([ItemTypes.JEDEN_STARTUJICI]).isRequired,
   popisek: PropTypes.any.isRequired,
   seznam: PropTypes.arrayOf(
     PropTypes.shape({
