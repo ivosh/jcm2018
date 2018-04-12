@@ -1,32 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Panel } from 'react-bootstrap';
-import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
 import { DragTypes } from '../../constants';
 import DraggableJedenStartujici from './DraggableJedenStartujici';
 import './StartujiciPanel.css';
 
-class StartujiciPanel extends Component {
-  render = () => {
-    const { bsStyle, dragType, popisek, seznam } = this.props;
-
-    return (
-      <Panel bsStyle={bsStyle} header={popisek}>
-        <div className="StartujiciPanel__grid">
-          <div className="StartujiciPanel__header">příjmení</div>
-          <div className="StartujiciPanel__leftHeader">jméno</div>
-          <div className="StartujiciPanel__middleHeader">narození</div>
-          <div className="StartujiciPanel__middleHeader">kategorie</div>
-          <div className="StartujiciPanel__header">číslo</div>
-          {seznam.map(jeden => (
-            <DraggableJedenStartujici key={jeden.id} dragType={dragType} {...jeden} />
-          ))}
-        </div>
-      </Panel>
-    );
-  };
-}
+const StartujiciPanel = ({ bsStyle, dragType, popisek, seznam }) => (
+  <Panel bsStyle={bsStyle} header={popisek}>
+    <div className="StartujiciPanel__grid">
+      <div className="StartujiciPanel__header">příjmení</div>
+      <div className="StartujiciPanel__leftHeader">jméno</div>
+      <div className="StartujiciPanel__middleHeader">narození</div>
+      <div className="StartujiciPanel__middleHeader">kategorie</div>
+      <div className="StartujiciPanel__header">číslo</div>
+      {seznam.map(jeden => (
+        <DraggableJedenStartujici key={jeden.id} dragType={dragType} {...jeden} />
+      ))}
+    </div>
+  </Panel>
+);
 
 StartujiciPanel.propTypes = {
   bsStyle: PropTypes.string.isRequired,
@@ -49,5 +41,4 @@ StartujiciPanel.propTypes = {
   ).isRequired
 };
 
-// :TODO: When decorators are supported by babel in ES7, do: @DragDropContext(HTML5Backend)
-export default DragDropContext(HTML5Backend)(StartujiciPanel);
+export default StartujiciPanel;

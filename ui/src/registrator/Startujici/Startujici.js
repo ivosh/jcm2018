@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Glyphicon } from 'react-bootstrap';
 import { DragTypes } from '../../constants';
-import StartujiciPanel from './StartujiciPanel';
+import DroppableStartujiciPanel from './DroppableStartujiciPanel';
 import './Startujici.css';
 
 const Startujici = ({ prihlaseni, odstartovani }) => (
   <div className="Startujici__div">
-    <StartujiciPanel
+    <DroppableStartujiciPanel
       bsStyle="primary"
       dragType={DragTypes.STARTUJICI_PRIHLASEN}
       popisek={
@@ -17,7 +17,7 @@ const Startujici = ({ prihlaseni, odstartovani }) => (
       }
       seznam={prihlaseni}
     />
-    <StartujiciPanel
+    <DroppableStartujiciPanel
       bsStyle="success"
       dragType={DragTypes.STARTUJICI_ODSTARTOVAN}
       popisek={
