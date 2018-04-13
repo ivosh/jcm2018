@@ -4,270 +4,274 @@ exports[`dva odstartovaní 1`] = `
 <div
   className="Startujici__div"
 >
-  <div
-    className="panel panel-primary"
-    id={undefined}
-  >
+  <div>
     <div
-      className="panel-heading"
-    >
-      <span
-        className="glyphicon glyphicon-list-alt"
-      />
-       Přihlášeni
-    </div>
-    <div
-      className="panel-body"
+      className="panel panel-primary"
+      id={undefined}
     >
       <div
-        className="StartujiciPanel__grid"
+        className="panel-heading"
+      >
+        <span
+          className="glyphicon glyphicon-list-alt"
+        />
+         Přihlášeni
+      </div>
+      <div
+        className="panel-body"
       >
         <div
-          className="StartujiciPanel__header"
+          className="StartujiciPanel__grid"
         >
-          příjmení
-        </div>
-        <div
-          className="StartujiciPanel__leftHeader"
-        >
-          jméno
-        </div>
-        <div
-          className="StartujiciPanel__middleHeader"
-        >
-          narození
-        </div>
-        <div
-          className="StartujiciPanel__middleHeader"
-        >
-          kategorie
-        </div>
-        <div
-          className="StartujiciPanel__header"
-        >
-          číslo
-        </div>
-        <div
-          className="StartujiciPanel__cell JedenStartujici__prijmeni"
-          id="5a09b1fd371dec1e99b7e1c9"
-        >
-          <span
-            className="JedenStartujici__grip"
-          />
-          Balabák
-        </div>
-        <div
-          className="StartujiciPanel__leftCell JedenStartujici__jmeno"
-        >
-          Roman
-        </div>
-        <div
-          className="StartujiciPanel__middleCell JedenStartujici__narozeni"
-        >
-          1956
-        </div>
-        <div
-          className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
-        >
-          <span>
-            <img
-              alt="půlmaraton"
-              height={30}
-              src="pulmaraton.png"
-              title="půlmaraton"
+          <div
+            className="StartujiciPanel__header"
+          >
+            příjmení
+          </div>
+          <div
+            className="StartujiciPanel__leftHeader"
+          >
+            jméno
+          </div>
+          <div
+            className="StartujiciPanel__middleHeader"
+          >
+            narození
+          </div>
+          <div
+            className="StartujiciPanel__middleHeader"
+          >
+            kategorie
+          </div>
+          <div
+            className="StartujiciPanel__header"
+          >
+            číslo
+          </div>
+          <div
+            className="StartujiciPanel__cell JedenStartujici__prijmeni"
+            id="5a09b1fd371dec1e99b7e1c9"
+          >
+            <span
+              className="JedenStartujici__grip"
             />
-             
-            <img
-              alt="muž"
-              height={28}
-              src="muz.png"
-              title="muž"
+            Balabák
+          </div>
+          <div
+            className="StartujiciPanel__leftCell JedenStartujici__jmeno"
+          >
+            Roman
+          </div>
+          <div
+            className="StartujiciPanel__middleCell JedenStartujici__narozeni"
+          >
+            1956
+          </div>
+          <div
+            className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
+          >
+            <span>
+              <img
+                alt="půlmaraton"
+                height={30}
+                src="pulmaraton.png"
+                title="půlmaraton"
+              />
+               
+              <img
+                alt="muž"
+                height={28}
+                src="muz.png"
+                title="muž"
+              />
+              60 let a více
+            </span>
+          </div>
+          <div
+            className="StartujiciPanel__cell JedenStartujici__startCislo"
+          >
+            17
+          </div>
+          <div
+            className="StartujiciPanel__cell JedenStartujici__prijmeni"
+            id="7a09b1fd371dec1e99b7e142"
+          >
+            <span
+              className="JedenStartujici__grip"
             />
-            60 let a více
-          </span>
-        </div>
-        <div
-          className="StartujiciPanel__cell JedenStartujici__startCislo"
-        >
-          17
-        </div>
-        <div
-          className="StartujiciPanel__cell JedenStartujici__prijmeni"
-          id="7a09b1fd371dec1e99b7e142"
-        >
-          <span
-            className="JedenStartujici__grip"
-          />
-          Zralá
-        </div>
-        <div
-          className="StartujiciPanel__leftCell JedenStartujici__jmeno"
-        >
-          Hana
-        </div>
-        <div
-          className="StartujiciPanel__middleCell JedenStartujici__narozeni"
-        >
-          1999
-        </div>
-        <div
-          className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
-        >
-          <span>
-            <img
-              alt="půlmaraton"
-              height={30}
-              src="pulmaraton.png"
-              title="půlmaraton"
-            />
-             
-            <img
-              alt="žena"
-              height={28}
-              src="zena.png"
-              title="žena"
-            />
-            18 - 39 let
-          </span>
-        </div>
-        <div
-          className="StartujiciPanel__cell JedenStartujici__startCislo"
-        >
-          10
+            Zralá
+          </div>
+          <div
+            className="StartujiciPanel__leftCell JedenStartujici__jmeno"
+          >
+            Hana
+          </div>
+          <div
+            className="StartujiciPanel__middleCell JedenStartujici__narozeni"
+          >
+            1999
+          </div>
+          <div
+            className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
+          >
+            <span>
+              <img
+                alt="půlmaraton"
+                height={30}
+                src="pulmaraton.png"
+                title="půlmaraton"
+              />
+               
+              <img
+                alt="žena"
+                height={28}
+                src="zena.png"
+                title="žena"
+              />
+              18 - 39 let
+            </span>
+          </div>
+          <div
+            className="StartujiciPanel__cell JedenStartujici__startCislo"
+          >
+            10
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div
-    className="panel panel-success"
-    id={undefined}
-  >
+  <div>
     <div
-      className="panel-heading"
-    >
-      <span
-        className="glyphicon glyphicon-road"
-      />
-       Odstartováni
-    </div>
-    <div
-      className="panel-body"
+      className="panel panel-success"
+      id={undefined}
     >
       <div
-        className="StartujiciPanel__grid"
+        className="panel-heading"
+      >
+        <span
+          className="glyphicon glyphicon-road"
+        />
+         Odstartováni
+      </div>
+      <div
+        className="panel-body"
       >
         <div
-          className="StartujiciPanel__header"
+          className="StartujiciPanel__grid"
         >
-          příjmení
-        </div>
-        <div
-          className="StartujiciPanel__leftHeader"
-        >
-          jméno
-        </div>
-        <div
-          className="StartujiciPanel__middleHeader"
-        >
-          narození
-        </div>
-        <div
-          className="StartujiciPanel__middleHeader"
-        >
-          kategorie
-        </div>
-        <div
-          className="StartujiciPanel__header"
-        >
-          číslo
-        </div>
-        <div
-          className="StartujiciPanel__cell JedenStartujici__prijmeni"
-          id="5a09b1fd371dec1e99b7e1c9"
-        >
-          <span
-            className="JedenStartujici__grip"
-          />
-          Balabák
-        </div>
-        <div
-          className="StartujiciPanel__leftCell JedenStartujici__jmeno"
-        >
-          Roman
-        </div>
-        <div
-          className="StartujiciPanel__middleCell JedenStartujici__narozeni"
-        >
-          1956
-        </div>
-        <div
-          className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
-        >
-          <span>
-            <img
-              alt="půlmaraton"
-              height={30}
-              src="pulmaraton.png"
-              title="půlmaraton"
+          <div
+            className="StartujiciPanel__header"
+          >
+            příjmení
+          </div>
+          <div
+            className="StartujiciPanel__leftHeader"
+          >
+            jméno
+          </div>
+          <div
+            className="StartujiciPanel__middleHeader"
+          >
+            narození
+          </div>
+          <div
+            className="StartujiciPanel__middleHeader"
+          >
+            kategorie
+          </div>
+          <div
+            className="StartujiciPanel__header"
+          >
+            číslo
+          </div>
+          <div
+            className="StartujiciPanel__cell JedenStartujici__prijmeni"
+            id="5a09b1fd371dec1e99b7e1c9"
+          >
+            <span
+              className="JedenStartujici__grip"
             />
-             
-            <img
-              alt="muž"
-              height={28}
-              src="muz.png"
-              title="muž"
+            Balabák
+          </div>
+          <div
+            className="StartujiciPanel__leftCell JedenStartujici__jmeno"
+          >
+            Roman
+          </div>
+          <div
+            className="StartujiciPanel__middleCell JedenStartujici__narozeni"
+          >
+            1956
+          </div>
+          <div
+            className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
+          >
+            <span>
+              <img
+                alt="půlmaraton"
+                height={30}
+                src="pulmaraton.png"
+                title="půlmaraton"
+              />
+               
+              <img
+                alt="muž"
+                height={28}
+                src="muz.png"
+                title="muž"
+              />
+              60 let a více
+            </span>
+          </div>
+          <div
+            className="StartujiciPanel__cell JedenStartujici__startCislo"
+          >
+            15
+          </div>
+          <div
+            className="StartujiciPanel__cell JedenStartujici__prijmeni"
+            id="7a09b1fd371dec1e99b7e142"
+          >
+            <span
+              className="JedenStartujici__grip"
             />
-            60 let a více
-          </span>
-        </div>
-        <div
-          className="StartujiciPanel__cell JedenStartujici__startCislo"
-        >
-          15
-        </div>
-        <div
-          className="StartujiciPanel__cell JedenStartujici__prijmeni"
-          id="7a09b1fd371dec1e99b7e142"
-        >
-          <span
-            className="JedenStartujici__grip"
-          />
-          Zralá
-        </div>
-        <div
-          className="StartujiciPanel__leftCell JedenStartujici__jmeno"
-        >
-          Hana
-        </div>
-        <div
-          className="StartujiciPanel__middleCell JedenStartujici__narozeni"
-        >
-          1999
-        </div>
-        <div
-          className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
-        >
-          <span>
-            <img
-              alt="půlmaraton"
-              height={30}
-              src="pulmaraton.png"
-              title="půlmaraton"
-            />
-             
-            <img
-              alt="žena"
-              height={28}
-              src="zena.png"
-              title="žena"
-            />
-            18 - 39 let
-          </span>
-        </div>
-        <div
-          className="StartujiciPanel__cell JedenStartujici__startCislo"
-        >
-          11
+            Zralá
+          </div>
+          <div
+            className="StartujiciPanel__leftCell JedenStartujici__jmeno"
+          >
+            Hana
+          </div>
+          <div
+            className="StartujiciPanel__middleCell JedenStartujici__narozeni"
+          >
+            1999
+          </div>
+          <div
+            className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
+          >
+            <span>
+              <img
+                alt="půlmaraton"
+                height={30}
+                src="pulmaraton.png"
+                title="půlmaraton"
+              />
+               
+              <img
+                alt="žena"
+                height={28}
+                src="zena.png"
+                title="žena"
+              />
+              18 - 39 let
+            </span>
+          </div>
+          <div
+            className="StartujiciPanel__cell JedenStartujici__startCislo"
+          >
+            11
+          </div>
         </div>
       </div>
     </div>
@@ -279,182 +283,186 @@ exports[`žádný odstartovaný 1`] = `
 <div
   className="Startujici__div"
 >
-  <div
-    className="panel panel-primary"
-    id={undefined}
-  >
+  <div>
     <div
-      className="panel-heading"
-    >
-      <span
-        className="glyphicon glyphicon-list-alt"
-      />
-       Přihlášeni
-    </div>
-    <div
-      className="panel-body"
+      className="panel panel-primary"
+      id={undefined}
     >
       <div
-        className="StartujiciPanel__grid"
+        className="panel-heading"
+      >
+        <span
+          className="glyphicon glyphicon-list-alt"
+        />
+         Přihlášeni
+      </div>
+      <div
+        className="panel-body"
       >
         <div
-          className="StartujiciPanel__header"
+          className="StartujiciPanel__grid"
         >
-          příjmení
-        </div>
-        <div
-          className="StartujiciPanel__leftHeader"
-        >
-          jméno
-        </div>
-        <div
-          className="StartujiciPanel__middleHeader"
-        >
-          narození
-        </div>
-        <div
-          className="StartujiciPanel__middleHeader"
-        >
-          kategorie
-        </div>
-        <div
-          className="StartujiciPanel__header"
-        >
-          číslo
-        </div>
-        <div
-          className="StartujiciPanel__cell JedenStartujici__prijmeni"
-          id="5a09b1fd371dec1e99b7e1c9"
-        >
-          <span
-            className="JedenStartujici__grip"
-          />
-          Balabák
-        </div>
-        <div
-          className="StartujiciPanel__leftCell JedenStartujici__jmeno"
-        >
-          Roman
-        </div>
-        <div
-          className="StartujiciPanel__middleCell JedenStartujici__narozeni"
-        >
-          1956
-        </div>
-        <div
-          className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
-        >
-          <span>
-            <img
-              alt="půlmaraton"
-              height={30}
-              src="pulmaraton.png"
-              title="půlmaraton"
+          <div
+            className="StartujiciPanel__header"
+          >
+            příjmení
+          </div>
+          <div
+            className="StartujiciPanel__leftHeader"
+          >
+            jméno
+          </div>
+          <div
+            className="StartujiciPanel__middleHeader"
+          >
+            narození
+          </div>
+          <div
+            className="StartujiciPanel__middleHeader"
+          >
+            kategorie
+          </div>
+          <div
+            className="StartujiciPanel__header"
+          >
+            číslo
+          </div>
+          <div
+            className="StartujiciPanel__cell JedenStartujici__prijmeni"
+            id="5a09b1fd371dec1e99b7e1c9"
+          >
+            <span
+              className="JedenStartujici__grip"
             />
-             
-            <img
-              alt="muž"
-              height={28}
-              src="muz.png"
-              title="muž"
+            Balabák
+          </div>
+          <div
+            className="StartujiciPanel__leftCell JedenStartujici__jmeno"
+          >
+            Roman
+          </div>
+          <div
+            className="StartujiciPanel__middleCell JedenStartujici__narozeni"
+          >
+            1956
+          </div>
+          <div
+            className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
+          >
+            <span>
+              <img
+                alt="půlmaraton"
+                height={30}
+                src="pulmaraton.png"
+                title="půlmaraton"
+              />
+               
+              <img
+                alt="muž"
+                height={28}
+                src="muz.png"
+                title="muž"
+              />
+              60 let a více
+            </span>
+          </div>
+          <div
+            className="StartujiciPanel__cell JedenStartujici__startCislo"
+          >
+            17
+          </div>
+          <div
+            className="StartujiciPanel__cell JedenStartujici__prijmeni"
+            id="7a09b1fd371dec1e99b7e142"
+          >
+            <span
+              className="JedenStartujici__grip"
             />
-            60 let a více
-          </span>
-        </div>
-        <div
-          className="StartujiciPanel__cell JedenStartujici__startCislo"
-        >
-          17
-        </div>
-        <div
-          className="StartujiciPanel__cell JedenStartujici__prijmeni"
-          id="7a09b1fd371dec1e99b7e142"
-        >
-          <span
-            className="JedenStartujici__grip"
-          />
-          Zralá
-        </div>
-        <div
-          className="StartujiciPanel__leftCell JedenStartujici__jmeno"
-        >
-          Hana
-        </div>
-        <div
-          className="StartujiciPanel__middleCell JedenStartujici__narozeni"
-        >
-          1999
-        </div>
-        <div
-          className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
-        >
-          <span>
-            <img
-              alt="půlmaraton"
-              height={30}
-              src="pulmaraton.png"
-              title="půlmaraton"
-            />
-             
-            <img
-              alt="žena"
-              height={28}
-              src="zena.png"
-              title="žena"
-            />
-            18 - 39 let
-          </span>
-        </div>
-        <div
-          className="StartujiciPanel__cell JedenStartujici__startCislo"
-        >
-          10
+            Zralá
+          </div>
+          <div
+            className="StartujiciPanel__leftCell JedenStartujici__jmeno"
+          >
+            Hana
+          </div>
+          <div
+            className="StartujiciPanel__middleCell JedenStartujici__narozeni"
+          >
+            1999
+          </div>
+          <div
+            className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
+          >
+            <span>
+              <img
+                alt="půlmaraton"
+                height={30}
+                src="pulmaraton.png"
+                title="půlmaraton"
+              />
+               
+              <img
+                alt="žena"
+                height={28}
+                src="zena.png"
+                title="žena"
+              />
+              18 - 39 let
+            </span>
+          </div>
+          <div
+            className="StartujiciPanel__cell JedenStartujici__startCislo"
+          >
+            10
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div
-    className="panel panel-success"
-    id={undefined}
-  >
+  <div>
     <div
-      className="panel-heading"
-    >
-      <span
-        className="glyphicon glyphicon-road"
-      />
-       Odstartováni
-    </div>
-    <div
-      className="panel-body"
+      className="panel panel-success"
+      id={undefined}
     >
       <div
-        className="StartujiciPanel__grid"
+        className="panel-heading"
+      >
+        <span
+          className="glyphicon glyphicon-road"
+        />
+         Odstartováni
+      </div>
+      <div
+        className="panel-body"
       >
         <div
-          className="StartujiciPanel__header"
+          className="StartujiciPanel__grid"
         >
-          příjmení
-        </div>
-        <div
-          className="StartujiciPanel__leftHeader"
-        >
-          jméno
-        </div>
-        <div
-          className="StartujiciPanel__middleHeader"
-        >
-          narození
-        </div>
-        <div
-          className="StartujiciPanel__middleHeader"
-        >
-          kategorie
-        </div>
-        <div
-          className="StartujiciPanel__header"
-        >
-          číslo
+          <div
+            className="StartujiciPanel__header"
+          >
+            příjmení
+          </div>
+          <div
+            className="StartujiciPanel__leftHeader"
+          >
+            jméno
+          </div>
+          <div
+            className="StartujiciPanel__middleHeader"
+          >
+            narození
+          </div>
+          <div
+            className="StartujiciPanel__middleHeader"
+          >
+            kategorie
+          </div>
+          <div
+            className="StartujiciPanel__header"
+          >
+            číslo
+          </div>
         </div>
       </div>
     </div>
@@ -466,94 +474,98 @@ exports[`žádný přihlášený 1`] = `
 <div
   className="Startujici__div"
 >
-  <div
-    className="panel panel-primary"
-    id={undefined}
-  >
+  <div>
     <div
-      className="panel-heading"
-    >
-      <span
-        className="glyphicon glyphicon-list-alt"
-      />
-       Přihlášeni
-    </div>
-    <div
-      className="panel-body"
+      className="panel panel-primary"
+      id={undefined}
     >
       <div
-        className="StartujiciPanel__grid"
+        className="panel-heading"
+      >
+        <span
+          className="glyphicon glyphicon-list-alt"
+        />
+         Přihlášeni
+      </div>
+      <div
+        className="panel-body"
       >
         <div
-          className="StartujiciPanel__header"
+          className="StartujiciPanel__grid"
         >
-          příjmení
-        </div>
-        <div
-          className="StartujiciPanel__leftHeader"
-        >
-          jméno
-        </div>
-        <div
-          className="StartujiciPanel__middleHeader"
-        >
-          narození
-        </div>
-        <div
-          className="StartujiciPanel__middleHeader"
-        >
-          kategorie
-        </div>
-        <div
-          className="StartujiciPanel__header"
-        >
-          číslo
+          <div
+            className="StartujiciPanel__header"
+          >
+            příjmení
+          </div>
+          <div
+            className="StartujiciPanel__leftHeader"
+          >
+            jméno
+          </div>
+          <div
+            className="StartujiciPanel__middleHeader"
+          >
+            narození
+          </div>
+          <div
+            className="StartujiciPanel__middleHeader"
+          >
+            kategorie
+          </div>
+          <div
+            className="StartujiciPanel__header"
+          >
+            číslo
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div
-    className="panel panel-success"
-    id={undefined}
-  >
+  <div>
     <div
-      className="panel-heading"
-    >
-      <span
-        className="glyphicon glyphicon-road"
-      />
-       Odstartováni
-    </div>
-    <div
-      className="panel-body"
+      className="panel panel-success"
+      id={undefined}
     >
       <div
-        className="StartujiciPanel__grid"
+        className="panel-heading"
+      >
+        <span
+          className="glyphicon glyphicon-road"
+        />
+         Odstartováni
+      </div>
+      <div
+        className="panel-body"
       >
         <div
-          className="StartujiciPanel__header"
+          className="StartujiciPanel__grid"
         >
-          příjmení
-        </div>
-        <div
-          className="StartujiciPanel__leftHeader"
-        >
-          jméno
-        </div>
-        <div
-          className="StartujiciPanel__middleHeader"
-        >
-          narození
-        </div>
-        <div
-          className="StartujiciPanel__middleHeader"
-        >
-          kategorie
-        </div>
-        <div
-          className="StartujiciPanel__header"
-        >
-          číslo
+          <div
+            className="StartujiciPanel__header"
+          >
+            příjmení
+          </div>
+          <div
+            className="StartujiciPanel__leftHeader"
+          >
+            jméno
+          </div>
+          <div
+            className="StartujiciPanel__middleHeader"
+          >
+            narození
+          </div>
+          <div
+            className="StartujiciPanel__middleHeader"
+          >
+            kategorie
+          </div>
+          <div
+            className="StartujiciPanel__header"
+          >
+            číslo
+          </div>
         </div>
       </div>
     </div>

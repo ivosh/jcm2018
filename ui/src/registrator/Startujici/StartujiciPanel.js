@@ -5,25 +5,30 @@ import { DragTypes } from '../../constants';
 import DraggableJedenStartujici from './DraggableJedenStartujici';
 import './StartujiciPanel.css';
 
-const StartujiciPanel = ({ bsStyle, dragType, popisek, seznam }) => (
-  <Panel bsStyle={bsStyle} header={popisek}>
-    <div className="StartujiciPanel__grid">
-      <div className="StartujiciPanel__header">příjmení</div>
-      <div className="StartujiciPanel__leftHeader">jméno</div>
-      <div className="StartujiciPanel__middleHeader">narození</div>
-      <div className="StartujiciPanel__middleHeader">kategorie</div>
-      <div className="StartujiciPanel__header">číslo</div>
-      {seznam.map(jeden => (
-        <DraggableJedenStartujici key={jeden.id} dragType={dragType} {...jeden} />
-      ))}
+const StartujiciPanel = ({ bsStyle, connectDropTarget, dragType, popisek, seznam }) =>
+  connectDropTarget(
+    <div>
+      <Panel bsStyle={bsStyle} header={popisek}>
+        <div className="StartujiciPanel__grid">
+          <div className="StartujiciPanel__header">příjmení</div>
+          <div className="StartujiciPanel__leftHeader">jméno</div>
+          <div className="StartujiciPanel__middleHeader">narození</div>
+          <div className="StartujiciPanel__middleHeader">kategorie</div>
+          <div className="StartujiciPanel__header">číslo</div>
+          {seznam.map(jeden => (
+            <DraggableJedenStartujici key={jeden.id} dragType={dragType} {...jeden} />
+          ))}
+        </div>
+      </Panel>
     </div>
-  </Panel>
-);
+  );
 
 StartujiciPanel.propTypes = {
   bsStyle: PropTypes.string.isRequired,
+  connectDropTarget: PropTypes.func.isRequired,
   dragType: PropTypes.oneOf([DragTypes.STARTUJICI_PRIHLASEN, DragTypes.STARTUJICI_ODSTARTOVAN])
     .isRequired,
+  isOver: PropTypes.bool.isRequired,
   popisek: PropTypes.any.isRequired,
   seznam: PropTypes.arrayOf(
     PropTypes.shape({

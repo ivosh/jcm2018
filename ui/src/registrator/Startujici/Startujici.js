@@ -10,6 +10,7 @@ const Startujici = ({ prihlaseni, odstartovani }) => (
     <DroppableStartujiciPanel
       bsStyle="primary"
       dragType={DragTypes.STARTUJICI_PRIHLASEN}
+      dropType={DragTypes.STARTUJICI_ODSTARTOVAN}
       popisek={
         <React.Fragment>
           <Glyphicon glyph="list-alt" /> Přihlášeni
@@ -20,6 +21,7 @@ const Startujici = ({ prihlaseni, odstartovani }) => (
     <DroppableStartujiciPanel
       bsStyle="success"
       dragType={DragTypes.STARTUJICI_ODSTARTOVAN}
+      dropType={DragTypes.STARTUJICI_PRIHLASEN}
       popisek={
         <React.Fragment>
           <Glyphicon glyph="road" /> Odstartováni

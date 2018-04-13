@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { DragSource } from 'react-dnd';
 import { DragTypes } from '../../constants';
@@ -13,11 +13,18 @@ const collectDrag = (connect, monitor) => ({
   isDragging: monitor.isDragging()
 });
 
-const DraggableJedenStartujici = ({ dragType, ...rest }) => {
-  const Draggable = DragSource(dragType, dragSource, collectDrag)(JedenStartujici);
+class DraggableJedenStartujici extends Component {
+  constructor(props) {
+    super(props);
+    const { dragType } = this.props;
+    this.Draggable = DragSource(dragType, dragSource, collectDrag)(JedenStartujici);
+  }
 
-  return <Draggable {...rest} />;
-};
+  render = () => {
+    const { Draggable } = this;
+    return <Draggable {...this.props} />;
+  };
+}
 
 DraggableJedenStartujici.propTypes = {
   dragType: PropTypes.oneOf([DragTypes.STARTUJICI_PRIHLASEN, DragTypes.STARTUJICI_ODSTARTOVAN])
