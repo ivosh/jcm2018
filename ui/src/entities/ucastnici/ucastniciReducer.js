@@ -44,6 +44,10 @@ const ucastniciReducer = (state = initialState, action) => {
     }
     case 'SIGN_OUT_SUCCESS':
       return initialState;
+    case 'STARTUJICI_CREATE_VYKON_SUCCESS': {
+      const { id, rok, vykon } = action;
+      return updateUcast(state, id, rok, 'vykon', vykon);
+    }
     case 'UBYTOVANI_SAVE_SUCCESS': {
       const { id, rok, ubytovani } = action;
       return updateUcast(state, id, rok, 'ubytovani', ubytovani);

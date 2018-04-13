@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { getPrihlaseni, getOdstartovani } from './startujiciReducer';
+import { createVykon } from './StartujiciActions';
 import Startujici from './Startujici';
 
 const mapStateToProps = state => ({
@@ -7,6 +8,10 @@ const mapStateToProps = state => ({
   odstartovani: getOdstartovani({ ...state.entities })
 });
 
-const StartujiciContainer = connect(mapStateToProps, null)(Startujici);
+const mapDispatchToProps = dispatch => ({
+  dropPrihlasen: id => dispatch(createVykon({ id }))
+});
+
+const StartujiciContainer = connect(mapStateToProps, mapDispatchToProps)(Startujici);
 
 export default StartujiciContainer;

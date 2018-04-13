@@ -21,6 +21,7 @@ const SAVE_PLATBY = 'savePlatby';
 const SAVE_PRIHLASKA = 'savePrihlaska';
 const SAVE_UBYTOVANI = 'saveUbytovani';
 const SAVE_UDAJE = 'saveUdaje';
+const SAVE_VYKON = 'saveVykon';
 const SIGN_IN = 'signIn';
 const SIGN_OUT = 'signOut';
 
@@ -72,6 +73,12 @@ const saveUbytovani = ({ id, rok, ubytovani }, token) => ({
 const saveUdaje = ({ id, rok, udaje }, token) => ({
   action: SAVE_UDAJE,
   request: { id, rok, udaje },
+  token
+});
+
+const saveVykon = ({ id, rok, vykon }, token) => ({
+  action: SAVE_VYKON,
+  request: { id, rok, vykon },
   token
 });
 
@@ -221,6 +228,7 @@ const exported = {
   SAVE_PRIHLASKA,
   SAVE_UBYTOVANI,
   SAVE_UDAJE,
+  SAVE_VYKON,
   SIGN_IN,
   SIGN_OUT,
   CODE_OK,
@@ -244,6 +252,7 @@ const exported = {
   savePrihlaska,
   saveUbytovani,
   saveUdaje,
+  saveVykon,
   signIn,
   signOut,
   ubytovaniNeprespano,
@@ -263,6 +272,7 @@ export {
   SAVE_PRIHLASKA,
   SAVE_UBYTOVANI,
   SAVE_UDAJE,
+  SAVE_VYKON,
   SIGN_IN,
   SIGN_OUT,
   CODE_OK,
@@ -286,6 +296,7 @@ export {
   savePrihlaska,
   saveUbytovani,
   saveUdaje,
+  saveVykon,
   signIn,
   signOut,
   ubytovaniNeprespano,
