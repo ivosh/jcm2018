@@ -11,7 +11,7 @@ const StartujiciPanel = ({ bsStyle, connectDropTarget, dragType, isOver, popisek
       <Panel
         bsStyle={bsStyle}
         header={popisek}
-        className={isOver ? 'StartujiciPanel--isOver' : undefined}
+        className={isOver ? 'StartujiciPanel--isOver' : 'StartujiciPanel--isNotOver'}
       >
         <div className="StartujiciPanel__grid">
           <div className="StartujiciPanel__header">příjmení</div>

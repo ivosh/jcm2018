@@ -1,3 +1,6 @@
+.StartujiciPanel--isNotOver {
+  margin: 2px; /* account for beefed border in --isOver */
+}
 .StartujiciPanel--isOver {
   border-style: dashed;
   border-width: 3px;
