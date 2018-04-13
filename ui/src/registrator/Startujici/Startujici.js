@@ -19,6 +19,14 @@ const Startujici = ({ prihlaseni, odstartovani, movePrihlasen }) => (
       seznam={prihlaseni}
       onDrop={() => {}}
     />
+    <div className="Startujici__arrows">
+      <div className="Startujici__arrow--prihlaseni">
+        <Glyphicon glyph="arrow-right" />
+      </div>
+      <div className="Startujici__arrow--odstartovani">
+        <Glyphicon glyph="arrow-left" />
+      </div>
+    </div>
     <DroppableStartujiciPanel
       bsStyle="success"
       dragType={DragTypes.STARTUJICI_ODSTARTOVAN}

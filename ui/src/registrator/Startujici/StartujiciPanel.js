@@ -5,10 +5,14 @@ import { DragTypes } from '../../constants';
 import DraggableJedenStartujici from './DraggableJedenStartujici';
 import './StartujiciPanel.css';
 
-const StartujiciPanel = ({ bsStyle, connectDropTarget, dragType, popisek, seznam }) =>
+const StartujiciPanel = ({ bsStyle, connectDropTarget, dragType, isOver, popisek, seznam }) =>
   connectDropTarget(
     <div>
-      <Panel bsStyle={bsStyle} header={popisek}>
+      <Panel
+        bsStyle={bsStyle}
+        header={popisek}
+        className={isOver ? 'StartujiciPanel--isOver' : undefined}
+      >
         <div className="StartujiciPanel__grid">
           <div className="StartujiciPanel__header">příjmení</div>
           <div className="StartujiciPanel__leftHeader">jméno</div>

@@ -1,3 +1,8 @@
+.StartujiciPanel--isOver {
+  border-style: dashed;
+  border-width: 3px;
+}
+
 .StartujiciPanel__grid {
   align-items: stretch;
   display: grid;

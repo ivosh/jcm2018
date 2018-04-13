@@ -140,6 +140,24 @@ exports[`dva odstartovaní 1`] = `
       </div>
     </div>
   </div>
+  <div
+    className="Startujici__arrows"
+  >
+    <div
+      className="Startujici__arrow--prihlaseni"
+    >
+      <span
+        className="glyphicon glyphicon-arrow-right"
+      />
+    </div>
+    <div
+      className="Startujici__arrow--odstartovani"
+    >
+      <span
+        className="glyphicon glyphicon-arrow-left"
+      />
+    </div>
+  </div>
   <div>
     <div
       className="panel panel-success"
@@ -419,6 +437,24 @@ exports[`žádný odstartovaný 1`] = `
       </div>
     </div>
   </div>
+  <div
+    className="Startujici__arrows"
+  >
+    <div
+      className="Startujici__arrow--prihlaseni"
+    >
+      <span
+        className="glyphicon glyphicon-arrow-right"
+      />
+    </div>
+    <div
+      className="Startujici__arrow--odstartovani"
+    >
+      <span
+        className="glyphicon glyphicon-arrow-left"
+      />
+    </div>
+  </div>
   <div>
     <div
       className="panel panel-success"
@@ -520,6 +556,24 @@ exports[`žádný přihlášený 1`] = `
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div
+    className="Startujici__arrows"
+  >
+    <div
+      className="Startujici__arrow--prihlaseni"
+    >
+      <span
+        className="glyphicon glyphicon-arrow-right"
+      />
+    </div>
+    <div
+      className="Startujici__arrow--odstartovani"
+    >
+      <span
+        className="glyphicon glyphicon-arrow-left"
+      />
     </div>
   </div>
   <div>
