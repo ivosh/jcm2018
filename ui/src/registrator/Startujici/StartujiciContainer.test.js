@@ -27,3 +27,9 @@ it('maps movePrihlasen to dispatch createVykon', () => {
 
   expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
 });
+
+it('maps moveOdstartovan to dispatch deleteVykon', () => {
+  wrapper.props().moveOdstartovan({ id: '8344bc71dec1e99b7e1d01e' });
+
+  expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
+});

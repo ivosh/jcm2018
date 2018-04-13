@@ -1,4 +1,4 @@
-import { CODE_OK, saveVykon } from '../../common';
+import { CODE_OK, deleteVykon as deleteVykonAPI, saveVykon } from '../../common';
 import { AKTUALNI_ROK } from '../../constants';
 
 export const createVykonRequest = ({ id, rok }) => ({
@@ -42,5 +42,45 @@ export const createVykon = ({ id }) => async (dispatch, getState, wsClient) => {
     }
   } catch (err) {
     dispatch(createVykonError({ code: 'internal error', err }));
+  }
+};
+
+export const deleteVykonRequest = ({ id, rok }) => ({
+  type: 'STARTUJICI_DELETE_VYKON_REQUEST',
+  id,
+  rok,
+  receivedAt: Date.now()
+});
+
+export const deleteVykonError = ({ code, status, err, ...rest }) => ({
+  type: 'STARTUJICI_DELETE_VYKON_ERROR',
+  code,
+  status,
+  err,
+  ...rest,
+  receivedAt: Date.now()
+});
+
+export const deleteVykonSuccess = ({ id, rok }) => ({
+  type: 'STARTUJICI_DELETE_VYKON_SUCCESS',
+  id,
+  rok,
+  receivedAt: Date.now()
+});
+
+export const deleteVykon = ({ id }) => async (dispatch, getState, wsClient) => {
+  const rok = AKTUALNI_ROK;
+  dispatch(deleteVykonRequest({ id, rok }));
+
+  const state = getState();
+  try {
+    const response = await wsClient.sendRequest(deleteVykonAPI({ id, rok }, state.auth.token));
+    if (response.code === CODE_OK) {
+      dispatch(deleteVykonSuccess({ id, rok }));
+    } else {
+      dispatch(deleteVykonError(response));
+    }
+  } catch (err) {
+    dispatch(deleteVykonError({ code: 'internal error', err }));
   }
 };

@@ -15,6 +15,7 @@ const PORT = 4000;
 const PLATBA_TYPY = ['hotově', 'převodem', 'složenkou'];
 
 const BROADCAST_UCASTNIK = 'broadcastUcastnik';
+const DELETE_VYKON = 'deleteVykon';
 const FIND_ALL_ROCNIKY = 'findAllRocniky';
 const FIND_ALL_UCASTNICI = 'findAllUcastnici';
 const SAVE_PLATBY = 'savePlatby';
@@ -39,6 +40,12 @@ const CODE_TOKEN_INVALID = 'authentication token invalid';
 const CODE_UNFULFILLED_REQUEST = 'unfulfilled request';
 const CODE_UNPARSEABLE_MESSAGE = 'unparseable message';
 const CODE_UNRECOGNIZED_ACTION = 'unrecognized action';
+
+const deleteVykon = ({ id, rok }, token) => ({
+  action: DELETE_VYKON,
+  request: { id, rok },
+  token
+});
 
 const findAllRocniky = token => ({
   action: FIND_ALL_ROCNIKY,
@@ -222,6 +229,7 @@ const exported = {
   PORT,
   PLATBA_TYPY,
   BROADCAST_UCASTNIK,
+  DELETE_VYKON,
   FIND_ALL_ROCNIKY,
   FIND_ALL_UCASTNICI,
   SAVE_PLATBY,
@@ -245,6 +253,7 @@ const exported = {
   CODE_UNFULFILLED_REQUEST,
   CODE_UNPARSEABLE_MESSAGE,
   CODE_UNRECOGNIZED_ACTION,
+  deleteVykon,
   findAllRocniky,
   findAllUcastnici,
   findKategorie,
@@ -266,6 +275,7 @@ export {
   PORT,
   PLATBA_TYPY,
   BROADCAST_UCASTNIK,
+  DELETE_VYKON,
   FIND_ALL_ROCNIKY,
   FIND_ALL_UCASTNICI,
   SAVE_PLATBY,
@@ -289,6 +299,7 @@ export {
   CODE_UNFULFILLED_REQUEST,
   CODE_UNPARSEABLE_MESSAGE,
   CODE_UNRECOGNIZED_ACTION,
+  deleteVykon,
   findAllRocniky,
   findAllUcastnici,
   findKategorie,

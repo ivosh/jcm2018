@@ -20,7 +20,12 @@ const updateUcast = (state, id, rok, name, obj) => {
     ucastnik = { ...ucastnik, roky: addRokAndSort(ucastnik.roky, rok) };
   }
 
-  ucast = { ...ucast, [name]: obj };
+  if (obj === undefined) {
+    const { [name]: remove, ...rest } = ucast;
+    ucast = { ...rest };
+  } else {
+    ucast = { ...ucast, [name]: obj };
+  }
   ucastnik = { ...ucastnik, [rok]: ucast };
   byIds = { ...byIds, [id]: ucastnik };
   return { ...state, allIds, byIds };
@@ -47,6 +52,10 @@ const ucastniciReducer = (state = initialState, action) => {
     case 'STARTUJICI_CREATE_VYKON_SUCCESS': {
       const { id, rok, vykon } = action;
       return updateUcast(state, id, rok, 'vykon', vykon);
+    }
+    case 'STARTUJICI_DELETE_VYKON_SUCCESS': {
+      const { id, rok } = action;
+      return updateUcast(state, id, rok, 'vykon', undefined);
     }
     case 'UBYTOVANI_SAVE_SUCCESS': {
       const { id, rok, ubytovani } = action;
