@@ -166,6 +166,25 @@ it('getPrihlaseniSorted() by default', () => {
       predepsano: 200
     },
     {
+      id: '8344bc71dec1e99b7e1d01e',
+      prijmeni: 'Kyselová',
+      jmeno: 'Slavěna',
+      narozeni: { den: 13, mesic: 8, rok: 2001 },
+      obec: 'Aš',
+      email: 'sks@por.cz',
+      datum: new Date('2018-06-09T00:00:00.000Z'),
+      kategorie: {
+        id: '5a587e1b051c181132cf83d9',
+        typ: 'půlmaraton',
+        pohlavi: 'žena',
+        vek: { min: 18, max: 39 }
+      },
+      startCislo: 15,
+      kod: '0234jsdj0jdaklsd',
+      zaplaceno: 0,
+      predepsano: 200
+    },
+    {
       id: '7a09b1fd371dec1e99b7e142',
       prijmeni: 'Zralá',
       jmeno: 'Hana',
@@ -260,6 +279,25 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       startCislo: 17,
       kod: '10728864',
       zaplaceno: 250,
+      predepsano: 200
+    },
+    {
+      id: '8344bc71dec1e99b7e1d01e',
+      prijmeni: 'Kyselová',
+      jmeno: 'Slavěna',
+      narozeni: { den: 13, mesic: 8, rok: 2001 },
+      obec: 'Aš',
+      email: 'sks@por.cz',
+      datum: new Date('2018-06-09T00:00:00.000Z'),
+      kategorie: {
+        id: '5a587e1b051c181132cf83d9',
+        typ: 'půlmaraton',
+        pohlavi: 'žena',
+        vek: { min: 18, max: 39 }
+      },
+      startCislo: 15,
+      kod: '0234jsdj0jdaklsd',
+      zaplaceno: 0,
       predepsano: 200
     },
     {

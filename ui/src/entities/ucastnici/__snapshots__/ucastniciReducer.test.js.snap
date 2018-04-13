@@ -6,6 +6,7 @@ Object {
     "6f09b1fd371dec1e99b7e1c9",
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
+    "8344bc71dec1e99b7e1d01e",
   ],
   "byIds": Object {
     "5a09b1fd371dec1e99b7e1c9": Object {
@@ -143,6 +144,31 @@ Object {
         2018,
       ],
     },
+    "8344bc71dec1e99b7e1d01e": Object {
+      "2018": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2018-06-09T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "0234jsdj0jdaklsd",
+          "startCislo": 15,
+        },
+        "udaje": Object {
+          "email": "sks@por.cz",
+          "jmeno": "Slavěna",
+          "narozeni": Object {
+            "den": 13,
+            "mesic": 8,
+            "rok": 2001,
+          },
+          "obec": "Aš",
+          "prijmeni": "Kyselová",
+        },
+      },
+      "roky": Array [
+        2018,
+      ],
+    },
   },
 }
 `;
@@ -234,6 +260,30 @@ Array [
       },
     },
   },
+  Object {
+    "id": "8344bc71dec1e99b7e1d01e",
+    "rok": 2018,
+    "ucast": Object {
+      "platby": Array [],
+      "prihlaska": Object {
+        "datum": "2018-06-09T00:00:00.000Z",
+        "kategorie": "5a587e1b051c181132cf83d9",
+        "kod": "0234jsdj0jdaklsd",
+        "startCislo": 15,
+      },
+      "udaje": Object {
+        "email": "sks@por.cz",
+        "jmeno": "Slavěna",
+        "narozeni": Object {
+          "den": 13,
+          "mesic": 8,
+          "rok": 2001,
+        },
+        "obec": "Aš",
+        "prijmeni": "Kyselová",
+      },
+    },
+  },
 ]
 `;
 
@@ -243,6 +293,7 @@ Object {
     "6f09b1fd371dec1e99b7e1c9",
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
+    "8344bc71dec1e99b7e1d01e",
   ],
   "byIds": Object {
     "5a09b1fd371dec1e99b7e1c9": Object {
@@ -385,6 +436,31 @@ Object {
         2018,
       ],
     },
+    "8344bc71dec1e99b7e1d01e": Object {
+      "2018": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2018-06-09T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "0234jsdj0jdaklsd",
+          "startCislo": 15,
+        },
+        "udaje": Object {
+          "email": "sks@por.cz",
+          "jmeno": "Slavěna",
+          "narozeni": Object {
+            "den": 13,
+            "mesic": 8,
+            "rok": 2001,
+          },
+          "obec": "Aš",
+          "prijmeni": "Kyselová",
+        },
+      },
+      "roky": Array [
+        2018,
+      ],
+    },
   },
 }
 `;
@@ -395,6 +471,7 @@ Object {
     "6f09b1fd371dec1e99b7e1c9",
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
+    "8344bc71dec1e99b7e1d01e",
     "7a09b1fd371dec1e99b79853",
   ],
   "byIds": Object {
@@ -578,6 +655,31 @@ Object {
         2018,
       ],
     },
+    "8344bc71dec1e99b7e1d01e": Object {
+      "2018": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2018-06-09T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "0234jsdj0jdaklsd",
+          "startCislo": 15,
+        },
+        "udaje": Object {
+          "email": "sks@por.cz",
+          "jmeno": "Slavěna",
+          "narozeni": Object {
+            "den": 13,
+            "mesic": 8,
+            "rok": 2001,
+          },
+          "obec": "Aš",
+          "prijmeni": "Kyselová",
+        },
+      },
+      "roky": Array [
+        2018,
+      ],
+    },
   },
 }
 `;
@@ -588,6 +690,7 @@ Object {
     "6f09b1fd371dec1e99b7e1c9",
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
+    "8344bc71dec1e99b7e1d01e",
   ],
   "byIds": Object {
     "5a09b1fd371dec1e99b7e1c9": Object {
@@ -765,6 +868,31 @@ Object {
         2018,
       ],
     },
+    "8344bc71dec1e99b7e1d01e": Object {
+      "2018": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2018-06-09T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "0234jsdj0jdaklsd",
+          "startCislo": 15,
+        },
+        "udaje": Object {
+          "email": "sks@por.cz",
+          "jmeno": "Slavěna",
+          "narozeni": Object {
+            "den": 13,
+            "mesic": 8,
+            "rok": 2001,
+          },
+          "obec": "Aš",
+          "prijmeni": "Kyselová",
+        },
+      },
+      "roky": Array [
+        2018,
+      ],
+    },
   },
 }
 `;
@@ -775,6 +903,7 @@ Object {
     "6f09b1fd371dec1e99b7e1c9",
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
+    "8344bc71dec1e99b7e1d01e",
   ],
   "byIds": Object {
     "5a09b1fd371dec1e99b7e1c9": Object {
@@ -900,6 +1029,31 @@ Object {
           "dokonceno": true,
           "kategorie": "5a587e1b051c181132cf83d9",
           "startCislo": 11,
+        },
+      },
+      "roky": Array [
+        2018,
+      ],
+    },
+    "8344bc71dec1e99b7e1d01e": Object {
+      "2018": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2018-06-09T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "0234jsdj0jdaklsd",
+          "startCislo": 15,
+        },
+        "udaje": Object {
+          "email": "sks@por.cz",
+          "jmeno": "Slavěna",
+          "narozeni": Object {
+            "den": 13,
+            "mesic": 8,
+            "rok": 2001,
+          },
+          "obec": "Aš",
+          "prijmeni": "Kyselová",
         },
       },
       "roky": Array [

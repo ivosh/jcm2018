@@ -159,6 +159,12 @@ it('getUcastniciDigestSorted() by default', () => {
       2018: { dokonceno: false, kategorie: 'půlmaraton' }
     },
     {
+      id: '8344bc71dec1e99b7e1d01e',
+      prijmeni: 'Kyselová',
+      jmeno: 'Slavěna',
+      narozeni: { den: 13, mesic: 8, rok: 2001 }
+    },
+    {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
@@ -207,6 +213,12 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
       jmeno: 'Martina',
       narozeni: { den: 7, mesic: 12, rok: 1963 },
       2016: { dokonceno: true, kategorie: 'maraton' }
+    },
+    {
+      id: '8344bc71dec1e99b7e1d01e',
+      prijmeni: 'Kyselová',
+      jmeno: 'Slavěna',
+      narozeni: { den: 13, mesic: 8, rok: 2001 }
     },
     {
       id: '5a09b1fd371dec1e99b7e1c9',
@@ -259,6 +271,12 @@ it('getUcastniciDigestSorted() podle jména vzestupně', () => {
       narozeni: { rok: 1956 },
       2017: { dokonceno: true, kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' }
+    },
+    {
+      id: '8344bc71dec1e99b7e1d01e',
+      prijmeni: 'Kyselová',
+      jmeno: 'Slavěna',
+      narozeni: { den: 13, mesic: 8, rok: 2001 }
     }
   ];
   deepFreeze(state);
@@ -282,6 +300,12 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
     }
   };
   const selected = [
+    {
+      id: '8344bc71dec1e99b7e1d01e',
+      prijmeni: 'Kyselová',
+      jmeno: 'Slavěna',
+      narozeni: { den: 13, mesic: 8, rok: 2001 }
+    },
     {
       id: '7a09b1fd371dec1e99b7e142',
       prijmeni: 'Zralá',

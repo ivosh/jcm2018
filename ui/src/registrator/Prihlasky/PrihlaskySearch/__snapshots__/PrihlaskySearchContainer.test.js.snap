@@ -12,6 +12,17 @@ Array [
     "prijmeni": "Balabák",
   },
   Object {
+    "id": "8344bc71dec1e99b7e1d01e",
+    "jmeno": "Slavěna",
+    "kod": "0234jsdj0jdaklsd",
+    "narozeni": Object {
+      "den": 13,
+      "mesic": 8,
+      "rok": 2001,
+    },
+    "prijmeni": "Kyselová",
+  },
+  Object {
     "id": "6f09b1fd371dec1e99b7e1c9",
     "jmeno": "Martina",
     "narozeni": Object {

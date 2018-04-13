@@ -19,6 +19,16 @@ Array [
     "prijmeni": "Balabák",
   },
   Object {
+    "id": "8344bc71dec1e99b7e1d01e",
+    "jmeno": "Slavěna",
+    "narozeni": Object {
+      "den": 13,
+      "mesic": 8,
+      "rok": 2001,
+    },
+    "prijmeni": "Kyselová",
+  },
+  Object {
     "2016": Object {
       "dokonceno": true,
       "kategorie": "maraton",

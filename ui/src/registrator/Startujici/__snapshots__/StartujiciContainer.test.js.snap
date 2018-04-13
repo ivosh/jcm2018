@@ -3,26 +3,8 @@
 exports[`maps state and dispatch to props 1`] = `
 Array [
   Object {
-    "id": "5a09b1fd371dec1e99b7e1c9",
-    "jmeno": "Roman",
-    "kategorie": Object {
-      "id": "5a587e1b051c181132cf83d7",
-      "pohlavi": "muž",
-      "typ": "půlmaraton",
-      "vek": Object {
-        "max": 150,
-        "min": 60,
-      },
-    },
-    "narozeni": Object {
-      "rok": 1956,
-    },
-    "prijmeni": "Balabák",
-    "startCislo": 17,
-  },
-  Object {
-    "id": "7a09b1fd371dec1e99b7e142",
-    "jmeno": "Hana",
+    "id": "8344bc71dec1e99b7e1d01e",
+    "jmeno": "Slavěna",
     "kategorie": Object {
       "id": "5a587e1b051c181132cf83d9",
       "pohlavi": "žena",
@@ -33,12 +15,12 @@ Array [
       },
     },
     "narozeni": Object {
-      "den": 25,
-      "mesic": 7,
-      "rok": 1999,
+      "den": 13,
+      "mesic": 8,
+      "rok": 2001,
     },
-    "prijmeni": "Zralá",
-    "startCislo": 10,
+    "prijmeni": "Kyselová",
+    "startCislo": 15,
   },
 ]
 `;

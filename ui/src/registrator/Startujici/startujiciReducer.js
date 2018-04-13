@@ -6,9 +6,12 @@ export const getPrihlaseni = ({ kategorie, ucastnici, rok = AKTUALNI_ROK }) => {
   const ucasti = getUcastiProRok({ rok, ucastnici });
   const mapped = ucasti.map(jeden => {
     const { id, ucast } = jeden;
-    const { udaje: { prijmeni, jmeno, narozeni }, prihlaska } = ucast;
-    const { kategorie: kategorieId, startCislo } = prihlaska;
+    const { udaje: { prijmeni, jmeno, narozeni }, prihlaska, vykon } = ucast;
+    if (vykon) {
+      return undefined;
+    }
 
+    const { kategorie: kategorieId, startCislo } = prihlaska;
     return {
       id,
       prijmeni,
@@ -18,8 +21,9 @@ export const getPrihlaseni = ({ kategorie, ucastnici, rok = AKTUALNI_ROK }) => {
       startCislo
     };
   });
+  const filtered = mapped.filter(jeden => jeden !== undefined);
 
-  return sortForColumn({ data: mapped, sortColumn: '', sortDir: undefined });
+  return sortForColumn({ data: filtered, sortColumn: '', sortDir: undefined });
 };
 
 export const getOdstartovani = ({ kategorie, ucastnici, rok = AKTUALNI_ROK }) => {

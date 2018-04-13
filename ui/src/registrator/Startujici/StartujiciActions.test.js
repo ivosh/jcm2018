@@ -26,19 +26,19 @@ const mockStore = configureStore(middlewares);
 it('createVykon() should dispatch two successful actions', async () => {
   const store = mockStore({ ...ucastniciTestData, auth: { token: '===token===' } });
 
-  await store.dispatch(createVykon({ id: '7a09b1fd371dec1e99b7e142' }));
+  await store.dispatch(createVykon({ id: '8344bc71dec1e99b7e1d01e' }));
 
   const actions = store.getActions();
   expect(actions[0]).toEqual(
     expect.objectContaining({
-      id: '7a09b1fd371dec1e99b7e142',
+      id: '8344bc71dec1e99b7e1d01e',
       rok: 2018,
       type: 'STARTUJICI_CREATE_VYKON_REQUEST'
     })
   );
   expect(actions[1]).toEqual(
     expect.objectContaining({
-      id: '7a09b1fd371dec1e99b7e142',
+      id: '8344bc71dec1e99b7e1d01e',
       rok: 2018,
       type: 'STARTUJICI_CREATE_VYKON_SUCCESS'
     })
@@ -50,11 +50,11 @@ it('createVykon() should dispatch two unsuccessful actions', async () => {
   mockWsClient.sendRequest = async () => unsuccessfulResponse;
   const store = mockStore({ ...ucastniciTestData, auth: { token: '===token===' } });
 
-  await store.dispatch(createVykon({ id: '7a09b1fd371dec1e99b7e142' }));
+  await store.dispatch(createVykon({ id: '8344bc71dec1e99b7e1d01e' }));
   const actions = store.getActions();
   expect(actions[0]).toEqual(
     expect.objectContaining({
-      id: '7a09b1fd371dec1e99b7e142',
+      id: '8344bc71dec1e99b7e1d01e',
       rok: 2018,
       type: 'STARTUJICI_CREATE_VYKON_REQUEST'
     })
@@ -101,6 +101,6 @@ it('createVykon() should use auth token if available', async () => {
   };
   const store = mockStore({ ...ucastniciTestData, auth: { token: '===token===' } });
 
-  await store.dispatch(createVykon({ id: '5a09b1fd371dec1e99b7e1c9' }));
+  await store.dispatch(createVykon({ id: '8344bc71dec1e99b7e1d01e' }));
   expect(tokenSent.tokenSent).toBe(true);
 });

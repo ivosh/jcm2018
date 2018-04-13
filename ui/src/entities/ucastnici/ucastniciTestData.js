@@ -2188,7 +2188,12 @@ const state = {
       }
     },
     ucastnici: {
-      allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9', '7a09b1fd371dec1e99b7e142'],
+      allIds: [
+        '6f09b1fd371dec1e99b7e1c9',
+        '5a09b1fd371dec1e99b7e1c9',
+        '7a09b1fd371dec1e99b7e142',
+        '8344bc71dec1e99b7e1d01e'
+      ],
       byIds: {
         '6f09b1fd371dec1e99b7e1c9': {
           roky: [2016],
@@ -2288,6 +2293,25 @@ const state = {
               cas: 'PT2H06M32.6S'
             },
             ubytovani: { pátek: { prihlaseno: true } }
+          }
+        },
+        '8344bc71dec1e99b7e1d01e': {
+          roky: [2018],
+          2018: {
+            udaje: {
+              prijmeni: 'Kyselová',
+              jmeno: 'Slavěna',
+              narozeni: { den: 13, mesic: 8, rok: 2001 },
+              obec: 'Aš',
+              email: 'sks@por.cz'
+            },
+            platby: [],
+            prihlaska: {
+              datum: '2018-06-09T00:00:00.000Z',
+              kategorie: '5a587e1b051c181132cf83d9', // půlmaraton
+              startCislo: 15,
+              kod: '0234jsdj0jdaklsd'
+            }
           }
         }
       }
