@@ -72,10 +72,6 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
             "name": "na-trase",
             "popisek": "na trase",
           },
-          Object {
-            "name": "neaktivni",
-            "popisek": "neaktivní",
-          },
         ]
       }
     />
@@ -210,6 +206,10 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
           Object {
             "name": "na-trase",
             "popisek": "na trase",
+          },
+          Object {
+            "name": "neaktivni",
+            "popisek": "neaktivní",
           },
         ]
       }

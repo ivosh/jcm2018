@@ -29,14 +29,14 @@ Renderer.propTypes = {
   dokonceno: PropTypes.bool
 };
 
-const legendaPrihlaseni = () =>
+const legendaOdstartovani = () =>
   dokoncenoArr.map(dokonceno => ({
     name: dokoncenoStr(dokonceno)[0],
     popisek: dokoncenoStr(dokonceno)[1]
   }));
 
-const legendaOdstartovani = () => {
-  const legenda = legendaPrihlaseni();
+const legendaPrihlaseni = () => {
+  const legenda = legendaOdstartovani();
   legenda.push({ name: 'neaktivni', popisek: 'neaktivní' });
   return legenda;
 };
