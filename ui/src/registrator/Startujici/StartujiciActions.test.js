@@ -40,7 +40,12 @@ it('createVykon() should dispatch two successful actions', async () => {
     expect.objectContaining({
       id: '8344bc71dec1e99b7e1d01e',
       rok: 2018,
-      type: 'STARTUJICI_CREATE_VYKON_SUCCESS'
+      type: 'STARTUJICI_CREATE_VYKON_SUCCESS',
+      vykon: {
+        dokonceno: null,
+        kategorie: '5a587e1b051c181132cf83d9',
+        startCislo: 15
+      }
     })
   );
 });

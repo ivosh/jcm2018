@@ -31,7 +31,7 @@ export const createVykon = ({ id }) => async (dispatch, getState, wsClient) => {
 
   const state = getState();
   const { kategorie, startCislo } = state.entities.ucastnici.byIds[id][rok].prihlaska;
-  const vykon = { kategorie, startCislo };
+  const vykon = { dokonceno: null, kategorie, startCislo };
 
   try {
     const response = await wsClient.sendRequest(saveVykon({ id, rok, vykon }, state.auth.token));
