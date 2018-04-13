@@ -62,21 +62,21 @@ const odstartovani = [
 
 it('žádný přihlášený', () => {
   const component = renderer.create(
-    <Startujici prihlaseni={[]} odstartovani={[]} dropPrihlasen={jest.fn()} />
+    <Startujici prihlaseni={[]} odstartovani={[]} movePrihlasen={jest.fn()} />
   );
   expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('žádný odstartovaný', () => {
   const component = renderer.create(
-    <Startujici prihlaseni={prihlaseni} odstartovani={[]} dropPrihlasen={jest.fn()} />
+    <Startujici prihlaseni={prihlaseni} odstartovani={[]} movePrihlasen={jest.fn()} />
   );
   expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('dva odstartovaní', () => {
   const component = renderer.create(
-    <Startujici prihlaseni={prihlaseni} odstartovani={odstartovani} dropPrihlasen={jest.fn()} />
+    <Startujici prihlaseni={prihlaseni} odstartovani={odstartovani} movePrihlasen={jest.fn()} />
   );
   expect(component.toJSON()).toMatchSnapshot();
 });

@@ -15,9 +15,15 @@ beforeEach(() => {
   wrapper = shallow(<StartujiciContainer store={store} />);
 });
 
-it('maps state and dispatch to props', () => {
+it('maps state to props', () => {
   expect(wrapper.props().prihlaseni).toBeTruthy();
   expect(wrapper.props().prihlaseni).toMatchSnapshot();
   expect(wrapper.props().odstartovani).toBeTruthy();
   expect(wrapper.props().odstartovani).toMatchSnapshot();
+});
+
+it('maps movePrihlasen to dispatch createVykon', () => {
+  wrapper.props().movePrihlasen({ id: '8344bc71dec1e99b7e1d01e' });
+
+  expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
 });

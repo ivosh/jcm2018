@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  dropPrihlasen: id => dispatch(createVykon({ id }))
+  movePrihlasen: id => dispatch(createVykon({ id }))
 });
 
 const StartujiciContainer = connect(mapStateToProps, mapDispatchToProps)(Startujici);

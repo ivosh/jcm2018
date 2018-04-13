@@ -5,7 +5,7 @@ import { DragTypes } from '../../constants';
 import DroppableStartujiciPanel from './DroppableStartujiciPanel';
 import './Startujici.css';
 
-const Startujici = ({ prihlaseni, odstartovani, dropPrihlasen }) => (
+const Startujici = ({ prihlaseni, odstartovani, movePrihlasen }) => (
   <div className="Startujici__div">
     <DroppableStartujiciPanel
       bsStyle="primary"
@@ -29,7 +29,7 @@ const Startujici = ({ prihlaseni, odstartovani, dropPrihlasen }) => (
         </React.Fragment>
       }
       seznam={odstartovani}
-      onDrop={dropPrihlasen}
+      onDrop={movePrihlasen}
     />
   </div>
 );
@@ -37,7 +37,7 @@ const Startujici = ({ prihlaseni, odstartovani, dropPrihlasen }) => (
 Startujici.propTypes = {
   prihlaseni: PropTypes.array.isRequired,
   odstartovani: PropTypes.array.isRequired,
-  dropPrihlasen: PropTypes.func.isRequired
+  movePrihlasen: PropTypes.func.isRequired
 };
 
 export default Startujici;
