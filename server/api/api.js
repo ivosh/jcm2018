@@ -5,6 +5,7 @@ const Actions = require('../../common/common');
 const config = require('../config');
 const db = require('../db');
 const logger = require('../logger');
+const deleteVykon = require('./Ucastnik/deleteVykon');
 const findAllRocniky = require('./Rocnik/findAllRocniky');
 const findAllUcastnici = require('./Ucastnik/findAllUcastnici');
 const savePlatby = require('./Ucastnik/savePlatby');
@@ -40,6 +41,7 @@ const processRequest = async ({ action = '', request, requestId, token, connecti
   }
 
   const actions = {
+    [Actions.DELETE_VYKON]: { authRequired: true, action: async req => deleteVykon(req) },
     [Actions.FIND_ALL_ROCNIKY]: { authRequired: true, action: async req => findAllRocniky(req) },
     [Actions.FIND_ALL_UCASTNICI]: {
       authRequired: true,
