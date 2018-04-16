@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { DragDropContext, DropTarget } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
+import { DropTarget } from 'react-dnd';
 import { DragTypes } from '../../constants';
 import StartujiciPanel from './StartujiciPanel';
 
@@ -38,5 +37,4 @@ DroppableStartujiciPanel.propTypes = {
   onDrop: PropTypes.func.isRequired
 };
 
-// :TODO: When decorators are supported by babel for ES7, do: @DragDropContext(HTML5Backend)
-export default DragDropContext(HTML5Backend)(DroppableStartujiciPanel);
+export default DroppableStartujiciPanel;

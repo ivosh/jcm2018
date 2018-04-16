@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Startujici from './Startujici';
+import StartujiciDnD from './StartujiciDnD';
 
 const prihlaseni = [
   {
@@ -62,7 +62,7 @@ const odstartovani = [
 
 it('žádný přihlášený', () => {
   const component = renderer.create(
-    <Startujici
+    <StartujiciDnD
       prihlaseni={[]}
       odstartovani={[]}
       movePrihlasen={jest.fn()}
@@ -74,7 +74,7 @@ it('žádný přihlášený', () => {
 
 it('žádný odstartovaný', () => {
   const component = renderer.create(
-    <Startujici
+    <StartujiciDnD
       prihlaseni={prihlaseni}
       odstartovani={[]}
       movePrihlasen={jest.fn()}
@@ -86,7 +86,7 @@ it('žádný odstartovaný', () => {
 
 it('dva odstartovaní', () => {
   const component = renderer.create(
-    <Startujici
+    <StartujiciDnD
       prihlaseni={prihlaseni}
       odstartovani={odstartovani}
       movePrihlasen={jest.fn()}
