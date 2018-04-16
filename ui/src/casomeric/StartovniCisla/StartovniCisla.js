@@ -5,8 +5,8 @@ import Legenda from '../../shared/StartovniCislaProTyp/Legenda';
 import StartovniCislaProTypContainer from '../../shared/StartovniCislaProTyp/StartovniCislaProTypContainer';
 import './StartovniCisla.css';
 
-export const Renderer = ({ startCislo, dokonceno }) => (
-  <div className={`StartovniCislaProTyp__item Legenda-item-${dokoncenoStr(dokonceno)[0]}`}>
+export const Renderer = ({ id, startCislo, dokonceno }) => (
+  <div className={`StartovniCislaProTyp__item Legenda-item-${dokoncenoStr(dokonceno)[0]}`} key={id}>
     {startCislo}
   </div>
 );
