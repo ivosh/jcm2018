@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { dokoncenoStr } from '../../Util';
+import { dokoncenoArr, dokoncenoStr } from '../../Util';
+import Legenda from '../../shared/StartovniCislaProTyp/Legenda';
 import StartovniCislaProTypContainer from '../../shared/StartovniCislaProTyp/StartovniCislaProTypContainer';
+import './StartovniCisla.css'
 
 export const Renderer = ({ startCislo, dokonceno }) => (
   <div className={`StartovniCislaProTyp__item Legenda-item-${dokoncenoStr(dokonceno)[0]}`}>
@@ -15,13 +17,24 @@ Renderer.propTypes = {
   dokonceno: PropTypes.bool
 };
 
+const legendaOdstartovani = () =>
+  dokoncenoArr.map(dokonceno => ({
+    name: dokoncenoStr(dokonceno)[0],
+    popisek: dokoncenoStr(dokonceno)[1]
+  }));
+
 const StartovniCisla = ({ typ }) => (
-  <StartovniCislaProTypContainer
-    jenStartujici={true}
-    odstartovani={true}
-    typ={typ}
-    renderer={Renderer}
-  />
+  <div className="StartovniCisla-casomeric__div">
+    <StartovniCislaProTypContainer
+      jenStartujici={true}
+      odstartovani={true}
+      typ={typ}
+      renderer={Renderer}
+    />
+    <div className="StartovniCisla-casomeric__legenda">
+      <Legenda legenda={legendaOdstartovani()} />
+    </div>
+  </div>
 );
 
 StartovniCisla.propTypes = {
