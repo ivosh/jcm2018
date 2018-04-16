@@ -5,16 +5,17 @@ import StartovniCisla from '../StartovniCisla/StartovniCisla';
 import StopkyContainer from '../Stopky/StopkyContainer';
 import MezicasyContainer from '../Mezicasy/MezicasyContainer';
 
-const Casomeric = ({ onAddMezicas }) => (
+const CasomericProTyp = ({ typ, onAddMezicas }) => (
   <Panel>
     <StopkyContainer onAddMezicas={onAddMezicas} />
-    <StartovniCisla typ="cyklo" />
+    <StartovniCisla typ={typ} />
     <MezicasyContainer />
   </Panel>
 );
 
-Casomeric.propTypes = {
+CasomericProTyp.propTypes = {
+  typ: PropTypes.string.isRequired,
   onAddMezicas: PropTypes.func.isRequired
 };
 
-export default Casomeric;
+export default CasomericProTyp;

@@ -6,7 +6,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import withAuth from '../auth/withAuth';
 import withoutAuth from '../auth/withoutAuth';
 import SignInContainer from '../auth/SignIn/SignInContainer';
-import CasomericContainer from '../casomeric/Casomeric/CasomericContainer';
+import Casomeric from '../casomeric/Casomeric';
 import withFetchUcastnici from '../entities/withFetchUcastnici/withFetchUcastnici';
 import UcastniciDigestContainer from '../registrator/UcastniciDigest/UcastniciDigestContainer';
 import Prihlasky from '../registrator/Prihlasky/Prihlasky';
@@ -88,9 +88,9 @@ const App = ({ authenticated, connected, username }) => (
     </Navbar>
     <main>
       <Switch>
-        <Route exact path="/" component={withAuth(withFetchUcastnici(CasomericContainer))} />
+        <Route exact path="/" component={withAuth(withFetchUcastnici(Casomeric))} />
         <Route path="/signin" component={withoutAuth(SignInContainer)} />
-        <Route path="/casomeric" component={withAuth(withFetchUcastnici(CasomericContainer))} />
+        <Route path="/casomeric" component={withAuth(withFetchUcastnici(Casomeric))} />
         <Route
           path="/ucastnici"
           component={withAuth(withFetchUcastnici(UcastniciDigestContainer))}

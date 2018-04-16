@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
-import CasomericContainer from './CasomericContainer';
+import CasomericProTypContainer from './CasomericProTypContainer';
 
 const mockStore = configureStore();
 
@@ -11,11 +11,12 @@ let wrapper;
 beforeEach(() => {
   store = mockStore();
   store.dispatch = jest.fn();
-  wrapper = shallow(<CasomericContainer store={store} />);
+  wrapper = shallow(<CasomericProTypContainer store={store} typ="maraton" />);
 });
 
 it('maps dispatch to props', () => {
-  expect(wrapper.props()).toEqual(expect.objectContaining({ onAddMezicas: expect.any(Function) }));
+  expect(wrapper.props().typ).toEqual('maraton');
+  expect(wrapper.props().onAddMezicas).toEqual(expect.any(Function));
 });
 
 it('maps onAddMezicas to dispatch addMezicas action', () => {

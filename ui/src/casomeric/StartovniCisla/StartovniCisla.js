@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { dokoncenoArr, dokoncenoStr } from '../../Util';
 import Legenda from '../../shared/StartovniCislaProTyp/Legenda';
 import StartovniCislaProTypContainer from '../../shared/StartovniCislaProTyp/StartovniCislaProTypContainer';
-import './StartovniCisla.css'
+import './StartovniCisla.css';
 
 export const Renderer = ({ startCislo, dokonceno }) => (
   <div className={`StartovniCislaProTyp__item Legenda-item-${dokoncenoStr(dokonceno)[0]}`}>
