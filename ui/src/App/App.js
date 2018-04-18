@@ -19,6 +19,32 @@ import About from './About';
 import './App.css';
 import logo from './logo.svg';
 
+const navs = {
+  casomeric: { key: 1, glyph: 'time', name: 'Časoměřič', path: '/casomeric' },
+  ucastnici: { key: 2, glyph: 'list', name: 'Účastníci', path: '/ucastnici' },
+  prihlasky: { key: 3, glyph: 'edit', name: 'Přihlášky', path: '/prihlasky' },
+  prihlaseni: { key: 4, glyph: 'list-alt', name: 'Přihlášeni', path: '/prihlaseni' },
+  startujici: { key: 5, glyph: 'road', name: 'Startující', path: '/startujici' },
+  'startovni-cisla': {
+    key: 6,
+    glyph: 'sound-5-1',
+    name: 'Startovní čísla',
+    path: '/startovni-cisla'
+  },
+  ubytovani: { key: 7, glyph: 'bed', name: 'Ubytovaní', path: '/ubytovani' }
+};
+
+const NavsAuthenticated = () =>
+  Object.values(navs)
+    .sort((a, b) => a.key - b.key)
+    .map(({ key, glyph, name, path }) => (
+      <LinkContainer key={key} to={path}>
+        <NavItem eventKey={key}>
+          <Glyphicon glyph={glyph} /> {name}
+        </NavItem>
+      </LinkContainer>
+    ));
+
 const App = ({ authenticated, connected, username }) => (
   <div className="App-div">
     <Navbar inverse>
@@ -27,41 +53,7 @@ const App = ({ authenticated, connected, username }) => (
       </Navbar.Header>
       {authenticated && (
         <Nav className="App-Nav">
-          <LinkContainer key="casomeric" to="/casomeric">
-            <NavItem eventKey={1}>
-              <Glyphicon glyph="time" /> Časoměřič
-            </NavItem>
-          </LinkContainer>
-          <LinkContainer key="ucastnici" to="/ucastnici">
-            <NavItem eventKey={2}>
-              <Glyphicon glyph="list" /> Účastníci
-            </NavItem>
-          </LinkContainer>
-          <LinkContainer key="prihlasky" to="/prihlasky">
-            <NavItem eventKey={3}>
-              <Glyphicon glyph="edit" /> Přihlášky
-            </NavItem>
-          </LinkContainer>
-          <LinkContainer key="prihlaseni" to="/prihlaseni">
-            <NavItem eventKey={4}>
-              <Glyphicon glyph="list-alt" /> Přihlášeni
-            </NavItem>
-          </LinkContainer>
-          <LinkContainer key="startujici" to="/startujici">
-            <NavItem eventKey={5}>
-              <Glyphicon glyph="road" /> Startující
-            </NavItem>
-          </LinkContainer>
-          <LinkContainer key="startovni-cisla" to="/startovni-cisla">
-            <NavItem eventKey={6}>
-              <Glyphicon glyph="sound-5-1" /> Startovní čísla
-            </NavItem>
-          </LinkContainer>
-          <LinkContainer key="ubytovani" to="/ubytovani">
-            <NavItem eventKey={7}>
-              <Glyphicon glyph="bed" /> Ubytovaní
-            </NavItem>
-          </LinkContainer>
+          <NavsAuthenticated />
         </Nav>
       )}
       <Nav className="App-Nav" pullRight>
@@ -86,6 +78,7 @@ const App = ({ authenticated, connected, username }) => (
         </LinkContainer>
       </Nav>
     </Navbar>
+
     <main>
       <Switch>
         <Route exact path="/" component={withAuth(withFetchUcastnici(Casomeric))} />
