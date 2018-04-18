@@ -14,6 +14,3 @@
 .CasomericProTyp__panel--koloběžka > .panel-heading {
   background-color: rgba(var(--koloběžka), 0.4);
 }
-.CasomericProTyp__panel--pěší > .panel-heading {
-  background-color: rgba(var(--pěší), 0.4);
-}

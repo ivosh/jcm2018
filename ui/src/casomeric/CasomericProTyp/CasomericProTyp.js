@@ -8,7 +8,10 @@ import MezicasyContainer from '../Mezicasy/MezicasyContainer';
 import './CasomericProTyp.css';
 
 const CasomericProTyp = ({ typ, onAddMezicas }) => (
-  <Panel className={`CasomericProTyp__panel CasomericProTyp__panel--${typ}`} header={<PopisekKategorie typ={typ} />}>
+  <Panel
+    className={`CasomericProTyp__panel CasomericProTyp__panel--${typ}`}
+    header={<PopisekKategorie typ={typ} />}
+  >
     <StopkyContainer onAddMezicas={onAddMezicas} />
     <StartovniCisla typ={typ} />
     <MezicasyContainer />
