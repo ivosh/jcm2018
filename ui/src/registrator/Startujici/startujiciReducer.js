@@ -1,8 +1,9 @@
 import { AKTUALNI_ROK } from '../../constants';
 import { sortForColumn } from '../../sort';
+import { getTypKategorie } from '../../entities/rocniky/rocnikyReducer';
 import { getUcastiProRok } from '../../entities/ucastnici/ucastniciReducer';
 
-export const getPrihlaseni = ({ kategorie, ucastnici, rok = AKTUALNI_ROK }) => {
+export const getPrihlaseni = ({ kategorie, rocniky, ucastnici, rok = AKTUALNI_ROK }) => {
   const ucasti = getUcastiProRok({ rok, ucastnici });
   const mapped = ucasti.map(jeden => {
     const { id, ucast } = jeden;
@@ -12,13 +13,17 @@ export const getPrihlaseni = ({ kategorie, ucastnici, rok = AKTUALNI_ROK }) => {
     }
 
     const { kategorie: kategorieId, startCislo } = prihlaska;
+    const taKategorie = kategorie[kategorieId];
+    const typKategorieRocniku = getTypKategorie({ rok, typ: taKategorie.typ, rocniky });
+
     return {
       id,
       prijmeni,
       jmeno,
       narozeni,
-      kategorie: kategorie[kategorieId],
-      startCislo
+      kategorie: taKategorie,
+      startCislo,
+      startCisloRequired: !!typKategorieRocniku.startCisla
     };
   });
   const filtered = mapped.filter(jeden => jeden !== undefined);

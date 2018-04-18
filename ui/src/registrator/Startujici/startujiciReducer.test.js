@@ -2,7 +2,7 @@ import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { getPrihlaseni, getOdstartovani } from './startujiciReducer';
 
-it('getPrihlaseni()', () => {
+it('getPrihlaseni() - default', () => {
   const state = { ...ucastniciTestData };
   const selected = [
     {
@@ -16,7 +16,32 @@ it('getPrihlaseni()', () => {
         pohlavi: 'žena',
         vek: { min: 18, max: 39 }
       },
-      startCislo: 15
+      startCislo: 15,
+      startCisloRequired: true
+    }
+  ];
+  deepFreeze(state);
+
+  expect(getPrihlaseni({ ...state.entities })).toEqual(selected);
+});
+
+it('getPrihlaseni() - chybí startovní číslo', () => {
+  const state = JSON.parse(JSON.stringify(ucastniciTestData)); // deep copy
+  delete state.entities.ucastnici.byIds['8344bc71dec1e99b7e1d01e'][2018].prihlaska.startCislo;
+
+  const selected = [
+    {
+      id: '8344bc71dec1e99b7e1d01e',
+      prijmeni: 'Kyselová',
+      jmeno: 'Slavěna',
+      narozeni: { den: 13, mesic: 8, rok: 2001 },
+      kategorie: {
+        id: '5a587e1b051c181132cf83d9',
+        typ: 'půlmaraton',
+        pohlavi: 'žena',
+        vek: { min: 18, max: 39 }
+      },
+      startCisloRequired: true
     }
   ];
   deepFreeze(state);

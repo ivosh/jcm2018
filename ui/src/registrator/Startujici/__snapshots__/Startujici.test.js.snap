@@ -49,7 +49,7 @@ exports[`dva odstartovaní 1`] = `
             číslo
           </div>
           <div
-            className="StartujiciPanel__cell JedenStartujici__prijmeni"
+            className="StartujiciPanel__cell JedenStartujici__prijmeni JedenStartujici__prijmeni--draggable"
             id="5a09b1fd371dec1e99b7e1c9"
           >
             <span
@@ -93,7 +93,7 @@ exports[`dva odstartovaní 1`] = `
             17
           </div>
           <div
-            className="StartujiciPanel__cell JedenStartujici__prijmeni"
+            className="StartujiciPanel__cell JedenStartujici__prijmeni JedenStartujici__prijmeni--draggable"
             id="7a09b1fd371dec1e99b7e142"
           >
             <span
@@ -203,7 +203,7 @@ exports[`dva odstartovaní 1`] = `
             číslo
           </div>
           <div
-            className="StartujiciPanel__cell JedenStartujici__prijmeni"
+            className="StartujiciPanel__cell JedenStartujici__prijmeni JedenStartujici__prijmeni--draggable"
             id="5a09b1fd371dec1e99b7e1c9"
           >
             <span
@@ -247,7 +247,7 @@ exports[`dva odstartovaní 1`] = `
             15
           </div>
           <div
-            className="StartujiciPanel__cell JedenStartujici__prijmeni"
+            className="StartujiciPanel__cell JedenStartujici__prijmeni JedenStartujici__prijmeni--draggable"
             id="7a09b1fd371dec1e99b7e142"
           >
             <span
@@ -346,7 +346,7 @@ exports[`žádný odstartovaný 1`] = `
             číslo
           </div>
           <div
-            className="StartujiciPanel__cell JedenStartujici__prijmeni"
+            className="StartujiciPanel__cell JedenStartujici__prijmeni JedenStartujici__prijmeni--draggable"
             id="5a09b1fd371dec1e99b7e1c9"
           >
             <span
@@ -390,7 +390,7 @@ exports[`žádný odstartovaný 1`] = `
             17
           </div>
           <div
-            className="StartujiciPanel__cell JedenStartujici__prijmeni"
+            className="StartujiciPanel__cell JedenStartujici__prijmeni JedenStartujici__prijmeni--draggable"
             id="7a09b1fd371dec1e99b7e142"
           >
             <span

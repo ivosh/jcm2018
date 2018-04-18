@@ -45,7 +45,8 @@ StartujiciPanel.propTypes = {
       kategorie: PropTypes.shape({
         typ: PropTypes.string.isRequired
       }).isRequired,
-      startCislo: PropTypes.number
+      startCislo: PropTypes.number,
+      startCisloRequired: PropTypes.bool
     })
   ).isRequired
 };

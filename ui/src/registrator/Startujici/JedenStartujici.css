@@ -1,6 +1,8 @@
 .JedenStartujici__prijmeni {
-  cursor: move;
   padding-left: 0px !important;
+}
+.JedenStartujici__prijmeni--draggable {
+  cursor: move;
 }
 
 .JedenStartujici__narozeni {
@@ -48,7 +50,16 @@
   text-shadow: 1px 0 1px black;
   width: 10px;
 }
-
 .JedenStartujici__grip::after {
   content: '.. .. .. ..';
+}
+
+.JedenStartujici__cross {
+  color: #ff0000;
+  margin-right: 1em;
+  padding: 3px 4px;
+  width: 10px;
+}
+.JedenStartujici__cross::after {
+  content: '❌';
 }

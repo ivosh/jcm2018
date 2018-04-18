@@ -21,6 +21,7 @@ Array [
     },
     "prijmeni": "Kyselová",
     "startCislo": 15,
+    "startCisloRequired": true,
   },
 ]
 `;
