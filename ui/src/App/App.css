@@ -21,6 +21,12 @@ main {
   font-weight: bold;
 }
 
+/* Override react-boostrap styling for NavDropdown menu items. */
+.dropdown-menu > li > a {
+  padding-bottom: 6px;
+  padding-top: 6px;
+}
+
 .App-Nav {
   font-size: 110%;
 }

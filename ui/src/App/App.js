@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import { Glyphicon, Nav, Navbar, NavItem } from 'react-bootstrap';
+import { Glyphicon, MenuItem, Nav, Navbar, NavDropdown, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import withAuth from '../auth/withAuth';
 import withoutAuth from '../auth/withoutAuth';
@@ -20,30 +20,89 @@ import './App.css';
 import logo from './logo.svg';
 
 const navs = {
-  casomeric: { key: 1, glyph: 'time', name: 'Časoměřič', path: '/casomeric' },
-  ucastnici: { key: 2, glyph: 'list', name: 'Účastníci', path: '/ucastnici' },
-  prihlasky: { key: 3, glyph: 'edit', name: 'Přihlášky', path: '/prihlasky' },
-  prihlaseni: { key: 4, glyph: 'list-alt', name: 'Přihlášeni', path: '/prihlaseni' },
-  startujici: { key: 5, glyph: 'road', name: 'Startující', path: '/startujici' },
+  ucastnici: {
+    key: '1.1',
+    glyph: 'list',
+    menu: 'před startem',
+    name: 'Účastníci',
+    path: '/ucastnici'
+  },
+  prihlasky: {
+    key: '1.2',
+    glyph: 'edit',
+    menu: 'před startem',
+    name: 'Přihlášky',
+    path: '/prihlasky'
+  },
+  prihlaseni: {
+    key: '1.3',
+    glyph: 'list-alt',
+    menu: 'před startem',
+    name: 'Přihlášeni',
+    path: '/prihlaseni'
+  },
+  ubytovani: {
+    key: '1.4',
+    glyph: 'bed',
+    menu: 'před startem',
+    name: 'Ubytovaní',
+    path: '/ubytovani'
+  },
+  startujici: {
+    key: '2.1',
+    glyph: 'road',
+    menu: 'na startu',
+    name: 'Startující',
+    path: '/startujici'
+  },
   'startovni-cisla': {
-    key: 6,
+    key: '3.1',
     glyph: 'sound-5-1',
+    menu: 'po startu',
     name: 'Startovní čísla',
     path: '/startovni-cisla'
   },
-  ubytovani: { key: 7, glyph: 'bed', name: 'Ubytovaní', path: '/ubytovani' }
+  casomeric: { key: '3.2', glyph: 'time', menu: 'po startu', name: 'Časoměřič', path: '/casomeric' }
 };
 
+const NavsForMenu = ({ menu, menuGlyph, menuKey }) => (
+  <NavDropdown
+    eventKey={menuKey}
+    id={`app-dropdown-${menu}`}
+    title={
+      <span>
+        <Glyphicon glyph={menuGlyph} /> {menu}
+      </span>
+    }
+  >
+    {Object.values(navs)
+      .filter(nav => nav.menu === menu)
+      .sort((a, b) => a.key.localeCompare(b.key))
+      .map(({ key, glyph, name, path }) => (
+        <LinkContainer key={key} to={path}>
+          <MenuItem eventKey={key}>
+            <Glyphicon glyph={glyph} /> {name}
+          </MenuItem>
+        </LinkContainer>
+      ))}
+  </NavDropdown>
+);
+
+NavsForMenu.propTypes = {
+  menu: PropTypes.string.isRequired,
+  menuGlyph: PropTypes.string.isRequired,
+  menuKey: PropTypes.number.isRequired
+};
+
+const menus = [
+  { key: 1, glyph: 'edit', menu: 'před startem' },
+  { key: 2, glyph: 'road', menu: 'na startu' },
+  { key: 3, glyph: 'time', menu: 'po startu' }
+];
 const NavsAuthenticated = () =>
-  Object.values(navs)
-    .sort((a, b) => a.key - b.key)
-    .map(({ key, glyph, name, path }) => (
-      <LinkContainer key={key} to={path}>
-        <NavItem eventKey={key}>
-          <Glyphicon glyph={glyph} /> {name}
-        </NavItem>
-      </LinkContainer>
-    ));
+  menus.map(({ key, glyph, menu }) => (
+    <NavsForMenu key={menu} menu={menu} menuGlyph={glyph} menuKey={key} />
+  ));
 
 const App = ({ authenticated, connected, username }) => (
   <div className="App-div">
