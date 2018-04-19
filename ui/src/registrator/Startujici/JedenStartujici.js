@@ -43,8 +43,6 @@ const JedenStartujici = ({
       draggable={!!startCislo || !startCisloRequired}
       id={id}
       prijmeni={prijmeni}
-      startCislo={startCislo}
-      startCisloRequired={startCisloRequired}
       connectDragSource={connectDragSource}
     />
     <div className="StartujiciPanel__leftCell JedenStartujici__jmeno">{jmeno}</div>
