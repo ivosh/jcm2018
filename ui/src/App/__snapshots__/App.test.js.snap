@@ -2,7 +2,7 @@
 
 exports[`with websocket connected, authenticated 1`] = `
 <div
-  className="App-div"
+  className="App__div"
 >
   <Uncontrolled(Navbar)
     bsStyle="default"
@@ -11,23 +11,26 @@ exports[`with websocket connected, authenticated 1`] = `
     <NavbarHeader>
       <img
         alt="logo"
-        className="App-logo-animated"
+        className="App__logo--animated"
         src="logo.svg"
       />
     </NavbarHeader>
     <Nav
       bsClass="nav"
-      className="App-Nav"
+      className="App__Nav"
       justified={false}
       pullLeft={false}
       pullRight={false}
       stacked={false}
     >
       <NavsAuthenticated />
+      <CurrentItem
+        currentRoute="/"
+      />
     </Nav>
     <Nav
       bsClass="nav"
-      className="App-Nav"
+      className="App__Nav"
       justified={false}
       pullLeft={false}
       pullRight={true}
@@ -44,7 +47,7 @@ exports[`with websocket connected, authenticated 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={9}
+          eventKey={6}
         >
           <Glyphicon
             bsClass="glyphicon"
@@ -63,7 +66,7 @@ exports[`with websocket connected, authenticated 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={10}
+          eventKey={7}
         >
           <Glyphicon
             bsClass="glyphicon"
@@ -132,7 +135,7 @@ exports[`with websocket connected, authenticated 1`] = `
 
 exports[`with websocket connected, not authenticated 1`] = `
 <div
-  className="App-div"
+  className="App__div"
 >
   <Uncontrolled(Navbar)
     bsStyle="default"
@@ -141,13 +144,13 @@ exports[`with websocket connected, not authenticated 1`] = `
     <NavbarHeader>
       <img
         alt="logo"
-        className="App-logo-animated"
+        className="App__logo--animated"
         src="logo.svg"
       />
     </NavbarHeader>
     <Nav
       bsClass="nav"
-      className="App-Nav"
+      className="App__Nav"
       justified={false}
       pullLeft={false}
       pullRight={true}
@@ -163,7 +166,7 @@ exports[`with websocket connected, not authenticated 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={8}
+          eventKey={5}
         >
           <Glyphicon
             bsClass="glyphicon"
@@ -182,7 +185,7 @@ exports[`with websocket connected, not authenticated 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={10}
+          eventKey={7}
         >
           <Glyphicon
             bsClass="glyphicon"
@@ -251,7 +254,7 @@ exports[`with websocket connected, not authenticated 1`] = `
 
 exports[`with websocket disconnected, authenticated 1`] = `
 <div
-  className="App-div"
+  className="App__div"
 >
   <Uncontrolled(Navbar)
     bsStyle="default"
@@ -260,23 +263,26 @@ exports[`with websocket disconnected, authenticated 1`] = `
     <NavbarHeader>
       <img
         alt="logo"
-        className="App-logo"
+        className="App__logo"
         src="logo.svg"
       />
     </NavbarHeader>
     <Nav
       bsClass="nav"
-      className="App-Nav"
+      className="App__Nav"
       justified={false}
       pullLeft={false}
       pullRight={false}
       stacked={false}
     >
       <NavsAuthenticated />
+      <CurrentItem
+        currentRoute="/"
+      />
     </Nav>
     <Nav
       bsClass="nav"
-      className="App-Nav"
+      className="App__Nav"
       justified={false}
       pullLeft={false}
       pullRight={true}
@@ -293,7 +299,7 @@ exports[`with websocket disconnected, authenticated 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={9}
+          eventKey={6}
         >
           <Glyphicon
             bsClass="glyphicon"
@@ -312,7 +318,7 @@ exports[`with websocket disconnected, authenticated 1`] = `
         <NavItem
           active={false}
           disabled={false}
-          eventKey={10}
+          eventKey={7}
         >
           <Glyphicon
             bsClass="glyphicon"

@@ -21,48 +21,80 @@ import logo from './logo.svg';
 
 const navs = {
   ucastnici: {
-    key: '1.1',
+    key: '2.1',
     glyph: 'list',
     menu: 'před startem',
     name: 'Účastníci',
     path: '/ucastnici'
   },
   prihlasky: {
-    key: '1.2',
+    key: '2.2',
     glyph: 'edit',
     menu: 'před startem',
     name: 'Přihlášky',
     path: '/prihlasky'
   },
   prihlaseni: {
-    key: '1.3',
+    key: '2.3',
     glyph: 'list-alt',
     menu: 'před startem',
     name: 'Přihlášeni',
     path: '/prihlaseni'
   },
   ubytovani: {
-    key: '1.4',
+    key: '2.4',
     glyph: 'bed',
     menu: 'před startem',
     name: 'Ubytovaní',
     path: '/ubytovani'
   },
   startujici: {
-    key: '2.1',
+    key: '3.1',
     glyph: 'road',
     menu: 'na startu',
     name: 'Startující',
     path: '/startujici'
   },
   'startovni-cisla': {
-    key: '3.1',
+    key: '4.1',
     glyph: 'sound-5-1',
     menu: 'po startu',
     name: 'Startovní čísla',
     path: '/startovni-cisla'
   },
-  casomeric: { key: '3.2', glyph: 'time', menu: 'po startu', name: 'Časoměřič', path: '/casomeric' }
+  casomeric: {
+    key: '4.2',
+    glyph: 'time',
+    menu: 'po startu',
+    name: 'Časoměřič',
+    path: '/casomeric'
+  },
+  main: {
+    key: '1',
+    glyph: '',
+    menu: 'main',
+    name: 'main',
+    path: '/'
+  }
+};
+
+const Item = ({ glyph, name }) => (
+  <React.Fragment>
+    <Glyphicon glyph={glyph} /> {name}
+  </React.Fragment>
+);
+Item.propTypes = {
+  glyph: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
+};
+
+const CurrentItem = ({ currentRoute }) => (
+  <li className="App__current-item">
+    <Item {...Object.values(navs).find(nav => currentRoute.startsWith(nav.path))} />
+  </li>
+);
+CurrentItem.propTypes = {
+  currentRoute: PropTypes.string.isRequired
 };
 
 const NavsForMenu = ({ menu, menuGlyph, menuKey }) => (
@@ -81,13 +113,12 @@ const NavsForMenu = ({ menu, menuGlyph, menuKey }) => (
       .map(({ key, glyph, name, path }) => (
         <LinkContainer key={key} to={path}>
           <MenuItem eventKey={key}>
-            <Glyphicon glyph={glyph} /> {name}
+            <Item glyph={glyph} name={name} />
           </MenuItem>
         </LinkContainer>
       ))}
   </NavDropdown>
 );
-
 NavsForMenu.propTypes = {
   menu: PropTypes.string.isRequired,
   menuGlyph: PropTypes.string.isRequired,
@@ -104,34 +135,35 @@ const NavsAuthenticated = () =>
     <NavsForMenu key={menu} menu={menu} menuGlyph={glyph} menuKey={key} />
   ));
 
-const App = ({ authenticated, connected, username }) => (
-  <div className="App-div">
+const App = ({ authenticated, connected, location, username }) => (
+  <div className="App__div">
     <Navbar inverse>
       <Navbar.Header>
-        <img src={logo} className={connected ? 'App-logo-animated' : 'App-logo'} alt="logo" />
+        <img src={logo} className={connected ? 'App__logo--animated' : 'App__logo'} alt="logo" />
       </Navbar.Header>
       {authenticated && (
-        <Nav className="App-Nav">
+        <Nav className="App__Nav">
           <NavsAuthenticated />
+          <CurrentItem currentRoute={location.pathname} />
         </Nav>
       )}
-      <Nav className="App-Nav" pullRight>
+      <Nav className="App__Nav" pullRight>
         {!authenticated && (
           <LinkContainer to="/signin">
-            <NavItem eventKey={8}>
+            <NavItem eventKey={5}>
               <Glyphicon glyph="log-in" /> Přihlášení
             </NavItem>
           </LinkContainer>
         )}
         {authenticated && (
           <LinkContainer key="signout" to="/signout">
-            <NavItem eventKey={9}>
+            <NavItem eventKey={6}>
               <Glyphicon glyph="log-out" /> Odhlášení
             </NavItem>
           </LinkContainer>
         )}
         <LinkContainer to="/about">
-          <NavItem eventKey={10}>
+          <NavItem eventKey={7}>
             <Glyphicon glyph="question-sign" /> O aplikaci
           </NavItem>
         </LinkContainer>
@@ -166,7 +198,13 @@ const App = ({ authenticated, connected, username }) => (
 App.propTypes = {
   authenticated: PropTypes.bool.isRequired,
   connected: PropTypes.bool.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired
+  }),
   username: PropTypes.string
+};
+App.defaultProps = {
+  location: { pathname: '/' }
 };
 
 export default App;

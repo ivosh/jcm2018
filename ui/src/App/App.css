@@ -1,7 +1,17 @@
-.App-div {
+.App__div {
   height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.App__current-item {
+  border: 1px solid;
+  border-color: #e1e1e1;
+  border-radius: 10px;
+  color: #ffffff;
+  margin-left: 1em;
+  margin-top: 8px;
+  padding: 7px;
 }
 
 main {
@@ -27,20 +37,20 @@ main {
   padding-top: 6px;
 }
 
-.App-Nav {
+.App__Nav {
   font-size: 110%;
 }
 
-.App-logo,
-.App-logo-animated {
+.App__logo,
+.App__logo--animated {
   height: 50px;
 }
 
-.App-logo-animated {
-  animation: App-logo-spin infinite 20s linear;
+.App__logo--animated {
+  animation: App__logo--spin infinite 20s linear;
 }
 
-@keyframes App-logo-spin {
+@keyframes App__logo--spin {
   from {
     transform: rotate(0deg);
   }
