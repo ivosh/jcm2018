@@ -16,67 +16,9 @@ import StartujiciContainer from '../registrator/Startujici/StartujiciContainer';
 import UbytovaniContainer from '../registrator/Ubytovani/UbytovaniContainer';
 import SignOutContainer from '../auth/SignOut/SignOutContainer';
 import About from './About';
+import { navsForMenu, navForRoute, navMenus } from './nav';
 import './App.css';
 import logo from './logo.svg';
-
-const navs = {
-  ucastnici: {
-    key: '2.1',
-    glyph: 'list',
-    menu: 'před startem',
-    name: 'Účastníci',
-    path: '/ucastnici'
-  },
-  prihlasky: {
-    key: '2.2',
-    glyph: 'edit',
-    menu: 'před startem',
-    name: 'Přihlášky',
-    path: '/prihlasky'
-  },
-  prihlaseni: {
-    key: '2.3',
-    glyph: 'list-alt',
-    menu: 'před startem',
-    name: 'Přihlášeni',
-    path: '/prihlaseni'
-  },
-  ubytovani: {
-    key: '2.4',
-    glyph: 'bed',
-    menu: 'před startem',
-    name: 'Ubytovaní',
-    path: '/ubytovani'
-  },
-  startujici: {
-    key: '3.1',
-    glyph: 'road',
-    menu: 'na startu',
-    name: 'Startující',
-    path: '/startujici'
-  },
-  'startovni-cisla': {
-    key: '4.1',
-    glyph: 'sound-5-1',
-    menu: 'po startu',
-    name: 'Startovní čísla',
-    path: '/startovni-cisla'
-  },
-  casomeric: {
-    key: '4.2',
-    glyph: 'time',
-    menu: 'po startu',
-    name: 'Časoměřič',
-    path: '/casomeric'
-  },
-  main: {
-    key: '1',
-    glyph: '',
-    menu: 'main',
-    name: 'main',
-    path: '/'
-  }
-};
 
 const Item = ({ glyph, name }) => (
   <React.Fragment>
@@ -88,13 +30,13 @@ Item.propTypes = {
   name: PropTypes.string.isRequired
 };
 
-const CurrentItem = ({ currentRoute }) => (
+const CurrentItem = ({ route }) => (
   <li className="App__current-item">
-    <Item {...Object.values(navs).find(nav => currentRoute.startsWith(nav.path))} />
+    <Item {...navForRoute({ route })} />
   </li>
 );
 CurrentItem.propTypes = {
-  currentRoute: PropTypes.string.isRequired
+  route: PropTypes.string.isRequired
 };
 
 const NavsForMenu = ({ menu, menuGlyph, menuKey }) => (
@@ -107,16 +49,13 @@ const NavsForMenu = ({ menu, menuGlyph, menuKey }) => (
       </span>
     }
   >
-    {Object.values(navs)
-      .filter(nav => nav.menu === menu)
-      .sort((a, b) => a.key.localeCompare(b.key))
-      .map(({ key, glyph, name, path }) => (
-        <LinkContainer key={key} to={path}>
-          <MenuItem eventKey={key}>
-            <Item glyph={glyph} name={name} />
-          </MenuItem>
-        </LinkContainer>
-      ))}
+    {navsForMenu({ menu }).map(({ key, glyph, name, path }) => (
+      <LinkContainer key={key} to={path}>
+        <MenuItem eventKey={key}>
+          <Item glyph={glyph} name={name} />
+        </MenuItem>
+      </LinkContainer>
+    ))}
   </NavDropdown>
 );
 NavsForMenu.propTypes = {
@@ -125,13 +64,8 @@ NavsForMenu.propTypes = {
   menuKey: PropTypes.number.isRequired
 };
 
-const menus = [
-  { key: 1, glyph: 'edit', menu: 'před startem' },
-  { key: 2, glyph: 'road', menu: 'na startu' },
-  { key: 3, glyph: 'time', menu: 'po startu' }
-];
 const NavsAuthenticated = () =>
-  menus.map(({ key, glyph, menu }) => (
+  navMenus.map(({ key, glyph, menu }) => (
     <NavsForMenu key={menu} menu={menu} menuGlyph={glyph} menuKey={key} />
   ));
 
@@ -144,7 +78,7 @@ const App = ({ authenticated, connected, location, username }) => (
       {authenticated && (
         <Nav className="App__Nav">
           <NavsAuthenticated />
-          <CurrentItem currentRoute={location.pathname} />
+          <CurrentItem route={location.pathname} />
         </Nav>
       )}
       <Nav className="App__Nav" pullRight>

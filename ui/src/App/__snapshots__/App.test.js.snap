@@ -25,7 +25,7 @@ exports[`with websocket connected, authenticated 1`] = `
     >
       <NavsAuthenticated />
       <CurrentItem
-        currentRoute="/"
+        route="/"
       />
     </Nav>
     <Nav
@@ -277,7 +277,7 @@ exports[`with websocket disconnected, authenticated 1`] = `
     >
       <NavsAuthenticated />
       <CurrentItem
-        currentRoute="/"
+        route="/"
       />
     </Nav>
     <Nav
