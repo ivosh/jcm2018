@@ -1,0 +1,28 @@
+.Main__div {
+  padding-left: 30px;
+}
+
+.Main__menus {
+  display: flex;
+}
+
+.Main__menu {
+  background-color: #efefef;
+  border-radius: 20px;
+  margin-right: 1em;
+  padding: 20px;
+  padding-right: 25px;
+}
+
+.Main__menu-header {
+  font-size: 110%;
+  font-weight: bold;
+}
+
+.Main__menu-item {
+  margin-top: 1ex;
+}
+
+.Main__menu-link {
+  color: black;
+}

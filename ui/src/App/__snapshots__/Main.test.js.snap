@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders 1`] = `
+<div
+  className="Main__div"
+>
+  <p>
+    Možnosti aplikace:
+  </p>
+  <div
+    className="Main__menus"
+  >
+    <div
+      className="Main__menu"
+    >
+      <span
+        className="Main__menu-header"
+      >
+        <span
+          className="glyphicon glyphicon-edit"
+        />
+         
+        před startem
+      </span>
+      <ul>
+        <li
+          className="Main__menu-item"
+        >
+          <a
+            className="Main__menu-link"
+            href="/ucastnici"
+            onClick={[Function]}
+          >
+            <span
+              className="glyphicon glyphicon-list"
+            />
+             
+            Účastníci
+          </a>
+        </li>
+        <li
+          className="Main__menu-item"
+        >
+          <a
+            className="Main__menu-link"
+            href="/prihlasky"
+            onClick={[Function]}
+          >
+            <span
+              className="glyphicon glyphicon-edit"
+            />
+             
+            Přihlášky
+          </a>
+        </li>
+        <li
+          className="Main__menu-item"
+        >
+          <a
+            className="Main__menu-link"
+            href="/prihlaseni"
+            onClick={[Function]}
+          >
+            <span
+              className="glyphicon glyphicon-list-alt"
+            />
+             
+            Přihlášeni
+          </a>
+        </li>
+        <li
+          className="Main__menu-item"
+        >
+          <a
+            className="Main__menu-link"
+            href="/ubytovani"
+            onClick={[Function]}
+          >
+            <span
+              className="glyphicon glyphicon-bed"
+            />
+             
+            Ubytovaní
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="Main__menu"
+    >
+      <span
+        className="Main__menu-header"
+      >
+        <span
+          className="glyphicon glyphicon-road"
+        />
+         
+        na startu
+      </span>
+      <ul>
+        <li
+          className="Main__menu-item"
+        >
+          <a
+            className="Main__menu-link"
+            href="/startujici"
+            onClick={[Function]}
+          >
+            <span
+              className="glyphicon glyphicon-road"
+            />
+             
+            Startující
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="Main__menu"
+    >
+      <span
+        className="Main__menu-header"
+      >
+        <span
+          className="glyphicon glyphicon-time"
+        />
+         
+        po startu
+      </span>
+      <ul>
+        <li
+          className="Main__menu-item"
+        >
+          <a
+            className="Main__menu-link"
+            href="/startovni-cisla"
+            onClick={[Function]}
+          >
+            <span
+              className="glyphicon glyphicon-sound-5-1"
+            />
+             
+            Startovní čísla
+          </a>
+        </li>
+        <li
+          className="Main__menu-item"
+        >
+          <a
+            className="Main__menu-link"
+            href="/casomeric"
+            onClick={[Function]}
+          >
+            <span
+              className="glyphicon glyphicon-time"
+            />
+             
+            Časoměřič
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

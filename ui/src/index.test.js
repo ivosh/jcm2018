@@ -40,7 +40,7 @@ const store = mockStore({
   startujici: []
 });
 
-test('navigates to /casomeric by default', () => {
+test('navigates to / by default', () => {
   const wrapper = mount(
     <Provider store={store}>
       <MemoryRouter>
@@ -49,7 +49,7 @@ test('navigates to /casomeric by default', () => {
     </Provider>
   );
 
-  expect(wrapper.find('Casomeric')).toHaveLength(1);
+  expect(wrapper.find('Main')).toHaveLength(1);
 });
 
 test('navigates correctly to /about', () => {

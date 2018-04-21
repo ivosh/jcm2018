@@ -50,9 +50,9 @@ const navs = {
   },
   main: {
     key: '1',
-    glyph: '',
+    glyph: 'home',
     menu: 'main',
-    name: 'main',
+    name: 'Domů',
     path: '/'
   }
 };
@@ -66,7 +66,7 @@ export const navForRoute = ({ route }) =>
   Object.values(navs).find(nav => route.startsWith(nav.path));
 
 export const navMenus = [
-  { key: 1, glyph: 'edit', menu: 'před startem' },
-  { key: 2, glyph: 'road', menu: 'na startu' },
-  { key: 3, glyph: 'time', menu: 'po startu' }
+  { key: 1, glyph: 'edit', name: 'před startem' },
+  { key: 2, glyph: 'road', name: 'na startu' },
+  { key: 3, glyph: 'time', name: 'po startu' }
 ];

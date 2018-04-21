@@ -16,6 +16,7 @@ import StartujiciContainer from '../registrator/Startujici/StartujiciContainer';
 import UbytovaniContainer from '../registrator/Ubytovani/UbytovaniContainer';
 import SignOutContainer from '../auth/SignOut/SignOutContainer';
 import About from './About';
+import Main from './Main';
 import { navsForMenu, navForRoute, navMenus } from './nav';
 import './App.css';
 import logo from './logo.svg';
@@ -45,7 +46,7 @@ const NavsForMenu = ({ menu, menuGlyph, menuKey }) => (
     id={`app-dropdown-${menu}`}
     title={
       <span>
-        <Glyphicon glyph={menuGlyph} /> {menu}
+        <Item glyph={menuGlyph} name={menu} />
       </span>
     }
   >
@@ -65,8 +66,8 @@ NavsForMenu.propTypes = {
 };
 
 const NavsAuthenticated = () =>
-  navMenus.map(({ key, glyph, menu }) => (
-    <NavsForMenu key={menu} menu={menu} menuGlyph={glyph} menuKey={key} />
+  navMenus.map(({ key, glyph, name }) => (
+    <NavsForMenu key={name} menu={name} menuGlyph={glyph} menuKey={key} />
   ));
 
 const App = ({ authenticated, connected, location, username }) => (
@@ -106,7 +107,7 @@ const App = ({ authenticated, connected, location, username }) => (
 
     <main>
       <Switch>
-        <Route exact path="/" component={withAuth(withFetchUcastnici(Casomeric))} />
+        <Route exact path="/" component={Main} />
         <Route path="/signin" component={withoutAuth(SignInContainer)} />
         <Route path="/casomeric" component={withAuth(withFetchUcastnici(Casomeric))} />
         <Route
