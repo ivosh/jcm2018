@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Link, Redirect, Route, Switch } from 'react-router-dom';
 import { Glyphicon, MenuItem, Nav, Navbar, NavDropdown, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import withAuth from '../auth/withAuth';
@@ -74,7 +74,9 @@ const App = ({ authenticated, connected, location, username }) => (
   <div className="App__div">
     <Navbar inverse>
       <Navbar.Header>
-        <img src={logo} className={connected ? 'App__logo--animated' : 'App__logo'} alt="logo" />
+        <Link to="/">
+          <img src={logo} className={connected ? 'App__logo--animated' : 'App__logo'} alt="logo" />
+        </Link>
       </Navbar.Header>
       {authenticated && (
         <Nav className="App__Nav">

@@ -9,11 +9,16 @@ exports[`with websocket connected, authenticated 1`] = `
     inverse={true}
   >
     <NavbarHeader>
-      <img
-        alt="logo"
-        className="App__logo--animated"
-        src="logo.svg"
-      />
+      <Link
+        replace={false}
+        to="/"
+      >
+        <img
+          alt="logo"
+          className="App__logo--animated"
+          src="logo.svg"
+        />
+      </Link>
     </NavbarHeader>
     <Nav
       bsClass="nav"
@@ -142,11 +147,16 @@ exports[`with websocket connected, not authenticated 1`] = `
     inverse={true}
   >
     <NavbarHeader>
-      <img
-        alt="logo"
-        className="App__logo--animated"
-        src="logo.svg"
-      />
+      <Link
+        replace={false}
+        to="/"
+      >
+        <img
+          alt="logo"
+          className="App__logo--animated"
+          src="logo.svg"
+        />
+      </Link>
     </NavbarHeader>
     <Nav
       bsClass="nav"
@@ -261,11 +271,16 @@ exports[`with websocket disconnected, authenticated 1`] = `
     inverse={true}
   >
     <NavbarHeader>
-      <img
-        alt="logo"
-        className="App__logo"
-        src="logo.svg"
-      />
+      <Link
+        replace={false}
+        to="/"
+      >
+        <img
+          alt="logo"
+          className="App__logo"
+          src="logo.svg"
+        />
+      </Link>
     </NavbarHeader>
     <Nav
       bsClass="nav"
