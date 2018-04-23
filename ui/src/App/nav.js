@@ -41,12 +41,12 @@ const navs = {
     name: 'Startovní čísla',
     path: '/startovni-cisla'
   },
-  casomeric: {
+  casomira: {
     key: '4.2',
     glyph: 'time',
     menu: 'po startu',
-    name: 'Časoměřič',
-    path: '/casomeric'
+    name: 'Časomíra',
+    path: '/casomira'
   },
   main: {
     key: '1',

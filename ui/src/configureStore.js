@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import { BROADCAST_UCASTNIK } from './common';
 import appReducer from './App/appReducer';
 import { websocketConnected, websocketDisconnected } from './App/AppActions';
-import { setHighestMezicasId } from './casomeric/Mezicasy/MezicasyActions';
+import { setHighestMezicasId } from './casomeric/Casomira/Mezicasy/MezicasyActions';
 import { broadcastUcastnik } from './entities/ucastnici/ucastniciActions';
 
 const loadState = () => {
@@ -51,10 +51,15 @@ const setupWsClient = (wsClient, store) => {
 const configureStore = (wsClient, initialStateParam = loadState()) => {
   const initialState = initialStateParam || {};
 
-  if (initialState.casomeric && initialState.casomeric.mezicasy) {
+  // :TODO: také ostatní kategorie
+  if (
+    initialState.casomeric &&
+    initialState.casomeric.maraton &&
+    initialState.casomeric.maraton.mezicasy
+  ) {
     let highestId = 0;
 
-    initialState.casomeric.mezicasy.forEach(mezicas => {
+    initialState.casomeric.maraton.mezicasy.forEach(mezicas => {
       if (mezicas.id > highestId) {
         highestId = mezicas.id;
       }
@@ -79,7 +84,13 @@ const configureStore = (wsClient, initialStateParam = loadState()) => {
         decodedToken: state.auth.decodedToken,
         token: state.auth.token
       },
-      casomeric: { stopky: state.casomeric.stopky, mezicasy: state.casomeric.mezicasy }
+      // :TODO: také ostatní kategorie
+      casomeric: {
+        maraton: {
+          stopky: state.casomeric.maraton.stopky,
+          mezicasy: state.casomeric.maraton.mezicasy
+        }
+      }
     });
   });
 

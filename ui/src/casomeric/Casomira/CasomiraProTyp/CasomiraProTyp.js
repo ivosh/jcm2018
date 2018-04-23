@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Panel } from 'react-bootstrap';
-import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
+import PopisekKategorie from '../../../shared/Popisek/PopisekKategorie';
 import StartovniCisla from '../StartovniCisla/StartovniCisla';
 import StopkyContainer from '../Stopky/StopkyContainer';
 import MezicasyContainer from '../Mezicasy/MezicasyContainer';
-import './CasomericProTyp.css';
+import './CasomiraProTyp.css';
 
-const CasomericProTyp = ({ typ, onAddMezicas }) => (
+const CasomiraProTyp = ({ typ, onAddMezicas }) => (
   <Panel
-    className={`CasomericProTyp__panel CasomericProTyp__panel--${typ}`}
+    className={`CasomiraProTyp__panel CasomiraProTyp__panel--${typ}`}
     header={<PopisekKategorie typ={typ} />}
   >
     <StopkyContainer onAddMezicas={onAddMezicas} />
@@ -18,9 +18,9 @@ const CasomericProTyp = ({ typ, onAddMezicas }) => (
   </Panel>
 );
 
-CasomericProTyp.propTypes = {
+CasomiraProTyp.propTypes = {
   typ: PropTypes.string.isRequired,
   onAddMezicas: PropTypes.func.isRequired
 };
 
-export default CasomericProTyp;
+export default CasomiraProTyp;

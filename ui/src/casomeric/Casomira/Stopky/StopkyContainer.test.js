@@ -19,9 +19,11 @@ const setupComponent = state => {
 it('maps state and dispatch to props', () => {
   const state = {
     casomeric: {
-      stopky: {
-        base: new Date().toISOString(),
-        running: false
+      maraton: {
+        stopky: {
+          base: new Date().toISOString(),
+          running: false
+        }
       }
     }
   };
@@ -44,9 +46,11 @@ it('maps state and dispatch to props', () => {
 it('maps start to dispatch onStart action', () => {
   const state = {
     casomeric: {
-      stopky: {
-        base: new Date().toISOString(),
-        running: false
+      maraton: {
+        stopky: {
+          base: new Date().toISOString(),
+          running: false
+        }
       }
     }
   };
@@ -61,9 +65,11 @@ it('maps start to dispatch onStart action', () => {
 it('maps stop to dispatch onStop action', () => {
   const state = {
     casomeric: {
-      stopky: {
-        base: new Date().toISOString(),
-        running: true
+      maraton: {
+        stopky: {
+          base: new Date().toISOString(),
+          running: true
+        }
       }
     }
   };
@@ -77,9 +83,11 @@ it('maps stop to dispatch onStop action', () => {
 it('maps mezicas to dispatch onAddMezicas action', () => {
   const state = {
     casomeric: {
-      stopky: {
-        base: new Date().toISOString(),
-        running: true
+      maraton: {
+        stopky: {
+          base: new Date().toISOString(),
+          running: true
+        }
       }
     }
   };

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { dokoncenoArr, dokoncenoStr } from '../../Util';
-import Legenda from '../../shared/StartovniCislaProTyp/Legenda';
-import StartovniCislaProTypContainer from '../../shared/StartovniCislaProTyp/StartovniCislaProTypContainer';
+import { dokoncenoArr, dokoncenoStr } from '../../../Util';
+import Legenda from '../../../shared/StartovniCislaProTyp/Legenda';
+import StartovniCislaProTypContainer from '../../../shared/StartovniCislaProTyp/StartovniCislaProTypContainer';
 import './StartovniCisla.css';
 
 export const Renderer = ({ id, startCislo, dokonceno }) => (

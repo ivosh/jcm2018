@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
-import CasomericProTypContainer from './CasomericProTypContainer';
+import CasomiraProTypContainer from './CasomiraProTypContainer';
 
 const mockStore = configureStore();
 
@@ -11,7 +11,7 @@ let wrapper;
 beforeEach(() => {
   store = mockStore();
   store.dispatch = jest.fn();
-  wrapper = shallow(<CasomericProTypContainer store={store} typ="maraton" />);
+  wrapper = shallow(<CasomiraProTypContainer store={store} typ="maraton" />);
 });
 
 it('maps dispatch to props', () => {

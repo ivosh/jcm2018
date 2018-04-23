@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { Server } from 'mock-socket';
 import WsClient from './WsClient';
-import { addMezicas } from './casomeric/Mezicasy/MezicasyActions';
+import { addMezicas } from './casomeric/Casomira/Mezicasy/MezicasyActions';
 import configureStore from './configureStore';
 
 it('configure store', () => {
@@ -10,7 +10,10 @@ it('configure store', () => {
 });
 
 it('configure store with preloaded state', () => {
-  const preloadedState = { casomeric: { mezicasy: [{ id: 10, duration: 'PT3M25.306S' }] } };
+  const preloadedState = {
+    // :TODO: také ostatní kategorie
+    casomeric: { maraton: { mezicasy: [{ id: 10, duration: 'PT3M25.306S' }] } }
+  };
   configureStore(null, preloadedState);
   expect(addMezicas(moment.duration(4365)).id).toEqual(11);
 });

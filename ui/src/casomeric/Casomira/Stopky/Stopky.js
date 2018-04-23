@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import RunningDisplej from '../Displej/RunningDisplej';
+import RunningDisplej from '../../Displej/RunningDisplej';
 import StopkyButtons from './StopkyButtons';
 import './Stopky.css';
 

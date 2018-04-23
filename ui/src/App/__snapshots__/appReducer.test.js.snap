@@ -14,10 +14,12 @@ Object {
     "token": null,
   },
   "casomeric": Object {
-    "mezicasy": Array [],
-    "stopky": Object {
-      "base": null,
-      "running": false,
+    "maraton": Object {
+      "mezicasy": Array [],
+      "stopky": Object {
+        "base": null,
+        "running": false,
+      },
     },
   },
   "connected": false,
@@ -107,7 +109,6 @@ Object {
       "textFilter": "",
     },
   },
-  "startujici": Array [],
 }
 `;
 
@@ -125,10 +126,12 @@ Object {
     "token": null,
   },
   "casomeric": Object {
-    "mezicasy": Array [],
-    "stopky": Object {
-      "base": null,
-      "running": false,
+    "maraton": Object {
+      "mezicasy": Array [],
+      "stopky": Object {
+        "base": null,
+        "running": false,
+      },
     },
   },
   "connected": true,
@@ -218,7 +221,6 @@ Object {
       "textFilter": "",
     },
   },
-  "startujici": Array [],
 }
 `;
 
@@ -236,10 +238,12 @@ Object {
     "token": null,
   },
   "casomeric": Object {
-    "mezicasy": Array [],
-    "stopky": Object {
-      "base": null,
-      "running": false,
+    "maraton": Object {
+      "mezicasy": Array [],
+      "stopky": Object {
+        "base": null,
+        "running": false,
+      },
     },
   },
   "connected": false,
@@ -329,6 +333,5 @@ Object {
       "textFilter": "",
     },
   },
-  "startujici": Array [],
 }
 `;

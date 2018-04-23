@@ -6,8 +6,8 @@ import { removeMezicas } from '../Mezicasy/MezicasyActions';
 import { startujiciDokonceno } from '../Startujici/StartujiciActions';
 import { getStartujiciWithoutDuration } from '../Startujici/startujiciReducer';
 
-const mapStateToProps = state => ({
-  startujici: getStartujiciWithoutDuration(state.startujici)
+const mapStateToProps = ({ casomeric: { maraton } }) => ({
+  startujici: getStartujiciWithoutDuration(maraton.startujici)
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

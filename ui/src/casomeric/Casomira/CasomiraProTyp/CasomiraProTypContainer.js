@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import CasomericProTyp from './CasomericProTyp';
+import CasomiraProTyp from './CasomiraProTyp';
 import { addMezicas } from '../Mezicasy/MezicasyActions';
 
 const mapStateToProps = (state, ownProps) => ({ typ: ownProps.typ });
@@ -11,10 +11,10 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-const CasomericProTypContainer = connect(mapStateToProps, mapDispatchToProps)(CasomericProTyp);
+const CasomiraProTypContainer = connect(mapStateToProps, mapDispatchToProps)(CasomiraProTyp);
 
-CasomericProTypContainer.propTypes = {
+CasomiraProTypContainer.propTypes = {
   typ: PropTypes.string.isRequired
 };
 
-export default CasomericProTypContainer;
+export default CasomiraProTypContainer;

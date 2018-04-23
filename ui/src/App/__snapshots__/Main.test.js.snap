@@ -148,14 +148,14 @@ exports[`it renders 1`] = `
         >
           <a
             className="Main__menu-link"
-            href="/casomeric"
+            href="/casomira"
             onClick={[Function]}
           >
             <span
               className="glyphicon glyphicon-time"
             />
              
-            Časoměřič
+            Časomíra
           </a>
         </li>
       </ul>

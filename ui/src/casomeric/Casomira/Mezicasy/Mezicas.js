@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import momentPropTypes from 'react-moment-proptypes';
 import { Button, Glyphicon } from 'react-bootstrap';
-import { convertDuration } from '../../Util';
+import { convertDuration } from '../../../Util';
 
 const Mezicas = ({ poradi, duration, cislo, onClick }) => {
   const { hours, mins, secs, subsecs } = convertDuration(duration);

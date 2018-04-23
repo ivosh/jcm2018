@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import Stopky from './Stopky';
 import { stopkyStart, stopkyStop } from './StopkyActions';
 
-const mapStateToProps = ({ casomeric }) => ({
-  base: new Date(casomeric.stopky.base),
-  running: casomeric.stopky.running,
-  startEnabled: casomeric.stopky.running === false,
-  mezicasEnabled: casomeric.stopky.running === true,
-  stopEnabled: casomeric.stopky.running === true
+const mapStateToProps = ({ casomeric: { maraton } }) => ({
+  base: new Date(maraton.stopky.base),
+  running: maraton.stopky.running,
+  startEnabled: maraton.stopky.running === false,
+  mezicasEnabled: maraton.stopky.running === true,
+  stopEnabled: maraton.stopky.running === true
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
