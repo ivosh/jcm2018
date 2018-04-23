@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import RunningDisplej from '../Displej/RunningDisplej';
 import StopkyButtons from './StopkyButtons';
-import StopkyDisplej from './StopkyDisplej';
 import './Stopky.css';
 
 class Stopky extends PureComponent {
@@ -35,7 +35,7 @@ class Stopky extends PureComponent {
     return (
       <div className="Stopky">
         <div className="Stopky-mezera">
-          <StopkyDisplej base={base} running={running} ref={this.displej} />
+          <RunningDisplej base={base} running={running} ref={this.displej} />
         </div>
         <div>
           <StopkyButtons

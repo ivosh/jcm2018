@@ -4,8 +4,7 @@ import moment from 'moment';
 import { STOPKY_ONE_TICK } from '../../constants';
 import Displej from './Displej';
 
-/* Split from Stopky to minimalize reconciliation (unnecessary updates). */
-class StopkyDisplej extends PureComponent {
+class RunningDisplej extends PureComponent {
   state = { current: new Date() };
 
   componentDidMount = () => {
@@ -43,9 +42,9 @@ class StopkyDisplej extends PureComponent {
   };
 }
 
-StopkyDisplej.propTypes = {
+RunningDisplej.propTypes = {
   base: PropTypes.instanceOf(Date),
   running: PropTypes.bool.isRequired
 };
 
-export default StopkyDisplej;
+export default RunningDisplej;
