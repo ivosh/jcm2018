@@ -35,9 +35,9 @@ it('snapshort po startu', () => {
 
   /* Manually set all Displej digits to 0. */
   const json = component.toJSON();
-  const displej = json.children[0].children[0];
-  expect(displej.props.className).toEqual('Displej');
+  const displej = json.children[0];
   expect(displej.children).toHaveLength(7);
+  expect(displej.children[0].props.className).toEqual('Displej__segment');
   displej.children[0].children[0] = '0';
   displej.children[2].children[0] = '00';
   displej.children[4].children[0] = '00';

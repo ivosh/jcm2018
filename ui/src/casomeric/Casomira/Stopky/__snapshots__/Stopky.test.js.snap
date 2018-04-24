@@ -8,31 +8,39 @@ exports[`snapshort po startu 1`] = `
     className="Stopky-mezera"
   >
     <span
-      className="Displej"
+      className="Displej__segment"
     >
-      <span
-        className="Displej-segment"
-      >
-        0
-      </span>
+      0
+    </span>
+    <span
+      className="Displej__separator"
+    >
       :
-      <span
-        className="Displej-segment"
-      >
-        00
-      </span>
+    </span>
+    <span
+      className="Displej__segment"
+    >
+      00
+    </span>
+    <span
+      className="Displej__separator"
+    >
       :
-      <span
-        className="Displej-segment"
-      >
-        00
-      </span>
+    </span>
+    <span
+      className="Displej__segment"
+    >
+      00
+    </span>
+    <span
+      className="Displej__separator"
+    >
       ,
-      <span
-        className="Displej-segment"
-      >
-        00
-      </span>
+    </span>
+    <span
+      className="Displej__segment"
+    >
+      00
     </span>
   </div>
   <div>
@@ -78,31 +86,39 @@ exports[`snapshot před startem 1`] = `
     className="Stopky-mezera"
   >
     <span
-      className="Displej"
+      className="Displej__segment"
     >
-      <span
-        className="Displej-segment"
-      >
-        -
-      </span>
+      -
+    </span>
+    <span
+      className="Displej__separator"
+    >
       :
-      <span
-        className="Displej-segment"
-      >
-        --
-      </span>
+    </span>
+    <span
+      className="Displej__segment"
+    >
+      --
+    </span>
+    <span
+      className="Displej__separator"
+    >
       :
-      <span
-        className="Displej-segment"
-      >
-        --
-      </span>
+    </span>
+    <span
+      className="Displej__segment"
+    >
+      --
+    </span>
+    <span
+      className="Displej__separator"
+    >
       ,
-      <span
-        className="Displej-segment"
-      >
-        --
-      </span>
+    </span>
+    <span
+      className="Displej__segment"
+    >
+      --
     </span>
   </div>
   <div>

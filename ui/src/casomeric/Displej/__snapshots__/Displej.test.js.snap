@@ -1,61 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`po startu 1`] = `
-<span
-  className="Displej"
+Array [
+  <span
+    className="Displej__segment"
 >
-  <span
-    className="Displej-segment"
-  >
     1
-  </span>
-  :
+</span>,
   <span
-    className="Displej-segment"
-  >
+    className="Displej__separator"
+>
+    :
+</span>,
+  <span
+    className="Displej__segment"
+>
     43
-  </span>
-  :
+</span>,
   <span
-    className="Displej-segment"
-  >
+    className="Displej__separator"
+>
+    :
+</span>,
+  <span
+    className="Displej__segment"
+>
     52
-  </span>
-  ,
+</span>,
   <span
-    className="Displej-segment"
-  >
+    className="Displej__separator"
+>
+    ,
+</span>,
+  <span
+    className="Displej__segment"
+>
     13
-  </span>
-</span>
+</span>,
+]
 `;
 
 exports[`počáteční stav 1`] = `
-<span
-  className="Displej"
+Array [
+  <span
+    className="Displej__segment"
 >
-  <span
-    className="Displej-segment"
-  >
     -
-  </span>
-  :
+</span>,
   <span
-    className="Displej-segment"
-  >
-    --
-  </span>
-  :
+    className="Displej__separator"
+>
+    :
+</span>,
   <span
-    className="Displej-segment"
-  >
+    className="Displej__segment"
+>
     --
-  </span>
-  ,
+</span>,
   <span
-    className="Displej-segment"
-  >
+    className="Displej__separator"
+>
+    :
+</span>,
+  <span
+    className="Displej__segment"
+>
     --
-  </span>
-</span>
+</span>,
+  <span
+    className="Displej__separator"
+>
+    ,
+</span>,
+  <span
+    className="Displej__segment"
+>
+    --
+</span>,
+]
 `;
