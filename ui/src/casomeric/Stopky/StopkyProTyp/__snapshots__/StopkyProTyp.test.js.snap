@@ -1,0 +1,473 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshort po startu 1`] = `
+<div
+  className="StopkyProTyp__panel--maraton panel panel-default"
+  id={undefined}
+>
+  <div
+    className="panel-heading"
+  >
+    <span>
+      <img
+        alt="maraton"
+        height={30}
+        src="maraton.png"
+        title="maraton"
+      />
+       
+      maraton
+    </span>
+  </div>
+  <div
+    className="panel-body"
+  >
+    <div
+      className="StopkyProTyp__div"
+    >
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +1
+        </button>
+      </div>
+      <div />
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +10
+        </button>
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +1
+        </button>
+      </div>
+      <div />
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +10
+        </button>
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +1
+        </button>
+      </div>
+      <div />
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +10
+        </button>
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +1
+        </button>
+      </div>
+      <span
+        className="Displej__segment"
+      >
+        0
+      </span>
+      <span
+        className="Displej__separator"
+      >
+        :
+      </span>
+      <span
+        className="Displej__segment"
+      >
+        00
+      </span>
+      <span
+        className="Displej__separator"
+      >
+        :
+      </span>
+      <span
+        className="Displej__segment"
+      >
+        00
+      </span>
+      <span
+        className="Displej__separator"
+      >
+        ,
+      </span>
+      <span
+        className="Displej__segment"
+      >
+        00
+      </span>
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          -1
+        </button>
+      </div>
+      <div />
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          -10
+        </button>
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          -1
+        </button>
+      </div>
+      <div />
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          -10
+        </button>
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          -1
+        </button>
+      </div>
+      <div />
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          -10
+        </button>
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          -1
+        </button>
+      </div>
+    </div>
+    <div
+      className="StopkyProTyp__buttons btn-toolbar"
+      role="toolbar"
+    >
+      <button
+        className="btn btn-success"
+        disabled={true}
+        onClick={[Function]}
+        type="button"
+      >
+        Start
+      </button>
+      <button
+        className="btn btn-danger"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        Stop
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`snapshot před startem 1`] = `
+<div
+  className="StopkyProTyp__panel--půlmaraton panel panel-default"
+  id={undefined}
+>
+  <div
+    className="panel-heading"
+  >
+    <span>
+      <img
+        alt="půlmaraton"
+        height={30}
+        src="pulmaraton.png"
+        title="půlmaraton"
+      />
+       
+      půlmaraton
+    </span>
+  </div>
+  <div
+    className="panel-body"
+  >
+    <div
+      className="StopkyProTyp__div"
+    >
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +1
+        </button>
+      </div>
+      <div />
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +10
+        </button>
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +1
+        </button>
+      </div>
+      <div />
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +10
+        </button>
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +1
+        </button>
+      </div>
+      <div />
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +10
+        </button>
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +1
+        </button>
+      </div>
+      <span
+        className="Displej__segment"
+      >
+        -
+      </span>
+      <span
+        className="Displej__separator"
+      >
+        :
+      </span>
+      <span
+        className="Displej__segment"
+      >
+        --
+      </span>
+      <span
+        className="Displej__separator"
+      >
+        :
+      </span>
+      <span
+        className="Displej__segment"
+      >
+        --
+      </span>
+      <span
+        className="Displej__separator"
+      >
+        ,
+      </span>
+      <span
+        className="Displej__segment"
+      >
+        --
+      </span>
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          -1
+        </button>
+      </div>
+      <div />
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          -10
+        </button>
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          -1
+        </button>
+      </div>
+      <div />
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          -10
+        </button>
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          -1
+        </button>
+      </div>
+      <div />
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          -10
+        </button>
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          -1
+        </button>
+      </div>
+    </div>
+    <div
+      className="StopkyProTyp__buttons btn-toolbar"
+      role="toolbar"
+    >
+      <button
+        className="btn btn-success"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        Start
+      </button>
+      <button
+        className="btn btn-danger"
+        disabled={true}
+        onClick={[Function]}
+        type="button"
+      >
+        Stop
+      </button>
+    </div>
+  </div>
+</div>
+`;

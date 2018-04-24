@@ -1,0 +1,9 @@
+.Stopky__div {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 30px;
+}
+
+.Stopky__panel {
+  margin-left: 1em;
+}
