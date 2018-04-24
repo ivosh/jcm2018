@@ -5,18 +5,19 @@ import { Glyphicon, MenuItem, Nav, Navbar, NavDropdown, NavItem } from 'react-bo
 import { LinkContainer } from 'react-router-bootstrap';
 import withAuth from '../auth/withAuth';
 import withoutAuth from '../auth/withoutAuth';
-import SignInContainer from '../auth/SignIn/SignInContainer';
-import Casomira from '../casomeric/Casomira/Casomira';
 import withFetchUcastnici from '../entities/withFetchUcastnici/withFetchUcastnici';
-import UcastniciDigestContainer from '../registrator/UcastniciDigest/UcastniciDigestContainer';
-import Prihlasky from '../registrator/Prihlasky/Prihlasky';
+import About from './About';
+import Casomira from '../casomeric/Casomira/Casomira';
+import Main from './Main';
 import PrihlaseniContainer from '../registrator/Prihlaseni/PrihlaseniContainer';
+import Prihlasky from '../registrator/Prihlasky/Prihlasky';
+import SignInContainer from '../auth/SignIn/SignInContainer';
+import SignOutContainer from '../auth/SignOut/SignOutContainer';
 import StartovniCislaContainer from '../registrator/StartovniCisla/StartovniCislaContainer';
 import StartujiciContainer from '../registrator/Startujici/StartujiciContainer';
+import Stopky from '../casomeric/Stopky/Stopky';
 import UbytovaniContainer from '../registrator/Ubytovani/UbytovaniContainer';
-import SignOutContainer from '../auth/SignOut/SignOutContainer';
-import About from './About';
-import Main from './Main';
+import UcastniciDigestContainer from '../registrator/UcastniciDigest/UcastniciDigestContainer';
 import { navsForMenu, navForRoute, navMenus } from './nav';
 import './App.css';
 import logo from './logo.svg';
@@ -110,22 +111,23 @@ const App = ({ authenticated, connected, location, username }) => (
     <main>
       <Switch>
         <Route exact path="/" component={Main} />
-        <Route path="/signin" component={withoutAuth(SignInContainer)} />
+        <Route path="/about" component={() => <About username={username} />} />
         <Route path="/casomira" component={withAuth(withFetchUcastnici(Casomira))} />
-        <Route
-          path="/ucastnici"
-          component={withAuth(withFetchUcastnici(UcastniciDigestContainer))}
-        />
-        <Route path="/prihlasky" component={withAuth(withFetchUcastnici(Prihlasky))} />
         <Route path="/prihlaseni" component={withAuth(withFetchUcastnici(PrihlaseniContainer))} />
+        <Route path="/prihlasky" component={withAuth(withFetchUcastnici(Prihlasky))} />
+        <Route path="/signin" component={withoutAuth(SignInContainer)} />
+        <Route path="/signout" component={withAuth(SignOutContainer)} />
         <Route path="/startujici" component={withAuth(withFetchUcastnici(StartujiciContainer))} />
         <Route
           path="/startovni-cisla"
           component={withAuth(withFetchUcastnici(StartovniCislaContainer))}
         />
+        <Route path="/stopky" component={withAuth(withFetchUcastnici(Stopky))} />
         <Route path="/ubytovani" component={withAuth(withFetchUcastnici(UbytovaniContainer))} />
-        <Route path="/signout" component={withAuth(SignOutContainer)} />
-        <Route path="/about" component={() => <About username={username} />} />
+        <Route
+          path="/ucastnici"
+          component={withAuth(withFetchUcastnici(UcastniciDigestContainer))}
+        />
         <Redirect to="/" />
       </Switch>
     </main>

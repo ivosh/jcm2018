@@ -41,8 +41,15 @@ const navs = {
     name: 'Startovní čísla',
     path: '/startovni-cisla'
   },
-  casomira: {
+  stopky: {
     key: '4.2',
+    glyph: 'random',
+    menu: 'po startu',
+    name: 'Stopky',
+    path: '/stopky'
+  },
+  casomira: {
+    key: '4.3',
     glyph: 'time',
     menu: 'po startu',
     name: 'Časomíra',

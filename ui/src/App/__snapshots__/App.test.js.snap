@@ -91,7 +91,7 @@ exports[`with websocket connected, authenticated 1`] = `
       />
       <Route
         component={[Function]}
-        path="/signin"
+        path="/about"
       />
       <Route
         component={[Function]}
@@ -99,7 +99,7 @@ exports[`with websocket connected, authenticated 1`] = `
       />
       <Route
         component={[Function]}
-        path="/ucastnici"
+        path="/prihlaseni"
       />
       <Route
         component={[Function]}
@@ -107,7 +107,11 @@ exports[`with websocket connected, authenticated 1`] = `
       />
       <Route
         component={[Function]}
-        path="/prihlaseni"
+        path="/signin"
+      />
+      <Route
+        component={[Function]}
+        path="/signout"
       />
       <Route
         component={[Function]}
@@ -119,15 +123,15 @@ exports[`with websocket connected, authenticated 1`] = `
       />
       <Route
         component={[Function]}
+        path="/stopky"
+      />
+      <Route
+        component={[Function]}
         path="/ubytovani"
       />
       <Route
         component={[Function]}
-        path="/signout"
-      />
-      <Route
-        component={[Function]}
-        path="/about"
+        path="/ucastnici"
       />
       <Redirect
         push={false}
@@ -215,7 +219,7 @@ exports[`with websocket connected, not authenticated 1`] = `
       />
       <Route
         component={[Function]}
-        path="/signin"
+        path="/about"
       />
       <Route
         component={[Function]}
@@ -223,7 +227,7 @@ exports[`with websocket connected, not authenticated 1`] = `
       />
       <Route
         component={[Function]}
-        path="/ucastnici"
+        path="/prihlaseni"
       />
       <Route
         component={[Function]}
@@ -231,7 +235,11 @@ exports[`with websocket connected, not authenticated 1`] = `
       />
       <Route
         component={[Function]}
-        path="/prihlaseni"
+        path="/signin"
+      />
+      <Route
+        component={[Function]}
+        path="/signout"
       />
       <Route
         component={[Function]}
@@ -243,15 +251,15 @@ exports[`with websocket connected, not authenticated 1`] = `
       />
       <Route
         component={[Function]}
+        path="/stopky"
+      />
+      <Route
+        component={[Function]}
         path="/ubytovani"
       />
       <Route
         component={[Function]}
-        path="/signout"
-      />
-      <Route
-        component={[Function]}
-        path="/about"
+        path="/ucastnici"
       />
       <Redirect
         push={false}
@@ -353,7 +361,7 @@ exports[`with websocket disconnected, authenticated 1`] = `
       />
       <Route
         component={[Function]}
-        path="/signin"
+        path="/about"
       />
       <Route
         component={[Function]}
@@ -361,7 +369,7 @@ exports[`with websocket disconnected, authenticated 1`] = `
       />
       <Route
         component={[Function]}
-        path="/ucastnici"
+        path="/prihlaseni"
       />
       <Route
         component={[Function]}
@@ -369,7 +377,11 @@ exports[`with websocket disconnected, authenticated 1`] = `
       />
       <Route
         component={[Function]}
-        path="/prihlaseni"
+        path="/signin"
+      />
+      <Route
+        component={[Function]}
+        path="/signout"
       />
       <Route
         component={[Function]}
@@ -381,15 +393,15 @@ exports[`with websocket disconnected, authenticated 1`] = `
       />
       <Route
         component={[Function]}
+        path="/stopky"
+      />
+      <Route
+        component={[Function]}
         path="/ubytovani"
       />
       <Route
         component={[Function]}
-        path="/signout"
-      />
-      <Route
-        component={[Function]}
-        path="/about"
+        path="/ucastnici"
       />
       <Redirect
         push={false}

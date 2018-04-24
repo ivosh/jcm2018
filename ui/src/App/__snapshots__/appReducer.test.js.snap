@@ -14,8 +14,33 @@ Object {
     "token": null,
   },
   "casomeric": Object {
+    "cyklo": Object {
+      "mezicasy": Array [],
+      "startujici": Array [],
+      "stopky": Object {
+        "base": null,
+        "running": false,
+      },
+    },
+    "koloběžka": Object {
+      "mezicasy": Array [],
+      "startujici": Array [],
+      "stopky": Object {
+        "base": null,
+        "running": false,
+      },
+    },
     "maraton": Object {
       "mezicasy": Array [],
+      "startujici": Array [],
+      "stopky": Object {
+        "base": null,
+        "running": false,
+      },
+    },
+    "půlmaraton": Object {
+      "mezicasy": Array [],
+      "startujici": Array [],
       "stopky": Object {
         "base": null,
         "running": false,
@@ -126,8 +151,33 @@ Object {
     "token": null,
   },
   "casomeric": Object {
+    "cyklo": Object {
+      "mezicasy": Array [],
+      "startujici": Array [],
+      "stopky": Object {
+        "base": null,
+        "running": false,
+      },
+    },
+    "koloběžka": Object {
+      "mezicasy": Array [],
+      "startujici": Array [],
+      "stopky": Object {
+        "base": null,
+        "running": false,
+      },
+    },
     "maraton": Object {
       "mezicasy": Array [],
+      "startujici": Array [],
+      "stopky": Object {
+        "base": null,
+        "running": false,
+      },
+    },
+    "půlmaraton": Object {
+      "mezicasy": Array [],
+      "startujici": Array [],
       "stopky": Object {
         "base": null,
         "running": false,
@@ -238,8 +288,33 @@ Object {
     "token": null,
   },
   "casomeric": Object {
+    "cyklo": Object {
+      "mezicasy": Array [],
+      "startujici": Array [],
+      "stopky": Object {
+        "base": null,
+        "running": false,
+      },
+    },
+    "koloběžka": Object {
+      "mezicasy": Array [],
+      "startujici": Array [],
+      "stopky": Object {
+        "base": null,
+        "running": false,
+      },
+    },
     "maraton": Object {
       "mezicasy": Array [],
+      "startujici": Array [],
+      "stopky": Object {
+        "base": null,
+        "running": false,
+      },
+    },
+    "půlmaraton": Object {
+      "mezicasy": Array [],
+      "startujici": Array [],
       "stopky": Object {
         "base": null,
         "running": false,

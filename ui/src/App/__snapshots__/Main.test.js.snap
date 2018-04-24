@@ -148,6 +148,21 @@ exports[`it renders 1`] = `
         >
           <a
             className="Main__menu-link"
+            href="/stopky"
+            onClick={[Function]}
+          >
+            <span
+              className="glyphicon glyphicon-random"
+            />
+             
+            Stopky
+          </a>
+        </li>
+        <li
+          className="Main__menu-item"
+        >
+          <a
+            className="Main__menu-link"
             href="/casomira"
             onClick={[Function]}
           >
