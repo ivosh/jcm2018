@@ -50,10 +50,11 @@ it('maps onStart to dispatch stopkyStart action', () => {
   };
   setupComponent({ state, typ: 'půlmaraton' });
 
-  const now = new Date();
   wrapper.props().onStart();
 
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'STOPKY_START', now, typ: 'půlmaraton' });
+  expect(store.dispatch).toHaveBeenCalledWith(
+    expect.objectContaining({ type: 'STOPKY_START', typ: 'půlmaraton' })
+  );
 });
 
 it('maps onStop to dispatch stopkyStop action', () => {
@@ -70,8 +71,9 @@ it('maps onStop to dispatch stopkyStop action', () => {
   };
   setupComponent({ state, typ: 'cyklo' });
 
-  const now = new Date();
   wrapper.props().onStop();
 
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'STOPKY_STOP', now, typ: 'cyklo' });
+  expect(store.dispatch).toHaveBeenCalledWith(
+    expect.objectContaining({ type: 'STOPKY_STOP', typ: 'cyklo' })
+  );
 });
