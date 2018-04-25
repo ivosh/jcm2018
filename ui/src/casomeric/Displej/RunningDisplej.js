@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import momentPropTypes from 'react-moment-proptypes';
 import moment from 'moment';
 import { STOPKY_ONE_TICK } from '../../constants';
 import Displej from './Displej';
@@ -31,19 +32,18 @@ class RunningDisplej extends PureComponent {
   };
 
   render = () => {
-    const { base } = this.props;
+    const { base, delta, running } = this.props;
 
-    let duration = null;
-    if (base !== null) {
-      duration = moment.duration(this.state.current.getTime() - base.getTime());
-    }
-
+    const duration = running
+      ? moment.duration(this.state.current.getTime() - base.getTime())
+      : delta;
     return <Displej duration={duration} />;
   };
 }
 
 RunningDisplej.propTypes = {
   base: PropTypes.instanceOf(Date),
+  delta: momentPropTypes.momentDurationObj,
   running: PropTypes.bool.isRequired
 };
 

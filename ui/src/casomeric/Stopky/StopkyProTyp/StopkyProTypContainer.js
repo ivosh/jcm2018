@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import { stopkyAdd, stopkyStart, stopkyStop, stopkySub } from './StopkyProTypActions';
 import StopkyProTyp from './StopkyProTyp';
 
@@ -9,6 +10,7 @@ const mapStateToProps = ({ casomeric }, ownProps) => {
 
   return {
     base: new Date(stopky.base),
+    delta: moment.duration(stopky.delta),
     running: stopky.running,
     startEnabled: stopky.running === false,
     stopEnabled: stopky.running === true,
@@ -20,7 +22,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { typ } = ownProps;
 
   return {
-    onStart: base => dispatch(stopkyStart({ base, typ })),
+    onStart: () => dispatch(stopkyStart({ typ })),
     onStop: () => dispatch(stopkyStop({ typ })),
     onAdd: [
       () => dispatch(stopkyAdd({ step: 10 * 60 * 60 * 1000, typ })),

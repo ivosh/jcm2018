@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import StopkyProTypContainer from './StopkyProTypContainer';
@@ -20,7 +21,8 @@ it('maps state and dispatch to props', () => {
       maraton: {
         stopky: {
           base: new Date().toISOString(),
-          running: false
+          delta: 'P0D',
+          running: true
         }
       }
     }
@@ -28,9 +30,10 @@ it('maps state and dispatch to props', () => {
   setupComponent({ state, typ: 'maraton' });
 
   expect(wrapper.props().base).toEqual(expect.any(Date));
-  expect(wrapper.props().running).toBe(false);
-  expect(wrapper.props().startEnabled).toBe(true);
-  expect(wrapper.props().stopEnabled).toBe(false);
+  expect(wrapper.props().delta).toEqual(moment.duration(0));
+  expect(wrapper.props().running).toBe(true);
+  expect(wrapper.props().startEnabled).toBe(false);
+  expect(wrapper.props().stopEnabled).toBe(true);
 });
 
 it('maps onStart to dispatch stopkyStart action', () => {
@@ -38,7 +41,8 @@ it('maps onStart to dispatch stopkyStart action', () => {
     casomeric: {
       půlmaraton: {
         stopky: {
-          base: new Date().toISOString(),
+          base: null,
+          delta: moment.duration('PT0H1M23.54S'),
           running: false
         }
       }
@@ -47,13 +51,9 @@ it('maps onStart to dispatch stopkyStart action', () => {
   setupComponent({ state, typ: 'půlmaraton' });
 
   const now = new Date();
-  wrapper.props().onStart(now);
+  wrapper.props().onStart();
 
-  expect(store.dispatch).toHaveBeenCalledWith({
-    type: 'STOPKY_START',
-    base: now.toISOString(),
-    typ: 'půlmaraton'
-  });
+  expect(store.dispatch).toHaveBeenCalledWith({ type: 'STOPKY_START', now, typ: 'půlmaraton' });
 });
 
 it('maps onStop to dispatch stopkyStop action', () => {
@@ -62,6 +62,7 @@ it('maps onStop to dispatch stopkyStop action', () => {
       cyklo: {
         stopky: {
           base: new Date().toISOString(),
+          delta: moment.duration(0),
           running: true
         }
       }
@@ -69,7 +70,8 @@ it('maps onStop to dispatch stopkyStop action', () => {
   };
   setupComponent({ state, typ: 'cyklo' });
 
+  const now = new Date();
   wrapper.props().onStop();
 
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'STOPKY_STOP', typ: 'cyklo' });
+  expect(store.dispatch).toHaveBeenCalledWith({ type: 'STOPKY_STOP', now, typ: 'cyklo' });
 });

@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import momentPropTypes from 'react-moment-proptypes';
 import { Button } from 'react-bootstrap';
 import moment from 'moment';
 import RunningDisplej from '../../Displej/RunningDisplej';
@@ -13,13 +14,13 @@ class Stopky extends PureComponent {
   };
 
   render = () => {
-    const { base, running, mezicasEnabled } = this.props;
+    const { base, delta, running, mezicasEnabled } = this.props;
 
     /* eslint-disable jsx-a11y/no-access-key */
     return (
       <div className="Stopky">
         <div className="Stopky-mezera">
-          <RunningDisplej base={base} running={running} />
+          <RunningDisplej base={base} delta={delta} running={running} />
         </div>
         <div>
           <Button bsStyle="info" disabled={!mezicasEnabled} onClick={this.mezicas} accessKey="m">
@@ -34,6 +35,7 @@ class Stopky extends PureComponent {
 
 Stopky.propTypes = {
   base: PropTypes.instanceOf(Date),
+  delta: momentPropTypes.momentDurationObj,
   running: PropTypes.bool.isRequired,
   mezicasEnabled: PropTypes.bool.isRequired,
   onAddMezicas: PropTypes.func.isRequired

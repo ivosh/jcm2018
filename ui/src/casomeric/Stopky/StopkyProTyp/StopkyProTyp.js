@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import momentPropTypes from 'react-moment-proptypes';
 import { Button, ButtonToolbar, Panel } from 'react-bootstrap';
 import PopisekKategorie from '../../../shared/Popisek/PopisekKategorie';
 import RunningDisplej from '../../Displej/RunningDisplej';
@@ -15,7 +16,7 @@ class StopkyProTyp extends PureComponent {
 
   start = () => {
     this.displej.current.startTimer();
-    this.props.onStart(new Date());
+    this.props.onStart();
   };
 
   stop = () => {
@@ -24,13 +25,13 @@ class StopkyProTyp extends PureComponent {
   };
 
   render = () => {
-    const { base, running, startEnabled, stopEnabled, typ, onAdd, onSub } = this.props;
+    const { base, delta, running, startEnabled, stopEnabled, typ, onAdd, onSub } = this.props;
 
     return (
       <Panel className={`StopkyProTyp__panel--${typ}`} header={<PopisekKategorie typ={typ} />}>
         <div className="StopkyProTyp__div">
           <Cudly popisky={['+10', '+1', '+10', '+1', '+10', '+1', '+10', '+1']} funcs={onAdd} />
-          <RunningDisplej base={base} running={running} ref={this.displej} />
+          <RunningDisplej base={base} delta={delta} running={running} ref={this.displej} />
           <Cudly popisky={['-10', '-1', '-10', '-1', '-10', '-1', '-10', '-1']} funcs={onSub} />
         </div>
         <ButtonToolbar className="StopkyProTyp__buttons">
@@ -48,6 +49,7 @@ class StopkyProTyp extends PureComponent {
 
 StopkyProTyp.propTypes = {
   base: PropTypes.instanceOf(Date),
+  delta: momentPropTypes.momentDurationObj,
   running: PropTypes.bool.isRequired,
   startEnabled: PropTypes.bool.isRequired,
   stopEnabled: PropTypes.bool.isRequired,

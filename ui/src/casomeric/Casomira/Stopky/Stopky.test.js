@@ -1,18 +1,31 @@
 import React from 'react';
+import moment from 'moment';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 import Stopky from './Stopky';
 
 it('snapshot před startem', () => {
   const component = renderer.create(
-    <Stopky running={false} base={null} mezicasEnabled={false} onAddMezicas={jest.fn()} />
+    <Stopky
+      running={false}
+      base={null}
+      delta={moment.duration('PT0H0M0.0S')}
+      mezicasEnabled={false}
+      onAddMezicas={jest.fn()}
+    />
   );
   expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('snapshort po startu', () => {
   const component = renderer.create(
-    <Stopky running={true} base={new Date()} mezicasEnabled={true} onAddMezicas={jest.fn()} />
+    <Stopky
+      running={true}
+      base={new Date()}
+      delta={moment.duration(0)}
+      mezicasEnabled={true}
+      onAddMezicas={jest.fn()}
+    />
   );
 
   /* Manually set all Displej digits to 0. */
@@ -33,12 +46,9 @@ it('maps button Mezičas to dispatch onAddMezicas action', () => {
     <Stopky
       running={true}
       base={new Date()}
-      startEnabled={false}
+      delta={moment.duration(0)}
       mezicasEnabled={true}
-      stopEnabled={true}
-      onStart={jest.fn()}
       onAddMezicas={onAddMezicas}
-      onStop={jest.fn()}
     />
   );
   expect(wrapper.find('button.btn-info')).toHaveLength(1);

@@ -339,7 +339,7 @@ exports[`snapshot před startem 1`] = `
       <span
         className="Displej__segment"
       >
-        -
+        0
       </span>
       <span
         className="Displej__separator"
@@ -349,7 +349,7 @@ exports[`snapshot před startem 1`] = `
       <span
         className="Displej__segment"
       >
-        --
+        00
       </span>
       <span
         className="Displej__separator"
@@ -359,7 +359,7 @@ exports[`snapshot před startem 1`] = `
       <span
         className="Displej__segment"
       >
-        --
+        00
       </span>
       <span
         className="Displej__separator"
@@ -369,7 +369,7 @@ exports[`snapshot před startem 1`] = `
       <span
         className="Displej__segment"
       >
-        --
+        00
       </span>
       <div
         className="StopkyProTyp__cudly"

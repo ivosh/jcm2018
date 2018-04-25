@@ -1,9 +1,5 @@
-export const stopkyStart = ({ base, typ }) => ({
-  type: 'STOPKY_START',
-  base: base.toJSON ? base.toJSON() : base,
-  typ
-});
-export const stopkyStop = ({ typ }) => ({ type: 'STOPKY_STOP', typ });
+export const stopkyStart = ({ now = new Date(), typ }) => ({ type: 'STOPKY_START', now, typ });
+export const stopkyStop = ({ now = new Date(), typ }) => ({ type: 'STOPKY_STOP', now, typ });
 
 // step is in milliseconds
 export const stopkyAdd = ({ step, typ }) => ({ type: 'STOPKY_ADD', step, typ });

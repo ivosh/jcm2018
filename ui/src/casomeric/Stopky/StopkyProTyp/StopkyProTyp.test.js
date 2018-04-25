@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
+import moment from 'moment';
 import StopkyProTyp from './StopkyProTyp';
 
 const funcs = [
@@ -19,6 +20,7 @@ it('snapshot před startem', () => {
     <StopkyProTyp
       running={false}
       base={null}
+      delta={moment.duration('PT0H0M0.0S')}
       startEnabled={true}
       stopEnabled={false}
       typ="půlmaraton"
@@ -36,6 +38,7 @@ it('snapshort po startu', () => {
     <StopkyProTyp
       running={true}
       base={new Date()}
+      delta={moment.duration(0)}
       startEnabled={false}
       stopEnabled={true}
       typ="maraton"
@@ -64,6 +67,7 @@ it('maps button Start to dispatch onStart action', () => {
     <StopkyProTyp
       running={false}
       base={null}
+      delta={moment.duration(0)}
       startEnabled={true}
       stopEnabled={false}
       typ="cyklo"
@@ -76,7 +80,7 @@ it('maps button Start to dispatch onStart action', () => {
   expect(wrapper.find('button.btn-success')).toHaveLength(1);
   wrapper.find('button.btn-success').simulate('click');
 
-  expect(onStart).toHaveBeenCalledWith(expect.any(Date));
+  expect(onStart).toHaveBeenCalledWith();
 });
 
 it('maps button Stop to dispatch onStop action', () => {
@@ -85,6 +89,7 @@ it('maps button Stop to dispatch onStop action', () => {
     <StopkyProTyp
       running={true}
       base={new Date()}
+      delta={moment.duration('PT2H15M34.72S')}
       startEnabled={false}
       stopEnabled={true}
       typ="koloběžka"

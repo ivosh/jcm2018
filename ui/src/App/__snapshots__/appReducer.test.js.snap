@@ -19,6 +19,7 @@ Object {
       "startujici": Array [],
       "stopky": Object {
         "base": null,
+        "delta": "P0D",
         "running": false,
       },
     },
@@ -27,6 +28,7 @@ Object {
       "startujici": Array [],
       "stopky": Object {
         "base": null,
+        "delta": "P0D",
         "running": false,
       },
     },
@@ -35,6 +37,7 @@ Object {
       "startujici": Array [],
       "stopky": Object {
         "base": null,
+        "delta": "P0D",
         "running": false,
       },
     },
@@ -43,6 +46,7 @@ Object {
       "startujici": Array [],
       "stopky": Object {
         "base": null,
+        "delta": "P0D",
         "running": false,
       },
     },
@@ -156,6 +160,7 @@ Object {
       "startujici": Array [],
       "stopky": Object {
         "base": null,
+        "delta": "P0D",
         "running": false,
       },
     },
@@ -164,6 +169,7 @@ Object {
       "startujici": Array [],
       "stopky": Object {
         "base": null,
+        "delta": "P0D",
         "running": false,
       },
     },
@@ -172,6 +178,7 @@ Object {
       "startujici": Array [],
       "stopky": Object {
         "base": null,
+        "delta": "P0D",
         "running": false,
       },
     },
@@ -180,6 +187,7 @@ Object {
       "startujici": Array [],
       "stopky": Object {
         "base": null,
+        "delta": "P0D",
         "running": false,
       },
     },
@@ -293,6 +301,7 @@ Object {
       "startujici": Array [],
       "stopky": Object {
         "base": null,
+        "delta": "P0D",
         "running": false,
       },
     },
@@ -301,6 +310,7 @@ Object {
       "startujici": Array [],
       "stopky": Object {
         "base": null,
+        "delta": "P0D",
         "running": false,
       },
     },
@@ -309,6 +319,7 @@ Object {
       "startujici": Array [],
       "stopky": Object {
         "base": null,
+        "delta": "P0D",
         "running": false,
       },
     },
@@ -317,6 +328,7 @@ Object {
       "startujici": Array [],
       "stopky": Object {
         "base": null,
+        "delta": "P0D",
         "running": false,
       },
     },
