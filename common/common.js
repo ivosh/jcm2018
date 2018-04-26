@@ -20,6 +20,7 @@ const BROADCAST_STOPKY = 'broadcastStopky';
 const BROADCAST_UCASTNIK = 'broadcastUcastnik';
 const DELETE_VYKON = 'deleteVykon';
 const FIND_ALL_ROCNIKY = 'findAllRocniky';
+const FIND_ALL_STOPKY = 'findAllStopky';
 const FIND_ALL_UCASTNICI = 'findAllUcastnici';
 const SAVE_PLATBY = 'savePlatby';
 const SAVE_PRIHLASKA = 'savePrihlaska';
@@ -53,6 +54,12 @@ const deleteVykon = ({ id, rok }, token) => ({
 
 const findAllRocniky = token => ({
   action: FIND_ALL_ROCNIKY,
+  request: undefined,
+  token
+});
+
+const findAllStopky = token => ({
+  action: FIND_ALL_STOPKY,
   request: undefined,
   token
 });
@@ -242,6 +249,7 @@ module.exports = {
   BROADCAST_UCASTNIK,
   DELETE_VYKON,
   FIND_ALL_ROCNIKY,
+  FIND_ALL_STOPKY,
   FIND_ALL_UCASTNICI,
   SAVE_PLATBY,
   SAVE_PRIHLASKA,
@@ -267,6 +275,7 @@ module.exports = {
   CODE_UNRECOGNIZED_ACTION,
   deleteVykon,
   findAllRocniky,
+  findAllStopky,
   findAllUcastnici,
   findKategorie,
   savePlatby,

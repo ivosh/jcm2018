@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`findAllStopky [not authenticated] 1`] = `
+Object {
+  "code": "authentication token invalid",
+  "status": "Špatný ověřovací token. Zkus se přihlásit znovu. Detaily: JsonWebTokenError: jwt must be provided",
+}
+`;
+
+exports[`findAllStopky 1`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "cyklo": Object {
+      "base": "2017-12-01T07:30:00.000Z",
+      "delta": "P0D",
+      "running": true,
+      "typ": "cyklo",
+    },
+    "koloběžka": Object {
+      "base": null,
+      "delta": "PT4H0M0.32S",
+      "running": false,
+      "typ": "koloběžka",
+    },
+    "maraton": Object {
+      "base": null,
+      "delta": "P0D",
+      "running": false,
+      "typ": "maraton",
+    },
+    "půlmaraton": Object {
+      "base": null,
+      "delta": "PT1H23M07.34S",
+      "running": false,
+      "typ": "půlmaraton",
+    },
+  },
+}
+`;
