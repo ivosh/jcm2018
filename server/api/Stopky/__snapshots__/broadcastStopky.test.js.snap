@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`broadcast 1`] = `
+Object {
+  "broadcast": "broadcastStopky",
+  "data": Object {
+    "base": null,
+    "delta": "P0D",
+    "running": false,
+    "typ": "cyklo",
+  },
+}
+`;
