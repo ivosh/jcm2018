@@ -21,6 +21,7 @@ const mapStateToProps = ({ casomeric }, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   const { typ } = ownProps;
 
+  // :TODO: dispatch also saveStopky()
   return {
     onStart: () => dispatch(stopkyStart({ typ })),
     onStop: () => dispatch(stopkyStop({ typ })),

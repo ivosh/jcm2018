@@ -58,6 +58,11 @@ Object {
       "byRoky": Object {},
       "roky": Array [],
     },
+    "stopky": Object {
+      "byTypy": Object {},
+      "invalidated": false,
+      "typy": Array [],
+    },
     "ucastnici": Object {
       "allIds": Array [],
       "byIds": Object {},
@@ -199,6 +204,11 @@ Object {
       "byRoky": Object {},
       "roky": Array [],
     },
+    "stopky": Object {
+      "byTypy": Object {},
+      "invalidated": false,
+      "typy": Array [],
+    },
     "ucastnici": Object {
       "allIds": Array [],
       "byIds": Object {},
@@ -339,6 +349,11 @@ Object {
     "rocniky": Object {
       "byRoky": Object {},
       "roky": Array [],
+    },
+    "stopky": Object {
+      "byTypy": Object {},
+      "invalidated": true,
+      "typy": Array [],
     },
     "ucastnici": Object {
       "allIds": Array [],

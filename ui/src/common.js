@@ -14,12 +14,15 @@
 const PORT = 4000;
 const PLATBA_TYPY = ['hotově', 'převodem', 'složenkou'];
 
+const BROADCAST_STOPKY = 'broadcastStopky';
 const BROADCAST_UCASTNIK = 'broadcastUcastnik';
 const DELETE_VYKON = 'deleteVykon';
 const FIND_ALL_ROCNIKY = 'findAllRocniky';
+const FIND_ALL_STOPKY = 'findAllStopky';
 const FIND_ALL_UCASTNICI = 'findAllUcastnici';
 const SAVE_PLATBY = 'savePlatby';
 const SAVE_PRIHLASKA = 'savePrihlaska';
+const SAVE_STOPKY = 'saveStopky';
 const SAVE_UBYTOVANI = 'saveUbytovani';
 const SAVE_UDAJE = 'saveUdaje';
 const SAVE_VYKON = 'saveVykon';
@@ -53,6 +56,12 @@ const findAllRocniky = token => ({
   token
 });
 
+const findAllStopky = token => ({
+  action: FIND_ALL_STOPKY,
+  request: undefined,
+  token
+});
+
 const findAllUcastnici = token => ({
   action: FIND_ALL_UCASTNICI,
   request: undefined,
@@ -68,6 +77,12 @@ const savePlatby = ({ id, rok, platby }, token) => ({
 const savePrihlaska = ({ id, rok, prihlaska }, token) => ({
   action: SAVE_PRIHLASKA,
   request: { id, rok, prihlaska },
+  token
+});
+
+const saveStopky = ({ typ, base, delta, running }, token) => ({
+  action: SAVE_STOPKY,
+  request: { typ, base, delta, running },
   token
 });
 
@@ -228,12 +243,15 @@ const ubytovaniNeprespano = ({ den, ubytovani = {} }) => ({
 const exported = {
   PORT,
   PLATBA_TYPY,
+  BROADCAST_STOPKY,
   BROADCAST_UCASTNIK,
   DELETE_VYKON,
   FIND_ALL_ROCNIKY,
+  FIND_ALL_STOPKY,
   FIND_ALL_UCASTNICI,
   SAVE_PLATBY,
   SAVE_PRIHLASKA,
+  SAVE_STOPKY,
   SAVE_UBYTOVANI,
   SAVE_UDAJE,
   SAVE_VYKON,
@@ -255,10 +273,12 @@ const exported = {
   CODE_UNRECOGNIZED_ACTION,
   deleteVykon,
   findAllRocniky,
+  findAllStopky,
   findAllUcastnici,
   findKategorie,
   savePlatby,
   savePrihlaska,
+  saveStopky,
   saveUbytovani,
   saveUdaje,
   saveVykon,
@@ -274,12 +294,15 @@ export default exported;
 export {
   PORT,
   PLATBA_TYPY,
+  BROADCAST_STOPKY,
   BROADCAST_UCASTNIK,
   DELETE_VYKON,
   FIND_ALL_ROCNIKY,
+  FIND_ALL_STOPKY,
   FIND_ALL_UCASTNICI,
   SAVE_PLATBY,
   SAVE_PRIHLASKA,
+  SAVE_STOPKY,
   SAVE_UBYTOVANI,
   SAVE_UDAJE,
   SAVE_VYKON,
@@ -301,10 +324,12 @@ export {
   CODE_UNRECOGNIZED_ACTION,
   deleteVykon,
   findAllRocniky,
+  findAllStopky,
   findAllUcastnici,
   findKategorie,
   savePlatby,
   savePrihlaska,
+  saveStopky,
   saveUbytovani,
   saveUdaje,
   saveVykon,

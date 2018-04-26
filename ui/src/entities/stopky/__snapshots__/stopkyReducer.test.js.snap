@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`broadcastStopky - změna 1`] = `
+Object {
+  "byTypy": Object {
+    "cyklo": Object {
+      "base": null,
+      "delta": "PT1H23M07.3S",
+      "running": false,
+      "typ": "cyklo",
+    },
+  },
+  "typy": Array [
+    "cyklo",
+  ],
+}
+`;

@@ -1,9 +1,10 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { BROADCAST_UCASTNIK } from './common';
+import { BROADCAST_STOPKY, BROADCAST_UCASTNIK } from './common';
 import appReducer from './App/appReducer';
 import { websocketConnected, websocketDisconnected } from './App/AppActions';
 import { setHighestMezicasId } from './casomeric/Casomira/Mezicasy/MezicasyActions';
+import { broadcastStopky } from './entities/stopky/stopkyActions';
 import { broadcastUcastnik } from './entities/ucastnici/ucastniciActions';
 
 const loadState = () => {
@@ -31,8 +32,15 @@ const saveState = state => {
 const setupWsClient = (wsClient, store) => {
   wsClient.setCallbacks({
     onBroadcast: ({ broadcast, data }) => {
-      if (broadcast === BROADCAST_UCASTNIK) {
-        store.dispatch(broadcastUcastnik(data));
+      switch (broadcast) {
+        case BROADCAST_UCASTNIK:
+          store.dispatch(broadcastUcastnik(data));
+          break;
+        case BROADCAST_STOPKY:
+          store.dispatch(broadcastStopky(data));
+          break;
+        default:
+          break;
       }
     },
     onConnect: () => store.dispatch(websocketConnected()),
