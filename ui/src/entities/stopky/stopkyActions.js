@@ -1,7 +1,7 @@
 import { CODE_OK, CODE_TOKEN_INVALID, findAllStopky } from '../../common';
 import { authTokenExpired } from '../../auth/SignIn/SignInActions';
 
-const fetchStopkyRequest = () => ({
+export const fetchStopkyRequest = () => ({
   type: 'FETCH_STOPKY_REQUEST'
 });
 

@@ -1,4 +1,5 @@
 import deepFreeze from 'deep-freeze';
+import { fetchStopkyRequest, fetchStopkySuccess } from '../entities/stopky/stopkyActions';
 import {
   fetchUcastniciRequest,
   fetchUcastniciSuccess
@@ -44,5 +45,21 @@ it('fetchUcastniciSuccess()', () => {
   deepFreeze(stateBefore);
 
   const stateAfter = appReducer(stateBefore, fetchUcastniciSuccess({ response: {} }));
+  expect(stateAfter.fetching).toEqual('done');
+});
+
+it('fetchStopkyRequest()', () => {
+  const stateBefore = { fetching: undefined };
+  deepFreeze(stateBefore);
+
+  const stateAfter = appReducer(stateBefore, fetchStopkyRequest());
+  expect(stateAfter.fetching).toEqual('fetching');
+});
+
+it('fetchStopkySuccess()', () => {
+  const stateBefore = { fetching: 'fetching' };
+  deepFreeze(stateBefore);
+
+  const stateAfter = appReducer(stateBefore, fetchStopkySuccess({ response: {} }));
   expect(stateAfter.fetching).toEqual('done');
 });

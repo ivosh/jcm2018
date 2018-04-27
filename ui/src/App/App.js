@@ -5,6 +5,7 @@ import { Glyphicon, MenuItem, Nav, Navbar, NavDropdown, NavItem } from 'react-bo
 import { LinkContainer } from 'react-router-bootstrap';
 import withAuth from '../auth/withAuth';
 import withoutAuth from '../auth/withoutAuth';
+import withFetchStopky from '../entities/withFetchStopky/withFetchStopky';
 import withFetchUcastnici from '../entities/withFetchUcastnici/withFetchUcastnici';
 import About from './About';
 import Casomira from '../casomeric/Casomira/Casomira';
@@ -122,7 +123,7 @@ const App = ({ authenticated, connected, location, username }) => (
           path="/startovni-cisla"
           component={withAuth(withFetchUcastnici(StartovniCislaContainer))}
         />
-        <Route path="/stopky" component={withAuth(withFetchUcastnici(Stopky))} />
+        <Route path="/stopky" component={withAuth(withFetchStopky(Stopky))} />
         <Route path="/ubytovani" component={withAuth(withFetchUcastnici(UbytovaniContainer))} />
         <Route
           path="/ucastnici"

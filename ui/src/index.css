@@ -34,6 +34,10 @@ html {
   font-family: monospace;
 }
 
+.FetchComponent {
+  padding-left: 1em;
+}
+
 :root {
   --maraton: 176, 255, 181;
   --půlmaraton: 255, 131, 122;

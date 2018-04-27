@@ -17,8 +17,11 @@ const connected = (state = false, action) => {
 
 const fetching = (state = 'init', action) => {
   switch (action.type) {
+    case 'FETCH_STOPKY_REQUEST':
     case 'FETCH_UCASTNICI_REQUEST':
       return 'fetching';
+    case 'FETCH_STOPKY_SUCCESS':
+    case 'FETCH_STOPKY_ERROR':
     case 'FETCH_UCASTNICI_SUCCESS':
     case 'FETCH_UCASTNICI_ERROR':
       return 'done';

@@ -1,23 +1,23 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchUcastnici as fetchUcastniciAction } from '../../entities/ucastnici/ucastniciActions';
+import { fetchStopky as fetchStopkyAction } from '../../entities/stopky/stopkyActions';
 import LoadingIndicator from '../../shared/LoadingIndicator';
 
-const withFetchUcastnici = WrappedComponent => {
-  class WithFetchUcastniciComponent extends PureComponent {
+const withFetchStopky = WrappedComponent => {
+  class WithFetchStopkyComponent extends PureComponent {
     componentDidMount = () => {
-      this.props.fetchUcastnici();
+      this.props.fetchStopky();
     };
 
     render = () => {
-      const { fetching, fetchUcastnici, ...rest } = this.props;
+      const { fetching, fetchStopky, ...rest } = this.props;
 
       switch (fetching) {
         case 'fetching':
           return (
             <div className="FetchComponent">
-              <LoadingIndicator /> Načítám účastníky...
+              <LoadingIndicator /> Načítám stopky...
             </div>
           );
         case 'done':
@@ -28,9 +28,9 @@ const withFetchUcastnici = WrappedComponent => {
     };
   }
 
-  WithFetchUcastniciComponent.propTypes = {
+  WithFetchStopkyComponent.propTypes = {
     fetching: PropTypes.oneOf(['init', 'fetching', 'done']).isRequired,
-    fetchUcastnici: PropTypes.func.isRequired
+    fetchStopky: PropTypes.func.isRequired
   };
 
   const mapStateToProps = (state, ownProps) => ({
@@ -39,10 +39,10 @@ const withFetchUcastnici = WrappedComponent => {
   });
 
   const mapDispatchToProps = dispatch => ({
-    fetchUcastnici: () => dispatch(fetchUcastniciAction())
+    fetchStopky: () => dispatch(fetchStopkyAction())
   });
 
-  return connect(mapStateToProps, mapDispatchToProps)(WithFetchUcastniciComponent);
+  return connect(mapStateToProps, mapDispatchToProps)(WithFetchStopkyComponent);
 };
 
-export default withFetchUcastnici;
+export default withFetchStopky;

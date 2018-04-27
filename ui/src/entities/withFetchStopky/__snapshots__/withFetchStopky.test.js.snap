@@ -15,6 +15,6 @@ exports[`při načítání 1`] = `
   <span
     className="LoadingIndicator glyphicon glyphicon-repeat"
   />
-   Načítám účastníky...
+   Načítám stopky...
 </div>
 `;
