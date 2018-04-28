@@ -4,8 +4,14 @@ import { changeOdstartovani } from './StartovniCislaActions';
 import StartovniCisla from './StartovniCisla';
 
 const mapStateToProps = state => {
-  const { entities: { rocniky } } = state;
-  const { registrator: { startovniCisla: { odstartovani } } } = state;
+  const {
+    entities: { rocniky }
+  } = state;
+  const {
+    registrator: {
+      startovniCisla: { odstartovani }
+    }
+  } = state;
 
   return { odstartovani, typy: getTypyStartCisel(rocniky) };
 };

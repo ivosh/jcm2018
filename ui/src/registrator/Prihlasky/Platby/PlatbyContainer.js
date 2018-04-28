@@ -5,7 +5,12 @@ import Platby from './Platby';
 
 const mapStateToProps = state => {
   const {
-    registrator: { prihlasky: { form: { prihlaska, platby }, platby: { novaPlatbaMinified } } },
+    registrator: {
+      prihlasky: {
+        form: { prihlaska, platby },
+        platby: { novaPlatbaMinified }
+      }
+    },
     entities: { kategorie, rocniky }
   } = state;
 

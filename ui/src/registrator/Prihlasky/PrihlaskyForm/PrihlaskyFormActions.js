@@ -95,7 +95,11 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
   await dispatch(validate());
 
   const state = getState();
-  const { registrator: { prihlasky: { form: prihlaskyForm } } } = state;
+  const {
+    registrator: {
+      prihlasky: { form: prihlaskyForm }
+    }
+  } = state;
   if (!formValid(prihlaskyForm)) {
     dispatch(validationError());
     return;

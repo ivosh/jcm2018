@@ -206,7 +206,10 @@ it('getPrihlaseniSorted() by default', () => {
   ];
   deepFreeze(state);
 
-  const { entities, registrator: { prihlaseni } } = state;
+  const {
+    entities,
+    registrator: { prihlaseni }
+  } = state;
   expect(getPrihlaseniSorted({ ...entities, ...prihlaseni })).toEqual(selected);
 });
 
@@ -245,7 +248,10 @@ it('getPrihlaseniSorted() filtrováno na z', () => {
   ];
   deepFreeze(state);
 
-  const { entities, registrator: { prihlaseni } } = state;
+  const {
+    entities,
+    registrator: { prihlaseni }
+  } = state;
   expect(getPrihlaseniSorted({ ...entities, ...prihlaseni })).toEqual(selected);
 });
 
@@ -322,6 +328,9 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
   ];
   deepFreeze(state);
 
-  const { entities, registrator: { prihlaseni } } = state;
+  const {
+    entities,
+    registrator: { prihlaseni }
+  } = state;
   expect(getPrihlaseniSorted({ ...entities, ...prihlaseni })).toEqual(selected);
 });

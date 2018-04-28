@@ -177,7 +177,10 @@ it('getUbytovaniSorted() by default', () => {
   ];
   deepFreeze(state);
 
-  const { entities, registrator: { prihlaseni } } = state;
+  const {
+    entities,
+    registrator: { prihlaseni }
+  } = state;
   expect(getUbytovaniSorted({ ...entities, ...prihlaseni })).toEqual(selected);
 });
 
@@ -212,6 +215,9 @@ it('getUbytovaniSorted() filtrováno na z', () => {
   ];
   deepFreeze(state);
 
-  const { entities, registrator: { prihlaseni } } = state;
+  const {
+    entities,
+    registrator: { prihlaseni }
+  } = state;
   expect(getUbytovaniSorted({ ...entities, ...prihlaseni })).toEqual(selected);
 });

@@ -19,7 +19,11 @@ const validate = () => ({ type: 'NOVA_PLATBA_VALIDATE' });
 export const addValidatedPlatba = () => async (dispatch, getState) => {
   await dispatch(validate());
 
-  const { registrator: { prihlasky: { platby: novaPlatba } } } = getState();
+  const {
+    registrator: {
+      prihlasky: { platby: novaPlatba }
+    }
+  } = getState();
   if (!novaPlatbaValid(novaPlatba)) {
     return;
   }

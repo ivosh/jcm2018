@@ -7,7 +7,11 @@ export const getPrihlaseni = ({ kategorie, rocniky, ucastnici, rok = AKTUALNI_RO
   const ucasti = getUcastiProRok({ rok, ucastnici });
   const mapped = ucasti.map(jeden => {
     const { id, ucast } = jeden;
-    const { udaje: { prijmeni, jmeno, narozeni }, prihlaska, vykon } = ucast;
+    const {
+      udaje: { prijmeni, jmeno, narozeni },
+      prihlaska,
+      vykon
+    } = ucast;
     if (vykon) {
       return undefined;
     }
@@ -35,7 +39,10 @@ export const getOdstartovani = ({ kategorie, ucastnici, rok = AKTUALNI_ROK }) =>
   const ucasti = getUcastiProRok({ rok, ucastnici });
   const mapped = ucasti.map(jeden => {
     const { id, ucast } = jeden;
-    const { udaje: { prijmeni, jmeno, narozeni }, vykon } = ucast;
+    const {
+      udaje: { prijmeni, jmeno, narozeni },
+      vykon
+    } = ucast;
     if (!vykon) {
       return undefined;
     }

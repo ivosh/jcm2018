@@ -11,7 +11,12 @@ import {
 } from './PrihlaskyFormActions';
 
 const mapStateToProps = (state, ownProps) => {
-  const { entities, registrator: { prihlasky: { form: prihlaskyForm } } } = state;
+  const {
+    entities,
+    registrator: {
+      prihlasky: { form: prihlaskyForm }
+    }
+  } = state;
   const { reset } = ownProps;
   const { errorCode, errorMessage, showError, saved, saving, ucastnikId } = prihlaskyForm;
 

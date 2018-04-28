@@ -50,7 +50,10 @@ export const getUbytovaniSorted = ({
   const ucasti = getUcastiProRok({ rok, ucastnici });
   const mapped = ucasti.map(jeden => {
     const { id, ucast } = jeden;
-    const { udaje: { prijmeni, jmeno, narozeni, obec, email }, prihlaska: { datum } } = ucast;
+    const {
+      udaje: { prijmeni, jmeno, narozeni, obec, email },
+      prihlaska: { datum }
+    } = ucast;
     const ubytovani = ucast.ubytovani || {};
 
     if (

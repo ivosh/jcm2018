@@ -28,7 +28,11 @@ const fetchStopkyError = ({ code, status, err }) => ({
 });
 
 export const fetchStopky = () => async (dispatch, getState, wsClient) => {
-  const { auth, connected, entities: { stopky } } = getState();
+  const {
+    auth,
+    connected,
+    entities: { stopky }
+  } = getState();
   if (stopky && stopky.typy && stopky.typy.length > 0) {
     if (!connected || !stopky.invalidated) {
       return; // Use cached value if: not connected or not invalidated.

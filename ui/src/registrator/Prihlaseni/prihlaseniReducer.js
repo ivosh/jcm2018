@@ -39,7 +39,11 @@ export const getPrihlaseniSorted = ({
   const ucasti = getUcastiProRok({ rok, ucastnici });
   const mapped = ucasti.map(jeden => {
     const { id, ucast } = jeden;
-    const { udaje: { prijmeni, jmeno, narozeni, obec, email }, prihlaska, platby } = ucast;
+    const {
+      udaje: { prijmeni, jmeno, narozeni, obec, email },
+      prihlaska,
+      platby
+    } = ucast;
     const { datum, kategorie: kategorieId, startCislo, kod } = prihlaska;
     const jednaKategorie = kategorie[kategorieId];
     const predepsano = predepsaneStartovne({ kategorie, prihlaska, rocniky, rok }).suma;
