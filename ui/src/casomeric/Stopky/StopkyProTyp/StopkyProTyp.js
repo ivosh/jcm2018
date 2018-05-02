@@ -25,14 +25,14 @@ class StopkyProTyp extends PureComponent {
   };
 
   render = () => {
-    const { base, delta, running, startEnabled, stopEnabled, typ, onAdd, onSub } = this.props;
+    const { base, cudly, delta, running, startEnabled, stopEnabled, typ } = this.props;
 
     return (
       <Panel className={`StopkyProTyp__panel--${typ}`} header={<PopisekKategorie typ={typ} />}>
         <div className="StopkyProTyp__div">
-          <Cudly popisky={['+10', '+1', '+10', '+1', '+10', '+1', '+10', '+1']} funcs={onAdd} />
+          <Cudly cudly={cudly.slice(0, 8)} />
           <RunningDisplej base={base} delta={delta} running={running} ref={this.displej} />
-          <Cudly popisky={['-10', '-1', '-10', '-1', '-10', '-1', '-10', '-1']} funcs={onSub} />
+          <Cudly cudly={cudly.slice(8, 16)} />
         </div>
         <ButtonToolbar className="StopkyProTyp__buttons">
           <Button bsStyle="success" disabled={!startEnabled} onClick={this.start}>
@@ -49,15 +49,20 @@ class StopkyProTyp extends PureComponent {
 
 StopkyProTyp.propTypes = {
   base: PropTypes.instanceOf(Date),
+  cudly: PropTypes.arrayOf(
+    PropTypes.shape({
+      popisek: PropTypes.string.isRequired,
+      step: PropTypes.number.isRequired,
+      onClick: PropTypes.func.isRequired
+    }).isRequired
+  ).isRequired,
   delta: momentPropTypes.momentDurationObj,
   running: PropTypes.bool.isRequired,
   startEnabled: PropTypes.bool.isRequired,
   stopEnabled: PropTypes.bool.isRequired,
   typ: PropTypes.string.isRequired,
-  onAdd: PropTypes.arrayOf(PropTypes.func.isRequired).isRequired,
   onStart: PropTypes.func.isRequired,
-  onStop: PropTypes.func.isRequired,
-  onSub: PropTypes.arrayOf(PropTypes.func.isRequired).isRequired
+  onStop: PropTypes.func.isRequired
 };
 
 export default StopkyProTyp;

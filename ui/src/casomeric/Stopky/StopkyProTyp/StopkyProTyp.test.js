@@ -4,15 +4,24 @@ import { mount } from 'enzyme';
 import moment from 'moment';
 import StopkyProTyp from './StopkyProTyp';
 
-const funcs = [
-  jest.fn(),
-  jest.fn(),
-  jest.fn(),
-  jest.fn(),
-  jest.fn(),
-  jest.fn(),
-  jest.fn(),
-  jest.fn()
+const cudl = { popisek: '+X', step: 10, onClick: jest.fn() };
+const cudly = [
+  cudl,
+  cudl,
+  cudl,
+  cudl,
+  cudl,
+  cudl,
+  cudl,
+  cudl,
+  cudl,
+  cudl,
+  cudl,
+  cudl,
+  cudl,
+  cudl,
+  cudl,
+  cudl
 ];
 
 it('snapshot před startem', () => {
@@ -20,14 +29,13 @@ it('snapshot před startem', () => {
     <StopkyProTyp
       running={false}
       base={null}
+      cudly={cudly}
       delta={moment.duration('PT0H0M0.0S')}
       startEnabled={true}
       stopEnabled={false}
       typ="půlmaraton"
-      onAdd={funcs}
       onStart={jest.fn()}
       onStop={jest.fn()}
-      onSub={funcs}
     />
   );
   expect(component.toJSON()).toMatchSnapshot();
@@ -38,14 +46,13 @@ it('snapshort po startu', () => {
     <StopkyProTyp
       running={true}
       base={new Date()}
+      cudly={cudly}
       delta={moment.duration(0)}
       startEnabled={false}
       stopEnabled={true}
       typ="maraton"
-      onAdd={funcs}
       onStart={jest.fn()}
       onStop={jest.fn()}
-      onSub={funcs}
     />
   );
 
@@ -67,14 +74,13 @@ it('maps button Start to dispatch onStart action', () => {
     <StopkyProTyp
       running={false}
       base={null}
+      cudly={cudly}
       delta={moment.duration(0)}
       startEnabled={true}
       stopEnabled={false}
       typ="cyklo"
-      onAdd={funcs}
       onStart={onStart}
       onStop={jest.fn()}
-      onSub={funcs}
     />
   );
   expect(wrapper.find('button.btn-success')).toHaveLength(1);
@@ -89,14 +95,13 @@ it('maps button Stop to dispatch onStop action', () => {
     <StopkyProTyp
       running={true}
       base={new Date()}
+      cudly={cudly}
       delta={moment.duration('PT2H15M34.72S')}
       startEnabled={false}
       stopEnabled={true}
       typ="koloběžka"
-      onAdd={funcs}
       onStart={jest.fn()}
       onStop={onStop}
-      onSub={funcs}
     />
   );
   expect(wrapper.find('button.btn-danger')).toHaveLength(1);

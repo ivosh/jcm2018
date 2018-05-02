@@ -34,7 +34,7 @@ exports[`snapshort po startu 1`] = `
           onClick={[Function]}
           type="button"
         >
-          +1
+          +X
         </button>
       </div>
       <div />
@@ -47,7 +47,7 @@ exports[`snapshort po startu 1`] = `
           onClick={[Function]}
           type="button"
         >
-          +10
+          +X
         </button>
         <button
           className="Cudl btn btn-primary"
@@ -55,28 +55,7 @@ exports[`snapshort po startu 1`] = `
           onClick={[Function]}
           type="button"
         >
-          +1
-        </button>
-      </div>
-      <div />
-      <div
-        className="StopkyProTyp__cudly"
-      >
-        <button
-          className="Cudl btn btn-primary"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          +10
-        </button>
-        <button
-          className="Cudl btn btn-primary"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          +1
+          +X
         </button>
       </div>
       <div />
@@ -89,7 +68,7 @@ exports[`snapshort po startu 1`] = `
           onClick={[Function]}
           type="button"
         >
-          +10
+          +X
         </button>
         <button
           className="Cudl btn btn-primary"
@@ -97,7 +76,28 @@ exports[`snapshort po startu 1`] = `
           onClick={[Function]}
           type="button"
         >
-          +1
+          +X
+        </button>
+      </div>
+      <div />
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +X
+        </button>
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +X
         </button>
       </div>
       <span
@@ -144,7 +144,7 @@ exports[`snapshort po startu 1`] = `
           onClick={[Function]}
           type="button"
         >
-          -1
+          +X
         </button>
       </div>
       <div />
@@ -157,7 +157,7 @@ exports[`snapshort po startu 1`] = `
           onClick={[Function]}
           type="button"
         >
-          -10
+          +X
         </button>
         <button
           className="Cudl btn btn-primary"
@@ -165,28 +165,7 @@ exports[`snapshort po startu 1`] = `
           onClick={[Function]}
           type="button"
         >
-          -1
-        </button>
-      </div>
-      <div />
-      <div
-        className="StopkyProTyp__cudly"
-      >
-        <button
-          className="Cudl btn btn-primary"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          -10
-        </button>
-        <button
-          className="Cudl btn btn-primary"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          -1
+          +X
         </button>
       </div>
       <div />
@@ -199,7 +178,7 @@ exports[`snapshort po startu 1`] = `
           onClick={[Function]}
           type="button"
         >
-          -10
+          +X
         </button>
         <button
           className="Cudl btn btn-primary"
@@ -207,7 +186,28 @@ exports[`snapshort po startu 1`] = `
           onClick={[Function]}
           type="button"
         >
-          -1
+          +X
+        </button>
+      </div>
+      <div />
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +X
+        </button>
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +X
         </button>
       </div>
     </div>
@@ -270,7 +270,7 @@ exports[`snapshot před startem 1`] = `
           onClick={[Function]}
           type="button"
         >
-          +1
+          +X
         </button>
       </div>
       <div />
@@ -283,7 +283,7 @@ exports[`snapshot před startem 1`] = `
           onClick={[Function]}
           type="button"
         >
-          +10
+          +X
         </button>
         <button
           className="Cudl btn btn-primary"
@@ -291,28 +291,7 @@ exports[`snapshot před startem 1`] = `
           onClick={[Function]}
           type="button"
         >
-          +1
-        </button>
-      </div>
-      <div />
-      <div
-        className="StopkyProTyp__cudly"
-      >
-        <button
-          className="Cudl btn btn-primary"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          +10
-        </button>
-        <button
-          className="Cudl btn btn-primary"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          +1
+          +X
         </button>
       </div>
       <div />
@@ -325,7 +304,7 @@ exports[`snapshot před startem 1`] = `
           onClick={[Function]}
           type="button"
         >
-          +10
+          +X
         </button>
         <button
           className="Cudl btn btn-primary"
@@ -333,7 +312,28 @@ exports[`snapshot před startem 1`] = `
           onClick={[Function]}
           type="button"
         >
-          +1
+          +X
+        </button>
+      </div>
+      <div />
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +X
+        </button>
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +X
         </button>
       </div>
       <span
@@ -380,7 +380,7 @@ exports[`snapshot před startem 1`] = `
           onClick={[Function]}
           type="button"
         >
-          -1
+          +X
         </button>
       </div>
       <div />
@@ -393,7 +393,7 @@ exports[`snapshot před startem 1`] = `
           onClick={[Function]}
           type="button"
         >
-          -10
+          +X
         </button>
         <button
           className="Cudl btn btn-primary"
@@ -401,28 +401,7 @@ exports[`snapshot před startem 1`] = `
           onClick={[Function]}
           type="button"
         >
-          -1
-        </button>
-      </div>
-      <div />
-      <div
-        className="StopkyProTyp__cudly"
-      >
-        <button
-          className="Cudl btn btn-primary"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          -10
-        </button>
-        <button
-          className="Cudl btn btn-primary"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          -1
+          +X
         </button>
       </div>
       <div />
@@ -435,7 +414,7 @@ exports[`snapshot před startem 1`] = `
           onClick={[Function]}
           type="button"
         >
-          -10
+          +X
         </button>
         <button
           className="Cudl btn btn-primary"
@@ -443,7 +422,28 @@ exports[`snapshot před startem 1`] = `
           onClick={[Function]}
           type="button"
         >
-          -1
+          +X
+        </button>
+      </div>
+      <div />
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +X
+        </button>
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          +X
         </button>
       </div>
     </div>

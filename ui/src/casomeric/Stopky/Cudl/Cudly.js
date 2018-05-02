@@ -2,32 +2,36 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Cudl from './Cudl';
 
-const Cudly = ({ popisky, funcs }) => (
+const Cudly = ({ cudly }) => (
   <React.Fragment>
     <div className="StopkyProTyp__cudly">
-      <Cudl text={popisky[1]} onClick={funcs[1]} />
+      <Cudl text={cudly[1].popisek} onClick={cudly[1].onClick} />
     </div>
     <div />
     <div className="StopkyProTyp__cudly">
-      <Cudl text={popisky[2]} onClick={funcs[2]} />
-      <Cudl text={popisky[3]} onClick={funcs[3]} />
+      <Cudl text={cudly[2].popisek} onClick={cudly[2].onClick} />
+      <Cudl text={cudly[3].popisek} onClick={cudly[3].onClick} />
     </div>
     <div />
     <div className="StopkyProTyp__cudly">
-      <Cudl text={popisky[4]} onClick={funcs[4]} />
-      <Cudl text={popisky[5]} onClick={funcs[5]} />
+      <Cudl text={cudly[4].popisek} onClick={cudly[4].onClick} />
+      <Cudl text={cudly[5].popisek} onClick={cudly[5].onClick} />
     </div>
     <div />
     <div className="StopkyProTyp__cudly">
-      <Cudl text={popisky[6]} onClick={funcs[6]} />
-      <Cudl text={popisky[7]} onClick={funcs[7]} />
+      <Cudl text={cudly[6].popisek} onClick={cudly[6].onClick} />
+      <Cudl text={cudly[7].popisek} onClick={cudly[7].onClick} />
     </div>
   </React.Fragment>
 );
 
 Cudly.propTypes = {
-  popisky: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  funcs: PropTypes.arrayOf(PropTypes.func.isRequired).isRequired
+  cudly: PropTypes.arrayOf(
+    PropTypes.shape({
+      popisek: PropTypes.string.isRequired,
+      onClick: PropTypes.func.isRequired
+    }).isRequired
+  ).isRequired
 };
 
 export default Cudly;
