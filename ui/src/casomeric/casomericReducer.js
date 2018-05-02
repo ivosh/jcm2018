@@ -1,13 +1,11 @@
 import { combineReducers } from 'redux';
 import mezicasyReducer from './Casomira/Mezicasy/mezicasyReducer';
 import startujiciReducer from './Casomira/Startujici/startujiciReducer';
-import { createStopkyProTypReducer } from './Stopky/StopkyProTyp/stopkyProTypReducer';
 
 const casomericProTypReducer = typ =>
   combineReducers({
     mezicasy: mezicasyReducer,
-    startujici: startujiciReducer,
-    stopky: createStopkyProTypReducer(typ)
+    startujici: startujiciReducer
   });
 
 const casomericReducer = combineReducers({

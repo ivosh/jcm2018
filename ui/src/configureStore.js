@@ -94,19 +94,15 @@ const configureStore = (wsClient, initialStateParam = loadState()) => {
       },
       casomeric: {
         maraton: {
-          stopky: state.casomeric.maraton.stopky,
           mezicasy: state.casomeric.maraton.mezicasy
         },
         půlmaraton: {
-          stopky: state.casomeric.půlmaraton.stopky,
           mezicasy: state.casomeric.půlmaraton.mezicasy
         },
         cyklo: {
-          stopky: state.casomeric.cyklo.stopky,
           mezicasy: state.casomeric.cyklo.mezicasy
         },
         koloběžka: {
-          stopky: state.casomeric.koloběžka.stopky,
           mezicasy: state.casomeric.koloběžka.mezicasy
         }
       }

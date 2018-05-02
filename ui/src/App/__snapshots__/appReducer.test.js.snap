@@ -17,38 +17,18 @@ Object {
     "cyklo": Object {
       "mezicasy": Array [],
       "startujici": Array [],
-      "stopky": Object {
-        "base": null,
-        "delta": "P0D",
-        "running": false,
-      },
     },
     "koloběžka": Object {
       "mezicasy": Array [],
       "startujici": Array [],
-      "stopky": Object {
-        "base": null,
-        "delta": "P0D",
-        "running": false,
-      },
     },
     "maraton": Object {
       "mezicasy": Array [],
       "startujici": Array [],
-      "stopky": Object {
-        "base": null,
-        "delta": "P0D",
-        "running": false,
-      },
     },
     "půlmaraton": Object {
       "mezicasy": Array [],
       "startujici": Array [],
-      "stopky": Object {
-        "base": null,
-        "delta": "P0D",
-        "running": false,
-      },
     },
   },
   "connected": false,
@@ -163,38 +143,18 @@ Object {
     "cyklo": Object {
       "mezicasy": Array [],
       "startujici": Array [],
-      "stopky": Object {
-        "base": null,
-        "delta": "P0D",
-        "running": false,
-      },
     },
     "koloběžka": Object {
       "mezicasy": Array [],
       "startujici": Array [],
-      "stopky": Object {
-        "base": null,
-        "delta": "P0D",
-        "running": false,
-      },
     },
     "maraton": Object {
       "mezicasy": Array [],
       "startujici": Array [],
-      "stopky": Object {
-        "base": null,
-        "delta": "P0D",
-        "running": false,
-      },
     },
     "půlmaraton": Object {
       "mezicasy": Array [],
       "startujici": Array [],
-      "stopky": Object {
-        "base": null,
-        "delta": "P0D",
-        "running": false,
-      },
     },
   },
   "connected": true,
@@ -309,38 +269,18 @@ Object {
     "cyklo": Object {
       "mezicasy": Array [],
       "startujici": Array [],
-      "stopky": Object {
-        "base": null,
-        "delta": "P0D",
-        "running": false,
-      },
     },
     "koloběžka": Object {
       "mezicasy": Array [],
       "startujici": Array [],
-      "stopky": Object {
-        "base": null,
-        "delta": "P0D",
-        "running": false,
-      },
     },
     "maraton": Object {
       "mezicasy": Array [],
       "startujici": Array [],
-      "stopky": Object {
-        "base": null,
-        "delta": "P0D",
-        "running": false,
-      },
     },
     "půlmaraton": Object {
       "mezicasy": Array [],
       "startujici": Array [],
-      "stopky": Object {
-        "base": null,
-        "delta": "P0D",
-        "running": false,
-      },
     },
   },
   "connected": false,
