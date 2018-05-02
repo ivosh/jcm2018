@@ -1,8 +1,6 @@
 import deepFreeze from 'deep-freeze';
-import { createStopkyProTypReducer } from './stopkyProTypReducer';
-import { stopkyAdd, stopkyStart, stopkyStop, stopkySub } from './StopkyProTypActions';
-
-const stopkyProTypReducer = createStopkyProTypReducer('půlmaraton');
+import stopkyProTypReducer from './stopkyProTypReducer';
+import { stopkyChange, stopkyStart, stopkyStop } from './StopkyProTypActions';
 
 it('na začátku', () => {
   const stateBefore = undefined;
@@ -19,9 +17,7 @@ it('po startu', () => {
   const stateAfter = { running: true, base: now.toJSON(), delta: 'P0D' };
   deepFreeze(stateBefore);
 
-  expect(stopkyProTypReducer(stateBefore, stopkyStart({ now, typ: 'půlmaraton' }))).toEqual(
-    stateAfter
-  );
+  expect(stopkyProTypReducer(stateBefore, stopkyStart({ now }))).toEqual(stateAfter);
 });
 
 it('dvakrát start', () => {
@@ -29,9 +25,7 @@ it('dvakrát start', () => {
   const stateBefore = { running: true, base: now.toJSON() };
   deepFreeze(stateBefore);
 
-  expect(stopkyProTypReducer(stateBefore, stopkyStart({ now, typ: 'půlmaraton' }))).toBe(
-    stateBefore
-  );
+  expect(stopkyProTypReducer(stateBefore, stopkyStart({ now }))).toBe(stateBefore);
 });
 
 it('po stopce', () => {
@@ -41,9 +35,7 @@ it('po stopce', () => {
   const stateAfter = { running: false, base: null, delta: 'PT5.32S' };
   deepFreeze(stateBefore);
 
-  expect(stopkyProTypReducer(stateBefore, stopkyStop({ now, typ: 'půlmaraton' }))).toEqual(
-    stateAfter
-  );
+  expect(stopkyProTypReducer(stateBefore, stopkyStop({ now }))).toEqual(stateAfter);
 });
 
 it('dvakrát stop', () => {
@@ -51,9 +43,7 @@ it('dvakrát stop', () => {
   const stateBefore = { running: false, base: null, delta: 'PT0H0M13.72S' };
   deepFreeze(stateBefore);
 
-  expect(stopkyProTypReducer(stateBefore, stopkyStop({ now, typ: 'půlmaraton' }))).toBe(
-    stateBefore
-  );
+  expect(stopkyProTypReducer(stateBefore, stopkyStop({ now }))).toBe(stateBefore);
 });
 
 it('po restartu', () => {
@@ -66,9 +56,7 @@ it('po restartu', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(stopkyProTypReducer(stateBefore, stopkyStart({ now, typ: 'půlmaraton' }))).toEqual(
-    stateAfter
-  );
+  expect(stopkyProTypReducer(stateBefore, stopkyStart({ now }))).toEqual(stateAfter);
 });
 
 it('add time step when running', () => {
@@ -81,9 +69,7 @@ it('add time step when running', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(stopkyProTypReducer(stateBefore, stopkyAdd({ step: 10000, typ: 'půlmaraton' }))).toEqual(
-    stateAfter
-  );
+  expect(stopkyProTypReducer(stateBefore, stopkyChange({ step: +10000 }))).toEqual(stateAfter);
 });
 
 it('subtract time step when running', () => {
@@ -92,9 +78,7 @@ it('subtract time step when running', () => {
   const stateAfter = { running: true, base: new Date(now.getTime() + 100).toJSON(), delta: 'P0D' };
   deepFreeze(stateBefore);
 
-  expect(stopkyProTypReducer(stateBefore, stopkySub({ step: 100, typ: 'půlmaraton' }))).toEqual(
-    stateAfter
-  );
+  expect(stopkyProTypReducer(stateBefore, stopkyChange({ step: -100 }))).toEqual(stateAfter);
 });
 
 it('add time step when not running', () => {
@@ -102,9 +86,9 @@ it('add time step when not running', () => {
   const stateAfter = { running: false, base: null, delta: 'PT3M13.42S' };
   deepFreeze(stateBefore);
 
-  expect(
-    stopkyProTypReducer(stateBefore, stopkyAdd({ step: 3 * 60 * 1000, typ: 'půlmaraton' }))
-  ).toEqual(stateAfter);
+  expect(stopkyProTypReducer(stateBefore, stopkyChange({ step: +3 * 60 * 1000 }))).toEqual(
+    stateAfter
+  );
 });
 
 it('subtract time step when not running', () => {
@@ -112,9 +96,7 @@ it('subtract time step when not running', () => {
   const stateAfter = { running: false, base: null, delta: 'PT3.42S' };
   deepFreeze(stateBefore);
 
-  expect(
-    stopkyProTypReducer(stateBefore, stopkySub({ step: 10 * 1000, typ: 'půlmaraton' }))
-  ).toEqual(stateAfter);
+  expect(stopkyProTypReducer(stateBefore, stopkyChange({ step: -10 * 1000 }))).toEqual(stateAfter);
 });
 
 it('cannot subtract time step when not running', () => {
@@ -122,14 +104,5 @@ it('cannot subtract time step when not running', () => {
   const stateAfter = { running: false, base: null, delta: 'PT0H0M13.42S' };
   deepFreeze(stateBefore);
 
-  expect(
-    stopkyProTypReducer(stateBefore, stopkySub({ step: 20 * 1000, typ: 'půlmaraton' }))
-  ).toEqual(stateAfter);
-});
-
-it('jiný typ', () => {
-  const stateBefore = { running: true, base: new Date().toJSON() };
-  deepFreeze(stateBefore);
-
-  expect(stopkyProTypReducer(stateBefore, stopkyStop({ typ: 'maraton' }))).toBe(stateBefore);
+  expect(stopkyProTypReducer(stateBefore, stopkyChange({ step: -20 * 1000 }))).toEqual(stateAfter);
 });

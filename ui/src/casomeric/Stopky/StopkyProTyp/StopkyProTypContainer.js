@@ -1,15 +1,24 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import { stopkyAdd, stopkyStart, stopkyStop, stopkySub } from './StopkyProTypActions';
+import { getCudly } from './stopkyProTypReducer';
+import {
+  getStopkyByTyp,
+  saveStopky,
+  stopkyStart,
+  stopkyStop,
+  stopkyChange
+} from './StopkyProTypActions';
 import StopkyProTyp from './StopkyProTyp';
 
-const mapStateToProps = ({ casomeric }, ownProps) => {
+const mapStateToProps = (state, ownProps) => {
   const { typ } = ownProps;
-  const { stopky } = casomeric[typ];
+  const cudly = getCudly();
+  const stopky = getStopkyByTyp({ state, typ });
 
   return {
     base: new Date(stopky.base),
+    cudly,
     delta: moment.duration(stopky.delta),
     running: stopky.running,
     startEnabled: stopky.running === false,
@@ -21,34 +30,27 @@ const mapStateToProps = ({ casomeric }, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   const { typ } = ownProps;
 
-  // :TODO: dispatch also saveStopky()
   return {
-    onStart: () => dispatch(stopkyStart({ typ })),
-    onStop: () => dispatch(stopkyStop({ typ })),
-    onAdd: [
-      () => dispatch(stopkyAdd({ step: 10 * 60 * 60 * 1000, typ })),
-      () => dispatch(stopkyAdd({ step: 1 * 60 * 60 * 1000, typ })),
-      () => dispatch(stopkyAdd({ step: 10 * 60 * 1000, typ })),
-      () => dispatch(stopkyAdd({ step: 1 * 60 * 1000, typ })),
-      () => dispatch(stopkyAdd({ step: 10 * 1000, typ })),
-      () => dispatch(stopkyAdd({ step: 1 * 1000, typ })),
-      () => dispatch(stopkyAdd({ step: 100, typ })),
-      () => dispatch(stopkyAdd({ step: 10, typ }))
-    ],
-    onSub: [
-      () => dispatch(stopkySub({ step: 10 * 60 * 60 * 1000, typ })),
-      () => dispatch(stopkySub({ step: 1 * 60 * 60 * 1000, typ })),
-      () => dispatch(stopkySub({ step: 10 * 60 * 1000, typ })),
-      () => dispatch(stopkySub({ step: 1 * 60 * 1000, typ })),
-      () => dispatch(stopkySub({ step: 10 * 1000, typ })),
-      () => dispatch(stopkySub({ step: 1 * 1000, typ })),
-      () => dispatch(stopkySub({ step: 100, typ })),
-      () => dispatch(stopkySub({ step: 10, typ }))
-    ]
+    onStart: () => dispatch(saveStopky({ action: stopkyStart(), typ })),
+    onStop: () => dispatch(saveStopky({ action: stopkyStop(), typ })),
+    onChange: step => dispatch(saveStopky({ action: stopkyChange({ step }), typ }))
   };
 };
 
-const StopkyProTypContainer = connect(mapStateToProps, mapDispatchToProps)(StopkyProTyp);
+const mergeProps = (stateProps, dispatchProps) => {
+  const { cudly, ...restOfStateProps } = stateProps;
+  const { onChange, ...restOfDispatchProps } = dispatchProps;
+
+  return {
+    cudly: cudly.map(cudl => ({ ...cudl, onClick: () => onChange(cudl.step) })),
+    ...restOfStateProps,
+    ...restOfDispatchProps
+  };
+};
+
+const StopkyProTypContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(
+  StopkyProTyp
+);
 
 StopkyProTypContainer.propTypes = {
   typ: PropTypes.string.isRequired

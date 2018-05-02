@@ -2,7 +2,7 @@ import moment from 'moment';
 
 const zeroDuration = moment.duration(0).toJSON();
 
-const initialState = {
+export const initialState = {
   base: null, // a Date when running
   delta: zeroDuration, // a duration when not running
   running: false
@@ -27,22 +27,21 @@ const stopkyProTypReducer = (state = initialState, action) => {
       }
       return state;
     }
-    case 'STOPKY_ADD':
+    case 'STOPKY_CHANGE': {
       if (state.running) {
         return { ...state, base: new Date(new Date(state.base).getTime() - action.step).toJSON() };
       }
-      return {
-        ...state,
-        delta: moment
-          .duration(state.delta)
-          .add(action.step)
-          .toJSON()
-      };
-    case 'STOPKY_SUB': {
-      if (state.running) {
-        return { ...state, base: new Date(new Date(state.base).getTime() + action.step).toJSON() };
+      if (action.step >= 0) {
+        return {
+          ...state,
+          delta: moment
+            .duration(state.delta)
+            .add(action.step)
+            .toJSON()
+        };
       }
-      const delta = moment.duration(state.delta).subtract(action.step);
+
+      const delta = moment.duration(state.delta).subtract(-action.step);
       if (delta >= 0) {
         return { ...state, delta: delta.toJSON() };
       }
@@ -53,11 +52,23 @@ const stopkyProTypReducer = (state = initialState, action) => {
   }
 };
 
-export const createStopkyProTypReducer = typ => (state = initialState, action) => {
-  if (typ !== action.typ) {
-    return state;
-  }
-  return stopkyProTypReducer(state, action);
-};
-
 export default stopkyProTypReducer;
+
+export const getCudly = () => [
+  { popisek: '+10', step: 10 * 60 * 60 * 1000 },
+  { popisek: '+1', step: 60 * 60 * 1000 },
+  { popisek: '+10', step: 10 * 60 * 1000 },
+  { popisek: '+1', step: 60 * 1000 },
+  { popisek: '+10', step: 10 * 1000 },
+  { popisek: '+1', step: 1000 },
+  { popisek: '+10', step: 100 },
+  { popisek: '+1', step: 10 },
+  { popisek: '-10', step: -10 * 60 * 60 * 1000 },
+  { popisek: '-1', step: -60 * 60 * 1000 },
+  { popisek: '-10', step: -10 * 60 * 1000 },
+  { popisek: '-1', step: -60 * 1000 },
+  { popisek: '-10', step: -10 * 1000 },
+  { popisek: '-1', step: -1000 },
+  { popisek: '-10', step: -100 },
+  { popisek: '-1', step: -10 }
+];
