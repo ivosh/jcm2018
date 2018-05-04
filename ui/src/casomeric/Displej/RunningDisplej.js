@@ -10,7 +10,17 @@ class RunningDisplej extends PureComponent {
 
   componentDidMount = () => {
     if (this.props.running) {
-      this.timerID = setInterval(() => this.tick(), STOPKY_ONE_TICK);
+      this.startTimer();
+    } else {
+      this.stopTimer();
+    }
+  };
+
+  componentDidUpdate = prevProps => {
+    if (this.props.running && !prevProps.running) {
+      this.startTimer();
+    } else if (!this.props.running && prevProps.running) {
+      this.stopTimer();
     }
   };
 
