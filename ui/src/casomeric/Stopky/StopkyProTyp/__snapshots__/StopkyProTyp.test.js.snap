@@ -232,6 +232,55 @@ exports[`snapshort po startu 1`] = `
         Stop
       </button>
     </div>
+    <div
+      className="StopkyProTyp__rozdily"
+    >
+      <div
+        className="StopkyProTyp__rozdily--nadpis"
+      >
+        Rozdíly:
+      </div>
+      <div
+        className="Rozdily"
+      >
+        <div>
+          maraton
+        </div>
+        <div>
+          -
+          :
+          --
+          :
+          --
+          ,
+          --
+        </div>
+        <div>
+          půlmaraton
+        </div>
+        <div>
+          1
+          :
+          57
+          :
+          45
+          ,
+          40
+        </div>
+        <div>
+          koloběžka
+        </div>
+        <div>
+          0
+          :
+          14
+          :
+          46
+          ,
+          80
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -467,6 +516,55 @@ exports[`snapshot před startem 1`] = `
       >
         Stop
       </button>
+    </div>
+    <div
+      className="StopkyProTyp__rozdily"
+    >
+      <div
+        className="StopkyProTyp__rozdily--nadpis"
+      >
+        Rozdíly:
+      </div>
+      <div
+        className="Rozdily"
+      >
+        <div>
+          maraton
+        </div>
+        <div>
+          -
+          :
+          --
+          :
+          --
+          ,
+          --
+        </div>
+        <div>
+          půlmaraton
+        </div>
+        <div>
+          1
+          :
+          57
+          :
+          45
+          ,
+          40
+        </div>
+        <div>
+          koloběžka
+        </div>
+        <div>
+          0
+          :
+          14
+          :
+          46
+          ,
+          80
+        </div>
+      </div>
     </div>
   </div>
 </div>

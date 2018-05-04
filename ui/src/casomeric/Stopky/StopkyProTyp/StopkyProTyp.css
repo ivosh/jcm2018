@@ -15,6 +15,14 @@
   margin-top: 1ex;
 }
 
+.StopkyProTyp__rozdily {
+  margin-top: 2ex;
+}
+
+.StopkyProTyp__rozdily--nadpis {
+  font-weight: bold;
+}
+
 .StopkyProTyp__panel--maraton > .panel-heading {
   background-color: rgba(var(--maraton), 0.4);
 }

@@ -1,0 +1,5 @@
+.Rozdily {
+  display: grid;
+  grid-template-columns: 5em 5em;
+  grid-gap: 4px;
+}

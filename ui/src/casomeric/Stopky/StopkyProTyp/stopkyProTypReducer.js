@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { convertDuration } from '../../../Util';
 
 const zeroDuration = moment.duration(0).toJSON();
 
@@ -72,3 +73,37 @@ export const getCudly = () => [
   { popisek: '-10', step: -100 },
   { popisek: '-1', step: -10 }
 ];
+
+export const getStopkyByTyp = ({ state, typ }) => {
+  const stopky = state.entities.stopky.byTypy[typ] || initialState;
+  return { ...stopky, typ };
+};
+
+const typy = { maraton: 1, půlmaraton: 1, cyklo: 1, koloběžka: 1 };
+
+export const getRozdily = ({ state, typ }) => {
+  const stopky = getStopkyByTyp({ state, typ });
+  const { [typ]: _, ...ostatni } = typy;
+
+  return Object.keys(ostatni).map(jeden => {
+    const ostatniStopky = getStopkyByTyp({ state, typ: jeden });
+
+    let rozdil = null;
+    if (stopky.running === true && ostatniStopky.running === true) {
+      rozdil = moment.duration(
+        Math.abs(new Date(stopky.base).getTime() - new Date(ostatniStopky.base).getTime())
+      );
+    } else if (stopky.running === false && ostatniStopky.running === false) {
+      rozdil = moment.duration(stopky.delta);
+      const duration = moment.duration(ostatniStopky.delta);
+      if (rozdil.asMilliseconds() >= duration.asMilliseconds()) {
+        rozdil.subtract(duration);
+      } else {
+        duration.subtract(rozdil);
+        rozdil = duration;
+      }
+    }
+
+    return { name: jeden, rozdil: convertDuration(rozdil) };
+  });
+};

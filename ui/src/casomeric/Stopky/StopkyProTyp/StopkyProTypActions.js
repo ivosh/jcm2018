@@ -1,7 +1,5 @@
 import { CODE_OK, saveStopky as saveStopkyAPI } from '../../../common';
-import stopkyProTypReducer, {
-  initialState as stopkyProTypInitialState
-} from './stopkyProTypReducer';
+import stopkyProTypReducer, { getStopkyByTyp } from './stopkyProTypReducer';
 
 export const stopkyStart = ({ now = new Date() } = {}) => ({ type: 'STOPKY_START', now });
 export const stopkyStop = ({ now = new Date() } = {}) => ({ type: 'STOPKY_STOP', now });
@@ -26,11 +24,6 @@ const saveStopkyError = ({ code, status, err }, typ) => ({
   typ,
   receivedAt: Date.now()
 });
-
-export const getStopkyByTyp = ({ state, typ }) => {
-  const stopky = state.entities.stopky.byTypy[typ] || stopkyProTypInitialState;
-  return { ...stopky, typ };
-};
 
 export const saveStopky = ({ action, typ }) => async (dispatch, getState, wsClient) => {
   dispatch(saveStopkyRequest({ typ }));

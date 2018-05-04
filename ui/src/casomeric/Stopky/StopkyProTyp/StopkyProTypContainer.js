@@ -1,25 +1,21 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import { getCudly } from './stopkyProTypReducer';
-import {
-  getStopkyByTyp,
-  saveStopky,
-  stopkyStart,
-  stopkyStop,
-  stopkyChange
-} from './StopkyProTypActions';
+import { getCudly, getRozdily, getStopkyByTyp } from './stopkyProTypReducer';
+import { saveStopky, stopkyStart, stopkyStop, stopkyChange } from './StopkyProTypActions';
 import StopkyProTyp from './StopkyProTyp';
 
 const mapStateToProps = (state, ownProps) => {
   const { typ } = ownProps;
   const cudly = getCudly();
+  const rozdily = getRozdily({ state, typ });
   const stopky = getStopkyByTyp({ state, typ });
 
   return {
     base: new Date(stopky.base),
     cudly,
     delta: moment.duration(stopky.delta),
+    rozdily,
     running: stopky.running,
     startEnabled: stopky.running === false,
     stopEnabled: stopky.running === true,

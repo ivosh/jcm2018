@@ -5,6 +5,7 @@ import { Button, ButtonToolbar, Panel } from 'react-bootstrap';
 import PopisekKategorie from '../../../shared/Popisek/PopisekKategorie';
 import RunningDisplej from '../../Displej/RunningDisplej';
 import Cudly from '../Cudl/Cudly';
+import Rozdily from '../Rozdil/Rozdily';
 import './StopkyProTyp.css';
 
 class StopkyProTyp extends PureComponent {
@@ -25,7 +26,7 @@ class StopkyProTyp extends PureComponent {
   };
 
   render = () => {
-    const { base, cudly, delta, running, startEnabled, stopEnabled, typ } = this.props;
+    const { base, cudly, delta, rozdily, running, startEnabled, stopEnabled, typ } = this.props;
 
     return (
       <Panel className={`StopkyProTyp__panel--${typ}`} header={<PopisekKategorie typ={typ} />}>
@@ -42,6 +43,10 @@ class StopkyProTyp extends PureComponent {
             Stop
           </Button>
         </ButtonToolbar>
+        <div className="StopkyProTyp__rozdily">
+          <div className="StopkyProTyp__rozdily--nadpis">Rozdíly:</div>
+          <Rozdily rozdily={rozdily} />
+        </div>
       </Panel>
     );
   };
@@ -57,6 +62,7 @@ StopkyProTyp.propTypes = {
     }).isRequired
   ).isRequired,
   delta: momentPropTypes.momentDurationObj,
+  rozdily: PropTypes.array.isRequired,
   running: PropTypes.bool.isRequired,
   startEnabled: PropTypes.bool.isRequired,
   stopEnabled: PropTypes.bool.isRequired,

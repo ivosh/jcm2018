@@ -24,6 +24,12 @@ const cudly = [
   cudl
 ];
 
+const rozdily = [
+  { name: 'maraton', rozdil: { hours: '-', mins: '--', secs: '--', subsecs: '--' } },
+  { name: 'půlmaraton', rozdil: { hours: '1', mins: '57', secs: '45', subsecs: '40' } },
+  { name: 'koloběžka', rozdil: { hours: '0', mins: '14', secs: '46', subsecs: '80' } }
+];
+
 it('snapshot před startem', () => {
   const component = renderer.create(
     <StopkyProTyp
@@ -31,6 +37,7 @@ it('snapshot před startem', () => {
       base={null}
       cudly={cudly}
       delta={moment.duration('PT0H0M0.0S')}
+      rozdily={rozdily}
       startEnabled={true}
       stopEnabled={false}
       typ="půlmaraton"
@@ -48,6 +55,7 @@ it('snapshort po startu', () => {
       base={new Date()}
       cudly={cudly}
       delta={moment.duration(0)}
+      rozdily={rozdily}
       startEnabled={false}
       stopEnabled={true}
       typ="maraton"
@@ -76,6 +84,7 @@ it('maps button Start to dispatch onStart action', () => {
       base={null}
       cudly={cudly}
       delta={moment.duration(0)}
+      rozdily={rozdily}
       startEnabled={true}
       stopEnabled={false}
       typ="cyklo"
@@ -97,6 +106,7 @@ it('maps button Stop to dispatch onStop action', () => {
       base={new Date()}
       cudly={cudly}
       delta={moment.duration('PT2H15M34.72S')}
+      rozdily={rozdily}
       startEnabled={false}
       stopEnabled={true}
       typ="koloběžka"
