@@ -1,12 +1,16 @@
 'use strict';
 
+const moment = require('moment');
 const Actions = require('../../../common/common');
 const logger = require('../../logger');
 const Stopky = require('../../model/Stopky/Stopky');
 const broadcastStopky = require('./broadcastStopky');
 
+const casSortMethod = (a, b) =>
+  moment.duration(a.cas).asMilliseconds() - moment.duration(b.cas).asMilliseconds();
+
 const saveStopky = async ({ request }) => {
-  const { typ, base, delta, running } = request;
+  const { typ, base, delta, mezicasy, running } = request;
 
   let stopky = null;
   const nalezene = await Stopky.find({ typ });
@@ -21,8 +25,13 @@ const saveStopky = async ({ request }) => {
     logger.debug(`Vytvářím stopky pro typ ${typ}.`);
   }
 
+  if (mezicasy) {
+    mezicasy.sort(casSortMethod);
+  }
+
   stopky.base = base;
   stopky.delta = delta;
+  stopky.mezicasy = mezicasy;
   stopky.running = running;
   await stopky.save();
 

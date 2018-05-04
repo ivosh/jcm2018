@@ -17,9 +17,17 @@ Object {
 exports[`přepiš existující stopky 3`] = `
 Array [
   Object {
-    "__v": 0,
+    "__v": 1,
     "base": 2018-06-09T09:10:00.400Z,
     "delta": "P0D",
+    "mezicasy": Array [
+      Object {
+        "cas": "PT0H12M07.12S",
+      },
+      Object {
+        "cas": "PT1H25M49.04S",
+      },
+    ],
     "running": true,
     "typ": "půlmaraton",
   },

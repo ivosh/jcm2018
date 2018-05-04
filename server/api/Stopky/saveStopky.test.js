@@ -42,11 +42,18 @@ it('vytvoř stopky', async () => {
 });
 
 it('přepiš existující stopky', async () => {
-  const stopky1 = { typ: 'půlmaraton', base: null, delta: 'PT0H0M12.5S', running: false };
+  const stopky1 = {
+    typ: 'půlmaraton',
+    base: null,
+    delta: 'PT0H0M12.5S',
+    mezicasy: [{ cas: 'PT0H12M07.12S' }],
+    running: false
+  };
   const stopky2 = {
     typ: 'půlmaraton',
     base: '2018-06-09T09:10:00.4Z',
     delta: 'P0D',
+    mezicasy: [{ cas: 'PT1H25M49.04S' }, { cas: 'PT0H12M07.12S' }],
     running: true
   };
 

@@ -14,24 +14,47 @@ Object {
     "cyklo": Object {
       "base": "2017-12-01T07:30:00.000Z",
       "delta": "P0D",
+      "mezicasy": Array [],
       "running": true,
       "typ": "cyklo",
     },
     "koloběžka": Object {
       "base": null,
       "delta": "PT4H0M0.32S",
+      "mezicasy": Array [],
       "running": false,
       "typ": "koloběžka",
     },
     "maraton": Object {
       "base": null,
       "delta": "P0D",
+      "mezicasy": Array [
+        Object {
+          "cas": "PT1H23M07.4S",
+          "korekce": "PT1H23M01.5S",
+        },
+        Object {
+          "cas": "PT2H15M24.7S",
+        },
+      ],
       "running": false,
       "typ": "maraton",
     },
     "půlmaraton": Object {
       "base": null,
       "delta": "PT1H23M07.34S",
+      "mezicasy": Array [
+        Object {
+          "cas": "PT5H03M19.32S",
+        },
+        Object {
+          "cas": "PT5H15M24.7S",
+          "korekce": "PT5H12M24.7S",
+        },
+        Object {
+          "cas": "PT5H19M03.5S",
+        },
+      ],
       "running": false,
       "typ": "půlmaraton",
     },

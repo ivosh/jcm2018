@@ -3,8 +3,8 @@
 const Actions = require('../../../common/common');
 
 const broadcastStopky = async stopky => {
-  const { base, delta, running, typ } = stopky;
-  const data = { base, delta, running, typ };
+  const json = stopky.toJSON ? stopky.toJSON() : stopky;
+  const { _id, __v, ...data } = json;
 
   return { broadcast: Actions.BROADCAST_STOPKY, data };
 };

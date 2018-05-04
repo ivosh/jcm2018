@@ -6,6 +6,18 @@ Object {
   "data": Object {
     "base": null,
     "delta": "P0D",
+    "mezicasy": Array [
+      Object {
+        "cas": "PT5H03M19.32S",
+      },
+      Object {
+        "cas": "PT5H15M24.7S",
+        "korekce": "PT5H12M24.7S",
+      },
+      Object {
+        "cas": "PT5H19M03.5S",
+      },
+    ],
     "running": false,
     "typ": "cyklo",
   },

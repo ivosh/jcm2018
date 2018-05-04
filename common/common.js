@@ -82,9 +82,9 @@ const savePrihlaska = ({ id, rok, prihlaska }, token) => ({
   token
 });
 
-const saveStopky = ({ typ, base, delta, running }, token) => ({
+const saveStopky = (stopky, token) => ({
   action: SAVE_STOPKY,
-  request: { typ, base, delta, running },
+  request: stopky,
   token
 });
 
