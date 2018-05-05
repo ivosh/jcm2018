@@ -182,7 +182,7 @@ it('getPrihlaseniSorted() by default', () => {
       startCislo: 15,
       kod: '0234jsdj0jdaklsd',
       zaplaceno: 0,
-      predepsano: 200
+      predepsano: 0
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
@@ -304,7 +304,7 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       startCislo: 15,
       kod: '0234jsdj0jdaklsd',
       zaplaceno: 0,
-      predepsano: 200
+      predepsano: 0
     },
     {
       id: '7a09b1fd371dec1e99b7e142',

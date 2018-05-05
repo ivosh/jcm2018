@@ -28,7 +28,9 @@ export const predepsaneStartovne = ({ kategorie, prihlaska, rocniky, rok = AKTUA
   const typKategorieRocniku = getTypKategorie({ rok, typ, rocniky });
   const { startovne } = typKategorieRocniku;
   const polozky = [];
-  if (DEN_ZAVODU) {
+  if (prihlaska.startovnePoSleve >= 0) {
+    polozky.push({ castka: prihlaska.startovnePoSleve, duvod: 'po slevě' });
+  } else if (DEN_ZAVODU) {
     polozky.push({ castka: startovne.naMiste, duvod: 'na místě' });
   } else {
     polozky.push({ castka: startovne.predem, duvod: 'předem' });

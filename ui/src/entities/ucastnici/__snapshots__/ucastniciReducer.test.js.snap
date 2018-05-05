@@ -152,6 +152,7 @@ Object {
           "kategorie": "5a587e1b051c181132cf83d9",
           "kod": "0234jsdj0jdaklsd",
           "startCislo": 15,
+          "startovnePoSleve": 0,
         },
         "udaje": Object {
           "email": "sks@por.cz",
@@ -330,6 +331,7 @@ Object {
           "kategorie": "5a587e1b051c181132cf83d9",
           "kod": "0234jsdj0jdaklsd",
           "startCislo": 15,
+          "startovnePoSleve": 0,
         },
         "udaje": Object {
           "email": "sks@por.cz",
@@ -507,6 +509,7 @@ Object {
           "kategorie": "5a587e1b051c181132cf83d9",
           "kod": "0234jsdj0jdaklsd",
           "startCislo": 15,
+          "startovnePoSleve": 0,
         },
         "udaje": Object {
           "email": "sks@por.cz",
@@ -625,6 +628,7 @@ Array [
         "kategorie": "5a587e1b051c181132cf83d9",
         "kod": "0234jsdj0jdaklsd",
         "startCislo": 15,
+        "startovnePoSleve": 0,
       },
       "udaje": Object {
         "email": "sks@por.cz",
@@ -799,6 +803,7 @@ Object {
           "kategorie": "5a587e1b051c181132cf83d9",
           "kod": "0234jsdj0jdaklsd",
           "startCislo": 15,
+          "startovnePoSleve": 0,
         },
         "udaje": Object {
           "email": "sks@por.cz",
@@ -1018,6 +1023,7 @@ Object {
           "kategorie": "5a587e1b051c181132cf83d9",
           "kod": "0234jsdj0jdaklsd",
           "startCislo": 15,
+          "startovnePoSleve": 0,
         },
         "udaje": Object {
           "email": "sks@por.cz",
@@ -1231,6 +1237,7 @@ Object {
           "kategorie": "5a587e1b051c181132cf83d9",
           "kod": "0234jsdj0jdaklsd",
           "startCislo": 15,
+          "startovnePoSleve": 0,
         },
         "udaje": Object {
           "email": "sks@por.cz",
@@ -1398,6 +1405,7 @@ Object {
           "kategorie": "5a587e1b051c181132cf83d9",
           "kod": "0234jsdj0jdaklsd",
           "startCislo": 15,
+          "startovnePoSleve": 0,
         },
         "udaje": Object {
           "email": "sks@por.cz",

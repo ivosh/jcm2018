@@ -2310,7 +2310,8 @@ const state = {
               datum: '2018-06-09T00:00:00.000Z',
               kategorie: '5a587e1b051c181132cf83d9', // půlmaraton
               startCislo: 15,
-              kod: '0234jsdj0jdaklsd'
+              kod: '0234jsdj0jdaklsd',
+              startovnePoSleve: 0
             }
           }
         }
