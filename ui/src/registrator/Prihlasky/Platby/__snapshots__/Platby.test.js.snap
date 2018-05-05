@@ -3,19 +3,19 @@
 exports[`platby v mínusu 1`] = `
 <div>
   <div
-    className="Platby_paragraph"
+    className="Platby__paragraph"
   >
     Zaplaceno:
      
     <span
-      className="Platby_zaplaceno label label-danger"
+      className="Platby__zaplaceno label label-danger"
     >
       0
        Kč
     </span>
   </div>
   <div
-    className="Platby_paragraph"
+    className="Platby__paragraph"
   >
     <div>
       Předepsané startovné:
@@ -164,25 +164,51 @@ exports[`platby v mínusu 1`] = `
       </button>
     </div>
   </div>
+  <div
+    className="Platby__po-sleve"
+  >
+    <div
+      className="form-group has-feedback"
+    >
+      <label
+        className="col-sm-5 control-label"
+        htmlFor="prihlaska.startovnePoSleve"
+      >
+        startovné po slevě
+      </label>
+      <div
+        className="col-sm-4"
+      >
+        <input
+          className="form-control"
+          disabled={false}
+          id="prihlaska.startovnePoSleve"
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`platby v plusu 1`] = `
 <div>
   <div
-    className="Platby_paragraph"
+    className="Platby__paragraph"
   >
     Zaplaceno:
      
     <span
-      className="Platby_zaplaceno label label-success"
+      className="Platby__zaplaceno label label-success"
     >
       220
        Kč
     </span>
   </div>
   <div
-    className="Platby_paragraph"
+    className="Platby__paragraph"
   >
     <div>
       Předepsané startovné:
@@ -288,25 +314,51 @@ exports[`platby v plusu 1`] = `
     />
      Nová platba
   </button>
+  <div
+    className="Platby__po-sleve"
+  >
+    <div
+      className="form-group has-feedback"
+    >
+      <label
+        className="col-sm-5 control-label"
+        htmlFor="prihlaska.startovnePoSleve"
+      >
+        startovné po slevě
+      </label>
+      <div
+        className="col-sm-4"
+      >
+        <input
+          className="form-control"
+          disabled={false}
+          id="prihlaska.startovnePoSleve"
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`platby v plusu, novaPlatba expanded 1`] = `
 <div>
   <div
-    className="Platby_paragraph"
+    className="Platby__paragraph"
   >
     Zaplaceno:
      
     <span
-      className="Platby_zaplaceno label label-success"
+      className="Platby__zaplaceno label label-success"
     >
       220
        Kč
     </span>
   </div>
   <div
-    className="Platby_paragraph"
+    className="Platby__paragraph"
   >
     <div>
       Předepsané startovné:
@@ -528,6 +580,32 @@ exports[`platby v plusu, novaPlatba expanded 1`] = `
         />
          Přidat
       </button>
+    </div>
+  </div>
+  <div
+    className="Platby__po-sleve"
+  >
+    <div
+      className="form-group has-feedback"
+    >
+      <label
+        className="col-sm-5 control-label"
+        htmlFor="prihlaska.startovnePoSleve"
+      >
+        startovné po slevě
+      </label>
+      <div
+        className="col-sm-4"
+      >
+        <input
+          className="form-control"
+          disabled={false}
+          id="prihlaska.startovnePoSleve"
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+      </div>
     </div>
   </div>
 </div>

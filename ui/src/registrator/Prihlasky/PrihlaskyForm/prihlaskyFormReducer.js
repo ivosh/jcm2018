@@ -37,7 +37,8 @@ const initialState = {
     typ: undefined,
     startCislo: undefined,
     kod: undefined,
-    mladistvyPotvrzen: undefined
+    mladistvyPotvrzen: undefined,
+    startovnePoSleve: undefined
   },
   platby: [],
   ubytovani: {}
@@ -98,6 +99,7 @@ const prihlaskyFormReducer = (state = initialState, action) => {
           state = { ...state, prihlaska: { ...state.prihlaska, kategorie: action.id } };
           break;
         case 'prihlaska.startCislo':
+        case 'prihlaska.startovnePoSleve':
           if (action.value === '') {
             value = undefined;
           } else {
@@ -244,8 +246,9 @@ export const inputValid = (name, value, prihlaskyForm) => {
         return undefined;
       }
       return datumValid(value) ? 'success' : 'error';
-    case 'prihlaska.startCislo':
-      return numberValid(value, false); // Může nechat nevyplněné, doplní později.
+    case 'prihlaska.startCislo': // Může nechat nevyplněné, doplní později.
+    case 'prihlaska.startovnePoSleve':
+      return numberValid(value, false);
     default:
       return 'error';
   }
@@ -360,6 +363,8 @@ export const formatValue = (name, rawValue) => {
       return narozeniToStr(rawValue);
     case 'prihlaska.datum':
       return datumValid(rawValue) ? moment.utc(rawValue).format('D. M. YYYY') : rawValue || '';
+    case 'prihlaska.startovnePoSleve':
+      return rawValue >= 0 ? `${rawValue}` : '';
     case 'ubytovani.pátek':
     case 'ubytovani.sobota':
       return rawValue ? 'on' : 'off';

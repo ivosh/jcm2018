@@ -193,6 +193,6 @@ it('handle Enter key and move focus from last to first', () => {
   wrapper
     .find(PrihlaskyForm)
     .instance()
-    .handleKeyPress({ event: { which: 13, preventDefault: jest.fn() }, index: 20 });
+    .handleKeyPress({ event: { which: 13, preventDefault: jest.fn() }, index: 21 });
   expect(focus).toHaveBeenCalledWith();
 });

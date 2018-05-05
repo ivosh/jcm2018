@@ -1,7 +1,11 @@
-.Platby_zaplaceno {
+.Platby__zaplaceno {
   font-size: 110%;
 }
 
-.Platby_paragraph {
+.Platby__paragraph {
   margin-bottom: 10px;
+}
+
+.Platby__po-sleve {
+  margin-top: 2ex;
 }

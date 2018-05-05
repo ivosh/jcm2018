@@ -5,8 +5,10 @@ import './Input.css';
 
 const Input = ({
   enabled,
+  inputWidth = 9,
   name,
   popisek,
+  popisekWidth = 3,
   options,
   showFeedback = true,
   validationState,
@@ -19,10 +21,10 @@ const Input = ({
 }) =>
   visible ? (
     <FormGroup controlId={name} validationState={validationState}>
-      <Col componentClass={ControlLabel} sm={3}>
+      <Col componentClass={ControlLabel} sm={popisekWidth}>
         {popisek}
       </Col>
-      <Col sm={9}>
+      <Col sm={inputWidth}>
         <Type
           enabled={enabled}
           name={name}
@@ -39,8 +41,10 @@ const Input = ({
 
 Input.propTypes = {
   enabled: PropTypes.bool.isRequired,
+  inputWidth: PropTypes.number,
   name: PropTypes.string.isRequired,
   popisek: PropTypes.string.isRequired,
+  popisekWidth: PropTypes.number,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.string.isRequired,

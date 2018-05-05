@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Label } from 'react-bootstrap';
+import PrihlaskyFormInputContainer from '../PrihlaskyForm/PrihlaskyFormInputContainer';
+import TextInput from '../Input/TextInput';
 import NovaPlatba from './NovaPlatba';
 import PlatbyTable from './PlatbyTable';
 import './Platby.css';
 
 const zaplacenoStyle = (zaplaceno, predepsano) => {
   if (zaplaceno >= predepsano) {
-    if (zaplaceno === 0) {
+    if (zaplaceno === 0 && predepsano > 0) {
       return 'default';
     }
     return 'success';
@@ -25,15 +27,18 @@ const Platby = ({
   onExpand
 }) => (
   <div>
-    <div className="Platby_paragraph">
+    <div className="Platby__paragraph">
       Zaplaceno:{' '}
-      <Label bsStyle={zaplacenoStyle(provedeno.suma, predepsano.suma)} className="Platby_zaplaceno">
+      <Label
+        bsStyle={zaplacenoStyle(provedeno.suma, predepsano.suma)}
+        className="Platby__zaplaceno"
+      >
         {provedeno.suma} Kč
       </Label>
     </div>
 
     {predepsano.polozky.length > 0 && (
-      <div className="Platby_paragraph">
+      <div className="Platby__paragraph">
         <div>Předepsané startovné:</div>
         {predepsano.polozky.map((platba, idx) => (
           <div key={idx}>
@@ -51,6 +56,18 @@ const Platby = ({
       onAdd={onAdd}
       onExpand={onExpand}
     />
+
+    <div className="Platby__po-sleve">
+      <PrihlaskyFormInputContainer
+        index={startIndex + 4}
+        inputRef={inputRef}
+        inputWidth={4}
+        name="prihlaska.startovnePoSleve"
+        popisek="startovné po slevě"
+        popisekWidth={5}
+        Type={TextInput}
+      />
+    </div>
   </div>
 );
 
