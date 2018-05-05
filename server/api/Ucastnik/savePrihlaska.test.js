@@ -141,7 +141,8 @@ it('vytvoř minimálního účastníka', async () => {
   const prihlaska = {
     datum: new Date('2018-02-07Z'),
     kategorie: kategorie5.id, // půlmaraton
-    kod: '===kod==='
+    kod: '===kod===',
+    startovnePoSleve: 0
   };
 
   const response1 = await wsClient.sendRequest(
@@ -176,7 +177,8 @@ it('vytvoř dvě účasti s přihláškami', async () => {
     datum: new Date('2017-05-03Z'),
     kategorie: kategorie2.id, // maraton
     startCislo: 7,
-    kod: '===kod1==='
+    kod: '===kod1===',
+    startovnePoSleve: 200
   };
   const prihlaska2 = {
     datum: new Date('2018-02-07Z'),

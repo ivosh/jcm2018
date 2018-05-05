@@ -692,6 +692,7 @@ Array [
           },
           "kod": "===kod1===",
           "startCislo": 7,
+          "startovnePoSleve": 200,
         },
         "rok": 2017,
         "udaje": Object {
@@ -768,6 +769,7 @@ Array [
             },
           },
           "kod": "===kod===",
+          "startovnePoSleve": 0,
         },
         "rok": 2018,
         "udaje": Object {

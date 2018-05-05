@@ -8,7 +8,8 @@ const PrihlaskaSchema = new mongoose.Schema(
     kategorie: { type: mongoose.Schema.ObjectId, ref: 'Kategorie', required: true },
     startCislo: { type: Number },
     kod: { type: String },
-    mladistvyPotvrzen: { type: Boolean }
+    mladistvyPotvrzen: { type: Boolean },
+    startovnePoSleve: { type: Number }
   },
   { _id: false, bufferCommands: false }
 );
