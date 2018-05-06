@@ -35,7 +35,7 @@ class PrihlaskyForm extends PureComponent {
       event.preventDefault();
 
       const inputCandidates = this.inputs.slice(index + 1);
-      const next = inputCandidates.find(input => !input.disabled);
+      const next = inputCandidates.find(input => input && !input.disabled);
       if (next) {
         next.focus();
       } else {
