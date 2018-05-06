@@ -59,7 +59,7 @@ it('findKategorie() - nevyplněné pohlaví', () => {
 it('findKategorie() - nevyplněné narození', () => {
   const rocniky = {
     2018: {
-      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)),
+      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)).toJSON(),
       kategorie: {
         půlmaraton: {
           žena: [
@@ -84,7 +84,7 @@ it('findKategorie() - nevyplněné narození', () => {
 it('findKategorie() - jedna kategorie pro typ', () => {
   const rocniky = {
     2018: {
-      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)),
+      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)).toJSON(),
       kategorie: { pěší: { id: '1234', typ: 'pěší' } }
     }
   };
@@ -101,7 +101,7 @@ it('findKategorie() - jedna kategorie pro typ', () => {
 it('findKategorie() - pohlaví neexistuje', () => {
   const rocniky = {
     2018: {
-      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)),
+      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)).toJSON(),
       kategorie: { půlmaraton: { žena: [] } }
     }
   };
@@ -118,7 +118,7 @@ it('findKategorie() - pohlaví neexistuje', () => {
 it('findKategorie() - jedna kategorie pro pohlaví', () => {
   const rocniky = {
     2018: {
-      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)),
+      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)).toJSON(),
       kategorie: {
         koloběžka: {
           muž: [{ id: '1234', typ: 'koloběžka', pohlavi: 'muž', vek: { min: 18, max: 150 } }],
@@ -140,7 +140,7 @@ it('findKategorie() - jedna kategorie pro pohlaví', () => {
 it('findKategorie() - nejmladší věková kategorie', () => {
   const rocniky = {
     2018: {
-      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)),
+      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)).toJSON(),
       kategorie: {
         půlmaraton: {
           muž: [
@@ -165,7 +165,7 @@ it('findKategorie() - nejmladší věková kategorie', () => {
 it('findKategorie() - nejstarší věková kategorie', () => {
   const rocniky = {
     2018: {
-      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)),
+      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)).toJSON(),
       kategorie: {
         půlmaraton: {
           muž: [
@@ -190,7 +190,7 @@ it('findKategorie() - nejstarší věková kategorie', () => {
 it('findKategorie() - správná věková kategorie', () => {
   const rocniky = {
     2018: {
-      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)),
+      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)).toJSON(),
       kategorie: {
         půlmaraton: {
           muž: [
@@ -214,7 +214,7 @@ it('findKategorie() - správná věková kategorie', () => {
 it('findKategorie() - mladistvý pro maraton/věk', () => {
   const rocniky = {
     2018: {
-      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)),
+      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)).toJSON(),
       kategorie: {
         maraton: {
           muž: [
@@ -240,7 +240,7 @@ it('findKategorie() - mladistvý pro maraton/věk', () => {
 it('findKategorie() - mladistvá pro koloběžku', () => {
   const rocniky = {
     2018: {
-      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)),
+      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)).toJSON(),
       kategorie: {
         koloběžka: {
           muž: [{ id: '1234', pohlavi: 'muž', vek: { min: 18, max: 150 } }],
@@ -262,7 +262,7 @@ it('findKategorie() - mladistvá pro koloběžku', () => {
 it('findKategorie() - junior a cyklo přesný věk - mladistvý', () => {
   const rocniky = {
     2018: {
-      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)),
+      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)).toJSON(),
       kategorie: {
         cyklo: {
           muž: [
@@ -287,7 +287,7 @@ it('findKategorie() - junior a cyklo přesný věk - mladistvý', () => {
 it('findKategorie() - junior a cyklo přesný věk - mladistvý s potvrzením', () => {
   const rocniky = {
     2018: {
-      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)),
+      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)).toJSON(),
       kategorie: {
         cyklo: {
           muž: [
@@ -313,7 +313,7 @@ it('findKategorie() - junior a cyklo přesný věk - mladistvý s potvrzením', 
 it('findKategorie() - junior a cyklo přesný věk - mladistvý s potvrzením - těsně před hranicí', () => {
   const rocniky = {
     2018: {
-      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)),
+      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)).toJSON(),
       kategorie: {
         cyklo: {
           muž: [
@@ -339,7 +339,7 @@ it('findKategorie() - junior a cyklo přesný věk - mladistvý s potvrzením - 
 it('findKategorie() - junior a cyklo přesný věk - mladistvý - těsně na hranici', () => {
   const rocniky = {
     2018: {
-      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)),
+      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)).toJSON(),
       kategorie: {
         cyklo: {
           muž: [
@@ -365,7 +365,7 @@ it('findKategorie() - junior a cyklo přesný věk - mladistvý - těsně na hra
 it('findKategorie() - junior a cyklo přesný věk - mladistvý - těsně za hranicí', () => {
   const rocniky = {
     2018: {
-      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)),
+      datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)).toJSON(),
       kategorie: {
         cyklo: {
           muž: [
