@@ -173,7 +173,7 @@ const prihlaskyFormReducer = (state = initialState, action) => {
 
 export default prihlaskyFormReducer;
 
-const nonEmptyInputValid = (value, validate) => {
+const nonEmptyInputValid = ({ value, validate }) => {
   if (value === undefined) {
     if (validate) {
       return 'error';
@@ -185,7 +185,7 @@ const nonEmptyInputValid = (value, validate) => {
   return 'success';
 };
 
-const narozeniValid = (value, validate, requireDenMesic) => {
+const narozeniValid = ({ value, validate, requireDenMesic }) => {
   const { den, mesic, rok } = value;
   if (den === undefined && mesic === undefined && rok === undefined) {
     if (validate) {
@@ -211,7 +211,8 @@ const narozeniValid = (value, validate, requireDenMesic) => {
   return 'error';
 };
 
-export const inputValid = (name, value, prihlaskyForm) => {
+export const inputValid = ({ name, value, form }) => {
+  const { validate } = form;
   switch (name) {
     case 'udaje.prijmeni':
     case 'udaje.jmeno':
@@ -220,7 +221,7 @@ export const inputValid = (name, value, prihlaskyForm) => {
     case 'udaje.stat':
     case 'prihlaska.kategorie':
     case 'prihlaska.typ':
-      return nonEmptyInputValid(value, prihlaskyForm.validate);
+      return nonEmptyInputValid({ value, validate });
     case 'udaje.adresa':
     case 'udaje.klub':
     case 'udaje.email':
@@ -232,15 +233,15 @@ export const inputValid = (name, value, prihlaskyForm) => {
       return undefined;
     case 'udaje.narozeni':
       // TODO: kategorie presne => den + mesic required === true
-      return narozeniValid(value, prihlaskyForm.validate, false);
+      return narozeniValid({ value, validate, requireDenMesic: false });
     case 'udaje.psc':
-      if (prihlaskyForm.udaje.stat === 'Česká republika') {
-        return nonEmptyInputValid(value, prihlaskyForm.validate);
+      if (form.udaje.stat === 'Česká republika') {
+        return nonEmptyInputValid({ value, validate });
       }
       return undefined;
     case 'prihlaska.datum':
       if (value === undefined) {
-        if (prihlaskyForm.validate) {
+        if (validate) {
           return 'error';
         }
         return undefined;
@@ -254,8 +255,8 @@ export const inputValid = (name, value, prihlaskyForm) => {
   }
 };
 
-const isInputValid = (name, value, prihlaskyForm) => {
-  const validationState = inputValid(name, value, prihlaskyForm);
+const isInputValid = ({ name, value, form }) => {
+  const validationState = inputValid({ name, value, form });
   if (
     validationState === undefined ||
     validationState === 'success' ||
@@ -266,24 +267,24 @@ const isInputValid = (name, value, prihlaskyForm) => {
   return false;
 };
 
-export const formValid = prihlaskyForm => {
-  const { udaje, prihlaska } = prihlaskyForm;
+export const formValid = ({ form }) => {
+  const { udaje, prihlaska } = form;
 
   return (
-    isInputValid('udaje.prijmeni', udaje.prijmeni, prihlaskyForm) &&
-    isInputValid('udaje.jmeno', udaje.jmeno, prihlaskyForm) &&
-    isInputValid('udaje.narozeni', udaje.narozeni, prihlaskyForm) &&
-    isInputValid('udaje.pohlavi', udaje.pohlavi, prihlaskyForm) &&
-    isInputValid('udaje.obec', udaje.obec, prihlaskyForm) &&
-    isInputValid('udaje.psc', udaje.psc, prihlaskyForm) &&
-    isInputValid('udaje.stat', udaje.stat, prihlaskyForm) &&
-    isInputValid('prihlaska.datum', prihlaska.datum, prihlaskyForm) &&
-    isInputValid('prihlaska.kategorie', prihlaska.kategorie, prihlaskyForm) &&
-    isInputValid('prihlaska.typ', prihlaska.typ, prihlaskyForm)
+    isInputValid({ name: 'udaje.prijmeni', value: udaje.prijmeni, form }) &&
+    isInputValid({ name: 'udaje.jmeno', value: udaje.jmeno, form }) &&
+    isInputValid({ name: 'udaje.narozeni', value: udaje.narozeni, form }) &&
+    isInputValid({ name: 'udaje.pohlavi', value: udaje.pohlavi, form }) &&
+    isInputValid({ name: 'udaje.obec', value: udaje.obec, form }) &&
+    isInputValid({ name: 'udaje.psc', value: udaje.psc, form }) &&
+    isInputValid({ name: 'udaje.stat', value: udaje.stat, form }) &&
+    isInputValid({ name: 'prihlaska.datum', value: prihlaska.datum, form }) &&
+    isInputValid({ name: 'prihlaska.kategorie', value: prihlaska.kategorie, form }) &&
+    isInputValid({ name: 'prihlaska.typ', value: prihlaska.typ, form })
   );
 };
 
-export const isInputVisible = (name, prihlaskyForm, rocniky) => {
+export const isInputVisible = ({ name, rocniky }) => {
   const [section, subsection] = name.split('.');
   if (section === 'ubytovani') {
     return !!rocniky.byRoky[AKTUALNI_ROK].ubytovani[subsection];
@@ -291,15 +292,15 @@ export const isInputVisible = (name, prihlaskyForm, rocniky) => {
   return true;
 };
 
-export const isInputEnabled = (name, prihlaskyForm, rocniky) => {
+export const isInputEnabled = ({ name, form, rocniky }) => {
   const [section, subsection] = name.split('.');
   if (section === 'ubytovani') {
-    return !(prihlaskyForm.ubytovani[subsection] && prihlaskyForm.ubytovani[subsection].prespano);
+    return !(form.ubytovani[subsection] && form.ubytovani[subsection].prespano);
   }
 
   switch (name) {
     case 'prihlaska.startCislo': {
-      const { typ } = prihlaskyForm.prihlaska;
+      const { typ } = form.prihlaska;
       if (!typ) {
         return false;
       }
@@ -311,7 +312,7 @@ export const isInputEnabled = (name, prihlaskyForm, rocniky) => {
   }
 };
 
-export const inputOptions = (name, prihlaskyForm, rocniky) => {
+export const inputOptions = ({ name, form, rocniky }) => {
   switch (name) {
     case 'udaje.pohlavi':
       return [
@@ -328,8 +329,8 @@ export const inputOptions = (name, prihlaskyForm, rocniky) => {
         const found = findKategorie(rocniky.byRoky, {
           rok,
           typ,
-          pohlavi: prihlaskyForm.udaje.pohlavi,
-          narozeni: prihlaskyForm.udaje.narozeni,
+          pohlavi: form.udaje.pohlavi,
+          narozeni: form.udaje.narozeni,
           mladistvyPotvrzen: true
         });
         if (found.code === CODE_OK) {
@@ -346,7 +347,7 @@ export const inputOptions = (name, prihlaskyForm, rocniky) => {
   }
 };
 
-export const getValue = (name, form) => {
+export const getValue = ({ name, form }) => {
   const [section, subsection] = name.split('.');
   if (section === 'ubytovani') {
     if (form[section][subsection]) {
@@ -357,7 +358,7 @@ export const getValue = (name, form) => {
   return form[section][subsection];
 };
 
-export const formatValue = (name, rawValue) => {
+export const formatValue = ({ name, rawValue }) => {
   switch (name) {
     case 'udaje.narozeni':
       return narozeniToStr(rawValue);

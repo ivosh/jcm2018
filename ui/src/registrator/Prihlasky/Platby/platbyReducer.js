@@ -37,22 +37,23 @@ const platbyReducer = (state = initialState, action) => {
 
 export default platbyReducer;
 
-export const inputValid = (name, value, novaPlatba) => {
+export const inputValid = ({ name, value, form }) => {
+  const { validate } = form;
   switch (name) {
     case 'novaPlatba.poznamka':
       return undefined;
     case 'novaPlatba.castka':
-      return numberValid(value, novaPlatba.validate);
+      return numberValid(value, validate);
     case 'novaPlatba.datum':
       if (value === undefined) {
-        if (novaPlatba.validate) {
+        if (validate) {
           return 'error';
         }
         return undefined;
       }
       return datumValid(value) ? 'success' : 'error';
     case 'novaPlatba.typ':
-      if (value === undefined && !novaPlatba.validate) {
+      if (value === undefined && !validate) {
         return undefined;
       }
       return PLATBA_TYPY.includes(value) ? 'success' : 'error';
@@ -61,8 +62,8 @@ export const inputValid = (name, value, novaPlatba) => {
   }
 };
 
-const isInputValid = (name, value, novaPlatba) => {
-  const validationState = inputValid(name, value, novaPlatba);
+const isInputValid = ({ name, value, form }) => {
+  const validationState = inputValid({ name, value, form });
   if (
     validationState === undefined ||
     validationState === 'success' ||
@@ -73,13 +74,13 @@ const isInputValid = (name, value, novaPlatba) => {
   return false;
 };
 
-export const novaPlatbaValid = novaPlatba =>
-  isInputValid('novaPlatba.castka', novaPlatba.castka, novaPlatba) &&
-  isInputValid('novaPlatba.datum', novaPlatba.datum, novaPlatba) &&
-  isInputValid('novaPlatba.typ', novaPlatba.typ, novaPlatba) &&
-  isInputValid('novaPlatba.poznamka', novaPlatba.poznamka, novaPlatba);
+export const formValid = ({ form }) =>
+  isInputValid({ name: 'novaPlatba.castka', value: form.castka, form }) &&
+  isInputValid({ name: 'novaPlatba.datum', value: form.datum, form }) &&
+  isInputValid({ name: 'novaPlatba.typ', value: form.typ, form }) &&
+  isInputValid({ name: 'novaPlatba.poznamka', value: form.poznamka, form });
 
-export const inputOptions = name => {
+export const inputOptions = ({ name }) => {
   switch (name) {
     case 'novaPlatba.typ':
       return PLATBA_TYPY.map(typ => ({ key: typ, value: typ }));
@@ -91,7 +92,7 @@ export const inputOptions = name => {
 export const isInputEnabled = () => true;
 export const isInputVisible = () => true;
 
-export const formatValue = (name, rawValue) => {
+export const formatValue = ({ name, rawValue }) => {
   switch (name) {
     case 'novaPlatba.datum':
       return datumValid(rawValue) ? moment.utc(rawValue).format('D. M. YYYY') : rawValue || '';

@@ -27,12 +27,12 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   } = ownProps;
 
   return {
-    enabled: isInputEnabled(name, form, rocniky),
+    enabled: isInputEnabled({ name, form, rocniky }),
     name,
-    options: inputOptions(name, form, rocniky),
-    validationState: inputValid(name, rawValue, form),
-    value: formatValue(name, rawValue),
-    visible: isInputVisible(name, form, rocniky),
+    options: inputOptions({ name, form, rocniky }),
+    validationState: inputValid({ name, value: rawValue, form, rocniky }),
+    value: formatValue({ name, rawValue }),
+    visible: isInputVisible({ name, form, rocniky }),
     inputRef: ref => inputRef(index, ref),
     onChange: event => dispatch(inputChanged(name, event)),
     ...restOwnProps

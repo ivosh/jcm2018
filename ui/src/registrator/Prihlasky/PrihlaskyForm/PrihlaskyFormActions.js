@@ -97,10 +97,10 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
   const state = getState();
   const {
     registrator: {
-      prihlasky: { form: prihlaskyForm }
+      prihlasky: { form }
     }
   } = state;
-  if (!formValid(prihlaskyForm)) {
+  if (!formValid({ form, rocniky: state.entities.rocniky })) {
     dispatch(validationError());
     return;
   }
@@ -108,12 +108,12 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
   dispatch(saveUcastRequest());
 
   const rok = AKTUALNI_ROK;
-  const { udaje, prihlaska, platby, ubytovani } = prihlaskyForm;
+  const { udaje, prihlaska, platby, ubytovani } = form;
   try {
     let response = await wsClient.sendRequest(
       saveUdaje(
         {
-          id: prihlaskyForm.ucastnikId,
+          id: form.ucastnikId,
           rok,
           udaje
         },

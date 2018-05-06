@@ -58,6 +58,7 @@ it('saveUcast() should dispatch four successful actions', async () => {
   ];
   const store = mockStore({
     auth: { token: '===token===' },
+    entities: { rocniky: { byRoky: {} } },
     registrator: {
       prihlasky: { form: { validate: false, udaje: { narozeni: {} }, prihlaska: {} } }
     }
@@ -80,6 +81,7 @@ it('saveUcast() should dispatch two unsuccessful actions 1/2', async () => {
   responses = [unsuccessfulResponse, unsuccessfulResponse];
   const store = mockStore({
     auth: { token: '===token===' },
+    entities: { rocniky: { byRoky: {} } },
     registrator: { prihlasky: { form: { udaje: { narozeni: {} }, prihlaska: {} } } }
   });
 
@@ -100,6 +102,7 @@ it('saveUcast() should dispatch two unsuccessful actions 2/2', async () => {
   responses = [successfulResponseSaveUdaje, unsuccessfulResponse];
   const store = mockStore({
     auth: { token: '===token===' },
+    entities: { rocniky: { byRoky: {} } },
     registrator: { prihlasky: { form: { udaje: { narozeni: {} }, prihlaska: {} } } }
   });
 
@@ -120,6 +123,7 @@ it('saveUcast() should dispatch two unsuccessful actions on an invalid token', a
   responses = [authTokenInvalidResponse, unsuccessfulResponse];
   const store = mockStore({
     auth: { token: '===token===' },
+    entities: { rocniky: { byRoky: {} } },
     registrator: { prihlasky: { form: { udaje: { narozeni: {} }, prihlaska: {} } } }
   });
 
@@ -144,6 +148,7 @@ it('saveUcast() should dispatch validation error', async () => {
   ];
   const store = mockStore({
     auth: { token: '===token===' },
+    entities: { rocniky: { byRoky: {} } },
     registrator: {
       prihlasky: { form: { validate: true, udaje: { narozeni: {} }, prihlaska: {} } }
     }
@@ -164,6 +169,7 @@ it('saveUcast() should dispatch two unsuccessful actions on error', async () => 
   mockWsClient.sendRequest = async () => Promise.reject(new Error('Parse error!'));
   const store = mockStore({
     auth: { token: '===token===' },
+    entities: { rocniky: { byRoky: {} } },
     registrator: { prihlasky: { form: { udaje: { narozeni: {} }, prihlaska: {} } } }
   });
 
@@ -190,6 +196,7 @@ it('saveUcast() should use auth token if available', async () => {
   };
   const store = mockStore({
     auth: { token: '===token===' },
+    entities: { rocniky: { byRoky: {} } },
     registrator: { prihlasky: { form: { udaje: { narozeni: {} }, prihlaska: {} } } }
   });
 

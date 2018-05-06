@@ -12,14 +12,14 @@ import {
   isInputVisible
 } from './prihlaskyFormReducer';
 
-const startCisloValid = ({ typ, kategorie, ucastnici }) => (name, rawValue, form) => {
-  const validationState = inputValid(name, rawValue, form);
+const startCisloValid = ({ typ, kategorie, ucastnici }) => ({ name, value, form }) => {
+  const validationState = inputValid({ name, value, form });
   if (validationState === 'success') {
     if (
       isStartCisloTaken({
         id: form.ucastnikId,
         odstartovani: false,
-        startCislo: rawValue,
+        startCislo: value,
         typ,
         kategorie,
         ucastnici
@@ -34,7 +34,7 @@ const startCisloValid = ({ typ, kategorie, ucastnici }) => (name, rawValue, form
 const mapStateToProps = (state, ownProps) => {
   const { form } = state.registrator.prihlasky;
   const { name, ...restOwnProps } = ownProps;
-  const rawValue = getValue(name, form);
+  const rawValue = getValue({ name, form });
 
   return {
     form,

@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import { expandNovaPlatba, inputChanged, reset } from './PlatbyActions';
-import platbyReducer, { inputValid, novaPlatbaValid } from './platbyReducer';
+import platbyReducer, { formValid, inputValid } from './platbyReducer';
 
 it('na začátku', () => {
   const stateBefore = undefined;
@@ -39,72 +39,72 @@ it('reset()', () => {
 });
 
 it('validation of the initial state [validate === false]', () => {
-  const state = {
+  const form = {
     castka: undefined,
     datum: undefined,
     typ: 'hotově',
     poznamka: undefined,
     validate: false
   };
-  deepFreeze(state);
+  deepFreeze(form);
 
-  expect(inputValid('novaPlatba.castka', state.castka, state)).toBe(undefined);
-  expect(inputValid('novaPlatba.datum', state.datum, state)).toBe(undefined);
-  expect(inputValid('novaPlatba.typ', state.typ, state)).toEqual('success');
-  expect(inputValid('novaPlatba.poznamka', state.poznamka, state)).toBe(undefined);
-  expect(inputValid('complete.nonsense', 'huh', state)).toBe('error');
-  expect(novaPlatbaValid(state)).toBe(true);
+  expect(inputValid({ name: 'novaPlatba.castka', value: form.castka, form })).toBe(undefined);
+  expect(inputValid({ name: 'novaPlatba.datum', value: form.datum, form })).toBe(undefined);
+  expect(inputValid({ name: 'novaPlatba.typ', value: form.typ, form })).toEqual('success');
+  expect(inputValid({ name: 'novaPlatba.poznamka', value: form.poznamka, form })).toBe(undefined);
+  expect(inputValid({ name: 'complete.nonsense', value: 'huh', form })).toBe('error');
+  expect(formValid({ form })).toBe(true);
 });
 
 it('validation of the initial state [validate === true]', () => {
-  const state = {
+  const form = {
     castka: undefined,
     datum: undefined,
     typ: 'hotově',
     poznamka: undefined,
     validate: true
   };
-  deepFreeze(state);
+  deepFreeze(form);
 
-  expect(inputValid('novaPlatba.castka', state.castka, state)).toEqual('error');
-  expect(inputValid('novaPlatba.datum', state.datum, state)).toEqual('error');
-  expect(inputValid('novaPlatba.typ', state.typ, state)).toEqual('success');
-  expect(inputValid('novaPlatba.poznamka', state.poznamka, state)).toBe(undefined);
-  expect(novaPlatbaValid(state)).toBe(false);
+  expect(inputValid({ name: 'novaPlatba.castka', value: form.castka, form })).toEqual('error');
+  expect(inputValid({ name: 'novaPlatba.datum', value: form.datum, form })).toEqual('error');
+  expect(inputValid({ name: 'novaPlatba.typ', value: form.typ, form })).toEqual('success');
+  expect(inputValid({ name: 'novaPlatba.poznamka', value: form.poznamka, form })).toBe(undefined);
+  expect(formValid({ form })).toBe(false);
 });
 
 it('validation of some invalid state [validate === false]', () => {
-  const state = {
+  const form = {
     castka: 200,
     datum: '1. 5.',
     typ: 'hotově',
     poznamka: undefined,
     validate: false
   };
-  deepFreeze(state);
+  deepFreeze(form);
 
-  expect(inputValid('novaPlatba.castka', state.castka, state)).toEqual('success');
-  expect(inputValid('novaPlatba.datum', state.datum, state)).toEqual('error');
-  expect(inputValid('novaPlatba.typ', state.typ, state)).toEqual('success');
-  expect(inputValid('novaPlatba.poznamka', state.poznamka, state)).toBe(undefined);
-  expect(novaPlatbaValid(state)).toBe(false);
+  expect(inputValid({ name: 'novaPlatba.castka', value: form.castka, form })).toEqual('success');
+  expect(inputValid({ name: 'novaPlatba.datum', value: form.datum, form })).toEqual('error');
+  expect(inputValid({ name: 'novaPlatba.typ', value: form.typ, form })).toEqual('success');
+  expect(inputValid({ name: 'novaPlatba.poznamka', value: form.poznamka, form })).toBe(undefined);
+  expect(formValid({ form })).toBe(false);
 });
 
 it('validation of some invalid state [validate === true]', () => {
-  const state = {
+  const form = {
     castka: undefined,
     datum: '3. 1. 2015',
     typ: undefined,
     poznamka: 'haha',
     validate: true
   };
-  deepFreeze(state);
+  deepFreeze(form);
 
-  expect(inputValid('novaPlatba.castka', state.castka, state)).toEqual('error');
-  expect(inputValid('novaPlatba.datum', state.datum, state)).toEqual('success');
-  expect(inputValid('novaPlatba.typ', state.typ, state)).toEqual('error');
-  expect(inputValid('novaPlatba.poznamka', state.poznamka, state)).toBe(undefined);
-  expect(novaPlatbaValid(state)).toBe(false);
+  expect(inputValid({ name: 'novaPlatba.castka', value: form.castka, form })).toEqual('error');
+  expect(inputValid({ name: 'novaPlatba.datum', value: form.datum, form })).toEqual('success');
+  expect(inputValid({ name: 'novaPlatba.typ', value: form.typ, form })).toEqual('error');
+  expect(inputValid({ name: 'novaPlatba.poznamka', value: form.poznamka, form })).toBe(undefined);
+  expect(formValid({ form })).toBe(false);
 });
 
 it('novaPlatba.datum - neúplné', () => {
@@ -115,7 +115,9 @@ it('novaPlatba.datum - neúplné', () => {
   expect(
     platbyReducer(stateBefore, inputChanged('novaPlatba.datum', { target: { value: '1. 7. 201' } }))
   ).toEqual(stateAfter);
-  expect(inputValid('novaPlatba.datum', stateAfter.datum, stateAfter)).toEqual('error');
+  expect(
+    inputValid({ name: 'novaPlatba.datum', value: stateAfter.datum, form: stateAfter })
+  ).toEqual('error');
 });
 
 it('novaPlatba.datum - úplné', () => {
@@ -129,7 +131,9 @@ it('novaPlatba.datum - úplné', () => {
       inputChanged('novaPlatba.datum', { target: { value: '1. 7. 2017' } })
     )
   ).toEqual(stateAfter);
-  expect(inputValid('novaPlatba.datum', stateAfter.datum, stateAfter)).toEqual('success');
+  expect(
+    inputValid({ name: 'novaPlatba.datum', value: stateAfter.datum, form: stateAfter })
+  ).toEqual('success');
 });
 
 it('novaPlatba.minified - expand', () => {

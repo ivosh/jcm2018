@@ -14,11 +14,11 @@ const mapStateToProps = (state, ownProps) => {
   const {
     entities,
     registrator: {
-      prihlasky: { form: prihlaskyForm }
+      prihlasky: { form }
     }
   } = state;
   const { reset } = ownProps;
-  const { errorCode, errorMessage, showError, saved, saving, ucastnikId } = prihlaskyForm;
+  const { errorCode, errorMessage, showError, saved, saving, ucastnikId } = form;
 
   return {
     entities,

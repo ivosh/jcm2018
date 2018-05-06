@@ -1,5 +1,5 @@
 import { inputChanged as genericInputChanged } from '../Input/InputActions';
-import { novaPlatbaValid } from './platbyReducer';
+import { formValid } from './platbyReducer';
 
 export const inputChanged = (name, event) => genericInputChanged('NOVA_PLATBA', name, event);
 
@@ -21,14 +21,14 @@ export const addValidatedPlatba = () => async (dispatch, getState) => {
 
   const {
     registrator: {
-      prihlasky: { platby: novaPlatba }
+      prihlasky: { platby: form }
     }
   } = getState();
-  if (!novaPlatbaValid(novaPlatba)) {
+  if (!formValid({ form })) {
     return;
   }
 
-  dispatch(addPlatba(novaPlatba));
+  dispatch(addPlatba(form));
   dispatch(reset());
 };
 
