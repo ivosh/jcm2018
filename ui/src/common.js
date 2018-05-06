@@ -80,9 +80,9 @@ const savePrihlaska = ({ id, rok, prihlaska }, token) => ({
   token
 });
 
-const saveStopky = ({ typ, base, delta, running }, token) => ({
+const saveStopky = (stopky, token) => ({
   action: SAVE_STOPKY,
-  request: { typ, base, delta, running },
+  request: stopky,
   token
 });
 
@@ -163,7 +163,11 @@ const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyPotvrzen
 
   if (!typKategorie['muž'] && !typKategorie['žena']) {
     // jediná kategorie
-    return zkontrolujMladistvy(typKategorie, { datum: rocnik.datum, narozeni, mladistvyPotvrzen });
+    return zkontrolujMladistvy(typKategorie, {
+      datum: new Date(rocnik.datum),
+      narozeni,
+      mladistvyPotvrzen
+    });
   }
 
   const spravnePohlavi = typKategorie[pohlavi];
@@ -177,7 +181,7 @@ const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyPotvrzen
 
   if (spravnePohlavi.length === 1) {
     return zkontrolujMladistvy(spravnePohlavi[0], {
-      datum: rocnik.datum,
+      datum: new Date(rocnik.datum),
       narozeni,
       mladistvyPotvrzen
     });
@@ -192,14 +196,18 @@ const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyPotvrzen
   }
 
   const vek = rok - narozeni.rok;
-  const spravnyVek = filtrujPodleVeku(spravnePohlavi, { rok, datum: rocnik.datum, narozeni });
+  const spravnyVek = filtrujPodleVeku(spravnePohlavi, {
+    rok,
+    datum: new Date(rocnik.datum),
+    narozeni
+  });
   if (spravnyVek.length === 2 && spravnyVek[0].vek.presne) {
     spravnyVek.pop();
   }
 
   if (spravnyVek.length === 1) {
     return zkontrolujMladistvy(spravnyVek[0], {
-      datum: rocnik.datum,
+      datum: new Date(rocnik.datum),
       narozeni,
       mladistvyPotvrzen
     });
@@ -208,7 +216,7 @@ const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyPotvrzen
   if (spravnyVek.length === 0) {
     if (vek <= spravnePohlavi[0].vek.max) {
       return zkontrolujMladistvy(spravnePohlavi[0], {
-        datum: rocnik.datum,
+        datum: new Date(rocnik.datum),
         narozeni,
         mladistvyPotvrzen
       });
