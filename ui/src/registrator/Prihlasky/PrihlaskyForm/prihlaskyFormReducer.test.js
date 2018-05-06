@@ -355,7 +355,7 @@ it('validation of some invalid state [validate === false]', () => {
       typ: undefined,
       startCislo: 'aha',
       kod: '===kód===',
-      mladistvyPotvrzen: undefined
+      mladistvyPotvrzen: false
     },
     platby: [{ castka: 220, datum: new Date(), typ: 'převodem' }],
     ubytovani: { pátek: { prihlaseno: false, prespano: true } }
@@ -422,7 +422,7 @@ it('validation of some invalid state [validate === true]', () => {
       typ: undefined,
       startCislo: 'oho12',
       kod: '===kód===',
-      mladistvyPotvrzen: undefined
+      mladistvyPotvrzen: true
     },
     platby: [{ castka: 200, datum: '3. 1. 2015', typ: 'převodem' }],
     ubytovani: { pátek: { prihlaseno: true } }
@@ -811,6 +811,68 @@ it('prihlaska.startCislo - vymazání', () => {
       form: stateAfter
     })
   ).toBe(undefined);
+});
+
+it('prihlaska.mladistvyPotvrzen - má potvrzení', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      prihlasky: {
+        form: {
+          udaje: { narozeni: { den: undefined, mesic: undefined, rok: 2008 }, pohlavi: 'muž' },
+          prihlaska: {
+            kategorie: '5a587e1b051c181132cf83d3',
+            typ: 'půlmaraton',
+            startCislo: 43,
+            mladistvyPotvrzen: true
+          }
+        }
+      }
+    }
+  };
+  const { form } = state.registrator.prihlasky;
+  const { rocniky } = state.entities;
+
+  expect(isInputEnabled({ name: 'prihlaska.mladistvyPotvrzen', form, rocniky })).toBe(true);
+  expect(
+    inputValid({
+      name: 'prihlaska.mladistvyPotvrzen',
+      value: form.prihlaska.mladistvyPotvrzen,
+      form,
+      rocniky
+    })
+  ).toEqual('success');
+});
+
+it('prihlaska.mladistvyPotvrzen - nemá potvrzení', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      prihlasky: {
+        form: {
+          udaje: { narozeni: { den: undefined, mesic: undefined, rok: 2008 }, pohlavi: 'muž' },
+          prihlaska: {
+            kategorie: '5a587e1b051c181132cf83d3',
+            typ: 'půlmaraton',
+            startCislo: 43,
+            mladistvyPotvrzen: false
+          }
+        }
+      }
+    }
+  };
+  const { form } = state.registrator.prihlasky;
+  const { rocniky } = state.entities;
+
+  expect(isInputEnabled({ name: 'prihlaska.mladistvyPotvrzen', form, rocniky })).toBe(true);
+  expect(
+    inputValid({
+      name: 'prihlaska.mladistvyPotvrzen',
+      value: form.prihlaska.mladistvyPotvrzen,
+      form,
+      rocniky
+    })
+  ).toEqual('error');
 });
 
 it('loadUcastnik() - údaje i přihláška', () => {

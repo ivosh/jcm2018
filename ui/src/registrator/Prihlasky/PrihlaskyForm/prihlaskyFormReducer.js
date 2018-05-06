@@ -1,5 +1,11 @@
 import moment from 'moment';
-import { findKategorie, ubytovaniOdhlasit, ubytovaniPrihlasit, CODE_OK } from '../../../common';
+import {
+  findKategorie,
+  ubytovaniOdhlasit,
+  ubytovaniPrihlasit,
+  CODE_OK,
+  CODE_MLADISTVY_UCASTNIK
+} from '../../../common';
 import { AKTUALNI_ROK, TYPY_KATEGORII } from '../../../constants';
 import {
   datumValid,
@@ -173,6 +179,18 @@ const prihlaskyFormReducer = (state = initialState, action) => {
 
 export default prihlaskyFormReducer;
 
+const isMladistvy = ({ form, rocniky }) => {
+  const rok = AKTUALNI_ROK;
+  const found = findKategorie(rocniky.byRoky, {
+    rok,
+    typ: form.prihlaska.typ,
+    pohlavi: form.udaje.pohlavi,
+    narozeni: form.udaje.narozeni,
+    mladistvyPotvrzen: false
+  });
+  return found.code === CODE_MLADISTVY_UCASTNIK;
+};
+
 const nonEmptyInputValid = ({ value, validate }) => {
   if (value === undefined) {
     if (validate) {
@@ -211,7 +229,7 @@ const narozeniValid = ({ value, validate, requireDenMesic }) => {
   return 'error';
 };
 
-export const inputValid = ({ name, value, form }) => {
+export const inputValid = ({ name, value, form, rocniky }) => {
   const { validate } = form;
   switch (name) {
     case 'udaje.prijmeni':
@@ -227,7 +245,6 @@ export const inputValid = ({ name, value, form }) => {
     case 'udaje.email':
     case 'udaje.telefon':
     case 'prihlaska.kod':
-    case 'prihlaska.mladistvyPotvrzen':
     case 'ubytovani.pátek':
     case 'ubytovani.sobota':
       return undefined;
@@ -250,13 +267,18 @@ export const inputValid = ({ name, value, form }) => {
     case 'prihlaska.startCislo': // Může nechat nevyplněné, doplní později.
     case 'prihlaska.startovnePoSleve':
       return numberValid(value, false);
+    case 'prihlaska.mladistvyPotvrzen':
+      if (isMladistvy({ form, rocniky })) {
+        return nonEmptyInputValid({ value, validate });
+      }
+      return undefined;
     default:
       return 'error';
   }
 };
 
-const isInputValid = ({ name, value, form }) => {
-  const validationState = inputValid({ name, value, form });
+const isInputValid = ({ name, value, form, rocniky }) => {
+  const validationState = inputValid({ name, value, form, rocniky });
   if (
     validationState === undefined ||
     validationState === 'success' ||
@@ -267,27 +289,41 @@ const isInputValid = ({ name, value, form }) => {
   return false;
 };
 
-export const formValid = ({ form }) => {
+export const formValid = ({ form, rocniky }) => {
   const { udaje, prihlaska } = form;
 
   return (
-    isInputValid({ name: 'udaje.prijmeni', value: udaje.prijmeni, form }) &&
-    isInputValid({ name: 'udaje.jmeno', value: udaje.jmeno, form }) &&
-    isInputValid({ name: 'udaje.narozeni', value: udaje.narozeni, form }) &&
-    isInputValid({ name: 'udaje.pohlavi', value: udaje.pohlavi, form }) &&
-    isInputValid({ name: 'udaje.obec', value: udaje.obec, form }) &&
-    isInputValid({ name: 'udaje.psc', value: udaje.psc, form }) &&
-    isInputValid({ name: 'udaje.stat', value: udaje.stat, form }) &&
-    isInputValid({ name: 'prihlaska.datum', value: prihlaska.datum, form }) &&
-    isInputValid({ name: 'prihlaska.kategorie', value: prihlaska.kategorie, form }) &&
-    isInputValid({ name: 'prihlaska.typ', value: prihlaska.typ, form })
+    isInputValid({ name: 'udaje.prijmeni', value: udaje.prijmeni, form, rocniky }) &&
+    isInputValid({ name: 'udaje.jmeno', value: udaje.jmeno, form, rocniky }) &&
+    isInputValid({ name: 'udaje.narozeni', value: udaje.narozeni, form, rocniky }) &&
+    isInputValid({ name: 'udaje.pohlavi', value: udaje.pohlavi, form, rocniky }) &&
+    isInputValid({ name: 'udaje.obec', value: udaje.obec, form, rocniky }) &&
+    isInputValid({ name: 'udaje.psc', value: udaje.psc, form, rocniky }) &&
+    isInputValid({ name: 'udaje.stat', value: udaje.stat, form, rocniky }) &&
+    isInputValid({ name: 'prihlaska.datum', value: prihlaska.datum, form, rocniky }) &&
+    isInputValid({
+      name: 'prihlaska.kategorie',
+      value: prihlaska.kategorie,
+      form,
+      rocniky
+    }) &&
+    isInputValid({ name: 'prihlaska.typ', value: prihlaska.typ, form, rocniky }) &&
+    isInputValid({
+      name: 'prihlaska.mladistvyPotvrzen',
+      value: prihlaska.mladistvyPotvrzen,
+      form,
+      rocniky
+    })
   );
 };
 
-export const isInputVisible = ({ name, rocniky }) => {
+export const isInputVisible = ({ name, form, rocniky }) => {
   const [section, subsection] = name.split('.');
   if (section === 'ubytovani') {
     return !!rocniky.byRoky[AKTUALNI_ROK].ubytovani[subsection];
+  }
+  if (name === 'prihlaska.mladistvyPotvrzen') {
+    return isMladistvy({ form, rocniky });
   }
   return true;
 };
@@ -366,6 +402,7 @@ export const formatValue = ({ name, rawValue }) => {
       return datumValid(rawValue) ? moment.utc(rawValue).format('D. M. YYYY') : rawValue || '';
     case 'prihlaska.startovnePoSleve':
       return rawValue >= 0 ? `${rawValue}` : '';
+    case 'prihlaska.mladistvyPotvrzen':
     case 'ubytovani.pátek':
     case 'ubytovani.sobota':
       return rawValue ? 'on' : 'off';

@@ -224,12 +224,20 @@ class PrihlaskyForm extends PureComponent {
               name="ubytovani.sobota"
               popisek=""
               option="sobota"
-              Type={TextInput}
+              Type={CheckboxInput}
+            />
+            <PrihlaskyFormInputContainer
+              index={17}
+              inputRef={this.inputRef}
+              name="prihlaska.mladistvyPotvrzen"
+              popisek="mladistvý"
+              option="potvrzen"
+              Type={CheckboxInput}
             />
           </Panel>
           <div className="PrihlaskyForm__column">
             <Panel bsStyle="primary" header="Platby">
-              <PlatbyContainer startIndex={17} inputRef={this.inputRef} />
+              <PlatbyContainer startIndex={18} inputRef={this.inputRef} />
             </Panel>
             <LoadingButton
               type="submit"

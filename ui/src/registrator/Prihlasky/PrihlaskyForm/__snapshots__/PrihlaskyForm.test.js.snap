@@ -212,6 +212,14 @@ exports[`formulář po uložení 1`] = `
         option="sobota"
         popisek=""
       />
+      <Connect(Connect(Input))
+        Type={[Function]}
+        index={17}
+        inputRef={[Function]}
+        name="prihlaska.mladistvyPotvrzen"
+        option="potvrzen"
+        popisek="mladistvý"
+      />
     </Panel>
     <div
       className="PrihlaskyForm__column"
@@ -224,7 +232,7 @@ exports[`formulář po uložení 1`] = `
       >
         <Connect(Platby)
           inputRef={[Function]}
-          startIndex={17}
+          startIndex={18}
         />
       </Panel>
       <LoadingButton
@@ -473,6 +481,14 @@ exports[`formulář s chybou 1`] = `
         option="sobota"
         popisek=""
       />
+      <Connect(Connect(Input))
+        Type={[Function]}
+        index={17}
+        inputRef={[Function]}
+        name="prihlaska.mladistvyPotvrzen"
+        option="potvrzen"
+        popisek="mladistvý"
+      />
     </Panel>
     <div
       className="PrihlaskyForm__column"
@@ -485,7 +501,7 @@ exports[`formulář s chybou 1`] = `
       >
         <Connect(Platby)
           inputRef={[Function]}
-          startIndex={17}
+          startIndex={18}
         />
       </Panel>
       <LoadingButton
@@ -740,6 +756,14 @@ exports[`formulář s existujícím účastníkem 1`] = `
         option="sobota"
         popisek=""
       />
+      <Connect(Connect(Input))
+        Type={[Function]}
+        index={17}
+        inputRef={[Function]}
+        name="prihlaska.mladistvyPotvrzen"
+        option="potvrzen"
+        popisek="mladistvý"
+      />
     </Panel>
     <div
       className="PrihlaskyForm__column"
@@ -752,7 +776,7 @@ exports[`formulář s existujícím účastníkem 1`] = `
       >
         <Connect(Platby)
           inputRef={[Function]}
-          startIndex={17}
+          startIndex={18}
         />
       </Panel>
       <LoadingButton
@@ -1001,6 +1025,14 @@ exports[`prázdný formulář 1`] = `
         option="sobota"
         popisek=""
       />
+      <Connect(Connect(Input))
+        Type={[Function]}
+        index={17}
+        inputRef={[Function]}
+        name="prihlaska.mladistvyPotvrzen"
+        option="potvrzen"
+        popisek="mladistvý"
+      />
     </Panel>
     <div
       className="PrihlaskyForm__column"
@@ -1013,7 +1045,7 @@ exports[`prázdný formulář 1`] = `
       >
         <Connect(Platby)
           inputRef={[Function]}
-          startIndex={17}
+          startIndex={18}
         />
       </Panel>
       <LoadingButton
