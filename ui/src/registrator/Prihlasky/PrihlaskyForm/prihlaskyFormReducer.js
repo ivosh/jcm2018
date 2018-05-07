@@ -96,6 +96,14 @@ const prihlaskyFormReducer = (state = initialState, action) => {
           break;
         case 'udaje.narozeni':
           value = parseNarozeni(action.value);
+          if (state.prihlaska.kategorie) {
+            // eslint-disable-next-line no-param-reassign
+            state = { ...state, prihlaska: { ...state.prihlaska, kategorie: undefined } };
+          }
+          if (state.prihlaska.mladistvyPotvrzen) {
+            // eslint-disable-next-line no-param-reassign
+            state = { ...state, prihlaska: { ...state.prihlaska, mladistvyPotvrzen: undefined } };
+          }
           break;
         case 'prihlaska.datum':
           value = parseDatum(action.value);
