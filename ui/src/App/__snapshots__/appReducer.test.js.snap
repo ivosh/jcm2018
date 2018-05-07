@@ -14,21 +14,11 @@ Object {
     "token": null,
   },
   "casomeric": Object {
-    "cyklo": Object {
-      "mezicasy": Array [],
-      "startujici": Array [],
-    },
-    "koloběžka": Object {
-      "mezicasy": Array [],
-      "startujici": Array [],
-    },
-    "maraton": Object {
-      "mezicasy": Array [],
-      "startujici": Array [],
-    },
-    "půlmaraton": Object {
-      "mezicasy": Array [],
-      "startujici": Array [],
+    "casomiry": Object {
+      "cyklo": true,
+      "koloběžka": true,
+      "maraton": true,
+      "půlmaraton": true,
     },
   },
   "connected": false,
@@ -141,21 +131,11 @@ Object {
     "token": null,
   },
   "casomeric": Object {
-    "cyklo": Object {
-      "mezicasy": Array [],
-      "startujici": Array [],
-    },
-    "koloběžka": Object {
-      "mezicasy": Array [],
-      "startujici": Array [],
-    },
-    "maraton": Object {
-      "mezicasy": Array [],
-      "startujici": Array [],
-    },
-    "půlmaraton": Object {
-      "mezicasy": Array [],
-      "startujici": Array [],
+    "casomiry": Object {
+      "cyklo": true,
+      "koloběžka": true,
+      "maraton": true,
+      "půlmaraton": true,
     },
   },
   "connected": true,
@@ -268,21 +248,11 @@ Object {
     "token": null,
   },
   "casomeric": Object {
-    "cyklo": Object {
-      "mezicasy": Array [],
-      "startujici": Array [],
-    },
-    "koloběžka": Object {
-      "mezicasy": Array [],
-      "startujici": Array [],
-    },
-    "maraton": Object {
-      "mezicasy": Array [],
-      "startujici": Array [],
-    },
-    "půlmaraton": Object {
-      "mezicasy": Array [],
-      "startujici": Array [],
+    "casomiry": Object {
+      "cyklo": true,
+      "koloběžka": true,
+      "maraton": true,
+      "půlmaraton": true,
     },
   },
   "connected": false,

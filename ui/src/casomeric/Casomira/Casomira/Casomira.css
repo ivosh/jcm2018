@@ -1,0 +1,17 @@
+.Casomira__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Casomira__panel--maraton > .panel-heading {
+  background-color: rgba(var(--maraton), 0.4);
+}
+.Casomira__panel--půlmaraton > .panel-heading {
+  background-color: rgba(var(--půlmaraton), 0.4);
+}
+.Casomira__panel--cyklo > .panel-heading {
+  background-color: rgba(var(--cyklo), 0.4);
+}
+.Casomira__panel--koloběžka > .panel-heading {
+  background-color: rgba(var(--koloběžka), 0.4);
+}

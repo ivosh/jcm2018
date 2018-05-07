@@ -3,7 +3,6 @@ import thunk from 'redux-thunk';
 import { BROADCAST_STOPKY, BROADCAST_UCASTNIK } from './common';
 import appReducer from './App/appReducer';
 import { websocketConnected, websocketDisconnected } from './App/AppActions';
-import { setHighestMezicasId } from './casomeric/Casomira/Mezicasy/MezicasyActions';
 import { broadcastStopky } from './entities/stopky/stopkyActions';
 import { broadcastUcastnik } from './entities/ucastnici/ucastniciActions';
 
@@ -59,22 +58,7 @@ const setupWsClient = (wsClient, store) => {
 const configureStore = (wsClient, initialStateParam = loadState()) => {
   const initialState = initialStateParam || {};
 
-  // :TODO: také ostatní kategorie
-  if (
-    initialState.casomeric &&
-    initialState.casomeric.maraton &&
-    initialState.casomeric.maraton.mezicasy
-  ) {
-    let highestId = 0;
-
-    initialState.casomeric.maraton.mezicasy.forEach(mezicas => {
-      if (mezicas.id > highestId) {
-        highestId = mezicas.id;
-      }
-    });
-
-    setHighestMezicasId(highestId);
-  }
+  // :TODO: determine highest id for mezičasy
 
   // eslint-disable-next-line no-underscore-dangle
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -91,21 +75,8 @@ const configureStore = (wsClient, initialStateParam = loadState()) => {
         authenticated: state.auth.authenticated,
         decodedToken: state.auth.decodedToken,
         token: state.auth.token
-      },
-      casomeric: {
-        maraton: {
-          mezicasy: state.casomeric.maraton.mezicasy
-        },
-        půlmaraton: {
-          mezicasy: state.casomeric.půlmaraton.mezicasy
-        },
-        cyklo: {
-          mezicasy: state.casomeric.cyklo.mezicasy
-        },
-        koloběžka: {
-          mezicasy: state.casomeric.koloběžka.mezicasy
-        }
       }
+      // :TODO: casomeric.mezicasy
     });
   });
 
