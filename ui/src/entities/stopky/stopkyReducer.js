@@ -2,7 +2,7 @@ export const initialState = { byTypy: {}, typy: [], invalidated: false };
 
 const updateState = ({ state, typ, stopky }) => {
   const updated = { ...state, byTypy: { ...state.byTypy, [typ]: { typ, ...stopky } } };
-  return state.byTypy[typ] ? updated : { ...updated, typy: [...updated.allTypy, typ] };
+  return state.byTypy[typ] ? updated : { ...updated, typy: [...updated.typy, typ] };
 };
 
 const stopkyReducer = (state = initialState, action) => {
