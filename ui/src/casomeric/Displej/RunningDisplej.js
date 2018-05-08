@@ -38,6 +38,7 @@ class RunningDisplej extends PureComponent {
   };
 
   startTimer = () => {
+    this.stopTimer();
     this.timerID = setInterval(() => this.tick(), STOPKY_ONE_TICK);
   };
 
