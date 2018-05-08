@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import momentPropTypes from 'react-moment-proptypes';
 import { Button, Glyphicon, Panel } from 'react-bootstrap';
 import PopisekKategorie from '../../../shared/Popisek/PopisekKategorie';
+import RunningDisplej from '../../Displej/RunningDisplej';
 import './Casomira.css';
 
-const Casomira = ({ typ, onRemove }) => (
+/* eslint-disable jsx-a11y/no-access-key */
+const Casomira = ({ base, delta, mezicasEnabled, running, typ, onRemove, onStopkyMezicas }) => (
   <Panel
     className={`Casomira__panel--${typ}`}
     header={
@@ -16,16 +19,30 @@ const Casomira = ({ typ, onRemove }) => (
       </div>
     }
   >
-    <div>
-      huh sdfijwe4t -0e9jtgpeogjm9gju pej5yh09rejghotrdjh 0e9j5yhi0 re9jkm re0yi-r6hkff0 9km6u
-      rkf6juh9f6mko9
+    <div className="Casomira__stopky">
+      <RunningDisplej base={base} delta={delta} running={running} />
+      <Button
+        bsStyle="info"
+        className="Casomira__stopky-mezicas"
+        disabled={!mezicasEnabled}
+        onClick={onStopkyMezicas}
+        accessKey="m"
+      >
+        Mezičas (Alt-m)
+      </Button>
     </div>
   </Panel>
 );
+/* eslint-enable jsx-a11y/no-access-key */
 
 Casomira.propTypes = {
+  base: PropTypes.instanceOf(Date),
+  delta: momentPropTypes.momentDurationObj,
+  mezicasEnabled: PropTypes.bool.isRequired,
+  running: PropTypes.bool.isRequired,
   typ: PropTypes.string.isRequired,
-  onRemove: PropTypes.func.isRequired
+  onRemove: PropTypes.func.isRequired,
+  onStopkyMezicas: PropTypes.func.isRequired
 };
 
 export default Casomira;

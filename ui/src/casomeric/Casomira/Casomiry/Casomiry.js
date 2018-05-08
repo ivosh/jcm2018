@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Casomira from '../Casomira/Casomira';
+import CasomiraContainer from '../Casomira/CasomiraContainer';
 import './Casomiry.css';
 
 const Casomiry = ({ casomiry, onRemove }) => (
   <div className="Casomiry__div">
     {casomiry.map(casomira => (
-      <Casomira key={casomira} typ={casomira} onRemove={() => onRemove(casomira)} />
+      <CasomiraContainer key={casomira} typ={casomira} onRemove={() => onRemove(casomira)} />
     ))}
   </div>
 );

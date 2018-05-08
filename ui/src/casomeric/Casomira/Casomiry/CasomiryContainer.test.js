@@ -17,6 +17,12 @@ beforeEach(() => {
         cyklo: true,
         koloběžka: true
       }
+    },
+    entities: {
+      stopky: {
+        byTypy: { },
+        typy: []
+      }
     }
   };
   store = mockStore(state);
