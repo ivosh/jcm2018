@@ -15,7 +15,7 @@ testRenderer.propTypes = {
 
 it('žádná startovní čísla', () => {
   const component = renderer.create(
-    <StartovniCislaProTyp startovniCisla={[]} renderer={testRenderer} />
+    <StartovniCislaProTyp startovniCisla={[]} Renderer={testRenderer} />
   );
   expect(component.toJSON()).toMatchSnapshot();
 });
@@ -31,7 +31,7 @@ it('jedno startovní číslo', () => {
   ];
 
   const component = renderer.create(
-    <StartovniCislaProTyp startovniCisla={startovniCisla} renderer={testRenderer} />
+    <StartovniCislaProTyp startovniCisla={startovniCisla} Renderer={testRenderer} />
   );
   expect(component.toJSON()).toMatchSnapshot();
 });
@@ -90,7 +90,7 @@ it('třináct startovních čísel', () => {
   ];
 
   const component = renderer.create(
-    <StartovniCislaProTyp startovniCisla={startovniCisla} renderer={testRenderer} />
+    <StartovniCislaProTyp startovniCisla={startovniCisla} Renderer={testRenderer} />
   );
   expect(component.toJSON()).toMatchSnapshot();
 });

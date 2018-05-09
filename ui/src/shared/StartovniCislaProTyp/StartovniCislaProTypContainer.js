@@ -8,13 +8,13 @@ import StartovniCislaProTyp from './StartovniCislaProTyp';
 
 const mapStateToProps = (state, ownProps) => {
   const { entities } = state;
-  const { jenStartujici, odstartovani, typ, renderer, ...restOwnProps } = ownProps;
+  const { jenStartujici, odstartovani, typ, Renderer, ...restOwnProps } = ownProps;
 
   return {
     startovniCisla: jenStartujici
       ? getStartovniCislaProTyp({ odstartovani, typ, ...entities })
       : getStartovniCislaProTypVsechna({ odstartovani, typ, ...entities }),
-    renderer,
+    Renderer,
     ...restOwnProps
   };
 };
@@ -25,7 +25,7 @@ StartovniCislaProTypContainer.propTypes = {
   jenStartujici: PropTypes.bool.isRequired,
   odstartovani: PropTypes.bool.isRequired,
   typ: PropTypes.string.isRequired,
-  renderer: PropTypes.func.isRequired
+  Renderer: PropTypes.func.isRequired
 };
 
 export default StartovniCislaProTypContainer;

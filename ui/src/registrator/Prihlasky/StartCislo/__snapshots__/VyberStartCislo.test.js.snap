@@ -20,10 +20,10 @@ exports[`Renderer 1`] = `
 
 exports[`renders VyberStartCislo 1`] = `
 <Connect(StartovniCislaProTyp)
+  Renderer={[Function]}
   jenStartujici={false}
   odstartovani={false}
   onSelect={[Function]}
-  renderer={[Function]}
   typ="koloběžka"
 />
 `;

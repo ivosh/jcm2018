@@ -19,7 +19,7 @@ it('maps state to props - půlmaraton, startovní čísla, přihlášky', () => 
       jenStartujici={false}
       odstartovani={false}
       typ="půlmaraton"
-      renderer={jest.fn()}
+      Renderer={jest.fn()}
       store={store}
     />
   );
@@ -33,7 +33,7 @@ it('maps state to props - půlmaraton, startující, přihlášky', () => {
       jenStartujici={true}
       odstartovani={false}
       typ="půlmaraton"
-      renderer={jest.fn()}
+      Renderer={jest.fn()}
       store={store}
     />
   );
@@ -47,7 +47,7 @@ it('maps state to props - půlmaraton, startovní čísla, odstartováni', () =>
       jenStartujici={false}
       odstartovani={true}
       typ="půlmaraton"
-      renderer={jest.fn()}
+      Renderer={jest.fn()}
       store={store}
     />
   );
@@ -61,7 +61,7 @@ it('maps state to props - půlmaraton, startující, odstartováni', () => {
       jenStartujici={true}
       odstartovani={true}
       typ="půlmaraton"
-      renderer={jest.fn()}
+      Renderer={jest.fn()}
       store={store}
     />
   );

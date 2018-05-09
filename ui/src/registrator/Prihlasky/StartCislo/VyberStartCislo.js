@@ -29,7 +29,7 @@ const VyberStartCislo = ({ typ, onSelect }) => (
     jenStartujici={false}
     odstartovani={false}
     typ={typ}
-    renderer={Renderer}
+    Renderer={Renderer}
     onSelect={onSelect}
   />
 );

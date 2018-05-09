@@ -16,7 +16,7 @@ it('Renderer', () => {
   const component = renderer.create(
     <StartovniCislaProTyp
       startovniCisla={startovniCisla}
-      renderer={Renderer}
+      Renderer={Renderer}
       onSelect={jest.fn()}
     />
   );
@@ -27,7 +27,7 @@ it('Renderer - onClick', () => {
   const startovniCisla = [{ startCislo: 10 }];
   const onSelect = jest.fn();
   const wrapper = mount(
-    <StartovniCislaProTyp startovniCisla={startovniCisla} renderer={Renderer} onSelect={onSelect} />
+    <StartovniCislaProTyp startovniCisla={startovniCisla} Renderer={Renderer} onSelect={onSelect} />
   );
 
   expect(wrapper.find('.StartovniCislaProTyp__item')).toHaveLength(1);

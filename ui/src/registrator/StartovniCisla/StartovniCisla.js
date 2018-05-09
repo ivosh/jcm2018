@@ -12,15 +12,12 @@ export const Renderer = ({ id, startCislo, dokonceno }) =>
   id ? (
     <NavLink
       to={`/prihlasky/${id}`}
-      key={startCislo}
       className={`StartovniCislaProTyp__item Legenda-item-${dokoncenoStr(dokonceno)[0]}`}
     >
       {startCislo}
     </NavLink>
   ) : (
-    <div className="StartovniCislaProTyp__item Legenda-item-neaktivni" key={startCislo}>
-      {startCislo}
-    </div>
+    <div className="StartovniCislaProTyp__item Legenda-item-neaktivni">{startCislo}</div>
   );
 
 Renderer.propTypes = {
@@ -73,7 +70,7 @@ const StartovniCisla = ({ odstartovani, typy, onOdstartovaniChange }) => (
           jenStartujici={odstartovani}
           odstartovani={odstartovani}
           typ={typ}
-          renderer={Renderer}
+          Renderer={Renderer}
         />
       </div>
     ))}

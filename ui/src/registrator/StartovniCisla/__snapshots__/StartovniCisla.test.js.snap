@@ -88,9 +88,9 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
       />
     </div>
     <Connect(StartovniCislaProTyp)
+      Renderer={[Function]}
       jenStartujici={true}
       odstartovani={true}
-      renderer={[Function]}
       typ="maraton"
     />
   </div>
@@ -106,9 +106,9 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
       />
     </div>
     <Connect(StartovniCislaProTyp)
+      Renderer={[Function]}
       jenStartujici={true}
       odstartovani={true}
-      renderer={[Function]}
       typ="půlmaraton"
     />
   </div>
@@ -124,9 +124,9 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
       />
     </div>
     <Connect(StartovniCislaProTyp)
+      Renderer={[Function]}
       jenStartujici={true}
       odstartovani={true}
-      renderer={[Function]}
       typ="cyklo"
     />
   </div>
@@ -142,9 +142,9 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
       />
     </div>
     <Connect(StartovniCislaProTyp)
+      Renderer={[Function]}
       jenStartujici={true}
       odstartovani={true}
-      renderer={[Function]}
       typ="koloběžka"
     />
   </div>
@@ -227,9 +227,9 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
       />
     </div>
     <Connect(StartovniCislaProTyp)
+      Renderer={[Function]}
       jenStartujici={false}
       odstartovani={false}
-      renderer={[Function]}
       typ="maraton"
     />
   </div>
@@ -245,9 +245,9 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
       />
     </div>
     <Connect(StartovniCislaProTyp)
+      Renderer={[Function]}
       jenStartujici={false}
       odstartovani={false}
-      renderer={[Function]}
       typ="půlmaraton"
     />
   </div>
@@ -263,9 +263,9 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
       />
     </div>
     <Connect(StartovniCislaProTyp)
+      Renderer={[Function]}
       jenStartujici={false}
       odstartovani={false}
-      renderer={[Function]}
       typ="cyklo"
     />
   </div>
@@ -281,9 +281,9 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
       />
     </div>
     <Connect(StartovniCislaProTyp)
+      Renderer={[Function]}
       jenStartujici={false}
       odstartovani={false}
-      renderer={[Function]}
       typ="koloběžka"
     />
   </div>
