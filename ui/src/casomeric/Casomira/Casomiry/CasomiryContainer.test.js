@@ -20,7 +20,7 @@ beforeEach(() => {
     },
     entities: {
       stopky: {
-        byTypy: { },
+        byTypy: {},
         typy: []
       }
     }
@@ -36,7 +36,7 @@ beforeEach(() => {
 });
 
 it('maps state and dispatch to props', () => {
-  expect(wrapper.props().casomiry).toEqual(['maraton', 'cyklo', 'koloběžka']);
+  expect(wrapper.props().casomiry).toMatchSnapshot();
   expect(wrapper.props().onRemove).toEqual(expect.any(Function));
 });
 

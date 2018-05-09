@@ -6,10 +6,11 @@ import { stopkyMezicas } from './CasomiraActions';
 import Casomira from './Casomira';
 
 const mapStateToProps = (state, ownProps) => {
-  const { typ, onRemove } = ownProps;
+  const { accessKey, typ, onRemove } = ownProps;
   const stopky = getStopkyByTyp({ state, typ });
 
   return {
+    accessKey,
     base: new Date(stopky.base),
     delta: moment.duration(stopky.delta),
     mezicasEnabled: stopky.running === true,
@@ -41,6 +42,7 @@ const mergeProps = (stateProps, dispatchProps) => {
 const CasomiraContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(Casomira);
 
 CasomiraContainer.propTypes = {
+  accessKey: PropTypes.string.isRequired,
   typ: PropTypes.string.isRequired,
   onRemove: PropTypes.func.isRequired
 };
