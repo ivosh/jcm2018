@@ -6,7 +6,7 @@ exports[`Renderer 1`] = `
 >
   <a
     aria-current={false}
-    className="StartovniCislaProTyp__item Legenda-item-dokonceno"
+    className="StartovniCislaProTyp__item Legenda__item--dokonceno"
     href="/prihlasky/10"
     onClick={[Function]}
     style={undefined}

@@ -12,12 +12,12 @@ export const Renderer = ({ id, startCislo, dokonceno }) =>
   id ? (
     <NavLink
       to={`/prihlasky/${id}`}
-      className={`StartovniCislaProTyp__item Legenda-item-${dokoncenoStr(dokonceno)[0]}`}
+      className={`StartovniCislaProTyp__item Legenda__item--${dokoncenoStr(dokonceno)[0]}`}
     >
       {startCislo}
     </NavLink>
   ) : (
-    <div className="StartovniCislaProTyp__item Legenda-item-neaktivni">{startCislo}</div>
+    <div className="StartovniCislaProTyp__item Legenda__item--neaktivni">{startCislo}</div>
   );
 
 Renderer.propTypes = {

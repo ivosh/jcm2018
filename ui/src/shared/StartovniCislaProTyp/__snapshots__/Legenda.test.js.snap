@@ -6,22 +6,22 @@ exports[`renders dokončeno + neaktivní 1`] = `
 >
   Legenda: 
   <span
-    className="Legenda-item Legenda-item-dokonceno label label-default"
+    className="Legenda__item Legenda__item--dokonceno label label-default"
   >
     dokončeno
   </span>
   <span
-    className="Legenda-item Legenda-item-nedokonceno label label-default"
+    className="Legenda__item Legenda__item--nedokonceno label label-default"
   >
     nedokončeno
   </span>
   <span
-    className="Legenda-item Legenda-item-na-trase label label-default"
+    className="Legenda__item Legenda__item--na-trase label label-default"
   >
     na trase
   </span>
   <span
-    className="Legenda-item Legenda-item-neaktivni label label-default"
+    className="Legenda__item Legenda__item--neaktivni label label-default"
   >
     neaktivní
   </span>
@@ -34,17 +34,17 @@ exports[`renders dokončeno 1`] = `
 >
   Legenda: 
   <span
-    className="Legenda-item Legenda-item-dokonceno label label-default"
+    className="Legenda__item Legenda__item--dokonceno label label-default"
   >
     dokončeno
   </span>
   <span
-    className="Legenda-item Legenda-item-nedokonceno label label-default"
+    className="Legenda__item Legenda__item--nedokonceno label label-default"
   >
     nedokončeno
   </span>
   <span
-    className="Legenda-item Legenda-item-na-trase label label-default"
+    className="Legenda__item Legenda__item--na-trase label label-default"
   >
     na trase
   </span>

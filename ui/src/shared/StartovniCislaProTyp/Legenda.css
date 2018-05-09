@@ -2,27 +2,27 @@
   font-size: 110%;
 }
 
-.Legenda-item {
+.Legenda__item {
   font-size: 100%;
   margin-left: 0.5em;
 }
 
-.Legenda-item-dokonceno {
+.Legenda__item--dokonceno {
   background-color: #35841f;
   color: white;
 }
 
-.Legenda-item-nedokonceno {
+.Legenda__item--nedokonceno {
   background-color: #0b3056;
   color: white;
 }
 
-.Legenda-item-na-trase {
+.Legenda__item--na-trase {
   background-color: #683102;
   color: white;
 }
 
-.Legenda-item-neaktivni {
+.Legenda__item--neaktivni {
   background-color: #868686;
   color: black;
 }

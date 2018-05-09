@@ -6,7 +6,7 @@ import './StartovniCislo.css';
 const StartovniCislo = ({ startCislo, dokonceno, connectDragSource }) =>
   connectDragSource(
     <div
-      className={`StartovniCislo-casomeric StartovniCislaProTyp__item Legenda-item-${
+      className={`StartovniCislo-casomeric StartovniCislaProTyp__item Legenda__item--${
         dokoncenoStr(dokonceno)[0]
       }`}
     >

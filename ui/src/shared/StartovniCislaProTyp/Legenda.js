@@ -4,7 +4,7 @@ import { Label } from 'react-bootstrap';
 import './Legenda.css';
 
 const LegendaItem = ({ name, popisek }) => (
-  <Label className={`Legenda-item Legenda-item-${name}`}>{popisek}</Label>
+  <Label className={`Legenda__item Legenda__item--${name}`}>{popisek}</Label>
 );
 
 LegendaItem.propTypes = {

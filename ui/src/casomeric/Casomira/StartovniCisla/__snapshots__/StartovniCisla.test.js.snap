@@ -74,10 +74,10 @@ exports[`maraton 1`] = `
                 <Label
                   bsClass="label"
                   bsStyle="default"
-                  className="Legenda-item Legenda-item-dokonceno"
+                  className="Legenda__item Legenda__item--dokonceno"
                 >
                   <span
-                    className="Legenda-item Legenda-item-dokonceno label label-default"
+                    className="Legenda__item Legenda__item--dokonceno label label-default"
                   >
                     dokončeno
                   </span>
@@ -91,10 +91,10 @@ exports[`maraton 1`] = `
                 <Label
                   bsClass="label"
                   bsStyle="default"
-                  className="Legenda-item Legenda-item-nedokonceno"
+                  className="Legenda__item Legenda__item--nedokonceno"
                 >
                   <span
-                    className="Legenda-item Legenda-item-nedokonceno label label-default"
+                    className="Legenda__item Legenda__item--nedokonceno label label-default"
                   >
                     nedokončeno
                   </span>
@@ -108,10 +108,10 @@ exports[`maraton 1`] = `
                 <Label
                   bsClass="label"
                   bsStyle="default"
-                  className="Legenda-item Legenda-item-na-trase"
+                  className="Legenda__item Legenda__item--na-trase"
                 >
                   <span
-                    className="Legenda-item Legenda-item-na-trase label label-default"
+                    className="Legenda__item Legenda__item--na-trase label label-default"
                   >
                     na trase
                   </span>
