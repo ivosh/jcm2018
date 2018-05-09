@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`maraton 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <DragDropContext(StartovniCisla)
+    typ="maraton"
+  >
+    <StartovniCisla
+      typ="maraton"
+    >
+      <div
+        className="StartovniCisla-casomeric"
+      >
+        <Connect(StartovniCislaProTyp)
+          Renderer={[Function]}
+          jenStartujici={true}
+          odstartovani={true}
+          typ="maraton"
+        >
+          <StartovniCislaProTyp
+            Renderer={[Function]}
+            dispatch={[Function]}
+            jenStartujici={true}
+            odstartovani={true}
+            startovniCisla={Array []}
+            typ="maraton"
+          >
+            <div
+              className="StartovniCislaProTyp__grid"
+            />
+          </StartovniCislaProTyp>
+        </Connect(StartovniCislaProTyp)>
+        <div
+          className="StartovniCisla-casomeric__legenda"
+        >
+          <Legenda
+            legenda={
+              Array [
+                Object {
+                  "name": "dokonceno",
+                  "popisek": "dokončeno",
+                },
+                Object {
+                  "name": "nedokonceno",
+                  "popisek": "nedokončeno",
+                },
+                Object {
+                  "name": "na-trase",
+                  "popisek": "na trase",
+                },
+              ]
+            }
+          >
+            <div
+              className="Legenda"
+            >
+              Legenda: 
+              <LegendaItem
+                key="dokonceno"
+                name="dokonceno"
+                popisek="dokončeno"
+              >
+                <Label
+                  bsClass="label"
+                  bsStyle="default"
+                  className="Legenda-item Legenda-item-dokonceno"
+                >
+                  <span
+                    className="Legenda-item Legenda-item-dokonceno label label-default"
+                  >
+                    dokončeno
+                  </span>
+                </Label>
+              </LegendaItem>
+              <LegendaItem
+                key="nedokonceno"
+                name="nedokonceno"
+                popisek="nedokončeno"
+              >
+                <Label
+                  bsClass="label"
+                  bsStyle="default"
+                  className="Legenda-item Legenda-item-nedokonceno"
+                >
+                  <span
+                    className="Legenda-item Legenda-item-nedokonceno label label-default"
+                  >
+                    nedokončeno
+                  </span>
+                </Label>
+              </LegendaItem>
+              <LegendaItem
+                key="na-trase"
+                name="na-trase"
+                popisek="na trase"
+              >
+                <Label
+                  bsClass="label"
+                  bsStyle="default"
+                  className="Legenda-item Legenda-item-na-trase"
+                >
+                  <span
+                    className="Legenda-item Legenda-item-na-trase label label-default"
+                  >
+                    na trase
+                  </span>
+                </Label>
+              </LegendaItem>
+            </div>
+          </Legenda>
+        </div>
+      </div>
+    </StartovniCisla>
+  </DragDropContext(StartovniCisla)>
+</Provider>
+`;

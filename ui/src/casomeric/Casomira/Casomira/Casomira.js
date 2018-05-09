@@ -4,6 +4,7 @@ import momentPropTypes from 'react-moment-proptypes';
 import { Button, Glyphicon, Panel } from 'react-bootstrap';
 import PopisekKategorie from '../../../shared/Popisek/PopisekKategorie';
 import RunningDisplej from '../../Displej/RunningDisplej';
+import StartovniCislaDnD from '../StartovniCisla/StartovniCislaDnD';
 import './Casomira.css';
 
 /* eslint-disable jsx-a11y/no-access-key */
@@ -39,6 +40,9 @@ const Casomira = ({
       >
         Mezičas (Alt-{accessKey})
       </Button>
+    </div>
+    <div className="Casomira__startovni-cisla">
+      <StartovniCislaDnD typ={typ} />
     </div>
   </Panel>
 );

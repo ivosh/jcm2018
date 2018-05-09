@@ -7,6 +7,10 @@
   margin-left: 1em;
 }
 
+.Casomira__startovni-cisla {
+  margin-top: 2ex;
+}
+
 .Casomira__panel--maraton > .panel-heading {
   background-color: rgba(var(--maraton), 0.4);
 }

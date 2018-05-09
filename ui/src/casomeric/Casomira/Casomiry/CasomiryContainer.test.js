@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
+import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import CasomiryContainer from './CasomiryContainer';
 
 const mockStore = configureStore();
@@ -10,6 +11,7 @@ let store;
 let wrapper;
 beforeEach(() => {
   const state = {
+    ...ucastniciTestData,
     casomeric: {
       casomiry: {
         maraton: true,
@@ -17,14 +19,10 @@ beforeEach(() => {
         cyklo: true,
         koloběžka: true
       }
-    },
-    entities: {
-      stopky: {
-        byTypy: {},
-        typy: []
-      }
     }
   };
+  state.entities.stopky = { byTypy: {}, typy: [] };
+
   store = mockStore(state);
   store.dispatch = jest.fn();
   const component = mount(
