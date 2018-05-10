@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { canDrop } from './StartovniCislaActions';
+import { canDrop, createDropAction } from './StartovniCislaActions';
 import StartovniCisla from './StartovniCisla';
 
 const mapDispatchToProps = dispatch => ({
   canDrop,
-  onDrop: obj => {
-    console.log('dropped', obj);
+  onDrop: dropResult => {
+    dispatch(createDropAction(dropResult));
+    return undefined;
   }
 });
 

@@ -38,6 +38,10 @@ const ucastniciReducer = (state = initialState, action) => {
       const updated = { ...state, byIds: { ...state.byIds, [id]: { roky, ...ucasti } } };
       return state.byIds[id] ? updated : { ...updated, allIds: [...updated.allIds, id] };
     }
+    case 'CASOMIRA_SAVE_VYKON_SUCCESS': {
+      const { id, rok, vykon } = action;
+      return updateUcast(state, id, rok, 'vykon', vykon);
+    }
     case 'FETCH_UCASTNICI_SUCCESS':
       return { ...action.data, invalidated: false };
     case 'PRIHLASKY_SAVE_SUCCESS': {
