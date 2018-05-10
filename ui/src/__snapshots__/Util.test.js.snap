@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`findDokonceno - false 1`] = `
+Object {
+  "name": "nedokonceno",
+  "popisek": "nedokončeno",
+  "value": false,
+}
+`;
+
+exports[`findDokonceno - null 1`] = `
+Object {
+  "name": "na-trase",
+  "popisek": "na trase",
+  "value": null,
+}
+`;
+
+exports[`findDokonceno - true 1`] = `
+Object {
+  "name": "dokonceno",
+  "popisek": "dokončeno",
+  "value": true,
+}
+`;
