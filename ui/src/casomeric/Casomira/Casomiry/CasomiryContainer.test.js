@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
+import { wrapInDnDTestContext } from '../../../testing';
 import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import CasomiryContainer from './CasomiryContainer';
 
@@ -25,9 +26,11 @@ beforeEach(() => {
 
   store = mockStore(state);
   store.dispatch = jest.fn();
+
+  const CasomiryContainerDnD = wrapInDnDTestContext(CasomiryContainer);
   const component = mount(
     <Provider store={store}>
-      <CasomiryContainer />
+      <CasomiryContainerDnD />
     </Provider>
   );
   wrapper = component.find('Casomiry');

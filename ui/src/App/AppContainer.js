@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import App from './App';
+import AppDnD from './AppDnD';
 
 const mapStateToProps = state => {
   const { auth, connected } = state;
@@ -11,4 +11,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, null)(App);
+export default connect(mapStateToProps, null)(AppDnD);

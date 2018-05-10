@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link, Redirect, Route, Switch } from 'react-router-dom';
 import { Glyphicon, MenuItem, Nav, Navbar, NavDropdown, NavItem } from 'react-bootstrap';
@@ -72,68 +72,84 @@ const NavsAuthenticated = () =>
     <NavsForMenu key={name} menu={name} menuGlyph={glyph} menuKey={key} />
   ));
 
-const App = ({ authenticated, connected, location, username }) => (
-  <div className="App__div">
-    <Navbar inverse>
-      <Navbar.Header>
-        <Link to="/">
-          <img src={logo} className={connected ? 'App__logo--animated' : 'App__logo'} alt="logo" />
-        </Link>
-      </Navbar.Header>
-      {authenticated && (
-        <Nav className="App__Nav">
-          <NavsAuthenticated />
-          <CurrentItem route={location.pathname} />
-        </Nav>
-      )}
-      <Nav className="App__Nav" pullRight>
-        {!authenticated && (
-          <LinkContainer to="/signin">
-            <NavItem eventKey={5}>
-              <Glyphicon glyph="log-in" /> Přihlášení
-            </NavItem>
-          </LinkContainer>
-        )}
-        {authenticated && (
-          <LinkContainer key="signout" to="/signout">
-            <NavItem eventKey={6}>
-              <Glyphicon glyph="log-out" /> Odhlášení
-            </NavItem>
-          </LinkContainer>
-        )}
-        <LinkContainer to="/about">
-          <NavItem eventKey={7}>
-            <Glyphicon glyph="question-sign" /> O aplikaci
-          </NavItem>
-        </LinkContainer>
-      </Nav>
-    </Navbar>
+class App extends PureComponent {
+  render = () => {
+    const { authenticated, connected, location, username } = this.props;
 
-    <main>
-      <Switch>
-        <Route exact path="/" component={Main} />
-        <Route path="/about" component={() => <About username={username} />} />
-        <Route path="/casomira" component={withAuth(withFetchUcastnici(CasomiryContainer))} />
-        <Route path="/prihlaseni" component={withAuth(withFetchUcastnici(PrihlaseniContainer))} />
-        <Route path="/prihlasky" component={withAuth(withFetchUcastnici(Prihlasky))} />
-        <Route path="/signin" component={withoutAuth(SignInContainer)} />
-        <Route path="/signout" component={withAuth(SignOutContainer)} />
-        <Route path="/startujici" component={withAuth(withFetchUcastnici(StartujiciContainer))} />
-        <Route
-          path="/startovni-cisla"
-          component={withAuth(withFetchUcastnici(StartovniCislaContainer))}
-        />
-        <Route path="/stopky" component={withAuth(withFetchStopky(Stopky))} />
-        <Route path="/ubytovani" component={withAuth(withFetchUcastnici(UbytovaniContainer))} />
-        <Route
-          path="/ucastnici"
-          component={withAuth(withFetchUcastnici(UcastniciDigestContainer))}
-        />
-        <Redirect to="/" />
-      </Switch>
-    </main>
-  </div>
-);
+    return (
+      <div className="App__div">
+        <Navbar inverse>
+          <Navbar.Header>
+            <Link to="/">
+              <img
+                src={logo}
+                className={connected ? 'App__logo--animated' : 'App__logo'}
+                alt="logo"
+              />
+            </Link>
+          </Navbar.Header>
+          {authenticated && (
+            <Nav className="App__Nav">
+              <NavsAuthenticated />
+              <CurrentItem route={location.pathname} />
+            </Nav>
+          )}
+          <Nav className="App__Nav" pullRight>
+            {!authenticated && (
+              <LinkContainer to="/signin">
+                <NavItem eventKey={5}>
+                  <Glyphicon glyph="log-in" /> Přihlášení
+                </NavItem>
+              </LinkContainer>
+            )}
+            {authenticated && (
+              <LinkContainer key="signout" to="/signout">
+                <NavItem eventKey={6}>
+                  <Glyphicon glyph="log-out" /> Odhlášení
+                </NavItem>
+              </LinkContainer>
+            )}
+            <LinkContainer to="/about">
+              <NavItem eventKey={7}>
+                <Glyphicon glyph="question-sign" /> O aplikaci
+              </NavItem>
+            </LinkContainer>
+          </Nav>
+        </Navbar>
+
+        <main>
+          <Switch>
+            <Route exact path="/" component={Main} />
+            <Route path="/about" component={() => <About username={username} />} />
+            <Route path="/casomira" component={withAuth(withFetchUcastnici(CasomiryContainer))} />
+            <Route
+              path="/prihlaseni"
+              component={withAuth(withFetchUcastnici(PrihlaseniContainer))}
+            />
+            <Route path="/prihlasky" component={withAuth(withFetchUcastnici(Prihlasky))} />
+            <Route path="/signin" component={withoutAuth(SignInContainer)} />
+            <Route path="/signout" component={withAuth(SignOutContainer)} />
+            <Route
+              path="/startujici"
+              component={withAuth(withFetchUcastnici(StartujiciContainer))}
+            />
+            <Route
+              path="/startovni-cisla"
+              component={withAuth(withFetchUcastnici(StartovniCislaContainer))}
+            />
+            <Route path="/stopky" component={withAuth(withFetchStopky(Stopky))} />
+            <Route path="/ubytovani" component={withAuth(withFetchUcastnici(UbytovaniContainer))} />
+            <Route
+              path="/ucastnici"
+              component={withAuth(withFetchUcastnici(UcastniciDigestContainer))}
+            />
+            <Redirect to="/" />
+          </Switch>
+        </main>
+      </div>
+    );
+  };
+}
 
 App.propTypes = {
   authenticated: PropTypes.bool.isRequired,

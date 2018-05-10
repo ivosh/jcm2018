@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import StartujiciDnD from './StartujiciDnD';
+import { wrapInDnDTestContext } from '../../testing';
+import Startujici from './Startujici';
 
 const prihlaseni = [
   {
@@ -59,6 +60,9 @@ const odstartovani = [
     startCislo: 11
   }
 ];
+
+// Render with the test context that uses the test backend.
+const StartujiciDnD = wrapInDnDTestContext(Startujici);
 
 it('žádný přihlášený', () => {
   const component = renderer.create(

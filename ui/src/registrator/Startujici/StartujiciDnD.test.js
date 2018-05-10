@@ -1,7 +1,6 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { mount } from 'enzyme';
-import TestBackend from 'react-dnd-test-backend';
-import { DragDropContext } from 'react-dnd';
+import { wrapInDnDTestContext } from '../../testing';
 import Startujici from './Startujici';
 
 const prihlaseni = [
@@ -20,18 +19,10 @@ const prihlaseni = [
   }
 ];
 
-/* Wraps a component into a DragDropContext that uses the TestBackend. */
-const wrapInTestContext = DecoratedComponent =>
-  DragDropContext(TestBackend)(
-    class TestContextContainer extends PureComponent {
-      render = () => <DecoratedComponent {...this.props} />;
-    }
-  );
+// Render with the test context that uses the test backend.
+const StartujiciDnD = wrapInDnDTestContext(Startujici);
 
 it('can simulate a full drag and drop interaction', () => {
-  // Render with the test context that uses the test backend.
-  const StartujiciDnD = wrapInTestContext(Startujici);
-
   const movePrihlasen = jest.fn();
   const moveOdstartovan = jest.fn();
   const wrapper = mount(

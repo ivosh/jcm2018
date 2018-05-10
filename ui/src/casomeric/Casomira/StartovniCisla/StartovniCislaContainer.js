@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { canDrop } from './StartovniCislaActions';
-import StartovniCislaDnD from './StartovniCislaDnD';
+import StartovniCisla from './StartovniCisla';
 
 const mapDispatchToProps = dispatch => ({
-  canDrop: canDrop,
+  canDrop,
   onDrop: obj => {
     console.log('dropped', obj);
   }
 });
 
-const StartovniCislaContainer = connect(null, mapDispatchToProps)(StartovniCislaDnD);
+const StartovniCislaContainer = connect(null, mapDispatchToProps)(StartovniCisla);
 
 StartovniCislaContainer.propTypes = {
   typ: PropTypes.string.isRequired

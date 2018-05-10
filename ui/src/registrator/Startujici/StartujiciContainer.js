@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { getPrihlaseni, getOdstartovani } from './startujiciReducer';
 import { createVykon, deleteVykon } from './StartujiciActions';
-import StartujiciDnD from './StartujiciDnD';
+import Startujici from './Startujici';
 
 const mapStateToProps = state => ({
   prihlaseni: getPrihlaseni({ ...state.entities }),
@@ -13,6 +13,6 @@ const mapDispatchToProps = dispatch => ({
   moveOdstartovan: id => dispatch(deleteVykon({ id }))
 });
 
-const StartujiciContainer = connect(mapStateToProps, mapDispatchToProps)(StartujiciDnD);
+const StartujiciContainer = connect(mapStateToProps, mapDispatchToProps)(Startujici);
 
 export default StartujiciContainer;
