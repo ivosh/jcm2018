@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
     startovniCisla: jenStartujici
       ? getStartovniCislaProTyp({ odstartovani, typ, ...entities })
       : getStartovniCislaProTypVsechna({ odstartovani, typ, ...entities }),
+    typ,
     Renderer,
     ...restOwnProps
   };
