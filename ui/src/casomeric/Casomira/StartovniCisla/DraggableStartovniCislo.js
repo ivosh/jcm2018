@@ -3,7 +3,7 @@ import { DragTypes } from '../../../constants';
 import StartovniCislo from './StartovniCislo';
 
 const dragSource = {
-  beginDrag: ({ id, startCislo, dokonceno }) => ({ id, startCislo, dokonceno })
+  beginDrag: ({ id, startCislo, dokonceno, typ }) => ({ id, startCislo, dokonceno, sourceTyp: typ })
 };
 
 const collectDrag = (connect, monitor) => ({

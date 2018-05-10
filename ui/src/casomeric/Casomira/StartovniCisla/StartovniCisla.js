@@ -1,16 +1,16 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { dokoncene } from '../../../Util';
-import Legenda from '../../../shared/StartovniCislaProTyp/Legenda';
 import StartovniCislaProTypContainer from '../../../shared/StartovniCislaProTyp/StartovniCislaProTypContainer';
 import DraggableStartovniCislo from './DraggableStartovniCislo';
+import DroppableLegendaItem from './DroppableLegendaItem';
 import './StartovniCisla.css';
 
 const legenda = () => Object.values(dokoncene);
 
 class StartovniCisla extends PureComponent {
   render = () => {
-    const { typ } = this.props;
+    const { typ, canDrop, onDrop } = this.props;
 
     return (
       <div className="StartovniCisla-casomeric">
@@ -21,7 +21,16 @@ class StartovniCisla extends PureComponent {
           Renderer={DraggableStartovniCislo}
         />
         <div className="StartovniCisla-casomeric__legenda">
-          <Legenda legenda={legenda()} />
+          {legenda().map(({ name, popisek }) => (
+            <DroppableLegendaItem
+              key={name}
+              name={name}
+              popisek={popisek}
+              typ={typ}
+              canDrop={canDrop}
+              onDrop={onDrop}
+            />
+          ))}
         </div>
       </div>
     );
@@ -29,7 +38,9 @@ class StartovniCisla extends PureComponent {
 }
 
 StartovniCisla.propTypes = {
-  typ: PropTypes.string.isRequired
+  typ: PropTypes.string.isRequired,
+  canDrop: PropTypes.func.isRequired,
+  onDrop: PropTypes.func.isRequired
 };
 
 export default StartovniCisla;

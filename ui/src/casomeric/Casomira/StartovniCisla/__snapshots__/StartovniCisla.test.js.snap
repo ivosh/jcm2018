@@ -14,9 +14,13 @@ exports[`maraton 1`] = `
   }
 >
   <DragDropContext(StartovniCisla)
+    canDrop={[Function]}
+    onDrop={[Function]}
     typ="maraton"
   >
     <StartovniCisla
+      canDrop={[Function]}
+      onDrop={[Function]}
       typ="maraton"
     >
       <div
@@ -44,87 +48,114 @@ exports[`maraton 1`] = `
         <div
           className="StartovniCisla-casomeric__legenda"
         >
-          <Legenda
-            legenda={
-              Array [
-                Object {
-                  "name": "dokonceno",
-                  "popisek": "dokončeno",
-                  "value": true,
-                },
-                Object {
-                  "name": "nedokonceno",
-                  "popisek": "nedokončeno",
-                  "value": false,
-                },
-                Object {
-                  "name": "na-trase",
-                  "popisek": "na trase",
-                  "value": null,
-                },
-              ]
-            }
+          <DroppableLegendaItem
+            canDrop={[Function]}
+            key="dokonceno"
+            name="dokonceno"
+            onDrop={[Function]}
+            popisek="dokončeno"
+            typ="maraton"
           >
-            <div
-              className="Legenda"
+            <DropTarget(LegendaItem)
+              name="dokonceno"
+              popisek="dokončeno"
+              typ="maraton"
             >
-              Legenda: 
               <LegendaItem
-                key="dokonceno"
+                connectDropTarget={[Function]}
+                isDropOver={false}
                 name="dokonceno"
                 popisek="dokončeno"
-                value={true}
+                typ="maraton"
               >
-                <Label
-                  bsClass="label"
-                  bsStyle="default"
-                  className="Legenda__item Legenda__item--dokonceno"
-                >
-                  <span
-                    className="Legenda__item Legenda__item--dokonceno label label-default"
+                <div>
+                  <Label
+                    bsClass="label"
+                    bsStyle="default"
+                    className="Legenda__item Legenda__item--dokonceno "
                   >
-                    dokončeno
-                  </span>
-                </Label>
+                    <span
+                      className="Legenda__item Legenda__item--dokonceno  label label-default"
+                    >
+                      dokončeno
+                    </span>
+                  </Label>
+                </div>
               </LegendaItem>
+            </DropTarget(LegendaItem)>
+          </DroppableLegendaItem>
+          <DroppableLegendaItem
+            canDrop={[Function]}
+            key="nedokonceno"
+            name="nedokonceno"
+            onDrop={[Function]}
+            popisek="nedokončeno"
+            typ="maraton"
+          >
+            <DropTarget(LegendaItem)
+              name="nedokonceno"
+              popisek="nedokončeno"
+              typ="maraton"
+            >
               <LegendaItem
-                key="nedokonceno"
+                connectDropTarget={[Function]}
+                isDropOver={false}
                 name="nedokonceno"
                 popisek="nedokončeno"
-                value={false}
+                typ="maraton"
               >
-                <Label
-                  bsClass="label"
-                  bsStyle="default"
-                  className="Legenda__item Legenda__item--nedokonceno"
-                >
-                  <span
-                    className="Legenda__item Legenda__item--nedokonceno label label-default"
+                <div>
+                  <Label
+                    bsClass="label"
+                    bsStyle="default"
+                    className="Legenda__item Legenda__item--nedokonceno "
                   >
-                    nedokončeno
-                  </span>
-                </Label>
+                    <span
+                      className="Legenda__item Legenda__item--nedokonceno  label label-default"
+                    >
+                      nedokončeno
+                    </span>
+                  </Label>
+                </div>
               </LegendaItem>
+            </DropTarget(LegendaItem)>
+          </DroppableLegendaItem>
+          <DroppableLegendaItem
+            canDrop={[Function]}
+            key="na-trase"
+            name="na-trase"
+            onDrop={[Function]}
+            popisek="na trase"
+            typ="maraton"
+          >
+            <DropTarget(LegendaItem)
+              name="na-trase"
+              popisek="na trase"
+              typ="maraton"
+            >
               <LegendaItem
-                key="na-trase"
+                connectDropTarget={[Function]}
+                isDropOver={false}
                 name="na-trase"
                 popisek="na trase"
-                value={null}
+                typ="maraton"
               >
-                <Label
-                  bsClass="label"
-                  bsStyle="default"
-                  className="Legenda__item Legenda__item--na-trase"
-                >
-                  <span
-                    className="Legenda__item Legenda__item--na-trase label label-default"
+                <div>
+                  <Label
+                    bsClass="label"
+                    bsStyle="default"
+                    className="Legenda__item Legenda__item--na-trase "
                   >
-                    na trase
-                  </span>
-                </Label>
+                    <span
+                      className="Legenda__item Legenda__item--na-trase  label label-default"
+                    >
+                      na trase
+                    </span>
+                  </Label>
+                </div>
               </LegendaItem>
-            </div>
-          </Legenda>
+            </DropTarget(LegendaItem)>
+          </DroppableLegendaItem>
         </div>
       </div>
     </StartovniCisla>

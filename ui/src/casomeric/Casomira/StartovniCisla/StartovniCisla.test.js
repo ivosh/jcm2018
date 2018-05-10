@@ -19,7 +19,7 @@ beforeEach(() => {
 it('maraton', () => {
   const wrapper = mount(
     <Provider store={store}>
-      <StartovniCislaDnD typ="maraton" />
+      <StartovniCislaDnD typ="maraton" canDrop={jest.fn()} onDrop={jest.fn()} />
     </Provider>
   );
   expect(toJSON(wrapper)).toMatchSnapshot();
