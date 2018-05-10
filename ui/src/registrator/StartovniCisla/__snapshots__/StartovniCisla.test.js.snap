@@ -63,14 +63,17 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
           Object {
             "name": "dokonceno",
             "popisek": "dokončeno",
+            "value": true,
           },
           Object {
             "name": "nedokonceno",
             "popisek": "nedokončeno",
+            "value": false,
           },
           Object {
             "name": "na-trase",
             "popisek": "na trase",
+            "value": null,
           },
         ]
       }
@@ -198,14 +201,17 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
           Object {
             "name": "dokonceno",
             "popisek": "dokončeno",
+            "value": true,
           },
           Object {
             "name": "nedokonceno",
             "popisek": "nedokončeno",
+            "value": false,
           },
           Object {
             "name": "na-trase",
             "popisek": "na trase",
+            "value": null,
           },
           Object {
             "name": "neaktivni",

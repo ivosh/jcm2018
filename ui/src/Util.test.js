@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { convertDuration, narozeniToStr } from './Util';
+import { convertDuration, narozeniToStr, findDokonceno } from './Util';
 
 it('null', () => {
   const expected = { hours: '-', mins: '--', secs: '--', subsecs: '--' };
@@ -56,4 +56,17 @@ it('narozeniToStr - jen rok', () => {
 
 it('narozeniToStr - vůbec nic', () => {
   expect(narozeniToStr({})).toEqual('');
+});
+
+it('findDokonceno - true', () => {
+  expect(findDokonceno(true)).toMatchSnapshot();
+});
+
+it('findDokonceno - false', () => {
+  expect(findDokonceno(false)).toMatchSnapshot();
+});
+
+it('findDokonceno - null', () => {
+  expect(findDokonceno(null)).toMatchSnapshot();
+  expect(findDokonceno(undefined)).toEqual(findDokonceno(null));
 });

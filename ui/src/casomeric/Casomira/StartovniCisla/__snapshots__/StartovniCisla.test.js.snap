@@ -50,14 +50,17 @@ exports[`maraton 1`] = `
                 Object {
                   "name": "dokonceno",
                   "popisek": "dokončeno",
+                  "value": true,
                 },
                 Object {
                   "name": "nedokonceno",
                   "popisek": "nedokončeno",
+                  "value": false,
                 },
                 Object {
                   "name": "na-trase",
                   "popisek": "na trase",
+                  "value": null,
                 },
               ]
             }
@@ -70,6 +73,7 @@ exports[`maraton 1`] = `
                 key="dokonceno"
                 name="dokonceno"
                 popisek="dokončeno"
+                value={true}
               >
                 <Label
                   bsClass="label"
@@ -87,6 +91,7 @@ exports[`maraton 1`] = `
                 key="nedokonceno"
                 name="nedokonceno"
                 popisek="nedokončeno"
+                value={false}
               >
                 <Label
                   bsClass="label"
@@ -104,6 +109,7 @@ exports[`maraton 1`] = `
                 key="na-trase"
                 name="na-trase"
                 popisek="na trase"
+                value={null}
               >
                 <Label
                   bsClass="label"

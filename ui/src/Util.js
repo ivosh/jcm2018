@@ -75,13 +75,23 @@ export const parseDatum = value =>
 
 /* ---------------------------------------------------------------------------------------------- */
 
-export const dokoncenoArr = [true, false, null];
-
-export const dokoncenoStr = dokonceno => {
-  if (dokonceno === true) {
-    return ['dokonceno', 'dokončeno'];
-  } else if (dokonceno === false) {
-    return ['nedokonceno', 'nedokončeno'];
+export const dokoncene = {
+  dokonceno: {
+    name: 'dokonceno',
+    popisek: 'dokončeno',
+    value: true
+  },
+  nedokonceno: {
+    name: 'nedokonceno',
+    popisek: 'nedokončeno',
+    value: false
+  },
+  'na-trase': {
+    name: 'na-trase',
+    popisek: 'na trase',
+    value: null
   }
-  return ['na-trase', 'na trase'];
 };
+
+export const findDokonceno = value =>
+  Object.values(dokoncene).find(item => item.value === value) || dokoncene['na-trase'];

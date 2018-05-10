@@ -1,16 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { dokoncenoArr, dokoncenoStr } from '../../../Util';
+import { dokoncene } from '../../../Util';
 import Legenda from '../../../shared/StartovniCislaProTyp/Legenda';
 import StartovniCislaProTypContainer from '../../../shared/StartovniCislaProTyp/StartovniCislaProTypContainer';
 import DraggableStartovniCislo from './DraggableStartovniCislo';
 import './StartovniCisla.css';
 
-const legenda = () =>
-  dokoncenoArr.map(dokonceno => ({
-    name: dokoncenoStr(dokonceno)[0],
-    popisek: dokoncenoStr(dokonceno)[1]
-  }));
+const legenda = () => Object.values(dokoncene);
 
 class StartovniCisla extends PureComponent {
   render = () => {

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { dokoncenoStr } from '../../../Util';
+import { findDokonceno } from '../../../Util';
 import './StartovniCislo.css';
 
 const StartovniCislo = ({ startCislo, dokonceno, connectDragSource }) =>
   connectDragSource(
     <div
       className={`StartovniCislo-casomeric StartovniCislaProTyp__item Legenda__item--${
-        dokoncenoStr(dokonceno)[0]
+        findDokonceno(dokonceno).name
       }`}
     >
       {startCislo}

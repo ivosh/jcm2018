@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { Button, Glyphicon } from 'react-bootstrap';
-import { dokoncenoArr, dokoncenoStr } from '../../Util';
+import { dokoncene, findDokonceno } from '../../Util';
 import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import StartovniCislaProTypContainer from '../../shared/StartovniCislaProTyp/StartovniCislaProTypContainer';
 import Legenda from '../../shared/StartovniCislaProTyp/Legenda';
@@ -12,7 +12,7 @@ export const Renderer = ({ id, startCislo, dokonceno }) =>
   id ? (
     <NavLink
       to={`/prihlasky/${id}`}
-      className={`StartovniCislaProTyp__item Legenda__item--${dokoncenoStr(dokonceno)[0]}`}
+      className={`StartovniCislaProTyp__item Legenda__item--${findDokonceno(dokonceno).name}`}
     >
       {startCislo}
     </NavLink>
@@ -26,11 +26,7 @@ Renderer.propTypes = {
   dokonceno: PropTypes.bool
 };
 
-const legendaOdstartovani = () =>
-  dokoncenoArr.map(dokonceno => ({
-    name: dokoncenoStr(dokonceno)[0],
-    popisek: dokoncenoStr(dokonceno)[1]
-  }));
+const legendaOdstartovani = () => Object.values(dokoncene);
 
 const legendaPrihlaseni = () => {
   const legenda = legendaOdstartovani();
