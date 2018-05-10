@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import DebounceInput from 'react-debounce-input';
 import './TextFilter.css';
 
-class TextFilter extends Component {
+class TextFilter extends PureComponent {
   constructor(props) {
     super(props);
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Typeahead } from 'react-bootstrap-typeahead';
 import './PrihlaskySearch.css';
@@ -14,7 +14,7 @@ const isMatch = (option, text) => {
   return prijmeniLower.startsWith(textLower) || kod === text;
 };
 
-class PrihlaskySearch extends Component {
+class PrihlaskySearch extends PureComponent {
   componentDidMount = () => {
     if (process.env.NODE_ENV !== 'test') {
       this.typeahead.focus();

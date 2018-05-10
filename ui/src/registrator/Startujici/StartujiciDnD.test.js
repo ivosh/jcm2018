@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { mount } from 'enzyme';
 import TestBackend from 'react-dnd-test-backend';
 import { DragDropContext } from 'react-dnd';
@@ -23,7 +23,7 @@ const prihlaseni = [
 /* Wraps a component into a DragDropContext that uses the TestBackend. */
 const wrapInTestContext = DecoratedComponent =>
   DragDropContext(TestBackend)(
-    class TestContextContainer extends Component {
+    class TestContextContainer extends PureComponent {
       render = () => <DecoratedComponent {...this.props} />;
     }
   );

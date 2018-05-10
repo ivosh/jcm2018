@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { DragSource } from 'react-dnd';
 import { DragTypes } from '../../constants';
@@ -13,7 +13,7 @@ const collectDrag = (connect, monitor) => ({
   isDragging: monitor.isDragging()
 });
 
-class DraggableJedenStartujici extends Component {
+class DraggableJedenStartujici extends PureComponent {
   constructor(props) {
     super(props);
     const { dragType } = this.props;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { DropTarget } from 'react-dnd';
 import { DragTypes } from '../../constants';
@@ -9,7 +9,7 @@ const collect = (connect, monitor) => ({
   isOver: monitor.isOver()
 });
 
-class DroppableStartujiciPanel extends Component {
+class DroppableStartujiciPanel extends PureComponent {
   constructor(props) {
     super(props);
     const { dropType, onDrop } = this.props;
