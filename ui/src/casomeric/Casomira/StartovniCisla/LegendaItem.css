@@ -1,4 +1,7 @@
+.Legenda-casomeric__item {
+  border: 4px solid white;
+}
+
 .Legenda__item--isDropOver {
-  border-style: dashed;
-  border-width: 3px;
+  border-color: black;
 }

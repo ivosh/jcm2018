@@ -7,7 +7,7 @@ const LegendaItem = ({ name, popisek, connectDropTarget, isDropOver }) =>
   connectDropTarget(
     <div>
       <Label
-        className={`Legenda__item Legenda__item--${name} ${
+        className={`Legenda__item Legenda__item--${name} Legenda-casomeric__item ${
           isDropOver ? 'Legenda__item--isDropOver' : ''
         }`}
       >

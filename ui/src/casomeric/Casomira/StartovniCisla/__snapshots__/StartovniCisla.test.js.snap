@@ -77,10 +77,10 @@ exports[`maraton 1`] = `
                     <Label
                       bsClass="label"
                       bsStyle="default"
-                      className="Legenda__item Legenda__item--dokonceno "
+                      className="Legenda__item Legenda__item--dokonceno Legenda-casomeric__item "
                     >
                       <span
-                        className="Legenda__item Legenda__item--dokonceno  label label-default"
+                        className="Legenda__item Legenda__item--dokonceno Legenda-casomeric__item  label label-default"
                       >
                         dokončeno
                       </span>
@@ -113,10 +113,10 @@ exports[`maraton 1`] = `
                     <Label
                       bsClass="label"
                       bsStyle="default"
-                      className="Legenda__item Legenda__item--nedokonceno "
+                      className="Legenda__item Legenda__item--nedokonceno Legenda-casomeric__item "
                     >
                       <span
-                        className="Legenda__item Legenda__item--nedokonceno  label label-default"
+                        className="Legenda__item Legenda__item--nedokonceno Legenda-casomeric__item  label label-default"
                       >
                         nedokončeno
                       </span>
@@ -149,10 +149,10 @@ exports[`maraton 1`] = `
                     <Label
                       bsClass="label"
                       bsStyle="default"
-                      className="Legenda__item Legenda__item--na-trase "
+                      className="Legenda__item Legenda__item--na-trase Legenda-casomeric__item "
                     >
                       <span
-                        className="Legenda__item Legenda__item--na-trase  label label-default"
+                        className="Legenda__item Legenda__item--na-trase Legenda-casomeric__item  label label-default"
                       >
                         na trase
                       </span>
