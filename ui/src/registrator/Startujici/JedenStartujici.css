@@ -14,27 +14,20 @@
   justify-content: flex-end;
 }
 
-.JedenStartujici__prijmeni:nth-child(2n + 1),
-.JedenStartujici__jmeno:nth-child(2n),
-.JedenStartujici__narozeni:nth-child(2n + 1),
-.JedenStartujici__startCislo:nth-child(2n + 1) {
-  background-color: #f6f7f8;
-}
-
 .JedenStartujici__kategorie--maraton {
-  background-color: rgba(var(--maraton), 0.4);
+  background-color: rgba(var(--maraton), 0.4) !important;
 }
 .JedenStartujici__kategorie--půlmaraton {
-  background-color: rgba(var(--půlmaraton), 0.4);
+  background-color: rgba(var(--půlmaraton), 0.4) !important;
 }
 .JedenStartujici__kategorie--cyklo {
-  background-color: rgba(var(--cyklo), 0.4);
+  background-color: rgba(var(--cyklo), 0.4) !important;
 }
 .JedenStartujici__kategorie--koloběžka {
-  background-color: rgba(var(--koloběžka), 0.4);
+  background-color: rgba(var(--koloběžka), 0.4) !important;
 }
 .JedenStartujici__kategorie--pěší {
-  background-color: rgba(var(--pěší), 0.4);
+  background-color: rgba(var(--pěší), 0.4) !important;
 }
 
 .JedenStartujici__grip {

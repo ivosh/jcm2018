@@ -43,3 +43,11 @@
   font-weight: bold;
   justify-content: center;
 }
+
+.StartujiciPanel__grid > div:nth-child(10n + 1),
+.StartujiciPanel__grid > div:nth-child(10n + 2),
+.StartujiciPanel__grid > div:nth-child(10n + 3),
+.StartujiciPanel__grid > div:nth-child(10n + 5),
+.StartujiciPanel__grid > div:nth-child(10n + 4) {
+  background-color: #f6f7f8;
+}
