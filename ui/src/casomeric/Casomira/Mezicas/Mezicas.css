@@ -1,0 +1,20 @@
+.Mezicas__poradi {
+  justify-content: flex-end;
+}
+
+.Mezicas__startCislo {
+  justify-content: flex-end;
+}
+
+.Mezicas__buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Mezicas__button--edit {
+  color: blue;
+}
+
+.Mezicas__button--remove {
+  color: red;
+}

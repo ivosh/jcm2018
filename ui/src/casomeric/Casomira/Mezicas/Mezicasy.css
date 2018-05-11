@@ -1,0 +1,44 @@
+.Mezicasy__grid {
+  align-items: stretch;
+  display: grid;
+  grid-template-columns: 3em 6em 5em 6em;
+  justify-content: stretch;
+}
+
+.Mezicasy__header,
+.Mezicasy__leftHeader,
+.Mezicasy__middleHeader,
+.Mezicasy__cell,
+.Mezicasy__leftCell,
+.Mezicasy__middleCell {
+  align-items: center;
+  display: flex;
+  padding: 5px;
+}
+
+.Mezicasy__leftCell,
+.Mezicasy__leftHeader {
+  border-left: 1px solid #d3d3d3;
+  border-right: 1px solid #d3d3d3;
+}
+.Mezicasy__middleCell,
+.Mezicasy__middleHeader {
+  border-right: 1px solid #d3d3d3;
+}
+
+.Mezicasy__header,
+.Mezicasy__leftHeader,
+.Mezicasy__middleHeader {
+  background-color: #f6f7f8;
+  background: linear-gradient(#ffffff, #efefef);
+  border-bottom: 1px solid #d3d3d3;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.Mezicasy__grid > div:nth-child(8n + 1),
+.Mezicasy__grid > div:nth-child(8n + 2),
+.Mezicasy__grid > div:nth-child(8n + 3),
+.Mezicasy__grid > div:nth-child(8n + 4) {
+  background-color: #f6f7f8;
+}

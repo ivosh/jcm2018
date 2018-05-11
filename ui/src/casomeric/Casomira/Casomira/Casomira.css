@@ -3,11 +3,21 @@
   justify-content: space-between;
 }
 
+.Casomira__panel-body {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+
 .Casomira__stopky-mezicas {
   margin-left: 1em;
 }
 
 .Casomira__startovni-cisla {
+  margin-top: 2ex;
+}
+
+.Casomira__mezicasy {
   margin-top: 2ex;
 }
 
