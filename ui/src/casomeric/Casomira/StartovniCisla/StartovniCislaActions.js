@@ -1,6 +1,7 @@
-import { saveVykon as saveVykonAPI, CODE_OK } from '../../../common';
+import { saveVykon as saveVykonAPI, CODE_OK, CODE_TOKEN_INVALID } from '../../../common';
 import { AKTUALNI_ROK } from '../../../constants';
 import { findDokonceno } from '../../../Util';
+import { authTokenExpired } from '../../../auth/SignIn/SignInActions';
 import startovniCislaReducer from './startovniCislaReducer';
 
 export const canDrop = ({ dokonceno, name, sourceTyp, destinationTyp }) => {
@@ -59,6 +60,8 @@ export const saveVykon = ({ action, id, rok = AKTUALNI_ROK, typ }) => async (
     const response = await wsClient.sendRequest(saveVykonAPI({ id, rok, vykon }, state.auth.token));
     if (response.code === CODE_OK) {
       dispatch(saveVykonSuccess({ id, rok, typ, vykon }));
+    } else if (response.code === CODE_TOKEN_INVALID) {
+      dispatch(authTokenExpired(response));
     } else {
       dispatch(saveVykonError(response, typ));
     }
