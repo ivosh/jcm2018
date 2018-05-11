@@ -38,7 +38,7 @@ const Casomira = ({
         onClick={onStopkyMezicas}
         accessKey={accessKey}
       >
-        Mezičas (Alt-{accessKey})
+        <Glyphicon glyph="time" /> (Alt-{accessKey})
       </Button>
     </div>
     <div className="Casomira__startovni-cisla">
