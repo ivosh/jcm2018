@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import momentPropTypes from 'react-moment-proptypes';
 import { Button, Glyphicon } from 'react-bootstrap';
+import withResponsive from '../../../shared/withResponsive/withResponsive';
 import PopisekKategorie from '../../../shared/Popisek/PopisekKategorie';
 import RunningDisplej from '../../Displej/RunningDisplej';
 import StartovniCislaContainer from '../StartovniCisla/StartovniCislaContainer';
-import MezicasyResponsive from '../Mezicas/MezicasyResponsive';
+import Mezicasy from '../Mezicas/Mezicasy';
 import './Casomira.css';
 
 const mezicasy = [
@@ -34,6 +35,8 @@ const mezicasy = [
   { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
   { cas: moment.duration('PT3H52M54.19S'), startCislo: 33, onEdit: () => {}, onRemove: () => {} }
 ];
+
+const MezicasyResponsive = withResponsive(Mezicasy, { disableWidth: true });
 
 /* eslint-disable jsx-a11y/no-access-key */
 const Casomira = ({

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`autosized - disabled width 1`] = `
+<div
+  className="withResponsive"
+>
+  <div>
+    gugh
+  </div>
+</div>
+`;
+
+exports[`autosized 1`] = `
+<div
+  className="withResponsive"
+>
+  <div>
+    gorgh
+  </div>
+</div>
+`;

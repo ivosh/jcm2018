@@ -135,7 +135,7 @@ exports[`dva přihlášení 1`] = `
     </span>
   </div>
   <div
-    className="UcastniciTableResponsive-div"
+    className="withResponsive"
   >
     <div
       className="UcastniciTable_GridRow"
@@ -999,7 +999,7 @@ exports[`žádný přihlášený 1`] = `
     </span>
   </div>
   <div
-    className="UcastniciTableResponsive-div"
+    className="withResponsive"
   >
     <div
       className="UcastniciTable_GridRow"

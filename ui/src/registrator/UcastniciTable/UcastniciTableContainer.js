@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import withResponsive from '../../shared/withResponsive/withResponsive';
 import { sortDirChange } from './UcastniciTableActions';
-import UcastniciTableResponsive from './UcastniciTableResponsive';
+import UcastniciTable from './UcastniciTable';
 
 const mapStateToProps = (state, ownProps) => {
   const { reduxName, ...rest } = ownProps;
@@ -23,7 +24,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 };
 
 const UcastniciTableContainer = connect(mapStateToProps, mapDispatchToProps)(
-  UcastniciTableResponsive
+  withResponsive(UcastniciTable)
 );
 
 // columns+data+fixedColumnCount+rowHeight are simply passed through to UcastniciTable

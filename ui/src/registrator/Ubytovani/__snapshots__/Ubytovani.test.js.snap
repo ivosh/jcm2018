@@ -52,7 +52,7 @@ exports[`tři ubytovaní 1`] = `
     </span>
   </div>
   <div
-    className="UcastniciTableResponsive-div"
+    className="withResponsive"
   >
     <div
       className="UcastniciTable_GridRow"
@@ -910,7 +910,7 @@ exports[`žádný ubytovaný 1`] = `
     </span>
   </div>
   <div
-    className="UcastniciTableResponsive-div"
+    className="withResponsive"
   >
     <div
       className="UcastniciTable_GridRow"

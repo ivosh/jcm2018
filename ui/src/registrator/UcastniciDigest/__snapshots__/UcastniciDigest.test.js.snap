@@ -135,7 +135,7 @@ exports[`dva účastníci 1`] = `
     </span>
   </div>
   <div
-    className="UcastniciTableResponsive-div"
+    className="withResponsive"
   >
     <div
       className="UcastniciTable_GridRow"
@@ -1383,7 +1383,7 @@ exports[`žádný účastník 1`] = `
     </span>
   </div>
   <div
-    className="UcastniciTableResponsive-div"
+    className="withResponsive"
   >
     <div
       className="UcastniciTable_GridRow"
