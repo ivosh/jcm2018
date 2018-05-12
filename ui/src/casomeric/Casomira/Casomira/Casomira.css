@@ -1,12 +1,24 @@
-.Casomira__header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.Casomira__panel-body {
+.Casomira__panel {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   display: flex;
   flex: 1 0 auto;
   flex-direction: column;
+}
+
+.Casomira__header {
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+
+.Casomira__body {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  padding: 15px;
 }
 
 .Casomira__stopky-mezicas {
@@ -18,18 +30,21 @@
 }
 
 .Casomira__mezicasy {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
   margin-top: 2ex;
 }
 
-.Casomira__panel--maraton > .panel-heading {
+.Casomira__header--maraton {
   background-color: rgba(var(--maraton), 0.4);
 }
-.Casomira__panel--půlmaraton > .panel-heading {
+.Casomira__header--půlmaraton {
   background-color: rgba(var(--půlmaraton), 0.4);
 }
-.Casomira__panel--cyklo > .panel-heading {
+.Casomira__header--cyklo {
   background-color: rgba(var(--cyklo), 0.4);
 }
-.Casomira__panel--koloběžka > .panel-heading {
+.Casomira__header--koloběžka {
   background-color: rgba(var(--koloběžka), 0.4);
 }

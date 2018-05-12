@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: 3em 6em 5em 6em;
   justify-content: stretch;
+  overflow-y: auto;
 }
 
 .Mezicasy__header,

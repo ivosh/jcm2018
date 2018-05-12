@@ -4,8 +4,8 @@ import momentPropTypes from 'react-moment-proptypes';
 import Mezicas from './Mezicas';
 import './Mezicasy.css';
 
-const Mezicasy = ({ mezicasy }) => (
-  <div className="Mezicasy__grid">
+const Mezicasy = ({ containerHeight, mezicasy }) => (
+  <div className="Mezicasy__grid" style={{ height: containerHeight }}>
     <div className="Mezicasy__header">#</div>
     <div className="Mezicasy__leftHeader">čas</div>
     <div className="Mezicasy__middleHeader">číslo</div>
@@ -15,6 +15,7 @@ const Mezicasy = ({ mezicasy }) => (
 );
 
 Mezicasy.propTypes = {
+  containerHeight: PropTypes.number.isRequired,
   mezicasy: PropTypes.arrayOf(
     PropTypes.shape({
       cas: momentPropTypes.momentDurationObj,

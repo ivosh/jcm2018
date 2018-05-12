@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import momentPropTypes from 'react-moment-proptypes';
-import { Button, Glyphicon, Panel } from 'react-bootstrap';
+import { Button, Glyphicon } from 'react-bootstrap';
 import PopisekKategorie from '../../../shared/Popisek/PopisekKategorie';
 import RunningDisplej from '../../Displej/RunningDisplej';
 import StartovniCislaContainer from '../StartovniCisla/StartovniCislaContainer';
-import Mezicasy from '../Mezicas/Mezicasy';
+import MezicasyResponsive from '../Mezicas/MezicasyResponsive';
 import './Casomira.css';
 
 const mezicasy = [
@@ -18,6 +18,19 @@ const mezicasy = [
   { cas: moment.duration('PT3H52M41.19S'), startCislo: 15, onEdit: () => {}, onRemove: () => {} },
   { cas: moment.duration('PT3H52M48.02S'), startCislo: 21, onEdit: () => {}, onRemove: () => {} },
   { cas: moment.duration('PT3H52M49.19S'), startCislo: 5, onEdit: () => {}, onRemove: () => {} },
+  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
+  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
+  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
+  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
+  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
+  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
+  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
+  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
+  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
+  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
+  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
+  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
+  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
   { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
   { cas: moment.duration('PT3H52M54.19S'), startCislo: 33, onEdit: () => {}, onRemove: () => {} }
 ];
@@ -33,18 +46,15 @@ const Casomira = ({
   onRemove,
   onStopkyMezicas
 }) => (
-  <Panel
-    className={`Casomira__panel--${typ}`}
-    header={
-      <div className="Casomira__header">
-        <PopisekKategorie typ={typ} />
-        <Button className="close" onClick={onRemove}>
-          <Glyphicon glyph="remove" />
-        </Button>
-      </div>
-    }
-  >
-    <div className="Casomira__panel-body">
+  /* Do not use Bootstrap's Panel here. It screws AutoResizer's height. */
+  <div className="Casomira__panel">
+    <div className={`Casomira__header Casomira__header--${typ}`}>
+      <PopisekKategorie typ={typ} />
+      <Button className="close" onClick={onRemove}>
+        <Glyphicon glyph="remove" />
+      </Button>
+    </div>
+    <div className="Casomira__body">
       <div className="Casomira__stopky">
         <RunningDisplej base={base} delta={delta} running={running} />
         <Button
@@ -61,10 +71,10 @@ const Casomira = ({
         <StartovniCislaContainer typ={typ} />
       </div>
       <div className="Casomira__mezicasy">
-        <Mezicasy mezicasy={mezicasy} />
+        <MezicasyResponsive mezicasy={mezicasy} />
       </div>
     </div>
-  </Panel>
+  </div>
 );
 /* eslint-enable jsx-a11y/no-access-key */
 
