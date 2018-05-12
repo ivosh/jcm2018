@@ -121,7 +121,10 @@ class App extends PureComponent {
           <Switch>
             <Route exact path="/" component={Main} />
             <Route path="/about" component={() => <About username={username} />} />
-            <Route path="/casomira" component={withAuth(withFetchUcastnici(CasomiryContainer))} />
+            <Route
+              path="/casomira"
+              component={withAuth(withFetchUcastnici(withFetchStopky(CasomiryContainer)))}
+            />
             <Route
               path="/prihlaseni"
               component={withAuth(withFetchUcastnici(PrihlaseniContainer))}
