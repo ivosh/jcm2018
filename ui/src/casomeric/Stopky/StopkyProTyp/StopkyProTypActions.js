@@ -1,12 +1,18 @@
-import { CODE_OK, saveStopky as saveStopkyAPI } from '../../../common';
+import { saveStopky as saveStopkyAPI, CODE_OK, CODE_TOKEN_INVALID } from '../../../common';
+import { authTokenExpired } from '../../../auth/SignIn/SignInActions';
 import stopkyProTypReducer, { getStopkyByTyp } from './stopkyProTypReducer';
 
+export const stopkyMezicas = ({ now = new Date() } = {}) => ({ type: 'STOPKY_MEZICAS', now });
 export const stopkyStart = ({ now = new Date() } = {}) => ({ type: 'STOPKY_START', now });
 export const stopkyStop = ({ now = new Date() } = {}) => ({ type: 'STOPKY_STOP', now });
 // step is in milliseconds
 export const stopkyChange = ({ step }) => ({ type: 'STOPKY_CHANGE', step });
 
-export const saveStopkyRequest = ({ typ }) => ({ type: 'SAVE_STOPKY_REQUEST', typ });
+export const saveStopkyRequest = ({ stopky, typ }) => ({
+  type: 'SAVE_STOPKY_REQUEST',
+  stopky,
+  typ
+});
 
 export const saveStopkySuccess = ({ stopky, typ }) => ({
   type: 'SAVE_STOPKY_SUCCESS',
@@ -26,15 +32,16 @@ const saveStopkyError = ({ code, status, err }, typ) => ({
 });
 
 export const saveStopky = ({ action, typ }) => async (dispatch, getState, wsClient) => {
-  dispatch(saveStopkyRequest({ typ }));
-
   const state = getState();
   const stopky = stopkyProTypReducer(getStopkyByTyp({ state, typ }), action);
+  dispatch(saveStopkyRequest({ stopky, typ }));
 
   try {
     const response = await wsClient.sendRequest(saveStopkyAPI(stopky, state.auth.token));
     if (response.code === CODE_OK) {
       dispatch(saveStopkySuccess({ stopky, typ }));
+    } else if (response.code === CODE_TOKEN_INVALID) {
+      dispatch(authTokenExpired(response));
     } else {
       dispatch(saveStopkyError(response, typ));
     }

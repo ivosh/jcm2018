@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import { getStopkyByTyp } from '../../Stopky/StopkyProTyp/stopkyProTypReducer';
-import { stopkyMezicas } from './CasomiraActions';
+import { saveStopky, stopkyMezicas } from '../../Stopky/StopkyProTyp/StopkyProTypActions';
 import Casomira from './Casomira';
 
 const mapStateToProps = (state, ownProps) => {
@@ -24,22 +24,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { typ } = ownProps;
 
   return {
-    onStopkyMezicas: base => dispatch(stopkyMezicas({ base, typ }))
+    onStopkyMezicas: () => dispatch(saveStopky({ action: stopkyMezicas(), typ }))
   };
 };
 
-const mergeProps = (stateProps, dispatchProps) => {
-  const { base } = stateProps;
-  const { onStopkyMezicas, ...restOfDispatchProps } = dispatchProps;
-
-  return {
-    ...stateProps,
-    ...restOfDispatchProps,
-    onStopkyMezicas: () => onStopkyMezicas(base)
-  };
-};
-
-const CasomiraContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(Casomira);
+const CasomiraContainer = connect(mapStateToProps, mapDispatchToProps)(Casomira);
 
 CasomiraContainer.propTypes = {
   accessKey: PropTypes.string.isRequired,

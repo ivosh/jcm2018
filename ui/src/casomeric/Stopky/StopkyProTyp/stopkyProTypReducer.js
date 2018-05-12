@@ -6,6 +6,7 @@ const zeroDuration = moment.duration(0).toJSON();
 export const initialState = {
   base: null, // a Date when running
   delta: zeroDuration, // a duration when not running
+  mezicasy: [], // Mezicas = { cas, korekce }
   running: false
 };
 
@@ -28,6 +29,18 @@ const stopkyProTypReducer = (state = initialState, action) => {
       }
       return state;
     }
+    case 'STOPKY_MEZICAS':
+      if (state.running) {
+        const cas = moment.duration(action.now.getTime() - new Date(state.base).getTime()).toJSON();
+        const mezicasy = (state.mezicasy || []).slice();
+        mezicasy.push({ cas });
+        mezicasy.sort(
+          (a, b) =>
+            moment.duration(a.cas).asMilliseconds() - moment.duration(b.cas).asMilliseconds()
+        );
+        return { ...state, mezicasy };
+      }
+      return state;
     case 'STOPKY_CHANGE': {
       if (state.running) {
         return { ...state, base: new Date(new Date(state.base).getTime() - action.step).toJSON() };
