@@ -5,6 +5,7 @@
   display: flex;
   flex: 1 0 auto;
   flex-direction: column;
+  max-width: 29em; /* Maximum of 10 bibs per line. */
 }
 
 .Casomira__header {
