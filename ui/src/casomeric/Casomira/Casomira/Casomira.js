@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 import momentPropTypes from 'react-moment-proptypes';
 import { Button, Glyphicon } from 'react-bootstrap';
 import withResponsive from '../../../shared/withResponsive/withResponsive';
@@ -10,6 +9,7 @@ import StartovniCislaContainer from '../StartovniCisla/StartovniCislaContainer';
 import Mezicasy from '../Mezicas/Mezicasy';
 import './Casomira.css';
 
+/*
 const mezicasy = [
   { cas: moment.duration('PT1H23M15.67S'), startCislo: 58, onEdit: () => {}, onRemove: () => {} },
   { cas: moment.duration('PT2H15M07.32S'), startCislo: 7, onEdit: () => {}, onRemove: () => {} },
@@ -35,6 +35,7 @@ const mezicasy = [
   { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
   { cas: moment.duration('PT3H52M54.19S'), startCislo: 33, onEdit: () => {}, onRemove: () => {} }
 ];
+*/
 
 const MezicasyResponsive = withResponsive(Mezicasy, { disableWidth: true });
 
@@ -44,16 +45,17 @@ const Casomira = ({
   base,
   delta,
   mezicasEnabled,
+  mezicasy,
   running,
   typ,
-  onRemove,
+  onRemoveCasomira,
   onStopkyMezicas
 }) => (
   /* Do not use Bootstrap's Panel here. It screws AutoResizer's height. */
   <div className="Casomira__panel">
     <div className={`Casomira__header Casomira__header--${typ}`}>
       <PopisekKategorie typ={typ} />
-      <Button className="close" onClick={onRemove}>
+      <Button className="close" onClick={onRemoveCasomira}>
         <Glyphicon glyph="remove" />
       </Button>
     </div>
@@ -86,9 +88,17 @@ Casomira.propTypes = {
   base: PropTypes.instanceOf(Date),
   delta: momentPropTypes.momentDurationObj,
   mezicasEnabled: PropTypes.bool.isRequired,
+  mezicasy: PropTypes.arrayOf(
+    PropTypes.shape({
+      cas: momentPropTypes.momentDurationObj,
+      startCislo: PropTypes.number,
+      onEdit: PropTypes.func.isRequired,
+      onRemove: PropTypes.func.isRequired
+    }).isRequired
+  ).isRequired,
   running: PropTypes.bool.isRequired,
   typ: PropTypes.string.isRequired,
-  onRemove: PropTypes.func.isRequired,
+  onRemoveCasomira: PropTypes.func.isRequired,
   onStopkyMezicas: PropTypes.func.isRequired
 };
 

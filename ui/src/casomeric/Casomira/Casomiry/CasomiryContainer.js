@@ -6,7 +6,7 @@ import Casomiry from './Casomiry';
 const mapStateToProps = state => ({ casomiry: getCasomiry(state.casomeric.casomiry) });
 
 const mapDispatchToProps = dispatch => ({
-  onRemove: casomira => dispatch(removeCasomira(casomira))
+  onRemoveCasomira: casomira => dispatch(removeCasomira(casomira))
 });
 
 const CasomiryContainer = connect(mapStateToProps, mapDispatchToProps)(Casomiry);

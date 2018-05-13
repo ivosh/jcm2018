@@ -10,6 +10,11 @@ export const initialState = {
   running: false
 };
 
+const sortByCas = mezicasy =>
+  mezicasy.sort(
+    (a, b) => moment.duration(a.cas).asMilliseconds() - moment.duration(b.cas).asMilliseconds()
+  );
+
 const stopkyProTypReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'STOPKY_START':
@@ -34,10 +39,7 @@ const stopkyProTypReducer = (state = initialState, action) => {
         const cas = moment.duration(action.now.getTime() - new Date(state.base).getTime()).toJSON();
         const mezicasy = (state.mezicasy || []).slice();
         mezicasy.push({ cas });
-        mezicasy.sort(
-          (a, b) =>
-            moment.duration(a.cas).asMilliseconds() - moment.duration(b.cas).asMilliseconds()
-        );
+        sortByCas(mezicasy);
         return { ...state, mezicasy };
       }
       return state;
@@ -119,4 +121,27 @@ export const getRozdily = ({ state, typ }) => {
 
     return { name: jeden, rozdil: convertDuration(rozdil) };
   });
+};
+
+export const getMezicasy = ({ kategorie, stopky, ucasti }) => {
+  const mezicasy = [];
+  if (stopky.mezicasy) {
+    stopky.mezicasy.forEach(mezicas => {
+      mezicasy.push({ cas: mezicas.cas });
+    });
+  }
+
+  const ucastisVykonem = ucasti.filter(ucast => {
+    if (ucast.vykon) {
+      const jednaKategorie = kategorie[ucast.vykon.kategorie];
+      return jednaKategorie.typ === stopky.typ;
+    }
+    return false;
+  });
+
+  ucastisVykonem.forEach(ucast => {
+    mezicasy.push({ id: ucast.id, cas: ucast.vykon.cas, startCislo: ucast.vykon.startCislo });
+  });
+
+  return sortByCas(mezicasy);
 };

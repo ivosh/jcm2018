@@ -38,11 +38,11 @@ beforeEach(() => {
 
 it('maps state and dispatch to props', () => {
   expect(wrapper.props().casomiry).toMatchSnapshot();
-  expect(wrapper.props().onRemove).toEqual(expect.any(Function));
+  expect(wrapper.props().onRemoveCasomira).toEqual(expect.any(Function));
 });
 
 it('maps onRemove to dispatch removeCasomira', () => {
-  wrapper.props().onRemove('půlmaraton');
+  wrapper.props().onRemoveCasomira('půlmaraton');
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: 'CASOMIRY_REMOVE_CASOMIRA',
