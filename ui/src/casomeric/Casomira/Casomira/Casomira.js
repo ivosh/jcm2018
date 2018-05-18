@@ -2,42 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import momentPropTypes from 'react-moment-proptypes';
 import { Button, Glyphicon } from 'react-bootstrap';
-import withResponsive from '../../../shared/withResponsive/withResponsive';
 import PopisekKategorie from '../../../shared/Popisek/PopisekKategorie';
 import RunningDisplej from '../../Displej/RunningDisplej';
 import StartovniCislaContainer from '../StartovniCisla/StartovniCislaContainer';
-import Mezicasy from '../Mezicas/Mezicasy';
+import MezicasyContainer from '../Mezicas/MezicasyContainer';
 import './Casomira.css';
-
-/*
-const mezicasy = [
-  { cas: moment.duration('PT1H23M15.67S'), startCislo: 58, onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT2H15M07.32S'), startCislo: 7, onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M19.02S'), onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M24.19S'), startCislo: 23, onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M38.02S'), onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M41.19S'), startCislo: 15, onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M48.02S'), startCislo: 21, onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M49.19S'), startCislo: 5, onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M50.02S'), startCislo: 31, onEdit: () => {}, onRemove: () => {} },
-  { cas: moment.duration('PT3H52M54.19S'), startCislo: 33, onEdit: () => {}, onRemove: () => {} }
-];
-*/
-
-const MezicasyResponsive = withResponsive(Mezicasy, { disableWidth: true });
 
 /* eslint-disable jsx-a11y/no-access-key */
 const Casomira = ({
@@ -45,7 +14,6 @@ const Casomira = ({
   base,
   delta,
   mezicasEnabled,
-  mezicasy,
   running,
   typ,
   onRemoveCasomira,
@@ -76,7 +44,7 @@ const Casomira = ({
         <StartovniCislaContainer typ={typ} />
       </div>
       <div className="Casomira__mezicasy">
-        <MezicasyResponsive mezicasy={mezicasy} />
+        <MezicasyContainer typ={typ} />
       </div>
     </div>
   </div>
@@ -88,14 +56,6 @@ Casomira.propTypes = {
   base: PropTypes.instanceOf(Date),
   delta: momentPropTypes.momentDurationObj,
   mezicasEnabled: PropTypes.bool.isRequired,
-  mezicasy: PropTypes.arrayOf(
-    PropTypes.shape({
-      cas: momentPropTypes.momentDurationObj,
-      startCislo: PropTypes.number,
-      onEdit: PropTypes.func.isRequired,
-      onRemove: PropTypes.func.isRequired
-    }).isRequired
-  ).isRequired,
   running: PropTypes.bool.isRequired,
   typ: PropTypes.string.isRequired,
   onRemoveCasomira: PropTypes.func.isRequired,
