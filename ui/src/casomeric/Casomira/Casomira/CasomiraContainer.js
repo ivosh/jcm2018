@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
   const mezicasy = getMezicasy({ stopky, ucasti, kategorie: state.entities.kategorie });
   const populated = mezicasy.map(mezicas => {
     const { cas, ...rest } = mezicas;
-    return {...rest, cas: moment.duration(cas) };
+    return { ...rest, cas: moment.duration(cas) };
   });
 
   return {
