@@ -10,6 +10,7 @@ export const stopkyRemoveMezicas = ({ cas }) => ({
   type: 'STOPKY_REMOVE_MEZICAS',
   cas: cas.toJSON ? cas.toJSON() : cas
 });
+export const stopkyReset = () => ({ type: 'STOPKY_RESET' });
 export const stopkyStart = ({ now = new Date() } = {}) => ({ type: 'STOPKY_START', now });
 export const stopkyStop = ({ now = new Date() } = {}) => ({ type: 'STOPKY_STOP', now });
 // step is in milliseconds
@@ -42,6 +43,7 @@ const saveStopkyError = ({ code, status, err }, typ) => ({
 export const saveStopky = ({ action, typ }) => async (dispatch, getState, wsClient) => {
   const state = getState();
   const stopky = stopkyProTypReducer(getStopkyByTyp({ state, typ }), action);
+  stopky.typ = typ;
   dispatch(saveStopkyRequest({ action, stopky, typ }));
 
   try {

@@ -15,6 +15,10 @@
   margin-top: 1ex;
 }
 
+.StopkyProTyp__reset-button {
+  float: right !important;
+}
+
 .StopkyProTyp__rozdily {
   margin-top: 2ex;
 }

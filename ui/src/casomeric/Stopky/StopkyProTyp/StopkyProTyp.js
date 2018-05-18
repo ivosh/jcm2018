@@ -15,6 +15,8 @@ class StopkyProTyp extends PureComponent {
     this.displej = React.createRef();
   }
 
+  reset = () => this.props.onReset();
+
   start = () => {
     this.displej.current.startTimer();
     this.props.onStart();
@@ -39,8 +41,11 @@ class StopkyProTyp extends PureComponent {
           <Button bsStyle="success" disabled={!startEnabled} onClick={this.start}>
             Start
           </Button>
-          <Button bsStyle="danger" disabled={!stopEnabled} onClick={this.stop}>
+          <Button bsStyle="warning" disabled={!stopEnabled} onClick={this.stop}>
             Stop
+          </Button>
+          <Button bsStyle="danger" className="StopkyProTyp__reset-button" onClick={this.reset}>
+            Reset
           </Button>
         </ButtonToolbar>
         <div className="StopkyProTyp__rozdily">
@@ -67,6 +72,7 @@ StopkyProTyp.propTypes = {
   startEnabled: PropTypes.bool.isRequired,
   stopEnabled: PropTypes.bool.isRequired,
   typ: PropTypes.string.isRequired,
+  onReset: PropTypes.func.isRequired,
   onStart: PropTypes.func.isRequired,
   onStop: PropTypes.func.isRequired
 };

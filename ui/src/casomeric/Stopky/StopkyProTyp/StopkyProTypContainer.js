@@ -2,7 +2,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import { getCudly, getRozdily, getStopkyByTyp } from './stopkyProTypReducer';
-import { saveStopky, stopkyStart, stopkyStop, stopkyChange } from './StopkyProTypActions';
+import {
+  saveStopky,
+  stopkyReset,
+  stopkyStart,
+  stopkyStop,
+  stopkyChange
+} from './StopkyProTypActions';
 import StopkyProTyp from './StopkyProTyp';
 
 const mapStateToProps = (state, ownProps) => {
@@ -27,6 +33,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { typ } = ownProps;
 
   return {
+    onReset: () => dispatch(saveStopky({ action: stopkyReset(), typ })),
     onStart: () => dispatch(saveStopky({ action: stopkyStart(), typ })),
     onStop: () => dispatch(saveStopky({ action: stopkyStop(), typ })),
     onChange: step => dispatch(saveStopky({ action: stopkyChange({ step }), typ }))

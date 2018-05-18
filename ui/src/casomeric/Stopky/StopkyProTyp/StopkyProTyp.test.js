@@ -41,6 +41,7 @@ it('snapshot před startem', () => {
       startEnabled={true}
       stopEnabled={false}
       typ="půlmaraton"
+      onReset={jest.fn()}
       onStart={jest.fn()}
       onStop={jest.fn()}
     />
@@ -59,6 +60,7 @@ it('snapshort po startu', () => {
       startEnabled={false}
       stopEnabled={true}
       typ="maraton"
+      onReset={jest.fn()}
       onStart={jest.fn()}
       onStop={jest.fn()}
     />
@@ -88,6 +90,7 @@ it('maps button Start to dispatch onStart action', () => {
       startEnabled={true}
       stopEnabled={false}
       typ="cyklo"
+      onReset={jest.fn()}
       onStart={onStart}
       onStop={jest.fn()}
     />
@@ -110,12 +113,36 @@ it('maps button Stop to dispatch onStop action', () => {
       startEnabled={false}
       stopEnabled={true}
       typ="koloběžka"
+      onReset={jest.fn()}
       onStart={jest.fn()}
       onStop={onStop}
+    />
+  );
+  expect(wrapper.find('button.btn-warning')).toHaveLength(1);
+  wrapper.find('button.btn-warning').simulate('click');
+
+  expect(onStop).toHaveBeenCalledWith();
+});
+
+it('maps button Reset to dispatch onReset action', () => {
+  const onReset = jest.fn();
+  const wrapper = mount(
+    <StopkyProTyp
+      running={true}
+      base={new Date()}
+      cudly={cudly}
+      delta={moment.duration('PT2H15M34.72S')}
+      rozdily={rozdily}
+      startEnabled={false}
+      stopEnabled={true}
+      typ="koloběžka"
+      onReset={onReset}
+      onStart={jest.fn()}
+      onStop={jest.fn()}
     />
   );
   expect(wrapper.find('button.btn-danger')).toHaveLength(1);
   wrapper.find('button.btn-danger').simulate('click');
 
-  expect(onStop).toHaveBeenCalledWith();
+  expect(onReset).toHaveBeenCalledWith();
 });

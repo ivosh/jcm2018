@@ -17,6 +17,8 @@ const sortByCas = mezicasy =>
 
 const stopkyProTypReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'STOPKY_RESET':
+      return { ...initialState };
     case 'STOPKY_START':
       if (!state.running) {
         const base = new Date(

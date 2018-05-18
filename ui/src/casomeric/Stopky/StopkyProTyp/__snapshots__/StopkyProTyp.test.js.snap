@@ -224,12 +224,20 @@ exports[`snapshort po startu 1`] = `
         Start
       </button>
       <button
-        className="btn btn-danger"
+        className="btn btn-warning"
         disabled={false}
         onClick={[Function]}
         type="button"
       >
         Stop
+      </button>
+      <button
+        className="StopkyProTyp__reset-button btn btn-danger"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        Reset
       </button>
     </div>
     <div
@@ -509,12 +517,20 @@ exports[`snapshot před startem 1`] = `
         Start
       </button>
       <button
-        className="btn btn-danger"
+        className="btn btn-warning"
         disabled={true}
         onClick={[Function]}
         type="button"
       >
         Stop
+      </button>
+      <button
+        className="StopkyProTyp__reset-button btn btn-danger"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        Reset
       </button>
     </div>
     <div
