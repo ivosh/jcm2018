@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import { getUcastiProRok } from '../../../entities/ucastnici/ucastniciReducer';
 import { getMezicasy, getStopkyByTyp } from '../../Stopky/StopkyProTyp/stopkyProTypReducer';
-import { saveStopky, stopkyMezicas } from '../../Stopky/StopkyProTyp/StopkyProTypActions';
+import {
+  saveStopky,
+  stopkyAddMezicas,
+  stopkyRemoveMezicas
+} from '../../Stopky/StopkyProTyp/StopkyProTypActions';
 import Casomira from './Casomira';
 
 const mapStateToProps = (state, ownProps) => {
@@ -33,11 +37,33 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { typ } = ownProps;
 
   return {
-    onStopkyMezicas: () => dispatch(saveStopky({ action: stopkyMezicas(), typ }))
+    onStopkyAddMezicas: () => dispatch(saveStopky({ action: stopkyAddMezicas(), typ })),
+    onStopkyRemoveMezicas: ({ cas }) =>
+      dispatch(saveStopky({ action: stopkyRemoveMezicas({ cas }), typ }))
   };
 };
 
-const CasomiraContainer = connect(mapStateToProps, mapDispatchToProps)(Casomira);
+const mergeProps = (stateProps, dispatchProps) => {
+  const { mezicasy, ...restOfStateProps } = stateProps;
+  const { onStopkyRemoveMezicas, onUcastnikRemoveCas, ...restOfDispatchProps } = dispatchProps;
+
+  const populated = mezicasy.map(mezicas => {
+    const { id, cas } = mezicas;
+    return {
+      ...mezicas,
+      onEdit: () => {},
+      onRemove: id ? () => onUcastnikRemoveCas({ id }) : () => onStopkyRemoveMezicas({ cas })
+    };
+  });
+
+  return {
+    ...restOfStateProps,
+    mezicasy: populated,
+    ...restOfDispatchProps
+  };
+};
+
+const CasomiraContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(Casomira);
 
 CasomiraContainer.propTypes = {
   accessKey: PropTypes.string.isRequired,

@@ -49,7 +49,7 @@ const Casomira = ({
   running,
   typ,
   onRemoveCasomira,
-  onStopkyMezicas
+  onStopkyAddMezicas
 }) => (
   /* Do not use Bootstrap's Panel here. It screws AutoResizer's height. */
   <div className="Casomira__panel">
@@ -66,7 +66,7 @@ const Casomira = ({
           bsStyle="info"
           className="Casomira__stopky-mezicas"
           disabled={!mezicasEnabled}
-          onClick={onStopkyMezicas}
+          onClick={onStopkyAddMezicas}
           accessKey={accessKey}
         >
           <Glyphicon glyph="time" /> (Alt-{accessKey})
@@ -99,7 +99,7 @@ Casomira.propTypes = {
   running: PropTypes.bool.isRequired,
   typ: PropTypes.string.isRequired,
   onRemoveCasomira: PropTypes.func.isRequired,
-  onStopkyMezicas: PropTypes.func.isRequired
+  onStopkyAddMezicas: PropTypes.func.isRequired
 };
 
 export default Casomira;

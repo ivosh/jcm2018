@@ -34,15 +34,6 @@ const stopkyProTypReducer = (state = initialState, action) => {
       }
       return state;
     }
-    case 'STOPKY_MEZICAS':
-      if (state.running) {
-        const cas = moment.duration(action.now.getTime() - new Date(state.base).getTime()).toJSON();
-        const mezicasy = (state.mezicasy || []).slice();
-        mezicasy.push({ cas });
-        sortByCas(mezicasy);
-        return { ...state, mezicasy };
-      }
-      return state;
     case 'STOPKY_CHANGE': {
       if (state.running) {
         return { ...state, base: new Date(new Date(state.base).getTime() - action.step).toJSON() };
@@ -63,6 +54,17 @@ const stopkyProTypReducer = (state = initialState, action) => {
       }
       return state;
     }
+    case 'STOPKY_ADD_MEZICAS':
+      if (state.running) {
+        const cas = moment.duration(action.now.getTime() - new Date(state.base).getTime()).toJSON();
+        const mezicasy = (state.mezicasy || []).slice();
+        mezicasy.push({ cas });
+        sortByCas(mezicasy);
+        return { ...state, mezicasy };
+      }
+      return state;
+    case 'STOPKY_REMOVE_MEZICAS':
+      return { ...state, mezicasy: state.mezicasy.filter(mezicas => mezicas.cas !== action.cas) };
     default:
       return state;
   }
