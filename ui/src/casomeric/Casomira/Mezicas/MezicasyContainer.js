@@ -5,6 +5,8 @@ import withResponsive from '../../../shared/withResponsive/withResponsive';
 import { getUcastiProRok } from '../../../entities/ucastnici/ucastniciReducer';
 import { getMezicasy, getStopkyByTyp } from '../../Stopky/StopkyProTyp/stopkyProTypReducer';
 import { saveStopky, stopkyRemoveMezicas } from '../../Stopky/StopkyProTyp/StopkyProTypActions';
+import { createDropAction } from '../StartovniCisla/StartovniCislaActions';
+import { canDrop } from './MezicasyActions';
 import Mezicasy from './Mezicasy';
 
 const mapStateToProps = (state, ownProps) => {
@@ -23,21 +25,34 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   const { typ } = ownProps;
+  const onStopkyRemoveMezicas = ({ cas }) =>
+    dispatch(saveStopky({ action: stopkyRemoveMezicas({ cas }), typ }));
 
   return {
-    onStopkyRemoveMezicas: ({ cas }) =>
-      dispatch(saveStopky({ action: stopkyRemoveMezicas({ cas }), typ }))
+    onDrop: dropResult => {
+      dispatch(createDropAction(dropResult));
+      onStopkyRemoveMezicas(dropResult);
+      return undefined;
+    },
+    onStopkyRemoveMezicas
   };
 };
 
 const mergeProps = (stateProps, dispatchProps) => {
   const { mezicasy, ...restOfStateProps } = stateProps;
-  const { onStopkyRemoveMezicas, onUcastnikRemoveCas, ...restOfDispatchProps } = dispatchProps;
+  const {
+    onDrop,
+    onStopkyRemoveMezicas,
+    onUcastnikRemoveCas,
+    ...restOfDispatchProps
+  } = dispatchProps;
 
   const populated = mezicasy.map(mezicas => {
     const { id, cas } = mezicas;
     return {
       ...mezicas,
+      canDrop,
+      onDrop,
       onEdit: () => {},
       onRemove: id ? () => onUcastnikRemoveCas({ id }) : () => onStopkyRemoveMezicas({ cas })
     };

@@ -135,16 +135,19 @@ export const getMezicasy = ({ kategorie, stopky, ucasti }) => {
     });
   }
 
-  const ucastisVykonem = ucasti.filter(ucast => {
-    if (ucast.vykon) {
+  const ucastisVykonem = ucasti.filter(jeden => {
+    const { ucast } = jeden;
+    if (ucast.vykon && ucast.vykon.dokonceno) {
       const jednaKategorie = kategorie[ucast.vykon.kategorie];
       return jednaKategorie.typ === stopky.typ;
     }
     return false;
   });
 
-  ucastisVykonem.forEach(ucast => {
-    mezicasy.push({ id: ucast.id, cas: ucast.vykon.cas, startCislo: ucast.vykon.startCislo });
+  ucastisVykonem.forEach(jeden => {
+    const { id, ucast } = jeden;
+    const { cas, dokonceno, startCislo } = ucast.vykon;
+    mezicasy.push({ id, cas, dokonceno, startCislo });
   });
 
   return sortByCas(mezicasy);

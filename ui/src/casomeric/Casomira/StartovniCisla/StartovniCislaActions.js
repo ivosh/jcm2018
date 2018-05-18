@@ -17,20 +17,27 @@ export const canDrop = ({ dokonceno, name, sourceTyp, destinationTyp }) => {
   return true;
 };
 
+const startCisloDokonceno = ({ id, cas }) => ({
+  type: 'START_CISLO_DOKONCENO',
+  id,
+  cas: cas.toJSON ? cas.toJSON() : cas
+});
 const startCisloNedokonceno = ({ id }) => ({ type: 'START_CISLO_NEDOKONCENO', id });
 const startCisloNaTrase = ({ id }) => ({ type: 'START_CISLO_NA_TRASE', id });
 
-export const saveVykonRequest = ({ id, rok, typ }) => ({
+export const saveVykonRequest = ({ id, rok, startCislo, typ }) => ({
   type: 'CASOMIRA_SAVE_VYKON_REQUEST',
   id,
   rok,
+  startCislo,
   typ
 });
 
-export const saveVykonSuccess = ({ id, rok, typ, vykon }) => ({
+export const saveVykonSuccess = ({ id, rok, startCislo, typ, vykon }) => ({
   type: 'CASOMIRA_SAVE_VYKON_SUCCESS',
   id,
   rok,
+  startCislo,
   typ,
   vykon,
   receivedAt: Date.now()
@@ -46,12 +53,12 @@ const saveVykonError = ({ code, status, err }, typ) => ({
   receivedAt: Date.now()
 });
 
-export const saveVykon = ({ action, id, rok = AKTUALNI_ROK, typ }) => async (
+export const saveVykon = ({ action, id, rok = AKTUALNI_ROK, startCislo, typ }) => async (
   dispatch,
   getState,
   wsClient
 ) => {
-  dispatch(saveVykonRequest({ id, rok, typ }));
+  dispatch(saveVykonRequest({ id, rok, startCislo, typ }));
 
   const state = getState();
   const vykon = startovniCislaReducer(state.entities.ucastnici.byIds[id][rok].vykon, action);
@@ -59,7 +66,7 @@ export const saveVykon = ({ action, id, rok = AKTUALNI_ROK, typ }) => async (
   try {
     const response = await wsClient.sendRequest(saveVykonAPI({ id, rok, vykon }, state.auth.token));
     if (response.code === CODE_OK) {
-      dispatch(saveVykonSuccess({ id, rok, typ, vykon }));
+      dispatch(saveVykonSuccess({ id, rok, startCislo, typ, vykon }));
     } else if (response.code === CODE_TOKEN_INVALID) {
       dispatch(authTokenExpired(response));
     } else {
@@ -70,13 +77,13 @@ export const saveVykon = ({ action, id, rok = AKTUALNI_ROK, typ }) => async (
   }
 };
 
-export const createDropAction = ({ id, name, typ }) => {
-  switch (name) {
-    case 'nedokonceno':
-      return saveVykon({ action: startCisloNedokonceno({ id }), id, typ });
-    case 'na-trase':
-      return saveVykon({ action: startCisloNaTrase({ id }), id, typ });
-    default:
-      return undefined;
+export const createDropAction = ({ id, cas, startCislo, dokonceno, name, typ }) => {
+  if (name === 'nedokonceno') {
+    return saveVykon({ action: startCisloNedokonceno({ id }), id, startCislo, typ });
+  } else if (name === 'na-trase') {
+    return saveVykon({ action: startCisloNaTrase({ id }), id, startCislo, typ });
+  } else if (id && cas && (dokonceno === null || dokonceno === undefined)) {
+    return saveVykon({ action: startCisloDokonceno({ id, cas }), id, startCislo, typ });
   }
+  return undefined;
 };
