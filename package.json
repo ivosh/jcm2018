@@ -37,7 +37,7 @@
     "bcrypt": "^1.0.3",
     "jsonwebtoken": "^8.2.1",
     "moment": "^2.22.1",
-    "mongoose": "^4.13.12",
+    "mongoose": "^4.13.13",
     "mongoose-unique-array": "^0.2.0",
     "newrelic": "^2.9.1",
     "node": "^9.11.0",
@@ -49,18 +49,18 @@
   "devDependencies": {
     "5to6-codemod": "^1.7.1",
     "babel-eslint": "^8.2.3",
-    "codecov": "^3.0.1",
+    "codecov": "^3.0.2",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-jasmine": "^2.9.3",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jasmine": "^2.10.1",
     "eslint-plugin-prettier": "^2.6.0",
-    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-react": "^7.8.2",
     "jest": "^21.2.1",
     "jscodeshift": "^0.4.1",
     "jsonfile-updater": "^3.1.0",
     "prettier": "^1.12.1",
-    "supertest": "^3.0.0"
+    "supertest": "^3.1.0"
   },
   "jest": {
     "coverageDirectory": "./coverage/"
