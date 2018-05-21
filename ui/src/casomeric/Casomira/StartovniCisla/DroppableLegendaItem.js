@@ -15,9 +15,10 @@ class DroppableLegendaItem extends PureComponent {
     const { canDrop, onDrop, typ } = this.props;
 
     this.dropTarget = {
-      drop: (dropProps, monitor) => onDrop({ ...dropProps, ...monitor.getItem(), typ }),
+      drop: (dropProps, monitor) =>
+        onDrop({ source: monitor.getItem(), destination: { ...dropProps, typ } }),
       canDrop: (dropProps, monitor) =>
-        canDrop({ ...dropProps, ...monitor.getItem(), destinationTyp: typ })
+        canDrop({ source: monitor.getItem(), destination: { ...dropProps, typ } })
     };
   }
 

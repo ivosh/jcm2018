@@ -1,8 +1,8 @@
 // eslint-disable-next-line import/prefer-default-export
-export const canDrop = ({ dokonceno, sourceTyp, destinationTyp }) => {
-  if (sourceTyp !== destinationTyp) {
+export const canDrop = ({ source, destination }) => {
+  if (source.typ !== destination.typ) {
     return false;
   }
 
-  return dokonceno === null || dokonceno === undefined;
+  return (source.dokonceno === null || source.dokonceno === undefined) && !destination.startCislo;
 };

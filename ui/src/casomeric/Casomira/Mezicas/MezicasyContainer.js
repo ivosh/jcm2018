@@ -5,7 +5,11 @@ import withResponsive from '../../../shared/withResponsive/withResponsive';
 import { getUcastiProRok } from '../../../entities/ucastnici/ucastniciReducer';
 import { getMezicasy, getStopkyByTyp } from '../../Stopky/StopkyProTyp/stopkyProTypReducer';
 import { saveStopky, stopkyRemoveMezicas } from '../../Stopky/StopkyProTyp/StopkyProTypActions';
-import { createDropAction } from '../StartovniCisla/StartovniCislaActions';
+import {
+  createDropAction,
+  saveVykon,
+  startCisloNaTrase
+} from '../StartovniCisla/StartovniCislaActions';
 import { canDrop } from './MezicasyActions';
 import Mezicasy from './Mezicasy';
 
@@ -31,10 +35,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onDrop: dropResult => {
       dispatch(createDropAction(dropResult));
-      onStopkyRemoveMezicas(dropResult);
+      onStopkyRemoveMezicas({ cas: dropResult.destination.cas });
       return undefined;
     },
-    onStopkyRemoveMezicas
+    onStopkyRemoveMezicas,
+    onUcastnikRemoveCas: ({ id }) =>
+      dispatch(saveVykon({ action: startCisloNaTrase({ id }), id, typ }))
   };
 };
 

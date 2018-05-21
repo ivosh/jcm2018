@@ -4,13 +4,13 @@ import { findDokonceno } from '../../../Util';
 import { authTokenExpired } from '../../../auth/SignIn/SignInActions';
 import startovniCislaReducer from './startovniCislaReducer';
 
-export const canDrop = ({ dokonceno, name, sourceTyp, destinationTyp }) => {
-  if (sourceTyp !== destinationTyp) {
+export const canDrop = ({ source, destination }) => {
+  if (source.typ !== destination.typ) {
     return false;
   }
 
-  const sourceDokonceno = findDokonceno(dokonceno);
-  if (sourceDokonceno === name || name === 'dokonceno') {
+  const sourceDokonceno = findDokonceno(source.dokonceno);
+  if (sourceDokonceno === destination.name || destination.name === 'dokonceno') {
     return false;
   }
 
@@ -23,7 +23,7 @@ const startCisloDokonceno = ({ id, cas }) => ({
   cas: cas.toJSON ? cas.toJSON() : cas
 });
 const startCisloNedokonceno = ({ id }) => ({ type: 'START_CISLO_NEDOKONCENO', id });
-const startCisloNaTrase = ({ id }) => ({ type: 'START_CISLO_NA_TRASE', id });
+export const startCisloNaTrase = ({ id }) => ({ type: 'START_CISLO_NA_TRASE', id });
 
 export const saveVykonRequest = ({ id, rok, startCislo, typ }) => ({
   type: 'CASOMIRA_SAVE_VYKON_REQUEST',
@@ -77,12 +77,14 @@ export const saveVykon = ({ action, id, rok = AKTUALNI_ROK, startCislo, typ }) =
   }
 };
 
-export const createDropAction = ({ id, cas, startCislo, dokonceno, name, typ }) => {
-  if (name === 'nedokonceno') {
+export const createDropAction = ({ source, destination }) => {
+  const { id, startCislo } = source;
+  const { cas, typ } = destination;
+  if (destination.name === 'nedokonceno') {
     return saveVykon({ action: startCisloNedokonceno({ id }), id, startCislo, typ });
-  } else if (name === 'na-trase') {
+  } else if (destination.name === 'na-trase') {
     return saveVykon({ action: startCisloNaTrase({ id }), id, startCislo, typ });
-  } else if (id && cas && (dokonceno === null || dokonceno === undefined)) {
+  } else if (id && cas && (source.dokonceno === null || source.dokonceno === undefined)) {
     return saveVykon({ action: startCisloDokonceno({ id, cas }), id, startCislo, typ });
   }
   return undefined;

@@ -14,12 +14,11 @@ class DroppableStartovniCislo extends PureComponent {
     super(props);
     const { canDrop, onDrop, typ } = this.props;
 
-    /* Mixing ...monitor.getItem() and ...dropProps will cause some attributes be overwritten.
-       We prefer destination ones over source ones here. */
     this.dropTarget = {
-      drop: (dropProps, monitor) => onDrop({ ...monitor.getItem(), ...dropProps, typ }),
+      drop: (dropProps, monitor) =>
+        onDrop({ source: monitor.getItem(), destination: { ...dropProps, typ } }),
       canDrop: (dropProps, monitor) =>
-        canDrop({ ...monitor.getItem(), ...dropProps, destinationTyp: typ })
+        canDrop({ source: monitor.getItem(), destination: { ...dropProps, typ } })
     };
   }
 
