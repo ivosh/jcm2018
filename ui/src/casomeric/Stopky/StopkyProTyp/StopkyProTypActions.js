@@ -6,6 +6,10 @@ export const stopkyAddMezicas = ({ now = new Date() } = {}) => ({
   type: 'STOPKY_ADD_MEZICAS',
   now
 });
+export const stopkyInsertMezicas = ({ cas }) => ({
+  type: 'STOPKY_INSERT_MEZICAS',
+  cas: cas.toJSON ? cas.toJSON() : cas
+});
 export const stopkyRemoveMezicas = ({ cas }) => ({
   type: 'STOPKY_REMOVE_MEZICAS',
   cas: cas.toJSON ? cas.toJSON() : cas

@@ -4,7 +4,11 @@ import moment from 'moment';
 import withResponsive from '../../../shared/withResponsive/withResponsive';
 import { getUcastiProRok } from '../../../entities/ucastnici/ucastniciReducer';
 import { getMezicasy, getStopkyByTyp } from '../../Stopky/StopkyProTyp/stopkyProTypReducer';
-import { saveStopky, stopkyRemoveMezicas } from '../../Stopky/StopkyProTyp/StopkyProTypActions';
+import {
+  saveStopky,
+  stopkyInsertMezicas,
+  stopkyRemoveMezicas
+} from '../../Stopky/StopkyProTyp/StopkyProTypActions';
 import {
   createDropAction,
   saveVykon,
@@ -39,8 +43,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       return undefined;
     },
     onStopkyRemoveMezicas,
-    onUcastnikRemoveCas: ({ id }) =>
-      dispatch(saveVykon({ action: startCisloNaTrase({ id }), id, typ }))
+    onUcastnikRemoveCas: ({ id, cas }) => {
+      dispatch(saveStopky({ action: stopkyInsertMezicas({ cas }), typ }));
+      dispatch(saveVykon({ action: startCisloNaTrase({ id }), id, typ }));
+    }
   };
 };
 
@@ -60,7 +66,7 @@ const mergeProps = (stateProps, dispatchProps) => {
       canDrop,
       onDrop,
       onEdit: () => {},
-      onRemove: id ? () => onUcastnikRemoveCas({ id }) : () => onStopkyRemoveMezicas({ cas })
+      onRemove: id ? () => onUcastnikRemoveCas({ id, cas }) : () => onStopkyRemoveMezicas({ cas })
     };
   });
 

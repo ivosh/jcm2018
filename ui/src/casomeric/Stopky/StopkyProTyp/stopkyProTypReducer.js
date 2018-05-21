@@ -15,6 +15,13 @@ const sortByCas = mezicasy =>
     (a, b) => moment.duration(a.cas).asMilliseconds() - moment.duration(b.cas).asMilliseconds()
   );
 
+const addCasAndSort = (input, cas) => {
+  const mezicasy = (input || []).slice();
+  mezicasy.push({ cas });
+  sortByCas(mezicasy);
+  return mezicasy;
+};
+
 const stopkyProTypReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'STOPKY_RESET':
@@ -59,12 +66,11 @@ const stopkyProTypReducer = (state = initialState, action) => {
     case 'STOPKY_ADD_MEZICAS':
       if (state.running) {
         const cas = moment.duration(action.now.getTime() - new Date(state.base).getTime()).toJSON();
-        const mezicasy = (state.mezicasy || []).slice();
-        mezicasy.push({ cas });
-        sortByCas(mezicasy);
-        return { ...state, mezicasy };
+        return { ...state, mezicasy: addCasAndSort(state.mezicasy, cas) };
       }
       return state;
+    case 'STOPKY_INSERT_MEZICAS':
+      return { ...state, mezicasy: addCasAndSort(state.mezicasy, action.cas) };
     case 'STOPKY_REMOVE_MEZICAS':
       return { ...state, mezicasy: state.mezicasy.filter(mezicas => mezicas.cas !== action.cas) };
     default:
