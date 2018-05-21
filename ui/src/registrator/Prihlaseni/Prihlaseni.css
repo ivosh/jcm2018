@@ -20,6 +20,7 @@
 }
 
 .Prihlaseni--zaplaceno,
+.Prihlaseni--castecne-zaplaceno,
 .Prihlaseni--nezaplaceno {
   color: white;
   font-weight: bold;
@@ -27,6 +28,9 @@
 }
 .Prihlaseni--zaplaceno {
   background-color: rgba(48, 199, 90, 1);
+}
+.Prihlaseni--castecne-zaplaceno {
+  background-color: rgba(240, 173, 78, 1);
 }
 .Prihlaseni--nezaplaceno {
   background-color: rgba(226, 57, 73, 1);

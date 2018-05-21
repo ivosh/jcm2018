@@ -71,10 +71,14 @@ const Prihlaseni = ({ actionPrefix, reduxName, prihlaseni }) => {
     },
     { cellClassNames: () => ['align-left', 'monospace'], key: 'kod', label: 'kód', width: 150 },
     {
-      cellClassNames: ({ cellData, data, rowIndex }) =>
-        cellData >= data[rowIndex].predepsano
-          ? ['Prihlaseni--zaplaceno']
-          : ['Prihlaseni--nezaplaceno'],
+      cellClassNames: ({ cellData, data, rowIndex }) => {
+        if (cellData >= data[rowIndex].predepsano) {
+          return ['Prihlaseni--zaplaceno'];
+        } else if (cellData > 0) {
+          return ['Prihlaseni--castecne-zaplaceno'];
+        }
+        return ['Prihlaseni--nezaplaceno'];
+      },
       cellDataFormatter: zaplacenoFormat,
       key: 'zaplaceno',
       sortable: true,

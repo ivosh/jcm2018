@@ -841,7 +841,7 @@ exports[`dva přihlášení 1`] = `
                   abc023skd204mvs345
                 </div>
                 <div
-                  className="Prihlaseni--nezaplaceno UcastniciTable_evenRow UcastniciTable_cell"
+                  className="Prihlaseni--castecne-zaplaceno UcastniciTable_evenRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
