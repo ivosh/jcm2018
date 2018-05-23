@@ -2,7 +2,9 @@
 
 'use strict';
 
-/* Sets version of package*.json files.
+const { execSync } = require('child_process');
+
+/* Sets version of package*.json files. Then commits 5 files and adds a git tag.
    Usage: node ./setversion */
 
 const fs = require('fs');
@@ -18,17 +20,19 @@ const replaceInFile = (filename, regexp, replacement) => {
   fs.writeFileSync(filename, result, 'utf8');
 };
 
+const jsonFiles = ['package.json', 'package-lock.json', 'ui/package.json', 'ui/package-lock.json'];
+const snapFiles = ['ui/src/App/__snapshots__/About.test.js.snap']
+
 const main = async () => {
   logger.info(`Setting version to ${version}.`);
-  await updater('package.json').set('version', version);
-  await updater('package-lock.json').set('version', version);
-  await updater('ui/package.json').set('version', version);
-  await updater('ui/package-lock.json').set('version', version);
-  replaceInFile(
-    'ui/src/App/__snapshots__/About.test.js.snap',
+  jsonFiles.forEach(async file => await updater(file).set('version', version) );
+  snapFiles.forEach(file => replaceInFile(file,
     /^(\s*)Verze:(\s*)\n(\s*)\S+(\s*)$/m,
     `$1Verze:$2\n$3${version}$4`
-  );
+  ));
+
+  execSync(`git commit -m "Bump version number to ${version}." ${jsonFiles.join(' ')} ${snapFiles.join(' ')}`);
+  execSync(`git tag ${version}`);
 };
 
 main()
