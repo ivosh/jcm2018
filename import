@@ -10,5 +10,6 @@ mongoimport --uri=${DB} --drop --maintainInsertionOrder --stopOnError -c kategor
 mongoimport --uri=${DB} --drop --maintainInsertionOrder --stopOnError -c rocniks Rocnik.json
 mongoimport --uri=${DB} --drop --maintainInsertionOrder --stopOnError -c users User.json
 mongoimport --uri=${DB} --drop --maintainInsertionOrder --stopOnError -c ucastniks Ucastnik.json
+mongoimport --uri=${DB} --drop --maintainInsertionOrder --stopOnError -c stopkys Stopky.json
 
 echo "Imported from ${dir}."

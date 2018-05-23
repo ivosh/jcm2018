@@ -7,5 +7,7 @@ mongoexport --uri=${DB} --pretty --sort="{id: 1}" -c kategories -o Kategorie.jso
 mongoexport --uri=${DB} --pretty --sort="{id: 1}" -c rocniks -o Rocnik.json
 mongoexport --uri=${DB} --pretty --sort="{id: 1}" -c users -o User.json
 mongoexport --uri=${DB} --pretty --sort="{id: 1}" -c ucastniks -o Ucastnik.json
+mongoexport --uri=${DB} --pretty --sort="{id: 1}" -c stopkys -o Stopky.json
+touch Stopky.json
 
 echo "Exported to ${dir}."
