@@ -39,7 +39,8 @@ Object {
       "invalidated": false,
     },
   },
-  "fetching": "init",
+  "fetchingStopky": "init",
+  "fetchingUcastnici": "init",
   "registrator": Object {
     "prihlaseni": Object {
       "kategorieFilter": "",
@@ -156,7 +157,8 @@ Object {
       "invalidated": false,
     },
   },
-  "fetching": "init",
+  "fetchingStopky": "init",
+  "fetchingUcastnici": "init",
   "registrator": Object {
     "prihlaseni": Object {
       "kategorieFilter": "",
@@ -273,7 +275,8 @@ Object {
       "invalidated": true,
     },
   },
-  "fetching": "init",
+  "fetchingStopky": "init",
+  "fetchingUcastnici": "init",
   "registrator": Object {
     "prihlaseni": Object {
       "kategorieFilter": "",

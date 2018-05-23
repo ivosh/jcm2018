@@ -16,7 +16,7 @@ Foo.propTypes = {
 const FooWithFetchUcastnici = withFetchUcastnici(Foo);
 
 it('na začátku', () => {
-  const store = mockStore({ fetching: 'init' });
+  const store = mockStore({ fetchingUcastnici: 'init' });
   store.dispatch = jest.fn();
 
   const component = renderer.create(
@@ -30,7 +30,7 @@ it('na začátku', () => {
 });
 
 it('při načítání', () => {
-  const store = mockStore({ fetching: 'fetching' });
+  const store = mockStore({ fetchingUcastnici: 'fetching' });
   store.dispatch = jest.fn();
 
   const component = renderer.create(
@@ -44,7 +44,7 @@ it('při načítání', () => {
 });
 
 it('po načtení', () => {
-  const store = mockStore({ fetching: 'done' });
+  const store = mockStore({ fetchingUcastnici: 'done' });
   store.dispatch = jest.fn();
 
   const component = renderer.create(

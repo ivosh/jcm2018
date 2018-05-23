@@ -22,7 +22,8 @@ const store = mockStore({
     rocniky: { byRoky: {}, roky: [] },
     ucastnici: { allIds: [], byIds: {} }
   },
-  fetching: 'done',
+  fetchingStopky: 'done',
+  fetchingUcastnici: 'done',
   registrator: {
     prihlaseni: {
       kategorieFilter: '',

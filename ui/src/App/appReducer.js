@@ -15,15 +15,12 @@ const connected = (state = false, action) => {
   }
 };
 
-const fetching = (state = 'init', action) => {
+const fetchingReducer = name => (state = 'init', action) => {
   switch (action.type) {
-    case 'FETCH_STOPKY_REQUEST':
-    case 'FETCH_UCASTNICI_REQUEST':
+    case `FETCH_${name}_REQUEST`:
       return 'fetching';
-    case 'FETCH_STOPKY_SUCCESS':
-    case 'FETCH_STOPKY_ERROR':
-    case 'FETCH_UCASTNICI_SUCCESS':
-    case 'FETCH_UCASTNICI_ERROR':
+    case `FETCH_${name}_SUCCESS`:
+    case `FETCH_${name}_ERROR`:
       return 'done';
     default:
       return state;
@@ -36,7 +33,8 @@ const appReducer = combineReducers({
   registrator: registratorReducer,
   entities: entitiesReducer,
   connected,
-  fetching
+  fetchingStopky: fetchingReducer('STOPKY'),
+  fetchingUcastnici: fetchingReducer('UCASTNICI')
 });
 
 export default appReducer;

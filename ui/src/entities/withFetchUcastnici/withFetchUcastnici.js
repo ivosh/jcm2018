@@ -11,9 +11,9 @@ const withFetchUcastnici = WrappedComponent => {
     };
 
     render = () => {
-      const { fetching, fetchUcastnici, ...rest } = this.props;
+      const { fetchingUcastnici, fetchUcastnici, ...rest } = this.props;
 
-      switch (fetching) {
+      switch (fetchingUcastnici) {
         case 'fetching':
           return (
             <div className="FetchComponent">
@@ -29,12 +29,12 @@ const withFetchUcastnici = WrappedComponent => {
   }
 
   WithFetchUcastniciComponent.propTypes = {
-    fetching: PropTypes.oneOf(['init', 'fetching', 'done']).isRequired,
+    fetchingUcastnici: PropTypes.oneOf(['init', 'fetching', 'done']).isRequired,
     fetchUcastnici: PropTypes.func.isRequired
   };
 
   const mapStateToProps = (state, ownProps) => ({
-    fetching: state.fetching,
+    fetchingUcastnici: state.fetchingUcastnici,
     ...ownProps
   });
 

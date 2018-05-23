@@ -33,33 +33,33 @@ it('websocket disconnected', () => {
 });
 
 it('fetchUcastniciRequest()', () => {
-  const stateBefore = { fetching: undefined };
+  const stateBefore = { fetchingUcastnici: undefined };
   deepFreeze(stateBefore);
 
   const stateAfter = appReducer(stateBefore, fetchUcastniciRequest());
-  expect(stateAfter.fetching).toEqual('fetching');
+  expect(stateAfter.fetchingUcastnici).toEqual('fetching');
 });
 
 it('fetchUcastniciSuccess()', () => {
-  const stateBefore = { fetching: 'fetching' };
+  const stateBefore = { fetchingUcastnici: 'fetching' };
   deepFreeze(stateBefore);
 
   const stateAfter = appReducer(stateBefore, fetchUcastniciSuccess({ response: {} }));
-  expect(stateAfter.fetching).toEqual('done');
+  expect(stateAfter.fetchingUcastnici).toEqual('done');
 });
 
 it('fetchStopkyRequest()', () => {
-  const stateBefore = { fetching: undefined };
+  const stateBefore = { fetchingStopky: undefined };
   deepFreeze(stateBefore);
 
   const stateAfter = appReducer(stateBefore, fetchStopkyRequest());
-  expect(stateAfter.fetching).toEqual('fetching');
+  expect(stateAfter.fetchingStopky).toEqual('fetching');
 });
 
 it('fetchStopkySuccess()', () => {
-  const stateBefore = { fetching: 'fetching' };
+  const stateBefore = { fetchingStopky: 'fetching' };
   deepFreeze(stateBefore);
 
   const stateAfter = appReducer(stateBefore, fetchStopkySuccess({ response: {} }));
-  expect(stateAfter.fetching).toEqual('done');
+  expect(stateAfter.fetchingStopky).toEqual('done');
 });

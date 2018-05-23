@@ -13,7 +13,7 @@ const mockStore = configureStore(middlewares);
 
 const store = mockStore({
   ...ucastniciTestData,
-  fetching: 'done',
+  fetchingUcastnici: 'done',
   registrator: {
     prihlasky: {
       form: {

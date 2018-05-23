@@ -11,9 +11,9 @@ const withFetchStopky = WrappedComponent => {
     };
 
     render = () => {
-      const { fetching, fetchStopky, ...rest } = this.props;
+      const { fetchingStopky, fetchStopky, ...rest } = this.props;
 
-      switch (fetching) {
+      switch (fetchingStopky) {
         case 'fetching':
           return (
             <div className="FetchComponent">
@@ -29,12 +29,12 @@ const withFetchStopky = WrappedComponent => {
   }
 
   WithFetchStopkyComponent.propTypes = {
-    fetching: PropTypes.oneOf(['init', 'fetching', 'done']).isRequired,
+    fetchingStopky: PropTypes.oneOf(['init', 'fetching', 'done']).isRequired,
     fetchStopky: PropTypes.func.isRequired
   };
 
   const mapStateToProps = (state, ownProps) => ({
-    fetching: state.fetching,
+    fetchingStopky: state.fetchingStopky,
     ...ownProps
   });
 
