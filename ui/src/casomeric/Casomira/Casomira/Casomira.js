@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import momentPropTypes from 'react-moment-proptypes';
 import { Button, Glyphicon } from 'react-bootstrap';
+import MezicasyContainer from '../Mezicas/MezicasyContainer';
+import NovyMezicasContainer from '../NovyMezicas/NovyMezicasContainer';
 import PopisekKategorie from '../../../shared/Popisek/PopisekKategorie';
 import RunningDisplej from '../../Displej/RunningDisplej';
 import StartovniCislaContainer from '../StartovniCisla/StartovniCislaContainer';
-import MezicasyContainer from '../Mezicas/MezicasyContainer';
 import './Casomira.css';
 
 /* eslint-disable jsx-a11y/no-access-key */
@@ -39,6 +40,9 @@ const Casomira = ({
         >
           <Glyphicon glyph="time" /> (Alt-{accessKey})
         </Button>
+        <div className="Casomira__stopky-novy-mezicas">
+          <NovyMezicasContainer typ={typ} />
+        </div>
       </div>
       <div className="Casomira__startovni-cisla">
         <StartovniCislaContainer typ={typ} />

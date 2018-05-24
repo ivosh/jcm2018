@@ -20,6 +20,20 @@ Object {
       "maraton": true,
       "půlmaraton": true,
     },
+    "novyMezicas": Object {
+      "cyklo": Object {
+        "showing": false,
+      },
+      "koloběžka": Object {
+        "showing": false,
+      },
+      "maraton": Object {
+        "showing": false,
+      },
+      "půlmaraton": Object {
+        "showing": false,
+      },
+    },
   },
   "connected": false,
   "entities": Object {
@@ -138,6 +152,20 @@ Object {
       "maraton": true,
       "půlmaraton": true,
     },
+    "novyMezicas": Object {
+      "cyklo": Object {
+        "showing": false,
+      },
+      "koloběžka": Object {
+        "showing": false,
+      },
+      "maraton": Object {
+        "showing": false,
+      },
+      "půlmaraton": Object {
+        "showing": false,
+      },
+    },
   },
   "connected": true,
   "entities": Object {
@@ -255,6 +283,20 @@ Object {
       "koloběžka": true,
       "maraton": true,
       "půlmaraton": true,
+    },
+    "novyMezicas": Object {
+      "cyklo": Object {
+        "showing": false,
+      },
+      "koloběžka": Object {
+        "showing": false,
+      },
+      "maraton": Object {
+        "showing": false,
+      },
+      "půlmaraton": Object {
+        "showing": false,
+      },
     },
   },
   "connected": false,

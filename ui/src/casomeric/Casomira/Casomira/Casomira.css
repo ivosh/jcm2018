@@ -22,7 +22,16 @@
   padding: 15px;
 }
 
+.Casomira__stopky {
+  display: flex;
+  align-items: center;
+}
+
 .Casomira__stopky-mezicas {
+  margin-left: 1em;
+}
+
+.Casomira__stopky-novy-mezicas {
   margin-left: 1em;
 }
 
