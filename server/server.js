@@ -1,6 +1,5 @@
 'use strict';
 
-require('newrelic');
 const common = require('../common/common');
 const db = require('./db');
 const logger = require('./logger');
