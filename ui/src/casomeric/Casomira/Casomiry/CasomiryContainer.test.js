@@ -21,10 +21,10 @@ beforeEach(() => {
         koloběžka: true
       },
       novyMezicas: {
-        maraton: { showing: false },
-        půlmaraton: { showing: false },
-        cyklo: { showing: false },
-        koloběžka: { showing: false }
+        maraton: { cas: '', showing: false },
+        půlmaraton: { cas: '', showing: false },
+        cyklo: { cas: '', showing: false },
+        koloběžka: { cas: '', showing: false }
       }
     }
   };

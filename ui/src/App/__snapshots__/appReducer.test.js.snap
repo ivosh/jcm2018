@@ -22,15 +22,19 @@ Object {
     },
     "novyMezicas": Object {
       "cyklo": Object {
+        "cas": "",
         "showing": false,
       },
       "koloběžka": Object {
+        "cas": "",
         "showing": false,
       },
       "maraton": Object {
+        "cas": "",
         "showing": false,
       },
       "půlmaraton": Object {
+        "cas": "",
         "showing": false,
       },
     },
@@ -154,15 +158,19 @@ Object {
     },
     "novyMezicas": Object {
       "cyklo": Object {
+        "cas": "",
         "showing": false,
       },
       "koloběžka": Object {
+        "cas": "",
         "showing": false,
       },
       "maraton": Object {
+        "cas": "",
         "showing": false,
       },
       "půlmaraton": Object {
+        "cas": "",
         "showing": false,
       },
     },
@@ -286,15 +294,19 @@ Object {
     },
     "novyMezicas": Object {
       "cyklo": Object {
+        "cas": "",
         "showing": false,
       },
       "koloběžka": Object {
+        "cas": "",
         "showing": false,
       },
       "maraton": Object {
+        "cas": "",
         "showing": false,
       },
       "půlmaraton": Object {
+        "cas": "",
         "showing": false,
       },
     },
