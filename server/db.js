@@ -12,8 +12,8 @@ mongoose.Promise = global.Promise;
 
 class DB {
   async connect() {
-    const { uri, ...configOptions } = config.db;
-    this.options = { ...configOptions, useMongoClient: true };
+    const { uri, ...options } = config.db;
+    this.options = options;
 
     await this.reconnect();
   }
