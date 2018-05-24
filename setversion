@@ -21,17 +21,21 @@ const replaceInFile = (filename, regexp, replacement) => {
 };
 
 const jsonFiles = ['package.json', 'package-lock.json', 'ui/package.json', 'ui/package-lock.json'];
-const snapFiles = ['ui/src/App/__snapshots__/About.test.js.snap']
+const snapFiles = ['ui/src/App/__snapshots__/About.test.js.snap'];
 
 const main = async () => {
   logger.info(`Setting version to ${version}.`);
-  jsonFiles.forEach(async file => await updater(file).set('version', version) );
-  snapFiles.forEach(file => replaceInFile(file,
-    /^(\s*)Verze:(\s*)\n(\s*)\S+(\s*)$/m,
-    `$1Verze:$2\n$3${version}$4`
-  ));
 
-  execSync(`git commit -m "Bump version number to ${version}." ${jsonFiles.join(' ')} ${snapFiles.join(' ')}`);
+  await Promise.all(jsonFiles.map(jsonFile => updater(jsonFile).set('version', version)));
+  snapFiles.forEach(file =>
+    replaceInFile(file, /^(\s*)Verze:(\s*)\n(\s*)\S+(\s*)$/m, `$1Verze:$2\n$3${version}$4`)
+  );
+
+  execSync(
+    `git commit -m "Bump version number to ${version}." -- ${jsonFiles.join(' ')} ${snapFiles.join(
+      ' '
+    )}`
+  );
   execSync(`git tag ${version}`);
 };
 
