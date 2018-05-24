@@ -1,5 +1,6 @@
 import { CODE_OK, deleteVykon as deleteVykonAPI, saveVykon } from '../../common';
 import { AKTUALNI_ROK } from '../../constants';
+import { errorToStr } from '../../Util';
 
 export const createVykonRequest = ({ id, rok }) => ({
   type: 'STARTUJICI_CREATE_VYKON_REQUEST',
@@ -12,7 +13,7 @@ export const createVykonError = ({ code, status, err, ...rest }) => ({
   type: 'STARTUJICI_CREATE_VYKON_ERROR',
   code,
   status,
-  err,
+  err: errorToStr(err),
   ...rest,
   receivedAt: Date.now()
 });
@@ -56,7 +57,7 @@ export const deleteVykonError = ({ code, status, err, ...rest }) => ({
   type: 'STARTUJICI_DELETE_VYKON_ERROR',
   code,
   status,
-  err,
+  err: errorToStr(err),
   ...rest,
   receivedAt: Date.now()
 });

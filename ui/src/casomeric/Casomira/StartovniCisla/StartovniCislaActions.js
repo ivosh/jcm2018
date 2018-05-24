@@ -1,6 +1,6 @@
 import { saveVykon as saveVykonAPI, CODE_OK, CODE_TOKEN_INVALID } from '../../../common';
 import { AKTUALNI_ROK } from '../../../constants';
-import { findDokonceno } from '../../../Util';
+import { errorToStr, findDokonceno } from '../../../Util';
 import { authTokenExpired } from '../../../auth/SignIn/SignInActions';
 import startovniCislaReducer from './startovniCislaReducer';
 
@@ -48,7 +48,7 @@ const saveVykonError = ({ code, status, err }, typ) => ({
   type: 'CASOMIRA_SAVE_VYKON_ERROR',
   code,
   status,
-  err,
+  err: errorToStr(err),
   typ,
   receivedAt: Date.now()
 });

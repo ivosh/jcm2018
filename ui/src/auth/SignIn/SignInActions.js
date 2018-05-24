@@ -1,5 +1,6 @@
 import jwtDecode from 'jwt-decode';
 import { CODE_OK, CODE_NONCE_MISMATCH, signIn as signInAction } from '../../common';
+import { errorToStr } from '../../Util';
 import { fetchRocniky } from '../../entities/rocniky/rocnikyActions';
 
 export const hideError = () => ({ type: 'SIGN_IN_HIDE_ERROR' });
@@ -32,7 +33,7 @@ export const signInError = ({ code, status, err, ...rest }) => ({
   type: 'SIGN_IN_ERROR',
   code,
   status,
-  err,
+  err: errorToStr(err),
   ...rest,
   receivedAt: Date.now()
 });

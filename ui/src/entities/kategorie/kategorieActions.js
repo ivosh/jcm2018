@@ -1,3 +1,5 @@
+import { errorToStr } from '../../Util';
+
 export const fetchKategorieSuccess = json => ({
   type: 'FETCH_KATEGORIE_SUCCESS',
   data: json.response.kategorie,
@@ -9,6 +11,6 @@ export const fetchKategorieError = ({ code, status, err }) => ({
   type: 'FETCH_KATEGORIE_ERROR',
   code,
   status,
-  err,
+  err: errorToStr(err),
   receivedAt: Date.now()
 });

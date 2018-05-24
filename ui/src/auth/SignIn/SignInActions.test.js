@@ -91,7 +91,7 @@ it('signIn() should dispatch two unsuccessful actions on error', async () => {
     expect.objectContaining({
       type: 'SIGN_IN_ERROR',
       code: 'internal error',
-      err: new Error('Parse error!')
+      err: 'Error: Parse error!'
     })
   );
 });

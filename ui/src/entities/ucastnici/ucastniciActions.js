@@ -1,4 +1,5 @@
 import { CODE_OK, CODE_TOKEN_INVALID, findAllUcastnici } from '../../common';
+import { errorToStr } from '../../Util';
 import { fetchRocniky } from '../rocniky/rocnikyActions';
 import { authTokenExpired } from '../../auth/SignIn/SignInActions';
 
@@ -24,7 +25,7 @@ export const fetchUcastniciError = ({ code, status, err }) => ({
   type: 'FETCH_UCASTNICI_ERROR',
   code,
   status,
-  err,
+  err: errorToStr(err),
   receivedAt: Date.now()
 });
 

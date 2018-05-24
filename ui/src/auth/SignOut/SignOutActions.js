@@ -1,4 +1,5 @@
 import { CODE_OK, signOut as signOutAction } from '../../common';
+import { errorToStr } from '../../Util';
 
 export const signOutRequest = () => ({
   type: 'SIGN_OUT_REQUEST'
@@ -13,7 +14,7 @@ export const signOutError = ({ code, status, err, ...rest }) => ({
   type: 'SIGN_OUT_ERROR',
   code,
   status,
-  err,
+  err: errorToStr(err),
   ...rest,
   receivedAt: Date.now()
 });

@@ -1,4 +1,5 @@
 import { saveStopky as saveStopkyAPI, CODE_OK, CODE_TOKEN_INVALID } from '../../../common';
+import { errorToStr } from '../../../Util';
 import { authTokenExpired } from '../../../auth/SignIn/SignInActions';
 import stopkyProTypReducer, { getStopkyByTyp } from './stopkyProTypReducer';
 
@@ -39,7 +40,7 @@ const saveStopkyError = ({ code, status, err }, typ) => ({
   type: 'SAVE_STOPKY_ERROR',
   code,
   status,
-  err,
+  err: errorToStr(err),
   typ,
   receivedAt: Date.now()
 });

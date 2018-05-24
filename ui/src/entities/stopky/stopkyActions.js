@@ -1,4 +1,5 @@
 import { CODE_OK, CODE_TOKEN_INVALID, findAllStopky } from '../../common';
+import { errorToStr } from '../../Util';
 import { authTokenExpired } from '../../auth/SignIn/SignInActions';
 
 export const fetchStopkyRequest = () => ({ type: 'FETCH_STOPKY_REQUEST' });
@@ -21,7 +22,7 @@ const fetchStopkyError = ({ code, status, err }) => ({
   type: 'FETCH_STOPKY_ERROR',
   code,
   status,
-  err,
+  err: errorToStr(err),
   receivedAt: Date.now()
 });
 

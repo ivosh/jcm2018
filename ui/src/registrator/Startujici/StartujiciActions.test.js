@@ -113,7 +113,7 @@ it('createVykon() should dispatch two unsuccessful actions on error', async () =
     expect.objectContaining({
       type: 'STARTUJICI_CREATE_VYKON_ERROR',
       code: 'internal error',
-      err: new Error('Parse error!')
+      err: 'Error: Parse error!'
     })
   );
 });
@@ -173,7 +173,7 @@ it('deleteVykon() should dispatch two unsuccessful actions on error', async () =
     expect.objectContaining({
       type: 'STARTUJICI_DELETE_VYKON_ERROR',
       code: 'internal error',
-      err: new Error('Parse error!')
+      err: 'Error: Parse error!'
     })
   );
 });

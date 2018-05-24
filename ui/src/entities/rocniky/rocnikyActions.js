@@ -1,4 +1,5 @@
 import { CODE_OK, CODE_TOKEN_INVALID, findAllRocniky } from '../../common';
+import { errorToStr } from '../../Util';
 import { fetchKategorieSuccess, fetchKategorieError } from '../kategorie/kategorieActions';
 import { authTokenExpired } from '../../auth/SignIn/SignInActions';
 
@@ -24,7 +25,7 @@ const fetchRocnikyError = ({ code, status, err }) => ({
   type: 'FETCH_ROCNIKY_ERROR',
   code,
   status,
-  err,
+  err: errorToStr(err),
   receivedAt: Date.now()
 });
 

@@ -7,6 +7,7 @@ import {
   ubytovaniPrihlasit
 } from '../../common';
 import { AKTUALNI_ROK } from '../../constants';
+import { errorToStr } from '../../Util';
 
 export const changeUbytovani = () => ({
   type: 'UBYTOVANI_CHANGE_UBYTOVANI'
@@ -23,7 +24,7 @@ export const saveUbytovaniError = ({ code, status, err, ...rest }) => ({
   type: 'UBYTOVANI_SAVE_ERROR',
   code,
   status,
-  err,
+  err: errorToStr(err),
   ...rest,
   receivedAt: Date.now()
 });

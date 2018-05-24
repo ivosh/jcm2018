@@ -95,3 +95,7 @@ export const dokoncene = {
 
 export const findDokonceno = value =>
   Object.values(dokoncene).find(item => item.value === value) || dokoncene['na-trase'];
+
+/* ---------------------------------------------------------------------------------------------- */
+
+export const errorToStr = err => (err && err.toString ? err.toString() : err);

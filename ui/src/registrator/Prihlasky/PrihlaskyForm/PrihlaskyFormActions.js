@@ -7,6 +7,7 @@ import {
   saveUdaje
 } from '../../../common';
 import { AKTUALNI_ROK, PRIHLASKY_SAVE_MODAL_TIMEOUT } from '../../../constants';
+import { errorToStr } from '../../../Util';
 import { authTokenExpired } from '../../../auth/SignIn/SignInActions';
 import { inputChanged as genericInputChanged } from '../Input/InputActions';
 import { formValid } from './prihlaskyFormReducer';
@@ -71,7 +72,7 @@ export const saveUcastError = ({ code, status, err, ...rest }) => ({
   type: 'PRIHLASKY_SAVE_ERROR',
   code,
   status,
-  err,
+  err: errorToStr(err),
   ...rest,
   receivedAt: Date.now()
 });
