@@ -7,7 +7,8 @@ export const initialState = {
   base: null, // a Date when running
   delta: zeroDuration, // a duration when not running
   mezicasy: [], // Mezicas = { cas, korekce }
-  running: false
+  running: false,
+  typ: null // supplied by the caller
 };
 
 const sortByCas = mezicasy =>
@@ -25,7 +26,7 @@ const addCasAndSort = (input, cas) => {
 const stopkyProTypReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'STOPKY_RESET':
-      return { ...initialState };
+      return { ...initialState, typ: state.typ };
     case 'STOPKY_START':
       if (!state.running) {
         const base = new Date(

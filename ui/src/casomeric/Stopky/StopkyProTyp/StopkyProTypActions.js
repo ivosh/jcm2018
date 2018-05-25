@@ -48,7 +48,6 @@ const saveStopkyError = ({ code, status, err }, typ) => ({
 export const saveStopky = ({ action, typ }) => async (dispatch, getState, wsClient) => {
   const state = getState();
   const stopky = stopkyProTypReducer(getStopkyByTyp({ state, typ }), action);
-  stopky.typ = typ;
   dispatch(saveStopkyRequest({ action, stopky, typ }));
 
   try {

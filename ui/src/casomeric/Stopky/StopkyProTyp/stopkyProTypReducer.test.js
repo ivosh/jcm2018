@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import stopkyProTypReducer, { getRozdily } from './stopkyProTypReducer';
-import { stopkyChange, stopkyStart, stopkyStop } from './StopkyProTypActions';
+import { stopkyChange, stopkyReset, stopkyStart, stopkyStop } from './StopkyProTypActions';
 
 it('na začátku', () => {
   const stateBefore = undefined;
@@ -57,6 +57,14 @@ it('po restartu', () => {
   deepFreeze(stateBefore);
 
   expect(stopkyProTypReducer(stateBefore, stopkyStart({ now }))).toEqual(stateAfter);
+});
+
+it('po resetu', () => {
+  const stateBefore = { running: false, base: null, delta: 'PT0H15M03.01S', typ: 'maraton' };
+  const stateAfter = { running: false, base: null, delta: 'P0D', mezicasy: [], typ: 'maraton' };
+  deepFreeze(stateBefore);
+
+  expect(stopkyProTypReducer(stateBefore, stopkyReset())).toEqual(stateAfter);
 });
 
 it('add time step when running', () => {
