@@ -23,7 +23,7 @@
     "test": "npm run test:server -- && cd ui/ && npm test && cd ..",
     "prettier:server": "prettier --write '{common,server}/**/*.js' && prettier --write 'setversion'",
     "prettier": "npm run prettier:server && cd ui/ && npm run prettier && cd ..",
-    "lint:server": "eslint common server",
+    "lint:server": "eslint common server setversion",
     "lint": "npm run lint:server; cd ui/ && npm run lint",
     "coverage": "NODE_ENV=test LOG_LEVEL=error jest --env=node --runInBand --coverage common/ server/ && cd ui/ && npm run coverage && cd ..",
     "coverage:report": "npm run coverage && codecov",
@@ -55,7 +55,7 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.8.2",
     "jest": "^21.2.1",
-    "jscodeshift": "^0.4.1",
+    "jscodeshift": "^0.5.0",
     "jsonfile-updater": "^3.1.0",
     "prettier": "^1.12.1",
     "supertest": "^3.1.0"

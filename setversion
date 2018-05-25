@@ -8,6 +8,7 @@ const { execSync } = require('child_process');
    Usage: node ./setversion */
 
 const fs = require('fs');
+// eslint-disable-next-line import/no-extraneous-dependencies
 const updater = require('jsonfile-updater');
 const logger = require('./server/logger');
 
