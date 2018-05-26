@@ -2,7 +2,7 @@ import deepFreeze from 'deep-freeze';
 import { ubytovaniNeprespano } from '../../common';
 import { websocketDisconnected } from '../../App/AppActions';
 import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
-import { saveUcastSuccess } from '../../registrator/Prihlasky/PrihlaskyForm/PrihlaskyFormActions';
+import { saveUcastSuccess } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
 import {
   createVykonSuccess,
   deleteVykonSuccess

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import prihlaseniReducer from './Prihlaseni/prihlaseniReducer';
-import prihlaskyReducer from './Prihlasky/prihlaskyReducer';
+import prihlaskyReducer from './PrihlaskyDohlasky/prihlaskyReducer';
 import startovniCislaReducer from './StartovniCisla/startovniCislaReducer';
 import ubytovaniReducer from './Ubytovani/ubytovaniReducer';
 import ucastniciDigestReducer from './UcastniciDigest/ucastniciDigestReducer';

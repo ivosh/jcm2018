@@ -11,7 +11,7 @@ import About from './About';
 import CasomiryContainer from '../casomeric/Casomira/Casomiry/CasomiryContainer';
 import Main from './Main';
 import PrihlaseniContainer from '../registrator/Prihlaseni/PrihlaseniContainer';
-import Prihlasky from '../registrator/Prihlasky/Prihlasky';
+import Prihlasky from '../registrator/PrihlaskyDohlasky/Prihlasky';
 import SignInContainer from '../auth/SignIn/SignInContainer';
 import SignOutContainer from '../auth/SignOut/SignOutContainer';
 import StartovniCislaContainer from '../registrator/StartovniCisla/StartovniCislaContainer';
