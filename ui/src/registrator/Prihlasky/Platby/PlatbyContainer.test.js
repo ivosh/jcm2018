@@ -12,7 +12,7 @@ const state = {
     prihlasky: {
       form: {
         validatePlatba: false,
-        prihlaska: { typ: 'cyklo' },
+        prihlaska: { datum: '2018-05-01T00:00:00.000Z', typ: 'cyklo' },
         platby: [
           {
             castka: 200,

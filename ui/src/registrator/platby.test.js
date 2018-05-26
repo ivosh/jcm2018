@@ -29,3 +29,23 @@ it('predepsaneStartovne() - po slevě 100 Kč', () => {
 
   expect(predepsaneStartovne({ ...ucastniciTestData.entities, prihlaska })).toEqual(expected);
 });
+
+it('predepsaneStartovne() - přihláška předem', () => {
+  const prihlaska = { typ: 'maraton', datum: new Date('2018-05-24').toJSON() };
+  const expected = { polozky: [{ castka: 200, duvod: 'předem' }], suma: 200 };
+
+  expect(predepsaneStartovne({ ...ucastniciTestData.entities, prihlaska })).toEqual(expected);
+});
+
+it('predepsaneStartovne() - přihláška bez data', () => {
+  const prihlaska = { typ: 'maraton' };
+  const expected = { polozky: [{ castka: 250, duvod: 'na místě' }], suma: 250 };
+
+  expect(predepsaneStartovne({ ...ucastniciTestData.entities, prihlaska })).toEqual(expected);
+});
+it('predepsaneStartovne() - přihláška na místě', () => {
+  const prihlaska = { typ: 'maraton', datum: new Date('2018-06-09').toJSON() };
+  const expected = { polozky: [{ castka: 250, duvod: 'na místě' }], suma: 250 };
+
+  expect(predepsaneStartovne({ ...ucastniciTestData.entities, prihlaska })).toEqual(expected);
+});

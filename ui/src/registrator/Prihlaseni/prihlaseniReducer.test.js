@@ -163,7 +163,7 @@ it('getPrihlaseniSorted() by default', () => {
       startCislo: 17,
       kod: '10728864',
       zaplaceno: 250,
-      predepsano: 200
+      predepsano: 250
     },
     {
       id: '8344bc71dec1e99b7e1d01e',
@@ -201,7 +201,7 @@ it('getPrihlaseniSorted() by default', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 100,
-      predepsano: 200
+      predepsano: 250
     }
   ];
   deepFreeze(state);
@@ -243,7 +243,7 @@ it('getPrihlaseniSorted() filtrováno na z', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 100,
-      predepsano: 200
+      predepsano: 250
     }
   ];
   deepFreeze(state);
@@ -285,7 +285,7 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       startCislo: 17,
       kod: '10728864',
       zaplaceno: 250,
-      predepsano: 200
+      predepsano: 250
     },
     {
       id: '8344bc71dec1e99b7e1d01e',
@@ -323,7 +323,7 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 100,
-      predepsano: 200
+      predepsano: 250
     }
   ];
   deepFreeze(state);

@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { AKTUALNI_ROK, DEN_ZAVODU } from '../constants';
+import { AKTUALNI_ROK } from '../constants';
 import { getTypKategorie } from '../entities/rocniky/rocnikyReducer';
 
 export const provedenePlatby = platby => {
@@ -28,12 +28,17 @@ export const predepsaneStartovne = ({ kategorie, prihlaska, rocniky, rok = AKTUA
   const typKategorieRocniku = getTypKategorie({ rok, typ, rocniky });
   const { startovne } = typKategorieRocniku;
   const polozky = [];
-  if (prihlaska && prihlaska.startovnePoSleve >= 0) {
+  if (prihlaska.startovnePoSleve >= 0) {
     polozky.push({ castka: prihlaska.startovnePoSleve, duvod: 'po slevě' });
-  } else if (DEN_ZAVODU) {
-    polozky.push({ castka: startovne.naMiste, duvod: 'na místě' });
   } else {
-    polozky.push({ castka: startovne.predem, duvod: 'předem' });
+    const datumKonani = rocniky.byRoky[rok].datum;
+    const datumPrihlaseni = prihlaska.datum;
+
+    if (new Date(datumPrihlaseni).getTime() < new Date(datumKonani).getTime()) {
+      polozky.push({ castka: startovne.predem, duvod: 'předem' });
+    } else {
+      polozky.push({ castka: startovne.naMiste, duvod: 'na místě' });
+    }
   }
   if (startovne.zaloha) {
     polozky.push({ castka: startovne.zaloha, duvod: 'záloha' });
