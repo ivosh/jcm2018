@@ -14,6 +14,8 @@ const loadState = () => {
     }
     return JSON.parse(serializedState);
   } catch (err) {
+    // :TODO: think about how to report the problem
+    // eslint-disable-next-line no-console
     console.log('Problem while loading app state from the local storage', err);
     return undefined;
   }
@@ -24,6 +26,8 @@ const saveState = state => {
     const serializedState = JSON.stringify(state);
     localStorage.setItem('state', serializedState);
   } catch (err) {
+    // :TODO: think about how to report the problem
+    // eslint-disable-next-line no-console
     console.log('Problem while storing app state to the local storage', err);
   }
 };

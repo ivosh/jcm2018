@@ -78,7 +78,6 @@ class WsClient {
   };
 
   retryConnect = request => {
-    console.log('WebSocket client connect retry.');
     this.ws = null;
     setTimeout(() => this.connectPrivate(request), this.reconnectInterval);
   };
