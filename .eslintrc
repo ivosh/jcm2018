@@ -22,7 +22,9 @@
 
   globals: {
     document: true,
+    fetch: true,
     localStorage: true,
+    URL: true,
     WebSocket: true,
     window: true
   },
