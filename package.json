@@ -38,7 +38,7 @@
     "moment": "^2.22.1",
     "mongoose": "^5.1.2",
     "mongoose-unique-array": "^0.2.0",
-    "node": "^9.11.0",
+    "node": "^10.2.0",
     "websocket": "^1.0.26",
     "websocket-as-promised": "^0.6.0",
     "winston": "^3.0.0-rc5",
