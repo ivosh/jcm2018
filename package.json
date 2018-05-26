@@ -54,7 +54,7 @@
     "eslint-plugin-jasmine": "^2.10.1",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.8.2",
-    "jest": "^21.2.1",
+    "jest": "^23.0.0",
     "jscodeshift": "^0.5.0",
     "jsonfile-updater": "^3.1.0",
     "prettier": "^1.12.1",
