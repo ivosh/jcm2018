@@ -11,7 +11,7 @@
     "url": "https://github.com/ivosh/jcm2018.git"
   },
   "engines": {
-    "node": "9.x"
+    "node": "10.x"
   },
   "cacheDirectories": [
     "node_modules",
