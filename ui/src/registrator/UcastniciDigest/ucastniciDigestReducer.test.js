@@ -2,10 +2,14 @@ import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { SortDirTypes } from '../../sort';
 import ucastniciDigestReducer, { getUcastniciDigestSorted } from './ucastniciDigestReducer';
-import { kategorieFilterChange, textFilterChange } from '../Filterable/FilterableActions';
+import {
+  kategorieFilterChange as genericKategorieFilterChange,
+  textFilterChange
+} from '../Filterable/FilterableActions';
 import { sortDirChange } from '../UcastniciTable/UcastniciTableActions';
 
 const actionPrefix = 'UCASTNICI_DIGEST';
+const kategorieFilterChange = genericKategorieFilterChange(actionPrefix);
 
 it('na začátku', () => {
   const stateBefore = undefined;
@@ -87,9 +91,9 @@ it('zapnout filtrování podle kategorie výkonu', () => {
   const stateAfter = { ...stateBefore, kategorieFilter: 'půlmaraton' };
   deepFreeze(stateBefore);
 
-  expect(
-    ucastniciDigestReducer(stateBefore, kategorieFilterChange(actionPrefix, 'půlmaraton'))
-  ).toEqual(stateAfter);
+  expect(ucastniciDigestReducer(stateBefore, kategorieFilterChange('půlmaraton'))).toEqual(
+    stateAfter
+  );
 });
 
 it('vypnout filtrování podle kategorie výkonu', () => {
@@ -102,9 +106,9 @@ it('vypnout filtrování podle kategorie výkonu', () => {
   const stateAfter = { ...stateBefore, kategorieFilter: '' };
   deepFreeze(stateBefore);
 
-  expect(
-    ucastniciDigestReducer(stateBefore, kategorieFilterChange(actionPrefix, 'půlmaraton'))
-  ).toEqual(stateAfter);
+  expect(ucastniciDigestReducer(stateBefore, kategorieFilterChange('půlmaraton'))).toEqual(
+    stateAfter
+  );
 });
 
 it('přeppnout filtrování podle kategorie výkonu', () => {
@@ -117,9 +121,7 @@ it('přeppnout filtrování podle kategorie výkonu', () => {
   const stateAfter = { ...stateBefore, kategorieFilter: 'pěší' };
   deepFreeze(stateBefore);
 
-  expect(ucastniciDigestReducer(stateBefore, kategorieFilterChange(actionPrefix, 'pěší'))).toEqual(
-    stateAfter
-  );
+  expect(ucastniciDigestReducer(stateBefore, kategorieFilterChange('pěší'))).toEqual(stateAfter);
 });
 
 it('filtrovat na dvě písmena', () => {

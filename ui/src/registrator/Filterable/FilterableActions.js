@@ -1,4 +1,4 @@
-export const kategorieFilterChange = (actionPrefix, typKategorie) => ({
+export const kategorieFilterChange = actionPrefix => typKategorie => ({
   type: `${actionPrefix}_KATEGORIE_FILTER_CHANGE`,
   typKategorie
 });
