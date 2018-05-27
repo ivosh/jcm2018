@@ -10,12 +10,7 @@ let routeOnSelect;
 let store;
 let wrapper;
 beforeEach(() => {
-  const state = {
-    ...ucastniciTestData,
-    registrator: {
-      prihlasky: {}
-    }
-  };
+  const state = { ...ucastniciTestData };
   store = mockStore(state);
   store.dispatch = jest.fn();
   routeOnSelect = jest.fn();
