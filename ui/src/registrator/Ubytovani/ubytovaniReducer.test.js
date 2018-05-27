@@ -2,12 +2,12 @@ import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { SortDirTypes } from '../../sort';
 import { textFilterChange as genericTextFilterChange } from '../Filterable/FilterableActions';
-import { sortDirChange } from '../UcastniciTable/UcastniciTableActions';
+import { sortDirChange as genericSortDirChange } from '../UcastniciTable/UcastniciTableActions';
 import { changeUbytovani, saveUbytovaniRequest, saveUbytovaniSuccess } from './UbytovaniActions';
 import ubytovaniReducer, { getUbytovaniSorted } from './ubytovaniReducer';
 
-const actionPrefix = 'UBYTOVANI';
-const textFilterChange = genericTextFilterChange(actionPrefix);
+const sortDirChange = genericSortDirChange('UBYTOVANI');
+const textFilterChange = genericTextFilterChange('UBYTOVANI');
 
 it('na začátku', () => {
   const stateBefore = undefined;
@@ -71,9 +71,7 @@ it('řadit dle příjmení vzestupně', () => {
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC };
   deepFreeze(stateBefore);
 
-  expect(ubytovaniReducer(stateBefore, sortDirChange(actionPrefix, 'prijmeni'))).toEqual(
-    stateAfter
-  );
+  expect(ubytovaniReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
 });
 
 it('řadit dle příjmení sestupně', () => {
@@ -86,9 +84,7 @@ it('řadit dle příjmení sestupně', () => {
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.DESC };
   deepFreeze(stateBefore);
 
-  expect(ubytovaniReducer(stateBefore, sortDirChange(actionPrefix, 'prijmeni'))).toEqual(
-    stateAfter
-  );
+  expect(ubytovaniReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
 });
 
 it('řadit dle příjmení zase vzestupně', () => {
@@ -101,9 +97,7 @@ it('řadit dle příjmení zase vzestupně', () => {
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC };
   deepFreeze(stateBefore);
 
-  expect(ubytovaniReducer(stateBefore, sortDirChange(actionPrefix, 'prijmeni'))).toEqual(
-    stateAfter
-  );
+  expect(ubytovaniReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
 });
 
 it('řadit dle jména vzestupně', () => {
@@ -116,7 +110,7 @@ it('řadit dle jména vzestupně', () => {
   const stateAfter = { ...stateBefore, sortColumn: 'jmeno', sortDir: SortDirTypes.ASC };
   deepFreeze(stateBefore);
 
-  expect(ubytovaniReducer(stateBefore, sortDirChange(actionPrefix, 'jmeno'))).toEqual(stateAfter);
+  expect(ubytovaniReducer(stateBefore, sortDirChange('jmeno'))).toEqual(stateAfter);
 });
 
 it('filtrovat na dvě písmena', () => {

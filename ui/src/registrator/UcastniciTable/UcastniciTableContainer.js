@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { actionPrefix } = ownProps;
 
   return {
-    onSortDirChange: sortCol => dispatch(sortDirChange(actionPrefix, sortCol))
+    onSortDirChange: sortCol => dispatch(sortDirChange(actionPrefix)(sortCol))
   };
 };
 
