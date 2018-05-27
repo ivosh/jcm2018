@@ -29,10 +29,10 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const PlatbyInputContainer = connect(mapStateToProps, {})(InputContainer);
+const NovaPlatbaInputContainer = connect(mapStateToProps, {})(InputContainer);
 
-PlatbyInputContainer.propTypes = {
+NovaPlatbaInputContainer.propTypes = {
   name: PropTypes.string.isRequired
 };
 
-export default PlatbyInputContainer;
+export default NovaPlatbaInputContainer;
