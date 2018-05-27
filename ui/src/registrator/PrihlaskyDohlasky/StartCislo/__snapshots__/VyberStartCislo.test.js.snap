@@ -1,11 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Renderer - nevybrané; někdo jiný 1`] = `
+<div
+  className="StartovniCislaProTyp__grid"
+>
+  <div
+    className="StartovniCislaProTyp__item VyberStartCislo-zabrane"
+    onClick={undefined}
+  >
+    7
+  </div>
+  <div
+    className="StartovniCislaProTyp__item VyberStartCislo-volne"
+    onClick={[Function]}
+  >
+    10
+  </div>
+</div>
+`;
+
+exports[`Renderer - vybrané 1`] = `
+<div
+  className="StartovniCislaProTyp__grid"
+>
+  <div
+    className="StartovniCislaProTyp__item VyberStartCislo-vybrane"
+    onClick={[Function]}
+  >
+    7
+  </div>
+  <div
+    className="StartovniCislaProTyp__item VyberStartCislo-volne"
+    onClick={[Function]}
+  >
+    10
+  </div>
+</div>
+`;
+
 exports[`Renderer 1`] = `
 <div
   className="StartovniCislaProTyp__grid"
 >
   <div
     className="StartovniCislaProTyp__item VyberStartCislo-zabrane"
+    onClick={undefined}
   >
     7
   </div>

@@ -7,10 +7,13 @@ import StartCisloInput from './StartCisloInput';
 const mapStateToProps = (state, ownProps) => {
   const { reduxName } = ownProps;
 
-  const typ = state.registrator[reduxName].form.prihlaska.typ || '';
+  const {
+    ucastnikId: vybraneId,
+    prihlaska: { startCislo: vybraneStartCislo, typ = '' }
+  } = state.registrator[reduxName].form;
   const { showing } = state.registrator[reduxName].startCislo;
 
-  return { showing, typ, ...ownProps };
+  return { showing, vybraneId, vybraneStartCislo, typ, ...ownProps };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {

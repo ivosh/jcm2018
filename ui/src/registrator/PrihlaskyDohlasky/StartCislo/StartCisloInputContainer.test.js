@@ -12,7 +12,8 @@ beforeEach(() => {
     registrator: {
       prihlasky: {
         form: {
-          prihlaska: { typ: 'maraton' }
+          ucastnikId: '874647ab4857dc',
+          prihlaska: { startCislo: 12, typ: 'maraton' }
         },
         startCislo: {
           showing: false
@@ -38,6 +39,8 @@ it('maps state and dispatch to props', () => {
   expect(wrapper.props().enabled).toBe(true);
   expect(wrapper.props().showing).toBe(false);
   expect(wrapper.props().typ).toEqual('maraton');
+  expect(wrapper.props().vybraneId).toEqual('874647ab4857dc');
+  expect(wrapper.props().vybraneStartCislo).toEqual(12);
   expect(wrapper.props().inputRef).toEqual(expect.any(Function));
   expect(wrapper.props().onChange).toEqual(expect.any(Function));
 });

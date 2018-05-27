@@ -3,9 +3,18 @@
   color: black;
 }
 
+.VyberStartCislo-volne,
+.VyberStartCislo-vybrane {
+  cursor: pointer;
+  font-weight: 550;
+}
+
 .VyberStartCislo-volne {
   background-color: #0e7235;
   color: white;
-  cursor: pointer;
-  font-weight: 550;
+}
+
+.VyberStartCislo-vybrane {
+  background-color: #eadf44;
+  color: black;
 }

@@ -23,6 +23,35 @@ it('Renderer', () => {
   expect(component.toJSON()).toMatchSnapshot();
 });
 
+it('Renderer - vybrané', () => {
+  const startovniCisla = [{ id: '10', startCislo: 7 }, { startCislo: 10 }];
+
+  const component = renderer.create(
+    <StartovniCislaProTyp
+      startovniCisla={startovniCisla}
+      vybraneStartCislo={7}
+      Renderer={Renderer}
+      onSelect={jest.fn()}
+    />
+  );
+  expect(component.toJSON()).toMatchSnapshot();
+});
+
+it('Renderer - nevybrané; někdo jiný', () => {
+  const startovniCisla = [{ id: '10', startCislo: 7 }, { startCislo: 10 }];
+
+  const component = renderer.create(
+    <StartovniCislaProTyp
+      startovniCisla={startovniCisla}
+      vybraneId="11"
+      vybraneStartCislo={7}
+      Renderer={Renderer}
+      onSelect={jest.fn()}
+    />
+  );
+  expect(component.toJSON()).toMatchSnapshot();
+});
+
 it('Renderer - onClick', () => {
   const startovniCisla = [{ startCislo: 10 }];
   const onSelect = jest.fn();

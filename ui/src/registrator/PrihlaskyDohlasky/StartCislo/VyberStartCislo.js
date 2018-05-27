@@ -3,32 +3,39 @@ import PropTypes from 'prop-types';
 import StartovniCislaProTypContainer from '../../../shared/StartovniCislaProTyp/StartovniCislaProTypContainer';
 import './VyberStartCislo.css';
 
-export const Renderer = ({ id, startCislo, onSelect }) =>
-  id ? (
-    <div className="StartovniCislaProTyp__item VyberStartCislo-zabrane" key={startCislo}>
-      {startCislo}
-    </div>
-  ) : (
+export const Renderer = ({ id, startCislo, vybraneId, vybraneStartCislo, onSelect }) => {
+  const vybrane = startCislo === vybraneStartCislo && (!vybraneId || vybraneId === id);
+  const zabrane = !!id;
+
+  // eslint-disable-next-line no-nested-ternary
+  const className = vybrane ? 'vybrane' : zabrane ? 'zabrane' : 'volne';
+  const onClick = vybrane || !zabrane ? () => onSelect(startCislo) : undefined;
+  return (
     <div
-      className="StartovniCislaProTyp__item VyberStartCislo-volne"
+      className={`StartovniCislaProTyp__item VyberStartCislo-${className}`}
       key={startCislo}
-      onClick={() => onSelect(startCislo)}
+      onClick={onClick}
     >
       {startCislo}
     </div>
   );
+};
 
 Renderer.propTypes = {
   id: PropTypes.string,
   startCislo: PropTypes.number.isRequired,
+  vybraneId: PropTypes.string,
+  vybraneStartCislo: PropTypes.number,
   onSelect: PropTypes.func.isRequired
 };
 
-const VyberStartCislo = ({ typ, onSelect }) => (
+const VyberStartCislo = ({ typ, vybraneId, vybraneStartCislo, onSelect }) => (
   <StartovniCislaProTypContainer
     jenStartujici={false}
     odstartovani={false}
     typ={typ}
+    vybraneId={vybraneId}
+    vybraneStartCislo={vybraneStartCislo}
     Renderer={Renderer}
     onSelect={onSelect}
   />
@@ -36,6 +43,8 @@ const VyberStartCislo = ({ typ, onSelect }) => (
 
 VyberStartCislo.propTypes = {
   typ: PropTypes.string.isRequired,
+  vybraneId: PropTypes.string,
+  vybraneStartCislo: PropTypes.number,
   onSelect: PropTypes.func.isRequired
 };
 

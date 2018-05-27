@@ -10,6 +10,8 @@ const StartCisloInput = ({
   showing,
   typ,
   value,
+  vybraneId,
+  vybraneStartCislo,
   inputRef,
   onChange,
   onHide,
@@ -29,7 +31,12 @@ const StartCisloInput = ({
         <Modal.Title>Výběr startovního čísla</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <VyberStartCislo typ={typ} onSelect={onSelect} />
+        <VyberStartCislo
+          typ={typ}
+          vybraneId={vybraneId}
+          vybraneStartCislo={vybraneStartCislo}
+          onSelect={onSelect}
+        />
       </Modal.Body>
       <Modal.Footer>
         <Button bsStyle="primary" onClick={onHide}>
@@ -55,6 +62,8 @@ StartCisloInput.propTypes = {
   showing: PropTypes.bool.isRequired,
   typ: PropTypes.string.isRequired,
   value: PropTypes.string,
+  vybraneId: PropTypes.string,
+  vybraneStartCislo: PropTypes.number,
   inputRef: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   onHide: PropTypes.func.isRequired,
