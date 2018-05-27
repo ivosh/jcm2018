@@ -1,12 +1,13 @@
 import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { SortDirTypes } from '../../sort';
-import { textFilterChange } from '../Filterable/FilterableActions';
+import { textFilterChange as genericTextFilterChange } from '../Filterable/FilterableActions';
 import { sortDirChange } from '../UcastniciTable/UcastniciTableActions';
 import { changeUbytovani, saveUbytovaniRequest, saveUbytovaniSuccess } from './UbytovaniActions';
 import ubytovaniReducer, { getUbytovaniSorted } from './ubytovaniReducer';
 
 const actionPrefix = 'UBYTOVANI';
+const textFilterChange = genericTextFilterChange(actionPrefix);
 
 it('na začátku', () => {
   const stateBefore = undefined;
@@ -128,7 +129,7 @@ it('filtrovat na dvě písmena', () => {
   const stateAfter = { ...stateBefore, textFilter: 'kl' };
   deepFreeze(stateBefore);
 
-  expect(ubytovaniReducer(stateBefore, textFilterChange(actionPrefix, 'Kl'))).toEqual(stateAfter);
+  expect(ubytovaniReducer(stateBefore, textFilterChange('Kl'))).toEqual(stateAfter);
 });
 
 it('getUbytovaniSorted() by default', () => {

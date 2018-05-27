@@ -4,12 +4,13 @@ import { SortDirTypes } from '../../sort';
 import prihlaseniReducer, { getPrihlaseniSorted } from './prihlaseniReducer';
 import {
   kategorieFilterChange as genericKategorieFilterChange,
-  textFilterChange
+  textFilterChange as genericTextFilterChange
 } from '../Filterable/FilterableActions';
 import { sortDirChange } from '../UcastniciTable/UcastniciTableActions';
 
 const actionPrefix = 'PRIHLASENI';
 const kategorieFilterChange = genericKategorieFilterChange(actionPrefix);
+const textFilterChange = genericTextFilterChange(actionPrefix);
 
 it('na začátku', () => {
   const stateBefore = undefined;
@@ -128,7 +129,7 @@ it('filtrovat na dvě písmena', () => {
   const stateAfter = { ...stateBefore, textFilter: 'kl' };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniReducer(stateBefore, textFilterChange(actionPrefix, 'Kl'))).toEqual(stateAfter);
+  expect(prihlaseniReducer(stateBefore, textFilterChange('Kl'))).toEqual(stateAfter);
 });
 
 it('getPrihlaseniSorted() by default', () => {

@@ -3,7 +3,7 @@ export const kategorieFilterChange = actionPrefix => typKategorie => ({
   typKategorie
 });
 
-export const textFilterChange = (actionPrefix, textFilter) => ({
+export const textFilterChange = actionPrefix => textFilter => ({
   type: `${actionPrefix}_TEXT_FILTER_CHANGE`,
   textFilter
 });

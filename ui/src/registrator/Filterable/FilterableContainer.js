@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { actionPrefix } = ownProps;
 
   return {
-    onTextFilterChange: text => dispatch(textFilterChange(actionPrefix, text)),
+    onTextFilterChange: text => dispatch(textFilterChange(actionPrefix)(text)),
     onKategorieFilterChange: typKategorie =>
       dispatch(kategorieFilterChange(actionPrefix)(typKategorie))
   };

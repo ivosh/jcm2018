@@ -4,12 +4,13 @@ import { SortDirTypes } from '../../sort';
 import ucastniciDigestReducer, { getUcastniciDigestSorted } from './ucastniciDigestReducer';
 import {
   kategorieFilterChange as genericKategorieFilterChange,
-  textFilterChange
+  textFilterChange as genericTextFilterChange
 } from '../Filterable/FilterableActions';
 import { sortDirChange } from '../UcastniciTable/UcastniciTableActions';
 
 const actionPrefix = 'UCASTNICI_DIGEST';
 const kategorieFilterChange = genericKategorieFilterChange(actionPrefix);
+const textFilterChange = genericTextFilterChange(actionPrefix);
 
 it('na začátku', () => {
   const stateBefore = undefined;
@@ -111,7 +112,7 @@ it('vypnout filtrování podle kategorie výkonu', () => {
   );
 });
 
-it('přeppnout filtrování podle kategorie výkonu', () => {
+it('přepnout filtrování podle kategorie výkonu', () => {
   const stateBefore = {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
@@ -134,9 +135,7 @@ it('filtrovat na dvě písmena', () => {
   const stateAfter = { ...stateBefore, textFilter: 'kl' };
   deepFreeze(stateBefore);
 
-  expect(ucastniciDigestReducer(stateBefore, textFilterChange(actionPrefix, 'Kl'))).toEqual(
-    stateAfter
-  );
+  expect(ucastniciDigestReducer(stateBefore, textFilterChange('Kl'))).toEqual(stateAfter);
 });
 
 it('getUcastniciDigestSorted() by default', () => {

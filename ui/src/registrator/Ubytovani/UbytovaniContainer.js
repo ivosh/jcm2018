@@ -19,7 +19,7 @@ const mapStateToProps = ({ entities, registrator: { ubytovani } }) => {
 
 const mapDispatchToProps = dispatch => ({
   onAkceSelect: (id, event) => dispatch(saveUbytovani({ id, akce: event.target.value })),
-  onTextFilterChange: text => dispatch(textFilterChange('UBYTOVANI', text)),
+  onTextFilterChange: text => dispatch(textFilterChange('UBYTOVANI')(text)),
   onUbytovaniChange: () => dispatch(changeUbytovani())
 });
 
