@@ -24,7 +24,9 @@ beforeEach(() => {
   store.dispatch = jest.fn();
   wrapper = shallow(
     <StartCisloInputContainer
+      actionPrefix="PRIHLASKY"
       enabled={true}
+      reduxName="prihlasky"
       inputRef={jest.fn()}
       onChange={jest.fn()}
       store={store}

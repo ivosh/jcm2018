@@ -201,6 +201,8 @@ class PrihlaskyForm extends PureComponent {
               inputRef={this.inputRef}
               name="prihlaska.startCislo"
               popisek="číslo"
+              actionPrefix="PRIHLASKY"
+              reduxName="prihlasky"
               Type={StartCisloInputContainer}
             />
             <PrihlaskyFormInputContainer

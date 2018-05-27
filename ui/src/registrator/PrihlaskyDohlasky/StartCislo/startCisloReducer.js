@@ -1,16 +1,15 @@
 const initialState = { showing: false };
 
-const startCisloReducer = (state = initialState, action) => {
+// eslint-disable-next-line import/prefer-default-export
+export const createStartCisloReducer = actionPrefix => (state = initialState, action) => {
   switch (action.type) {
-    case 'PRIHLASKY_RESET':
+    case `${actionPrefix}_RESET`:
       return initialState;
-    case 'PRIHLASKY_HIDE_START_CISLO':
+    case `${actionPrefix}_HIDE_START_CISLO`:
       return { ...state, showing: false };
-    case 'PRIHLASKY_SHOW_START_CISLO':
+    case `${actionPrefix}_SHOW_START_CISLO`:
       return { ...state, showing: true };
     default:
       return state;
   }
 };
-
-export default startCisloReducer;

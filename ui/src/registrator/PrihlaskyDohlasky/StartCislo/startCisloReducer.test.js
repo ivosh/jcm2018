@@ -1,6 +1,10 @@
 import deepFreeze from 'deep-freeze';
-import { hide, show } from './StartCisloActions';
-import startCisloReducer from './startCisloReducer';
+import { hide as genericHide, show as genericShow } from './StartCisloActions';
+import { createStartCisloReducer } from './startCisloReducer';
+
+const hide = genericHide('PRIHLASKY');
+const show = genericShow('PRIHLASKY');
+const startCisloReducer = createStartCisloReducer('PRIHLASKY');
 
 it('na začátku', () => {
   const stateBefore = undefined;

@@ -155,6 +155,8 @@ it('maps state to props - startCislo ok', () => {
         index={13}
         name="prihlaska.startCislo"
         popisek="číslo"
+        actionPrefix="PRIHLASKY"
+        reduxName="prihlasky"
         Type={StartCisloInputContainer}
         inputRef={jest.fn()}
       />
@@ -189,6 +191,8 @@ it('maps state to props - startCislo duplicitní', () => {
         index={13}
         name="prihlaska.startCislo"
         popisek="číslo"
+        actionPrefix="PRIHLASKY"
+        reduxName="prihlasky"
         Type={StartCisloInputContainer}
         inputRef={jest.fn()}
       />

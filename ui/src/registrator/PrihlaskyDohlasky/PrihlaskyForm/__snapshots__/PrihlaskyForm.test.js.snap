@@ -184,10 +184,12 @@ exports[`formulář po uložení 1`] = `
       />
       <Connect(Connect(Input))
         Type={[Function]}
+        actionPrefix="PRIHLASKY"
         index={13}
         inputRef={[Function]}
         name="prihlaska.startCislo"
         popisek="číslo"
+        reduxName="prihlasky"
       />
       <Connect(Connect(Input))
         Type={[Function]}
@@ -453,10 +455,12 @@ exports[`formulář s chybou 1`] = `
       />
       <Connect(Connect(Input))
         Type={[Function]}
+        actionPrefix="PRIHLASKY"
         index={13}
         inputRef={[Function]}
         name="prihlaska.startCislo"
         popisek="číslo"
+        reduxName="prihlasky"
       />
       <Connect(Connect(Input))
         Type={[Function]}
@@ -728,10 +732,12 @@ exports[`formulář s existujícím účastníkem 1`] = `
       />
       <Connect(Connect(Input))
         Type={[Function]}
+        actionPrefix="PRIHLASKY"
         index={13}
         inputRef={[Function]}
         name="prihlaska.startCislo"
         popisek="číslo"
+        reduxName="prihlasky"
       />
       <Connect(Connect(Input))
         Type={[Function]}
@@ -997,10 +1003,12 @@ exports[`prázdný formulář 1`] = `
       />
       <Connect(Connect(Input))
         Type={[Function]}
+        actionPrefix="PRIHLASKY"
         index={13}
         inputRef={[Function]}
         name="prihlaska.startCislo"
         popisek="číslo"
+        reduxName="prihlasky"
       />
       <Connect(Connect(Input))
         Type={[Function]}
