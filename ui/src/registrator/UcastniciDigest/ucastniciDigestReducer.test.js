@@ -3,14 +3,14 @@ import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { SortDirTypes } from '../../sort';
 import ucastniciDigestReducer, { getUcastniciDigestSorted } from './ucastniciDigestReducer';
 import {
-  kategorieFilterChange as genericKategorieFilterChange,
-  textFilterChange as genericTextFilterChange
+  createKategorieFilterChange,
+  createTextFilterChange
 } from '../Filterable/FilterableActions';
-import { sortDirChange as genericSortDirChange } from '../UcastniciTable/UcastniciTableActions';
+import { createSortDirChange } from '../UcastniciTable/UcastniciTableActions';
 
-const kategorieFilterChange = genericKategorieFilterChange('UCASTNICI_DIGEST');
-const sortDirChange = genericSortDirChange('UCASTNICI_DIGEST');
-const textFilterChange = genericTextFilterChange('UCASTNICI_DIGEST');
+const kategorieFilterChange = createKategorieFilterChange('UCASTNICI_DIGEST');
+const sortDirChange = createSortDirChange('UCASTNICI_DIGEST');
+const textFilterChange = createTextFilterChange('UCASTNICI_DIGEST');
 
 it('na začátku', () => {
   const stateBefore = undefined;

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import InputContainer from '../Input/InputContainer';
-import { inputChanged as genericInputChanged } from './PlatbyActions';
+import { createInputChanged } from './PlatbyActions';
 import {
   formatValue,
   inputOptions,
@@ -21,7 +21,7 @@ const mapStateToProps = (state, ownProps) => {
     form,
     rawValue,
     formatValue,
-    inputChanged: genericInputChanged(actionPrefix),
+    inputChanged: createInputChanged(actionPrefix),
     inputOptions,
     inputValid,
     isInputEnabled,

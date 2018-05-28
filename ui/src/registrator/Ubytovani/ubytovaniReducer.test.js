@@ -1,13 +1,13 @@
 import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { SortDirTypes } from '../../sort';
-import { textFilterChange as genericTextFilterChange } from '../Filterable/FilterableActions';
-import { sortDirChange as genericSortDirChange } from '../UcastniciTable/UcastniciTableActions';
+import { createTextFilterChange } from '../Filterable/FilterableActions';
+import { createSortDirChange } from '../UcastniciTable/UcastniciTableActions';
 import { changeUbytovani, saveUbytovaniRequest, saveUbytovaniSuccess } from './UbytovaniActions';
 import ubytovaniReducer, { getUbytovaniSorted } from './ubytovaniReducer';
 
-const sortDirChange = genericSortDirChange('UBYTOVANI');
-const textFilterChange = genericTextFilterChange('UBYTOVANI');
+const sortDirChange = createSortDirChange('UBYTOVANI');
+const textFilterChange = createTextFilterChange('UBYTOVANI');
 
 it('na začátku', () => {
   const stateBefore = undefined;

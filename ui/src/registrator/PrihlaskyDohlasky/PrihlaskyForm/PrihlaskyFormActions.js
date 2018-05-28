@@ -9,10 +9,10 @@ import {
 import { AKTUALNI_ROK, PRIHLASKY_SAVE_MODAL_TIMEOUT } from '../../../constants';
 import { errorToStr } from '../../../Util';
 import { authTokenExpired } from '../../../auth/SignIn/SignInActions';
-import { inputChanged as genericInputChanged } from '../Input/InputActions';
+import { createInputChanged } from '../Input/InputActions';
 import { formValid } from './prihlaskyFormReducer';
 
-export const inputChanged = genericInputChanged('PRIHLASKY');
+export const inputChanged = createInputChanged('PRIHLASKY');
 
 export const hideError = () => ({ type: 'PRIHLASKY_HIDE_ERROR' });
 

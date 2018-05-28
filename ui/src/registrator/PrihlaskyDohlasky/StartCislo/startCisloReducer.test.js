@@ -1,10 +1,10 @@
 import deepFreeze from 'deep-freeze';
 import { reset } from '../PrihlaskyForm/PrihlaskyFormActions';
-import { hide as genericHide, show as genericShow } from './StartCisloActions';
+import { createHide, createShow } from './StartCisloActions';
 import { createStartCisloReducer } from './startCisloReducer';
 
-const hide = genericHide('PRIHLASKY');
-const show = genericShow('PRIHLASKY');
+const hide = createHide('PRIHLASKY');
+const show = createShow('PRIHLASKY');
 const startCisloReducer = createStartCisloReducer('PRIHLASKY');
 
 it('na začátku', () => {

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withResponsive from '../../shared/withResponsive/withResponsive';
-import { sortDirChange } from './UcastniciTableActions';
+import { createSortDirChange } from './UcastniciTableActions';
 import UcastniciTable from './UcastniciTable';
 
 const mapStateToProps = (state, ownProps) => {
@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { actionPrefix } = ownProps;
 
   return {
-    onSortDirChange: sortCol => dispatch(sortDirChange(actionPrefix)(sortCol))
+    onSortDirChange: sortCol => dispatch(createSortDirChange(actionPrefix)(sortCol))
   };
 };
 

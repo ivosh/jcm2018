@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { predepsaneStartovne, provedenePlatby } from '../../platby';
-import { addValidatedPlatba, expandNovaPlatba, removePlatba } from './PlatbyActions';
+import {
+  createAddValidatedPlatba,
+  createExpandNovaPlatba,
+  createRemovePlatba
+} from './PlatbyActions';
 import Platby from './Platby';
 
 const mapStateToProps = (state, ownProps) => {
@@ -32,9 +36,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { actionPrefix, reduxName } = ownProps;
 
   return {
-    onAdd: () => dispatch(addValidatedPlatba(actionPrefix, reduxName)()),
-    onExpand: () => dispatch(expandNovaPlatba(actionPrefix)()),
-    onRemove: idx => dispatch(removePlatba(actionPrefix)(idx))
+    onAdd: () => dispatch(createAddValidatedPlatba(actionPrefix, reduxName)()),
+    onExpand: () => dispatch(createExpandNovaPlatba(actionPrefix)()),
+    onRemove: idx => dispatch(createRemovePlatba(actionPrefix)(idx))
   };
 };
 

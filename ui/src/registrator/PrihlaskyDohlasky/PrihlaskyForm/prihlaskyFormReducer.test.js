@@ -1,10 +1,7 @@
 import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import { predepsaneStartovne } from '../../platby';
-import {
-  addPlatba as genericAddPlatba,
-  removePlatba as genericRemovePlatba
-} from '../Platby/PlatbyActions';
+import { createAddPlatba, createRemovePlatba } from '../Platby/PlatbyActions';
 import {
   hideError,
   hideModal,
@@ -25,8 +22,8 @@ import prihlaskyFormReducer, {
   isInputVisible
 } from './prihlaskyFormReducer';
 
-const addPlatba = genericAddPlatba('PRIHLASKY');
-const removePlatba = genericRemovePlatba('PRIHLASKY');
+const addPlatba = createAddPlatba('PRIHLASKY');
+const removePlatba = createRemovePlatba('PRIHLASKY');
 
 const unsuccessfulResponse = {
   code: 'neexistuje',

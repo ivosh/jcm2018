@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { inputChanged } from '../PrihlaskyForm/PrihlaskyFormActions';
-import { hide, show } from './StartCisloActions';
+import { createHide, createShow } from './StartCisloActions';
 import StartCisloInput from './StartCisloInput';
 
 const mapStateToProps = (state, ownProps) => {
@@ -20,12 +20,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { actionPrefix } = ownProps;
 
   return {
-    onHide: () => dispatch(hide(actionPrefix)()),
+    onHide: () => dispatch(createHide(actionPrefix)()),
     onSelect: startCislo => {
-      dispatch(hide(actionPrefix)());
+      dispatch(createHide(actionPrefix)());
       dispatch(inputChanged('prihlaska.startCislo', { target: { value: `${startCislo}` } }));
     },
-    onShow: () => dispatch(show(actionPrefix)())
+    onShow: () => dispatch(createShow(actionPrefix)())
   };
 };
 

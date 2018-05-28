@@ -1,9 +1,10 @@
-import { inputChanged as genericInputChanged } from '../Input/InputActions';
+import { createInputChanged as genericCreateInputChanged } from '../Input/InputActions';
 import { formValid } from './platbyReducer';
 
-export const inputChanged = actionPrefix => genericInputChanged(`${actionPrefix}_NOVA_PLATBA`);
+export const createInputChanged = actionPrefix =>
+  genericCreateInputChanged(`${actionPrefix}_NOVA_PLATBA`);
 
-export const addPlatba = actionPrefix => ({ castka, datum, typ, poznamka }) => ({
+export const createAddPlatba = actionPrefix => ({ castka, datum, typ, poznamka }) => ({
   type: `${actionPrefix}_ADD_PLATBA`,
   platba: {
     castka: parseInt(castka, 10),
@@ -13,11 +14,14 @@ export const addPlatba = actionPrefix => ({ castka, datum, typ, poznamka }) => (
   }
 });
 
-export const reset = actionPrefix => () => ({ type: `${actionPrefix}_NOVA_PLATBA_RESET` });
-const validate = actionPrefix => () => ({ type: `${actionPrefix}_NOVA_PLATBA_VALIDATE` });
+export const createReset = actionPrefix => () => ({ type: `${actionPrefix}_NOVA_PLATBA_RESET` });
+const createValidate = actionPrefix => () => ({ type: `${actionPrefix}_NOVA_PLATBA_VALIDATE` });
 
-export const addValidatedPlatba = (actionPrefix, reduxName) => () => async (dispatch, getState) => {
-  await dispatch(validate(actionPrefix)());
+export const createAddValidatedPlatba = (actionPrefix, reduxName) => () => async (
+  dispatch,
+  getState
+) => {
+  await dispatch(createValidate(actionPrefix)());
 
   const {
     registrator: {
@@ -28,12 +32,15 @@ export const addValidatedPlatba = (actionPrefix, reduxName) => () => async (disp
     return;
   }
 
-  dispatch(addPlatba(actionPrefix)(form));
-  dispatch(reset(actionPrefix)());
+  dispatch(createAddPlatba(actionPrefix)(form));
+  dispatch(createReset(actionPrefix)());
 };
 
-export const removePlatba = actionPrefix => idx => ({ type: `${actionPrefix}_REMOVE_PLATBA`, idx });
+export const createRemovePlatba = actionPrefix => idx => ({
+  type: `${actionPrefix}_REMOVE_PLATBA`,
+  idx
+});
 
-export const expandNovaPlatba = actionPrefix => () => ({
+export const createExpandNovaPlatba = actionPrefix => () => ({
   type: `${actionPrefix}_NOVA_PLATBA_EXPAND`
 });

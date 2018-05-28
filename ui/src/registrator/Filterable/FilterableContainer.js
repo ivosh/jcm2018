@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { kategorieFilterChange, textFilterChange } from './FilterableActions';
+import { createKategorieFilterChange, createTextFilterChange } from './FilterableActions';
 import Filterable from './Filterable';
 
 const mapStateToProps = (state, ownProps) => {
@@ -14,9 +14,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { actionPrefix } = ownProps;
 
   return {
-    onTextFilterChange: text => dispatch(textFilterChange(actionPrefix)(text)),
+    onTextFilterChange: text => dispatch(createTextFilterChange(actionPrefix)(text)),
     onKategorieFilterChange: typKategorie =>
-      dispatch(kategorieFilterChange(actionPrefix)(typKategorie))
+      dispatch(createKategorieFilterChange(actionPrefix)(typKategorie))
   };
 };
 

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { reset as resetNovaPlatba } from '../Platby/PlatbyActions';
+import { createReset as createResetNovaPlatba } from '../Platby/PlatbyActions';
 import PrihlaskyForm from './PrihlaskyForm';
 import {
   hideError,
@@ -37,7 +37,7 @@ const mapDispatchToProps = dispatch => ({
   onHideModal: () => dispatch(hideModal()),
   onReset: () => {
     dispatch(resetForm());
-    dispatch(resetNovaPlatba('PRIHLASKY')());
+    dispatch(createResetNovaPlatba('PRIHLASKY')());
   },
   onSubmit: () => dispatch(saveUcast()),
   dispatch

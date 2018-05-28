@@ -1,10 +1,10 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { addValidatedPlatba as genericAddValidatedPlatba } from './PlatbyActions';
+import { createAddValidatedPlatba } from './PlatbyActions';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
-const addValidatedPlatba = genericAddValidatedPlatba('PRIHLASKY', 'prihlasky');
+const addValidatedPlatba = createAddValidatedPlatba('PRIHLASKY', 'prihlasky');
 
 it('addValidatedPlatba() should dispatch two successful actions', async () => {
   const store = mockStore({

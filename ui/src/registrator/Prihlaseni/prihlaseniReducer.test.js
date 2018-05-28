@@ -3,14 +3,14 @@ import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { SortDirTypes } from '../../sort';
 import prihlaseniReducer, { getPrihlaseniSorted } from './prihlaseniReducer';
 import {
-  kategorieFilterChange as genericKategorieFilterChange,
-  textFilterChange as genericTextFilterChange
+  createKategorieFilterChange,
+  createTextFilterChange
 } from '../Filterable/FilterableActions';
-import { sortDirChange as genericSortDirChange } from '../UcastniciTable/UcastniciTableActions';
+import { createSortDirChange } from '../UcastniciTable/UcastniciTableActions';
 
-const kategorieFilterChange = genericKategorieFilterChange('PRIHLASENI');
-const sortDirChange = genericSortDirChange('PRIHLASENI');
-const textFilterChange = genericTextFilterChange('PRIHLASENI');
+const kategorieFilterChange = createKategorieFilterChange('PRIHLASENI');
+const sortDirChange = createSortDirChange('PRIHLASENI');
+const textFilterChange = createTextFilterChange('PRIHLASENI');
 
 it('na začátku', () => {
   const stateBefore = undefined;
