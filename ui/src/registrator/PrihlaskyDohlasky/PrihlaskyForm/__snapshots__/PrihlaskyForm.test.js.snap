@@ -233,7 +233,9 @@ exports[`formulář po uložení 1`] = `
         header="Platby"
       >
         <Connect(Platby)
+          actionPrefix="PRIHLASKY"
           inputRef={[Function]}
+          reduxName="prihlasky"
           startIndex={18}
         />
       </Panel>
@@ -504,7 +506,9 @@ exports[`formulář s chybou 1`] = `
         header="Platby"
       >
         <Connect(Platby)
+          actionPrefix="PRIHLASKY"
           inputRef={[Function]}
+          reduxName="prihlasky"
           startIndex={18}
         />
       </Panel>
@@ -781,7 +785,9 @@ exports[`formulář s existujícím účastníkem 1`] = `
         header="Platby"
       >
         <Connect(Platby)
+          actionPrefix="PRIHLASKY"
           inputRef={[Function]}
+          reduxName="prihlasky"
           startIndex={18}
         />
       </Panel>
@@ -1052,7 +1058,9 @@ exports[`prázdný formulář 1`] = `
         header="Platby"
       >
         <Connect(Platby)
+          actionPrefix="PRIHLASKY"
           inputRef={[Function]}
+          reduxName="prihlasky"
           startIndex={18}
         />
       </Panel>

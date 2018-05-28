@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import InputContainer from '../Input/InputContainer';
-import { inputChanged } from './PlatbyActions';
+import { inputChanged as genericInputChanged } from './PlatbyActions';
 import {
   formatValue,
   inputOptions,
@@ -11,8 +11,9 @@ import {
 } from './platbyReducer';
 
 const mapStateToProps = (state, ownProps) => {
-  const form = state.registrator.prihlasky.platby;
-  const { name } = ownProps;
+  const { actionPrefix, name, reduxName } = ownProps;
+
+  const form = state.registrator[reduxName].platby;
   const [, subName] = name.split('.');
   const rawValue = form[subName];
 
@@ -20,7 +21,7 @@ const mapStateToProps = (state, ownProps) => {
     form,
     rawValue,
     formatValue,
-    inputChanged,
+    inputChanged: genericInputChanged(actionPrefix),
     inputOptions,
     inputValid,
     isInputEnabled,
@@ -32,7 +33,9 @@ const mapStateToProps = (state, ownProps) => {
 const NovaPlatbaInputContainer = connect(mapStateToProps, {})(InputContainer);
 
 NovaPlatbaInputContainer.propTypes = {
-  name: PropTypes.string.isRequired
+  actionPrefix: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  reduxName: PropTypes.string.isRequired
 };
 
 export default NovaPlatbaInputContainer;

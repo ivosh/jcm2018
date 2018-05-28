@@ -239,7 +239,12 @@ class PrihlaskyForm extends PureComponent {
           </Panel>
           <div className="PrihlaskyForm__column">
             <Panel bsStyle="primary" header="Platby">
-              <PlatbyContainer startIndex={18} inputRef={this.inputRef} />
+              <PlatbyContainer
+                startIndex={18}
+                actionPrefix="PRIHLASKY"
+                reduxName="prihlasky"
+                inputRef={this.inputRef}
+              />
             </Panel>
             <LoadingButton
               type="submit"

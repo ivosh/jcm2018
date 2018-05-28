@@ -39,20 +39,38 @@ let wrapper;
 beforeEach(() => {
   store = mockStore(state);
   store.dispatch = jest.fn();
-  wrapper = shallow(<PlatbyContainer startIndex={10} store={store} inputRef={jest.fn()} />);
+  wrapper = shallow(
+    <PlatbyContainer
+      startIndex={10}
+      store={store}
+      actionPrefix="PRIHLASKY"
+      reduxName="prihlasky"
+      inputRef={jest.fn()}
+    />
+  );
 });
 
 it('maps state and dispatch to props', () => {
+  expect(wrapper.props().actionPrefix).toEqual('PRIHLASKY');
   expect(wrapper.props().novaPlatbaMinified).toBe(true);
   expect(wrapper.props().predepsano).toMatchSnapshot();
   expect(wrapper.props().provedeno).toMatchSnapshot();
+  expect(wrapper.props().reduxName).toEqual('prihlasky');
 });
 
 it('nastav novaPlatbaMinified pokud provedeno < předepsáno', () => {
   const state2 = JSON.parse(JSON.stringify(state)); // deep copy
   state2.registrator.prihlasky.form.platby = state2.registrator.prihlasky.form.platby.slice(0, 1);
   store = mockStore(state2);
-  wrapper = shallow(<PlatbyContainer startIndex={10} store={store} inputRef={jest.fn()} />);
+  wrapper = shallow(
+    <PlatbyContainer
+      actionPrefix="PRIHLASKY"
+      reduxName="prihlasky"
+      startIndex={10}
+      store={store}
+      inputRef={jest.fn()}
+    />
+  );
 
   expect(wrapper.props().novaPlatbaMinified).toBe(false);
   expect(wrapper.props().predepsano).toMatchSnapshot();
@@ -68,7 +86,7 @@ it('maps onAdd to dispatch addValidatedPlatba', () => {
 it('maps onExpand to dispatch expandNovaPlatba', () => {
   wrapper.props().onExpand();
 
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'NOVA_PLATBA_EXPAND' });
+  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASKY_NOVA_PLATBA_EXPAND' });
 });
 
 it('maps provedeno.platby[0].onRemove to dispatch removePlatba action', () => {

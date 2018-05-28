@@ -6,7 +6,15 @@ import TextInput from '../Input/TextInput';
 import NovaPlatbaInputContainer from './NovaPlatbaInputContainer';
 import './NovaPlatba.css';
 
-const NovaPlatba = ({ showMinified, startIndex, inputRef, onAdd, onExpand }) => {
+const NovaPlatba = ({
+  actionPrefix,
+  reduxName,
+  showMinified,
+  startIndex,
+  inputRef,
+  onAdd,
+  onExpand
+}) => {
   let index = startIndex;
 
   if (showMinified) {
@@ -25,6 +33,8 @@ const NovaPlatba = ({ showMinified, startIndex, inputRef, onAdd, onExpand }) => 
         inputRef={inputRef}
         name="novaPlatba.castka"
         popisek="částka"
+        actionPrefix={actionPrefix}
+        reduxName={reduxName}
         Type={TextInput}
       />
       <NovaPlatbaInputContainer
@@ -32,6 +42,8 @@ const NovaPlatba = ({ showMinified, startIndex, inputRef, onAdd, onExpand }) => 
         inputRef={inputRef}
         name="novaPlatba.datum"
         popisek="datum"
+        actionPrefix={actionPrefix}
+        reduxName={reduxName}
         Type={TextInput}
       />
       <NovaPlatbaInputContainer
@@ -40,6 +52,8 @@ const NovaPlatba = ({ showMinified, startIndex, inputRef, onAdd, onExpand }) => 
         name="novaPlatba.typ"
         showFeedback={false}
         popisek="jak?"
+        actionPrefix={actionPrefix}
+        reduxName={reduxName}
         Type={SelectInput}
       />
       <NovaPlatbaInputContainer
@@ -47,6 +61,8 @@ const NovaPlatba = ({ showMinified, startIndex, inputRef, onAdd, onExpand }) => 
         inputRef={inputRef}
         name="novaPlatba.poznamka"
         popisek="poznámka"
+        actionPrefix={actionPrefix}
+        reduxName={reduxName}
         Type={TextInput}
       />
       <Button bsStyle="primary" bsSize="small" onClick={onAdd}>
@@ -58,6 +74,8 @@ const NovaPlatba = ({ showMinified, startIndex, inputRef, onAdd, onExpand }) => 
 };
 
 NovaPlatba.propTypes = {
+  actionPrefix: PropTypes.string.isRequired,
+  reduxName: PropTypes.string.isRequired,
   showMinified: PropTypes.bool,
   startIndex: PropTypes.number.isRequired,
   inputRef: PropTypes.func.isRequired,

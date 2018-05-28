@@ -1,10 +1,10 @@
 import { inputChanged as genericInputChanged } from '../Input/InputActions';
 import { formValid } from './platbyReducer';
 
-export const inputChanged = genericInputChanged('NOVA_PLATBA');
+export const inputChanged = actionPrefix => genericInputChanged(`${actionPrefix}_NOVA_PLATBA`);
 
-export const addPlatba = ({ castka, datum, typ, poznamka }) => ({
-  type: 'PRIHLASKY_ADD_PLATBA',
+export const addPlatba = actionPrefix => ({ castka, datum, typ, poznamka }) => ({
+  type: `${actionPrefix}_ADD_PLATBA`,
   platba: {
     castka: parseInt(castka, 10),
     datum,
@@ -13,25 +13,27 @@ export const addPlatba = ({ castka, datum, typ, poznamka }) => ({
   }
 });
 
-export const reset = () => ({ type: 'NOVA_PLATBA_RESET' });
-const validate = () => ({ type: 'NOVA_PLATBA_VALIDATE' });
+export const reset = actionPrefix => () => ({ type: `${actionPrefix}_NOVA_PLATBA_RESET` });
+const validate = actionPrefix => () => ({ type: `${actionPrefix}_NOVA_PLATBA_VALIDATE` });
 
-export const addValidatedPlatba = () => async (dispatch, getState) => {
-  await dispatch(validate());
+export const addValidatedPlatba = (actionPrefix, reduxName) => () => async (dispatch, getState) => {
+  await dispatch(validate(actionPrefix)());
 
   const {
     registrator: {
-      prihlasky: { platby: form }
+      [reduxName]: { platby: form }
     }
   } = getState();
   if (!formValid({ form })) {
     return;
   }
 
-  dispatch(addPlatba(form));
-  dispatch(reset());
+  dispatch(addPlatba(actionPrefix)(form));
+  dispatch(reset(actionPrefix)());
 };
 
-export const removePlatba = idx => ({ type: 'PRIHLASKY_REMOVE_PLATBA', idx });
+export const removePlatba = actionPrefix => idx => ({ type: `${actionPrefix}_REMOVE_PLATBA`, idx });
 
-export const expandNovaPlatba = () => ({ type: 'NOVA_PLATBA_EXPAND' });
+export const expandNovaPlatba = actionPrefix => () => ({
+  type: `${actionPrefix}_NOVA_PLATBA_EXPAND`
+});

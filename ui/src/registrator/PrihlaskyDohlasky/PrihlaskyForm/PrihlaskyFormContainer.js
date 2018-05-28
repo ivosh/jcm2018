@@ -37,7 +37,7 @@ const mapDispatchToProps = dispatch => ({
   onHideModal: () => dispatch(hideModal()),
   onReset: () => {
     dispatch(resetForm());
-    dispatch(resetNovaPlatba());
+    dispatch(resetNovaPlatba('PRIHLASKY')());
   },
   onSubmit: () => dispatch(saveUcast()),
   dispatch

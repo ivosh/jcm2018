@@ -11,9 +11,9 @@ const initialState = {
   validate: false
 };
 
-const platbyReducer = (state = initialState, action) => {
+export const createPlatbyReducer = actionPrefix => (state = initialState, action) => {
   switch (action.type) {
-    case 'NOVA_PLATBA_INPUT_CHANGED': {
+    case `${actionPrefix}_NOVA_PLATBA_INPUT_CHANGED`: {
       const [, name] = action.name.split('.');
       let { value } = action;
       if (action.name === 'novaPlatba.datum') {
@@ -21,21 +21,19 @@ const platbyReducer = (state = initialState, action) => {
       }
       return { ...state, [name]: value };
     }
-    case 'NOVA_PLATBA_RESET':
-    case 'PRIHLASKY_UCASTNIK_LOAD':
+    case `${actionPrefix}_NOVA_PLATBA_RESET`:
+    case `${actionPrefix}_UCASTNIK_LOAD`:
       return initialState;
-    case 'NOVA_PLATBA_VALIDATE':
+    case `${actionPrefix}_NOVA_PLATBA_VALIDATE`:
       return { ...state, validate: true };
-    case 'NOVA_PLATBA_EXPAND':
+    case `${actionPrefix}_NOVA_PLATBA_EXPAND`:
       return { ...state, novaPlatbaMinified: false };
-    case 'PRIHLASKY_ADD_PLATBA':
+    case `${actionPrefix}__ADD_PLATBA`:
       return { ...state, novaPlatbaMinified: true };
     default:
       return state;
   }
 };
-
-export default platbyReducer;
 
 export const inputValid = ({ name, value, form }) => {
   const { validate } = form;

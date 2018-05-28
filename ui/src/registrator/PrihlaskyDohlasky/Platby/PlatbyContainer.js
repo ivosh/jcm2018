@@ -1,12 +1,15 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { predepsaneStartovne, provedenePlatby } from '../../platby';
 import { addValidatedPlatba, expandNovaPlatba, removePlatba } from './PlatbyActions';
 import Platby from './Platby';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+  const { reduxName } = ownProps;
+
   const {
     registrator: {
-      prihlasky: {
+      [reduxName]: {
         form: { prihlaska, platby },
         platby: { novaPlatbaMinified }
       }
@@ -25,11 +28,15 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  onAdd: () => dispatch(addValidatedPlatba()),
-  onExpand: () => dispatch(expandNovaPlatba()),
-  onRemove: idx => dispatch(removePlatba(idx))
-});
+const mapDispatchToProps = (dispatch, ownProps) => {
+  const { actionPrefix, reduxName } = ownProps;
+
+  return {
+    onAdd: () => dispatch(addValidatedPlatba(actionPrefix, reduxName)()),
+    onExpand: () => dispatch(expandNovaPlatba(actionPrefix)()),
+    onRemove: idx => dispatch(removePlatba(actionPrefix)(idx))
+  };
+};
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { provedeno } = stateProps;
@@ -50,5 +57,10 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 };
 
 const PlatbyContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(Platby);
+
+PlatbyContainer.propTypes = {
+  actionPrefix: PropTypes.string.isRequired,
+  reduxName: PropTypes.string.isRequired
+};
 
 export default PlatbyContainer;

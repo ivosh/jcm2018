@@ -20,9 +20,11 @@ const zaplacenoStyle = (zaplaceno, predepsano) => {
 };
 
 const Platby = ({
+  actionPrefix,
   novaPlatbaMinified,
   predepsano,
   provedeno,
+  reduxName,
   startIndex,
   inputRef,
   onAdd,
@@ -52,6 +54,8 @@ const Platby = ({
 
     {provedeno.platby.length > 0 && <PlatbyTable platby={provedeno.platby} />}
     <NovaPlatba
+      actionPrefix={actionPrefix}
+      reduxName={reduxName}
       showMinified={novaPlatbaMinified}
       startIndex={startIndex}
       inputRef={inputRef}
@@ -74,6 +78,7 @@ const Platby = ({
 );
 
 Platby.propTypes = {
+  actionPrefix: PropTypes.string.isRequired,
   novaPlatbaMinified: PropTypes.bool.isRequired,
   predepsano: PropTypes.shape({
     polozky: PropTypes.arrayOf(
@@ -96,6 +101,7 @@ Platby.propTypes = {
     ).isRequired,
     suma: PropTypes.number.isRequired
   }).isRequired,
+  reduxName: PropTypes.string.isRequired,
   startIndex: PropTypes.number.isRequired,
   inputRef: PropTypes.func.isRequired,
   onAdd: PropTypes.func.isRequired,

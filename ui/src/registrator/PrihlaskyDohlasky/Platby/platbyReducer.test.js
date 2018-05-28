@@ -1,6 +1,15 @@
 import deepFreeze from 'deep-freeze';
-import { expandNovaPlatba, inputChanged, reset } from './PlatbyActions';
-import platbyReducer, { formValid, inputValid } from './platbyReducer';
+import {
+  expandNovaPlatba as genericExpandNovaPlatba,
+  inputChanged as genericInputChanged,
+  reset as genericReset
+} from './PlatbyActions';
+import { createPlatbyReducer, formValid, inputValid } from './platbyReducer';
+
+const expandNovaPlatba = genericExpandNovaPlatba('PRIHLASKY');
+const inputChanged = genericInputChanged('PRIHLASKY');
+const platbyReducer = createPlatbyReducer('PRIHLASKY');
+const reset = genericReset('PRIHLASKY');
 
 it('na začátku', () => {
   const stateBefore = undefined;

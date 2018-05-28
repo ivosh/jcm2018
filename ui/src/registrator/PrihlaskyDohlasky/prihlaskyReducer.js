@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import prihlaskyFormReducer from './PrihlaskyForm/prihlaskyFormReducer';
-import platbyReducer from './Platby/platbyReducer';
+import { createPlatbyReducer } from './Platby/platbyReducer';
 import { createStartCisloReducer } from './StartCislo/startCisloReducer';
 
 const prihlaskyReducer = combineReducers({
   form: prihlaskyFormReducer,
-  platby: platbyReducer,
+  platby: createPlatbyReducer('PRIHLASKY'),
   startCislo: createStartCisloReducer('PRIHLASKY')
 });
 
