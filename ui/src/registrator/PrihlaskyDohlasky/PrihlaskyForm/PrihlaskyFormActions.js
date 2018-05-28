@@ -41,9 +41,9 @@ export const loadUcastnik = ({ id, kategorie, ucastnici }) => {
   return action;
 };
 
-const validate = () => ({ type: 'PRIHLASKY_VALIDATE_FORM' });
+export const validate = () => ({ type: 'PRIHLASKY_VALIDATE_FORM' });
 
-const validationError = () => ({
+export const validationError = () => ({
   type: 'PRIHLASKY_FORM_INVALID',
   code: 'nejde uložit',
   status: 'Přihláška nejde uložit. Povinná pole nejsou vyplněna.'

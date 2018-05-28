@@ -11,11 +11,14 @@ import {
   saveUcastRequest,
   saveUcastSuccess,
   saveUcastError,
-  showModal
+  showModal,
+  validate,
+  validationError
 } from './PrihlaskyFormActions';
 import prihlaskyFormReducer, {
   formatValue,
   formValid,
+  getValue,
   inputOptions,
   inputValid,
   isInputEnabled,
@@ -472,6 +475,27 @@ it('validation of some invalid state [validate === true]', () => {
   expect(isInputVisible({ name: 'ubytovani.sobota', form, rocniky })).toBe(false);
 });
 
+it('validate()', () => {
+  const stateBefore = {};
+  const stateAfter = { validate: true };
+  deepFreeze(stateBefore);
+
+  expect(prihlaskyFormReducer(stateBefore, validate())).toEqual(stateAfter);
+});
+
+it('validationError()', () => {
+  const stateBefore = {};
+  const stateAfter = {
+    ...stateBefore,
+    showError: true,
+    errorCode: 'nejde uložit',
+    errorMessage: 'Přihláška nejde uložit. Povinná pole nejsou vyplněna.'
+  };
+  deepFreeze(stateBefore);
+
+  expect(prihlaskyFormReducer(stateBefore, validationError())).toEqual(stateAfter);
+});
+
 it('udaje.pohlavi - nahodí ženu', () => {
   const stateBefore = { udaje: { pohlavi: undefined } };
   deepFreeze(stateBefore);
@@ -919,6 +943,95 @@ it('prihlaska.mladistvyPotvrzen - nemá potvrzení', () => {
       rocniky
     })
   ).toEqual('error');
+});
+
+it('prihlaska.startovnePoSleve - prázdné', () => {
+  const stateBefore = { prihlaska: { startovnePoSleve: 200 } };
+  deepFreeze(stateBefore);
+  const stateAfter = { prihlaska: { startovnePoSleve: undefined } };
+
+  expect(
+    prihlaskyFormReducer(
+      stateBefore,
+      inputChanged('prihlaska.startovnePoSleve', { target: { value: '' } })
+    )
+  ).toEqual(stateAfter);
+  expect(
+    inputValid({
+      name: 'prihlaska.startovnePoSleve',
+      value: stateAfter.prihlaska.startovnePoSleve,
+      form: stateAfter
+    })
+  ).toBe(undefined);
+});
+
+it('prihlaska.startovnePoSleve - číslo', () => {
+  const stateBefore = { prihlaska: {} };
+  deepFreeze(stateBefore);
+  const stateAfter = { prihlaska: { startovnePoSleve: 200 } };
+
+  expect(
+    prihlaskyFormReducer(
+      stateBefore,
+      inputChanged('prihlaska.startovnePoSleve', { target: { value: '200' } })
+    )
+  ).toEqual(stateAfter);
+  expect(
+    inputValid({
+      name: 'prihlaska.startovnePoSleve',
+      value: stateAfter.prihlaska.startovnePoSleve,
+      form: stateAfter
+    })
+  ).toEqual('success');
+});
+
+it('prihlaska.startovnePoSleve - invalid', () => {
+  const stateBefore = { prihlaska: {} };
+  deepFreeze(stateBefore);
+  const stateAfter = { prihlaska: { startovnePoSleve: 'kudy tudy' } };
+
+  expect(
+    prihlaskyFormReducer(
+      stateBefore,
+      inputChanged('prihlaska.startovnePoSleve', { target: { value: 'kudy tudy' } })
+    )
+  ).toEqual(stateAfter);
+  expect(
+    inputValid({
+      name: 'prihlaska.startovnePoSleve',
+      value: stateAfter.prihlaska.startovnePoSleve,
+      form: stateAfter
+    })
+  ).toEqual('error');
+});
+
+it('ubytovani - přespáno', () => {
+  const stateBefore = { ubytovani: {} };
+  deepFreeze(stateBefore);
+  const stateAfter = { ubytovani: { pátek: { prihlaseno: true } } };
+
+  expect(
+    prihlaskyFormReducer(
+      stateBefore,
+      inputChanged('ubytovani.pátek', { target: { checked: 'on', type: 'checkbox' } })
+    )
+  ).toEqual(stateAfter);
+  expect(getValue({ name: 'ubytovani.pátek', form: stateAfter })).toBe(true);
+  expect(getValue({ name: 'ubytovani.sobota', form: stateAfter })).toBe(false);
+});
+
+it('ubytovani - nepřespáno', () => {
+  const stateBefore = { ubytovani: { pátek: { prihlaseno: true } } };
+  deepFreeze(stateBefore);
+  const stateAfter = { ubytovani: {} };
+
+  expect(
+    prihlaskyFormReducer(
+      stateBefore,
+      inputChanged('ubytovani.pátek', { target: { checked: '', type: 'checkbox' } })
+    )
+  ).toEqual(stateAfter);
+  expect(getValue({ name: 'ubytovani.pátek', form: stateAfter })).toBe(false);
 });
 
 it('loadUcastnik() - údaje i přihláška', () => {
