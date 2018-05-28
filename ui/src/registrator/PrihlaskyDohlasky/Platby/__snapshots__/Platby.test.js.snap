@@ -610,3 +610,271 @@ exports[`platby v plusu, novaPlatba expanded 1`] = `
   </div>
 </div>
 `;
+
+exports[`platby částečně v mínusu 1`] = `
+<div>
+  <div
+    className="Platby__paragraph"
+  >
+    Zaplaceno:
+     
+    <span
+      className="Platby__zaplaceno label label-warning"
+    >
+      220
+       Kč
+    </span>
+  </div>
+  <div
+    className="Platby__paragraph"
+  >
+    <div>
+      Předepsané startovné:
+    </div>
+    <div>
+      <b>
+        250
+      </b>
+       Kč 
+      na místě
+    </div>
+    <div>
+      <b>
+        20
+      </b>
+       Kč 
+      záloha
+    </div>
+  </div>
+  <table
+    className="table table-condensed"
+  >
+    <thead>
+      <tr>
+        <th>
+          částka
+        </th>
+        <th>
+          datum
+        </th>
+        <th>
+          jak?
+        </th>
+        <th>
+          pozn.
+        </th>
+        <th />
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          200
+           Kč
+        </td>
+        <td>
+          10. 12. 2017
+        </td>
+        <td>
+          převodem
+        </td>
+        <td>
+          stále visí
+        </td>
+        <td>
+          <button
+            className="btn btn-xs btn-danger"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <span
+              className="glyphicon glyphicon-remove"
+            />
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          20
+           Kč
+        </td>
+        <td>
+          11. 12. 2017
+        </td>
+        <td>
+          hotově
+        </td>
+        <td />
+        <td>
+          <button
+            className="btn btn-xs btn-danger"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <span
+              className="glyphicon glyphicon-remove"
+            />
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    className="NovaPlatba panel panel-info"
+    id={undefined}
+  >
+    <div
+      className="panel-heading"
+    >
+      Nová platba
+    </div>
+    <div
+      className="panel-body"
+    >
+      <div
+        className="form-group has-feedback"
+      >
+        <label
+          className="col-sm-3 control-label"
+          htmlFor="novaPlatba.castka"
+        >
+          částka
+        </label>
+        <div
+          className="col-sm-9"
+        >
+          <input
+            className="form-control"
+            disabled={false}
+            id="novaPlatba.castka"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="form-group has-feedback"
+      >
+        <label
+          className="col-sm-3 control-label"
+          htmlFor="novaPlatba.datum"
+        >
+          datum
+        </label>
+        <div
+          className="col-sm-9"
+        >
+          <input
+            className="form-control"
+            disabled={false}
+            id="novaPlatba.datum"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="form-group"
+      >
+        <label
+          className="col-sm-3 control-label"
+          htmlFor="novaPlatba.typ"
+        >
+          jak?
+        </label>
+        <div
+          className="col-sm-9"
+        >
+          <select
+            className="form-control"
+            defaultValue=""
+            id="novaPlatba.typ"
+            name="novaPlatba.typ"
+            onChange={[Function]}
+            type={undefined}
+          >
+            <option
+              value="hotově"
+            >
+              hotově
+            </option>
+            <option
+              value="převodem"
+            >
+              převodem
+            </option>
+            <option
+              value="složenkou"
+            >
+              složenkou
+            </option>
+          </select>
+        </div>
+      </div>
+      <div
+        className="form-group has-feedback"
+      >
+        <label
+          className="col-sm-3 control-label"
+          htmlFor="novaPlatba.poznamka"
+        >
+          poznámka
+        </label>
+        <div
+          className="col-sm-9"
+        >
+          <input
+            className="form-control"
+            disabled={false}
+            id="novaPlatba.poznamka"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <button
+        className="btn btn-sm btn-primary"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="glyphicon glyphicon-plus"
+        />
+         Přidat
+      </button>
+    </div>
+  </div>
+  <div
+    className="Platby__po-sleve"
+  >
+    <div
+      className="form-group has-feedback"
+    >
+      <label
+        className="col-sm-5 control-label"
+        htmlFor="prihlaska.startovnePoSleve"
+      >
+        startovné po slevě
+      </label>
+      <div
+        className="col-sm-4"
+      >
+        <input
+          className="form-control"
+          disabled={false}
+          id="prihlaska.startovnePoSleve"
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

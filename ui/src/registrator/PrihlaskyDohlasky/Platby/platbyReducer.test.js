@@ -1,11 +1,19 @@
 import deepFreeze from 'deep-freeze';
-import { createExpandNovaPlatba, createInputChanged, createReset } from './PlatbyActions';
+import {
+  createAddPlatba,
+  createExpandNovaPlatba,
+  createInputChanged,
+  createReset,
+  createValidate
+} from './PlatbyActions';
 import { createPlatbyReducer, formValid, inputValid } from './platbyReducer';
 
+const addPlatba = createAddPlatba('PRIHLASKY');
 const expandNovaPlatba = createExpandNovaPlatba('PRIHLASKY');
 const inputChanged = createInputChanged('PRIHLASKY');
 const platbyReducer = createPlatbyReducer('PRIHLASKY');
 const reset = createReset('PRIHLASKY');
+const validate = createValidate('PRIHLASKY');
 
 it('na začátku', () => {
   const stateBefore = undefined;
@@ -41,6 +49,21 @@ it('reset()', () => {
   deepFreeze(stateBefore);
 
   expect(platbyReducer(stateBefore, reset())).toEqual(stateAfter);
+});
+
+it('validate()', () => {
+  const stateBefore = {
+    castka: '10',
+    datum: undefined,
+    typ: 'složenkou',
+    poznamka: 'haha',
+    novaPlatbaMinified: false,
+    validate: false
+  };
+  const stateAfter = { ...stateBefore, validate: true };
+  deepFreeze(stateBefore);
+
+  expect(platbyReducer(stateBefore, validate())).toEqual(stateAfter);
 });
 
 it('validation of the initial state [validate === false]', () => {
@@ -147,4 +170,17 @@ it('novaPlatba.minified - expand', () => {
   const stateAfter = { novaPlatbaMinified: false };
 
   expect(platbyReducer(stateBefore, expandNovaPlatba())).toEqual(stateAfter);
+});
+
+it('novaPlatba.expanded - minify', () => {
+  const stateBefore = { novaPlatbaMinified: false };
+  deepFreeze(stateBefore);
+  const stateAfter = { novaPlatbaMinified: true };
+
+  expect(
+    platbyReducer(
+      stateBefore,
+      addPlatba({ castka: 100, datum: '2018-06-09T00:00:00.000Z', typ: 'převodem' })
+    )
+  ).toEqual(stateAfter);
 });

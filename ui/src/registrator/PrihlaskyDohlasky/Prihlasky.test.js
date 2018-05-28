@@ -88,7 +88,7 @@ it('renders /prihlasky/:id route', () => {
 
   expect(wrapper.find('Connect(PrihlaskyForm)')).toHaveLength(1);
   expect(wrapper.find('Connect(PrihlaskyForm)').props()).toMatchSnapshot();
-  expect(store.dispatch).toHaveBeenCalledTimes(2); // fetchUcastnici + reset
+  expect(store.dispatch).toHaveBeenCalledTimes(2); // fetchUcastnici + load
   expect(store.dispatch).toHaveBeenCalledWith({
     id: '6f09b1fd371dec1e99b7e1c9',
     type: 'PRIHLASKY_UCASTNIK_LOAD',

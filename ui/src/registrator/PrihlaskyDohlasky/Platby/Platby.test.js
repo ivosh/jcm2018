@@ -20,6 +20,10 @@ const state = {
 };
 const store = mockStore(state);
 
+const predepsano270 = {
+  polozky: [{ castka: 250, duvod: 'na místě' }, { castka: 20, duvod: 'záloha' }],
+  suma: 270
+};
 const predepsano220 = {
   polozky: [{ castka: 200, duvod: 'předem' }, { castka: 20, duvod: 'záloha' }],
   suma: 220
@@ -88,6 +92,25 @@ it('platby v mínusu', () => {
         novaPlatbaMinified={false}
         predepsano={predepsano220}
         provedeno={provedeno0}
+        reduxName="prihlasky"
+        startIndex={10}
+        inputRef={jest.fn()}
+        onAdd={jest.fn()}
+        onExpand={jest.fn()}
+      />
+    </Provider>
+  );
+  expect(component.toJSON()).toMatchSnapshot();
+});
+
+it('platby částečně v mínusu', () => {
+  const component = renderer.create(
+    <Provider store={store}>
+      <Platby
+        actionPrefix="PRIHLASKY"
+        novaPlatbaMinified={false}
+        predepsano={predepsano270}
+        provedeno={provedeno220}
         reduxName="prihlasky"
         startIndex={10}
         inputRef={jest.fn()}

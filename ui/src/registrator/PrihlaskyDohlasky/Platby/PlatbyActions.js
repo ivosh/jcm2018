@@ -15,7 +15,9 @@ export const createAddPlatba = actionPrefix => ({ castka, datum, typ, poznamka }
 });
 
 export const createReset = actionPrefix => () => ({ type: `${actionPrefix}_NOVA_PLATBA_RESET` });
-const createValidate = actionPrefix => () => ({ type: `${actionPrefix}_NOVA_PLATBA_VALIDATE` });
+export const createValidate = actionPrefix => () => ({
+  type: `${actionPrefix}_NOVA_PLATBA_VALIDATE`
+});
 
 export const createAddValidatedPlatba = (actionPrefix, reduxName) => () => async (
   dispatch,

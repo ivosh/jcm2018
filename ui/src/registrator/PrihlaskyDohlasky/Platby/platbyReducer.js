@@ -28,7 +28,7 @@ export const createPlatbyReducer = actionPrefix => (state = initialState, action
       return { ...state, validate: true };
     case `${actionPrefix}_NOVA_PLATBA_EXPAND`:
       return { ...state, novaPlatbaMinified: false };
-    case `${actionPrefix}__ADD_PLATBA`:
+    case `${actionPrefix}_ADD_PLATBA`:
       return { ...state, novaPlatbaMinified: true };
     default:
       return state;
