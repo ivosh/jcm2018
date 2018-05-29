@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { inputChanged } from '../PrihlaskyForm/PrihlaskyFormActions';
+import { createInputChanged } from '../PrihlaskyForm/PrihlaskyFormActions';
 import { createHide, createShow } from './StartCisloActions';
 import StartCisloInput from './StartCisloInput';
 
@@ -23,7 +23,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onHide: () => dispatch(createHide(actionPrefix)()),
     onSelect: startCislo => {
       dispatch(createHide(actionPrefix)());
-      dispatch(inputChanged('prihlaska.startCislo', { target: { value: `${startCislo}` } }));
+      dispatch(
+        createInputChanged(actionPrefix)('prihlaska.startCislo', {
+          target: { value: `${startCislo}` }
+        })
+      );
     },
     onShow: () => dispatch(createShow(actionPrefix)())
   };

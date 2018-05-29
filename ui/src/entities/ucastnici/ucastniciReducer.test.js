@@ -2,7 +2,7 @@ import deepFreeze from 'deep-freeze';
 import { ubytovaniNeprespano } from '../../common';
 import { websocketDisconnected } from '../../App/AppActions';
 import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
-import { saveUcastSuccess } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
+import { createSaveUcastSuccess } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
 import {
   createVykonSuccess,
   deleteVykonSuccess
@@ -11,6 +11,8 @@ import { saveUbytovaniSuccess } from '../../registrator/Ubytovani/UbytovaniActio
 import ucastniciReducer, { getUcastiProRok } from './ucastniciReducer';
 import { broadcastUcastnik, fetchUcastniciSuccess } from './ucastniciActions';
 import ucastniciTestData from './ucastniciTestData';
+
+const saveUcastSuccess = createSaveUcastSuccess('PRIHLASKY');
 
 it('nic se nestalo 1', () => {
   const stateBefore = undefined;

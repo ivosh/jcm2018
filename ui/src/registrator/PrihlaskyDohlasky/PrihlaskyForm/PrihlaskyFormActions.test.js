@@ -1,7 +1,9 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import WsClient from '../../../WsClient';
-import { saveUcast } from './PrihlaskyFormActions';
+import { createSaveUcast } from './PrihlaskyFormActions';
+
+const saveUcast = createSaveUcast('PRIHLASKY', 'prihlasky');
 
 const successfulResponseSaveUdaje = {
   code: 'ok',

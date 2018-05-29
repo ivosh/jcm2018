@@ -27,12 +27,16 @@ beforeEach(() => {
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
-  wrapper = shallow(<PrihlaskyFormContainer store={store} />);
+  wrapper = shallow(
+    <PrihlaskyFormContainer actionPrefix="PRIHLASKY" reduxName="prihlasky" store={store} />
+  );
 });
 
 it('maps state and dispatch to props', () => {
+  expect(wrapper.props().actionPrefix).toEqual('PRIHLASKY');
   expect(wrapper.props().errorCode).toEqual('Chybový kód.');
   expect(wrapper.props().errorMessage).toEqual('Chybová hláška trochu dlouhá.');
+  expect(wrapper.props().reduxName).toEqual('prihlasky');
   expect(wrapper.props().showError).toBe(true);
   expect(wrapper.props().saved).toBe(false);
   expect(wrapper.props().saving).toBe(true);
@@ -52,7 +56,14 @@ it('maps onHideModal to dispatch hideModal action', () => {
 });
 
 it('maps onLoadId to dispatch loadUcastnik action - existující přihláška', () => {
-  wrapper = shallow(<PrihlaskyFormContainer loadId="5a09b1fd371dec1e99b7e1c9" store={store} />);
+  wrapper = shallow(
+    <PrihlaskyFormContainer
+      actionPrefix="PRIHLASKY"
+      loadId="5a09b1fd371dec1e99b7e1c9"
+      reduxName="prihlasky"
+      store={store}
+    />
+  );
 
   expect(wrapper.props().onLoadId).toBeTruthy();
   wrapper.props().onLoadId();
@@ -81,7 +92,14 @@ it('maps onLoadId to dispatch loadUcastnik action - existující přihláška', 
 });
 
 it('maps onLoadId to dispatch ucastnikSelected action - starší účast', () => {
-  wrapper = shallow(<PrihlaskyFormContainer loadId="6f09b1fd371dec1e99b7e1c9" store={store} />);
+  wrapper = shallow(
+    <PrihlaskyFormContainer
+      actionPrefix="PRIHLASKY"
+      loadId="6f09b1fd371dec1e99b7e1c9"
+      reduxName="prihlasky"
+      store={store}
+    />
+  );
 
   expect(wrapper.props().onLoadId).toBeTruthy();
   wrapper.props().onLoadId();

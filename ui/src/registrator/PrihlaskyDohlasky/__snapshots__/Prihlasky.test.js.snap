@@ -2,14 +2,23 @@
 
 exports[`renders /prihlasky/:id route 1`] = `
 Object {
+  "actionPrefix": "PRIHLASKY",
   "loadId": "6f09b1fd371dec1e99b7e1c9",
+  "reduxName": "prihlasky",
 }
 `;
 
-exports[`renders /prihlasky/edit route 1`] = `Object {}`;
+exports[`renders /prihlasky/edit route 1`] = `
+Object {
+  "actionPrefix": "PRIHLASKY",
+  "reduxName": "prihlasky",
+}
+`;
 
 exports[`renders /prihlasky/reset route 1`] = `
 Object {
+  "actionPrefix": "PRIHLASKY",
+  "reduxName": "prihlasky",
   "reset": true,
 }
 `;

@@ -1,9 +1,10 @@
 import deepFreeze from 'deep-freeze';
-import { reset } from '../PrihlaskyForm/PrihlaskyFormActions';
+import { createReset } from '../PrihlaskyForm/PrihlaskyFormActions';
 import { createHide, createShow } from './StartCisloActions';
 import { createStartCisloReducer } from './startCisloReducer';
 
 const hide = createHide('PRIHLASKY');
+const reset = createReset('PRIHLASKY');
 const show = createShow('PRIHLASKY');
 const startCisloReducer = createStartCisloReducer('PRIHLASKY');
 

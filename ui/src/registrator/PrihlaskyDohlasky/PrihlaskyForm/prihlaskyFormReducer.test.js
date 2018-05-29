@@ -3,19 +3,20 @@ import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import { predepsaneStartovne } from '../../platby';
 import { createAddPlatba, createRemovePlatba } from '../Platby/PlatbyActions';
 import {
-  hideError,
-  hideModal,
-  inputChanged,
-  loadUcastnik,
-  reset,
-  saveUcastRequest,
-  saveUcastSuccess,
-  saveUcastError,
-  showModal,
-  validate,
-  validationError
+  createHideError,
+  createHideModal,
+  createInputChanged,
+  createLoadUcastnik,
+  createReset,
+  createSaveUcastRequest,
+  createSaveUcastSuccess,
+  createSaveUcastError,
+  createShowModal,
+  createValidate,
+  createValidationError
 } from './PrihlaskyFormActions';
-import prihlaskyFormReducer, {
+import {
+  createPrihlaskyFormReducer,
   formatValue,
   formValid,
   getValue,
@@ -26,7 +27,19 @@ import prihlaskyFormReducer, {
 } from './prihlaskyFormReducer';
 
 const addPlatba = createAddPlatba('PRIHLASKY');
+const hideError = createHideError('PRIHLASKY');
+const hideModal = createHideModal('PRIHLASKY');
+const inputChanged = createInputChanged('PRIHLASKY');
+const loadUcastnik = createLoadUcastnik('PRIHLASKY');
+const prihlaskyFormReducer = createPrihlaskyFormReducer('PRIHLASKY');
 const removePlatba = createRemovePlatba('PRIHLASKY');
+const reset = createReset('PRIHLASKY');
+const saveUcastRequest = createSaveUcastRequest('PRIHLASKY');
+const saveUcastSuccess = createSaveUcastSuccess('PRIHLASKY');
+const saveUcastError = createSaveUcastError('PRIHLASKY');
+const showModal = createShowModal('PRIHLASKY');
+const validate = createValidate('PRIHLASKY');
+const validationError = createValidationError('PRIHLASKY');
 
 const unsuccessfulResponse = {
   code: 'neexistuje',

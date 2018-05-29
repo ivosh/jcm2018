@@ -9,23 +9,21 @@ import {
 import { AKTUALNI_ROK, PRIHLASKY_SAVE_MODAL_TIMEOUT } from '../../../constants';
 import { errorToStr } from '../../../Util';
 import { authTokenExpired } from '../../../auth/SignIn/SignInActions';
-import { createInputChanged } from '../Input/InputActions';
+import { createInputChanged as genericCreateInputChanged } from '../Input/InputActions';
 import { formValid } from './prihlaskyFormReducer';
 
-export const inputChanged = createInputChanged('PRIHLASKY');
+export const createInputChanged = actionPrefix => genericCreateInputChanged(actionPrefix);
 
-export const hideError = () => ({ type: 'PRIHLASKY_HIDE_ERROR' });
+export const createHideError = actionPrefix => () => ({ type: `${actionPrefix}_HIDE_ERROR` });
 
-export const reset = () => ({
-  type: 'PRIHLASKY_RESET'
-});
+export const createReset = actionPrefix => () => ({ type: `${actionPrefix}_RESET` });
 
-export const loadUcastnik = ({ id, kategorie, ucastnici }) => {
+export const createLoadUcastnik = actionPrefix => ({ id, kategorie, ucastnici }) => {
   const ucastnik = ucastnici.byIds[id];
   const posledniRok = ucastnik.roky[0];
   const ucast = ucastnik[posledniRok];
   const action = {
-    type: 'PRIHLASKY_UCASTNIK_LOAD',
+    type: `${actionPrefix}_UCASTNIK_LOAD`,
     id,
     udaje: ucast.udaje
   };
@@ -41,23 +39,30 @@ export const loadUcastnik = ({ id, kategorie, ucastnici }) => {
   return action;
 };
 
-export const validate = () => ({ type: 'PRIHLASKY_VALIDATE_FORM' });
+export const createValidate = actionPrefix => () => ({ type: `${actionPrefix}_VALIDATE_FORM` });
 
-export const validationError = () => ({
-  type: 'PRIHLASKY_FORM_INVALID',
+export const createValidationError = actionPrefix => () => ({
+  type: `${actionPrefix}_FORM_INVALID`,
   code: 'nejde uložit',
   status: 'Přihláška nejde uložit. Povinná pole nejsou vyplněna.'
 });
 
-export const saveUcastRequest = () => ({
-  type: 'PRIHLASKY_SAVE_REQUEST'
+export const createSaveUcastRequest = actionPrefix => () => ({
+  type: `${actionPrefix}_SAVE_REQUEST`
 });
 
-export const saveUcastSuccess = ({ id, rok, udaje, prihlaska, platby = [], ubytovani = {} }) => {
+export const createSaveUcastSuccess = actionPrefix => ({
+  id,
+  rok,
+  udaje,
+  prihlaska,
+  platby = [],
+  ubytovani = {}
+}) => {
   const { typ, ...jenPrihlaska } = prihlaska;
 
   return {
-    type: 'PRIHLASKY_SAVE_SUCCESS',
+    type: `${actionPrefix}_SAVE_SUCCESS`,
     id,
     rok,
     udaje,
@@ -68,8 +73,8 @@ export const saveUcastSuccess = ({ id, rok, udaje, prihlaska, platby = [], ubyto
   };
 };
 
-export const saveUcastError = ({ code, status, err, ...rest }) => ({
-  type: 'PRIHLASKY_SAVE_ERROR',
+export const createSaveUcastError = actionPrefix => ({ code, status, err, ...rest }) => ({
+  type: `${actionPrefix}_SAVE_ERROR`,
   code,
   status,
   err: errorToStr(err),
@@ -77,36 +82,40 @@ export const saveUcastError = ({ code, status, err, ...rest }) => ({
   receivedAt: Date.now()
 });
 
-const handleErrors = (dispatch, response) => {
+const handleErrors = ({ actionPrefix, dispatch, response }) => {
   if (response.code === CODE_TOKEN_INVALID) {
     dispatch(authTokenExpired(response));
   } else {
-    dispatch(saveUcastError(response));
+    dispatch(createSaveUcastError(actionPrefix)(response));
   }
 };
 
-export const hideModal = () => ({ type: 'PRIHLASKY_SAVE_HIDE_MODAL' });
-export const showModal = () => ({ type: 'PRIHLASKY_SAVE_SHOW_MODAL' });
-const showModalWithTimeout = dispatch => {
-  dispatch(showModal());
-  setTimeout(() => dispatch(hideModal()), PRIHLASKY_SAVE_MODAL_TIMEOUT);
+export const createHideModal = actionPrefix => () => ({ type: `${actionPrefix}_SAVE_HIDE_MODAL` });
+export const createShowModal = actionPrefix => () => ({ type: `${actionPrefix}_SAVE_SHOW_MODAL` });
+const showModalWithTimeout = (actionPrefix, dispatch) => {
+  dispatch(createShowModal(actionPrefix)());
+  setTimeout(() => dispatch(createHideModal(actionPrefix)()), PRIHLASKY_SAVE_MODAL_TIMEOUT);
 };
 
-export const saveUcast = () => async (dispatch, getState, wsClient) => {
-  await dispatch(validate());
+export const createSaveUcast = (actionPrefix, reduxName) => () => async (
+  dispatch,
+  getState,
+  wsClient
+) => {
+  await dispatch(createValidate(actionPrefix)());
 
   const state = getState();
   const {
     registrator: {
-      prihlasky: { form }
+      [reduxName]: { form }
     }
   } = state;
   if (!formValid({ form, rocniky: state.entities.rocniky })) {
-    dispatch(validationError());
+    dispatch(createValidationError(actionPrefix)());
     return;
   }
 
-  dispatch(saveUcastRequest());
+  dispatch(createSaveUcastRequest(actionPrefix)());
 
   const rok = AKTUALNI_ROK;
   const { udaje, prihlaska, platby, ubytovani } = form;
@@ -122,31 +131,33 @@ export const saveUcast = () => async (dispatch, getState, wsClient) => {
       )
     );
     if (response.code !== CODE_OK) {
-      handleErrors(dispatch, response);
+      handleErrors({ actionPrefix, dispatch, response });
       return;
     }
 
     const { id } = response.response;
     response = await wsClient.sendRequest(savePrihlaska({ id, rok, prihlaska }, state.auth.token));
     if (response.code !== CODE_OK) {
-      handleErrors(dispatch, response);
+      handleErrors({ actionPrefix, dispatch, response });
       return;
     }
 
     response = await wsClient.sendRequest(savePlatby({ id, rok, platby }, state.auth.token));
     if (response.code !== CODE_OK) {
-      handleErrors(dispatch, response);
+      handleErrors({ actionPrefix, dispatch, response });
       return;
     }
 
     response = await wsClient.sendRequest(saveUbytovani({ id, rok, ubytovani }, state.auth.token));
     if (response.code === CODE_OK) {
-      dispatch(saveUcastSuccess({ id, rok, udaje, prihlaska, platby, ubytovani }));
-      showModalWithTimeout(dispatch);
+      dispatch(
+        createSaveUcastSuccess(actionPrefix)({ id, rok, udaje, prihlaska, platby, ubytovani })
+      );
+      showModalWithTimeout(actionPrefix, dispatch);
     } else {
-      handleErrors(dispatch, response);
+      handleErrors({ actionPrefix, dispatch, response });
     }
   } catch (err) {
-    dispatch(saveUcastError({ code: 'internal error', err }));
+    dispatch(createSaveUcastError(actionPrefix)({ code: 'internal error', err }));
   }
 };

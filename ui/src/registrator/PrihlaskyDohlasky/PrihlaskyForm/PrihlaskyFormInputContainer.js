@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { isStartCisloTaken } from '../../../shared/StartovniCislaProTyp/startovniCislaProTypReducer';
 import InputContainer from '../Input/InputContainer';
-import { inputChanged } from './PrihlaskyFormActions';
+import { createInputChanged } from './PrihlaskyFormActions';
 import {
   formatValue,
   getValue,
@@ -32,16 +32,18 @@ const startCisloValid = ({ typ, kategorie, ucastnici }) => ({ name, value, form 
 };
 
 const mapStateToProps = (state, ownProps) => {
-  const { form } = state.registrator.prihlasky;
-  const { name, ...restOwnProps } = ownProps;
+  const { actionPrefix, name, reduxName, ...restOwnProps } = ownProps;
+  const { form } = state.registrator[reduxName];
   const rawValue = getValue({ name, form });
 
   return {
+    actionPrefix,
     form,
     name,
     rawValue,
+    reduxName,
     formatValue,
-    inputChanged,
+    inputChanged: createInputChanged(actionPrefix),
     inputOptions,
     inputValid:
       name === 'prihlaska.startCislo'
@@ -56,7 +58,9 @@ const mapStateToProps = (state, ownProps) => {
 const PrihlaskyFormInputContainer = connect(mapStateToProps, {})(InputContainer);
 
 PrihlaskyFormInputContainer.propTypes = {
-  name: PropTypes.string.isRequired
+  actionPrefix: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  reduxName: PropTypes.string.isRequired
 };
 
 export default PrihlaskyFormInputContainer;

@@ -70,12 +70,14 @@ class PrihlaskyForm extends PureComponent {
 
   render = () => {
     const {
+      actionPrefix,
       errorCode,
       errorMessage,
+      existujiciUcastnik,
+      reduxName,
       showError,
       saved,
       saving,
-      existujiciUcastnik,
       onHideError,
       onHideModal
     } = this.props;
@@ -101,148 +103,182 @@ class PrihlaskyForm extends PureComponent {
         >
           <Panel bsStyle="primary" className="PrihlaskyForm__column" header="Údaje">
             <PrihlaskyFormInputContainer
+              actionPrefix={actionPrefix}
               index={0}
               inputRef={this.inputRef}
               name="udaje.prijmeni"
               popisek="příjmení"
+              reduxName={reduxName}
               Type={TextInput}
             />
             <PrihlaskyFormInputContainer
+              actionPrefix={actionPrefix}
               index={1}
               inputRef={this.inputRef}
               name="udaje.jmeno"
               popisek="jméno"
+              reduxName={reduxName}
               Type={TextInput}
             />
             <PrihlaskyFormInputContainer
+              actionPrefix={actionPrefix}
               index={2}
               inputRef={this.inputRef}
               name="udaje.narozeni"
               popisek="narození"
+              reduxName={reduxName}
               Type={TextInput}
             />
             <PrihlaskyFormInputContainer
+              actionPrefix={actionPrefix}
               index={3}
               inline={true}
               inputRef={this.inputRef}
               name="udaje.pohlavi"
               popisek="pohlaví"
+              reduxName={reduxName}
               Type={RadioInput}
               Formatter={PopisekPohlavi}
             />
             <PrihlaskyFormInputContainer
+              actionPrefix={actionPrefix}
               index={4}
               inputRef={this.inputRef}
               name="udaje.adresa"
               popisek="adresa"
+              reduxName={reduxName}
               Type={TextInput}
             />
             <PrihlaskyFormInputContainer
+              actionPrefix={actionPrefix}
               index={5}
               inputRef={this.inputRef}
               name="udaje.obec"
               popisek="obec"
+              reduxName={reduxName}
               Type={TextInput}
             />
             <PrihlaskyFormInputContainer
+              actionPrefix={actionPrefix}
               index={6}
               inputRef={this.inputRef}
               name="udaje.psc"
               popisek="PSČ"
+              reduxName={reduxName}
               Type={TextInput}
             />
             <PrihlaskyFormInputContainer
+              actionPrefix={actionPrefix}
               index={7}
               inputRef={this.inputRef}
               name="udaje.stat"
               popisek="stát"
+              reduxName={reduxName}
               Type={TextInput}
             />
             <PrihlaskyFormInputContainer
+              actionPrefix={actionPrefix}
               index={8}
               inputRef={this.inputRef}
               name="udaje.klub"
               popisek="klub"
+              reduxName={reduxName}
               Type={TextInput}
             />
             <PrihlaskyFormInputContainer
+              actionPrefix={actionPrefix}
               index={9}
               inputRef={this.inputRef}
               name="udaje.email"
               popisek="email"
+              reduxName={reduxName}
               Type={TextInput}
             />
             <PrihlaskyFormInputContainer
+              actionPrefix={actionPrefix}
               index={10}
               inputRef={this.inputRef}
               name="udaje.telefon"
               popisek="telefon"
+              reduxName={reduxName}
               Type={TextInput}
             />
           </Panel>
           <Panel bsStyle="primary" className="PrihlaskyForm__column" header="Přihláška">
             <PrihlaskyFormInputContainer
+              actionPrefix={actionPrefix}
               index={11}
               inputRef={this.inputRef}
               name="prihlaska.datum"
               popisek="datum"
+              reduxName={reduxName}
               Type={TextInput}
             />
             <PrihlaskyFormInputContainer
+              actionPrefix={actionPrefix}
               index={12}
               inputRef={this.inputRef}
               name="prihlaska.typ"
               popisek="kategorie"
+              reduxName={reduxName}
               Formatter={PopisekKategorie}
               Type={RadioInput}
             />
             <PrihlaskyFormInputContainer
+              actionPrefix={actionPrefix}
               index={13}
               inputRef={this.inputRef}
               name="prihlaska.startCislo"
               popisek="číslo"
-              actionPrefix="PRIHLASKY"
-              reduxName="prihlasky"
+              reduxName={reduxName}
               Type={StartCisloInputContainer}
             />
             <PrihlaskyFormInputContainer
+              actionPrefix={actionPrefix}
               index={14}
               inputRef={this.inputRef}
               name="prihlaska.kod"
               popisek="kód"
+              reduxName={reduxName}
               Type={TextInput}
             />
             <PrihlaskyFormInputContainer
+              actionPrefix={actionPrefix}
               index={15}
               inputRef={this.inputRef}
               name="ubytovani.pátek"
               popisek="ubytování"
               option="pátek"
+              reduxName={reduxName}
               Type={CheckboxInput}
             />
             <PrihlaskyFormInputContainer
+              actionPrefix={actionPrefix}
               index={16}
               inputRef={this.inputRef}
               name="ubytovani.sobota"
               popisek=""
               option="sobota"
+              reduxName={reduxName}
               Type={CheckboxInput}
             />
             <PrihlaskyFormInputContainer
+              actionPrefix={actionPrefix}
               index={17}
               inputRef={this.inputRef}
               name="prihlaska.mladistvyPotvrzen"
               popisek="mladistvý"
               option="potvrzen"
+              reduxName={reduxName}
               Type={CheckboxInput}
             />
           </Panel>
           <div className="PrihlaskyForm__column">
             <Panel bsStyle="primary" header="Platby">
               <PlatbyContainer
+                actionPrefix={actionPrefix}
+                reduxName={reduxName}
                 startIndex={18}
-                actionPrefix="PRIHLASKY"
-                reduxName="prihlasky"
                 inputRef={this.inputRef}
               />
             </Panel>
@@ -275,12 +311,14 @@ class PrihlaskyForm extends PureComponent {
 }
 
 PrihlaskyForm.propTypes = {
+  actionPrefix: PropTypes.string.isRequired,
   errorCode: PropTypes.string,
   errorMessage: PropTypes.string,
   showError: PropTypes.bool,
   saved: PropTypes.bool.isRequired,
   saving: PropTypes.bool.isRequired,
   existujiciUcastnik: PropTypes.bool.isRequired,
+  reduxName: PropTypes.string.isRequired,
   reset: PropTypes.bool,
   onHideError: PropTypes.func.isRequired,
   onHideModal: PropTypes.func.isRequired,

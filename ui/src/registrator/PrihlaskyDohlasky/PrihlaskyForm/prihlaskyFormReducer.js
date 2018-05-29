@@ -80,11 +80,11 @@ const reduceUbytovani = ({ den, value, ubytovani }) => {
   return ubytovaniOdhlasit({ den, ubytovani });
 };
 
-const prihlaskyFormReducer = (state = initialState, action) => {
+export const createPrihlaskyFormReducer = actionPrefix => (state = initialState, action) => {
   switch (action.type) {
-    case 'PRIHLASKY_HIDE_ERROR':
+    case `${actionPrefix}_HIDE_ERROR`:
       return { ...state, showError: false };
-    case 'PRIHLASKY_INPUT_CHANGED': {
+    case `${actionPrefix}_INPUT_CHANGED`: {
       const [section, name] = action.name.split('.');
       let { value } = action;
       switch (action.name) {
@@ -134,7 +134,7 @@ const prihlaskyFormReducer = (state = initialState, action) => {
       }
       return { ...state, [section]: { ...state[section], [name]: value } };
     }
-    case 'PRIHLASKY_UCASTNIK_LOAD':
+    case `${actionPrefix}_UCASTNIK_LOAD`:
       return {
         ...initialState,
         ucastnikId: action.id,
@@ -143,22 +143,22 @@ const prihlaskyFormReducer = (state = initialState, action) => {
         platby: action.platby || initialState.platby,
         ubytovani: action.ubytovani || initialState.ubytovani
       };
-    case 'PRIHLASKY_RESET':
+    case `${actionPrefix}_RESET`:
       return initialState;
-    case 'PRIHLASKY_VALIDATE_FORM':
+    case `${actionPrefix}_VALIDATE_FORM`:
       return { ...state, validate: true };
-    case 'PRIHLASKY_FORM_INVALID':
+    case `${actionPrefix}_FORM_INVALID`:
       return {
         ...state,
         showError: true,
         errorCode: action.code,
         errorMessage: action.status
       };
-    case 'PRIHLASKY_SAVE_REQUEST':
+    case `${actionPrefix}_SAVE_REQUEST`:
       return { ...state, saving: true };
-    case 'PRIHLASKY_SAVE_SUCCESS':
+    case `${actionPrefix}_SAVE_SUCCESS`:
       return { ...state, ucastnikId: action.id, saving: false, showError: false };
-    case 'PRIHLASKY_SAVE_ERROR':
+    case `${actionPrefix}_SAVE_ERROR`:
       return {
         ...state,
         saving: false,
@@ -166,16 +166,16 @@ const prihlaskyFormReducer = (state = initialState, action) => {
         errorMessage: action.status,
         showError: true
       };
-    case 'PRIHLASKY_SAVE_SHOW_MODAL':
+    case `${actionPrefix}_SAVE_SHOW_MODAL`:
       return { ...state, saved: true };
-    case 'PRIHLASKY_SAVE_HIDE_MODAL':
+    case `${actionPrefix}_SAVE_HIDE_MODAL`:
       return { ...state, saved: false };
-    case 'PRIHLASKY_ADD_PLATBA': {
+    case `${actionPrefix}_ADD_PLATBA`: {
       const platby = [...state.platby, action.platba];
       platby.sort((a, b) => moment.utc(a.datum) - moment.utc(b.datum));
       return { ...state, platby };
     }
-    case 'PRIHLASKY_REMOVE_PLATBA':
+    case `${actionPrefix}_REMOVE_PLATBA`:
       return {
         ...state,
         platby: [...state.platby.slice(0, action.idx), ...state.platby.slice(action.idx + 1)]
@@ -184,8 +184,6 @@ const prihlaskyFormReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default prihlaskyFormReducer;
 
 const isMladistvy = ({ form, rocniky }) => {
   const rok = AKTUALNI_ROK;

@@ -3,27 +3,29 @@ import { connect } from 'react-redux';
 import { createReset as createResetNovaPlatba } from '../Platby/PlatbyActions';
 import PrihlaskyForm from './PrihlaskyForm';
 import {
-  hideError,
-  hideModal,
-  loadUcastnik,
-  reset as resetForm,
-  saveUcast
+  createHideError,
+  createHideModal,
+  createLoadUcastnik,
+  createReset as createResetForm,
+  createSaveUcast
 } from './PrihlaskyFormActions';
 
 const mapStateToProps = (state, ownProps) => {
+  const { actionPrefix, reduxName, reset } = ownProps;
   const {
     entities,
     registrator: {
-      prihlasky: { form }
+      [reduxName]: { form }
     }
   } = state;
-  const { reset } = ownProps;
   const { errorCode, errorMessage, showError, saved, saving, ucastnikId } = form;
 
   return {
+    actionPrefix,
     entities,
     errorCode,
     errorMessage,
+    reduxName,
     showError,
     saved,
     saving,
@@ -32,25 +34,29 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  onHideError: () => dispatch(hideError()),
-  onHideModal: () => dispatch(hideModal()),
-  onReset: () => {
-    dispatch(resetForm());
-    dispatch(createResetNovaPlatba('PRIHLASKY')());
-  },
-  onSubmit: () => dispatch(saveUcast()),
-  dispatch
-});
+const mapDispatchToProps = (dispatch, ownProps) => {
+  const { actionPrefix, reduxName } = ownProps;
+
+  return {
+    onHideError: () => dispatch(createHideError(actionPrefix)()),
+    onHideModal: () => dispatch(createHideModal(actionPrefix)()),
+    onReset: () => {
+      dispatch(createResetForm(actionPrefix)());
+      dispatch(createResetNovaPlatba(actionPrefix)());
+    },
+    onSubmit: () => dispatch(createSaveUcast(actionPrefix, reduxName)()),
+    dispatch
+  };
+};
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { entities, ...restOfStateProps } = stateProps;
+  const { actionPrefix, entities, ...restOfStateProps } = stateProps;
   const { dispatch, ...restOfDispatchProps } = dispatchProps;
   const { loadId } = ownProps;
 
-  const result = { ...restOfStateProps, ...restOfDispatchProps };
+  const result = { actionPrefix, ...restOfStateProps, ...restOfDispatchProps };
   if (loadId) {
-    result.onLoadId = () => dispatch(loadUcastnik({ id: loadId, ...entities }));
+    result.onLoadId = () => dispatch(createLoadUcastnik(actionPrefix)({ id: loadId, ...entities }));
   }
   return result;
 };
@@ -60,7 +66,9 @@ const PrihlaskyFormContainer = connect(mapStateToProps, mapDispatchToProps, merg
 );
 
 PrihlaskyFormContainer.propTypes = {
+  actionPrefix: PropTypes.string.isRequired,
   loadId: PropTypes.string,
+  reduxName: PropTypes.string.isRequired,
   reset: PropTypes.bool
 };
 

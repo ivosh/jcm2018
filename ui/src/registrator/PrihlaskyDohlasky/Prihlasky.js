@@ -23,7 +23,7 @@ PrihlaskyMainWithRoute.propTypes = {
 const PrihlaskyFormWithFetchUcastnici = withFetchUcastnici(PrihlaskyFormContainer);
 
 const PrihlaskyFormWithFetchUcastniciWithId = ({ match }) => (
-  <PrihlaskyFormWithFetchUcastnici loadId={match.params.id} />
+  <PrihlaskyFormWithFetchUcastnici actionPrefix="PRIHLASKY" loadId={match.params.id} reduxName="prihlasky" />
 );
 
 PrihlaskyFormWithFetchUcastniciWithId.propTypes = {
@@ -32,10 +32,10 @@ PrihlaskyFormWithFetchUcastniciWithId.propTypes = {
   })
 };
 
-const PrihlaskyFormWithFetchUcastniciWithEdit = () => <PrihlaskyFormWithFetchUcastnici />;
+const PrihlaskyFormWithFetchUcastniciWithEdit = () => <PrihlaskyFormWithFetchUcastnici actionPrefix="PRIHLASKY" reduxName="prihlasky" />;
 
 const PrihlaskyFormWithFetchUcastniciWithReset = () => (
-  <PrihlaskyFormWithFetchUcastnici reset={true} />
+  <PrihlaskyFormWithFetchUcastnici actionPrefix="PRIHLASKY" reduxName="prihlasky" reset={true} />
 );
 
 const Prihlasky = ({ match }) => (

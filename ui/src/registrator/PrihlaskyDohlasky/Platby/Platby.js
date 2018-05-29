@@ -65,12 +65,14 @@ const Platby = ({
 
     <div className="Platby__po-sleve">
       <PrihlaskyFormInputContainer
+        actionPrefix={actionPrefix}
         index={startIndex + 4}
         inputRef={inputRef}
         inputWidth={4}
         name="prihlaska.startovnePoSleve"
         popisek="startovné po slevě"
         popisekWidth={5}
+        reduxName={reduxName}
         Type={TextInput}
       />
     </div>
