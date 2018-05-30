@@ -46,7 +46,7 @@ export const getPrihlaseniSorted = ({
     } = ucast;
     const { datum, kategorie: kategorieId, startCislo, kod } = prihlaska;
     const jednaKategorie = kategorie[kategorieId];
-    const predepsano = predepsaneStartovne({ kategorie, prihlaska, rocniky, rok }).suma;
+    const predepsano = predepsaneStartovne({ kategorie, platby, prihlaska, rocniky, rok }).suma;
     const zaplaceno = provedenePlatby(platby).suma;
 
     if (

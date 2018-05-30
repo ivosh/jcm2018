@@ -54,6 +54,7 @@ beforeEach(() => {
 
 it('maps state and dispatch to props', () => {
   expect(wrapper.props().actionPrefix).toEqual(actionPrefix);
+  expect(wrapper.props().jePrihlaskou).toBe(false);
   expect(wrapper.props().novaPlatbaMinified).toBe(true);
   expect(wrapper.props().predepsano).toMatchSnapshot();
   expect(wrapper.props().provedeno).toMatchSnapshot();
@@ -95,4 +96,24 @@ it('maps provedeno.platby[0].onRemove to dispatch removePlatba action', () => {
   wrapper.props().provedeno.platby[0].onRemove();
 
   expect(store.dispatch).toHaveBeenCalledWith({ type: `${actionPrefix}_REMOVE_PLATBA`, idx: 0 });
+});
+
+it('prihlasky - předepsané startovné předem', () => {
+  const state2 = JSON.parse(JSON.stringify(state)); // deep copy
+  state2.registrator.prihlasky = state2.registrator[reduxName];
+  state2.registrator.prihlasky.form.platby = [];
+  store = mockStore(state2);
+  wrapper = shallow(
+    <PlatbyContainer
+      actionPrefix={actionPrefix}
+      reduxName="prihlasky"
+      startIndex={10}
+      store={store}
+      inputRef={jest.fn()}
+    />
+  );
+
+  expect(wrapper.props().jePrihlaskou).toBe(true);
+  expect(wrapper.props().predepsano).toMatchSnapshot();
+  expect(wrapper.props().provedeno).toMatchSnapshot();
 });

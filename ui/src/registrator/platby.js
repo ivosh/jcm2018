@@ -12,8 +12,15 @@ export const provedenePlatby = platby => {
   return { platby: result, suma };
 };
 
-// Přihláška can contain either kategorie(id) or typ. Consider both.
-export const predepsaneStartovne = ({ kategorie, prihlaska, rocniky, rok = AKTUALNI_ROK }) => {
+export const predepsaneStartovne = ({
+  jePrihlaskou,
+  kategorie,
+  platby,
+  prihlaska,
+  rocniky,
+  rok = AKTUALNI_ROK
+}) => {
+  // Přihláška can contain either kategorie(id) or typ. Consider both.
   let typ = null;
   if (prihlaska) {
     ({ typ } = prihlaska);
@@ -31,13 +38,31 @@ export const predepsaneStartovne = ({ kategorie, prihlaska, rocniky, rok = AKTUA
   if (prihlaska.startovnePoSleve >= 0) {
     polozky.push({ castka: prihlaska.startovnePoSleve, duvod: 'po slevě' });
   } else {
+    /* Předem lze pouze v těchto případech:
+       - zaplaceno alespoň tolik jako startovné předem
+         a alespoň jedna platba provedena před datem konání
+       - nebo nejsou žádné platby, datum přihlášení je před datem konání
+         a je nastaven příznak "jePrihlaskou" */
     const datumKonani = rocniky.byRoky[rok].datum;
     const datumPrihlaseni = prihlaska.datum;
 
-    if (new Date(datumPrihlaseni).getTime() < new Date(datumKonani).getTime()) {
-      polozky.push({ castka: startovne.predem, duvod: 'předem' });
+    if (platby && platby.length > 0) {
+      const zaplaceno = platby.reduce((celkem, platba) => celkem + platba.castka, 0);
+      const vcasnaData = platby.filter(
+        platba => new Date(platba.datum).getTime() < new Date(datumKonani).getTime()
+      );
+      if (zaplaceno >= startovne.predem && vcasnaData.length > 0) {
+        polozky.push({ castka: startovne.predem, duvod: 'předem' });
+      } else {
+        polozky.push({ castka: startovne.naMiste, duvod: 'na místě' });
+      }
     } else {
-      polozky.push({ castka: startovne.naMiste, duvod: 'na místě' });
+      // eslint-disable-next-line no-lonely-if
+      if (jePrihlaskou && new Date(datumPrihlaseni).getTime() < new Date(datumKonani).getTime()) {
+        polozky.push({ castka: startovne.predem, duvod: 'předem' });
+      } else {
+        polozky.push({ castka: startovne.naMiste, duvod: 'na místě' });
+      }
     }
   }
   if (startovne.zaloha) {

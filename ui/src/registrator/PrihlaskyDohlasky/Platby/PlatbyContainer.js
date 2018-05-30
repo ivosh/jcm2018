@@ -10,6 +10,7 @@ import Platby from './Platby';
 
 const mapStateToProps = (state, ownProps) => {
   const { reduxName } = ownProps;
+  const jePrihlaskou = reduxName === 'prihlasky';
 
   const {
     registrator: {
@@ -21,10 +22,11 @@ const mapStateToProps = (state, ownProps) => {
     entities: { kategorie, rocniky }
   } = state;
 
-  const predepsano = predepsaneStartovne({ kategorie, prihlaska, rocniky });
+  const predepsano = predepsaneStartovne({ jePrihlaskou, kategorie, platby, prihlaska, rocniky });
   const provedeno = provedenePlatby(platby);
 
   return {
+    jePrihlaskou,
     novaPlatbaMinified:
       provedeno.suma < predepsano.suma || provedeno.suma === 0 ? false : novaPlatbaMinified,
     predepsano,

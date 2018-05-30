@@ -59,7 +59,11 @@ FormWithFetchUcastniciWithReset.propTypes = {
 
 const PrihlaskyDohlasky = ({ actionPrefix, match, name, reduxName }) => (
   <Switch>
-    <Route path={`${match.path}/`} exact component={matchProps => <MainWithRoute name={name} {...matchProps} />} />
+    <Route
+      path={`${match.path}/`}
+      exact
+      component={matchProps => <MainWithRoute name={name} {...matchProps} />}
+    />
     <Route
       path={`${match.path}/edit`}
       component={() => (
