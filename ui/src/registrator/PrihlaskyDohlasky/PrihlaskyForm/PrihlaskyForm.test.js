@@ -6,11 +6,14 @@ import configureStore from 'redux-mock-store';
 import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import PrihlaskyForm from './PrihlaskyForm';
 
+const actionPrefix = 'PRIHLASKY_YYY';
+const reduxName = 'prihlasky_yyy';
+
 const mockStore = configureStore();
 const state = {
   ...ucastniciTestData,
   registrator: {
-    prihlasky: {
+    [reduxName]: {
       form: {
         errorCode: '',
         errorMessage: '',
@@ -36,9 +39,9 @@ const store = mockStore(state);
 it('prázdný formulář', () => {
   const wrapper = shallow(
     <PrihlaskyForm
-      actionPrefix="PRIHLASKY"
+      actionPrefix={actionPrefix}
       existujiciUcastnik={false}
-      reduxName="prihlasky"
+      reduxName={reduxName}
       saved={false}
       saving={false}
       onHideError={jest.fn()}
@@ -53,9 +56,9 @@ it('prázdný formulář', () => {
 it('formulář s existujícím účastníkem', () => {
   const wrapper = shallow(
     <PrihlaskyForm
-      actionPrefix="PRIHLASKY"
+      actionPrefix={actionPrefix}
       existujiciUcastnik={true}
-      reduxName="prihlasky"
+      reduxName={reduxName}
       saved={false}
       saving={false}
       onHideError={jest.fn()}
@@ -70,11 +73,11 @@ it('formulář s existujícím účastníkem', () => {
 it('formulář s chybou', () => {
   const wrapper = shallow(
     <PrihlaskyForm
-      actionPrefix="PRIHLASKY"
+      actionPrefix={actionPrefix}
       errorCode="chybový kód"
       errorMessage="Popisek chyby, která se stala."
       existujiciUcastnik={true}
-      reduxName="prihlasky"
+      reduxName={reduxName}
       showError={true}
       saved={false}
       saving={false}
@@ -90,11 +93,11 @@ it('formulář s chybou', () => {
 it('formulář po uložení', () => {
   const wrapper = shallow(
     <PrihlaskyForm
-      actionPrefix="PRIHLASKY"
+      actionPrefix={actionPrefix}
       errorCode="chybový kód"
       errorMessage="Popisek chyby, která se stala."
       existujiciUcastnik={true}
-      reduxName="prihlasky"
+      reduxName={reduxName}
       showError={false}
       saved={true}
       saving={false}
@@ -113,9 +116,9 @@ it('handle succesfull form submit', () => {
   const wrapper = mount(
     <Provider store={store}>
       <PrihlaskyForm
-        actionPrefix="PRIHLASKY"
+        actionPrefix={actionPrefix}
         existujiciUcastnik={true}
-        reduxName="prihlasky"
+        reduxName={reduxName}
         saved={false}
         saving={false}
         onHideError={jest.fn()}
@@ -137,9 +140,9 @@ it('handle form reset', () => {
   const wrapper = mount(
     <Provider store={store}>
       <PrihlaskyForm
-        actionPrefix="PRIHLASKY"
+        actionPrefix={actionPrefix}
         existujiciUcastnik={true}
-        reduxName="prihlasky"
+        reduxName={reduxName}
         saved={false}
         saving={false}
         onHideError={jest.fn()}
@@ -159,9 +162,9 @@ it('handle Enter key and move focus', () => {
   const wrapper = mount(
     <Provider store={store}>
       <PrihlaskyForm
-        actionPrefix="PRIHLASKY"
+        actionPrefix={actionPrefix}
         existujiciUcastnik={true}
-        reduxName="prihlasky"
+        reduxName={reduxName}
         saved={false}
         saving={false}
         onHideError={jest.fn()}
@@ -188,9 +191,9 @@ it('handle Enter key and move focus from last to first', () => {
   const wrapper = mount(
     <Provider store={store}>
       <PrihlaskyForm
-        actionPrefix="PRIHLASKY"
+        actionPrefix={actionPrefix}
         existujiciUcastnik={true}
-        reduxName="prihlasky"
+        reduxName={reduxName}
         saved={false}
         saving={false}
         onHideError={jest.fn()}

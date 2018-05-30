@@ -82,104 +82,104 @@ exports[`formulář po uložení 1`] = `
     >
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={0}
         inputRef={[Function]}
         name="udaje.prijmeni"
         popisek="příjmení"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={1}
         inputRef={[Function]}
         name="udaje.jmeno"
         popisek="jméno"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={2}
         inputRef={[Function]}
         name="udaje.narozeni"
         popisek="narození"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Formatter={[Function]}
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={3}
         inline={true}
         inputRef={[Function]}
         name="udaje.pohlavi"
         popisek="pohlaví"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={4}
         inputRef={[Function]}
         name="udaje.adresa"
         popisek="adresa"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={5}
         inputRef={[Function]}
         name="udaje.obec"
         popisek="obec"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={6}
         inputRef={[Function]}
         name="udaje.psc"
         popisek="PSČ"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={7}
         inputRef={[Function]}
         name="udaje.stat"
         popisek="stát"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={8}
         inputRef={[Function]}
         name="udaje.klub"
         popisek="klub"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={9}
         inputRef={[Function]}
         name="udaje.email"
         popisek="email"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={10}
         inputRef={[Function]}
         name="udaje.telefon"
         popisek="telefon"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
     </Panel>
     <Panel
@@ -191,70 +191,70 @@ exports[`formulář po uložení 1`] = `
     >
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={11}
         inputRef={[Function]}
         name="prihlaska.datum"
         popisek="datum"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Formatter={[Function]}
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={12}
         inputRef={[Function]}
         name="prihlaska.typ"
         popisek="kategorie"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={13}
         inputRef={[Function]}
         name="prihlaska.startCislo"
         popisek="číslo"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={14}
         inputRef={[Function]}
         name="prihlaska.kod"
         popisek="kód"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={15}
         inputRef={[Function]}
         name="ubytovani.pátek"
         option="pátek"
         popisek="ubytování"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={16}
         inputRef={[Function]}
         name="ubytovani.sobota"
         option="sobota"
         popisek=""
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={17}
         inputRef={[Function]}
         name="prihlaska.mladistvyPotvrzen"
         option="potvrzen"
         popisek="mladistvý"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
     </Panel>
     <div
@@ -267,9 +267,9 @@ exports[`formulář po uložení 1`] = `
         header="Platby"
       >
         <Connect(Platby)
-          actionPrefix="PRIHLASKY"
+          actionPrefix="PRIHLASKY_YYY"
           inputRef={[Function]}
-          reduxName="prihlasky"
+          reduxName="prihlasky_yyy"
           startIndex={18}
         />
       </Panel>
@@ -389,104 +389,104 @@ exports[`formulář s chybou 1`] = `
     >
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={0}
         inputRef={[Function]}
         name="udaje.prijmeni"
         popisek="příjmení"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={1}
         inputRef={[Function]}
         name="udaje.jmeno"
         popisek="jméno"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={2}
         inputRef={[Function]}
         name="udaje.narozeni"
         popisek="narození"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Formatter={[Function]}
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={3}
         inline={true}
         inputRef={[Function]}
         name="udaje.pohlavi"
         popisek="pohlaví"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={4}
         inputRef={[Function]}
         name="udaje.adresa"
         popisek="adresa"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={5}
         inputRef={[Function]}
         name="udaje.obec"
         popisek="obec"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={6}
         inputRef={[Function]}
         name="udaje.psc"
         popisek="PSČ"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={7}
         inputRef={[Function]}
         name="udaje.stat"
         popisek="stát"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={8}
         inputRef={[Function]}
         name="udaje.klub"
         popisek="klub"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={9}
         inputRef={[Function]}
         name="udaje.email"
         popisek="email"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={10}
         inputRef={[Function]}
         name="udaje.telefon"
         popisek="telefon"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
     </Panel>
     <Panel
@@ -498,70 +498,70 @@ exports[`formulář s chybou 1`] = `
     >
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={11}
         inputRef={[Function]}
         name="prihlaska.datum"
         popisek="datum"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Formatter={[Function]}
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={12}
         inputRef={[Function]}
         name="prihlaska.typ"
         popisek="kategorie"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={13}
         inputRef={[Function]}
         name="prihlaska.startCislo"
         popisek="číslo"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={14}
         inputRef={[Function]}
         name="prihlaska.kod"
         popisek="kód"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={15}
         inputRef={[Function]}
         name="ubytovani.pátek"
         option="pátek"
         popisek="ubytování"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={16}
         inputRef={[Function]}
         name="ubytovani.sobota"
         option="sobota"
         popisek=""
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={17}
         inputRef={[Function]}
         name="prihlaska.mladistvyPotvrzen"
         option="potvrzen"
         popisek="mladistvý"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
     </Panel>
     <div
@@ -574,9 +574,9 @@ exports[`formulář s chybou 1`] = `
         header="Platby"
       >
         <Connect(Platby)
-          actionPrefix="PRIHLASKY"
+          actionPrefix="PRIHLASKY_YYY"
           inputRef={[Function]}
-          reduxName="prihlasky"
+          reduxName="prihlasky_yyy"
           startIndex={18}
         />
       </Panel>
@@ -702,104 +702,104 @@ exports[`formulář s existujícím účastníkem 1`] = `
     >
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={0}
         inputRef={[Function]}
         name="udaje.prijmeni"
         popisek="příjmení"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={1}
         inputRef={[Function]}
         name="udaje.jmeno"
         popisek="jméno"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={2}
         inputRef={[Function]}
         name="udaje.narozeni"
         popisek="narození"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Formatter={[Function]}
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={3}
         inline={true}
         inputRef={[Function]}
         name="udaje.pohlavi"
         popisek="pohlaví"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={4}
         inputRef={[Function]}
         name="udaje.adresa"
         popisek="adresa"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={5}
         inputRef={[Function]}
         name="udaje.obec"
         popisek="obec"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={6}
         inputRef={[Function]}
         name="udaje.psc"
         popisek="PSČ"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={7}
         inputRef={[Function]}
         name="udaje.stat"
         popisek="stát"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={8}
         inputRef={[Function]}
         name="udaje.klub"
         popisek="klub"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={9}
         inputRef={[Function]}
         name="udaje.email"
         popisek="email"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={10}
         inputRef={[Function]}
         name="udaje.telefon"
         popisek="telefon"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
     </Panel>
     <Panel
@@ -811,70 +811,70 @@ exports[`formulář s existujícím účastníkem 1`] = `
     >
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={11}
         inputRef={[Function]}
         name="prihlaska.datum"
         popisek="datum"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Formatter={[Function]}
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={12}
         inputRef={[Function]}
         name="prihlaska.typ"
         popisek="kategorie"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={13}
         inputRef={[Function]}
         name="prihlaska.startCislo"
         popisek="číslo"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={14}
         inputRef={[Function]}
         name="prihlaska.kod"
         popisek="kód"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={15}
         inputRef={[Function]}
         name="ubytovani.pátek"
         option="pátek"
         popisek="ubytování"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={16}
         inputRef={[Function]}
         name="ubytovani.sobota"
         option="sobota"
         popisek=""
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={17}
         inputRef={[Function]}
         name="prihlaska.mladistvyPotvrzen"
         option="potvrzen"
         popisek="mladistvý"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
     </Panel>
     <div
@@ -887,9 +887,9 @@ exports[`formulář s existujícím účastníkem 1`] = `
         header="Platby"
       >
         <Connect(Platby)
-          actionPrefix="PRIHLASKY"
+          actionPrefix="PRIHLASKY_YYY"
           inputRef={[Function]}
-          reduxName="prihlasky"
+          reduxName="prihlasky_yyy"
           startIndex={18}
         />
       </Panel>
@@ -1009,104 +1009,104 @@ exports[`prázdný formulář 1`] = `
     >
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={0}
         inputRef={[Function]}
         name="udaje.prijmeni"
         popisek="příjmení"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={1}
         inputRef={[Function]}
         name="udaje.jmeno"
         popisek="jméno"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={2}
         inputRef={[Function]}
         name="udaje.narozeni"
         popisek="narození"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Formatter={[Function]}
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={3}
         inline={true}
         inputRef={[Function]}
         name="udaje.pohlavi"
         popisek="pohlaví"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={4}
         inputRef={[Function]}
         name="udaje.adresa"
         popisek="adresa"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={5}
         inputRef={[Function]}
         name="udaje.obec"
         popisek="obec"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={6}
         inputRef={[Function]}
         name="udaje.psc"
         popisek="PSČ"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={7}
         inputRef={[Function]}
         name="udaje.stat"
         popisek="stát"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={8}
         inputRef={[Function]}
         name="udaje.klub"
         popisek="klub"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={9}
         inputRef={[Function]}
         name="udaje.email"
         popisek="email"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={10}
         inputRef={[Function]}
         name="udaje.telefon"
         popisek="telefon"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
     </Panel>
     <Panel
@@ -1118,70 +1118,70 @@ exports[`prázdný formulář 1`] = `
     >
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={11}
         inputRef={[Function]}
         name="prihlaska.datum"
         popisek="datum"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Formatter={[Function]}
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={12}
         inputRef={[Function]}
         name="prihlaska.typ"
         popisek="kategorie"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={13}
         inputRef={[Function]}
         name="prihlaska.startCislo"
         popisek="číslo"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={14}
         inputRef={[Function]}
         name="prihlaska.kod"
         popisek="kód"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={15}
         inputRef={[Function]}
         name="ubytovani.pátek"
         option="pátek"
         popisek="ubytování"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={16}
         inputRef={[Function]}
         name="ubytovani.sobota"
         option="sobota"
         popisek=""
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
       <Connect(Connect(Input))
         Type={[Function]}
-        actionPrefix="PRIHLASKY"
+        actionPrefix="PRIHLASKY_YYY"
         index={17}
         inputRef={[Function]}
         name="prihlaska.mladistvyPotvrzen"
         option="potvrzen"
         popisek="mladistvý"
-        reduxName="prihlasky"
+        reduxName="prihlasky_yyy"
       />
     </Panel>
     <div
@@ -1194,9 +1194,9 @@ exports[`prázdný formulář 1`] = `
         header="Platby"
       >
         <Connect(Platby)
-          actionPrefix="PRIHLASKY"
+          actionPrefix="PRIHLASKY_YYY"
           inputRef={[Function]}
-          reduxName="prihlasky"
+          reduxName="prihlasky_yyy"
           startIndex={18}
         />
       </Panel>

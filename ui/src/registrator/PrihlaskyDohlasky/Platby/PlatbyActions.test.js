@@ -4,12 +4,14 @@ import { createAddValidatedPlatba } from './PlatbyActions';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
-const addValidatedPlatba = createAddValidatedPlatba('PRIHLASKY', 'prihlasky');
+const actionPrefix = 'PRIHLASKY_YYY';
+const reduxName = 'prihlasky_yyy';
+const addValidatedPlatba = createAddValidatedPlatba(actionPrefix, reduxName);
 
 it('addValidatedPlatba() should dispatch two successful actions', async () => {
   const store = mockStore({
     registrator: {
-      prihlasky: {
+      [reduxName]: {
         platby: {
           castka: '200',
           datum: '2018-05-12T00:00:00Z',
@@ -22,9 +24,9 @@ it('addValidatedPlatba() should dispatch two successful actions', async () => {
 
   await store.dispatch(addValidatedPlatba());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'PRIHLASKY_NOVA_PLATBA_VALIDATE' });
+  expect(actions[0]).toEqual({ type: `${actionPrefix}_NOVA_PLATBA_VALIDATE` });
   expect(actions[1]).toEqual({
-    type: 'PRIHLASKY_ADD_PLATBA',
+    type: `${actionPrefix}_ADD_PLATBA`,
     platba: {
       castka: 200,
       datum: '2018-05-12T00:00:00Z',
@@ -36,7 +38,7 @@ it('addValidatedPlatba() should dispatch two successful actions', async () => {
 it('addValidatedPlatba() should dispatch only one action on error', async () => {
   const store = mockStore({
     registrator: {
-      prihlasky: {
+      [reduxName]: {
         platby: {
           castka: 'rozepsáno',
           datum: '2018-05-12T00:00:00Z',
@@ -50,5 +52,5 @@ it('addValidatedPlatba() should dispatch only one action on error', async () => 
   await store.dispatch(addValidatedPlatba());
   const actions = store.getActions();
   expect(actions).toHaveLength(1);
-  expect(actions[0]).toEqual({ type: 'PRIHLASKY_NOVA_PLATBA_VALIDATE' });
+  expect(actions[0]).toEqual({ type: `${actionPrefix}_NOVA_PLATBA_VALIDATE` });
 });

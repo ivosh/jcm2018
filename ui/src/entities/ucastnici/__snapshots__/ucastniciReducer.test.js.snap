@@ -825,7 +825,7 @@ Object {
 }
 `;
 
-exports[`saveUcastSuccess() - nový účastník 1`] = `
+exports[`saveUcastSuccess() - přihlášky - nový účastník 1`] = `
 Object {
   "allIds": Array [
     "6f09b1fd371dec1e99b7e1c9",
@@ -1045,7 +1045,7 @@ Object {
 }
 `;
 
-exports[`saveUcastSuccess() - stávající účastník - nový rok 1`] = `
+exports[`saveUcastSuccess() - přihlášky - stávající účastník - nový rok 1`] = `
 Object {
   "allIds": Array [
     "6f09b1fd371dec1e99b7e1c9",
@@ -1259,7 +1259,7 @@ Object {
 }
 `;
 
-exports[`saveUcastSuccess() - stávající účastník - stávající rok 1`] = `
+exports[`saveUcastSuccess() - přihlášky - stávající účastník - stávající rok 1`] = `
 Object {
   "allIds": Array [
     "6f09b1fd371dec1e99b7e1c9",

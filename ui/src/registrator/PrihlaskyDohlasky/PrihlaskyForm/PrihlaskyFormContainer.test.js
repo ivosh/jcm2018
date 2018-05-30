@@ -5,6 +5,8 @@ import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import PrihlaskyFormContainer from './PrihlaskyFormContainer';
 
 const mockStore = configureStore();
+const actionPrefix = 'PRIHLASKY_YYY';
+const reduxName = 'prihlasky_yyy';
 
 let store;
 let wrapper;
@@ -12,7 +14,7 @@ beforeEach(() => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlasky: {
+      [reduxName]: {
         form: {
           errorCode: 'Chybový kód.',
           errorMessage: 'Chybová hláška trochu dlouhá.',
@@ -28,15 +30,15 @@ beforeEach(() => {
   store = mockStore(state);
   store.dispatch = jest.fn();
   wrapper = shallow(
-    <PrihlaskyFormContainer actionPrefix="PRIHLASKY" reduxName="prihlasky" store={store} />
+    <PrihlaskyFormContainer actionPrefix={actionPrefix} reduxName={reduxName} store={store} />
   );
 });
 
 it('maps state and dispatch to props', () => {
-  expect(wrapper.props().actionPrefix).toEqual('PRIHLASKY');
+  expect(wrapper.props().actionPrefix).toEqual(actionPrefix);
   expect(wrapper.props().errorCode).toEqual('Chybový kód.');
   expect(wrapper.props().errorMessage).toEqual('Chybová hláška trochu dlouhá.');
-  expect(wrapper.props().reduxName).toEqual('prihlasky');
+  expect(wrapper.props().reduxName).toEqual(reduxName);
   expect(wrapper.props().showError).toBe(true);
   expect(wrapper.props().saved).toBe(false);
   expect(wrapper.props().saving).toBe(true);
@@ -46,21 +48,21 @@ it('maps state and dispatch to props', () => {
 it('maps onHideError to dispatch hideError action', () => {
   wrapper.props().onHideError();
 
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASKY_HIDE_ERROR' });
+  expect(store.dispatch).toHaveBeenCalledWith({ type: `${actionPrefix}_HIDE_ERROR` });
 });
 
 it('maps onHideModal to dispatch hideModal action', () => {
   wrapper.props().onHideModal();
 
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASKY_SAVE_HIDE_MODAL' });
+  expect(store.dispatch).toHaveBeenCalledWith({ type: `${actionPrefix}_SAVE_HIDE_MODAL` });
 });
 
 it('maps onLoadId to dispatch loadUcastnik action - existující přihláška', () => {
   wrapper = shallow(
     <PrihlaskyFormContainer
-      actionPrefix="PRIHLASKY"
+      actionPrefix={actionPrefix}
       loadId="5a09b1fd371dec1e99b7e1c9"
-      reduxName="prihlasky"
+      reduxName={reduxName}
       store={store}
     />
   );
@@ -69,7 +71,7 @@ it('maps onLoadId to dispatch loadUcastnik action - existující přihláška', 
   wrapper.props().onLoadId();
 
   expect(store.dispatch).toHaveBeenCalledWith({
-    type: 'PRIHLASKY_UCASTNIK_LOAD',
+    type: `${actionPrefix}_UCASTNIK_LOAD`,
     id: '5a09b1fd371dec1e99b7e1c9',
     udaje: {
       jmeno: 'Roman',
@@ -94,9 +96,9 @@ it('maps onLoadId to dispatch loadUcastnik action - existující přihláška', 
 it('maps onLoadId to dispatch ucastnikSelected action - starší účast', () => {
   wrapper = shallow(
     <PrihlaskyFormContainer
-      actionPrefix="PRIHLASKY"
+      actionPrefix={actionPrefix}
       loadId="6f09b1fd371dec1e99b7e1c9"
-      reduxName="prihlasky"
+      reduxName={reduxName}
       store={store}
     />
   );
@@ -105,7 +107,7 @@ it('maps onLoadId to dispatch ucastnikSelected action - starší účast', () =>
   wrapper.props().onLoadId();
 
   expect(store.dispatch).toHaveBeenCalledWith({
-    type: 'PRIHLASKY_UCASTNIK_LOAD',
+    type: `${actionPrefix}_UCASTNIK_LOAD`,
     id: '6f09b1fd371dec1e99b7e1c9',
     udaje: {
       prijmeni: 'Sukdoláková',
@@ -121,7 +123,7 @@ it('maps onLoadId to dispatch ucastnikSelected action - starší účast', () =>
 it('maps onReset to dispatch reset action', () => {
   wrapper.props().onReset();
 
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASKY_RESET' });
+  expect(store.dispatch).toHaveBeenCalledWith({ type: `${actionPrefix}_RESET` });
 });
 
 it('maps onSubmit to dispatch saveUcast action', () => {

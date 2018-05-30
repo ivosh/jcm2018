@@ -12,7 +12,7 @@ import ucastniciReducer, { getUcastiProRok } from './ucastniciReducer';
 import { broadcastUcastnik, fetchUcastniciSuccess } from './ucastniciActions';
 import ucastniciTestData from './ucastniciTestData';
 
-const saveUcastSuccess = createSaveUcastSuccess('PRIHLASKY');
+const saveUcastSuccessPrihlasky = createSaveUcastSuccess('PRIHLASKY');
 
 it('nic se nestalo 1', () => {
   const stateBefore = undefined;
@@ -184,7 +184,7 @@ it('saveUbytovaniSuccess()', () => {
   ).toMatchSnapshot();
 });
 
-it('saveUcastSuccess() - stávající účastník - nový rok', () => {
+it('saveUcastSuccess() - přihlášky - stávající účastník - nový rok', () => {
   const stateBefore = { ...ucastniciTestData.entities.ucastnici };
   deepFreeze(stateBefore);
   const id = '6f09b1fd371dec1e99b7e1c9';
@@ -206,12 +206,12 @@ it('saveUcastSuccess() - stávající účastník - nový rok', () => {
   expect(
     ucastniciReducer(
       stateBefore,
-      saveUcastSuccess({ id, rok, udaje, prihlaska, platby, ubytovani })
+      saveUcastSuccessPrihlasky({ id, rok, udaje, prihlaska, platby, ubytovani })
     )
   ).toMatchSnapshot();
 });
 
-it('saveUcastSuccess() - stávající účastník - stávající rok', () => {
+it('saveUcastSuccess() - přihlášky - stávající účastník - stávající rok', () => {
   const stateBefore = { ...ucastniciTestData.entities.ucastnici };
   deepFreeze(stateBefore);
   const id = '5a09b1fd371dec1e99b7e1c9';
@@ -222,11 +222,11 @@ it('saveUcastSuccess() - stávající účastník - stávající rok', () => {
   prihlaska = { ...prihlaska, startCislo: 18 };
 
   expect(
-    ucastniciReducer(stateBefore, saveUcastSuccess({ id, rok, udaje, prihlaska }))
+    ucastniciReducer(stateBefore, saveUcastSuccessPrihlasky({ id, rok, udaje, prihlaska }))
   ).toMatchSnapshot();
 });
 
-it('saveUcastSuccess() - nový účastník', () => {
+it('saveUcastSuccess() - přihlášky - nový účastník', () => {
   const stateBefore = { ...ucastniciTestData.entities.ucastnici };
   deepFreeze(stateBefore);
   const id = '7a09b1fd371dec1e99b79853';
@@ -254,7 +254,7 @@ it('saveUcastSuccess() - nový účastník', () => {
   expect(
     ucastniciReducer(
       stateBefore,
-      saveUcastSuccess({ id, rok, udaje, prihlaska, platby, ubytovani })
+      saveUcastSuccessPrihlasky({ id, rok, udaje, prihlaska, platby, ubytovani })
     )
   ).toMatchSnapshot();
 });

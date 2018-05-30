@@ -3,10 +3,11 @@ import { createReset } from '../PrihlaskyForm/PrihlaskyFormActions';
 import { createHide, createShow } from './StartCisloActions';
 import { createStartCisloReducer } from './startCisloReducer';
 
-const hide = createHide('PRIHLASKY');
-const reset = createReset('PRIHLASKY');
-const show = createShow('PRIHLASKY');
-const startCisloReducer = createStartCisloReducer('PRIHLASKY');
+const actionPrefix = 'PRIHLASKY_YYY';
+const hide = createHide(actionPrefix);
+const reset = createReset(actionPrefix);
+const show = createShow(actionPrefix);
+const startCisloReducer = createStartCisloReducer(actionPrefix);
 
 it('na začátku', () => {
   const stateBefore = undefined;

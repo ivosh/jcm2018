@@ -8,12 +8,13 @@ import {
 } from './PlatbyActions';
 import { createPlatbyReducer, formValid, inputValid } from './platbyReducer';
 
-const addPlatba = createAddPlatba('PRIHLASKY');
-const expandNovaPlatba = createExpandNovaPlatba('PRIHLASKY');
-const inputChanged = createInputChanged('PRIHLASKY');
-const platbyReducer = createPlatbyReducer('PRIHLASKY');
-const reset = createReset('PRIHLASKY');
-const validate = createValidate('PRIHLASKY');
+const actionPrefix = 'PRIHLASKY_YYY';
+const addPlatba = createAddPlatba(actionPrefix);
+const expandNovaPlatba = createExpandNovaPlatba(actionPrefix);
+const inputChanged = createInputChanged(actionPrefix);
+const platbyReducer = createPlatbyReducer(actionPrefix);
+const reset = createReset(actionPrefix);
+const validate = createValidate(actionPrefix);
 
 it('na začátku', () => {
   const stateBefore = undefined;

@@ -6,10 +6,13 @@ import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import Platby from './Platby';
 
 const mockStore = configureStore();
+const actionPrefix = 'PRIHLASKY_YYY';
+const reduxName = 'prihlasky_yyy';
+
 const state = {
   ...ucastniciTestData,
   registrator: {
-    prihlasky: {
+    [reduxName]: {
       form: {
         prihlaska: {},
         platby: []
@@ -50,11 +53,11 @@ it('platby v plusu', () => {
   const component = renderer.create(
     <Provider store={store}>
       <Platby
-        actionPrefix="PRIHLASKY"
+        actionPrefix={actionPrefix}
         novaPlatbaMinified={true}
         predepsano={predepsano220}
         provedeno={provedeno220}
-        reduxName="prihlasky"
+        reduxName={reduxName}
         startIndex={10}
         inputRef={jest.fn()}
         onAdd={jest.fn()}
@@ -69,11 +72,11 @@ it('platby v plusu, novaPlatba expanded', () => {
   const component = renderer.create(
     <Provider store={store}>
       <Platby
-        actionPrefix="PRIHLASKY"
+        actionPrefix={actionPrefix}
         novaPlatbaMinified={false}
         predepsano={predepsano220}
         provedeno={provedeno220}
-        reduxName="prihlasky"
+        reduxName={reduxName}
         startIndex={10}
         inputRef={jest.fn()}
         onAdd={jest.fn()}
@@ -88,11 +91,11 @@ it('platby v mínusu', () => {
   const component = renderer.create(
     <Provider store={store}>
       <Platby
-        actionPrefix="PRIHLASKY"
+        actionPrefix={actionPrefix}
         novaPlatbaMinified={false}
         predepsano={predepsano220}
         provedeno={provedeno0}
-        reduxName="prihlasky"
+        reduxName={reduxName}
         startIndex={10}
         inputRef={jest.fn()}
         onAdd={jest.fn()}
@@ -107,11 +110,11 @@ it('platby částečně v mínusu', () => {
   const component = renderer.create(
     <Provider store={store}>
       <Platby
-        actionPrefix="PRIHLASKY"
+        actionPrefix={actionPrefix}
         novaPlatbaMinified={false}
         predepsano={predepsano270}
         provedeno={provedeno220}
-        reduxName="prihlasky"
+        reduxName={reduxName}
         startIndex={10}
         inputRef={jest.fn()}
         onAdd={jest.fn()}

@@ -26,20 +26,21 @@ import {
   isInputVisible
 } from './prihlaskyFormReducer';
 
-const addPlatba = createAddPlatba('PRIHLASKY');
-const hideError = createHideError('PRIHLASKY');
-const hideModal = createHideModal('PRIHLASKY');
-const inputChanged = createInputChanged('PRIHLASKY');
-const loadUcastnik = createLoadUcastnik('PRIHLASKY');
-const prihlaskyFormReducer = createPrihlaskyFormReducer('PRIHLASKY');
-const removePlatba = createRemovePlatba('PRIHLASKY');
-const reset = createReset('PRIHLASKY');
-const saveUcastRequest = createSaveUcastRequest('PRIHLASKY');
-const saveUcastSuccess = createSaveUcastSuccess('PRIHLASKY');
-const saveUcastError = createSaveUcastError('PRIHLASKY');
-const showModal = createShowModal('PRIHLASKY');
-const validate = createValidate('PRIHLASKY');
-const validationError = createValidationError('PRIHLASKY');
+const actionPrefix = 'PRIHLASKY_YYY';
+const addPlatba = createAddPlatba(actionPrefix);
+const hideError = createHideError(actionPrefix);
+const hideModal = createHideModal(actionPrefix);
+const inputChanged = createInputChanged(actionPrefix);
+const loadUcastnik = createLoadUcastnik(actionPrefix);
+const prihlaskyFormReducer = createPrihlaskyFormReducer(actionPrefix);
+const removePlatba = createRemovePlatba(actionPrefix);
+const reset = createReset(actionPrefix);
+const saveUcastRequest = createSaveUcastRequest(actionPrefix);
+const saveUcastSuccess = createSaveUcastSuccess(actionPrefix);
+const saveUcastError = createSaveUcastError(actionPrefix);
+const showModal = createShowModal(actionPrefix);
+const validate = createValidate(actionPrefix);
+const validationError = createValidationError(actionPrefix);
 
 const unsuccessfulResponse = {
   code: 'neexistuje',

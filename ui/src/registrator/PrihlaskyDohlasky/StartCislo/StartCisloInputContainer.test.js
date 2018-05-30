@@ -4,13 +4,15 @@ import configureStore from 'redux-mock-store';
 import StartCisloInputContainer from './StartCisloInputContainer';
 
 const mockStore = configureStore();
+const actionPrefix = 'PRIHLASKY_YYY';
+const reduxName = 'prihlasky_yyy';
 
 let store;
 let wrapper;
 beforeEach(() => {
   const state = {
     registrator: {
-      prihlasky: {
+      [reduxName]: {
         form: {
           ucastnikId: '874647ab4857dc',
           prihlaska: { startCislo: 12, typ: 'maraton' }
@@ -25,9 +27,9 @@ beforeEach(() => {
   store.dispatch = jest.fn();
   wrapper = shallow(
     <StartCisloInputContainer
-      actionPrefix="PRIHLASKY"
+      actionPrefix={actionPrefix}
       enabled={true}
-      reduxName="prihlasky"
+      reduxName={reduxName}
       inputRef={jest.fn()}
       onChange={jest.fn()}
       store={store}
@@ -48,16 +50,16 @@ it('maps state and dispatch to props', () => {
 it('maps onHide to dispatch hide action', () => {
   wrapper.props().onHide();
 
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASKY_HIDE_START_CISLO' });
+  expect(store.dispatch).toHaveBeenCalledWith({ type: `${actionPrefix}_HIDE_START_CISLO` });
 });
 
 it('maps onSelect to dispatch hide and inputChanged actions', () => {
   wrapper.props().onSelect(12);
 
   expect(store.dispatch).toHaveBeenCalledTimes(2);
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASKY_HIDE_START_CISLO' });
+  expect(store.dispatch).toHaveBeenCalledWith({ type: `${actionPrefix}_HIDE_START_CISLO` });
   expect(store.dispatch).toHaveBeenCalledWith({
-    type: 'PRIHLASKY_INPUT_CHANGED',
+    type: `${actionPrefix}_INPUT_CHANGED`,
     name: 'prihlaska.startCislo',
     value: '12'
   });
@@ -66,5 +68,5 @@ it('maps onSelect to dispatch hide and inputChanged actions', () => {
 it('maps onShow to dispatch show action', () => {
   wrapper.props().onShow();
 
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASKY_SHOW_START_CISLO' });
+  expect(store.dispatch).toHaveBeenCalledWith({ type: `${actionPrefix}_SHOW_START_CISLO` });
 });

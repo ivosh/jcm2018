@@ -8,6 +8,8 @@ import StartCisloInputContainer from '../StartCislo/StartCisloInputContainer';
 import PrihlaskyFormInputContainer from './PrihlaskyFormInputContainer';
 
 const mockStore = configureStore();
+const actionPrefix = 'PRIHLASKY_YYY';
+const reduxName = 'prihlasky_yyy';
 
 const inputRef = jest.fn();
 let store;
@@ -16,7 +18,7 @@ beforeEach(() => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlasky: {
+      [reduxName]: {
         form: {
           udaje: {
             jmeno: 'Klára'
@@ -30,11 +32,11 @@ beforeEach(() => {
   const component = mount(
     <Provider store={store}>
       <PrihlaskyFormInputContainer
-        actionPrefix="PRIHLASKY"
+        actionPrefix={actionPrefix}
         index={1}
         name="udaje.jmeno"
         popisek="jméno"
-        reduxName="prihlasky"
+        reduxName={reduxName}
         Type={TextInput}
         inputRef={inputRef}
       />
@@ -44,10 +46,10 @@ beforeEach(() => {
 });
 
 it('maps state and dispatch to props - jmeno', () => {
-  expect(wrapper.props().actionPrefix).toEqual('PRIHLASKY');
+  expect(wrapper.props().actionPrefix).toEqual(actionPrefix);
   expect(wrapper.props().name).toEqual('udaje.jmeno');
   expect(wrapper.props().popisek).toEqual('jméno');
-  expect(wrapper.props().reduxName).toEqual('prihlasky');
+  expect(wrapper.props().reduxName).toEqual(reduxName);
   expect(wrapper.props().value).toEqual('Klára');
   expect(wrapper.props().validationState).toEqual('success');
   expect(wrapper.props().inputRef).toEqual(expect.any(Function));
@@ -58,7 +60,7 @@ it('maps onChange to dispatch inputChanged', () => {
   wrapper.props().onChange({ target: { value: 'Bára' } });
 
   expect(store.dispatch).toHaveBeenCalledWith({
-    type: 'PRIHLASKY_INPUT_CHANGED',
+    type: `${actionPrefix}_INPUT_CHANGED`,
     name: 'udaje.jmeno',
     value: 'Bára'
   });
@@ -74,7 +76,7 @@ it('maps state to props - narození - jen rok', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlasky: {
+      [reduxName]: {
         form: {
           validate: false,
           udaje: {
@@ -88,11 +90,11 @@ it('maps state to props - narození - jen rok', () => {
   const component = mount(
     <Provider store={store}>
       <PrihlaskyFormInputContainer
-        actionPrefix="PRIHLASKY"
+        actionPrefix={actionPrefix}
         index={0}
         name="udaje.narozeni"
         popisek="narození"
-        reduxName="prihlasky"
+        reduxName={reduxName}
         Type={TextInput}
         inputRef={jest.fn()}
       />
@@ -110,7 +112,7 @@ it('maps state to props - narození - celé', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlasky: {
+      [reduxName]: {
         form: {
           validate: false,
           udaje: {
@@ -124,11 +126,11 @@ it('maps state to props - narození - celé', () => {
   const component = mount(
     <Provider store={store}>
       <PrihlaskyFormInputContainer
-        actionPrefix="PRIHLASKY"
+        actionPrefix={actionPrefix}
         index={1}
         name="udaje.narozeni"
         popisek="narození"
-        reduxName="prihlasky"
+        reduxName={reduxName}
         Type={TextInput}
         inputRef={jest.fn()}
       />
@@ -146,7 +148,7 @@ it('maps state to props - startCislo ok', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlasky: {
+      [reduxName]: {
         form: {
           ucastnikId: '7a09b1fd371dec1e99b7e142',
           validate: false,
@@ -160,11 +162,11 @@ it('maps state to props - startCislo ok', () => {
   const component = mount(
     <Provider store={store}>
       <PrihlaskyFormInputContainer
-        actionPrefix="PRIHLASKY"
+        actionPrefix={actionPrefix}
         index={13}
         name="prihlaska.startCislo"
         popisek="číslo"
-        reduxName="prihlasky"
+        reduxName={reduxName}
         Type={StartCisloInputContainer}
         inputRef={jest.fn()}
       />
@@ -182,7 +184,7 @@ it('maps state to props - startCislo duplicitní', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlasky: {
+      [reduxName]: {
         form: {
           ucastnikId: '6f09b1fd371dec1e99b7e1c9',
           validate: false,
@@ -196,11 +198,11 @@ it('maps state to props - startCislo duplicitní', () => {
   const component = mount(
     <Provider store={store}>
       <PrihlaskyFormInputContainer
-        actionPrefix="PRIHLASKY"
+        actionPrefix={actionPrefix}
         index={13}
         name="prihlaska.startCislo"
         popisek="číslo"
-        reduxName="prihlasky"
+        reduxName={reduxName}
         Type={StartCisloInputContainer}
         inputRef={jest.fn()}
       />
