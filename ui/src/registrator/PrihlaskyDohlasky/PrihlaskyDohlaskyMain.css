@@ -1,9 +1,9 @@
-.PrihlaskyMain-div {
+.PrihlaskyDohlaskyMain__div {
   display: flex;
   flex-direction: column;
 }
 
-.PrihlaskyMain-item {
+.PrihlaskyDohlaskyMain__item {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -11,10 +11,10 @@
   margin-bottom: 1ex;
 }
 
-.PrihlaskyMain-item > * {
+.PrihlaskyDohlaskyMain__item > * {
   padding-right: 1em;
 }
 
-.PrihlaskyMain-icon {
+.PrihlaskyDohlaskyMain__icon {
   font-size: xx-large;
 }

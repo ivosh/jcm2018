@@ -6,7 +6,7 @@ import configureStore from 'redux-mock-store';
 import { mount } from 'enzyme';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import Prihlasky from './Prihlasky';
-import PrihlaskyMain from './PrihlaskyMain';
+import PrihlaskyDohlaskyMain from './PrihlaskyDohlaskyMain';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -41,7 +41,7 @@ it('renders /prihlasky route', () => {
     </Provider>
   );
 
-  expect(wrapper.find(PrihlaskyMain)).toHaveLength(1);
+  expect(wrapper.find(PrihlaskyDohlaskyMain)).toHaveLength(1);
 });
 
 it('renders /prihlasky/edit route', () => {
