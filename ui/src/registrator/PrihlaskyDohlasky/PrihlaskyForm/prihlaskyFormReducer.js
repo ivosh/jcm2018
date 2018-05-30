@@ -334,13 +334,15 @@ export const isInputVisible = ({ name, form, rocniky }) => {
   return true;
 };
 
-export const isInputEnabled = ({ name, form, rocniky }) => {
+export const isInputEnabled = ({ jePrihlaskou, name, form, rocniky }) => {
   const [section, subsection] = name.split('.');
   if (section === 'ubytovani') {
     return !(form.ubytovani[subsection] && form.ubytovani[subsection].prespano);
   }
 
   switch (name) {
+    case 'prihlaska.datum':
+      return !!jePrihlaskou; // dohlášky mají datum disabled
     case 'prihlaska.startCislo': {
       const { typ } = form.prihlaska;
       if (!typ) {
@@ -389,13 +391,17 @@ export const inputOptions = ({ name, form, rocniky }) => {
   }
 };
 
-export const getValue = ({ name, form }) => {
+export const getValue = ({ jePrihlaskou, name, form, rocniky, rok = AKTUALNI_ROK }) => {
   const [section, subsection] = name.split('.');
   if (section === 'ubytovani') {
     if (form[section][subsection]) {
       return form[section][subsection].prihlaseno;
     }
     return false;
+  }
+
+  if (name === 'prihlaska.datum' && !jePrihlaskou) {
+    return rocniky.byRoky[rok].datum; // dohlášky mají fixní datum
   }
   return form[section][subsection];
 };

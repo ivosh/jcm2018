@@ -670,6 +670,22 @@ it('udaje.narozeni - reset kategorie a mladistvyPotvrzen', () => {
   ).toBe(undefined);
 });
 
+it('prihlaska.datum', () => {
+  const name = 'prihlaska.datum';
+  const form = { prihlaska: { datum: undefined } };
+  const { rocniky } = ucastniciTestData.entities;
+
+  expect(isInputEnabled({ name, form, rocniky })).toBe(false);
+  expect(isInputEnabled({ jePrihlaskou: false, name, form, rocniky })).toBe(false);
+  expect(isInputEnabled({ jePrihlaskou: true, name, form, rocniky })).toBe(true);
+
+  expect(getValue({ name, form, rocniky })).toEqual(new Date('2018-06-09').toJSON());
+  expect(getValue({ jePrihlaskou: false, name, form, rocniky })).toEqual(
+    new Date('2018-06-09').toJSON()
+  );
+  expect(getValue({ jePrihlaskou: true, name, form, rocniky })).toBe(undefined);
+});
+
 it('prihlaska.datum - neúplné', () => {
   const stateBefore = { prihlaska: { datum: undefined } };
   deepFreeze(stateBefore);

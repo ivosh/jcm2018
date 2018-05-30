@@ -34,11 +34,13 @@ const startCisloValid = ({ typ, kategorie, ucastnici }) => ({ name, value, form 
 const mapStateToProps = (state, ownProps) => {
   const { actionPrefix, name, reduxName, ...restOwnProps } = ownProps;
   const { form } = state.registrator[reduxName];
-  const rawValue = getValue({ name, form });
+  const jePrihlaskou = reduxName === 'prihlasky';
+  const rawValue = getValue({ jePrihlaskou, name, form, ...state.entities });
 
   return {
     actionPrefix,
     form,
+    jePrihlaskou,
     name,
     rawValue,
     reduxName,
@@ -49,7 +51,7 @@ const mapStateToProps = (state, ownProps) => {
       name === 'prihlaska.startCislo'
         ? startCisloValid({ typ: form.prihlaska.typ, ...state.entities })
         : inputValid,
-    isInputEnabled,
+    isInputEnabled: props => isInputEnabled({ ...props, jePrihlaskou }),
     isInputVisible,
     ...restOwnProps
   };
