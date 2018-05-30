@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders /dohlasky/:id route 1`] = `
+Object {
+  "actionPrefix": "DOHLASKY",
+  "loadId": "6f09b1fd371dec1e99b7e1c9",
+  "reduxName": "dohlasky",
+}
+`;
+
+exports[`renders /dohlasky/edit route 1`] = `
+Object {
+  "actionPrefix": "DOHLASKY",
+  "reduxName": "dohlasky",
+}
+`;
+
+exports[`renders /dohlasky/reset route 1`] = `
+Object {
+  "actionPrefix": "DOHLASKY",
+  "reduxName": "dohlasky",
+  "reset": true,
+}
+`;

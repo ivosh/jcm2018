@@ -27,8 +27,15 @@ const navs = {
     name: 'Ubytovaní',
     path: '/ubytovani'
   },
-  startujici: {
+  dohlasky: {
     key: '3.1',
+    glyph: 'edit',
+    menu: 'na startu',
+    name: 'Dohlášky',
+    path: '/dohlasky'
+  },
+  startujici: {
+    key: '3.2',
     glyph: 'road',
     menu: 'na startu',
     name: 'Startující',

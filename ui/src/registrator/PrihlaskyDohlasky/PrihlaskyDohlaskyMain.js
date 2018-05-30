@@ -5,9 +5,9 @@ import { LinkContainer } from 'react-router-bootstrap';
 import PrihlaskySearchContainer from './PrihlaskySearch/PrihlaskySearchContainer';
 import './PrihlaskyDohlaskyMain.css';
 
-const PrihlaskyDohlaskyMain = ({ path, routeOnSelect }) => (
+const PrihlaskyDohlaskyMain = ({ name, path, routeOnSelect }) => (
   <Well>
-    <Panel header="Přihlášky" bsStyle="info">
+    <Panel header={name} bsStyle="info">
       <div className="PrihlaskyDohlaskyMain__div">
         <p>Vyber si jednu z akcí:</p>
         <div className="PrihlaskyDohlaskyMain__item">
@@ -38,6 +38,7 @@ const PrihlaskyDohlaskyMain = ({ path, routeOnSelect }) => (
 );
 
 PrihlaskyDohlaskyMain.propTypes = {
+  name: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
   routeOnSelect: PropTypes.func.isRequired
 };
