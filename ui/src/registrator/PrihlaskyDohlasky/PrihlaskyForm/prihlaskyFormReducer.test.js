@@ -921,6 +921,20 @@ it('prihlaska.startCislo - vymazání', () => {
   ).toBe(undefined);
 });
 
+it('prihlaska.startCislo - dohláška - validate: true', () => {
+  const form = { prihlaska: { typ: 'maraton', startCislo: undefined }, validate: true };
+  const { rocniky } = ucastniciTestData.entities;
+
+  expect(
+    inputValid({
+      name: 'prihlaska.startCislo',
+      value: form.prihlaska.startCislo,
+      form,
+      rocniky
+    })
+  ).toBe('error');
+});
+
 it('prihlaska.mladistvyPotvrzen - má potvrzení', () => {
   const state = {
     ...ucastniciTestData,

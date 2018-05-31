@@ -135,6 +135,7 @@ export const createPrihlaskyFormReducer = actionPrefix => (state = initialState,
       return { ...state, [section]: { ...state[section], [name]: value } };
     }
     case `${actionPrefix}_UCASTNIK_LOAD`:
+      // :TODO: convey jePrihlaskou to the state. No need to pass it by the callers.
       return {
         ...initialState,
         ucastnikId: action.id,
@@ -144,6 +145,7 @@ export const createPrihlaskyFormReducer = actionPrefix => (state = initialState,
         ubytovani: action.ubytovani || initialState.ubytovani
       };
     case `${actionPrefix}_RESET`:
+      // :TODO: convey jePrihlaskou to the state. No need to pass it by the callers.
       return action.datum ? { ...initialState, prihlaska: { datum: action.datum } } : initialState;
     case `${actionPrefix}_VALIDATE_FORM`:
       return { ...state, validate: true };
@@ -197,6 +199,16 @@ const isMladistvy = ({ form, rocniky }) => {
   return found.code === CODE_MLADISTVY_UCASTNIK;
 };
 
+const isStartCisloRequired = ({ form, rocniky, rok = AKTUALNI_ROK }) => {
+  const { typ } = form.prihlaska;
+  if (!typ) {
+    return false;
+  }
+
+  const typKategorieRocniku = getTypKategorie({ rok, typ, rocniky });
+  return !!typKategorieRocniku.startCisla;
+};
+
 const nonEmptyInputValid = ({ value, validate }) => {
   if (value === undefined) {
     if (validate) {
@@ -235,7 +247,7 @@ const narozeniValid = ({ value, validate, requireDenMesic }) => {
   return 'error';
 };
 
-export const inputValid = ({ name, value, form, rocniky }) => {
+export const inputValid = ({ jePrihlaskou, name, value, form, rocniky }) => {
   const { validate } = form;
   switch (name) {
     case 'udaje.prijmeni':
@@ -270,7 +282,12 @@ export const inputValid = ({ name, value, form, rocniky }) => {
         return undefined;
       }
       return datumValid(value) ? 'success' : 'error';
-    case 'prihlaska.startCislo': // Může nechat nevyplněné, doplní později.
+    case 'prihlaska.startCislo':
+      // Dohláška má startovní číslo povinné, přihláška doplňuje později.
+      return numberValid(
+        value,
+        validate && (!jePrihlaskou && isStartCisloRequired({ form, rocniky }))
+      );
     case 'prihlaska.startovnePoSleve':
       return numberValid(value, false);
     case 'prihlaska.mladistvyPotvrzen':
@@ -283,8 +300,8 @@ export const inputValid = ({ name, value, form, rocniky }) => {
   }
 };
 
-const isInputValid = ({ name, value, form, rocniky }) => {
-  const validationState = inputValid({ name, value, form, rocniky });
+const isInputValid = ({ jePrihlaskou, name, value, form, rocniky }) => {
+  const validationState = inputValid({ jePrihlaskou, name, value, form, rocniky });
   if (
     validationState === undefined ||
     validationState === 'success' ||
@@ -295,29 +312,44 @@ const isInputValid = ({ name, value, form, rocniky }) => {
   return false;
 };
 
-export const formValid = ({ form, rocniky }) => {
+export const formValid = ({ jePrihlaskou, form, rocniky }) => {
   const { udaje, prihlaska } = form;
 
   return (
-    isInputValid({ name: 'udaje.prijmeni', value: udaje.prijmeni, form, rocniky }) &&
-    isInputValid({ name: 'udaje.jmeno', value: udaje.jmeno, form, rocniky }) &&
-    isInputValid({ name: 'udaje.narozeni', value: udaje.narozeni, form, rocniky }) &&
-    isInputValid({ name: 'udaje.pohlavi', value: udaje.pohlavi, form, rocniky }) &&
-    isInputValid({ name: 'udaje.obec', value: udaje.obec, form, rocniky }) &&
-    isInputValid({ name: 'udaje.psc', value: udaje.psc, form, rocniky }) &&
-    isInputValid({ name: 'udaje.stat', value: udaje.stat, form, rocniky }) &&
-    isInputValid({ name: 'prihlaska.datum', value: prihlaska.datum, form, rocniky }) &&
+    isInputValid({ name: 'udaje.prijmeni', value: udaje.prijmeni, form, jePrihlaskou, rocniky }) &&
+    isInputValid({ name: 'udaje.jmeno', value: udaje.jmeno, form, jePrihlaskou, rocniky }) &&
+    isInputValid({ name: 'udaje.narozeni', value: udaje.narozeni, form, jePrihlaskou, rocniky }) &&
+    isInputValid({ name: 'udaje.pohlavi', value: udaje.pohlavi, form, jePrihlaskou, rocniky }) &&
+    isInputValid({ name: 'udaje.obec', value: udaje.obec, form, jePrihlaskou, rocniky }) &&
+    isInputValid({ name: 'udaje.psc', value: udaje.psc, form, jePrihlaskou, rocniky }) &&
+    isInputValid({ name: 'udaje.stat', value: udaje.stat, form, jePrihlaskou, rocniky }) &&
+    isInputValid({
+      name: 'prihlaska.datum',
+      value: prihlaska.datum,
+      form,
+      jePrihlaskou,
+      rocniky
+    }) &&
     isInputValid({
       name: 'prihlaska.kategorie',
       value: prihlaska.kategorie,
       form,
+      jePrihlaskou,
       rocniky
     }) &&
-    isInputValid({ name: 'prihlaska.typ', value: prihlaska.typ, form, rocniky }) &&
+    isInputValid({ name: 'prihlaska.typ', value: prihlaska.typ, form, jePrihlaskou, rocniky }) &&
+    isInputValid({
+      name: 'prihlaska.startCislo',
+      value: prihlaska.startCislo,
+      form,
+      jePrihlaskou,
+      rocniky
+    }) &&
     isInputValid({
       name: 'prihlaska.mladistvyPotvrzen',
       value: prihlaska.mladistvyPotvrzen,
       form,
+      jePrihlaskou,
       rocniky
     })
   );
@@ -343,14 +375,8 @@ export const isInputEnabled = ({ jePrihlaskou, name, form, rocniky }) => {
   switch (name) {
     case 'prihlaska.datum':
       return !!jePrihlaskou; // dohlášky mají datum disabled
-    case 'prihlaska.startCislo': {
-      const { typ } = form.prihlaska;
-      if (!typ) {
-        return false;
-      }
-      const typKategorieRocniku = getTypKategorie({ rok: AKTUALNI_ROK, typ, rocniky });
-      return !!typKategorieRocniku.startCisla;
-    }
+    case 'prihlaska.startCislo':
+      return isStartCisloRequired({ form, rocniky });
     default:
       return true;
   }

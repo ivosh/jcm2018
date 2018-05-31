@@ -225,8 +225,8 @@ it('maps state to props - jePrihlaskou:true', () => {
       <PrihlaskyFormInputContainer
         actionPrefix={actionPrefix}
         index={13}
-        name="prihlaska.datum"
-        popisek="datum"
+        name="prihlaska.startCislo"
+        popisek="číslo"
         reduxName="prihlasky"
         Type={TextInput}
         inputRef={jest.fn()}
