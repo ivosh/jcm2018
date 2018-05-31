@@ -44,6 +44,7 @@ const ucastniciReducer = (state = initialState, action) => {
     }
     case 'FETCH_UCASTNICI_SUCCESS':
       return { ...action.data, invalidated: false };
+    case 'DOHLASKY_SAVE_SUCCESS':
     case 'PRIHLASKY_SAVE_SUCCESS': {
       const { id, rok, udaje, prihlaska, platby, ubytovani } = action;
       const state1 = updateUcast(state, id, rok, 'udaje', udaje);
