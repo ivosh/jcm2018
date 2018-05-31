@@ -35,7 +35,7 @@ const mapStateToProps = (state, ownProps) => {
   const { actionPrefix, name, reduxName, ...restOwnProps } = ownProps;
   const { form } = state.registrator[reduxName];
   const jePrihlaskou = reduxName === 'prihlasky';
-  const rawValue = getValue({ jePrihlaskou, name, form, ...state.entities });
+  const rawValue = getValue({ name, form });
 
   return {
     actionPrefix,

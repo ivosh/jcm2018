@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { AKTUALNI_ROK } from '../../../constants';
 import { createReset as createResetNovaPlatba } from '../Platby/PlatbyActions';
 import PrihlaskyForm from './PrihlaskyForm';
 import {
@@ -40,8 +41,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onHideError: () => dispatch(createHideError(actionPrefix)()),
     onHideModal: () => dispatch(createHideModal(actionPrefix)()),
-    onReset: () => {
-      dispatch(createResetForm(actionPrefix)());
+    onReset: datum => {
+      dispatch(createResetForm(actionPrefix)(datum));
       dispatch(createResetNovaPlatba(actionPrefix)());
     },
     onSubmit: () => dispatch(createSaveUcast(actionPrefix, reduxName)()),
@@ -51,10 +52,17 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { actionPrefix, entities, ...restOfStateProps } = stateProps;
-  const { dispatch, ...restOfDispatchProps } = dispatchProps;
+  const { dispatch, onReset, ...restOfDispatchProps } = dispatchProps;
   const { loadId } = ownProps;
+  const rok = AKTUALNI_ROK;
+  const { datum } = entities.rocniky.byRoky[rok];
 
-  const result = { actionPrefix, ...restOfStateProps, ...restOfDispatchProps };
+  const result = {
+    actionPrefix,
+    ...restOfStateProps,
+    onReset: () => onReset(datum),
+    ...restOfDispatchProps
+  };
   if (loadId) {
     result.onLoadId = () => dispatch(createLoadUcastnik(actionPrefix)({ id: loadId, ...entities }));
   }

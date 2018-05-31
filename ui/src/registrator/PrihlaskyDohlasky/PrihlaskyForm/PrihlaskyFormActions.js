@@ -16,7 +16,14 @@ export const createInputChanged = actionPrefix => genericCreateInputChanged(acti
 
 export const createHideError = actionPrefix => () => ({ type: `${actionPrefix}_HIDE_ERROR` });
 
-export const createReset = actionPrefix => () => ({ type: `${actionPrefix}_RESET` });
+export const createReset = actionPrefix => datum => {
+  const action = { type: `${actionPrefix}_RESET` };
+  const jePrihlaskou = actionPrefix === 'PRIHLASKY';
+  if (datum && !jePrihlaskou) {
+    action.datum = datum.toJSON ? datum.toJSON() : datum;
+  }
+  return action;
+};
 
 export const createLoadUcastnik = actionPrefix => ({ id, kategorie, ucastnici }) => {
   const ucastnik = ucastnici.byIds[id];

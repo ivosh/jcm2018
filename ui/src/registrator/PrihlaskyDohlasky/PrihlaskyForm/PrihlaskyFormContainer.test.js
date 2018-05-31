@@ -123,7 +123,10 @@ it('maps onLoadId to dispatch ucastnikSelected action - starší účast', () =>
 it('maps onReset to dispatch reset action', () => {
   wrapper.props().onReset();
 
-  expect(store.dispatch).toHaveBeenCalledWith({ type: `${actionPrefix}_RESET` });
+  expect(store.dispatch).toHaveBeenCalledWith({
+    type: `${actionPrefix}_RESET`,
+    datum: '2018-06-09T00:00:00.000Z'
+  });
 });
 
 it('maps onSubmit to dispatch saveUcast action', () => {

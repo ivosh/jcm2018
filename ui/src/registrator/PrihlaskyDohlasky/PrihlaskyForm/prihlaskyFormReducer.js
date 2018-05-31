@@ -144,7 +144,7 @@ export const createPrihlaskyFormReducer = actionPrefix => (state = initialState,
         ubytovani: action.ubytovani || initialState.ubytovani
       };
     case `${actionPrefix}_RESET`:
-      return initialState;
+      return action.datum ? { ...initialState, prihlaska: { datum: action.datum } } : initialState;
     case `${actionPrefix}_VALIDATE_FORM`:
       return { ...state, validate: true };
     case `${actionPrefix}_FORM_INVALID`:
@@ -391,7 +391,7 @@ export const inputOptions = ({ name, form, rocniky }) => {
   }
 };
 
-export const getValue = ({ jePrihlaskou, name, form, rocniky, rok = AKTUALNI_ROK }) => {
+export const getValue = ({ name, form }) => {
   const [section, subsection] = name.split('.');
   if (section === 'ubytovani') {
     if (form[section][subsection]) {
@@ -400,9 +400,6 @@ export const getValue = ({ jePrihlaskou, name, form, rocniky, rok = AKTUALNI_ROK
     return false;
   }
 
-  if (name === 'prihlaska.datum' && !jePrihlaskou) {
-    return rocniky.byRoky[rok].datum; // dohlášky mají fixní datum
-  }
   return form[section][subsection];
 };
 

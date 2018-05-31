@@ -670,7 +670,7 @@ it('udaje.narozeni - reset kategorie a mladistvyPotvrzen', () => {
   ).toBe(undefined);
 });
 
-it('prihlaska.datum', () => {
+it('prihlaska.datum - přihlášky', () => {
   const name = 'prihlaska.datum';
   const form = { prihlaska: { datum: undefined } };
   const { rocniky } = ucastniciTestData.entities;
@@ -678,12 +678,20 @@ it('prihlaska.datum', () => {
   expect(isInputEnabled({ name, form, rocniky })).toBe(false);
   expect(isInputEnabled({ jePrihlaskou: false, name, form, rocniky })).toBe(false);
   expect(isInputEnabled({ jePrihlaskou: true, name, form, rocniky })).toBe(true);
+  expect(getValue({ name, form })).toBe(undefined);
+});
 
-  expect(getValue({ name, form, rocniky })).toEqual(new Date('2018-06-09').toJSON());
-  expect(getValue({ jePrihlaskou: false, name, form, rocniky })).toEqual(
-    new Date('2018-06-09').toJSON()
+it('prihlaska.datum - dohlášky', () => {
+  const name = 'prihlaska.datum';
+  const stateBefore = { prihlaska: { datum: undefined } };
+  deepFreeze(stateBefore);
+
+  const dohlaskyFormReducer = createPrihlaskyFormReducer('DOHLASKY');
+  const stateAfter = dohlaskyFormReducer(
+    stateBefore,
+    createReset('DOHLASKY')(new Date('2018-06-09'))
   );
-  expect(getValue({ jePrihlaskou: true, name, form, rocniky })).toBe(undefined);
+  expect(getValue({ name, form: stateAfter })).toEqual(new Date('2018-06-09').toJSON());
 });
 
 it('prihlaska.datum - neúplné', () => {
