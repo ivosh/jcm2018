@@ -12,12 +12,8 @@ import {
   isInputVisible
 } from './prihlaskyFormReducer';
 
-const startCisloValid = ({ jePrihlaskou, typ, kategorie, rocniky, ucastnici }) => ({
-  name,
-  value,
-  form
-}) => {
-  const validationState = inputValid({ jePrihlaskou, name, value, form, rocniky });
+const startCisloValid = ({ typ, kategorie, rocniky, ucastnici }) => ({ name, value, form }) => {
+  const validationState = inputValid({ name, value, form, rocniky });
   if (validationState === 'success') {
     if (
       isStartCisloTaken({
@@ -38,13 +34,11 @@ const startCisloValid = ({ jePrihlaskou, typ, kategorie, rocniky, ucastnici }) =
 const mapStateToProps = (state, ownProps) => {
   const { actionPrefix, name, reduxName, ...restOwnProps } = ownProps;
   const { form } = state.registrator[reduxName];
-  const jePrihlaskou = reduxName === 'prihlasky';
   const rawValue = getValue({ name, form });
 
   return {
     actionPrefix,
     form,
-    jePrihlaskou,
     name,
     rawValue,
     reduxName,
@@ -53,9 +47,9 @@ const mapStateToProps = (state, ownProps) => {
     inputOptions,
     inputValid:
       name === 'prihlaska.startCislo'
-        ? startCisloValid({ jePrihlaskou, typ: form.prihlaska.typ, ...state.entities })
+        ? startCisloValid({ typ: form.prihlaska.typ, ...state.entities })
         : inputValid,
-    isInputEnabled: props => isInputEnabled({ ...props, jePrihlaskou }),
+    isInputEnabled,
     isInputVisible,
     ...restOwnProps
   };

@@ -20,6 +20,7 @@ beforeEach(() => {
     registrator: {
       [reduxName]: {
         form: {
+          jePrihlaskou: true,
           udaje: {
             jmeno: 'Klára'
           }
@@ -47,7 +48,6 @@ beforeEach(() => {
 
 it('maps state and dispatch to props - jmeno', () => {
   expect(wrapper.props().actionPrefix).toEqual(actionPrefix);
-  expect(wrapper.props().jePrihlaskou).toBe(false);
   expect(wrapper.props().name).toEqual('udaje.jmeno');
   expect(wrapper.props().popisek).toEqual('jméno');
   expect(wrapper.props().reduxName).toEqual(reduxName);
@@ -215,25 +215,4 @@ it('maps state to props - startCislo duplicitní', () => {
   expect(wrapper.props().popisek).toEqual('číslo');
   expect(wrapper.props().value).toEqual('10');
   expect(wrapper.props().validationState).toEqual('warning');
-});
-
-it('maps state to props - jePrihlaskou:true', () => {
-  const state = { ...ucastniciTestData, registrator: { prihlasky: { form: { prihlaska: {} } } } };
-  store = mockStore(state);
-  const component = mount(
-    <Provider store={store}>
-      <PrihlaskyFormInputContainer
-        actionPrefix={actionPrefix}
-        index={13}
-        name="prihlaska.startCislo"
-        popisek="číslo"
-        reduxName="prihlasky"
-        Type={TextInput}
-        inputRef={jest.fn()}
-      />
-    </Provider>
-  );
-  wrapper = component.find('Input');
-
-  expect(wrapper.props().jePrihlaskou).toBe(true);
 });

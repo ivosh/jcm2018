@@ -259,8 +259,8 @@ const narozeniValid = ({ value, validate, requireDenMesic }) => {
   return 'error';
 };
 
-export const inputValid = ({ jePrihlaskou, name, value, form, rocniky }) => {
-  const { validate } = form;
+export const inputValid = ({ name, value, form, rocniky }) => {
+  const { jePrihlaskou, validate } = form;
   switch (name) {
     case 'udaje.prijmeni':
     case 'udaje.jmeno':
@@ -312,8 +312,8 @@ export const inputValid = ({ jePrihlaskou, name, value, form, rocniky }) => {
   }
 };
 
-const isInputValid = ({ jePrihlaskou, name, value, form, rocniky }) => {
-  const validationState = inputValid({ jePrihlaskou, name, value, form, rocniky });
+const isInputValid = ({ name, value, form, rocniky }) => {
+  const validationState = inputValid({ name, value, form, rocniky });
   if (
     validationState === undefined ||
     validationState === 'success' ||
@@ -324,44 +324,40 @@ const isInputValid = ({ jePrihlaskou, name, value, form, rocniky }) => {
   return false;
 };
 
-export const formValid = ({ jePrihlaskou, form, rocniky }) => {
+export const formValid = ({ form, rocniky }) => {
   const { udaje, prihlaska } = form;
 
   return (
-    isInputValid({ name: 'udaje.prijmeni', value: udaje.prijmeni, form, jePrihlaskou, rocniky }) &&
-    isInputValid({ name: 'udaje.jmeno', value: udaje.jmeno, form, jePrihlaskou, rocniky }) &&
-    isInputValid({ name: 'udaje.narozeni', value: udaje.narozeni, form, jePrihlaskou, rocniky }) &&
-    isInputValid({ name: 'udaje.pohlavi', value: udaje.pohlavi, form, jePrihlaskou, rocniky }) &&
-    isInputValid({ name: 'udaje.obec', value: udaje.obec, form, jePrihlaskou, rocniky }) &&
-    isInputValid({ name: 'udaje.psc', value: udaje.psc, form, jePrihlaskou, rocniky }) &&
-    isInputValid({ name: 'udaje.stat', value: udaje.stat, form, jePrihlaskou, rocniky }) &&
+    isInputValid({ name: 'udaje.prijmeni', value: udaje.prijmeni, form, rocniky }) &&
+    isInputValid({ name: 'udaje.jmeno', value: udaje.jmeno, form, rocniky }) &&
+    isInputValid({ name: 'udaje.narozeni', value: udaje.narozeni, form, rocniky }) &&
+    isInputValid({ name: 'udaje.pohlavi', value: udaje.pohlavi, form, rocniky }) &&
+    isInputValid({ name: 'udaje.obec', value: udaje.obec, form, rocniky }) &&
+    isInputValid({ name: 'udaje.psc', value: udaje.psc, form, rocniky }) &&
+    isInputValid({ name: 'udaje.stat', value: udaje.stat, form, rocniky }) &&
     isInputValid({
       name: 'prihlaska.datum',
       value: prihlaska.datum,
       form,
-      jePrihlaskou,
       rocniky
     }) &&
     isInputValid({
       name: 'prihlaska.kategorie',
       value: prihlaska.kategorie,
       form,
-      jePrihlaskou,
       rocniky
     }) &&
-    isInputValid({ name: 'prihlaska.typ', value: prihlaska.typ, form, jePrihlaskou, rocniky }) &&
+    isInputValid({ name: 'prihlaska.typ', value: prihlaska.typ, form, rocniky }) &&
     isInputValid({
       name: 'prihlaska.startCislo',
       value: prihlaska.startCislo,
       form,
-      jePrihlaskou,
       rocniky
     }) &&
     isInputValid({
       name: 'prihlaska.mladistvyPotvrzen',
       value: prihlaska.mladistvyPotvrzen,
       form,
-      jePrihlaskou,
       rocniky
     })
   );
@@ -378,7 +374,7 @@ export const isInputVisible = ({ name, form, rocniky }) => {
   return true;
 };
 
-export const isInputEnabled = ({ jePrihlaskou, name, form, rocniky }) => {
+export const isInputEnabled = ({ name, form, rocniky }) => {
   const [section, subsection] = name.split('.');
   if (section === 'ubytovani') {
     return !(form.ubytovani[subsection] && form.ubytovani[subsection].prespano);
@@ -386,7 +382,7 @@ export const isInputEnabled = ({ jePrihlaskou, name, form, rocniky }) => {
 
   switch (name) {
     case 'prihlaska.datum':
-      return !!jePrihlaskou; // dohlášky mají datum disabled
+      return !!form.jePrihlaskou; // dohlášky mají datum disabled
     case 'prihlaska.startCislo':
       return isStartCisloRequired({ form, rocniky });
     default:

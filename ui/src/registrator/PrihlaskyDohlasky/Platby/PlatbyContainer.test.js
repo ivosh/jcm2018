@@ -13,6 +13,7 @@ const state = {
   registrator: {
     [reduxName]: {
       form: {
+        jePrihlaskou: false,
         validatePlatba: false,
         prihlaska: { datum: '2018-05-01T00:00:00.000Z', typ: 'cyklo' },
         platby: [
@@ -54,7 +55,6 @@ beforeEach(() => {
 
 it('maps state and dispatch to props', () => {
   expect(wrapper.props().actionPrefix).toEqual(actionPrefix);
-  expect(wrapper.props().jePrihlaskou).toBe(false);
   expect(wrapper.props().novaPlatbaMinified).toBe(true);
   expect(wrapper.props().predepsano).toMatchSnapshot();
   expect(wrapper.props().provedeno).toMatchSnapshot();
@@ -101,6 +101,7 @@ it('maps provedeno.platby[0].onRemove to dispatch removePlatba action', () => {
 it('prihlasky - předepsané startovné předem', () => {
   const state2 = JSON.parse(JSON.stringify(state)); // deep copy
   state2.registrator.prihlasky = state2.registrator[reduxName];
+  state2.registrator.prihlasky.form.jePrihlaskou = true;
   state2.registrator.prihlasky.form.platby = [];
   store = mockStore(state2);
   wrapper = shallow(
@@ -113,7 +114,6 @@ it('prihlasky - předepsané startovné předem', () => {
     />
   );
 
-  expect(wrapper.props().jePrihlaskou).toBe(true);
   expect(wrapper.props().predepsano).toMatchSnapshot();
   expect(wrapper.props().provedeno).toMatchSnapshot();
 });

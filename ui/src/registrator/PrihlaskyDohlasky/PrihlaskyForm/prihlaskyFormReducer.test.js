@@ -683,18 +683,16 @@ it('udaje.narozeni - reset kategorie a mladistvyPotvrzen', () => {
 
 it('prihlaska.datum - přihlášky', () => {
   const name = 'prihlaska.datum';
-  const form = { prihlaska: { datum: undefined } };
+  const form = { jePrihlaskou: true, prihlaska: { datum: undefined } };
   const { rocniky } = ucastniciTestData.entities;
 
-  expect(isInputEnabled({ name, form, rocniky })).toBe(false);
-  expect(isInputEnabled({ jePrihlaskou: false, name, form, rocniky })).toBe(false);
-  expect(isInputEnabled({ jePrihlaskou: true, name, form, rocniky })).toBe(true);
+  expect(isInputEnabled({ name, form, rocniky })).toBe(true);
   expect(getValue({ name, form })).toBe(undefined);
 });
 
 it('prihlaska.datum - dohlášky', () => {
   const name = 'prihlaska.datum';
-  const stateBefore = { prihlaska: { datum: undefined } };
+  const stateBefore = { jePrihlaskou: undefined, prihlaska: { datum: undefined } };
   deepFreeze(stateBefore);
   const { rocniky } = ucastniciTestData.entities;
 
@@ -702,6 +700,8 @@ it('prihlaska.datum - dohlášky', () => {
     stateBefore,
     createReset({ actionPrefix: 'DOHLASKY' })({ rocniky })
   );
+  expect(stateAfter.jePrihlaskou).toBe(false);
+  expect(isInputEnabled({ name, form: stateAfter, rocniky })).toBe(false);
   expect(getValue({ name, form: stateAfter })).toEqual(new Date('2018-06-09').toJSON());
 });
 

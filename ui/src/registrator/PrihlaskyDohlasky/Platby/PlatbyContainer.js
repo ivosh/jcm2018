@@ -10,12 +10,11 @@ import Platby from './Platby';
 
 const mapStateToProps = (state, ownProps) => {
   const { reduxName } = ownProps;
-  const jePrihlaskou = reduxName === 'prihlasky';
 
   const {
     registrator: {
       [reduxName]: {
-        form: { prihlaska, platby },
+        form: { jePrihlaskou, prihlaska, platby },
         platby: { novaPlatbaMinified }
       }
     },
@@ -26,7 +25,6 @@ const mapStateToProps = (state, ownProps) => {
   const provedeno = provedenePlatby(platby);
 
   return {
-    jePrihlaskou,
     novaPlatbaMinified:
       provedeno.suma < predepsano.suma || provedeno.suma === 0 ? false : novaPlatbaMinified,
     predepsano,
