@@ -64,6 +64,7 @@ Object {
       "form": Object {
         "errorCode": "",
         "errorMessage": "",
+        "jePrihlaskou": false,
         "platby": Array [],
         "prihlaska": Object {
           "datum": undefined,
@@ -120,6 +121,7 @@ Object {
       "form": Object {
         "errorCode": "",
         "errorMessage": "",
+        "jePrihlaskou": true,
         "platby": Array [],
         "prihlaska": Object {
           "datum": undefined,
@@ -250,6 +252,7 @@ Object {
       "form": Object {
         "errorCode": "",
         "errorMessage": "",
+        "jePrihlaskou": false,
         "platby": Array [],
         "prihlaska": Object {
           "datum": undefined,
@@ -306,6 +309,7 @@ Object {
       "form": Object {
         "errorCode": "",
         "errorMessage": "",
+        "jePrihlaskou": true,
         "platby": Array [],
         "prihlaska": Object {
           "datum": undefined,
@@ -436,6 +440,7 @@ Object {
       "form": Object {
         "errorCode": "",
         "errorMessage": "",
+        "jePrihlaskou": false,
         "platby": Array [],
         "prihlaska": Object {
           "datum": undefined,
@@ -492,6 +497,7 @@ Object {
       "form": Object {
         "errorCode": "",
         "errorMessage": "",
+        "jePrihlaskou": true,
         "platby": Array [],
         "prihlaska": Object {
           "datum": undefined,

@@ -1,11 +1,12 @@
 import deepFreeze from 'deep-freeze';
+import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import { createReset } from '../PrihlaskyForm/PrihlaskyFormActions';
 import { createHide, createShow } from './StartCisloActions';
 import { createStartCisloReducer } from './startCisloReducer';
 
 const actionPrefix = 'PRIHLASKY_YYY';
 const hide = createHide(actionPrefix);
-const reset = createReset(actionPrefix);
+const reset = createReset({ actionPrefix });
 const show = createShow(actionPrefix);
 const startCisloReducer = createStartCisloReducer(actionPrefix);
 
@@ -36,6 +37,7 @@ it('reset', () => {
   const stateBefore = { showing: true };
   const stateAfter = { showing: false };
   deepFreeze(stateBefore);
+  const { rocniky } = ucastniciTestData.entities;
 
-  expect(startCisloReducer(stateBefore, reset())).toEqual(stateAfter);
+  expect(startCisloReducer(stateBefore, reset({ rocniky }))).toEqual(stateAfter);
 });

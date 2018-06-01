@@ -19,6 +19,7 @@ import { getTypKategorie } from '../../../entities/rocniky/rocnikyReducer';
 const initialState = {
   errorCode: '',
   errorMessage: '',
+  jePrihlaskou: undefined,
   showError: false,
   saved: false,
   saving: false,
@@ -80,7 +81,10 @@ const reduceUbytovani = ({ den, value, ubytovani }) => {
   return ubytovaniOdhlasit({ den, ubytovani });
 };
 
-export const createPrihlaskyFormReducer = actionPrefix => (state = initialState, action) => {
+export const createPrihlaskyFormReducer = (
+  actionPrefix,
+  jePrihlaskou = actionPrefix === 'PRIHLASKY'
+) => (state = { ...initialState, jePrihlaskou }, action) => {
   switch (action.type) {
     case `${actionPrefix}_HIDE_ERROR`:
       return { ...state, showError: false };
@@ -135,9 +139,9 @@ export const createPrihlaskyFormReducer = actionPrefix => (state = initialState,
       return { ...state, [section]: { ...state[section], [name]: value } };
     }
     case `${actionPrefix}_UCASTNIK_LOAD`:
-      // :TODO: convey jePrihlaskou to the state. No need to pass it by the callers.
       return {
         ...initialState,
+        jePrihlaskou,
         ucastnikId: action.id,
         udaje: action.udaje,
         prihlaska: action.prihlaska || initialState.prihlaska,
@@ -145,8 +149,11 @@ export const createPrihlaskyFormReducer = actionPrefix => (state = initialState,
         ubytovani: action.ubytovani || initialState.ubytovani
       };
     case `${actionPrefix}_RESET`:
-      // :TODO: convey jePrihlaskou to the state. No need to pass it by the callers.
-      return action.datum ? { ...initialState, prihlaska: { datum: action.datum } } : initialState;
+      return {
+        ...initialState,
+        jePrihlaskou,
+        prihlaska: { ...initialState.prihlaska, datum: action.datum }
+      };
     case `${actionPrefix}_VALIDATE_FORM`:
       return { ...state, validate: true };
     case `${actionPrefix}_FORM_INVALID`:
@@ -182,6 +189,11 @@ export const createPrihlaskyFormReducer = actionPrefix => (state = initialState,
         ...state,
         platby: [...state.platby.slice(0, action.idx), ...state.platby.slice(action.idx + 1)]
       };
+    case 'FETCH_ROCNIKY_SUCCESS':
+      if (!jePrihlaskou && !state.prihlaska.datum) {
+        return { ...state, prihlaska: { ...state.prihlaska, datum: action.getDatumKonani() } };
+      }
+      return state;
     default:
       return state;
   }

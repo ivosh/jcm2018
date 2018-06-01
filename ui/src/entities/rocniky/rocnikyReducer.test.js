@@ -1,7 +1,7 @@
 import deepFreeze from 'deep-freeze';
 import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
-import rocnikyReducer from './rocnikyReducer';
 import { fetchRocnikySuccess } from './rocnikyActions';
+import rocnikyReducer, { getDatumKonani } from './rocnikyReducer';
 
 it('nic se nestalo 1', () => {
   const stateBefore = undefined;
@@ -112,7 +112,7 @@ it('po načtení ročníků', () => {
           }
         },
         2018: {
-          datum: '2018-06-08T00:00:00.000Z',
+          datum: '2018-06-09T00:00:00.000Z',
           id: '5a71b1fd371dec1e99b7e1bc',
           kategorie: {
             maraton: {
@@ -201,8 +201,11 @@ it('po načtení ročníků', () => {
   const stateBefore = { byRoky: {}, roky: [] };
   const stateAfter = { byRoky: { ...json.response.rocniky }, roky: [2017, 2018] };
   deepFreeze(stateBefore);
+  const action = fetchRocnikySuccess(json);
 
-  expect(rocnikyReducer(stateBefore, fetchRocnikySuccess(json))).toEqual(stateAfter);
+  expect(rocnikyReducer(stateBefore, action)).toEqual(stateAfter);
+  expect(action.getDatumKonani()).toEqual(new Date('2018-06-09').toJSON());
+  expect(getDatumKonani({ rocniky: stateAfter })).toEqual(new Date('2018-06-09').toJSON());
 });
 
 it('po odhlášení', () => {

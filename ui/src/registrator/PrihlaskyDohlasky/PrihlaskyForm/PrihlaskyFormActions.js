@@ -9,6 +9,7 @@ import {
 import { AKTUALNI_ROK, PRIHLASKY_SAVE_MODAL_TIMEOUT } from '../../../constants';
 import { errorToStr } from '../../../Util';
 import { authTokenExpired } from '../../../auth/SignIn/SignInActions';
+import { getDatumKonani } from '../../../entities/rocniky/rocnikyReducer';
 import { createInputChanged as genericCreateInputChanged } from '../Input/InputActions';
 import { formValid } from './prihlaskyFormReducer';
 
@@ -16,13 +17,18 @@ export const createInputChanged = actionPrefix => genericCreateInputChanged(acti
 
 export const createHideError = actionPrefix => () => ({ type: `${actionPrefix}_HIDE_ERROR` });
 
-export const createReset = actionPrefix => datum => {
-  const action = { type: `${actionPrefix}_RESET` };
-  const jePrihlaskou = actionPrefix === 'PRIHLASKY';
-  if (datum && !jePrihlaskou) {
-    action.datum = datum.toJSON ? datum.toJSON() : datum;
-  }
-  return action;
+export const createReset = ({
+  actionPrefix,
+  jePrihlaskou = actionPrefix === 'PRIHLASKY',
+  now = new Date()
+}) => ({ rocniky }) => {
+  now.setUTCHours(0, 0, 0, 0);
+  const datum = jePrihlaskou ? now : getDatumKonani({ rocniky });
+
+  return {
+    type: `${actionPrefix}_RESET`,
+    datum: datum.toJSON ? datum.toJSON() : datum
+  };
 };
 
 export const createLoadUcastnik = actionPrefix => ({ id, kategorie, ucastnici }) => {

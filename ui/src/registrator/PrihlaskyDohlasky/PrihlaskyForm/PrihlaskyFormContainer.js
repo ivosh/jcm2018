@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { AKTUALNI_ROK } from '../../../constants';
 import { createReset as createResetNovaPlatba } from '../Platby/PlatbyActions';
 import PrihlaskyForm from './PrihlaskyForm';
 import {
@@ -41,8 +40,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onHideError: () => dispatch(createHideError(actionPrefix)()),
     onHideModal: () => dispatch(createHideModal(actionPrefix)()),
-    onReset: datum => {
-      dispatch(createResetForm(actionPrefix)(datum));
+    onReset: rocniky => {
+      dispatch(createResetForm({ actionPrefix })({ rocniky }));
       dispatch(createResetNovaPlatba(actionPrefix)());
     },
     onSubmit: () => dispatch(createSaveUcast(actionPrefix, reduxName)()),
@@ -54,13 +53,11 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { actionPrefix, entities, ...restOfStateProps } = stateProps;
   const { dispatch, onReset, ...restOfDispatchProps } = dispatchProps;
   const { loadId } = ownProps;
-  const rok = AKTUALNI_ROK;
-  const { datum } = entities.rocniky.byRoky[rok];
 
   const result = {
     actionPrefix,
     ...restOfStateProps,
-    onReset: () => onReset(datum),
+    onReset: () => onReset(entities.rocniky),
     ...restOfDispatchProps
   };
   if (loadId) {

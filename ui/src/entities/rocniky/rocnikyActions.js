@@ -1,4 +1,5 @@
 import { CODE_OK, CODE_TOKEN_INVALID, findAllRocniky } from '../../common';
+import { AKTUALNI_ROK } from '../../constants';
 import { errorToStr } from '../../Util';
 import { fetchKategorieSuccess, fetchKategorieError } from '../kategorie/kategorieActions';
 import { authTokenExpired } from '../../auth/SignIn/SignInActions';
@@ -17,7 +18,8 @@ const normalizeRocniky = json => {
 export const fetchRocnikySuccess = json => ({
   type: 'FETCH_ROCNIKY_SUCCESS',
   data: normalizeRocniky(json),
-  receivedAt: Date.now()
+  receivedAt: Date.now(),
+  getDatumKonani: (rok = AKTUALNI_ROK) => json.response.rocniky[rok].datum
 });
 
 // TODO: no component is subscribed to this action.

@@ -28,13 +28,14 @@ import {
 
 const actionPrefix = 'PRIHLASKY_YYY';
 const addPlatba = createAddPlatba(actionPrefix);
+const dohlaskyFormReducer = createPrihlaskyFormReducer('DOHLASKY');
 const hideError = createHideError(actionPrefix);
 const hideModal = createHideModal(actionPrefix);
 const inputChanged = createInputChanged(actionPrefix);
 const loadUcastnik = createLoadUcastnik(actionPrefix);
-const prihlaskyFormReducer = createPrihlaskyFormReducer(actionPrefix);
+const prihlaskyFormReducer = createPrihlaskyFormReducer(actionPrefix, true);
 const removePlatba = createRemovePlatba(actionPrefix);
-const reset = createReset(actionPrefix);
+const reset = createReset({ actionPrefix, jePrihlaskou: true, now: new Date('2018-06-01') });
 const saveUcastRequest = createSaveUcastRequest(actionPrefix);
 const saveUcastSuccess = createSaveUcastSuccess(actionPrefix);
 const saveUcastError = createSaveUcastError(actionPrefix);
@@ -48,12 +49,13 @@ const unsuccessfulResponse = {
   requestId: '0.9310306652587374'
 };
 
-it('na začátku', () => {
+it('na začátku - jePrihlaskou: true', () => {
   const stateBefore = undefined;
 
   const stateAfter = prihlaskyFormReducer(stateBefore, {});
   expect(stateAfter.errorCode).toEqual('');
   expect(stateAfter.errorMessage).toEqual('');
+  expect(stateAfter.jePrihlaskou).toBe(true);
   expect(stateAfter.showError).toBe(false);
   expect(stateAfter.saving).toBe(false);
   expect(stateAfter.ucastnikId).toBe(undefined);
@@ -80,6 +82,13 @@ it('na začátku', () => {
     mladistvyPotvrzen: undefined
   });
   expect(stateAfter.platby).toEqual([]);
+});
+
+it('na začátku - jePrihlaskou: false', () => {
+  const stateBefore = undefined;
+
+  const stateAfter = dohlaskyFormReducer(stateBefore, {});
+  expect(stateAfter.jePrihlaskou).toBe(false);
 });
 
 it('hideError()', () => {
@@ -132,6 +141,7 @@ it('reset()', () => {
     errorCode: '',
     errorMessage: '',
     showError: false,
+    jePrihlaskou: true,
     saved: false,
     saving: false,
     ucastnikId: undefined,
@@ -150,7 +160,7 @@ it('reset()', () => {
       telefon: undefined
     },
     prihlaska: {
-      datum: undefined,
+      datum: '2018-06-01T00:00:00.000Z',
       kategorie: undefined,
       typ: undefined,
       startCislo: undefined,
@@ -161,8 +171,9 @@ it('reset()', () => {
     ubytovani: {}
   };
   deepFreeze(stateBefore);
+  const { rocniky } = ucastniciTestData.entities;
 
-  expect(prihlaskyFormReducer(stateBefore, reset())).toEqual(stateAfter);
+  expect(prihlaskyFormReducer(stateBefore, reset({ rocniky }))).toEqual(stateAfter);
 });
 
 it('hideModal()', () => {
@@ -685,11 +696,11 @@ it('prihlaska.datum - dohlášky', () => {
   const name = 'prihlaska.datum';
   const stateBefore = { prihlaska: { datum: undefined } };
   deepFreeze(stateBefore);
+  const { rocniky } = ucastniciTestData.entities;
 
-  const dohlaskyFormReducer = createPrihlaskyFormReducer('DOHLASKY');
   const stateAfter = dohlaskyFormReducer(
     stateBefore,
-    createReset('DOHLASKY')(new Date('2018-06-09'))
+    createReset({ actionPrefix: 'DOHLASKY' })({ rocniky })
   );
   expect(getValue({ name, form: stateAfter })).toEqual(new Date('2018-06-09').toJSON());
 });
@@ -1113,6 +1124,7 @@ it('loadUcastnik() - údaje i přihláška', () => {
   const stateAfter = {
     errorCode: '',
     errorMessage: '',
+    jePrihlaskou: true,
     showError: false,
     saved: false,
     saving: false,
@@ -1173,6 +1185,7 @@ it('loadUcastnik() - jen údaje', () => {
   const stateAfter = {
     errorCode: '',
     errorMessage: '',
+    jePrihlaskou: true,
     showError: false,
     saved: false,
     saving: false,

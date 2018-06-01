@@ -72,7 +72,10 @@ it('renders /prihlasky/reset route', () => {
   expect(wrapper.find('Connect(PrihlaskyForm)')).toHaveLength(1);
   expect(wrapper.find('Connect(PrihlaskyForm)').props()).toMatchSnapshot();
   expect(store.dispatch).toHaveBeenCalledTimes(3); // fetchUcastnici + Form/reset + Platby/reset
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASKY_RESET' });
+  expect(store.dispatch).toHaveBeenCalledWith({
+    type: 'PRIHLASKY_RESET',
+    datum: expect.any(String)
+  });
   expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASKY_NOVA_PLATBA_RESET' });
 });
 
