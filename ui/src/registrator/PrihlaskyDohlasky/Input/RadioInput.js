@@ -7,9 +7,10 @@ const RadioInput = ({ inline, name, value, options, Formatter, inputRef, onChang
     <Radio
       checked={option.key === value}
       id={option.id}
+      inline={inline}
       key={option.key}
       name={name}
-      inline={inline}
+      startovne={option.startovne}
       value={option.key}
       inputRef={ref => inputRef(ref)}
       onChange={onChange}
@@ -26,6 +27,7 @@ RadioInput.propTypes = {
     PropTypes.shape({
       key: PropTypes.string.isRequired,
       id: PropTypes.string,
+      startovne: PropTypes.number,
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired
     })
   ),

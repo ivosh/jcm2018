@@ -18,14 +18,14 @@ export const predepsaneStartovne = ({
   platby,
   prihlaska,
   rocniky,
-  rok = AKTUALNI_ROK
+  rok = AKTUALNI_ROK,
+  typ
 }) => {
   // Přihláška can contain either kategorie(id) or typ. Consider both.
-  let typ = null;
-  if (prihlaska) {
-    ({ typ } = prihlaska);
+  if (!typ && prihlaska) {
+    ({ typ } = prihlaska); // eslint-disable-line no-param-reassign
     if (!typ && prihlaska.kategorie) {
-      ({ typ } = kategorie[prihlaska.kategorie]);
+      ({ typ } = kategorie[prihlaska.kategorie]); // eslint-disable-line no-param-reassign
     }
   }
   if (!typ) {

@@ -49,6 +49,7 @@ Input.propTypes = {
     PropTypes.shape({
       key: PropTypes.string.isRequired,
       id: PropTypes.string,
+      startovne: PropTypes.number,
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired
     })
   ), // for RadioInput

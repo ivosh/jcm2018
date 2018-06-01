@@ -2,14 +2,17 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Input from './Input';
 
-const mapStateToProps = state => ({
-  rocniky: state.entities.rocniky
-});
+const mapStateToProps = state => {
+  const {
+    entities: { kategorie, rocniky }
+  } = state;
+  return { kategorie, rocniky };
+};
 
 const mapDispatchToProps = dispatch => ({ dispatch });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { rocniky } = stateProps;
+  const { kategorie, rocniky } = stateProps;
   const { dispatch } = dispatchProps;
   const {
     form,
@@ -29,7 +32,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   return {
     enabled: isInputEnabled({ name, form, rocniky }),
     name,
-    options: inputOptions({ name, form, rocniky }),
+    options: inputOptions({ name, form, kategorie, rocniky }),
     validationState: inputValid({ name, value: rawValue, form, rocniky }),
     value: formatValue({ name, rawValue }),
     visible: isInputVisible({ name, form, rocniky }),

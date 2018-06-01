@@ -765,22 +765,23 @@ it('prihlaska.typ - není pohlaví', () => {
     registrator: {
       prihlasky: {
         form: {
-          udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: undefined }
+          udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: undefined },
+          prihlaska: {}
         }
       }
     }
   };
   const { form } = state.registrator.prihlasky;
-  const { rocniky } = state.entities;
+  const { kategorie, rocniky } = state.entities;
   const selected = [
-    { key: 'maraton', value: { typ: 'maraton' } },
-    { key: 'půlmaraton', value: { typ: 'půlmaraton' } },
-    { key: 'cyklo', value: { typ: 'cyklo' } },
-    { key: 'koloběžka', value: { typ: 'koloběžka' } },
-    { key: 'pěší', id: '5a587e1a051c181132cf83b1', value: { typ: 'pěší' } }
+    { key: 'maraton', startovne: 250, value: { typ: 'maraton' } },
+    { key: 'půlmaraton', startovne: 250, value: { typ: 'půlmaraton' } },
+    { key: 'cyklo', startovne: 270, value: { typ: 'cyklo' } },
+    { key: 'koloběžka', startovne: 250, value: { typ: 'koloběžka' } },
+    { key: 'pěší', startovne: 30, id: '5a587e1a051c181132cf83b1', value: { typ: 'pěší' } }
   ];
 
-  expect(inputOptions({ name: 'prihlaska.typ', form, rocniky })).toEqual(selected);
+  expect(inputOptions({ name: 'prihlaska.typ', form, kategorie, rocniky })).toEqual(selected);
 });
 
 it('prihlaska.typ - není narození', () => {
@@ -789,26 +790,31 @@ it('prihlaska.typ - není narození', () => {
     registrator: {
       prihlasky: {
         form: {
-          udaje: { narozeni: { den: undefined, mesic: undefined, rok: undefined }, pohlavi: 'žena' }
+          udaje: {
+            narozeni: { den: undefined, mesic: undefined, rok: undefined },
+            pohlavi: 'žena'
+          },
+          prihlaska: {}
         }
       }
     }
   };
   const { form } = state.registrator.prihlasky;
-  const { rocniky } = state.entities;
+  const { kategorie, rocniky } = state.entities;
   const selected = [
-    { key: 'maraton', value: { typ: 'maraton' } },
-    { key: 'půlmaraton', value: { typ: 'půlmaraton' } },
-    { key: 'cyklo', value: { typ: 'cyklo' } },
+    { key: 'maraton', startovne: 250, value: { typ: 'maraton' } },
+    { key: 'půlmaraton', startovne: 250, value: { typ: 'půlmaraton' } },
+    { key: 'cyklo', startovne: 270, value: { typ: 'cyklo' } },
     {
       key: 'koloběžka',
       id: '5a587e1b051c181132cf83d0',
+      startovne: 250,
       value: { pohlavi: 'žena', typ: 'koloběžka', vek: { min: 18, max: 150 } }
     },
-    { key: 'pěší', id: '5a587e1a051c181132cf83b1', value: { typ: 'pěší' } }
+    { key: 'pěší', id: '5a587e1a051c181132cf83b1', startovne: 30, value: { typ: 'pěší' } }
   ];
 
-  expect(inputOptions({ name: 'prihlaska.typ', form, rocniky })).toEqual(selected);
+  expect(inputOptions({ name: 'prihlaska.typ', form, kategorie, rocniky })).toEqual(selected);
 });
 
 it('prihlaska.typ - muž', () => {
@@ -817,38 +823,43 @@ it('prihlaska.typ - muž', () => {
     registrator: {
       prihlasky: {
         form: {
-          udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: 'muž' }
+          udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: 'muž' },
+          prihlaska: {}
         }
       }
     }
   };
   const { form } = state.registrator.prihlasky;
-  const { rocniky } = state.entities;
+  const { kategorie, rocniky } = state.entities;
   const selected = [
     {
       key: 'maraton',
       id: '5a587e1a051c181132cf83b8',
+      startovne: 250,
       value: { pohlavi: 'muž', typ: 'maraton', vek: { min: 18, max: 39 } }
     },
     {
       key: 'půlmaraton',
       id: '5a587e1b051c181132cf83d3',
+      startovne: 250,
       value: { pohlavi: 'muž', typ: 'půlmaraton', vek: { min: 18, max: 39 } }
     },
     {
       key: 'cyklo',
       id: '5a587e1a051c181132cf83b9',
+      startovne: 270,
       value: { pohlavi: 'muž', typ: 'cyklo', vek: { min: 36, max: 45 } }
     },
     {
       key: 'koloběžka',
       id: '5a587e1b051c181132cf83cf',
+      startovne: 250,
       value: { pohlavi: 'muž', typ: 'koloběžka', vek: { min: 18, max: 150 } }
     },
-    { key: 'pěší', id: '5a587e1a051c181132cf83b1', value: { typ: 'pěší' } }
+    { key: 'pěší', id: '5a587e1a051c181132cf83b1', startovne: 30, value: { typ: 'pěší' } }
   ];
 
-  expect(inputOptions({ name: 'prihlaska.typ', form, rocniky })).toEqual(selected);
+  expect(inputOptions({ name: 'prihlaska.typ', form, kategorie, rocniky })).toEqual(selected);
 });
 
 it('prihlaska.typ - nahodí též kategorie', () => {
