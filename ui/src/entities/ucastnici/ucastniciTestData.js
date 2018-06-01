@@ -2173,7 +2173,7 @@ const state = {
                   vek: { min: 18, max: 150 }
                 }
               ],
-              startovne: { predem: 200, naMiste: 250, zaloha: 20 },
+              startovne: { predem: 200, naMiste: 250 },
               startCisla: { rozsahy: ['100-90'] }
             },
             pěší: {
