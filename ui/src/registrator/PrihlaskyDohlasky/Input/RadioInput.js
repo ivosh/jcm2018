@@ -10,7 +10,7 @@ const RadioInput = ({ inline, name, value, options, Formatter, inputRef, onChang
       inline={inline}
       key={option.key}
       name={name}
-      startovne={option.startovne}
+      nonce={option.startovne} // uses an existing atribute of HTMLElement
       value={option.key}
       inputRef={ref => inputRef(ref)}
       onChange={onChange}
