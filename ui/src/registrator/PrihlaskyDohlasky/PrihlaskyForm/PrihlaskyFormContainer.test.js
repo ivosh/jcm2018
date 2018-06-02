@@ -72,6 +72,7 @@ it('maps onLoadId to dispatch loadUcastnik action - existující přihláška', 
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: `${actionPrefix}_UCASTNIK_LOAD`,
+    datumKonani: '2018-06-09T00:00:00.000Z',
     id: '5a09b1fd371dec1e99b7e1c9',
     udaje: {
       jmeno: 'Roman',
@@ -108,6 +109,7 @@ it('maps onLoadId to dispatch ucastnikSelected action - starší účast', () =>
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: `${actionPrefix}_UCASTNIK_LOAD`,
+    datumKonani: '2018-06-09T00:00:00.000Z',
     id: '6f09b1fd371dec1e99b7e1c9',
     udaje: {
       prijmeni: 'Sukdoláková',
@@ -125,7 +127,7 @@ it('maps onReset to dispatch reset action', () => {
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: `${actionPrefix}_RESET`,
-    datum: '2018-06-09T00:00:00.000Z'
+    datumKonani: '2018-06-09T00:00:00.000Z'
   });
 });
 

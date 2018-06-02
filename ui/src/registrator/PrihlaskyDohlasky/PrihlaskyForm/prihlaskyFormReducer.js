@@ -152,7 +152,7 @@ export const createPrihlaskyFormReducer = (
       return {
         ...initialState,
         jePrihlaskou,
-        prihlaska: { ...initialState.prihlaska, datum: action.datum }
+        prihlaska: { ...initialState.prihlaska, datum: action.datumKonani }
       };
     case `${actionPrefix}_VALIDATE_FORM`:
       return { ...state, validate: true };

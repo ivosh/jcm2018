@@ -1,5 +1,6 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import { createAddValidatedPlatba } from './PlatbyActions';
 
 const middlewares = [thunk];
@@ -10,6 +11,7 @@ const addValidatedPlatba = createAddValidatedPlatba(actionPrefix, reduxName);
 
 it('addValidatedPlatba() should dispatch two successful actions', async () => {
   const store = mockStore({
+    ...ucastniciTestData,
     registrator: {
       [reduxName]: {
         platby: {
@@ -37,6 +39,7 @@ it('addValidatedPlatba() should dispatch two successful actions', async () => {
 
 it('addValidatedPlatba() should dispatch only one action on error', async () => {
   const store = mockStore({
+    ...ucastniciTestData,
     registrator: {
       [reduxName]: {
         platby: {

@@ -23,6 +23,9 @@ export const createPlatbyReducer = actionPrefix => (state = initialState, action
     }
     case `${actionPrefix}_NOVA_PLATBA_RESET`:
     case `${actionPrefix}_UCASTNIK_LOAD`:
+      if (action.datumKonani) {
+        return { ...initialState, datum: action.datumKonani };
+      }
       return initialState;
     case `${actionPrefix}_NOVA_PLATBA_VALIDATE`:
       return { ...state, validate: true };

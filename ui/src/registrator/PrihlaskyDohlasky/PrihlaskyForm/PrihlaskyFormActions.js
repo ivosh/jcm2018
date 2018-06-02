@@ -23,20 +23,21 @@ export const createReset = ({
   now = new Date()
 }) => ({ rocniky }) => {
   now.setUTCHours(0, 0, 0, 0);
-  const datum = jePrihlaskou ? now : getDatumKonani({ rocniky });
+  const datumKonani = jePrihlaskou ? now.toJSON() : getDatumKonani({ rocniky });
 
-  return {
-    type: `${actionPrefix}_RESET`,
-    datum: datum.toJSON ? datum.toJSON() : datum
-  };
+  return { type: `${actionPrefix}_RESET`, datumKonani };
 };
 
-export const createLoadUcastnik = actionPrefix => ({ id, kategorie, ucastnici }) => {
+export const createLoadUcastnik = ({
+  actionPrefix,
+  jePrihlaskou = actionPrefix === 'PRIHLASKY'
+}) => ({ id, kategorie, rocniky, ucastnici }) => {
   const ucastnik = ucastnici.byIds[id];
   const posledniRok = ucastnik.roky[0];
   const ucast = ucastnik[posledniRok];
   const action = {
     type: `${actionPrefix}_UCASTNIK_LOAD`,
+    datumKonani: jePrihlaskou ? undefined : getDatumKonani({ rocniky }),
     id,
     udaje: ucast.udaje
   };

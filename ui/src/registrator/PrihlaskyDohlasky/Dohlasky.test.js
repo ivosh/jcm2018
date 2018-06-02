@@ -74,9 +74,12 @@ it('renders /dohlasky/reset route', () => {
   expect(store.dispatch).toHaveBeenCalledTimes(3); // fetchUcastnici + Form/reset + Platby/reset
   expect(store.dispatch).toHaveBeenCalledWith({
     type: 'DOHLASKY_RESET',
-    datum: '2018-06-09T00:00:00.000Z'
+    datumKonani: '2018-06-09T00:00:00.000Z'
   });
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'DOHLASKY_NOVA_PLATBA_RESET' });
+  expect(store.dispatch).toHaveBeenCalledWith({
+    type: 'DOHLASKY_NOVA_PLATBA_RESET',
+    datumKonani: '2018-06-09T00:00:00.000Z'
+  });
 });
 
 it('renders /dohlasky/:id route', () => {
@@ -93,6 +96,7 @@ it('renders /dohlasky/:id route', () => {
   expect(wrapper.find('Connect(PrihlaskyForm)').props()).toMatchSnapshot();
   expect(store.dispatch).toHaveBeenCalledTimes(2); // fetchUcastnici + load
   expect(store.dispatch).toHaveBeenCalledWith({
+    datumKonani: '2018-06-09T00:00:00.000Z',
     id: '6f09b1fd371dec1e99b7e1c9',
     type: 'DOHLASKY_UCASTNIK_LOAD',
     udaje: {

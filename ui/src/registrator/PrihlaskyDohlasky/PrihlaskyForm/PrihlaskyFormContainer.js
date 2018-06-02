@@ -42,7 +42,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onHideModal: () => dispatch(createHideModal(actionPrefix)()),
     onReset: rocniky => {
       dispatch(createResetForm({ actionPrefix })({ rocniky }));
-      dispatch(createResetNovaPlatba(actionPrefix)());
+      dispatch(createResetNovaPlatba({ actionPrefix })({ rocniky }));
     },
     onSubmit: () => dispatch(createSaveUcast(actionPrefix, reduxName)()),
     dispatch
@@ -61,7 +61,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     ...restOfDispatchProps
   };
   if (loadId) {
-    result.onLoadId = () => dispatch(createLoadUcastnik(actionPrefix)({ id: loadId, ...entities }));
+    result.onLoadId = () =>
+      dispatch(createLoadUcastnik({ actionPrefix })({ id: loadId, ...entities }));
   }
   return result;
 };

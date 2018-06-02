@@ -1,3 +1,4 @@
+import { getDatumKonani } from '../../../entities/rocniky/rocnikyReducer';
 import { createInputChanged as genericCreateInputChanged } from '../Input/InputActions';
 import { formValid } from './platbyReducer';
 
@@ -14,7 +15,15 @@ export const createAddPlatba = actionPrefix => ({ castka, datum, typ, poznamka }
   }
 });
 
-export const createReset = actionPrefix => () => ({ type: `${actionPrefix}_NOVA_PLATBA_RESET` });
+export const createReset = ({ actionPrefix, jePrihlaskou = actionPrefix === 'PRIHLASKY' }) => ({
+  rocniky
+}) => {
+  if (jePrihlaskou) {
+    return { type: `${actionPrefix}_NOVA_PLATBA_RESET` };
+  }
+  return { type: `${actionPrefix}_NOVA_PLATBA_RESET`, datumKonani: getDatumKonani({ rocniky }) };
+};
+
 export const createValidate = actionPrefix => () => ({
   type: `${actionPrefix}_NOVA_PLATBA_VALIDATE`
 });
@@ -26,6 +35,7 @@ export const createAddValidatedPlatba = (actionPrefix, reduxName) => () => async
   await dispatch(createValidate(actionPrefix)());
 
   const {
+    entities: { rocniky },
     registrator: {
       [reduxName]: { platby: form }
     }
@@ -35,7 +45,7 @@ export const createAddValidatedPlatba = (actionPrefix, reduxName) => () => async
   }
 
   dispatch(createAddPlatba(actionPrefix)(form));
-  dispatch(createReset(actionPrefix)());
+  dispatch(createReset({ actionPrefix })({ rocniky }));
 };
 
 export const createRemovePlatba = actionPrefix => idx => ({

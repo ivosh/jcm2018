@@ -1,4 +1,5 @@
 import deepFreeze from 'deep-freeze';
+import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import {
   createAddPlatba,
   createExpandNovaPlatba,
@@ -13,7 +14,7 @@ const addPlatba = createAddPlatba(actionPrefix);
 const expandNovaPlatba = createExpandNovaPlatba(actionPrefix);
 const inputChanged = createInputChanged(actionPrefix);
 const platbyReducer = createPlatbyReducer(actionPrefix);
-const reset = createReset(actionPrefix);
+const reset = createReset({ actionPrefix, jePrihlaskou: true });
 const validate = createValidate(actionPrefix);
 
 it('na začátku', () => {
@@ -30,7 +31,7 @@ it('na začátku', () => {
   });
 });
 
-it('reset()', () => {
+it('reset() - přihlášky', () => {
   const stateBefore = {
     castka: '10',
     datum: undefined,
@@ -48,8 +49,35 @@ it('reset()', () => {
     validate: false
   };
   deepFreeze(stateBefore);
+  const { rocniky } = ucastniciTestData.entities;
 
-  expect(platbyReducer(stateBefore, reset())).toEqual(stateAfter);
+  expect(platbyReducer(stateBefore, reset({ rocniky }))).toEqual(stateAfter);
+});
+
+it('reset() - dohlášky', () => {
+  const stateBefore = {
+    castka: '10',
+    datum: undefined,
+    typ: 'složenkou',
+    poznamka: 'haha',
+    novaPlatbaMinified: false,
+    validate: true
+  };
+  const stateAfter = {
+    castka: undefined,
+    datum: new Date('2018-06-09').toJSON(),
+    typ: 'hotově',
+    poznamka: undefined,
+    novaPlatbaMinified: true,
+    validate: false
+  };
+  deepFreeze(stateBefore);
+  const { rocniky } = ucastniciTestData.entities;
+
+  const dohlaskyPlatbyReducer = createPlatbyReducer('DOHLASKY');
+  expect(
+    dohlaskyPlatbyReducer(stateBefore, createReset({ actionPrefix: 'DOHLASKY' })({ rocniky }))
+  ).toEqual(stateAfter);
 });
 
 it('validate()', () => {
