@@ -4,15 +4,15 @@ import Input from './Input';
 
 const mapStateToProps = state => {
   const {
-    entities: { kategorie, rocniky }
+    entities: { rocniky }
   } = state;
-  return { kategorie, rocniky };
+  return { rocniky };
 };
 
 const mapDispatchToProps = dispatch => ({ dispatch });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  const { kategorie, rocniky } = stateProps;
+  const { rocniky } = stateProps;
   const { dispatch } = dispatchProps;
   const {
     form,
@@ -32,7 +32,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   return {
     enabled: isInputEnabled({ name, form, rocniky }),
     name,
-    options: inputOptions({ name, form, kategorie, rocniky }),
+    options: inputOptions({ name, form, rocniky }),
     validationState: inputValid({ name, value: rawValue, form, rocniky }),
     value: formatValue({ name, rawValue }),
     visible: isInputVisible({ name, form, rocniky }),

@@ -10,7 +10,6 @@ const RadioInput = ({ inline, name, value, options, Formatter, inputRef, onChang
       inline={inline}
       key={option.key}
       name={name}
-      nonce={option.startovne} // uses an existing atribute of HTMLElement
       value={option.key}
       inputRef={ref => inputRef(ref)}
       onChange={onChange}
@@ -27,7 +26,6 @@ RadioInput.propTypes = {
     PropTypes.shape({
       key: PropTypes.string.isRequired,
       id: PropTypes.string,
-      startovne: PropTypes.number,
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired
     })
   ),

@@ -87,12 +87,3 @@ it('predepsaneStartovne() - přihláška na místě', () => {
 
   expect(predepsaneStartovne({ ...ucastniciTestData.entities, prihlaska })).toEqual(expected);
 });
-
-it('predepsaneStartovne() - typ explicitly given', () => {
-  const prihlaska = { datum: new Date('2018-06-09').toJSON() };
-  const expected = { polozky: [{ castka: 250, duvod: 'na místě' }], suma: 250 };
-
-  expect(predepsaneStartovne({ ...ucastniciTestData.entities, prihlaska, typ: 'maraton' })).toEqual(
-    expected
-  );
-});

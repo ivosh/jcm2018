@@ -15,7 +15,6 @@ import {
   validDatumFormats
 } from '../../../Util';
 import { getTypKategorie } from '../../../entities/rocniky/rocnikyReducer';
-import { predepsaneStartovne } from '../../platby';
 
 const initialState = {
   errorCode: '',
@@ -391,7 +390,7 @@ export const isInputEnabled = ({ name, form, rocniky }) => {
   }
 };
 
-export const inputOptions = ({ name, form, kategorie, rocniky }) => {
+export const inputOptions = ({ name, form, rocniky }) => {
   switch (name) {
     case 'udaje.pohlavi':
       return [
@@ -412,26 +411,12 @@ export const inputOptions = ({ name, form, kategorie, rocniky }) => {
           narozeni: form.udaje.narozeni,
           mladistvyPotvrzen: true
         });
-
-        const { jePrihlaskou, platby, prihlaska } = form;
-        const startovne = predepsaneStartovne({
-          jePrihlaskou,
-          kategorie,
-          platby,
-          prihlaska,
-          rocniky,
-          typ
-        });
-
-        const option = { key: typ, startovne: startovne.suma };
         if (found.code === CODE_OK) {
           const { id, pohlavi, vek } = found.kategorie;
-          option.id = id;
-          option.value = { pohlavi, typ, vek };
+          list.push({ key: typ, id, value: { pohlavi, typ, vek } });
         } else {
-          option.value = { typ };
+          list.push({ key: typ, value: { typ } });
         }
-        list.push(option);
       });
       return list;
     }
