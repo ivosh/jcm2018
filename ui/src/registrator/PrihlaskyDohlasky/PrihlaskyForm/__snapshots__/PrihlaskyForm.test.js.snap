@@ -187,7 +187,7 @@ exports[`formulář po uložení 1`] = `
       bsStyle="primary"
       className="PrihlaskyForm__column"
       defaultExpanded={false}
-      header="Přihláška"
+      header="Dohláška"
     >
       <Connect(Connect(Input))
         Type={[Function]}
@@ -494,7 +494,7 @@ exports[`formulář s chybou 1`] = `
       bsStyle="primary"
       className="PrihlaskyForm__column"
       defaultExpanded={false}
-      header="Přihláška"
+      header="Dohláška"
     >
       <Connect(Connect(Input))
         Type={[Function]}
@@ -807,7 +807,7 @@ exports[`formulář s existujícím účastníkem 1`] = `
       bsStyle="primary"
       className="PrihlaskyForm__column"
       defaultExpanded={false}
-      header="Přihláška"
+      header="Dohláška"
     >
       <Connect(Connect(Input))
         Type={[Function]}
@@ -905,6 +905,313 @@ exports[`formulář s existujícím účastníkem 1`] = `
         />
          
         Uložit stávajícího
+                        účastníka
+      </LoadingButton>
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="danger"
+        className="PrihlaskyForm__reset"
+        disabled={false}
+        onClick={[Function]}
+      >
+        <Glyphicon
+          bsClass="glyphicon"
+          glyph="fire"
+        />
+         Reset
+      </Button>
+    </div>
+  </Form>
+</div>
+`;
+
+exports[`prázdný formulář - přihlášky 1`] = `
+<div
+  className="PrihlaskyForm__div"
+>
+  <Modal
+    animation={true}
+    autoFocus={true}
+    backdrop={true}
+    bsClass="modal"
+    bsSize="small"
+    dialogComponentClass={[Function]}
+    enforceFocus={true}
+    keyboard={true}
+    manager={
+      ModalManager {
+        "add": [Function],
+        "containers": Array [],
+        "data": Array [],
+        "handleContainerOverflow": true,
+        "hideSiblingNodes": true,
+        "isTopModal": [Function],
+        "modals": Array [],
+        "remove": [Function],
+      }
+    }
+    onHide={[Function]}
+    renderBackdrop={[Function]}
+    restoreFocus={true}
+    show={false}
+  >
+    <ModalHeader
+      bsClass="modal-header"
+      closeButton={true}
+      closeLabel="Close"
+    >
+      <ModalTitle
+        bsClass="modal-title"
+        componentClass="h4"
+      >
+        V pořádku
+      </ModalTitle>
+    </ModalHeader>
+    <ModalBody
+      bsClass="modal-body"
+      componentClass="div"
+    >
+      V pořádku uloženo
+    </ModalBody>
+    <ModalFooter
+      bsClass="modal-footer"
+      componentClass="div"
+    >
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="primary"
+        disabled={false}
+        onClick={[Function]}
+      >
+        Close
+      </Button>
+    </ModalFooter>
+  </Modal>
+  <Form
+    autoComplete="off"
+    bsClass="form"
+    className="PrihlaskyForm__form"
+    componentClass="form"
+    horizontal={true}
+    inline={false}
+    onSubmit={[Function]}
+  >
+    <Panel
+      bsClass="panel"
+      bsStyle="primary"
+      className="PrihlaskyForm__column"
+      defaultExpanded={false}
+      header="Údaje"
+    >
+      <Connect(Connect(Input))
+        Type={[Function]}
+        actionPrefix="PRIHLASKY"
+        index={0}
+        inputRef={[Function]}
+        name="udaje.prijmeni"
+        popisek="příjmení"
+        reduxName="prihlasky"
+      />
+      <Connect(Connect(Input))
+        Type={[Function]}
+        actionPrefix="PRIHLASKY"
+        index={1}
+        inputRef={[Function]}
+        name="udaje.jmeno"
+        popisek="jméno"
+        reduxName="prihlasky"
+      />
+      <Connect(Connect(Input))
+        Type={[Function]}
+        actionPrefix="PRIHLASKY"
+        index={2}
+        inputRef={[Function]}
+        name="udaje.narozeni"
+        popisek="narození"
+        reduxName="prihlasky"
+      />
+      <Connect(Connect(Input))
+        Formatter={[Function]}
+        Type={[Function]}
+        actionPrefix="PRIHLASKY"
+        index={3}
+        inline={true}
+        inputRef={[Function]}
+        name="udaje.pohlavi"
+        popisek="pohlaví"
+        reduxName="prihlasky"
+      />
+      <Connect(Connect(Input))
+        Type={[Function]}
+        actionPrefix="PRIHLASKY"
+        index={4}
+        inputRef={[Function]}
+        name="udaje.adresa"
+        popisek="adresa"
+        reduxName="prihlasky"
+      />
+      <Connect(Connect(Input))
+        Type={[Function]}
+        actionPrefix="PRIHLASKY"
+        index={5}
+        inputRef={[Function]}
+        name="udaje.obec"
+        popisek="obec"
+        reduxName="prihlasky"
+      />
+      <Connect(Connect(Input))
+        Type={[Function]}
+        actionPrefix="PRIHLASKY"
+        index={6}
+        inputRef={[Function]}
+        name="udaje.psc"
+        popisek="PSČ"
+        reduxName="prihlasky"
+      />
+      <Connect(Connect(Input))
+        Type={[Function]}
+        actionPrefix="PRIHLASKY"
+        index={7}
+        inputRef={[Function]}
+        name="udaje.stat"
+        popisek="stát"
+        reduxName="prihlasky"
+      />
+      <Connect(Connect(Input))
+        Type={[Function]}
+        actionPrefix="PRIHLASKY"
+        index={8}
+        inputRef={[Function]}
+        name="udaje.klub"
+        popisek="klub"
+        reduxName="prihlasky"
+      />
+      <Connect(Connect(Input))
+        Type={[Function]}
+        actionPrefix="PRIHLASKY"
+        index={9}
+        inputRef={[Function]}
+        name="udaje.email"
+        popisek="email"
+        reduxName="prihlasky"
+      />
+      <Connect(Connect(Input))
+        Type={[Function]}
+        actionPrefix="PRIHLASKY"
+        index={10}
+        inputRef={[Function]}
+        name="udaje.telefon"
+        popisek="telefon"
+        reduxName="prihlasky"
+      />
+    </Panel>
+    <Panel
+      bsClass="panel"
+      bsStyle="primary"
+      className="PrihlaskyForm__column"
+      defaultExpanded={false}
+      header="Přihláška"
+    >
+      <Connect(Connect(Input))
+        Type={[Function]}
+        actionPrefix="PRIHLASKY"
+        index={11}
+        inputRef={[Function]}
+        name="prihlaska.datum"
+        popisek="datum"
+        reduxName="prihlasky"
+      />
+      <Connect(Connect(Input))
+        Formatter={[Function]}
+        Type={[Function]}
+        actionPrefix="PRIHLASKY"
+        index={12}
+        inputRef={[Function]}
+        name="prihlaska.typ"
+        popisek="kategorie"
+        reduxName="prihlasky"
+      />
+      <Connect(Connect(Input))
+        Type={[Function]}
+        actionPrefix="PRIHLASKY"
+        index={13}
+        inputRef={[Function]}
+        name="prihlaska.startCislo"
+        popisek="číslo"
+        reduxName="prihlasky"
+      />
+      <Connect(Connect(Input))
+        Type={[Function]}
+        actionPrefix="PRIHLASKY"
+        index={14}
+        inputRef={[Function]}
+        name="prihlaska.kod"
+        popisek="kód"
+        reduxName="prihlasky"
+      />
+      <Connect(Connect(Input))
+        Type={[Function]}
+        actionPrefix="PRIHLASKY"
+        index={15}
+        inputRef={[Function]}
+        name="ubytovani.pátek"
+        option="pátek"
+        popisek="ubytování"
+        reduxName="prihlasky"
+      />
+      <Connect(Connect(Input))
+        Type={[Function]}
+        actionPrefix="PRIHLASKY"
+        index={16}
+        inputRef={[Function]}
+        name="ubytovani.sobota"
+        option="sobota"
+        popisek=""
+        reduxName="prihlasky"
+      />
+      <Connect(Connect(Input))
+        Type={[Function]}
+        actionPrefix="PRIHLASKY"
+        index={17}
+        inputRef={[Function]}
+        name="prihlaska.mladistvyPotvrzen"
+        option="potvrzen"
+        popisek="mladistvý"
+        reduxName="prihlasky"
+      />
+    </Panel>
+    <div
+      className="PrihlaskyForm__column"
+    >
+      <Panel
+        bsClass="panel"
+        bsStyle="primary"
+        defaultExpanded={false}
+        header="Platby"
+      >
+        <Connect(Platby)
+          actionPrefix="PRIHLASKY"
+          inputRef={[Function]}
+          reduxName="prihlasky"
+          startIndex={18}
+        />
+      </Panel>
+      <LoadingButton
+        bsStyle="success"
+        loading={false}
+        loadingText="Probíhá ukládání..."
+        type="submit"
+      >
+        <Glyphicon
+          bsClass="glyphicon"
+          glyph="save"
+        />
+         
+        Uložit nového
                         účastníka
       </LoadingButton>
       <Button
@@ -1114,7 +1421,7 @@ exports[`prázdný formulář 1`] = `
       bsStyle="primary"
       className="PrihlaskyForm__column"
       defaultExpanded={false}
-      header="Přihláška"
+      header="Dohláška"
     >
       <Connect(Connect(Input))
         Type={[Function]}

@@ -215,3 +215,20 @@ it('handle Enter key and move focus from last to first', () => {
     .handleKeyPress({ event: { which: 13, preventDefault: jest.fn() }, index: 22 });
   expect(focus).toHaveBeenCalledWith();
 });
+
+it('prázdný formulář - přihlášky', () => {
+  const wrapper = shallow(
+    <PrihlaskyForm
+      actionPrefix="PRIHLASKY"
+      existujiciUcastnik={false}
+      reduxName="prihlasky"
+      saved={false}
+      saving={false}
+      onHideError={jest.fn()}
+      onHideModal={jest.fn()}
+      onReset={jest.fn()}
+      onSubmit={jest.fn()}
+    />
+  );
+  expect(toJSON(wrapper)).toMatchSnapshot();
+});
