@@ -81,6 +81,7 @@ class PrihlaskyForm extends PureComponent {
       onHideError,
       onHideModal
     } = this.props;
+    const jePrihlaskou = reduxName === 'prihlasky';
 
     return (
       <div className="PrihlaskyForm__div">
@@ -204,7 +205,11 @@ class PrihlaskyForm extends PureComponent {
               Type={TextInput}
             />
           </Panel>
-          <Panel bsStyle="primary" className="PrihlaskyForm__column" header="Přihláška">
+          <Panel
+            bsStyle="primary"
+            className="PrihlaskyForm__column"
+            header={jePrihlaskou ? 'Přihláška' : 'Dohláška'}
+          >
             <PrihlaskyFormInputContainer
               actionPrefix={actionPrefix}
               index={11}
