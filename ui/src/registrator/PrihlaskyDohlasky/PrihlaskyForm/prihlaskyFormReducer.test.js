@@ -1,4 +1,5 @@
 import deepFreeze from 'deep-freeze';
+import { fetchRocnikySuccess } from '../../../entities/rocniky/rocnikyActions';
 import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import { predepsaneStartovne } from '../../platby';
 import { createAddPlatba, createRemovePlatba } from '../Platby/PlatbyActions';
@@ -1223,6 +1224,24 @@ it('loadUcastnik() - jen údaje', () => {
       loadUcastnik({ id: '6f09b1fd371dec1e99b7e1c9', ...ucastniciTestData.entities })
     )
   ).toEqual(stateAfter);
+});
+
+it('fetchRocnikySuccess - přihláška', () => {
+  const stateBefore = { jePrihlaskou: true, prihlaska: { datum: undefined } };
+  const stateAfter = { jePrihlaskou: true, prihlaska: { datum: undefined } };
+  deepFreeze(stateBefore);
+
+  const json = { response: { rocniky: ucastniciTestData.entities.rocniky.byRoky } };
+  expect(prihlaskyFormReducer(stateBefore, fetchRocnikySuccess(json))).toEqual(stateAfter);
+});
+
+it('fetchRocnikySuccess - dohláška', () => {
+  const stateBefore = { prihlaska: { datum: undefined } };
+  const stateAfter = { prihlaska: { datum: '2018-06-09T00:00:00.000Z' } };
+  deepFreeze(stateBefore);
+
+  const json = { response: { rocniky: ucastniciTestData.entities.rocniky.byRoky } };
+  expect(dohlaskyFormReducer(stateBefore, fetchRocnikySuccess(json))).toEqual(stateAfter);
 });
 
 it('predepsaneStartovne - cyklo - přihláška předem', () => {
