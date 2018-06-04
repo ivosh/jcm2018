@@ -547,7 +547,10 @@ it('validationError()', () => {
 it('udaje.pohlavi - nahodí ženu', () => {
   const stateBefore = { udaje: { pohlavi: undefined } };
   deepFreeze(stateBefore);
-  const stateAfter = { udaje: { prijmeni: 'Sukdoláková', pohlavi: 'žena' } };
+  const stateAfter = {
+    udaje: { prijmeni: 'Sukdoláková', pohlavi: 'žena' },
+    prihlaska: { kategorie: undefined }
+  };
 
   expect(
     prihlaskyFormReducer(
@@ -557,10 +560,16 @@ it('udaje.pohlavi - nahodí ženu', () => {
   ).toEqual(stateAfter);
 });
 
-it('udaje.pohlavi - už nahodí ženu', () => {
-  const stateBefore = { udaje: { prijmeni: 'Mala', pohlavi: 'muž' } };
+it('udaje.pohlavi - už nahodí ženu, též reset kategorie', () => {
+  const stateBefore = {
+    udaje: { narozeni: { rok: 1990 }, prijmeni: 'Mala', pohlavi: 'muž' },
+    prihlaska: { kategorie: '5a587e1a051c181132cf83b8', typ: 'maraton' }
+  };
   deepFreeze(stateBefore);
-  const stateAfter = { udaje: { prijmeni: 'Malová', pohlavi: 'muž' } };
+  const stateAfter = {
+    udaje: { narozeni: { rok: 1990 }, prijmeni: 'Malová', pohlavi: 'muž' },
+    prihlaska: { kategorie: undefined, typ: 'maraton' }
+  };
 
   expect(
     prihlaskyFormReducer(

@@ -97,6 +97,8 @@ export const createPrihlaskyFormReducer = (
             // eslint-disable-next-line no-param-reassign
             state = { ...state, udaje: { ...state.udaje, pohlavi: 'žena' } };
           }
+          // eslint-disable-next-line no-param-reassign
+          state = { ...state, prihlaska: { ...state.prihlaska, kategorie: undefined } };
           break;
         case 'udaje.narozeni':
           value = parseNarozeni(action.value);
