@@ -91,25 +91,25 @@ export const createPrihlaskyFormReducer = (
     case `${actionPrefix}_INPUT_CHANGED`: {
       const [section, name] = action.name.split('.');
       let { value } = action;
+      let changeKategorie = false;
       switch (action.name) {
         case 'udaje.prijmeni':
           if (value.endsWith('ová') && state.udaje.pohlavi === undefined) {
             // eslint-disable-next-line no-param-reassign
             state = { ...state, udaje: { ...state.udaje, pohlavi: 'žena' } };
+            changeKategorie = true;
           }
-          // eslint-disable-next-line no-param-reassign
-          state = { ...state, prihlaska: { ...state.prihlaska, kategorie: undefined } };
           break;
         case 'udaje.narozeni':
           value = parseNarozeni(action.value);
-          if (state.prihlaska.kategorie) {
-            // eslint-disable-next-line no-param-reassign
-            state = { ...state, prihlaska: { ...state.prihlaska, kategorie: undefined } };
-          }
+          changeKategorie = true;
           if (state.prihlaska.mladistvyPotvrzen) {
             // eslint-disable-next-line no-param-reassign
             state = { ...state, prihlaska: { ...state.prihlaska, mladistvyPotvrzen: undefined } };
           }
+          break;
+        case 'udaje.pohlavi':
+          changeKategorie = true;
           break;
         case 'prihlaska.datum':
           value = parseDatum(action.value);
@@ -138,7 +138,18 @@ export const createPrihlaskyFormReducer = (
           ubytovani: reduceUbytovani({ den: name, value, ubytovani: state.ubytovani })
         };
       }
-      return { ...state, [section]: { ...state[section], [name]: value } };
+
+      // eslint-disable-next-line no-param-reassign
+      state = { ...state, [section]: { ...state[section], [name]: value } };
+
+      const { typ } = state.prihlaska;
+      if (changeKategorie && typ) {
+        const { narozeni, pohlavi } = state.udaje;
+        const kategorie = action.chooseKategorie({ narozeni, pohlavi, typ });
+        // In case kategorie is not fully selected, kategorie.id contains undefined.
+        return { ...state, prihlaska: { ...state.prihlaska, kategorie: kategorie.id } };
+      }
+      return state;
     }
     case `${actionPrefix}_UCASTNIK_LOAD`:
       return {
@@ -401,6 +412,30 @@ export const isInputEnabled = ({ name, form, rocniky }) => {
   }
 };
 
+export const kategorieInputOptions = ({ narozeni, pohlavi, rocniky }) => {
+  const rok = AKTUALNI_ROK;
+  const typyKategorii =
+    (rocniky.byRoky[rok] && Object.keys(rocniky.byRoky[rok].kategorie)) || TYPY_KATEGORII;
+
+  const options = {};
+  typyKategorii.forEach(typ => {
+    const found = findKategorie(rocniky.byRoky, {
+      rok,
+      typ,
+      pohlavi,
+      narozeni,
+      mladistvyPotvrzen: true
+    });
+    if (found.code === CODE_OK) {
+      const { id, pohlavi: foundPohlavi, vek } = found.kategorie;
+      options[typ] = { key: typ, id, value: { pohlavi: foundPohlavi, typ, vek } };
+    } else {
+      options[typ] = { key: typ, value: { typ } };
+    }
+  });
+  return options;
+};
+
 export const inputOptions = ({ name, form, rocniky }) => {
   switch (name) {
     case 'udaje.pohlavi':
@@ -409,27 +444,8 @@ export const inputOptions = ({ name, form, rocniky }) => {
         { key: 'žena', value: { pohlavi: 'žena' } }
       ];
     case 'prihlaska.typ': {
-      const rok = AKTUALNI_ROK;
-      const typyKategorii =
-        (rocniky.byRoky[rok] && Object.keys(rocniky.byRoky[rok].kategorie)) || TYPY_KATEGORII;
-
-      const list = [];
-      typyKategorii.forEach(typ => {
-        const found = findKategorie(rocniky.byRoky, {
-          rok,
-          typ,
-          pohlavi: form.udaje.pohlavi,
-          narozeni: form.udaje.narozeni,
-          mladistvyPotvrzen: true
-        });
-        if (found.code === CODE_OK) {
-          const { id, pohlavi, vek } = found.kategorie;
-          list.push({ key: typ, id, value: { pohlavi, typ, vek } });
-        } else {
-          list.push({ key: typ, value: { typ } });
-        }
-      });
-      return list;
+      const { narozeni, pohlavi } = form.udaje;
+      return Object.values(kategorieInputOptions({ narozeni, pohlavi, rocniky }));
     }
     default:
       return null;

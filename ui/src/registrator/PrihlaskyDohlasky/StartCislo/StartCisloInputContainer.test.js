@@ -61,7 +61,8 @@ it('maps onSelect to dispatch hide and inputChanged actions', () => {
   expect(store.dispatch).toHaveBeenCalledWith({
     type: `${actionPrefix}_INPUT_CHANGED`,
     name: 'prihlaska.startCislo',
-    value: '12'
+    value: '12',
+    chooseKategorie: expect.any(Function)
   });
 });
 

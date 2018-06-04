@@ -14,6 +14,7 @@ const state = {
   registrator: {
     [reduxName]: {
       form: {
+        udaje: {},
         prihlaska: {},
         platby: []
       },

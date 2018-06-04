@@ -43,7 +43,7 @@ const mapStateToProps = (state, ownProps) => {
     rawValue,
     reduxName,
     formatValue,
-    inputChanged: createInputChanged(actionPrefix),
+    inputChanged: createInputChanged({ actionPrefix, ...state.entities }),
     inputOptions,
     inputValid:
       name === 'prihlaska.startCislo'

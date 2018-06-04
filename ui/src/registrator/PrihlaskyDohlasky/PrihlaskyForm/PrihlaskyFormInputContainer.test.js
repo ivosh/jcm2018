@@ -63,7 +63,8 @@ it('maps onChange to dispatch inputChanged', () => {
   expect(store.dispatch).toHaveBeenCalledWith({
     type: `${actionPrefix}_INPUT_CHANGED`,
     name: 'udaje.jmeno',
-    value: 'Bára'
+    value: 'Bára',
+    chooseKategorie: expect.any(Function)
   });
 });
 
@@ -153,6 +154,7 @@ it('maps state to props - startCislo ok', () => {
         form: {
           ucastnikId: '7a09b1fd371dec1e99b7e142',
           validate: false,
+          udaje: {},
           prihlaska: { typ: 'půlmaraton', startCislo: 10 }
         },
         startCislo: { showing: false }
@@ -189,6 +191,7 @@ it('maps state to props - startCislo duplicitní', () => {
         form: {
           ucastnikId: '6f09b1fd371dec1e99b7e1c9',
           validate: false,
+          udaje: {},
           prihlaska: { typ: 'půlmaraton', startCislo: 10 }
         },
         startCislo: { showing: false }

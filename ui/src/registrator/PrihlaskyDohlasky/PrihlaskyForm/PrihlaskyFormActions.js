@@ -11,9 +11,16 @@ import { errorToStr } from '../../../Util';
 import { authTokenExpired } from '../../../auth/SignIn/SignInActions';
 import { getDatumKonani } from '../../../entities/rocniky/rocnikyReducer';
 import { createInputChanged as genericCreateInputChanged } from '../Input/InputActions';
-import { formErrors } from './prihlaskyFormReducer';
+import { formErrors, kategorieInputOptions } from './prihlaskyFormReducer';
 
-export const createInputChanged = actionPrefix => genericCreateInputChanged(actionPrefix);
+export const createInputChanged = ({ actionPrefix, rocniky }) => (name, event) => {
+  const action = genericCreateInputChanged(actionPrefix)(name, event);
+  return {
+    ...action,
+    chooseKategorie: ({ narozeni, pohlavi, typ }) =>
+      kategorieInputOptions({ narozeni, pohlavi, rocniky })[typ]
+  };
+};
 
 export const createHideError = actionPrefix => () => ({ type: `${actionPrefix}_HIDE_ERROR` });
 

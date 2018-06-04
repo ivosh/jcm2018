@@ -32,7 +32,10 @@ const addPlatba = createAddPlatba(actionPrefix);
 const dohlaskyFormReducer = createPrihlaskyFormReducer('DOHLASKY');
 const hideError = createHideError(actionPrefix);
 const hideModal = createHideModal(actionPrefix);
-const inputChanged = createInputChanged(actionPrefix);
+const inputChanged = createInputChanged({
+  actionPrefix,
+  rocniky: ucastniciTestData.entities.rocniky
+});
 const loadUcastnik = createLoadUcastnik({ actionPrefix, jePrihlaskou: true });
 const prihlaskyFormReducer = createPrihlaskyFormReducer(actionPrefix, true);
 const removePlatba = createRemovePlatba(actionPrefix);
@@ -545,7 +548,7 @@ it('validationError()', () => {
 });
 
 it('udaje.pohlavi - nahodí ženu', () => {
-  const stateBefore = { udaje: { pohlavi: undefined } };
+  const stateBefore = { udaje: { pohlavi: undefined }, prihlaska: {} };
   deepFreeze(stateBefore);
   const stateAfter = {
     udaje: { prijmeni: 'Sukdoláková', pohlavi: 'žena' },
@@ -560,15 +563,15 @@ it('udaje.pohlavi - nahodí ženu', () => {
   ).toEqual(stateAfter);
 });
 
-it('udaje.pohlavi - už nahodí ženu, též reset kategorie', () => {
+it('udaje.pohlavi - nedojde ke změně pohlaví', () => {
   const stateBefore = {
     udaje: { narozeni: { rok: 1990 }, prijmeni: 'Mala', pohlavi: 'muž' },
-    prihlaska: { kategorie: '5a587e1a051c181132cf83b8', typ: 'maraton' }
+    prihlaska: {}
   };
   deepFreeze(stateBefore);
   const stateAfter = {
     udaje: { narozeni: { rok: 1990 }, prijmeni: 'Malová', pohlavi: 'muž' },
-    prihlaska: { kategorie: undefined, typ: 'maraton' }
+    prihlaska: {}
   };
 
   expect(
@@ -678,17 +681,21 @@ it('udaje.narozeni - celé', () => {
   ).toEqual('success');
 });
 
-it('udaje.narozeni - reset kategorie a mladistvyPotvrzen', () => {
+it('udaje.narozeni - změna kategorie a mladistvyPotvrzen', () => {
   const stateBefore = {
     validate: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: 2008 }, pohlavi: 'muž' },
-    prihlaska: { kategorie: '5a587e1a051c181132cf83b8', mladistvyPotvrzen: true, typ: 'maraton' }
+    prihlaska: { kategorie: '5aa90e4a3607497c4d37bcf3', mladistvyPotvrzen: true, typ: 'maraton' }
   };
   deepFreeze(stateBefore);
   const stateAfter = {
     validate: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1978 }, pohlavi: 'muž' },
-    prihlaska: { kategorie: undefined, mladistvyPotvrzen: undefined, typ: 'maraton' }
+    prihlaska: {
+      kategorie: '5a587e1a051c181132cf83ba',
+      mladistvyPotvrzen: undefined,
+      typ: 'maraton'
+    }
   };
   const { rocniky } = ucastniciTestData.entities;
 
@@ -711,6 +718,48 @@ it('udaje.narozeni - reset kategorie a mladistvyPotvrzen', () => {
       rocniky
     })
   ).toBe(undefined);
+});
+
+it('udaje.pohlavi - změna ještě nenahodí kategorii I.', () => {
+  const stateBefore = {
+    udaje: { narozeni: {}, pohlavi: 'muž' },
+    prihlaska: { kategorie: undefined, typ: 'maraton' }
+  };
+  const stateAfter = { ...stateBefore, udaje: { ...stateBefore.udaje, pohlavi: 'žena' } };
+  deepFreeze(stateBefore);
+
+  expect(
+    prihlaskyFormReducer(stateBefore, inputChanged('udaje.pohlavi', { target: { value: 'žena' } }))
+  ).toEqual(stateAfter);
+});
+
+it('udaje.pohlavi - změna ještě nenahodí kategorii II.', () => {
+  const stateBefore = {
+    udaje: { narozeni: { rok: 1978 }, pohlavi: 'muž' },
+    prihlaska: { kategorie: undefined }
+  };
+  const stateAfter = { ...stateBefore, udaje: { ...stateBefore.udaje, pohlavi: 'žena' } };
+  deepFreeze(stateBefore);
+
+  expect(
+    prihlaskyFormReducer(stateBefore, inputChanged('udaje.pohlavi', { target: { value: 'žena' } }))
+  ).toEqual(stateAfter);
+});
+
+it('udaje.pohlavi - změna už nahodí kategorii', () => {
+  const stateBefore = {
+    udaje: { narozeni: { rok: 1978 }, pohlavi: 'muž' },
+    prihlaska: { kategorie: undefined, typ: 'maraton' }
+  };
+  const stateAfter = {
+    udaje: { narozeni: { rok: 1978 }, pohlavi: 'žena' },
+    prihlaska: { kategorie: '5a587e1a051c181132cf83c1', typ: 'maraton' }
+  };
+  deepFreeze(stateBefore);
+
+  expect(
+    prihlaskyFormReducer(stateBefore, inputChanged('udaje.pohlavi', { target: { value: 'žena' } }))
+  ).toEqual(stateAfter);
 });
 
 it('prihlaska.datum - přihlášky', () => {

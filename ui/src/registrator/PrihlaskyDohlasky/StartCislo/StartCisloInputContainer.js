@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onSelect: startCislo => {
       dispatch(createHide(actionPrefix)());
       dispatch(
-        createInputChanged(actionPrefix)('prihlaska.startCislo', {
+        createInputChanged({ actionPrefix })('prihlaska.startCislo', {
           target: { value: `${startCislo}` }
         })
       );
