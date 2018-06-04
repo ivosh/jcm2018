@@ -11,7 +11,7 @@ import { errorToStr } from '../../../Util';
 import { authTokenExpired } from '../../../auth/SignIn/SignInActions';
 import { getDatumKonani } from '../../../entities/rocniky/rocnikyReducer';
 import { createInputChanged as genericCreateInputChanged } from '../Input/InputActions';
-import { formValid } from './prihlaskyFormReducer';
+import { formErrors } from './prihlaskyFormReducer';
 
 export const createInputChanged = actionPrefix => genericCreateInputChanged(actionPrefix);
 
@@ -55,9 +55,10 @@ export const createLoadUcastnik = ({
 
 export const createValidate = actionPrefix => () => ({ type: `${actionPrefix}_VALIDATE_FORM` });
 
-export const createValidationError = actionPrefix => () => ({
+export const createValidationError = actionPrefix => errors => ({
   type: `${actionPrefix}_FORM_INVALID`,
   code: 'nejde uložit',
+  errors,
   status: 'Přihláška nejde uložit. Povinná pole nejsou vyplněna.'
 });
 
@@ -124,8 +125,10 @@ export const createSaveUcast = (actionPrefix, reduxName) => () => async (
       [reduxName]: { form }
     }
   } = state;
-  if (!formValid({ form, rocniky: state.entities.rocniky })) {
-    dispatch(createValidationError(actionPrefix)());
+
+  const errors = formErrors({ form, rocniky: state.entities.rocniky });
+  if (errors.length > 0) {
+    dispatch(createValidationError(actionPrefix)(errors));
     return;
   }
 

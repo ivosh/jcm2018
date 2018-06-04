@@ -63,23 +63,27 @@ export const inputValid = ({ name, value, form }) => {
   }
 };
 
-const isInputValid = ({ name, value, form }) => {
+const inputError = ({ name, value, form }) => {
   const validationState = inputValid({ name, value, form });
   if (
     validationState === undefined ||
     validationState === 'success' ||
     validationState === 'warning'
   ) {
-    return true;
+    return undefined; // success actually
   }
-  return false;
+  return { name, value };
 };
 
-export const formValid = ({ form }) =>
-  isInputValid({ name: 'novaPlatba.castka', value: form.castka, form }) &&
-  isInputValid({ name: 'novaPlatba.datum', value: form.datum, form }) &&
-  isInputValid({ name: 'novaPlatba.typ', value: form.typ, form }) &&
-  isInputValid({ name: 'novaPlatba.poznamka', value: form.poznamka, form });
+export const formErrors = ({ form }) => {
+  const errors = [];
+  errors.push(inputError({ name: 'novaPlatba.castka', value: form.castka, form }));
+  errors.push(inputError({ name: 'novaPlatba.datum', value: form.datum, form }));
+  errors.push(inputError({ name: 'novaPlatba.typ', value: form.typ, form }));
+  errors.push(inputError({ name: 'novaPlatba.poznamka', value: form.poznamka, form }));
+
+  return errors.filter(error => error);
+};
 
 export const inputOptions = ({ name }) => {
   switch (name) {

@@ -312,55 +312,64 @@ export const inputValid = ({ name, value, form, rocniky }) => {
   }
 };
 
-const isInputValid = ({ name, value, form, rocniky }) => {
+const inputError = ({ name, value, form, rocniky }) => {
   const validationState = inputValid({ name, value, form, rocniky });
   if (
     validationState === undefined ||
     validationState === 'success' ||
     validationState === 'warning'
   ) {
-    return true;
+    return undefined; // success actually
   }
-  return false;
+  return { name, value };
 };
 
-export const formValid = ({ form, rocniky }) => {
+export const formErrors = ({ form, rocniky }) => {
   const { udaje, prihlaska } = form;
 
-  return (
-    isInputValid({ name: 'udaje.prijmeni', value: udaje.prijmeni, form, rocniky }) &&
-    isInputValid({ name: 'udaje.jmeno', value: udaje.jmeno, form, rocniky }) &&
-    isInputValid({ name: 'udaje.narozeni', value: udaje.narozeni, form, rocniky }) &&
-    isInputValid({ name: 'udaje.pohlavi', value: udaje.pohlavi, form, rocniky }) &&
-    isInputValid({ name: 'udaje.obec', value: udaje.obec, form, rocniky }) &&
-    isInputValid({ name: 'udaje.psc', value: udaje.psc, form, rocniky }) &&
-    isInputValid({ name: 'udaje.stat', value: udaje.stat, form, rocniky }) &&
-    isInputValid({
+  const errors = [];
+  errors.push(inputError({ name: 'udaje.prijmeni', value: udaje.prijmeni, form, rocniky }));
+  errors.push(inputError({ name: 'udaje.jmeno', value: udaje.jmeno, form, rocniky }));
+  errors.push(inputError({ name: 'udaje.narozeni', value: udaje.narozeni, form, rocniky }));
+  errors.push(inputError({ name: 'udaje.pohlavi', value: udaje.pohlavi, form, rocniky }));
+  errors.push(inputError({ name: 'udaje.obec', value: udaje.obec, form, rocniky }));
+  errors.push(inputError({ name: 'udaje.psc', value: udaje.psc, form, rocniky }));
+  errors.push(inputError({ name: 'udaje.stat', value: udaje.stat, form, rocniky }));
+  errors.push(
+    inputError({
       name: 'prihlaska.datum',
       value: prihlaska.datum,
       form,
       rocniky
-    }) &&
-    isInputValid({
+    })
+  );
+  errors.push(
+    inputError({
       name: 'prihlaska.kategorie',
       value: prihlaska.kategorie,
       form,
       rocniky
-    }) &&
-    isInputValid({ name: 'prihlaska.typ', value: prihlaska.typ, form, rocniky }) &&
-    isInputValid({
+    })
+  );
+  errors.push(inputError({ name: 'prihlaska.typ', value: prihlaska.typ, form, rocniky }));
+  errors.push(
+    inputError({
       name: 'prihlaska.startCislo',
       value: prihlaska.startCislo,
       form,
       rocniky
-    }) &&
-    isInputValid({
+    })
+  );
+  errors.push(
+    inputError({
       name: 'prihlaska.mladistvyPotvrzen',
       value: prihlaska.mladistvyPotvrzen,
       form,
       rocniky
     })
   );
+
+  return errors.filter(error => error);
 };
 
 export const isInputVisible = ({ name, form, rocniky }) => {

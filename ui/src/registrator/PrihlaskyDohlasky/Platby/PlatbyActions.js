@@ -1,6 +1,6 @@
 import { getDatumKonani } from '../../../entities/rocniky/rocnikyReducer';
 import { createInputChanged as genericCreateInputChanged } from '../Input/InputActions';
-import { formValid } from './platbyReducer';
+import { formErrors } from './platbyReducer';
 
 export const createInputChanged = actionPrefix =>
   genericCreateInputChanged(`${actionPrefix}_NOVA_PLATBA`);
@@ -40,7 +40,9 @@ export const createAddValidatedPlatba = (actionPrefix, reduxName) => () => async
       [reduxName]: { platby: form }
     }
   } = getState();
-  if (!formValid({ form })) {
+
+  const errors = formErrors({ form });
+  if (errors.length > 0) {
     return;
   }
 

@@ -7,7 +7,7 @@ import {
   createReset,
   createValidate
 } from './PlatbyActions';
-import { createPlatbyReducer, formValid, inputValid } from './platbyReducer';
+import { createPlatbyReducer, formErrors, inputValid } from './platbyReducer';
 
 const actionPrefix = 'PRIHLASKY_YYY';
 const addPlatba = createAddPlatba(actionPrefix);
@@ -110,7 +110,7 @@ it('validation of the initial state [validate === false]', () => {
   expect(inputValid({ name: 'novaPlatba.typ', value: form.typ, form })).toEqual('success');
   expect(inputValid({ name: 'novaPlatba.poznamka', value: form.poznamka, form })).toBe(undefined);
   expect(inputValid({ name: 'complete.nonsense', value: 'huh', form })).toBe('error');
-  expect(formValid({ form })).toBe(true);
+  expect(formErrors({ form })).toEqual([]);
 });
 
 it('validation of the initial state [validate === true]', () => {
@@ -127,7 +127,10 @@ it('validation of the initial state [validate === true]', () => {
   expect(inputValid({ name: 'novaPlatba.datum', value: form.datum, form })).toEqual('error');
   expect(inputValid({ name: 'novaPlatba.typ', value: form.typ, form })).toEqual('success');
   expect(inputValid({ name: 'novaPlatba.poznamka', value: form.poznamka, form })).toBe(undefined);
-  expect(formValid({ form })).toBe(false);
+  expect(formErrors({ form })).toEqual([
+    { name: 'novaPlatba.castka', value: undefined },
+    { name: 'novaPlatba.datum', value: undefined }
+  ]);
 });
 
 it('validation of some invalid state [validate === false]', () => {
@@ -144,7 +147,7 @@ it('validation of some invalid state [validate === false]', () => {
   expect(inputValid({ name: 'novaPlatba.datum', value: form.datum, form })).toEqual('error');
   expect(inputValid({ name: 'novaPlatba.typ', value: form.typ, form })).toEqual('success');
   expect(inputValid({ name: 'novaPlatba.poznamka', value: form.poznamka, form })).toBe(undefined);
-  expect(formValid({ form })).toBe(false);
+  expect(formErrors({ form })).toEqual([{ name: 'novaPlatba.datum', value: '1. 5.' }]);
 });
 
 it('validation of some invalid state [validate === true]', () => {
@@ -161,7 +164,10 @@ it('validation of some invalid state [validate === true]', () => {
   expect(inputValid({ name: 'novaPlatba.datum', value: form.datum, form })).toEqual('success');
   expect(inputValid({ name: 'novaPlatba.typ', value: form.typ, form })).toEqual('error');
   expect(inputValid({ name: 'novaPlatba.poznamka', value: form.poznamka, form })).toBe(undefined);
-  expect(formValid({ form })).toBe(false);
+  expect(formErrors({ form })).toEqual([
+    { name: 'novaPlatba.castka', value: undefined },
+    { name: 'novaPlatba.typ', value: undefined }
+  ]);
 });
 
 it('novaPlatba.datum - neúplné', () => {

@@ -164,6 +164,17 @@ it('saveUcast() should dispatch validation error', async () => {
   expect(actions[1]).toEqual({
     type: `${actionPrefix}_FORM_INVALID`,
     code: 'nejde uložit',
+    errors: [
+      { name: 'udaje.prijmeni', value: undefined },
+      { name: 'udaje.jmeno', value: undefined },
+      { name: 'udaje.narozeni', value: {} },
+      { name: 'udaje.pohlavi', value: undefined },
+      { name: 'udaje.obec', value: undefined },
+      { name: 'udaje.stat', value: undefined },
+      { name: 'prihlaska.datum', value: undefined },
+      { name: 'prihlaska.kategorie', value: undefined },
+      { name: 'prihlaska.typ', value: undefined }
+    ],
     status: 'Přihláška nejde uložit. Povinná pole nejsou vyplněna.'
   });
 });

@@ -19,7 +19,7 @@ import {
 import {
   createPrihlaskyFormReducer,
   formatValue,
-  formValid,
+  formErrors,
   getValue,
   inputOptions,
   inputValid,
@@ -295,7 +295,7 @@ it('validation of the initial state [validate === false]', () => {
     })
   ).toBe(undefined);
   expect(inputValid({ name: 'complete.nonsense', value: 'huh', form })).toBe('error');
-  expect(formValid({ form, rocniky })).toBe(true);
+  expect(formErrors({ form, rocniky })).toEqual([]);
   expect(isInputEnabled({ name: 'prihlaska.startCislo', form, rocniky })).toBe(false);
   expect(isInputEnabled({ name: 'ubytovani.pátek', form, rocniky })).toBe(true);
 });
@@ -360,7 +360,17 @@ it('validation of the initial state [validate === true]', () => {
       rocniky
     })
   ).toBe(undefined);
-  expect(formValid({ form, rocniky })).toBe(false);
+  expect(formErrors({ form, rocniky })).toEqual([
+    { name: 'udaje.prijmeni', value: undefined },
+    { name: 'udaje.jmeno', value: undefined },
+    { name: 'udaje.narozeni', value: { den: undefined, mesic: undefined, rok: undefined } },
+    { name: 'udaje.pohlavi', value: undefined },
+    { name: 'udaje.obec', value: undefined },
+    { name: 'udaje.psc', value: undefined },
+    { name: 'prihlaska.datum', value: undefined },
+    { name: 'prihlaska.kategorie', value: undefined },
+    { name: 'prihlaska.typ', value: undefined }
+  ]);
   expect(isInputEnabled({ name: 'prihlaska.startCislo', form, rocniky })).toBe(false);
   expect(isInputEnabled({ name: 'ubytovani.pátek', form, rocniky })).toBe(true);
 });
@@ -425,7 +435,11 @@ it('validation of some invalid state [validate === false]', () => {
       rocniky
     })
   ).toBe(undefined);
-  expect(formValid({ form, rocniky })).toBe(false);
+  expect(formErrors({ form, rocniky })).toEqual([
+    { name: 'udaje.prijmeni', value: '' },
+    { name: 'udaje.narozeni', value: { den: undefined, mesic: undefined, rok: 'žblabuňka' } },
+    { name: 'prihlaska.startCislo', value: 'aha' }
+  ]);
   expect(isInputEnabled({ name: 'prihlaska.startCislo', form, rocniky })).toBe(false);
   expect(isInputEnabled({ name: 'ubytovani.pátek', form, rocniky })).toBe(false);
   expect(isInputVisible({ name: 'ubytovani.pátek', form, rocniky })).toBe(true);
@@ -494,7 +508,15 @@ it('validation of some invalid state [validate === true]', () => {
       rocniky
     })
   ).toBe(undefined);
-  expect(formValid({ form, rocniky })).toBe(false);
+  expect(formErrors({ form, rocniky })).toEqual([
+    { name: 'udaje.prijmeni', value: '' },
+    { name: 'udaje.jmeno', value: undefined },
+    { name: 'udaje.narozeni', value: { den: 1, mesic: 10, rok: 'žblabuňka' } },
+    { name: 'udaje.psc', value: undefined },
+    { name: 'prihlaska.kategorie', value: undefined },
+    { name: 'prihlaska.typ', value: undefined },
+    { name: 'prihlaska.startCislo', value: 'oho12' }
+  ]);
   expect(isInputEnabled({ name: 'prihlaska.startCislo', form, rocniky })).toBe(false);
   expect(isInputEnabled({ name: 'ubytovani.pátek', form, rocniky })).toBe(true);
   expect(isInputVisible({ name: 'ubytovani.pátek', form, rocniky })).toBe(true);
