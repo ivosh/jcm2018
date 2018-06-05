@@ -2279,9 +2279,12 @@ const state = {
               klub: 'SK Nudle',
               email: 'zrala.kl@s.cz'
             },
-            platby: [{ castka: 100, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }],
+            platby: [
+              { castka: 100, datum: '2018-05-13T00:00:00.000Z', typ: 'převodem' },
+              { castka: 80, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
+            ],
             prihlaska: {
-              datum: '2018-06-09T00:00:00.000Z',
+              datum: '2018-05-12T00:00:00.000Z',
               kategorie: '5a587e1b051c181132cf83d9', // půlmaraton
               startCislo: 10,
               kod: 'abc023skd204mvs345'

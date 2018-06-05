@@ -61,7 +61,9 @@ Object {
   "fetchingUcastnici": "init",
   "registrator": Object {
     "dohlaseni": Object {
+      "dohlaseniFilter": true,
       "kategorieFilter": "",
+      "prihlaseniFilter": false,
       "sortColumn": undefined,
       "sortDir": "none",
       "textFilter": "",
@@ -118,7 +120,9 @@ Object {
       },
     },
     "prihlaseni": Object {
+      "dohlaseniFilter": false,
       "kategorieFilter": "",
+      "prihlaseniFilter": true,
       "sortColumn": undefined,
       "sortDir": "none",
       "textFilter": "",
@@ -255,7 +259,9 @@ Object {
   "fetchingUcastnici": "init",
   "registrator": Object {
     "dohlaseni": Object {
+      "dohlaseniFilter": true,
       "kategorieFilter": "",
+      "prihlaseniFilter": false,
       "sortColumn": undefined,
       "sortDir": "none",
       "textFilter": "",
@@ -312,7 +318,9 @@ Object {
       },
     },
     "prihlaseni": Object {
+      "dohlaseniFilter": false,
       "kategorieFilter": "",
+      "prihlaseniFilter": true,
       "sortColumn": undefined,
       "sortDir": "none",
       "textFilter": "",
@@ -449,7 +457,9 @@ Object {
   "fetchingUcastnici": "init",
   "registrator": Object {
     "dohlaseni": Object {
+      "dohlaseniFilter": true,
       "kategorieFilter": "",
+      "prihlaseniFilter": false,
       "sortColumn": undefined,
       "sortDir": "none",
       "textFilter": "",
@@ -506,7 +516,9 @@ Object {
       },
     },
     "prihlaseni": Object {
+      "dohlaseniFilter": false,
       "kategorieFilter": "",
+      "prihlaseniFilter": true,
       "sortColumn": undefined,
       "sortDir": "none",
       "textFilter": "",

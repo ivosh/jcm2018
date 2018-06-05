@@ -1,5 +1,6 @@
 import { AKTUALNI_ROK } from '../../constants';
 import { sortForColumn } from '../../sort';
+import { getDatumKonani } from '../../entities/rocniky/rocnikyReducer';
 import { getUcastiProRok } from '../../entities/ucastnici/ucastniciReducer';
 import { predepsaneStartovne, provedenePlatby } from '../platby';
 import {
@@ -12,6 +13,8 @@ import {
 } from '../UcastniciTable/ucastniciTableReducer';
 
 export const initialState = {
+  dohlaseniFilter: false,
+  prihlaseniFilter: false,
   ...filterableInitialState,
   ...ucastniciTableInitialState
 };
@@ -20,22 +23,38 @@ export const createPrihlaseniDohlaseniReducer = actionPrefix => {
   const filterableReducer = createFilterableReducer(actionPrefix);
   const ucastniciTableReducer = createUcastniciTableReducer(actionPrefix);
 
-  return (state = initialState, action) => {
+  const dohlaseniFilter = actionPrefix === 'DOHLASENI';
+  const prihlaseniFilter = actionPrefix === 'PRIHLASENI';
+
+  return (state = { ...initialState, dohlaseniFilter, prihlaseniFilter }, action) => {
     state = filterableReducer(state, action); // eslint-disable-line no-param-reassign
-    return ucastniciTableReducer(state, action);
+    state = ucastniciTableReducer(state, action); // eslint-disable-line no-param-reassign
+
+    switch (action.type) {
+      case `${actionPrefix}_DOHLASENI_FILTER_CHANGE`:
+        return { ...state, dohlaseniFilter: !state.dohlaseniFilter };
+      case `${actionPrefix}_PRIHLASENI_FILTER_CHANGE`:
+        return { ...state, prihlaseniFilter: !state.prihlaseniFilter };
+      default:
+        return state;
+    }
   };
 };
 
 export const getPrihlaseniDohlaseniSorted = ({
+  dohlaseniFilter,
+  prihlaseniFilter,
+  kategorieFilter,
+  textFilter,
+  sortColumn,
+  sortDir,
   kategorie,
   rocniky,
   ucastnici,
-  kategorieFilter,
-  rok = AKTUALNI_ROK,
-  textFilter,
-  sortColumn,
-  sortDir
+  rok = AKTUALNI_ROK
 }) => {
+  const datumKonani = getDatumKonani({ rocniky, rok });
+
   const ucasti = getUcastiProRok({ rok, ucastnici });
   const mapped = ucasti.map(jeden => {
     const { id, ucast } = jeden;
@@ -49,31 +68,51 @@ export const getPrihlaseniDohlaseniSorted = ({
     const predepsano = predepsaneStartovne({ kategorie, prihlaska, rocniky, rok }).suma;
     const zaplaceno = provedenePlatby(platby).suma;
 
-    if (
-      prijmeni.toLowerCase().startsWith(textFilter) ||
-      jmeno.toLowerCase().startsWith(textFilter)
-    ) {
-      if (kategorieFilter === '' || kategorieFilter === jednaKategorie.typ) {
-        return {
-          id,
-          prijmeni,
-          jmeno,
-          narozeni,
-          obec,
-          email: email || '',
-          datum: new Date(datum),
-          kategorie: jednaKategorie,
-          startCislo,
-          kod,
-          predepsano,
-          zaplaceno
-        };
-      }
-    }
-
-    return undefined;
+    return {
+      id,
+      platby,
+      prijmeni,
+      jmeno,
+      narozeni,
+      obec,
+      email: email || '',
+      datum: new Date(datum),
+      kategorie: jednaKategorie,
+      startCislo,
+      kod,
+      predepsano,
+      zaplaceno
+    };
   });
-  const filtered = mapped.filter(jeden => jeden !== undefined);
 
-  return sortForColumn({ data: filtered, sortColumn, sortDir });
+  const afterTextFilter = mapped.filter(
+    ({ jmeno, prijmeni }) =>
+      prijmeni.toLowerCase().startsWith(textFilter) || jmeno.toLowerCase().startsWith(textFilter)
+  );
+
+  const afterKategorieFilter = afterTextFilter.filter(
+    ({ kategorie: jednaKategorie }) =>
+      kategorieFilter === '' || kategorieFilter === jednaKategorie.typ
+  );
+
+  const afterPrihlaseniFilter = prihlaseniFilter
+    ? afterKategorieFilter.filter(
+        ({ datum }) => new Date(datum).getTime() < new Date(datumKonani).getTime()
+      )
+    : afterKategorieFilter;
+
+  const afterDohlaseniFilter = dohlaseniFilter
+    ? afterPrihlaseniFilter.filter(
+        ({ datum, platby }) =>
+          new Date(datum).getTime() >= new Date(datumKonani).getTime() ||
+          platby.filter(
+            ({ datum: datumPlatby }) =>
+              new Date(datumPlatby).getTime() >= new Date(datumKonani).getTime()
+          ).length > 0
+      )
+    : afterPrihlaseniFilter;
+
+  const final = afterDohlaseniFilter.map(({ platby, ...rest }) => rest);
+
+  return sortForColumn({ data: final, sortColumn, sortDir });
 };

@@ -53,7 +53,7 @@ Array [
     "zaplaceno": 0,
   },
   Object {
-    "datum": 2018-06-09T00:00:00.000Z,
+    "datum": 2018-05-12T00:00:00.000Z,
     "email": "zrala.kl@s.cz",
     "id": "7a09b1fd371dec1e99b7e142",
     "jmeno": "Hana",
@@ -73,10 +73,10 @@ Array [
       "rok": 1999,
     },
     "obec": "Bučovice",
-    "predepsano": 250,
+    "predepsano": 200,
     "prijmeni": "Zralá",
     "startCislo": 10,
-    "zaplaceno": 100,
+    "zaplaceno": 180,
   },
 ]
 `;

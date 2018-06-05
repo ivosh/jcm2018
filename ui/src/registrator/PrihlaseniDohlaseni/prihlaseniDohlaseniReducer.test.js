@@ -2,18 +2,24 @@ import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { SortDirTypes } from '../../sort';
 import {
-  createPrihlaseniDohlaseniReducer,
-  getPrihlaseniDohlaseniSorted
-} from './prihlaseniDohlaseniReducer';
-import {
   createKategorieFilterChange,
   createTextFilterChange
 } from '../Filterable/FilterableActions';
 import { createSortDirChange } from '../UcastniciTable/UcastniciTableActions';
+import {
+  createDohlaseniFilterChange,
+  createPrihlaseniFilterChange
+} from './PrihlaseniDohlaseniActions';
+import {
+  createPrihlaseniDohlaseniReducer,
+  getPrihlaseniDohlaseniSorted
+} from './prihlaseniDohlaseniReducer';
 
 const actionPrefix = 'PRIHLASENI';
 const reduxName = 'prihlaseni';
+const dohlaseniFilterChange = createDohlaseniFilterChange(actionPrefix);
 const kategorieFilterChange = createKategorieFilterChange(actionPrefix);
+const prihlaseniFilterChange = createPrihlaseniFilterChange(actionPrefix);
 const prihlaseniDohlaseniReducer = createPrihlaseniDohlaseniReducer(actionPrefix);
 const sortDirChange = createSortDirChange(actionPrefix);
 const textFilterChange = createTextFilterChange(actionPrefix);
@@ -22,10 +28,44 @@ it('na začátku', () => {
   const stateBefore = undefined;
 
   const stateAfter = prihlaseniDohlaseniReducer(stateBefore, {});
+  expect(stateAfter.dohlaseniFilter).toBe(false);
+  expect(stateAfter.prihlaseniFilter).toBe(true);
   expect(stateAfter.kategorieFilter).toEqual('');
   expect(stateAfter.textFilter).toEqual('');
   expect(stateAfter.sortColumn).toBe(undefined);
   expect(stateAfter.sortDir).toEqual(SortDirTypes.NONE);
+});
+
+it('přepínání dohlaseniFilter - tam', () => {
+  const stateBefore = { dohlaseniFilter: false };
+  const stateAfter = { dohlaseniFilter: true };
+  deepFreeze(stateBefore);
+
+  expect(prihlaseniDohlaseniReducer(stateBefore, dohlaseniFilterChange())).toEqual(stateAfter);
+});
+
+it('přepínání dohlaseniFilter - a zase zpět', () => {
+  const stateBefore = { dohlaseniFilter: true };
+  const stateAfter = { dohlaseniFilter: false };
+  deepFreeze(stateBefore);
+
+  expect(prihlaseniDohlaseniReducer(stateBefore, dohlaseniFilterChange())).toEqual(stateAfter);
+});
+
+it('přepínání prihlaseniFilter - tam', () => {
+  const stateBefore = { prihlaseniFilter: true };
+  const stateAfter = { prihlaseniFilter: false };
+  deepFreeze(stateBefore);
+
+  expect(prihlaseniDohlaseniReducer(stateBefore, prihlaseniFilterChange())).toEqual(stateAfter);
+});
+
+it('přepínání prihlaseniFilter - a zase zpět', () => {
+  const stateBefore = { prihlaseniFilter: false };
+  const stateAfter = { prihlaseniFilter: true };
+  deepFreeze(stateBefore);
+
+  expect(prihlaseniDohlaseniReducer(stateBefore, prihlaseniFilterChange())).toEqual(stateAfter);
 });
 
 it('řadit dle příjmení vzestupně', () => {
@@ -138,11 +178,13 @@ it('filtrovat na dvě písmena', () => {
   expect(prihlaseniDohlaseniReducer(stateBefore, textFilterChange('Kl'))).toEqual(stateAfter);
 });
 
-it('getPrihlaseniSorted() by default', () => {
+it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
       [reduxName]: {
+        dohlaseniFilter: false,
+        prihlaseniFilter: false,
         sortColumn: undefined,
         sortDir: undefined,
         kategorieFilter: '',
@@ -196,7 +238,7 @@ it('getPrihlaseniSorted() by default', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
-      datum: new Date('2018-06-09T00:00:00.000Z'),
+      datum: new Date('2018-05-12T00:00:00.000Z'),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
@@ -205,8 +247,8 @@ it('getPrihlaseniSorted() by default', () => {
       },
       startCislo: 10,
       kod: 'abc023skd204mvs345',
-      zaplaceno: 100,
-      predepsano: 250
+      zaplaceno: 180,
+      predepsano: 200
     }
   ];
   deepFreeze(state);
@@ -223,6 +265,8 @@ it('getPrihlaseniSorted() filtrováno na z', () => {
     ...ucastniciTestData,
     registrator: {
       [reduxName]: {
+        dohlaseniFilter: false,
+        prihlaseniFilter: false,
         sortColumn: undefined,
         sortDir: undefined,
         kategorieFilter: '',
@@ -238,7 +282,7 @@ it('getPrihlaseniSorted() filtrováno na z', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
-      datum: new Date('2018-06-09T00:00:00.000Z'),
+      datum: new Date('2018-05-12T00:00:00.000Z'),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
@@ -247,8 +291,8 @@ it('getPrihlaseniSorted() filtrováno na z', () => {
       },
       startCislo: 10,
       kod: 'abc023skd204mvs345',
-      zaplaceno: 100,
-      predepsano: 250
+      zaplaceno: 180,
+      predepsano: 200
     }
   ];
   deepFreeze(state);
@@ -265,6 +309,8 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
     ...ucastniciTestData,
     registrator: {
       [reduxName]: {
+        dohlaseniFilter: false,
+        prihlaseniFilter: false,
         sortColumn: undefined,
         sortDir: undefined,
         kategorieFilter: 'půlmaraton',
@@ -318,7 +364,7 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
-      datum: new Date('2018-06-09T00:00:00.000Z'),
+      datum: new Date('2018-05-12T00:00:00.000Z'),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
@@ -327,8 +373,178 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       },
       startCislo: 10,
       kod: 'abc023skd204mvs345',
-      zaplaceno: 100,
+      zaplaceno: 180,
+      predepsano: 200
+    }
+  ];
+  deepFreeze(state);
+
+  const {
+    entities,
+    registrator: { [reduxName]: props }
+  } = state;
+  expect(getPrihlaseniDohlaseniSorted({ ...entities, ...props })).toEqual(selected);
+});
+
+it('getPrihlaseniSorted() by default - jen prihlášeni', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      [reduxName]: {
+        dohlaseniFilter: false,
+        prihlaseniFilter: true,
+        sortColumn: undefined,
+        sortDir: undefined,
+        kategorieFilter: '',
+        textFilter: ''
+      }
+    }
+  };
+  const selected = [
+    {
+      id: '7a09b1fd371dec1e99b7e142',
+      prijmeni: 'Zralá',
+      jmeno: 'Hana',
+      narozeni: { den: 25, mesic: 7, rok: 1999 },
+      obec: 'Bučovice',
+      email: 'zrala.kl@s.cz',
+      datum: new Date('2018-05-12T00:00:00.000Z'),
+      kategorie: {
+        id: '5a587e1b051c181132cf83d9',
+        typ: 'půlmaraton',
+        pohlavi: 'žena',
+        vek: { min: 18, max: 39 }
+      },
+      startCislo: 10,
+      kod: 'abc023skd204mvs345',
+      zaplaceno: 180,
+      predepsano: 200
+    }
+  ];
+  deepFreeze(state);
+
+  const {
+    entities,
+    registrator: { [reduxName]: props }
+  } = state;
+  expect(getPrihlaseniDohlaseniSorted({ ...entities, ...props })).toEqual(selected);
+});
+
+it('getPrihlaseniSorted() by default - jen dohlášeni', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      [reduxName]: {
+        dohlaseniFilter: true,
+        prihlaseniFilter: false,
+        sortColumn: undefined,
+        sortDir: undefined,
+        kategorieFilter: '',
+        textFilter: ''
+      }
+    }
+  };
+  const selected = [
+    {
+      id: '5a09b1fd371dec1e99b7e1c9',
+      prijmeni: 'Balabák',
+      jmeno: 'Roman',
+      narozeni: { rok: 1956 },
+      obec: 'Ostrava 2',
+      email: '',
+      datum: new Date('2018-06-09T00:00:00.000Z'),
+      kategorie: {
+        id: '5a587e1b051c181132cf83d7',
+        pohlavi: 'muž',
+        typ: 'půlmaraton',
+        vek: { min: 60, max: 150 }
+      },
+      startCislo: 17,
+      kod: '10728864',
+      zaplaceno: 250,
       predepsano: 250
+    },
+    {
+      id: '8344bc71dec1e99b7e1d01e',
+      prijmeni: 'Kyselová',
+      jmeno: 'Slavěna',
+      narozeni: { den: 13, mesic: 8, rok: 2001 },
+      obec: 'Aš',
+      email: 'sks@por.cz',
+      datum: new Date('2018-06-09T00:00:00.000Z'),
+      kategorie: {
+        id: '5a587e1b051c181132cf83d9',
+        typ: 'půlmaraton',
+        pohlavi: 'žena',
+        vek: { min: 18, max: 39 }
+      },
+      startCislo: 15,
+      kod: '0234jsdj0jdaklsd',
+      zaplaceno: 0,
+      predepsano: 0
+    },
+    {
+      id: '7a09b1fd371dec1e99b7e142',
+      prijmeni: 'Zralá',
+      jmeno: 'Hana',
+      narozeni: { den: 25, mesic: 7, rok: 1999 },
+      obec: 'Bučovice',
+      email: 'zrala.kl@s.cz',
+      datum: new Date('2018-05-12T00:00:00.000Z'),
+      kategorie: {
+        id: '5a587e1b051c181132cf83d9',
+        typ: 'půlmaraton',
+        pohlavi: 'žena',
+        vek: { min: 18, max: 39 }
+      },
+      startCislo: 10,
+      kod: 'abc023skd204mvs345',
+      zaplaceno: 180,
+      predepsano: 200
+    }
+  ];
+  deepFreeze(state);
+
+  const {
+    entities,
+    registrator: { [reduxName]: props }
+  } = state;
+  expect(getPrihlaseniDohlaseniSorted({ ...entities, ...props })).toEqual(selected);
+});
+
+it('getPrihlaseniSorted() by default - jen přihlášeni i dohlášeni', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      [reduxName]: {
+        dohlaseniFilter: true,
+        prihlaseniFilter: true,
+        sortColumn: undefined,
+        sortDir: undefined,
+        kategorieFilter: '',
+        textFilter: ''
+      }
+    }
+  };
+  const selected = [
+    {
+      id: '7a09b1fd371dec1e99b7e142',
+      prijmeni: 'Zralá',
+      jmeno: 'Hana',
+      narozeni: { den: 25, mesic: 7, rok: 1999 },
+      obec: 'Bučovice',
+      email: 'zrala.kl@s.cz',
+      datum: new Date('2018-05-12T00:00:00.000Z'),
+      kategorie: {
+        id: '5a587e1b051c181132cf83d9',
+        typ: 'půlmaraton',
+        pohlavi: 'žena',
+        vek: { min: 18, max: 39 }
+      },
+      startCislo: 10,
+      kod: 'abc023skd204mvs345',
+      zaplaceno: 180,
+      predepsano: 200
     }
   ];
   deepFreeze(state);

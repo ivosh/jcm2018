@@ -162,7 +162,7 @@ it('getUbytovaniSorted() by default', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
-      datum: new Date('2018-06-09T00:00:00.000Z'),
+      datum: new Date('2018-05-12T00:00:00.000Z'),
       prihlaseno: true,
       akce: {
         loading: true,
@@ -200,7 +200,7 @@ it('getUbytovaniSorted() filtrováno na z', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
-      datum: new Date('2018-06-09T00:00:00.000Z'),
+      datum: new Date('2018-05-12T00:00:00.000Z'),
       prihlaseno: true,
       akce: {
         loading: false,
