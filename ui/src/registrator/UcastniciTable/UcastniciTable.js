@@ -45,6 +45,22 @@ class UcastniciTable extends PureComponent {
   columnsWidth = columnCount =>
     this.props.columns.slice(0, columnCount).reduce((sum, column) => sum + column.width, 0);
 
+  customProps = () => {
+    const {
+      columns,
+      containerHeight,
+      containerWidth,
+      data,
+      fixedColumnCount,
+      rowHeight,
+      sortColumn,
+      sortDir,
+      onSortDirChange,
+      ...rest
+    } = this.props;
+    return rest;
+  };
+
   renderBodyCell = ({ columnIndex, key, rowIndex, style }) => {
     if (columnIndex < this.props.fixedColumnCount) {
       return undefined;
@@ -87,16 +103,19 @@ class UcastniciTable extends PureComponent {
     const rowClass = rowIndex % 2 === 1 ? 'UcastniciTable_evenRow' : 'UcastniciTable_oddRow';
 
     const { columns, data } = this.props;
+    const customProps = this.customProps();
     const { cellClassNames, cellDataFormatter, cellStyler, key: columnKey } = columns[columnIndex];
     const cellData = data[rowIndex][columnKey];
     const classNames = cellClassNames
-      ? cellClassNames({ cellData, data, rowIndex, columnKey })
+      ? cellClassNames({ cellData, data, rowIndex, columnKey, ...customProps })
       : [];
     classNames.push(rowClass, 'UcastniciTable_cell');
     const formattedData = cellDataFormatter
-      ? cellDataFormatter({ cellData, data, rowIndex, columnKey })
+      ? cellDataFormatter({ cellData, data, rowIndex, columnKey, ...customProps })
       : cellData;
-    const cellStyle = cellStyler ? cellStyler({ cellData, columnKey, data, rowIndex }) : {};
+    const cellStyle = cellStyler
+      ? cellStyler({ cellData, columnKey, data, rowIndex, ...customProps })
+      : {};
     const mergedStyle = { ...style, ...cellStyle };
 
     return (
@@ -263,6 +282,7 @@ UcastniciTable.propTypes = {
   sortColumn: PropTypes.string,
   sortDir: PropTypes.string,
   onSortDirChange: PropTypes.func
+  // and any other custom props you want to pass to cellClassNames, cellDataFormatter, cellStyler
 };
 
 export default UcastniciTable;
