@@ -14,14 +14,14 @@ const mapStateToProps = (state, ownProps) => {
   const {
     registrator: {
       [reduxName]: {
-        form: { jePrihlaskou, prihlaska, platby },
+        form: { platby, prihlaska },
         platby: { novaPlatbaMinified }
       }
     },
     entities: { kategorie, rocniky }
   } = state;
 
-  const predepsano = predepsaneStartovne({ jePrihlaskou, kategorie, platby, prihlaska, rocniky });
+  const predepsano = predepsaneStartovne({ kategorie, prihlaska, rocniky });
   const provedeno = provedenePlatby(platby);
 
   return {

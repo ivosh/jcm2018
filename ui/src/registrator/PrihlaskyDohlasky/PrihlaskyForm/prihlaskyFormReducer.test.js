@@ -1344,7 +1344,6 @@ it('predepsaneStartovne - cyklo - přihláška předem', () => {
   };
   expect(
     predepsaneStartovne({
-      jePrihlaskou: true,
       kategorie: state.entities.kategorie,
       prihlaska: state.registrator.prihlasky.form.prihlaska,
       rocniky: state.entities.rocniky
@@ -1352,26 +1351,24 @@ it('predepsaneStartovne - cyklo - přihláška předem', () => {
   ).toEqual(selected);
 });
 
-it('predepsaneStartovne - půlmaraton - platba předem', () => {
+it('predepsaneStartovne - půlmaraton - dohláška', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
       prihlasky: {
         form: {
           prihlaska: {
-            datum: '2018-04-22',
+            datum: '2018-06-09',
             kategorie: '5a587e1b051c181132cf83d4'
-          },
-          platby: [{ castka: 200, datum: '2018-05-30T00:00:00.000Z', typ: 'převodem' }]
+          }
         }
       }
     }
   };
-  const selected = { polozky: [{ castka: 200, duvod: 'předem' }], suma: 200 };
+  const selected = { polozky: [{ castka: 250, duvod: 'na místě' }], suma: 250 };
   expect(
     predepsaneStartovne({
       kategorie: state.entities.kategorie,
-      platby: state.registrator.prihlasky.form.platby,
       prihlaska: state.registrator.prihlasky.form.prihlaska,
       rocniky: state.entities.rocniky
     })

@@ -30,55 +30,18 @@ it('predepsaneStartovne() - po slevě 100 Kč', () => {
   expect(predepsaneStartovne({ ...ucastniciTestData.entities, prihlaska })).toEqual(expected);
 });
 
-it('predepsaneStartovne() - přihláška s včasným datem a bez plateb [jePrihlaskou]', () => {
+it('predepsaneStartovne() - přihláška s včasným datem', () => {
   const prihlaska = { typ: 'maraton', datum: '2018-05-30' };
   const expected = { polozky: [{ castka: 200, duvod: 'předem' }], suma: 200 };
 
-  expect(
-    predepsaneStartovne({ ...ucastniciTestData.entities, prihlaska, jePrihlaskou: true })
-  ).toEqual(expected);
+  expect(predepsaneStartovne({ ...ucastniciTestData.entities, prihlaska })).toEqual(expected);
 });
 
-it('predepsaneStartovne() - přihláška s včasným datem a s včasnou dostatečnou platbou', () => {
-  const platby = [{ castka: 200, datum: '2018-05-25', typ: 'hotově' }];
-  const prihlaska = { typ: 'maraton', datum: '2018-05-24' };
-  const expected = { polozky: [{ castka: 200, duvod: 'předem' }], suma: 200 };
-
-  expect(predepsaneStartovne({ ...ucastniciTestData.entities, prihlaska, platby })).toEqual(
-    expected
-  );
-});
-
-it('predepsaneStartovne() - přihláška s včasným datem a s včasnou nedostatečnou platbou', () => {
-  const platby = [{ castka: 100, datum: '2018-05-25', typ: 'převodem' }];
-  const prihlaska = { typ: 'cyklo', datum: '2018-05-24' };
-  const expected = {
-    polozky: [{ castka: 250, duvod: 'na místě' }, { castka: 20, duvod: 'záloha' }],
-    suma: 270
-  };
-
-  expect(predepsaneStartovne({ ...ucastniciTestData.entities, prihlaska, platby })).toEqual(
-    expected
-  );
-});
-
-it('predepsaneStartovne() - přihláška bez data a bez plateb', () => {
+it('predepsaneStartovne() - přihláška bez data', () => {
   const prihlaska = { typ: 'maraton' };
   const expected = { polozky: [{ castka: 250, duvod: 'na místě' }], suma: 250 };
 
-  expect(predepsaneStartovne({ ...ucastniciTestData.entities, prihlaska, platby: [] })).toEqual(
-    expected
-  );
-});
-
-it('predepsaneStartovne() - přihláška bez data a s včasnou platbou', () => {
-  const platby = [{ castka: 200, datum: '2018-05-30', typ: 'hotově' }];
-  const prihlaska = { typ: 'maraton' };
-  const expected = { polozky: [{ castka: 200, duvod: 'předem' }], suma: 200 };
-
-  expect(predepsaneStartovne({ ...ucastniciTestData.entities, prihlaska, platby })).toEqual(
-    expected
-  );
+  expect(predepsaneStartovne({ ...ucastniciTestData.entities, prihlaska })).toEqual(expected);
 });
 
 it('predepsaneStartovne() - přihláška na místě', () => {
