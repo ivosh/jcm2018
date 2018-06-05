@@ -7,13 +7,14 @@ import PrihlaseniDohlaseni from './PrihlaseniDohlaseni';
 
 const mockStore = configureStore();
 const actionPrefix = 'PRIHLASENI';
-const reduxName = 'prihlaseni;';
+const reduxName = 'prihlaseni';
+const route = 'prihlasky';
 
 const state = { registrator: { [reduxName]: {} } };
 const store = mockStore(state);
 store.dispatch = jest.fn();
 
-const commonProps = { actionPrefix, reduxName };
+const commonProps = { actionPrefix, reduxName, route };
 
 const prihlaseniDohlaseni = [
   {

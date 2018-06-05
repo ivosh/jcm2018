@@ -10,17 +10,26 @@ import './PrihlaseniDohlaseni.css';
 
 const datumFormat = ({ cellData }) => moment.utc(cellData).format('D. M. YYYY');
 
-const kategorieFormat = args => <PopisekKategorie {...args.cellData} />;
+const kategorieFormat = ({ cellData }) => <PopisekKategorie {...cellData} />;
+kategorieFormat.propTypes = {
+  cellData: PropTypes.object.isRequired
+};
 
 const narozeniFormat = ({ cellData }) => narozeniToStr(cellData);
 
-const prijmeniFormat = args => (
-  <Link to={`/prihlasky/${args.data[args.rowIndex].id}`}>{args.cellData}</Link>
+const prijmeniFormat = ({ cellData, data, route, rowIndex }) => (
+  <Link to={`/${route}/${data[rowIndex].id}`}>{cellData}</Link>
 );
+prijmeniFormat.propTypes = {
+  cellData: PropTypes.object.isRequired,
+  data: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string.isRequired })),
+  route: PropTypes.string.isRequired,
+  rowIndex: PropTypes.number.isRequired
+};
 
 const zaplacenoFormat = ({ cellData }) => `${cellData} Kč`;
 
-const PrihlaseniDohlaseni = ({ actionPrefix, reduxName, prihlaseniDohlaseni }) => {
+const PrihlaseniDohlaseni = ({ actionPrefix, reduxName, route, prihlaseniDohlaseni }) => {
   const columns = [
     {
       cellClassNames: () => ['align-left'],
@@ -100,6 +109,7 @@ const PrihlaseniDohlaseni = ({ actionPrefix, reduxName, prihlaseniDohlaseni }) =
         data={prihlaseniDohlaseni}
         fixedColumnCount={3}
         reduxName={reduxName}
+        route={route}
         rowHeight={35}
       />
     </div>
@@ -109,6 +119,7 @@ const PrihlaseniDohlaseni = ({ actionPrefix, reduxName, prihlaseniDohlaseni }) =
 PrihlaseniDohlaseni.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
   reduxName: PropTypes.string.isRequired,
+  route: PropTypes.string.isRequired,
   prihlaseniDohlaseni: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
