@@ -60,6 +60,12 @@ Object {
   "fetchingStopky": "init",
   "fetchingUcastnici": "init",
   "registrator": Object {
+    "dohlaseni": Object {
+      "kategorieFilter": "",
+      "sortColumn": undefined,
+      "sortDir": "none",
+      "textFilter": "",
+    },
     "dohlasky": Object {
       "form": Object {
         "errorCode": "",
@@ -248,6 +254,12 @@ Object {
   "fetchingStopky": "init",
   "fetchingUcastnici": "init",
   "registrator": Object {
+    "dohlaseni": Object {
+      "kategorieFilter": "",
+      "sortColumn": undefined,
+      "sortDir": "none",
+      "textFilter": "",
+    },
     "dohlasky": Object {
       "form": Object {
         "errorCode": "",
@@ -436,6 +448,12 @@ Object {
   "fetchingStopky": "init",
   "fetchingUcastnici": "init",
   "registrator": Object {
+    "dohlaseni": Object {
+      "kategorieFilter": "",
+      "sortColumn": undefined,
+      "sortDir": "none",
+      "textFilter": "",
+    },
     "dohlasky": Object {
       "form": Object {
         "errorCode": "",

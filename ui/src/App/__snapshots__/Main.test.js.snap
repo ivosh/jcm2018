@@ -118,6 +118,21 @@ exports[`it renders 1`] = `
         >
           <a
             className="Main__menu-link"
+            href="/dohlaseni"
+            onClick={[Function]}
+          >
+            <span
+              className="glyphicon glyphicon-list-alt"
+            />
+             
+            Dohlášeni
+          </a>
+        </li>
+        <li
+          className="Main__menu-item"
+        >
+          <a
+            className="Main__menu-link"
             href="/startujici"
             onClick={[Function]}
           >

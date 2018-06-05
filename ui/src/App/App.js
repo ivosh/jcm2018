@@ -9,6 +9,7 @@ import withFetchStopky from '../entities/withFetchStopky/withFetchStopky';
 import withFetchUcastnici from '../entities/withFetchUcastnici/withFetchUcastnici';
 import About from './About';
 import CasomiryContainer from '../casomeric/Casomira/Casomiry/CasomiryContainer';
+import Dohlaseni from '../registrator/PrihlaseniDohlaseni/Dohlaseni';
 import Dohlasky from '../registrator/PrihlaskyDohlasky/Dohlasky';
 import Main from './Main';
 import Prihlaseni from '../registrator/PrihlaseniDohlaseni/Prihlaseni';
@@ -126,6 +127,7 @@ class App extends PureComponent {
               path="/casomira"
               component={withAuth(withFetchUcastnici(withFetchStopky(CasomiryContainer)))}
             />
+            <Route path="/dohlaseni" component={withAuth(withFetchUcastnici(Dohlaseni))} />
             <Route path="/dohlasky" component={withAuth(withFetchUcastnici(Dohlasky))} />
             <Route path="/prihlaseni" component={withAuth(withFetchUcastnici(Prihlaseni))} />
             <Route path="/prihlasky" component={withAuth(withFetchUcastnici(Prihlasky))} />

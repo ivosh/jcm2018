@@ -6,6 +6,7 @@ import ubytovaniReducer from './Ubytovani/ubytovaniReducer';
 import ucastniciDigestReducer from './UcastniciDigest/ucastniciDigestReducer';
 
 const registratorReducer = combineReducers({
+  dohlaseni: createPrihlaseniDohlaseniReducer('DOHLASENI'),
   dohlasky: createPrihlaskyDohlaskyReducer('DOHLASKY'),
   prihlaseni: createPrihlaseniDohlaseniReducer('PRIHLASENI'),
   prihlasky: createPrihlaskyDohlaskyReducer('PRIHLASKY'),
