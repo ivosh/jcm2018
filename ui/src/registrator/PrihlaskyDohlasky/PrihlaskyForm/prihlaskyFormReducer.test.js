@@ -1306,6 +1306,70 @@ it('loadUcastnik() - jen údaje', () => {
   ).toEqual(stateAfter);
 });
 
+it('loadUcastnik() - dohláška', () => {
+  const stateBefore = {
+    udaje: {
+      prijmeni: 'Příjmení',
+      jmeno: 'Jméno',
+      narozeni: { den: 1, mesic: 10, rok: 'žblabuňka' },
+      pohlavi: 'muž',
+      adresa: 'Za vodou 4787',
+      obec: 'Kolešov',
+      psc: '321 34',
+      stat: 'Česká republika',
+      klub: 'Hory hory hory',
+      email: 'není',
+      telefon: '765 123 089'
+    },
+    prihlaska: {
+      datum: '1. 12. 2017',
+      kategorie: '===k1===',
+      typ: 'maraton',
+      startCislo: 14,
+      kod: '===kód===',
+      mladistvyPotvrzen: undefined
+    }
+  };
+  const stateAfter = {
+    errorCode: '',
+    errorMessage: '',
+    jePrihlaskou: true,
+    showError: false,
+    saved: false,
+    saving: false,
+    ucastnikId: '6f09b1fd371dec1e99b7e1c9',
+    validate: false,
+    udaje: {
+      prijmeni: 'Sukdoláková',
+      jmeno: 'Martina',
+      narozeni: { rok: 1963, mesic: 12, den: 7 },
+      pohlavi: 'žena',
+      obec: 'Zlín',
+      stat: 'Česká republika'
+    },
+    prihlaska: {
+      datum: '2018-06-09T00:00:00.000Z',
+      kategorie: undefined,
+      typ: undefined,
+      startCislo: undefined,
+      kod: undefined
+    },
+    platby: [],
+    ubytovani: {}
+  };
+  deepFreeze(stateBefore);
+
+  expect(
+    prihlaskyFormReducer(
+      stateBefore,
+      createLoadUcastnik({ actionPrefix, jePrihlaskou: false })({
+        id: '6f09b1fd371dec1e99b7e1c9',
+        ...ucastniciTestData.entities
+      })
+    )
+  ).toEqual(stateAfter);
+});
+
 it('fetchRocnikySuccess - přihláška', () => {
   const stateBefore = { jePrihlaskou: true, prihlaska: { datum: undefined } };
   const stateAfter = { jePrihlaskou: true, prihlaska: { datum: undefined } };

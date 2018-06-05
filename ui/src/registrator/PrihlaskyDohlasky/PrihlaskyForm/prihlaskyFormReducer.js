@@ -151,8 +151,8 @@ export const createPrihlaskyFormReducer = (
       }
       return state;
     }
-    case `${actionPrefix}_UCASTNIK_LOAD`:
-      return {
+    case `${actionPrefix}_UCASTNIK_LOAD`: {
+      const newState = {
         ...initialState,
         jePrihlaskou,
         ucastnikId: action.id,
@@ -161,6 +161,11 @@ export const createPrihlaskyFormReducer = (
         platby: action.platby || initialState.platby,
         ubytovani: action.ubytovani || initialState.ubytovani
       };
+      if (action.datumKonani && !newState.prihlaska.datum) {
+        return { ...newState, prihlaska: { ...newState.prihlaska, datum: action.datumKonani } };
+      }
+      return newState;
+    }
     case `${actionPrefix}_RESET`:
       return {
         ...initialState,
