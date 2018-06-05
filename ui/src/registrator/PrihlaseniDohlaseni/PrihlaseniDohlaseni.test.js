@@ -9,12 +9,14 @@ const mockStore = configureStore();
 const actionPrefix = 'PRIHLASENI';
 const reduxName = 'prihlaseni';
 const route = 'prihlasky';
+const dohlaseniFilter = { active: false, name: 'Dohlášeni', onClick: jest.fn() };
+const prihlaseniFilter = { active: true, name: 'Přihlášeni', onClick: jest.fn() };
 
 const state = { registrator: { [reduxName]: {} } };
 const store = mockStore(state);
 store.dispatch = jest.fn();
 
-const commonProps = { actionPrefix, reduxName, route };
+const commonProps = { actionPrefix, reduxName, route, dohlaseniFilter, prihlaseniFilter };
 
 const prihlaseniDohlaseni = [
   {

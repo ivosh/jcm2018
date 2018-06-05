@@ -1,6 +1,10 @@
-.PrihlaseniDohlaseni_div {
+.PrihlaseniDohlaseni__div {
   padding-left: 30px;
   padding-right: 50px;
+}
+
+.PrihlaseniDohlaseni__filters {
+  display: flex;
 }
 
 .PrihlaseniDohlaseni--maraton {

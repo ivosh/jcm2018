@@ -1,0 +1,8 @@
+.PrihlaseniDohlaseniFilter {
+  margin-right: 5px;
+}
+
+/* Works together with Bootstrap-buttons--active class. */
+.PrihlaseniDohlaseniFilter > .btn {
+  border: 3px solid transparent !important;
+}

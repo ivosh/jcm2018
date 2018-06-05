@@ -6,6 +6,7 @@ import { narozeniToStr } from '../../Util';
 import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import FilterableContainer from '../Filterable/FilterableContainer';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
+import PrihlaseniDohlaseniFilter from './PrihlaseniDohlaseniFilter';
 import './PrihlaseniDohlaseni.css';
 
 const datumFormat = ({ cellData }) => moment.utc(cellData).format('D. M. YYYY');
@@ -29,7 +30,14 @@ prijmeniFormat.propTypes = {
 
 const zaplacenoFormat = ({ cellData }) => `${cellData} Kč`;
 
-const PrihlaseniDohlaseni = ({ actionPrefix, reduxName, route, prihlaseniDohlaseni }) => {
+const PrihlaseniDohlaseni = ({
+  actionPrefix,
+  reduxName,
+  route,
+  dohlaseniFilter,
+  prihlaseniFilter,
+  prihlaseniDohlaseni
+}) => {
   const columns = [
     {
       cellClassNames: () => ['align-left'],
@@ -96,12 +104,16 @@ const PrihlaseniDohlaseni = ({ actionPrefix, reduxName, route, prihlaseniDohlase
   ];
 
   return (
-    <div className="PrihlaseniDohlaseni_div UcastniciTable_container">
-      <FilterableContainer
-        actionPrefix={actionPrefix}
-        reduxName={reduxName}
-        numberOfItems={prihlaseniDohlaseni.length}
-      />
+    <div className="PrihlaseniDohlaseni__div UcastniciTable_container">
+      <div className="PrihlaseniDohlaseni__filters">
+        <PrihlaseniDohlaseniFilter bsStyle="primary" {...prihlaseniFilter} />
+        <PrihlaseniDohlaseniFilter bsStyle="success" {...dohlaseniFilter} />
+        <FilterableContainer
+          actionPrefix={actionPrefix}
+          reduxName={reduxName}
+          numberOfItems={prihlaseniDohlaseni.length}
+        />
+      </div>
 
       <UcastniciTableContainer
         actionPrefix={actionPrefix}
@@ -120,6 +132,16 @@ PrihlaseniDohlaseni.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
   reduxName: PropTypes.string.isRequired,
   route: PropTypes.string.isRequired,
+  dohlaseniFilter: PropTypes.shape({
+    active: PropTypes.bool.isRequired,
+    name: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired
+  }),
+  prihlaseniFilter: PropTypes.shape({
+    active: PropTypes.bool.isRequired,
+    name: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired
+  }),
   prihlaseniDohlaseni: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,

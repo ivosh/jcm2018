@@ -2,137 +2,167 @@
 
 exports[`dva přihlášení 1`] = `
 <div
-  className="PrihlaseniDohlaseni_div UcastniciTable_container"
+  className="PrihlaseniDohlaseni__div UcastniciTable_container"
 >
-  <div>
-    <input
-      className="TextFilter__input"
-      onBlur={[Function]}
-      onChange={[Function]}
-      onKeyDown={[Function]}
-      placeholder="Filtr na příjmení a jméno"
-      type="text"
-      value=""
-    />
-    <div
-      className="Filterable__kategorie btn-group"
+  <div
+    className="PrihlaseniDohlaseni__filters"
+  >
+    <span
+      className="PrihlaseniDohlaseniFilter Bootstrap-buttons--active"
     >
-      <span
-        className="KategorieFilter Bootstrap-buttons--active"
+      <button
+        className="btn btn-primary active"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
       >
-        <button
-          className="KategorieFilter--maraton--inactive btn btn-default"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          <span>
-            <img
-              alt="maraton"
-              height={30}
-              src="maraton.png"
-              title="maraton"
-            />
-             
-            maraton
-          </span>
-        </button>
-      </span>
-      <span
-        className="KategorieFilter Bootstrap-buttons--active"
+        Přihlášeni
+         
+      </button>
+    </span>
+    <span
+      className="PrihlaseniDohlaseniFilter Bootstrap-buttons--active"
+    >
+      <button
+        className="btn btn-success"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
       >
-        <button
-          className="KategorieFilter--půlmaraton--inactive btn btn-default"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          <span>
-            <img
-              alt="půlmaraton"
-              height={30}
-              src="pulmaraton.png"
-              title="půlmaraton"
-            />
-             
-            půlmaraton
-          </span>
-        </button>
-      </span>
-      <span
-        className="KategorieFilter Bootstrap-buttons--active"
+        Dohlášeni
+         
+      </button>
+    </span>
+    <div>
+      <input
+        className="TextFilter__input"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        placeholder="Filtr na příjmení a jméno"
+        type="text"
+        value=""
+      />
+      <div
+        className="Filterable__kategorie btn-group"
       >
-        <button
-          className="KategorieFilter--cyklo--inactive btn btn-default"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
+        <span
+          className="KategorieFilter Bootstrap-buttons--active"
         >
-          <span>
-            <img
-              alt="cyklo"
-              height={30}
-              src="cyklo.png"
-              title="cyklo"
-            />
-             
-            cyklo
-          </span>
-        </button>
-      </span>
+          <button
+            className="KategorieFilter--maraton--inactive btn btn-default"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              <img
+                alt="maraton"
+                height={30}
+                src="maraton.png"
+                title="maraton"
+              />
+               
+              maraton
+            </span>
+          </button>
+        </span>
+        <span
+          className="KategorieFilter Bootstrap-buttons--active"
+        >
+          <button
+            className="KategorieFilter--půlmaraton--inactive btn btn-default"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              <img
+                alt="půlmaraton"
+                height={30}
+                src="pulmaraton.png"
+                title="půlmaraton"
+              />
+               
+              půlmaraton
+            </span>
+          </button>
+        </span>
+        <span
+          className="KategorieFilter Bootstrap-buttons--active"
+        >
+          <button
+            className="KategorieFilter--cyklo--inactive btn btn-default"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              <img
+                alt="cyklo"
+                height={30}
+                src="cyklo.png"
+                title="cyklo"
+              />
+               
+              cyklo
+            </span>
+          </button>
+        </span>
+        <span
+          className="KategorieFilter Bootstrap-buttons--active"
+        >
+          <button
+            className="KategorieFilter--koloběžka--inactive btn btn-default"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              <img
+                alt="koloběžka"
+                height={30}
+                src="kolobezka.png"
+                title="koloběžka"
+              />
+               
+              koloběžka
+            </span>
+          </button>
+        </span>
+        <span
+          className="KategorieFilter Bootstrap-buttons--active"
+        >
+          <button
+            className="KategorieFilter--pěší--inactive btn btn-default"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              <img
+                alt="pěší"
+                height={30}
+                src="pesi.png"
+                title="pěší"
+              />
+               
+              pěší
+            </span>
+          </button>
+        </span>
+      </div>
       <span
-        className="KategorieFilter Bootstrap-buttons--active"
+        className="Zobrazeno"
       >
-        <button
-          className="KategorieFilter--koloběžka--inactive btn btn-default"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
+        zobrazeno: 
+        <span
+          className="badge"
         >
-          <span>
-            <img
-              alt="koloběžka"
-              height={30}
-              src="kolobezka.png"
-              title="koloběžka"
-            />
-             
-            koloběžka
-          </span>
-        </button>
-      </span>
-      <span
-        className="KategorieFilter Bootstrap-buttons--active"
-      >
-        <button
-          className="KategorieFilter--pěší--inactive btn btn-default"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          <span>
-            <img
-              alt="pěší"
-              height={30}
-              src="pesi.png"
-              title="pěší"
-            />
-             
-            pěší
-          </span>
-        </button>
+          2
+        </span>
       </span>
     </div>
-    <span
-      className="Zobrazeno"
-    >
-      zobrazeno: 
-      <span
-        className="badge"
-      >
-        2
-      </span>
-    </span>
   </div>
   <div
     className="withResponsive"
@@ -866,137 +896,167 @@ exports[`dva přihlášení 1`] = `
 
 exports[`žádný přihlášený 1`] = `
 <div
-  className="PrihlaseniDohlaseni_div UcastniciTable_container"
+  className="PrihlaseniDohlaseni__div UcastniciTable_container"
 >
-  <div>
-    <input
-      className="TextFilter__input"
-      onBlur={[Function]}
-      onChange={[Function]}
-      onKeyDown={[Function]}
-      placeholder="Filtr na příjmení a jméno"
-      type="text"
-      value=""
-    />
-    <div
-      className="Filterable__kategorie btn-group"
+  <div
+    className="PrihlaseniDohlaseni__filters"
+  >
+    <span
+      className="PrihlaseniDohlaseniFilter Bootstrap-buttons--active"
     >
-      <span
-        className="KategorieFilter Bootstrap-buttons--active"
+      <button
+        className="btn btn-primary active"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
       >
-        <button
-          className="KategorieFilter--maraton--inactive btn btn-default"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          <span>
-            <img
-              alt="maraton"
-              height={30}
-              src="maraton.png"
-              title="maraton"
-            />
-             
-            maraton
-          </span>
-        </button>
-      </span>
-      <span
-        className="KategorieFilter Bootstrap-buttons--active"
+        Přihlášeni
+         
+      </button>
+    </span>
+    <span
+      className="PrihlaseniDohlaseniFilter Bootstrap-buttons--active"
+    >
+      <button
+        className="btn btn-success"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
       >
-        <button
-          className="KategorieFilter--půlmaraton--inactive btn btn-default"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          <span>
-            <img
-              alt="půlmaraton"
-              height={30}
-              src="pulmaraton.png"
-              title="půlmaraton"
-            />
-             
-            půlmaraton
-          </span>
-        </button>
-      </span>
-      <span
-        className="KategorieFilter Bootstrap-buttons--active"
+        Dohlášeni
+         
+      </button>
+    </span>
+    <div>
+      <input
+        className="TextFilter__input"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        placeholder="Filtr na příjmení a jméno"
+        type="text"
+        value=""
+      />
+      <div
+        className="Filterable__kategorie btn-group"
       >
-        <button
-          className="KategorieFilter--cyklo--inactive btn btn-default"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
+        <span
+          className="KategorieFilter Bootstrap-buttons--active"
         >
-          <span>
-            <img
-              alt="cyklo"
-              height={30}
-              src="cyklo.png"
-              title="cyklo"
-            />
-             
-            cyklo
-          </span>
-        </button>
-      </span>
+          <button
+            className="KategorieFilter--maraton--inactive btn btn-default"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              <img
+                alt="maraton"
+                height={30}
+                src="maraton.png"
+                title="maraton"
+              />
+               
+              maraton
+            </span>
+          </button>
+        </span>
+        <span
+          className="KategorieFilter Bootstrap-buttons--active"
+        >
+          <button
+            className="KategorieFilter--půlmaraton--inactive btn btn-default"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              <img
+                alt="půlmaraton"
+                height={30}
+                src="pulmaraton.png"
+                title="půlmaraton"
+              />
+               
+              půlmaraton
+            </span>
+          </button>
+        </span>
+        <span
+          className="KategorieFilter Bootstrap-buttons--active"
+        >
+          <button
+            className="KategorieFilter--cyklo--inactive btn btn-default"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              <img
+                alt="cyklo"
+                height={30}
+                src="cyklo.png"
+                title="cyklo"
+              />
+               
+              cyklo
+            </span>
+          </button>
+        </span>
+        <span
+          className="KategorieFilter Bootstrap-buttons--active"
+        >
+          <button
+            className="KategorieFilter--koloběžka--inactive btn btn-default"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              <img
+                alt="koloběžka"
+                height={30}
+                src="kolobezka.png"
+                title="koloběžka"
+              />
+               
+              koloběžka
+            </span>
+          </button>
+        </span>
+        <span
+          className="KategorieFilter Bootstrap-buttons--active"
+        >
+          <button
+            className="KategorieFilter--pěší--inactive btn btn-default"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              <img
+                alt="pěší"
+                height={30}
+                src="pesi.png"
+                title="pěší"
+              />
+               
+              pěší
+            </span>
+          </button>
+        </span>
+      </div>
       <span
-        className="KategorieFilter Bootstrap-buttons--active"
+        className="Zobrazeno"
       >
-        <button
-          className="KategorieFilter--koloběžka--inactive btn btn-default"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
+        zobrazeno: 
+        <span
+          className="badge"
         >
-          <span>
-            <img
-              alt="koloběžka"
-              height={30}
-              src="kolobezka.png"
-              title="koloběžka"
-            />
-             
-            koloběžka
-          </span>
-        </button>
-      </span>
-      <span
-        className="KategorieFilter Bootstrap-buttons--active"
-      >
-        <button
-          className="KategorieFilter--pěší--inactive btn btn-default"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          <span>
-            <img
-              alt="pěší"
-              height={30}
-              src="pesi.png"
-              title="pěší"
-            />
-             
-            pěší
-          </span>
-        </button>
+          0
+        </span>
       </span>
     </div>
-    <span
-      className="Zobrazeno"
-    >
-      zobrazeno: 
-      <span
-        className="badge"
-      >
-        0
-      </span>
-    </span>
   </div>
   <div
     className="withResponsive"
