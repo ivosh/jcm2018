@@ -2,7 +2,7 @@
 
 exports[`dva přihlášení 1`] = `
 <div
-  className="Prihlaseni_div UcastniciTable_container"
+  className="PrihlaseniDohlaseni_div UcastniciTable_container"
 >
   <div>
     <input
@@ -673,7 +673,7 @@ exports[`dva přihlášení 1`] = `
                   9. 6. 2018
                 </div>
                 <div
-                  className="align-left Prihlaseni--půlmaraton UcastniciTable_oddRow UcastniciTable_cell"
+                  className="align-left PrihlaseniDohlaseni--půlmaraton UcastniciTable_oddRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
@@ -730,7 +730,7 @@ exports[`dva přihlášení 1`] = `
                   10728864
                 </div>
                 <div
-                  className="Prihlaseni--zaplaceno UcastniciTable_oddRow UcastniciTable_cell"
+                  className="PrihlaseniDohlaseni--zaplaceno UcastniciTable_oddRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
@@ -784,7 +784,7 @@ exports[`dva přihlášení 1`] = `
                   9. 6. 2018
                 </div>
                 <div
-                  className="align-left Prihlaseni--půlmaraton UcastniciTable_evenRow UcastniciTable_cell"
+                  className="align-left PrihlaseniDohlaseni--půlmaraton UcastniciTable_evenRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
@@ -841,7 +841,7 @@ exports[`dva přihlášení 1`] = `
                   abc023skd204mvs345
                 </div>
                 <div
-                  className="Prihlaseni--castecne-zaplaceno UcastniciTable_evenRow UcastniciTable_cell"
+                  className="PrihlaseniDohlaseni--castecne-zaplaceno UcastniciTable_evenRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
@@ -866,7 +866,7 @@ exports[`dva přihlášení 1`] = `
 
 exports[`žádný přihlášený 1`] = `
 <div
-  className="Prihlaseni_div UcastniciTable_container"
+  className="PrihlaseniDohlaseni_div UcastniciTable_container"
 >
   <div>
     <input

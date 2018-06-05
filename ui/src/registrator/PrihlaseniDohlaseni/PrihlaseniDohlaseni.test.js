@@ -3,17 +3,19 @@ import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
-import Prihlaseni from './Prihlaseni';
+import PrihlaseniDohlaseni from './PrihlaseniDohlaseni';
 
 const mockStore = configureStore();
+const actionPrefix = 'PRIHLASENI';
+const reduxName = 'prihlaseni;';
 
-const state = { registrator: { prihlaseni: {} } };
+const state = { registrator: { [reduxName]: {} } };
 const store = mockStore(state);
 store.dispatch = jest.fn();
 
-const commonProps = { actionPrefix: 'PRIHLASENI', reduxName: 'prihlaseni' };
+const commonProps = { actionPrefix, reduxName };
 
-const prihlaseni = [
+const prihlaseniDohlaseni = [
   {
     id: '5a09b1fd371dec1e99b7e1c9',
     prijmeni: 'Balabák',
@@ -56,7 +58,7 @@ it('žádný přihlášený', () => {
   const component = renderer.create(
     <Provider store={store}>
       <MemoryRouter>
-        <Prihlaseni prihlaseni={[]} {...commonProps} />
+        <PrihlaseniDohlaseni prihlaseniDohlaseni={[]} {...commonProps} />
       </MemoryRouter>
     </Provider>
   );
@@ -67,7 +69,7 @@ it('dva přihlášení', () => {
   const component = renderer.create(
     <Provider store={store}>
       <MemoryRouter>
-        <Prihlaseni prihlaseni={prihlaseni} {...commonProps} />
+        <PrihlaseniDohlaseni prihlaseniDohlaseni={prihlaseniDohlaseni} {...commonProps} />
       </MemoryRouter>
     </Provider>
   );

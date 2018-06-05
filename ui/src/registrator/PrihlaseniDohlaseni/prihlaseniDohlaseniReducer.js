@@ -16,17 +16,17 @@ export const initialState = {
   ...ucastniciTableInitialState
 };
 
-const filterableReducer = createFilterableReducer('PRIHLASENI');
-const ucastniciTableReducer = createUcastniciTableReducer('PRIHLASENI');
+export const createPrihlaseniDohlaseniReducer = actionPrefix => {
+  const filterableReducer = createFilterableReducer(actionPrefix);
+  const ucastniciTableReducer = createUcastniciTableReducer(actionPrefix);
 
-const prihlaseniReducer = (state = initialState, action) => {
-  state = filterableReducer(state, action); // eslint-disable-line no-param-reassign
-  return ucastniciTableReducer(state, action);
+  return (state = initialState, action) => {
+    state = filterableReducer(state, action); // eslint-disable-line no-param-reassign
+    return ucastniciTableReducer(state, action);
+  };
 };
 
-export default prihlaseniReducer;
-
-export const getPrihlaseniSorted = ({
+export const getPrihlaseniDohlaseniSorted = ({
   kategorie,
   rocniky,
   ucastnici,

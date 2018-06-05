@@ -1,21 +1,27 @@
 import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { SortDirTypes } from '../../sort';
-import prihlaseniReducer, { getPrihlaseniSorted } from './prihlaseniReducer';
+import {
+  createPrihlaseniDohlaseniReducer,
+  getPrihlaseniDohlaseniSorted
+} from './prihlaseniDohlaseniReducer';
 import {
   createKategorieFilterChange,
   createTextFilterChange
 } from '../Filterable/FilterableActions';
 import { createSortDirChange } from '../UcastniciTable/UcastniciTableActions';
 
-const kategorieFilterChange = createKategorieFilterChange('PRIHLASENI');
-const sortDirChange = createSortDirChange('PRIHLASENI');
-const textFilterChange = createTextFilterChange('PRIHLASENI');
+const actionPrefix = 'PRIHLASENI';
+const reduxName = 'prihlaseni';
+const kategorieFilterChange = createKategorieFilterChange(actionPrefix);
+const prihlaseniDohlaseniReducer = createPrihlaseniDohlaseniReducer(actionPrefix);
+const sortDirChange = createSortDirChange(actionPrefix);
+const textFilterChange = createTextFilterChange(actionPrefix);
 
 it('na začátku', () => {
   const stateBefore = undefined;
 
-  const stateAfter = prihlaseniReducer(stateBefore, {});
+  const stateAfter = prihlaseniDohlaseniReducer(stateBefore, {});
   expect(stateAfter.kategorieFilter).toEqual('');
   expect(stateAfter.textFilter).toEqual('');
   expect(stateAfter.sortColumn).toBe(undefined);
@@ -32,7 +38,7 @@ it('řadit dle příjmení vzestupně', () => {
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
+  expect(prihlaseniDohlaseniReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
 });
 
 it('řadit dle příjmení sestupně', () => {
@@ -45,7 +51,7 @@ it('řadit dle příjmení sestupně', () => {
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.DESC };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
+  expect(prihlaseniDohlaseniReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
 });
 
 it('řadit dle příjmení zase vzestupně', () => {
@@ -58,7 +64,7 @@ it('řadit dle příjmení zase vzestupně', () => {
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
+  expect(prihlaseniDohlaseniReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
 });
 
 it('řadit dle jména vzestupně', () => {
@@ -71,7 +77,7 @@ it('řadit dle jména vzestupně', () => {
   const stateAfter = { ...stateBefore, sortColumn: 'jmeno', sortDir: SortDirTypes.ASC };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniReducer(stateBefore, sortDirChange('jmeno'))).toEqual(stateAfter);
+  expect(prihlaseniDohlaseniReducer(stateBefore, sortDirChange('jmeno'))).toEqual(stateAfter);
 });
 
 it('zapnout filtrování podle kategorie výkonu', () => {
@@ -84,7 +90,9 @@ it('zapnout filtrování podle kategorie výkonu', () => {
   const stateAfter = { ...stateBefore, kategorieFilter: 'půlmaraton' };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniReducer(stateBefore, kategorieFilterChange('půlmaraton'))).toEqual(stateAfter);
+  expect(prihlaseniDohlaseniReducer(stateBefore, kategorieFilterChange('půlmaraton'))).toEqual(
+    stateAfter
+  );
 });
 
 it('vypnout filtrování podle kategorie výkonu', () => {
@@ -97,7 +105,9 @@ it('vypnout filtrování podle kategorie výkonu', () => {
   const stateAfter = { ...stateBefore, kategorieFilter: '' };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniReducer(stateBefore, kategorieFilterChange('půlmaraton'))).toEqual(stateAfter);
+  expect(prihlaseniDohlaseniReducer(stateBefore, kategorieFilterChange('půlmaraton'))).toEqual(
+    stateAfter
+  );
 });
 
 it('přeppnout filtrování podle kategorie výkonu', () => {
@@ -110,7 +120,9 @@ it('přeppnout filtrování podle kategorie výkonu', () => {
   const stateAfter = { ...stateBefore, kategorieFilter: 'pěší' };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniReducer(stateBefore, kategorieFilterChange('pěší'))).toEqual(stateAfter);
+  expect(prihlaseniDohlaseniReducer(stateBefore, kategorieFilterChange('pěší'))).toEqual(
+    stateAfter
+  );
 });
 
 it('filtrovat na dvě písmena', () => {
@@ -123,14 +135,14 @@ it('filtrovat na dvě písmena', () => {
   const stateAfter = { ...stateBefore, textFilter: 'kl' };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniReducer(stateBefore, textFilterChange('Kl'))).toEqual(stateAfter);
+  expect(prihlaseniDohlaseniReducer(stateBefore, textFilterChange('Kl'))).toEqual(stateAfter);
 });
 
 it('getPrihlaseniSorted() by default', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlaseni: {
+      [reduxName]: {
         sortColumn: undefined,
         sortDir: undefined,
         kategorieFilter: '',
@@ -201,16 +213,16 @@ it('getPrihlaseniSorted() by default', () => {
 
   const {
     entities,
-    registrator: { prihlaseni }
+    registrator: { [reduxName]: props }
   } = state;
-  expect(getPrihlaseniSorted({ ...entities, ...prihlaseni })).toEqual(selected);
+  expect(getPrihlaseniDohlaseniSorted({ ...entities, ...props })).toEqual(selected);
 });
 
 it('getPrihlaseniSorted() filtrováno na z', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlaseni: {
+      [reduxName]: {
         sortColumn: undefined,
         sortDir: undefined,
         kategorieFilter: '',
@@ -243,16 +255,16 @@ it('getPrihlaseniSorted() filtrováno na z', () => {
 
   const {
     entities,
-    registrator: { prihlaseni }
+    registrator: { [reduxName]: props }
   } = state;
-  expect(getPrihlaseniSorted({ ...entities, ...prihlaseni })).toEqual(selected);
+  expect(getPrihlaseniDohlaseniSorted({ ...entities, ...props })).toEqual(selected);
 });
 
 it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      prihlaseni: {
+      [reduxName]: {
         sortColumn: undefined,
         sortDir: undefined,
         kategorieFilter: 'půlmaraton',
@@ -323,7 +335,7 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
 
   const {
     entities,
-    registrator: { prihlaseni }
+    registrator: { [reduxName]: props }
   } = state;
-  expect(getPrihlaseniSorted({ ...entities, ...prihlaseni })).toEqual(selected);
+  expect(getPrihlaseniDohlaseniSorted({ ...entities, ...props })).toEqual(selected);
 });

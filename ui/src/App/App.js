@@ -11,7 +11,7 @@ import About from './About';
 import CasomiryContainer from '../casomeric/Casomira/Casomiry/CasomiryContainer';
 import Dohlasky from '../registrator/PrihlaskyDohlasky/Dohlasky';
 import Main from './Main';
-import PrihlaseniContainer from '../registrator/Prihlaseni/PrihlaseniContainer';
+import Prihlaseni from '../registrator/PrihlaseniDohlaseni/Prihlaseni';
 import Prihlasky from '../registrator/PrihlaskyDohlasky/Prihlasky';
 import SignInContainer from '../auth/SignIn/SignInContainer';
 import SignOutContainer from '../auth/SignOut/SignOutContainer';
@@ -127,10 +127,7 @@ class App extends PureComponent {
               component={withAuth(withFetchUcastnici(withFetchStopky(CasomiryContainer)))}
             />
             <Route path="/dohlasky" component={withAuth(withFetchUcastnici(Dohlasky))} />
-            <Route
-              path="/prihlaseni"
-              component={withAuth(withFetchUcastnici(PrihlaseniContainer))}
-            />
+            <Route path="/prihlaseni" component={withAuth(withFetchUcastnici(Prihlaseni))} />
             <Route path="/prihlasky" component={withAuth(withFetchUcastnici(Prihlasky))} />
             <Route path="/signin" component={withoutAuth(SignInContainer)} />
             <Route path="/signout" component={withAuth(SignOutContainer)} />

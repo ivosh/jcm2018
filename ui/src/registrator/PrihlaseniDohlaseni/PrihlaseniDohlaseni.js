@@ -6,7 +6,7 @@ import { narozeniToStr } from '../../Util';
 import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import FilterableContainer from '../Filterable/FilterableContainer';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
-import './Prihlaseni.css';
+import './PrihlaseniDohlaseni.css';
 
 const datumFormat = ({ cellData }) => moment.utc(cellData).format('D. M. YYYY');
 
@@ -20,7 +20,7 @@ const prijmeniFormat = args => (
 
 const zaplacenoFormat = ({ cellData }) => `${cellData} Kč`;
 
-const Prihlaseni = ({ actionPrefix, reduxName, prihlaseni }) => {
+const PrihlaseniDohlaseni = ({ actionPrefix, reduxName, prihlaseniDohlaseni }) => {
   const columns = [
     {
       cellClassNames: () => ['align-left'],
@@ -56,7 +56,7 @@ const Prihlaseni = ({ actionPrefix, reduxName, prihlaseni }) => {
       width: 110
     },
     {
-      cellClassNames: ({ cellData }) => ['align-left', `Prihlaseni--${cellData.typ}`],
+      cellClassNames: ({ cellData }) => ['align-left', `PrihlaseniDohlaseni--${cellData.typ}`],
       cellDataFormatter: kategorieFormat,
       key: 'kategorie',
       sortable: true,
@@ -73,11 +73,11 @@ const Prihlaseni = ({ actionPrefix, reduxName, prihlaseni }) => {
     {
       cellClassNames: ({ cellData, data, rowIndex }) => {
         if (cellData >= data[rowIndex].predepsano) {
-          return ['Prihlaseni--zaplaceno'];
+          return ['PrihlaseniDohlaseni--zaplaceno'];
         } else if (cellData > 0) {
-          return ['Prihlaseni--castecne-zaplaceno'];
+          return ['PrihlaseniDohlaseni--castecne-zaplaceno'];
         }
-        return ['Prihlaseni--nezaplaceno'];
+        return ['PrihlaseniDohlaseni--nezaplaceno'];
       },
       cellDataFormatter: zaplacenoFormat,
       key: 'zaplaceno',
@@ -87,17 +87,17 @@ const Prihlaseni = ({ actionPrefix, reduxName, prihlaseni }) => {
   ];
 
   return (
-    <div className="Prihlaseni_div UcastniciTable_container">
+    <div className="PrihlaseniDohlaseni_div UcastniciTable_container">
       <FilterableContainer
         actionPrefix={actionPrefix}
         reduxName={reduxName}
-        numberOfItems={prihlaseni.length}
+        numberOfItems={prihlaseniDohlaseni.length}
       />
 
       <UcastniciTableContainer
         actionPrefix={actionPrefix}
         columns={columns}
-        data={prihlaseni}
+        data={prihlaseniDohlaseni}
         fixedColumnCount={3}
         reduxName={reduxName}
         rowHeight={35}
@@ -106,10 +106,10 @@ const Prihlaseni = ({ actionPrefix, reduxName, prihlaseni }) => {
   );
 };
 
-Prihlaseni.propTypes = {
+PrihlaseniDohlaseni.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
   reduxName: PropTypes.string.isRequired,
-  prihlaseni: PropTypes.arrayOf(
+  prihlaseniDohlaseni: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       prijmeni: PropTypes.string.isRequired,
@@ -133,4 +133,4 @@ Prihlaseni.propTypes = {
   ).isRequired
 };
 
-export default Prihlaseni;
+export default PrihlaseniDohlaseni;

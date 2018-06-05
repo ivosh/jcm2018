@@ -1,37 +1,37 @@
-.Prihlaseni_div {
+.PrihlaseniDohlaseni_div {
   padding-left: 30px;
   padding-right: 50px;
 }
 
-.Prihlaseni--maraton {
+.PrihlaseniDohlaseni--maraton {
   background-color: rgba(var(--maraton), 0.4);
 }
-.Prihlaseni--půlmaraton {
+.PrihlaseniDohlaseni--půlmaraton {
   background-color: rgba(var(--půlmaraton), 0.4);
 }
-.Prihlaseni--cyklo {
+.PrihlaseniDohlaseni--cyklo {
   background-color: rgba(var(--cyklo), 0.4);
 }
-.Prihlaseni--koloběžka {
+.PrihlaseniDohlaseni--koloběžka {
   background-color: rgba(var(--koloběžka), 0.4);
 }
-.Prihlaseni--pěší {
+.PrihlaseniDohlaseni--pěší {
   background-color: rgba(var(--pěší), 0.4);
 }
 
-.Prihlaseni--zaplaceno,
-.Prihlaseni--castecne-zaplaceno,
-.Prihlaseni--nezaplaceno {
+.PrihlaseniDohlaseni--zaplaceno,
+.PrihlaseniDohlaseni--castecne-zaplaceno,
+.PrihlaseniDohlaseni--nezaplaceno {
   color: white;
   font-weight: bold;
   text-align: right;
 }
-.Prihlaseni--zaplaceno {
+.PrihlaseniDohlaseni--zaplaceno {
   background-color: rgba(48, 199, 90, 1);
 }
-.Prihlaseni--castecne-zaplaceno {
+.PrihlaseniDohlaseni--castecne-zaplaceno {
   background-color: rgba(240, 173, 78, 1);
 }
-.Prihlaseni--nezaplaceno {
+.PrihlaseniDohlaseni--nezaplaceno {
   background-color: rgba(226, 57, 73, 1);
 }
