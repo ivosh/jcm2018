@@ -1,7 +1,7 @@
 import deepFreeze from 'deep-freeze';
 import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
 import { fetchRocnikySuccess } from './rocnikyActions';
-import rocnikyReducer, { getDatumKonani } from './rocnikyReducer';
+import rocnikyReducer, { getDatumKonani, getKategorie } from './rocnikyReducer';
 
 it('nic se nestalo 1', () => {
   const stateBefore = undefined;
@@ -255,4 +255,218 @@ it('po odhlášení', () => {
   deepFreeze(stateBefore);
 
   expect(rocnikyReducer(stateBefore, signOutSuccess())).toEqual(stateAfter);
+});
+
+it('getKategorie', () => {
+  const rocniky = {
+    roky: [2018],
+    byRoky: {
+      2018: {
+        id: '5a587e1b051c181132cf83df',
+        kategorie: {
+          maraton: {
+            muž: [
+              {
+                id: '5a587e1a051c181132cf83b8',
+                pohlavi: 'muž',
+                typ: 'maraton',
+                vek: { min: 18, max: 39 }
+              },
+              {
+                id: '5a587e1a051c181132cf83ba',
+                pohlavi: 'muž',
+                typ: 'maraton',
+                vek: { min: 40, max: 49 }
+              },
+              {
+                id: '5a587e1a051c181132cf83bc',
+                pohlavi: 'muž',
+                typ: 'maraton',
+                vek: { min: 50, max: 59 }
+              },
+              {
+                id: '5a587e1b051c181132cf83d6',
+                pohlavi: 'muž',
+                typ: 'maraton',
+                vek: { min: 60, max: 69 }
+              },
+              {
+                id: '5a587e1b051c181132cf83d8',
+                pohlavi: 'muž',
+                typ: 'maraton',
+                vek: { min: 70, max: 150 }
+              }
+            ],
+            žena: [
+              {
+                id: '5a587e1a051c181132cf83c0',
+                pohlavi: 'žena',
+                typ: 'maraton',
+                vek: { min: 18, max: 39 }
+              },
+              {
+                id: '5a587e1a051c181132cf83c1',
+                pohlavi: 'žena',
+                typ: 'maraton',
+                vek: { min: 40, max: 49 }
+              },
+              {
+                id: '5a587e1a051c181132cf83c2',
+                pohlavi: 'žena',
+                typ: 'maraton',
+                vek: { min: 50, max: 59 }
+              },
+              {
+                id: '5a587e1b051c181132cf83dc',
+                pohlavi: 'žena',
+                typ: 'maraton',
+                vek: { min: 60, max: 69 }
+              },
+              {
+                id: '5a587e1b051c181132cf83de',
+                pohlavi: 'žena',
+                typ: 'maraton',
+                vek: { min: 70, max: 150 }
+              }
+            ],
+            startovne: { predem: 200, naMiste: 250 },
+            startCisla: { barva: 'cervena', rozsahy: ['1-100'] }
+          },
+          půlmaraton: {
+            muž: [
+              {
+                id: '5a587e1b051c181132cf83d3',
+                pohlavi: 'muž',
+                typ: 'půlmaraton',
+                vek: { min: 18, max: 39 }
+              },
+              {
+                id: '5a587e1b051c181132cf83d4',
+                pohlavi: 'muž',
+                typ: 'půlmaraton',
+                vek: { min: 40, max: 49 }
+              },
+              {
+                id: '5a587e1b051c181132cf83d5',
+                pohlavi: 'muž',
+                typ: 'půlmaraton',
+                vek: { min: 50, max: 59 }
+              },
+              {
+                id: '5a587e1b051c181132cf83d7',
+                pohlavi: 'muž',
+                typ: 'půlmaraton',
+                vek: { min: 60, max: 150 }
+              }
+            ],
+            žena: [
+              {
+                id: '5a587e1b051c181132cf83d9',
+                pohlavi: 'žena',
+                typ: 'půlmaraton',
+                vek: { min: 18, max: 39 }
+              },
+              {
+                id: '5a587e1b051c181132cf83da',
+                pohlavi: 'žena',
+                typ: 'půlmaraton',
+                vek: { min: 40, max: 49 }
+              },
+              {
+                id: '5a587e1b051c181132cf83db',
+                pohlavi: 'žena',
+                typ: 'půlmaraton',
+                vek: { min: 50, max: 59 }
+              },
+              {
+                id: '5a587e1b051c181132cf83dd',
+                pohlavi: 'žena',
+                typ: 'půlmaraton',
+                vek: { min: 60, max: 150 }
+              }
+            ],
+            startovne: { predem: 200, naMiste: 250 },
+            startCisla: { barva: 'cerna', rozsahy: ['1-100'] }
+          },
+          cyklo: {
+            id: '5a587e1b051c181132cf83c8',
+            typ: 'cyklo',
+            vek: { min: 16, max: 17, presne: true },
+            muž: [
+              {
+                id: '5a587e1a051c181132cf83b3',
+                pohlavi: 'muž',
+                typ: 'cyklo',
+                vek: { min: 18, max: 35 }
+              },
+              {
+                id: '5a587e1a051c181132cf83b9',
+                pohlavi: 'muž',
+                typ: 'cyklo',
+                vek: { min: 36, max: 45 }
+              },
+              {
+                id: '5a587e1a051c181132cf83bb',
+                pohlavi: 'muž',
+                typ: 'cyklo',
+                vek: { min: 46, max: 150 }
+              }
+            ],
+            žena: [
+              {
+                id: '5a587e1a051c181132cf83b5',
+                pohlavi: 'žena',
+                typ: 'cyklo',
+                vek: { min: 18, max: 35 }
+              },
+              {
+                id: '5a587e1a051c181132cf83bd',
+                pohlavi: 'žena',
+                typ: 'cyklo',
+                vek: { min: 36, max: 45 }
+              },
+              {
+                id: '5a587e1a051c181132cf83bf',
+                pohlavi: 'žena',
+                typ: 'cyklo',
+                vek: { min: 46, max: 150 }
+              }
+            ],
+            startovne: { predem: 200, naMiste: 250, zaloha: 20 },
+            startCisla: { rozsahy: ['1-150'] }
+          },
+          koloběžka: {
+            muž: [
+              {
+                id: '5a587e1b051c181132cf83cf',
+                pohlavi: 'muž',
+                typ: 'koloběžka',
+                vek: { min: 18, max: 150 }
+              }
+            ],
+            žena: [
+              {
+                id: '5a587e1b051c181132cf83d0',
+                pohlavi: 'žena',
+                typ: 'koloběžka',
+                vek: { min: 18, max: 150 }
+              }
+            ],
+            startovne: { predem: 200, naMiste: 250 },
+            startCisla: { rozsahy: ['100-90'] }
+          },
+          pěší: {
+            id: '5a587e1a051c181132cf83b1',
+            typ: 'pěší',
+            startovne: { predem: 30, naMiste: 30 }
+          }
+        },
+        datum: '2018-06-09T00:00:00.000Z',
+        ubytovani: { pátek: { poplatek: 50 } }
+      }
+    }
+  };
+
+  const typy = ['maraton', 'půlmaraton', 'cyklo', 'koloběžka', 'pěší'];
+  typy.forEach(typ => expect(getKategorie({ typ, rocniky })).toMatchSnapshot());
 });

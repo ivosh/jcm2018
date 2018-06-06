@@ -21,3 +21,14 @@ export const getTypKategorie = ({ rok, typ, rocniky }) => {
   const rocnik = rocniky.byRoky[rok];
   return rocnik.kategorie[typ];
 };
+
+export const getKategorie = ({ typ, rocniky, rok = AKTUALNI_ROK }) => {
+  const typKategorie = getTypKategorie({ rok, typ, rocniky });
+
+  // :TODO: juniorská kategorie cyklo je v současnosti nevybratelná
+  if (!typKategorie['muž'] && !typKategorie['žena']) {
+    return [typKategorie]; // jediná kategorie
+  }
+
+  return [...typKategorie['muž'], ...typKategorie['žena']];
+};
