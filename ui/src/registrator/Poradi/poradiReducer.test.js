@@ -141,3 +141,81 @@ it('getPoradiSorted() by default', () => {
   } = state;
   expect(getPoradiSorted({ ...entities, ...props })).toEqual(selected);
 });
+
+it('getPoradiSorted() - filter for startovní číslo 11', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      poradi: {
+        sortColumn: undefined,
+        sortDir: undefined,
+        kategorieFilter: '',
+        kategorieSubFilter: '',
+        textFilter: '11'
+      }
+    }
+  };
+  const selected = [
+    {
+      id: '7a09b1fd371dec1e99b7e142',
+      prijmeni: 'Zralá',
+      jmeno: 'Hana',
+      narozeni: { den: 25, mesic: 7, rok: 1999 },
+      kategorie: {
+        id: '5a587e1b051c181132cf83d9',
+        typ: 'půlmaraton',
+        pohlavi: 'žena',
+        vek: { min: 18, max: 39 }
+      },
+      startCislo: 11,
+      dokonceno: true,
+      cas: 'PT2H06M32.6S'
+    }
+  ];
+  deepFreeze(state);
+
+  const {
+    entities,
+    registrator: { poradi: props }
+  } = state;
+  expect(getPoradiSorted({ ...entities, ...props })).toEqual(selected);
+});
+
+it('getPoradiSorted() - filter for kategorie půlmaraton/žena/18-39', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      poradi: {
+        sortColumn: undefined,
+        sortDir: undefined,
+        kategorieFilter: 'půlmaraton',
+        kategorieSubFilter: '5a587e1b051c181132cf83d9',
+        textFilter: ''
+      }
+    }
+  };
+  const selected = [
+    {
+      id: '7a09b1fd371dec1e99b7e142',
+      prijmeni: 'Zralá',
+      jmeno: 'Hana',
+      narozeni: { den: 25, mesic: 7, rok: 1999 },
+      kategorie: {
+        id: '5a587e1b051c181132cf83d9',
+        typ: 'půlmaraton',
+        pohlavi: 'žena',
+        vek: { min: 18, max: 39 }
+      },
+      startCislo: 11,
+      dokonceno: true,
+      cas: 'PT2H06M32.6S'
+    }
+  ];
+  deepFreeze(state);
+
+  const {
+    entities,
+    registrator: { poradi: props }
+  } = state;
+  expect(getPoradiSorted({ ...entities, ...props })).toEqual(selected);
+});
