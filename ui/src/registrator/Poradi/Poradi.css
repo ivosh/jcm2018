@@ -1,0 +1,20 @@
+.Poradi__div {
+  padding-left: 30px;
+  padding-right: 50px;
+}
+
+.Poradi--maraton {
+  background-color: rgba(var(--maraton), 0.4);
+}
+.Poradi--půlmaraton {
+  background-color: rgba(var(--půlmaraton), 0.4);
+}
+.Poradi--cyklo {
+  background-color: rgba(var(--cyklo), 0.4);
+}
+.Poradi--koloběžka {
+  background-color: rgba(var(--koloběžka), 0.4);
+}
+.Poradi--pěší {
+  background-color: rgba(var(--pěší), 0.4);
+}

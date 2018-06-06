@@ -1,0 +1,213 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`maps state and dispatch to props - default 1`] = `
+Array [
+  Object {
+    "active": false,
+    "onClick": [Function],
+    "typ": "maraton",
+    "visible": true,
+  },
+  Object {
+    "active": false,
+    "onClick": [Function],
+    "typ": "půlmaraton",
+    "visible": true,
+  },
+  Object {
+    "active": false,
+    "onClick": [Function],
+    "typ": "cyklo",
+    "visible": true,
+  },
+  Object {
+    "active": false,
+    "onClick": [Function],
+    "typ": "koloběžka",
+    "visible": true,
+  },
+  Object {
+    "active": false,
+    "onClick": [Function],
+    "typ": "pěší",
+    "visible": true,
+  },
+]
+`;
+
+exports[`maps state and dispatch to props - default 2`] = `
+Array [
+  Object {
+    "cas": undefined,
+    "dokonceno": false,
+    "id": "5a09b1fd371dec1e99b7e1c9",
+    "jmeno": "Roman",
+    "kategorie": Object {
+      "id": "5a587e1b051c181132cf83d7",
+      "pohlavi": "muž",
+      "typ": "půlmaraton",
+      "vek": Object {
+        "max": 150,
+        "min": 60,
+      },
+    },
+    "narozeni": Object {
+      "rok": 1956,
+    },
+    "prijmeni": "Balabák",
+    "startCislo": 15,
+  },
+  Object {
+    "absPoradi": 1,
+    "cas": "PT2H06M32.6S",
+    "dokonceno": true,
+    "id": "7a09b1fd371dec1e99b7e142",
+    "jmeno": "Hana",
+    "kategorie": Object {
+      "id": "5a587e1b051c181132cf83d9",
+      "pohlavi": "žena",
+      "typ": "půlmaraton",
+      "vek": Object {
+        "max": 39,
+        "min": 18,
+      },
+    },
+    "narozeni": Object {
+      "den": 25,
+      "mesic": 7,
+      "rok": 1999,
+    },
+    "prijmeni": "Zralá",
+    "relPoradi": 1,
+    "startCislo": 11,
+  },
+]
+`;
+
+exports[`maps state and dispatch to props - non-default 1`] = `
+Array [
+  Object {
+    "active": true,
+    "onClick": [Function],
+    "typ": "maraton",
+    "visible": true,
+  },
+]
+`;
+
+exports[`maps state and dispatch to props - non-default 2`] = `
+Array [
+  Object {
+    "active": false,
+    "id": "5a587e1a051c181132cf83b8",
+    "onClick": [Function],
+    "pohlavi": "muž",
+    "typ": "maraton",
+    "vek": Object {
+      "max": 39,
+      "min": 18,
+    },
+  },
+  Object {
+    "active": true,
+    "id": "5a587e1a051c181132cf83ba",
+    "onClick": [Function],
+    "pohlavi": "muž",
+    "typ": "maraton",
+    "vek": Object {
+      "max": 49,
+      "min": 40,
+    },
+  },
+  Object {
+    "active": false,
+    "id": "5a587e1a051c181132cf83bc",
+    "onClick": [Function],
+    "pohlavi": "muž",
+    "typ": "maraton",
+    "vek": Object {
+      "max": 59,
+      "min": 50,
+    },
+  },
+  Object {
+    "active": false,
+    "id": "5a587e1b051c181132cf83d6",
+    "onClick": [Function],
+    "pohlavi": "muž",
+    "typ": "maraton",
+    "vek": Object {
+      "max": 69,
+      "min": 60,
+    },
+  },
+  Object {
+    "active": false,
+    "id": "5a587e1b051c181132cf83d8",
+    "onClick": [Function],
+    "pohlavi": "muž",
+    "typ": "maraton",
+    "vek": Object {
+      "max": 150,
+      "min": 70,
+    },
+  },
+  Object {
+    "active": false,
+    "id": "5a587e1a051c181132cf83c0",
+    "onClick": [Function],
+    "pohlavi": "žena",
+    "typ": "maraton",
+    "vek": Object {
+      "max": 39,
+      "min": 18,
+    },
+  },
+  Object {
+    "active": false,
+    "id": "5a587e1a051c181132cf83c1",
+    "onClick": [Function],
+    "pohlavi": "žena",
+    "typ": "maraton",
+    "vek": Object {
+      "max": 49,
+      "min": 40,
+    },
+  },
+  Object {
+    "active": false,
+    "id": "5a587e1a051c181132cf83c2",
+    "onClick": [Function],
+    "pohlavi": "žena",
+    "typ": "maraton",
+    "vek": Object {
+      "max": 59,
+      "min": 50,
+    },
+  },
+  Object {
+    "active": false,
+    "id": "5a587e1b051c181132cf83dc",
+    "onClick": [Function],
+    "pohlavi": "žena",
+    "typ": "maraton",
+    "vek": Object {
+      "max": 69,
+      "min": 60,
+    },
+  },
+  Object {
+    "active": false,
+    "id": "5a587e1b051c181132cf83de",
+    "onClick": [Function],
+    "pohlavi": "žena",
+    "typ": "maraton",
+    "vek": Object {
+      "max": 150,
+      "min": 70,
+    },
+  },
+]
+`;
+
+exports[`maps state and dispatch to props - non-default 3`] = `Array []`;
