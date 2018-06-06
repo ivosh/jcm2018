@@ -44,3 +44,15 @@ it('maps state and dispatch to props', () => {
   expect(wrapper.props().prihlaseniDohlaseni).toBeTruthy();
   expect(wrapper.props().prihlaseniDohlaseni).toMatchSnapshot();
 });
+
+it('maps dohlaseniFilter.onClick to dispatch dohlaseniFilterChange', () => {
+  wrapper.props().dohlaseniFilter.onClick();
+
+  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASENI_DOHLASENI_FILTER_CHANGE' });
+});
+
+it('maps prihlaseniFilter.onClick to dispatch prihlaseniFilterChange', () => {
+  wrapper.props().prihlaseniFilter.onClick();
+
+  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASENI_PRIHLASENI_FILTER_CHANGE' });
+});
