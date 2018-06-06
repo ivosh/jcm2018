@@ -1,7 +1,8 @@
 import deepFreeze from 'deep-freeze';
+import { TYPY_KATEGORII } from '../../constants';
 import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
 import { fetchRocnikySuccess } from './rocnikyActions';
-import rocnikyReducer, { getDatumKonani, getKategorie } from './rocnikyReducer';
+import rocnikyReducer, { getDatumKonani, getKategorieProTyp } from './rocnikyReducer';
 
 it('nic se nestalo 1', () => {
   const stateBefore = undefined;
@@ -467,6 +468,5 @@ it('getKategorie', () => {
     }
   };
 
-  const typy = ['maraton', 'půlmaraton', 'cyklo', 'koloběžka', 'pěší'];
-  typy.forEach(typ => expect(getKategorie({ typ, rocniky })).toMatchSnapshot());
+  TYPY_KATEGORII.forEach(typ => expect(getKategorieProTyp({ typ, rocniky })).toMatchSnapshot());
 });

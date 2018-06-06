@@ -22,7 +22,7 @@ export const getTypKategorie = ({ rok, typ, rocniky }) => {
   return rocnik.kategorie[typ];
 };
 
-export const getKategorie = ({ typ, rocniky, rok = AKTUALNI_ROK }) => {
+export const getKategorieProTyp = ({ typ, rocniky, rok = AKTUALNI_ROK }) => {
   const typKategorie = getTypKategorie({ rok, typ, rocniky });
 
   // :TODO: juniorská kategorie cyklo je v současnosti nevybratelná
