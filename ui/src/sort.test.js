@@ -25,7 +25,9 @@ const data = [
     startCislo: 17,
     kod: '10728864',
     zaplaceno: 250,
-    predepsano: 200
+    predepsano: 200,
+    dokonceno: undefined,
+    cas: undefined
   },
   {
     prijmeni: 'Kyselová',
@@ -40,7 +42,9 @@ const data = [
       vek: { min: 40, max: 49 }
     },
     zaplaceno: 0,
-    predepsano: 200
+    predepsano: 200,
+    dokonceno: false,
+    cas: undefined
   },
   {
     prijmeni: 'Sukdoláková',
@@ -55,7 +59,9 @@ const data = [
       pohlavi: 'žena',
       vek: { min: 50, max: 59 }
     },
-    zaplaceno: 0
+    zaplaceno: 0,
+    dokonceno: true,
+    cas: 'PT3H07M56.12S'
   },
   {
     prijmeni: 'Zralá',
@@ -72,7 +78,9 @@ const data = [
     startCislo: 10,
     kod: 'abc023skd204mvs345',
     zaplaceno: 100,
-    predepsano: 200
+    predepsano: 200,
+    dokonceno: true,
+    cas: 'PT1H23M32.56S'
   }
 ];
 deepFreeze(data);
@@ -345,5 +353,41 @@ it('sortForColumn - zaplaceno DESC', () => {
     data[3],
     data[2],
     data[1]
+  ]);
+});
+
+it('sortForColumn - dokonceno ASC', () => {
+  expect(sortForColumn({ data, sortColumn: 'dokonceno', sortDir: SortDirTypes.ASC })).toEqual([
+    data[2],
+    data[3],
+    data[1],
+    data[0]
+  ]);
+});
+
+it('sortForColumn - dokonceno DESC', () => {
+  expect(sortForColumn({ data, sortColumn: 'dokonceno', sortDir: SortDirTypes.DESC })).toEqual([
+    data[0],
+    data[1],
+    data[3],
+    data[2]
+  ]);
+});
+
+it('sortForColumn - cas ASC', () => {
+  expect(sortForColumn({ data, sortColumn: 'cas', sortDir: SortDirTypes.ASC })).toEqual([
+    data[3],
+    data[2],
+    data[0],
+    data[1]
+  ]);
+});
+
+it('sortForColumn - cas DESC', () => {
+  expect(sortForColumn({ data, sortColumn: 'cas', sortDir: SortDirTypes.DESC })).toEqual([
+    data[2],
+    data[3],
+    data[1],
+    data[0]
   ]);
 });

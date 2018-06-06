@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export const SortDirTypes = { NONE: 'none', ASC: 'asc', DESC: 'desc' };
 
 export const reverseSortDirType = sortDirType => {
@@ -110,6 +112,39 @@ export const prijmeniJmenoNarozeniSortMethod = (a, b, desc = false) => {
   return narozeniSortMethod(a.narozeni, b.narozeni, desc);
 };
 
+export const dokoncenoSortMethod = (a, b) => {
+  if (a === b) {
+    return 0;
+  }
+
+  if (a === undefined || a === null) {
+    return +1;
+  }
+  if (b === undefined || b === null) {
+    return -1;
+  }
+
+  if (a === true && b === false) {
+    return -1;
+  }
+  return +1; // a === false, b === true
+};
+
+export const casSortMethod = (a, b, desc = false) => {
+  const c = a ? moment.duration(a).asMilliseconds() : undefined;
+  const d = b ? moment.duration(b).asMilliseconds() : undefined;
+  return numberAndUndefinedSortMethod(c, d, desc);
+};
+
+export const dokoncenoCasSortMethod = (a, b, desc = false) => {
+  const dokoncenoCmp = dokoncenoSortMethod(a.dokonceno, b.dokonceno);
+  if (dokoncenoCmp !== 0) {
+    return dokoncenoCmp;
+  }
+
+  return casSortMethod(a.cas, b.cas, desc);
+};
+
 export const sortForColumn = ({ data, sortColumn, sortDir }) => {
   const desc = sortDir === SortDirTypes.DESC;
 
@@ -122,7 +157,9 @@ export const sortForColumn = ({ data, sortColumn, sortDir }) => {
     datum: (a, b) => datumSortMethod(a.datum, b.datum),
     kategorie: (a, b) => kategorieSortMethod(a.kategorie, b.kategorie),
     startCislo: (a, b) => numberAndUndefinedSortMethod(a.startCislo, b.startCislo, desc),
-    zaplaceno: (a, b) => a.zaplaceno - b.zaplaceno
+    zaplaceno: (a, b) => a.zaplaceno - b.zaplaceno,
+    dokonceno: (a, b) => dokoncenoSortMethod(a.dokonceno, b.dokonceno),
+    cas: (a, b) => casSortMethod(a.cas, b.cas, desc)
   };
 
   const sortMethod = sortMethods[sortColumn] || prijmeniJmenoNarozeniSortMethod;
