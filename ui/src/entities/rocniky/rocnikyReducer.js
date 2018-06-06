@@ -1,4 +1,4 @@
-import { AKTUALNI_ROK } from '../../constants';
+import { AKTUALNI_ROK, TYPY_KATEGORII } from '../../constants';
 
 export const initialState = { byRoky: {}, roky: [] };
 
@@ -31,4 +31,13 @@ export const getKategorieProTyp = ({ typ, rocniky, rok = AKTUALNI_ROK }) => {
   }
 
   return [...typKategorie['muž'], ...typKategorie['žena']];
+};
+
+export const getKategorie = ({ rocniky, rok = AKTUALNI_ROK }) => {
+  const result = {};
+  TYPY_KATEGORII.forEach(typ => {
+    result[typ] = getKategorieProTyp({ typ, rocniky, rok });
+  });
+
+  return result;
 };

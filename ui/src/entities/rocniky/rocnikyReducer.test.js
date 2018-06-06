@@ -2,7 +2,7 @@ import deepFreeze from 'deep-freeze';
 import { TYPY_KATEGORII } from '../../constants';
 import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
 import { fetchRocnikySuccess } from './rocnikyActions';
-import rocnikyReducer, { getDatumKonani, getKategorieProTyp } from './rocnikyReducer';
+import rocnikyReducer, { getDatumKonani, getKategorie, getKategorieProTyp } from './rocnikyReducer';
 
 it('nic se nestalo 1', () => {
   const stateBefore = undefined;
@@ -258,7 +258,7 @@ it('po odhlášení', () => {
   expect(rocnikyReducer(stateBefore, signOutSuccess())).toEqual(stateAfter);
 });
 
-it('getKategorie', () => {
+it('getKategorie(), getKategorieProTyp()', () => {
   const rocniky = {
     roky: [2018],
     byRoky: {
@@ -469,4 +469,5 @@ it('getKategorie', () => {
   };
 
   TYPY_KATEGORII.forEach(typ => expect(getKategorieProTyp({ typ, rocniky })).toMatchSnapshot());
+  expect(getKategorie({ rocniky })).toMatchSnapshot();
 });
