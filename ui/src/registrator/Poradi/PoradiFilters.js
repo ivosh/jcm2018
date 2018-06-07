@@ -10,6 +10,7 @@ import './PoradiFilters.css';
 const PoradiFilters = ({
   kategorieFilters,
   kategorieSubFilters,
+  kategorieSubFiltersVisible,
   numberOfItems,
   textFilter,
   onTextFilterChange
@@ -23,9 +24,11 @@ const PoradiFilters = ({
       ))}
     </ButtonGroup>
 
-    <ButtonGroup className="PoradiFilters__sub-kategorie">
-      {kategorieSubFilters.map(({ id, ...props }) => <KategorieSubFilter key={id} {...props} />)}
-    </ButtonGroup>
+    {kategorieSubFiltersVisible && (
+      <ButtonGroup className="PoradiFilters__sub-kategorie">
+        {kategorieSubFilters.map(({ id, ...props }) => <KategorieSubFilter key={id} {...props} />)}
+      </ButtonGroup>
+    )}
 
     <Zobrazeno numberOfItems={numberOfItems} />
   </div>

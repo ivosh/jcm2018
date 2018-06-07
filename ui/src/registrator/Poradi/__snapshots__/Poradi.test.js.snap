@@ -60,9 +60,6 @@ exports[`renders 1`] = `
         </button>
       </span>
     </div>
-    <div
-      className="PoradiFilters__sub-kategorie btn-group"
-    />
     <span
       className="Zobrazeno"
     >
