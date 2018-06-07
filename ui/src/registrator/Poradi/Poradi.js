@@ -64,7 +64,7 @@ const Poradi = ({
       key: 'dokonceno',
       label: 'dokončeno',
       sortable: false,
-      width: 60
+      width: 100
     },
     {
       key: 'cas',

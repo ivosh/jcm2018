@@ -119,6 +119,13 @@ Object {
         "showing": false,
       },
     },
+    "poradi": Object {
+      "kategorieFilter": "",
+      "kategorieSubFilter": "",
+      "sortColumn": undefined,
+      "sortDir": "none",
+      "textFilter": "",
+    },
     "prihlaseni": Object {
       "dohlaseniFilter": false,
       "kategorieFilter": "",
@@ -317,6 +324,13 @@ Object {
         "showing": false,
       },
     },
+    "poradi": Object {
+      "kategorieFilter": "",
+      "kategorieSubFilter": "",
+      "sortColumn": undefined,
+      "sortDir": "none",
+      "textFilter": "",
+    },
     "prihlaseni": Object {
       "dohlaseniFilter": false,
       "kategorieFilter": "",
@@ -514,6 +528,13 @@ Object {
       "startCislo": Object {
         "showing": false,
       },
+    },
+    "poradi": Object {
+      "kategorieFilter": "",
+      "kategorieSubFilter": "",
+      "sortColumn": undefined,
+      "sortDir": "none",
+      "textFilter": "",
     },
     "prihlaseni": Object {
       "dohlaseniFilter": false,

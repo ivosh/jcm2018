@@ -69,6 +69,13 @@ const navs = {
     name: 'Časomíra',
     path: '/casomira'
   },
+  poradi: {
+    key: '4.4',
+    glyph: 'star',
+    menu: 'po startu',
+    name: 'Pořadí',
+    path: '/poradi'
+  },
   main: {
     key: '1',
     glyph: 'home',

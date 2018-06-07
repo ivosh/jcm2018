@@ -203,6 +203,21 @@ exports[`it renders 1`] = `
             Časomíra
           </a>
         </li>
+        <li
+          className="Main__menu-item"
+        >
+          <a
+            className="Main__menu-link"
+            href="/poradi"
+            onClick={[Function]}
+          >
+            <span
+              className="glyphicon glyphicon-star"
+            />
+             
+            Pořadí
+          </a>
+        </li>
       </ul>
     </div>
   </div>
