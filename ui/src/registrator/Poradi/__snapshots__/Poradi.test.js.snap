@@ -1,0 +1,898 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<div
+  className="Poradi__div UcastniciTable_container"
+>
+  <div>
+    <input
+      className="TextFilter__input"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder="Filtr na příjmení a jméno"
+      type="text"
+      value=""
+    />
+    <div
+      className="PoradiFilters__kategorie btn-group"
+    >
+      <span
+        className="KategorieFilter Bootstrap-buttons--active"
+      >
+        <button
+          className="KategorieFilter--maraton--active btn btn-default active"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          <span>
+            <img
+              alt="maraton"
+              height={30}
+              src="maraton.png"
+              title="maraton"
+            />
+             
+            maraton
+          </span>
+        </button>
+      </span>
+      <span
+        className="KategorieFilter Bootstrap-buttons--active"
+      >
+        <button
+          className="KategorieFilter--cyklo--inactive btn btn-default"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          <span>
+            <img
+              alt="cyklo"
+              height={30}
+              src="cyklo.png"
+              title="cyklo"
+            />
+             
+            cyklo
+          </span>
+        </button>
+      </span>
+    </div>
+    <div
+      className="PoradiFilters__sub-kategorie btn-group"
+    />
+    <span
+      className="Zobrazeno"
+    >
+      zobrazeno: 
+      <span
+        className="badge"
+      >
+        3
+      </span>
+    </span>
+  </div>
+  <div
+    className="withResponsive"
+  >
+    <div
+      className="UcastniciTable_GridRow"
+    >
+      <div
+        className="UcastniciTable_LeftSideGridContainer"
+        style={
+          Object {
+            "flexBasis": "290px",
+            "top": 0,
+          }
+        }
+      >
+        <div
+          aria-label="grid"
+          aria-readonly={true}
+          className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
+          id={undefined}
+          onScroll={[Function]}
+          role="grid"
+          style={
+            Object {
+              "WebkitOverflowScrolling": "touch",
+              "boxSizing": "border-box",
+              "direction": "ltr",
+              "height": 35,
+              "overflowX": "hidden",
+              "overflowY": "hidden",
+              "position": "relative",
+              "width": 290,
+              "willChange": "transform",
+            }
+          }
+          tabIndex={0}
+        >
+          <div
+            className="ReactVirtualized__Grid__innerScrollContainer"
+            role="rowgroup"
+            style={
+              Object {
+                "height": 35,
+                "maxHeight": 35,
+                "maxWidth": 290,
+                "overflow": "hidden",
+                "pointerEvents": "",
+                "position": "relative",
+                "width": 290,
+              }
+            }
+          >
+            <div
+              className="UcastniciTable_headerCell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": 100,
+                }
+              }
+            >
+              <a
+                className="SortHeader_a"
+                onClick={[Function]}
+              >
+                příjmení
+                 
+                
+              </a>
+            </div>
+            <div
+              className="UcastniciTable_headerCell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 100,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": 90,
+                }
+              }
+            >
+              <a
+                className="SortHeader_a"
+                onClick={[Function]}
+              >
+                jméno
+                 
+                
+              </a>
+            </div>
+            <div
+              className="UcastniciTable_headerCell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 190,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": 100,
+                }
+              }
+            >
+              <a
+                className="SortHeader_a"
+                onClick={[Function]}
+              >
+                narození
+                 
+                
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="UcastniciTable_LeftSideGridContainer"
+        style={
+          Object {
+            "flexBasis": "290px",
+            "top": 35,
+          }
+        }
+      >
+        <div
+          aria-label="grid"
+          aria-readonly={true}
+          className="ReactVirtualized__Grid UcastniciTable_LeftSideGrid"
+          id={undefined}
+          onScroll={[Function]}
+          role="grid"
+          style={
+            Object {
+              "WebkitOverflowScrolling": "touch",
+              "boxSizing": "border-box",
+              "direction": "ltr",
+              "height": 105,
+              "overflowX": "hidden",
+              "overflowY": "hidden",
+              "position": "relative",
+              "width": 290,
+              "willChange": "transform",
+            }
+          }
+          tabIndex={0}
+        >
+          <div
+            className="ReactVirtualized__Grid__innerScrollContainer"
+            role="rowgroup"
+            style={
+              Object {
+                "height": 105,
+                "maxHeight": 105,
+                "maxWidth": 290,
+                "overflow": "hidden",
+                "pointerEvents": "",
+                "position": "relative",
+                "width": 290,
+              }
+            }
+          >
+            <div
+              className="align-left UcastniciTable_oddRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": 100,
+                }
+              }
+            >
+              Balabák
+            </div>
+            <div
+              className="align-left UcastniciTable_oddRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 100,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": 90,
+                }
+              }
+            >
+              Roman
+            </div>
+            <div
+              className="align-right UcastniciTable_oddRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 190,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": 100,
+                }
+              }
+            >
+              1956
+            </div>
+            <div
+              className="align-left UcastniciTable_evenRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 35,
+                  "width": 100,
+                }
+              }
+            >
+              Zralá
+            </div>
+            <div
+              className="align-left UcastniciTable_evenRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 100,
+                  "position": "absolute",
+                  "top": 35,
+                  "width": 90,
+                }
+              }
+            >
+              Hana
+            </div>
+            <div
+              className="align-right UcastniciTable_evenRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 190,
+                  "position": "absolute",
+                  "top": 35,
+                  "width": 100,
+                }
+              }
+            >
+              25. 7. 1999
+            </div>
+            <div
+              className="align-left UcastniciTable_oddRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 70,
+                  "width": 100,
+                }
+              }
+            >
+              Kyselová
+            </div>
+            <div
+              className="align-left UcastniciTable_oddRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 100,
+                  "position": "absolute",
+                  "top": 70,
+                  "width": 90,
+                }
+              }
+            >
+              Slavěna
+            </div>
+            <div
+              className="align-right UcastniciTable_oddRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 190,
+                  "position": "absolute",
+                  "top": 70,
+                  "width": 100,
+                }
+              }
+            >
+              13. 8. 2001
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="UcastniciTable_GridColumn"
+      >
+        <div>
+          <div
+            style={
+              Object {
+                "height": 35,
+                "width": 590,
+              }
+            }
+          >
+            <div
+              aria-label="grid"
+              aria-readonly={true}
+              className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
+              id={undefined}
+              onScroll={[Function]}
+              role="grid"
+              style={
+                Object {
+                  "WebkitOverflowScrolling": "touch",
+                  "boxSizing": "border-box",
+                  "direction": "ltr",
+                  "height": 35,
+                  "overflowX": "hidden",
+                  "overflowY": "hidden",
+                  "position": "relative",
+                  "width": 880,
+                  "willChange": "transform",
+                }
+              }
+              tabIndex={0}
+            >
+              <div
+                className="ReactVirtualized__Grid__innerScrollContainer"
+                role="rowgroup"
+                style={
+                  Object {
+                    "height": 35,
+                    "maxHeight": 35,
+                    "maxWidth": 880,
+                    "overflow": "hidden",
+                    "pointerEvents": "",
+                    "position": "relative",
+                    "width": 880,
+                  }
+                }
+              >
+                <div
+                  className="UcastniciTable_headerCell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 290,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 200,
+                    }
+                  }
+                >
+                  <a
+                    className="SortHeader_a"
+                    onClick={[Function]}
+                  >
+                    kategorie
+                     
+                    
+                  </a>
+                </div>
+                <div
+                  className="UcastniciTable_headerCell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 490,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 60,
+                    }
+                  }
+                >
+                  <a
+                    className="SortHeader_a"
+                    onClick={[Function]}
+                  >
+                    číslo
+                     
+                    
+                  </a>
+                </div>
+                <div
+                  className="UcastniciTable_headerCell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 550,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 110,
+                    }
+                  }
+                >
+                  <a
+                    className="SortHeader_a"
+                    onClick={[Function]}
+                  >
+                    dokončeno
+                     
+                    
+                  </a>
+                </div>
+                <div
+                  className="UcastniciTable_headerCell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 660,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 100,
+                    }
+                  }
+                >
+                  <a
+                    className="SortHeader_a"
+                    onClick={[Function]}
+                  >
+                    čas
+                     
+                    
+                  </a>
+                </div>
+                <div
+                  className="UcastniciTable_headerCell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 760,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 60,
+                    }
+                  }
+                >
+                  <a
+                    className="SortHeader_a"
+                    onClick={[Function]}
+                  >
+                    abs.
+                     
+                    
+                  </a>
+                </div>
+                <div
+                  className="UcastniciTable_headerCell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 820,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 60,
+                    }
+                  }
+                >
+                  <a
+                    className="SortHeader_a"
+                    onClick={[Function]}
+                  >
+                    rel.
+                     
+                    
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style={
+              Object {
+                "height": 105,
+                "width": 880,
+              }
+            }
+          >
+            <div
+              aria-label="grid"
+              aria-readonly={true}
+              className="ReactVirtualized__Grid UcastniciTable_BodyGrid"
+              id={undefined}
+              onScroll={[Function]}
+              role="grid"
+              style={
+                Object {
+                  "WebkitOverflowScrolling": "touch",
+                  "boxSizing": "border-box",
+                  "direction": "ltr",
+                  "height": 105,
+                  "overflowX": "hidden",
+                  "overflowY": "hidden",
+                  "position": "relative",
+                  "width": 880,
+                  "willChange": "transform",
+                }
+              }
+              tabIndex={0}
+            >
+              <div
+                className="ReactVirtualized__Grid__innerScrollContainer"
+                role="rowgroup"
+                style={
+                  Object {
+                    "height": 105,
+                    "maxHeight": 105,
+                    "maxWidth": 880,
+                    "overflow": "hidden",
+                    "pointerEvents": "",
+                    "position": "relative",
+                    "width": 880,
+                  }
+                }
+              >
+                <div
+                  className="align-left Poradi--půlmaraton UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 290,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 200,
+                    }
+                  }
+                >
+                  <span>
+                    <img
+                      alt="půlmaraton"
+                      height={30}
+                      src="pulmaraton.png"
+                      title="půlmaraton"
+                    />
+                     
+                    <img
+                      alt="muž"
+                      height={28}
+                      src="muz.png"
+                      title="muž"
+                    />
+                    60 let a více
+                  </span>
+                </div>
+                <div
+                  className="align-right UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 490,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 60,
+                    }
+                  }
+                >
+                  15
+                </div>
+                <div
+                  className="align-left UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 550,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 110,
+                    }
+                  }
+                >
+                  nedokončeno
+                </div>
+                <div
+                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 660,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 100,
+                    }
+                  }
+                >
+                  
+                </div>
+                <div
+                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 760,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 60,
+                    }
+                  }
+                >
+                  -
+                </div>
+                <div
+                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 820,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 60,
+                    }
+                  }
+                >
+                  -
+                </div>
+                <div
+                  className="align-left Poradi--půlmaraton UcastniciTable_evenRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 290,
+                      "position": "absolute",
+                      "top": 35,
+                      "width": 200,
+                    }
+                  }
+                >
+                  <span>
+                    <img
+                      alt="půlmaraton"
+                      height={30}
+                      src="pulmaraton.png"
+                      title="půlmaraton"
+                    />
+                     
+                    <img
+                      alt="žena"
+                      height={28}
+                      src="zena.png"
+                      title="žena"
+                    />
+                    18 - 39 let
+                  </span>
+                </div>
+                <div
+                  className="align-right UcastniciTable_evenRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 490,
+                      "position": "absolute",
+                      "top": 35,
+                      "width": 60,
+                    }
+                  }
+                >
+                  11
+                </div>
+                <div
+                  className="align-left UcastniciTable_evenRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 550,
+                      "position": "absolute",
+                      "top": 35,
+                      "width": 110,
+                    }
+                  }
+                >
+                  dokončeno
+                </div>
+                <div
+                  className="UcastniciTable_evenRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 660,
+                      "position": "absolute",
+                      "top": 35,
+                      "width": 100,
+                    }
+                  }
+                >
+                  2:06:32,60
+                </div>
+                <div
+                  className="UcastniciTable_evenRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 760,
+                      "position": "absolute",
+                      "top": 35,
+                      "width": 60,
+                    }
+                  }
+                >
+                  1.
+                </div>
+                <div
+                  className="UcastniciTable_evenRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 820,
+                      "position": "absolute",
+                      "top": 35,
+                      "width": 60,
+                    }
+                  }
+                >
+                  1.
+                </div>
+                <div
+                  className="align-left Poradi--půlmaraton UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 290,
+                      "position": "absolute",
+                      "top": 70,
+                      "width": 200,
+                    }
+                  }
+                >
+                  <span>
+                    <img
+                      alt="půlmaraton"
+                      height={30}
+                      src="pulmaraton.png"
+                      title="půlmaraton"
+                    />
+                     
+                    <img
+                      alt="žena"
+                      height={28}
+                      src="zena.png"
+                      title="žena"
+                    />
+                    18 - 39 let
+                  </span>
+                </div>
+                <div
+                  className="align-right UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 490,
+                      "position": "absolute",
+                      "top": 70,
+                      "width": 60,
+                    }
+                  }
+                >
+                  15
+                </div>
+                <div
+                  className="align-left UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 550,
+                      "position": "absolute",
+                      "top": 70,
+                      "width": 110,
+                    }
+                  }
+                >
+                  na trase
+                </div>
+                <div
+                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 660,
+                      "position": "absolute",
+                      "top": 70,
+                      "width": 100,
+                    }
+                  }
+                >
+                  
+                </div>
+                <div
+                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 760,
+                      "position": "absolute",
+                      "top": 70,
+                      "width": 60,
+                    }
+                  }
+                >
+                  
+                </div>
+                <div
+                  className="UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 820,
+                      "position": "absolute",
+                      "top": 70,
+                      "width": 60,
+                    }
+                  }
+                >
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
