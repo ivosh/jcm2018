@@ -159,7 +159,9 @@ export const sortForColumn = ({ data, sortColumn, sortDir }) => {
     startCislo: (a, b) => numberAndUndefinedSortMethod(a.startCislo, b.startCislo, desc),
     zaplaceno: (a, b) => a.zaplaceno - b.zaplaceno,
     dokonceno: (a, b) => dokoncenoSortMethod(a.dokonceno, b.dokonceno),
-    cas: (a, b) => casSortMethod(a.cas, b.cas, desc)
+    cas: (a, b) => casSortMethod(a.cas, b.cas, desc),
+    absPoradi: (a, b) => numberAndUndefinedSortMethod(a.absPoradi, b.absPoradi, desc),
+    relPoradi: (a, b) => numberAndUndefinedSortMethod(a.relPoradi, b.relPoradi, desc)
   };
 
   const sortMethod = sortMethods[sortColumn] || prijmeniJmenoNarozeniSortMethod;

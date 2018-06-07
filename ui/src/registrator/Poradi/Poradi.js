@@ -1,10 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { narozeniToStr } from '../../Util';
+import moment from 'moment';
+import { convertDuration, findDokonceno, narozeniToStr } from '../../Util';
 import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
 import PoradiFilters from './PoradiFilters';
 import './Poradi.css';
+
+const casFormat = ({ cellData }) => {
+  if (cellData) {
+    const { hours, mins, secs, subsecs } = convertDuration(moment.duration(cellData));
+    return `${hours}:${mins}:${secs},${subsecs}`;
+  }
+  return '';
+};
+
+const dokoncenoFormat = ({ cellData }) => findDokonceno(cellData).popisek;
 
 const kategorieFormat = ({ cellData }) => <PopisekKategorie {...cellData} />;
 kategorieFormat.propTypes = {
@@ -12,6 +23,17 @@ kategorieFormat.propTypes = {
 };
 
 const narozeniFormat = ({ cellData }) => narozeniToStr(cellData);
+
+const poradiFormat = ({ cellData, data, rowIndex }) => {
+  if (cellData) {
+    return `${cellData}.`;
+  }
+  const { dokonceno } = data[rowIndex];
+  if (dokonceno === false) {
+    return '-';
+  }
+  return '';
+};
 
 const Poradi = ({
   actionPrefix,
@@ -61,27 +83,32 @@ const Poradi = ({
       width: 60
     },
     {
+      cellDataFormatter: dokoncenoFormat,
+      cellClassNames: () => ['align-left'],
       key: 'dokonceno',
       label: 'dokončeno',
-      sortable: false,
-      width: 100
+      sortable: true,
+      width: 110
     },
     {
+      cellDataFormatter: casFormat,
       key: 'cas',
       label: 'čas',
-      sortable: false,
+      sortable: true,
       width: 100
     },
     {
+      cellDataFormatter: poradiFormat,
       key: 'absPoradi',
       label: 'abs.',
-      sortable: false,
+      sortable: true,
       width: 60
     },
     {
+      cellDataFormatter: poradiFormat,
       key: 'relPoradi',
       label: 'rel.',
-      sortable: false,
+      sortable: true,
       width: 60
     }
   ];
