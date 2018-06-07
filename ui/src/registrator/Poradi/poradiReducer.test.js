@@ -36,6 +36,19 @@ it('přepínání kategorieSubFilter', () => {
   );
 });
 
+it('přepínání kategorieSubFilter - vypnout', () => {
+  const stateBefore = {
+    kategorieFilter: 'maraton',
+    kategorieSubFilter: '5a587e1a051c181132cf83ba'
+  };
+  const stateAfter = { ...stateBefore, kategorieSubFilter: '' };
+  deepFreeze(stateBefore);
+
+  expect(poradiReducer(stateBefore, kategorieSubFilterChange('5a587e1a051c181132cf83ba'))).toEqual(
+    stateAfter
+  );
+});
+
 it('přepínání kategorieFilter - vypnout', () => {
   const stateBefore = {
     kategorieFilter: 'maraton',

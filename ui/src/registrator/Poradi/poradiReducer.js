@@ -27,6 +27,9 @@ const poradiReducer = (state = initialState, action) => {
     case 'PORADI_KATEGORIE_FILTER_CHANGE':
       return { ...state, kategorieSubFilter: '' };
     case 'PORADI_KATEGORIE_SUB_FILTER_CHANGE':
+      if (state.kategorieSubFilter === action.kategorieSubFilter) {
+        return { ...state, kategorieSubFilter: '' };
+      }
       return { ...state, kategorieSubFilter: action.kategorieSubFilter };
     default:
       return state;
