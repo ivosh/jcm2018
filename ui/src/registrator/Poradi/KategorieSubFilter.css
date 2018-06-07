@@ -1,0 +1,31 @@
+.KategorieSubFilter--maraton--active {
+  background-color: rgba(var(--maraton), 1) !important;
+}
+.KategorieSubFilter--půlmaraton--active {
+  background-color: rgba(var(--půlmaraton), 1) !important;
+}
+.KategorieSubFilter--cyklo--active {
+  background-color: rgba(var(--cyklo), 1) !important;
+}
+.KategorieSubFilter--koloběžka--active {
+  background-color: rgba(var(--koloběžka), 1) !important;
+}
+.KategorieSubFilter--pěší--active {
+  background-color: rgba(var(--pěší), 1) !important;
+}
+
+.KategorieSubFilter--maraton--inactive {
+  background-color: rgba(var(--maraton), 0.5) !important;
+}
+.KategorieSubFilter--půlmaraton--inactive {
+  background-color: rgba(var(--půlmaraton), 0.5) !important;
+}
+.KategorieSubFilter--cyklo--inactive {
+  background-color: rgba(var(--cyklo), 0.5) !important;
+}
+.KategorieSubFilter--koloběžka--inactive {
+  background-color: rgba(var(--koloběžka), 0.5) !important;
+}
+.KategorieSubFilter--pěší--inactive {
+  background-color: rgba(var(--pěší), 0.5) !important;
+}

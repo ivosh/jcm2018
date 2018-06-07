@@ -1,35 +1,3 @@
 .PoradiFilters__kategorie {
   margin-left: 2em;
 }
-
-.PoradiFilters--maraton--active {
-  background-color: rgba(var(--maraton), 1) !important;
-}
-.PoradiFilters--půlmaraton--active {
-  background-color: rgba(var(--půlmaraton), 1) !important;
-}
-.PoradiFilters--cyklo--active {
-  background-color: rgba(var(--cyklo), 1) !important;
-}
-.PoradiFilters--koloběžka--active {
-  background-color: rgba(var(--koloběžka), 1) !important;
-}
-.PoradiFilters--pěší--active {
-  background-color: rgba(var(--pěší), 1) !important;
-}
-
-.PoradiFilters--maraton--inactive {
-  background-color: rgba(var(--maraton), 0.5) !important;
-}
-.PoradiFilters--půlmaraton--inactive {
-  background-color: rgba(var(--půlmaraton), 0.5) !important;
-}
-.PoradiFilters--cyklo--inactive {
-  background-color: rgba(var(--cyklo), 0.5) !important;
-}
-.PoradiFilters--koloběžka--inactive {
-  background-color: rgba(var(--koloběžka), 0.5) !important;
-}
-.PoradiFilters--pěší--inactive {
-  background-color: rgba(var(--pěší), 0.5) !important;
-}

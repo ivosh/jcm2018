@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, ButtonGroup } from 'react-bootstrap';
-import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
+import { ButtonGroup } from 'react-bootstrap';
 import KategorieFilter from '../Filterable/KategorieFilter';
 import TextFilter from '../Filterable/TextFilter';
 import Zobrazeno from '../Filterable/Zobrazeno';
+import KategorieSubFilter from './KategorieSubFilter';
 import './PoradiFilters.css';
 
 const PoradiFilters = ({
@@ -24,20 +24,7 @@ const PoradiFilters = ({
     </ButtonGroup>
 
     <ButtonGroup className="PoradiFilters__sub-kategorie">
-      {kategorieSubFilters.map(({ active, kategorie, onClick }) => (
-        <span
-          className="PoradiFilters__sub-kategorie__item Bootstrap-buttons--active"
-          key={kategorie.id}
-        >
-          <Button
-            active={active}
-            className={`PoradiFilters--${kategorie.typ}--${active ? 'active' : 'inactive'}`}
-            onClick={onClick}
-          >
-            <PopisekKategorie {...kategorie} />
-          </Button>
-        </span>
-      ))}
+      {kategorieSubFilters.map(({ id, ...props }) => <KategorieSubFilter key={id} {...props} />)}
     </ButtonGroup>
 
     <Zobrazeno numberOfItems={numberOfItems} />
