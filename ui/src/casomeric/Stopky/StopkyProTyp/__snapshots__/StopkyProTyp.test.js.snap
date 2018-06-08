@@ -8,7 +8,13 @@ exports[`snapshort po startu 1`] = `
   <div
     className="panel-heading"
   >
-    <span>
+    <span
+      style={
+        Object {
+          "fontSize": "100%",
+        }
+      }
+    >
       <img
         alt="maraton"
         height={30}
@@ -301,7 +307,13 @@ exports[`snapshot před startem 1`] = `
   <div
     className="panel-heading"
   >
-    <span>
+    <span
+      style={
+        Object {
+          "fontSize": "100%",
+        }
+      }
+    >
       <img
         alt="půlmaraton"
         height={30}

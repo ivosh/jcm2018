@@ -70,7 +70,13 @@ exports[`dva odstartovaní 1`] = `
           <div
             className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
           >
-            <span>
+            <span
+              style={
+                Object {
+                  "fontSize": "100%",
+                }
+              }
+            >
               <img
                 alt="půlmaraton"
                 height={30}
@@ -114,7 +120,13 @@ exports[`dva odstartovaní 1`] = `
           <div
             className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
           >
-            <span>
+            <span
+              style={
+                Object {
+                  "fontSize": "100%",
+                }
+              }
+            >
               <img
                 alt="půlmaraton"
                 height={30}
@@ -224,7 +236,13 @@ exports[`dva odstartovaní 1`] = `
           <div
             className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
           >
-            <span>
+            <span
+              style={
+                Object {
+                  "fontSize": "100%",
+                }
+              }
+            >
               <img
                 alt="půlmaraton"
                 height={30}
@@ -268,7 +286,13 @@ exports[`dva odstartovaní 1`] = `
           <div
             className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
           >
-            <span>
+            <span
+              style={
+                Object {
+                  "fontSize": "100%",
+                }
+              }
+            >
               <img
                 alt="půlmaraton"
                 height={30}
@@ -367,7 +391,13 @@ exports[`žádný odstartovaný 1`] = `
           <div
             className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
           >
-            <span>
+            <span
+              style={
+                Object {
+                  "fontSize": "100%",
+                }
+              }
+            >
               <img
                 alt="půlmaraton"
                 height={30}
@@ -411,7 +441,13 @@ exports[`žádný odstartovaný 1`] = `
           <div
             className="StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--půlmaraton"
           >
-            <span>
+            <span
+              style={
+                Object {
+                  "fontSize": "100%",
+                }
+              }
+            >
               <img
                 alt="půlmaraton"
                 height={30}

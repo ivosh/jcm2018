@@ -1,39 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PopisekPohlavi from './PopisekPohlavi';
-import cyklo from './cyklo.png';
-import kolobezka from './kolobezka.png';
-import maraton from './maraton.png';
-import pesi from './pesi.png';
-import pulmaraton from './pulmaraton.png';
+import PopisekTypu from './PopisekTypu';
 
-const typToImg = {
-  cyklo,
-  koloběžka: kolobezka,
-  maraton,
-  pěší: pesi,
-  půlmaraton: pulmaraton
-};
-
-const renderTyp = ({ pohlavi, typAsText, vek }) => (!pohlavi && !vek) || typAsText;
-
-const PopisekKategorie = ({ pohlavi, typ, typAsText, vek }) => (
-  <span>
-    <img src={typToImg[typ]} alt={typ} title={typ} height={30} />{' '}
-    {renderTyp({ pohlavi, typAsText, vek }) && typ}
-    {pohlavi && <PopisekPohlavi pohlavi={pohlavi} />}
+const PopisekKategorie = ({ heightPercentage, pohlavi, showTyp, typ, typAsText, vek }) => (
+  <span style={{ fontSize: `${heightPercentage}%` }}>
+    {showTyp && (
+      <PopisekTypu
+        heightPercentage={heightPercentage}
+        pohlavi={pohlavi}
+        typ={typ}
+        typAsText={typAsText}
+        vek={vek}
+      />
+    )}
+    {pohlavi && <PopisekPohlavi heightPercentage={heightPercentage} pohlavi={pohlavi} />}
     {vek && `${vek.min} ${vek.max === 150 ? 'let a více' : `- ${vek.max} let`}`}
   </span>
 );
 
 PopisekKategorie.propTypes = {
+  heightPercentage: PropTypes.number,
   pohlavi: PropTypes.oneOf(['muž', 'žena']),
+  showTyp: PropTypes.bool,
   typ: PropTypes.oneOf(['cyklo', 'koloběžka', 'maraton', 'pěší', 'půlmaraton']).isRequired,
   typAsText: PropTypes.bool,
   vek: PropTypes.shape({
     min: PropTypes.number,
     max: PropTypes.number
   })
+};
+
+PopisekKategorie.defaultProps = {
+  heightPercentage: 100,
+  showTyp: true
 };
 
 export default PopisekKategorie;

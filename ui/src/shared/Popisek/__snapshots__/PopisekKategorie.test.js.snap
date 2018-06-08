@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders cyklo 1`] = `
-<span>
+<span
+  style={
+    Object {
+      "fontSize": "100%",
+    }
+  }
+>
   <img
     alt="cyklo"
     height={30}
@@ -14,7 +20,13 @@ exports[`renders cyklo 1`] = `
 `;
 
 exports[`renders cyklo and text 1`] = `
-<span>
+<span
+  style={
+    Object {
+      "fontSize": "100%",
+    }
+  }
+>
   <img
     alt="cyklo"
     height={30}
@@ -26,8 +38,32 @@ exports[`renders cyklo and text 1`] = `
 </span>
 `;
 
+exports[`renders cyklo with pohlaví and věk; do not show typ 1`] = `
+<span
+  style={
+    Object {
+      "fontSize": "100%",
+    }
+  }
+>
+  <img
+    alt="žena"
+    height={28}
+    src="zena.png"
+    title="žena"
+  />
+  60 let a více
+</span>
+`;
+
 exports[`renders koloběžka with pohlaví 1`] = `
-<span>
+<span
+  style={
+    Object {
+      "fontSize": "100%",
+    }
+  }
+>
   <img
     alt="koloběžka"
     height={30}
@@ -45,7 +81,13 @@ exports[`renders koloběžka with pohlaví 1`] = `
 `;
 
 exports[`renders maraton with pohlaví and věk 1`] = `
-<span>
+<span
+  style={
+    Object {
+      "fontSize": "100%",
+    }
+  }
+>
   <img
     alt="maraton"
     height={30}
@@ -64,7 +106,13 @@ exports[`renders maraton with pohlaví and věk 1`] = `
 `;
 
 exports[`renders půlmaraton with pohlaví and věk (max) 1`] = `
-<span>
+<span
+  style={
+    Object {
+      "fontSize": "100%",
+    }
+  }
+>
   <img
     alt="půlmaraton"
     height={30}

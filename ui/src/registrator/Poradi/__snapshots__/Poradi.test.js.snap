@@ -26,7 +26,13 @@ exports[`renders 1`] = `
           onClick={[Function]}
           type="button"
         >
-          <span>
+          <span
+            style={
+              Object {
+                "fontSize": "100%",
+              }
+            }
+          >
             <img
               alt="maraton"
               height={30}
@@ -47,7 +53,13 @@ exports[`renders 1`] = `
           onClick={[Function]}
           type="button"
         >
-          <span>
+          <span
+            style={
+              Object {
+                "fontSize": "100%",
+              }
+            }
+          >
             <img
               alt="cyklo"
               height={30}
@@ -599,7 +611,13 @@ exports[`renders 1`] = `
                     }
                   }
                 >
-                  <span>
+                  <span
+                    style={
+                      Object {
+                        "fontSize": "100%",
+                      }
+                    }
+                  >
                     <img
                       alt="půlmaraton"
                       height={30}
@@ -698,7 +716,13 @@ exports[`renders 1`] = `
                     }
                   }
                 >
-                  <span>
+                  <span
+                    style={
+                      Object {
+                        "fontSize": "100%",
+                      }
+                    }
+                  >
                     <img
                       alt="půlmaraton"
                       height={30}
@@ -797,7 +821,13 @@ exports[`renders 1`] = `
                     }
                   }
                 >
-                  <span>
+                  <span
+                    style={
+                      Object {
+                        "fontSize": "100%",
+                      }
+                    }
+                  >
                     <img
                       alt="půlmaraton"
                       height={30}

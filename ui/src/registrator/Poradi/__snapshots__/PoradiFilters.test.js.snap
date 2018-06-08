@@ -23,7 +23,13 @@ exports[`renders kategorie filters 1`] = `
         onClick={[Function]}
         type="button"
       >
-        <span>
+        <span
+          style={
+            Object {
+              "fontSize": "100%",
+            }
+          }
+        >
           <img
             alt="maraton"
             height={30}
@@ -44,7 +50,13 @@ exports[`renders kategorie filters 1`] = `
         onClick={[Function]}
         type="button"
       >
-        <span>
+        <span
+          style={
+            Object {
+              "fontSize": "100%",
+            }
+          }
+        >
           <img
             alt="cyklo"
             height={30}
@@ -93,7 +105,13 @@ exports[`renders kategorie subFilters 1`] = `
         onClick={[Function]}
         type="button"
       >
-        <span>
+        <span
+          style={
+            Object {
+              "fontSize": "100%",
+            }
+          }
+        >
           <img
             alt="maraton"
             height={30}
@@ -118,16 +136,13 @@ exports[`renders kategorie subFilters 1`] = `
         onClick={[Function]}
         type="button"
       >
-        <span>
-          <img
-            alt="maraton"
-            height={30}
-            src="maraton.png"
-            title="maraton"
-          />
-           
-          maraton
-        </span>
+        <span
+          style={
+            Object {
+              "fontSize": "85%",
+            }
+          }
+        />
       </button>
     </span>
     <span
@@ -139,16 +154,13 @@ exports[`renders kategorie subFilters 1`] = `
         onClick={[Function]}
         type="button"
       >
-        <span>
-          <img
-            alt="maraton"
-            height={30}
-            src="maraton.png"
-            title="maraton"
-          />
-           
-          maraton
-        </span>
+        <span
+          style={
+            Object {
+              "fontSize": "85%",
+            }
+          }
+        />
       </button>
     </span>
     <span
@@ -160,16 +172,13 @@ exports[`renders kategorie subFilters 1`] = `
         onClick={[Function]}
         type="button"
       >
-        <span>
-          <img
-            alt="maraton"
-            height={30}
-            src="maraton.png"
-            title="maraton"
-          />
-           
-          maraton
-        </span>
+        <span
+          style={
+            Object {
+              "fontSize": "85%",
+            }
+          }
+        />
       </button>
     </span>
   </div>

@@ -55,7 +55,13 @@ exports[`dva přihlášení 1`] = `
             onClick={[Function]}
             type="button"
           >
-            <span>
+            <span
+              style={
+                Object {
+                  "fontSize": "100%",
+                }
+              }
+            >
               <img
                 alt="maraton"
                 height={30}
@@ -76,7 +82,13 @@ exports[`dva přihlášení 1`] = `
             onClick={[Function]}
             type="button"
           >
-            <span>
+            <span
+              style={
+                Object {
+                  "fontSize": "100%",
+                }
+              }
+            >
               <img
                 alt="půlmaraton"
                 height={30}
@@ -97,7 +109,13 @@ exports[`dva přihlášení 1`] = `
             onClick={[Function]}
             type="button"
           >
-            <span>
+            <span
+              style={
+                Object {
+                  "fontSize": "100%",
+                }
+              }
+            >
               <img
                 alt="cyklo"
                 height={30}
@@ -118,7 +136,13 @@ exports[`dva přihlášení 1`] = `
             onClick={[Function]}
             type="button"
           >
-            <span>
+            <span
+              style={
+                Object {
+                  "fontSize": "100%",
+                }
+              }
+            >
               <img
                 alt="koloběžka"
                 height={30}
@@ -139,7 +163,13 @@ exports[`dva přihlášení 1`] = `
             onClick={[Function]}
             type="button"
           >
-            <span>
+            <span
+              style={
+                Object {
+                  "fontSize": "100%",
+                }
+              }
+            >
               <img
                 alt="pěší"
                 height={30}
@@ -714,7 +744,13 @@ exports[`dva přihlášení 1`] = `
                     }
                   }
                 >
-                  <span>
+                  <span
+                    style={
+                      Object {
+                        "fontSize": "100%",
+                      }
+                    }
+                  >
                     <img
                       alt="půlmaraton"
                       height={30}
@@ -825,7 +861,13 @@ exports[`dva přihlášení 1`] = `
                     }
                   }
                 >
-                  <span>
+                  <span
+                    style={
+                      Object {
+                        "fontSize": "100%",
+                      }
+                    }
+                  >
                     <img
                       alt="půlmaraton"
                       height={30}
@@ -949,7 +991,13 @@ exports[`žádný přihlášený 1`] = `
             onClick={[Function]}
             type="button"
           >
-            <span>
+            <span
+              style={
+                Object {
+                  "fontSize": "100%",
+                }
+              }
+            >
               <img
                 alt="maraton"
                 height={30}
@@ -970,7 +1018,13 @@ exports[`žádný přihlášený 1`] = `
             onClick={[Function]}
             type="button"
           >
-            <span>
+            <span
+              style={
+                Object {
+                  "fontSize": "100%",
+                }
+              }
+            >
               <img
                 alt="půlmaraton"
                 height={30}
@@ -991,7 +1045,13 @@ exports[`žádný přihlášený 1`] = `
             onClick={[Function]}
             type="button"
           >
-            <span>
+            <span
+              style={
+                Object {
+                  "fontSize": "100%",
+                }
+              }
+            >
               <img
                 alt="cyklo"
                 height={30}
@@ -1012,7 +1072,13 @@ exports[`žádný přihlášený 1`] = `
             onClick={[Function]}
             type="button"
           >
-            <span>
+            <span
+              style={
+                Object {
+                  "fontSize": "100%",
+                }
+              }
+            >
               <img
                 alt="koloběžka"
                 height={30}
@@ -1033,7 +1099,13 @@ exports[`žádný přihlášený 1`] = `
             onClick={[Function]}
             type="button"
           >
-            <span>
+            <span
+              style={
+                Object {
+                  "fontSize": "100%",
+                }
+              }
+            >
               <img
                 alt="pěší"
                 height={30}

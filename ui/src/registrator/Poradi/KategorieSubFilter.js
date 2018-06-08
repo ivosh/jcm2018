@@ -11,7 +11,13 @@ const KategorieSubFilter = ({ active, pohlavi, typ, vek, onClick }) => (
       className={`KategorieSubFilter--${typ}--${active ? 'active' : 'inactive'}`}
       onClick={onClick}
     >
-      <PopisekKategorie pohlavi={pohlavi} vek={vek} typ={typ} />
+      <PopisekKategorie
+        heightPercentage={85}
+        pohlavi={pohlavi}
+        showTyp={false}
+        typ={typ}
+        vek={vek}
+      />
     </Button>
   </span>
 );

@@ -28,3 +28,11 @@ it('renders půlmaraton with pohlaví and věk (max)', () => {
   const component = renderer.create(<PopisekKategorie typ="půlmaraton" pohlavi="žena" vek={vek} />);
   expect(component.toJSON()).toMatchSnapshot();
 });
+
+it('renders cyklo with pohlaví and věk; do not show typ', () => {
+  const vek = { min: 60, max: 150 };
+  const component = renderer.create(
+    <PopisekKategorie typ="půlmaraton" pohlavi="žena" showTyp={false} vek={vek} />
+  );
+  expect(component.toJSON()).toMatchSnapshot();
+});
