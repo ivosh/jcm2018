@@ -8,17 +8,17 @@
 }
 
 .Legenda__item--dokonceno {
-  background-color: #35841f;
+  background-color: rgb(var(--dokonceno));
   color: white;
 }
 
 .Legenda__item--nedokonceno {
-  background-color: #0b3056;
+  background-color: rgb(var(--nedokonceno));
   color: white;
 }
 
 .Legenda__item--na-trase {
-  background-color: #683102;
+  background-color: rgb(var(--na-trase));
   color: white;
 }
 
