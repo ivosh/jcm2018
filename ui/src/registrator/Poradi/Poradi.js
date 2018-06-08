@@ -84,7 +84,7 @@ const Poradi = ({
     },
     {
       cellDataFormatter: dokoncenoFormat,
-      cellClassNames: () => ['align-left'],
+      cellClassNames: ({ cellData }) => ['align-left', `Poradi--${findDokonceno(cellData).name}`],
       key: 'dokonceno',
       label: 'dokončeno',
       sortable: true,

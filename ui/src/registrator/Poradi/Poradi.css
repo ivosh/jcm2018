@@ -18,3 +18,15 @@
 .Poradi--pěší {
   background-color: rgba(var(--pěší), 0.4);
 }
+
+.Poradi--dokonceno {
+  background-color: rgba(53, 132, 31, 0.8);
+  color: white;
+}
+.Poradi--nedokonceno {
+  background-color: rgba(11, 48, 86, 0.8);
+  color: white;
+}
+.Poradi--na-trase {
+  background-color: rgba(104, 49, 2, 0.3);
+}

@@ -631,7 +631,7 @@ exports[`renders 1`] = `
                   15
                 </div>
                 <div
-                  className="align-left UcastniciTable_oddRow UcastniciTable_cell"
+                  className="align-left Poradi--nedokonceno UcastniciTable_oddRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
@@ -730,7 +730,7 @@ exports[`renders 1`] = `
                   11
                 </div>
                 <div
-                  className="align-left UcastniciTable_evenRow UcastniciTable_cell"
+                  className="align-left Poradi--dokonceno UcastniciTable_evenRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
@@ -829,7 +829,7 @@ exports[`renders 1`] = `
                   15
                 </div>
                 <div
-                  className="align-left UcastniciTable_oddRow UcastniciTable_cell"
+                  className="align-left Poradi--na-trase UcastniciTable_oddRow UcastniciTable_cell"
                   style={
                     Object {
                       "height": 35,
