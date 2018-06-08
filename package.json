@@ -19,6 +19,10 @@
   ],
   "scripts": {
     "start": "node server/server.js",
+    "_comment_1": "'node' binary must be granted 'cap_net_bind_service' capability:",
+    "_comment_2": "  $ sudo apt-get install libcap2-bin",
+    "_comment_3": "  $ sudo setcap cap_net_bind_service=+ep ./node_modules/node/bin/node",
+    "start:80": "PORT=80 npm start",
     "test:server": "NODE_ENV=test LOG_LEVEL=error jest --env=node --runInBand common/ server/",
     "test": "npm run test:server -- && cd ui/ && npm test && cd ..",
     "prettier:server": "prettier --write '{common,server}/**/*.js' && prettier --write 'setversion'",
