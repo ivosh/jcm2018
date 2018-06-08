@@ -1,3 +1,9 @@
+.PoradiFilters {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+}
+
 .PoradiFilters__kategorie {
   margin-left: 2em;
 }

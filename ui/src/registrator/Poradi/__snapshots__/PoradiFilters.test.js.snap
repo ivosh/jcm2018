@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders kategorie filters 1`] = `
-<div>
+<div
+  className="PoradiFilters"
+>
   <input
     className="TextFilter__input"
     onBlur={[Function]}
@@ -83,7 +85,9 @@ exports[`renders kategorie filters 1`] = `
 `;
 
 exports[`renders kategorie subFilters 1`] = `
-<div>
+<div
+  className="PoradiFilters"
+>
   <input
     className="TextFilter__input"
     onBlur={[Function]}
@@ -125,7 +129,7 @@ exports[`renders kategorie subFilters 1`] = `
     </span>
   </div>
   <div
-    className="PoradiFilters__sub-kategorie btn-group"
+    className="PoradiFilters__sub-kategorie"
   >
     <span
       className="KategorieSubFilter Bootstrap-buttons--active"
