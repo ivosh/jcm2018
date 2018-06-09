@@ -218,6 +218,21 @@ exports[`it renders 1`] = `
             Pořadí
           </a>
         </li>
+        <li
+          className="Main__menu-item"
+        >
+          <a
+            className="Main__menu-link"
+            href="/pokladna"
+            onClick={[Function]}
+          >
+            <span
+              className="glyphicon glyphicon-piggy-bank"
+            />
+             
+            Pokladna
+          </a>
+        </li>
       </ul>
     </div>
   </div>

@@ -76,6 +76,13 @@ const navs = {
     name: 'Pořadí',
     path: '/poradi'
   },
+  pokladna: {
+    key: '4.5',
+    glyph: 'piggy-bank',
+    menu: 'po startu',
+    name: 'Pokladna',
+    path: '/pokladna'
+  },
   main: {
     key: '1',
     glyph: 'home',
