@@ -1,0 +1,8 @@
+.Pokladna {
+  margin-left: 30px;
+}
+
+.Pokladna__typy {
+  display: grid;
+  grid-template-columns: 5em 10em 6em;
+}

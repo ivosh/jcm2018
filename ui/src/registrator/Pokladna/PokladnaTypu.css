@@ -1,0 +1,13 @@
+.PokladnaTypu--name {
+  font-weight: bold;
+  padding-top: 0.7ex;
+}
+
+.PokladnaTypu--suma {
+  text-align: right;
+}
+
+.PokladnaTypu--ucastniku {
+  font-weight: bolder;
+  text-align: right;
+}
