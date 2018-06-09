@@ -1,0 +1,247 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<div
+  className="Pokladna"
+>
+  <div
+    className="Pokladna__typy"
+  >
+    <div
+      className="PokladnaTypu--name"
+    >
+      cyklo
+      :
+    </div>
+    <div />
+    <div />
+    <div />
+    <div>
+      zaplaceno hotově
+    </div>
+    <div
+      className="PokladnaTypu--suma"
+    >
+      8720
+       Kč
+    </div>
+    <div />
+    <div>
+      zaplaceno převodem
+    </div>
+    <div
+      className="PokladnaTypu--suma"
+    >
+      9000
+       Kč
+    </div>
+    <div />
+    <div>
+      celkem
+    </div>
+    <div
+      className="PokladnaTypu--suma"
+    >
+      17720
+       Kč
+    </div>
+    <div />
+    <div>
+      z toho záloha
+    </div>
+    <div
+      className="PokladnaTypu--suma"
+    >
+      1460
+       Kč
+    </div>
+    <div />
+    <div>
+      účastníků
+    </div>
+    <div
+      className="PokladnaTypu--ucastniku"
+    >
+      76
+    </div>
+    <div
+      className="PokladnaTypu--name"
+    >
+      koloběžka
+      :
+    </div>
+    <div />
+    <div />
+    <div />
+    <div>
+      zaplaceno hotově
+    </div>
+    <div
+      className="PokladnaTypu--suma"
+    >
+      450
+       Kč
+    </div>
+    <div />
+    <div>
+      zaplaceno převodem
+    </div>
+    <div
+      className="PokladnaTypu--suma"
+    >
+      600
+       Kč
+    </div>
+    <div />
+    <div>
+      celkem
+    </div>
+    <div
+      className="PokladnaTypu--suma"
+    >
+      1050
+       Kč
+    </div>
+    <div />
+    <div>
+      účastníků
+    </div>
+    <div
+      className="PokladnaTypu--ucastniku"
+    >
+      5
+    </div>
+    <div
+      className="PokladnaTypu--name"
+    >
+      maraton
+      :
+    </div>
+    <div />
+    <div />
+    <div />
+    <div>
+      zaplaceno hotově
+    </div>
+    <div
+      className="PokladnaTypu--suma"
+    >
+      5250
+       Kč
+    </div>
+    <div />
+    <div>
+      zaplaceno převodem
+    </div>
+    <div
+      className="PokladnaTypu--suma"
+    >
+      7000
+       Kč
+    </div>
+    <div />
+    <div>
+      celkem
+    </div>
+    <div
+      className="PokladnaTypu--suma"
+    >
+      12250
+       Kč
+    </div>
+    <div />
+    <div>
+      účastníků
+    </div>
+    <div
+      className="PokladnaTypu--ucastniku"
+    >
+      59
+    </div>
+    <div
+      className="PokladnaTypu--name"
+    >
+      pěší
+      :
+    </div>
+    <div />
+    <div />
+    <div />
+    <div>
+      zaplaceno hotově
+    </div>
+    <div
+      className="PokladnaTypu--suma"
+    >
+      120
+       Kč
+    </div>
+    <div />
+    <div>
+      celkem
+    </div>
+    <div
+      className="PokladnaTypu--suma"
+    >
+      120
+       Kč
+    </div>
+    <div />
+    <div>
+      účastníků
+    </div>
+    <div
+      className="PokladnaTypu--ucastniku"
+    >
+      4
+    </div>
+    <div
+      className="PokladnaTypu--name"
+    >
+      půlmaraton
+      :
+    </div>
+    <div />
+    <div />
+    <div />
+    <div>
+      zaplaceno hotově
+    </div>
+    <div
+      className="PokladnaTypu--suma"
+    >
+      3450
+       Kč
+    </div>
+    <div />
+    <div>
+      zaplaceno převodem
+    </div>
+    <div
+      className="PokladnaTypu--suma"
+    >
+      3000
+       Kč
+    </div>
+    <div />
+    <div>
+      celkem
+    </div>
+    <div
+      className="PokladnaTypu--suma"
+    >
+      6450
+       Kč
+    </div>
+    <div />
+    <div>
+      účastníků
+    </div>
+    <div
+      className="PokladnaTypu--ucastniku"
+    >
+      31
+    </div>
+  </div>
+</div>
+`;
