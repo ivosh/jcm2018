@@ -36,7 +36,6 @@ PokladnaTypu.propTypes = {
   suma: PropTypes.number.isRequired,
   ucastniku: PropTypes.number.isRequired,
   zaloha: PropTypes.shape({
-    count: PropTypes.number.isRequired,
     suma: PropTypes.number.isRequired
   }),
   typy: PropTypes.object

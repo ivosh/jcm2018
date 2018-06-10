@@ -10,5 +10,5 @@
 
 .Pokladna__typy {
   display: grid;
-  grid-template-columns: 5em 10em 6em;
+  grid-template-columns: 7em 10em 6em;
 }

@@ -471,6 +471,26 @@ exports[`renders 1`] = `
           40
            x
         </div>
+        <div
+          className="PokladnaCastek--name"
+        >
+          z toho záloha
+          :
+        </div>
+        <div />
+        <div />
+        <div />
+        <div
+          className="PokladnaCastek--popisek"
+        >
+          částka 20 Kč
+        </div>
+        <div
+          className="PokladnaCastek--pocet"
+        >
+          73
+           x
+        </div>
       </div>
     </div>
   </div>

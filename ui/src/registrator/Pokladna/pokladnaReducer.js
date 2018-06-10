@@ -67,15 +67,21 @@ export const getPokladna = ({ kategorie, rocniky, ucastnici, rok = AKTUALNI_ROK 
 
     if (zaloha) {
       if (!pokladna.typy[typKategorie].zaloha) {
-        pokladna.typy[typKategorie].zaloha = { count: 0, suma: 0 };
+        pokladna.typy[typKategorie].zaloha = { counts: {}, suma: 0 };
       }
-      pokladna.typy[typKategorie].zaloha.count += 1;
+      if (pokladna.typy[typKategorie].zaloha.counts[zaloha] === undefined) {
+        pokladna.typy[typKategorie].zaloha.counts[zaloha] = 0;
+      }
+      pokladna.typy[typKategorie].zaloha.counts[zaloha] += 1;
       pokladna.typy[typKategorie].zaloha.suma += zaloha;
 
       if (!pokladna.total.zaloha) {
-        pokladna.total.zaloha = { count: 0, suma: 0 };
+        pokladna.total.zaloha = { counts: {}, suma: 0 };
       }
-      pokladna.total.zaloha.count += 1;
+      if (pokladna.total.zaloha.counts[zaloha] === undefined) {
+        pokladna.total.zaloha.counts[zaloha] = 0;
+      }
+      pokladna.total.zaloha.counts[zaloha] += 1;
       pokladna.total.zaloha.suma += zaloha;
     }
   });

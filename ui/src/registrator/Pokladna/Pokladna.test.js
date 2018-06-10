@@ -7,7 +7,9 @@ const pokladna = {
     suma: 37590,
     ucastniku: 175,
     zaloha: {
-      count: 73,
+      counts: {
+        20: 73
+      },
       suma: 1460
     },
     typy: {

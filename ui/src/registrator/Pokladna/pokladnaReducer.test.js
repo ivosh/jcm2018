@@ -94,7 +94,9 @@ it('getPokladna - all cases', () => {
       suma: 950,
       ucastniku: 5,
       zaloha: {
-        count: 1,
+        counts: {
+          20: 1
+        },
         suma: 20
       },
       typy: {
@@ -130,7 +132,9 @@ it('getPokladna - all cases', () => {
           }
         },
         zaloha: {
-          count: 1,
+          counts: {
+            20: 1
+          },
           suma: 20
         }
       },

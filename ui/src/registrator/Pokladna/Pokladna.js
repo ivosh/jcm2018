@@ -22,6 +22,7 @@ const Pokladna = ({ pokladna: { total, typy } }) => (
         {Object.keys(total.typy).map(name => (
           <PokladnaCastek key={name} name={name} {...total.typy[name]} />
         ))}
+        {total.zaloha && <PokladnaCastek name="z toho záloha" {...total.zaloha} />}
       </div>
     </Panel>
   </div>
@@ -33,7 +34,7 @@ Pokladna.propTypes = {
       suma: PropTypes.number.isRequired,
       ucastniku: PropTypes.number.isRequired,
       zaloha: PropTypes.shape({
-        count: PropTypes.number.isRequired,
+        counts: PropTypes.object.isRequired,
         suma: PropTypes.number.isRequired
       }),
       typy: PropTypes.object
