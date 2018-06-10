@@ -7,8 +7,25 @@ it('getPokladna() - ucastniciTestData', () => {
   deepFreeze(state);
   const pokladna = getPokladna({ ...state.entities });
   const expected = {
-    suma: 430,
-    ucastniku: 2,
+    total: {
+      suma: 430,
+      ucastniku: 2,
+      typy: {
+        hotově: {
+          counts: {
+            80: 1,
+            250: 1
+          },
+          suma: 330
+        },
+        převodem: {
+          counts: {
+            100: 1
+          },
+          suma: 100
+        }
+      }
+    },
     typy: {
       půlmaraton: {
         suma: 430,
@@ -73,11 +90,32 @@ it('getPokladna - all cases', () => {
 
   const pokladna = getPokladna({ ...state.entities });
   const expected = {
-    suma: 950,
-    ucastniku: 5,
-    zaloha: {
-      count: 1,
-      suma: 20
+    total: {
+      suma: 950,
+      ucastniku: 5,
+      zaloha: {
+        count: 1,
+        suma: 20
+      },
+      typy: {
+        hotově: {
+          counts: {
+            0: 1,
+            80: 1,
+            50: 1,
+            250: 1,
+            270: 1
+          },
+          suma: 650
+        },
+        převodem: {
+          counts: {
+            100: 1,
+            200: 1
+          },
+          suma: 300
+        }
+      }
     },
     typy: {
       cyklo: {

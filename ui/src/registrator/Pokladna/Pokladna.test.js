@@ -3,11 +3,34 @@ import renderer from 'react-test-renderer';
 import Pokladna from './Pokladna';
 
 const pokladna = {
-  suma: 37590,
-  ucastniku: 175,
-  zaloha: {
-    count: 73,
-    suma: 1460
+  total: {
+    suma: 37590,
+    ucastniku: 175,
+    zaloha: {
+      count: 73,
+      suma: 1460
+    },
+    typy: {
+      hotově: {
+        counts: {
+          0: 2,
+          20: 1,
+          30: 4,
+          200: 17,
+          220: 15,
+          250: 23,
+          270: 20
+        },
+        suma: 17990
+      },
+      převodem: {
+        counts: {
+          200: 54,
+          220: 40
+        },
+        suma: 19600
+      }
+    }
   },
   typy: {
     cyklo: {

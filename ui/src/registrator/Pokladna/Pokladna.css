@@ -1,5 +1,11 @@
 .Pokladna {
+  display: flex;
+  flex-flow: row wrap;
   margin-left: 30px;
+}
+
+.Pokladna__panel {
+  margin-right: 2em;
 }
 
 .Pokladna__typy {
