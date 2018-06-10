@@ -1,0 +1,9 @@
+.PokladnaCastek--name {
+  font-weight: bold;
+  padding-top: 0.7ex;
+}
+
+.PokladnaCastek--pocet,
+.PokladnaCastek--popisek {
+  text-align: right;
+}
