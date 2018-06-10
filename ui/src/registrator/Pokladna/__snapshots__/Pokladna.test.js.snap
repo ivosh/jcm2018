@@ -365,7 +365,7 @@ exports[`renders 1`] = `
           className="PokladnaCastek--pocet"
         >
           2
-           x
+          ×
         </div>
         <div />
         <div
@@ -377,7 +377,7 @@ exports[`renders 1`] = `
           className="PokladnaCastek--pocet"
         >
           1
-           x
+          ×
         </div>
         <div />
         <div
@@ -389,7 +389,7 @@ exports[`renders 1`] = `
           className="PokladnaCastek--pocet"
         >
           4
-           x
+          ×
         </div>
         <div />
         <div
@@ -401,7 +401,7 @@ exports[`renders 1`] = `
           className="PokladnaCastek--pocet"
         >
           17
-           x
+          ×
         </div>
         <div />
         <div
@@ -413,7 +413,7 @@ exports[`renders 1`] = `
           className="PokladnaCastek--pocet"
         >
           15
-           x
+          ×
         </div>
         <div />
         <div
@@ -425,7 +425,7 @@ exports[`renders 1`] = `
           className="PokladnaCastek--pocet"
         >
           23
-           x
+          ×
         </div>
         <div />
         <div
@@ -437,7 +437,7 @@ exports[`renders 1`] = `
           className="PokladnaCastek--pocet"
         >
           20
-           x
+          ×
         </div>
         <div
           className="PokladnaCastek--name"
@@ -457,7 +457,7 @@ exports[`renders 1`] = `
           className="PokladnaCastek--pocet"
         >
           54
-           x
+          ×
         </div>
         <div />
         <div
@@ -469,7 +469,7 @@ exports[`renders 1`] = `
           className="PokladnaCastek--pocet"
         >
           40
-           x
+          ×
         </div>
         <div
           className="PokladnaCastek--name"
@@ -489,7 +489,7 @@ exports[`renders 1`] = `
           className="PokladnaCastek--pocet"
         >
           73
-           x
+          ×
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ const PocetCastek = ({ popisek, pocet }) => (
   <React.Fragment>
     <div />
     <div className="PokladnaCastek--popisek">{popisek}</div>
-    <div className="PokladnaCastek--pocet">{pocet} x</div>
+    <div className="PokladnaCastek--pocet">{pocet}×</div>
   </React.Fragment>
 );
 
