@@ -19,6 +19,7 @@ const normalizeKategorie = kategorie => {
 const normalizeKategorieProTyp = kategorieList => {
   let normalized = {};
 
+  const zkratka = { muž: 1, žena: 1, bez: 1 };
   kategorieList.forEach(element => {
     const { _id, __v, pohlavi, ...kategorieBezPohlavi } = element;
     const kategorie = { id: _id, pohlavi, ...kategorieBezPohlavi };
@@ -26,8 +27,11 @@ const normalizeKategorieProTyp = kategorieList => {
       if (!normalized[pohlavi]) {
         normalized[pohlavi] = [];
       }
+      kategorie.zkratka = `${zkratka[pohlavi]}${pohlavi.substring(0, 1).toUpperCase()}`;
+      zkratka[pohlavi] += 1;
       normalized[pohlavi].push(kategorie);
     } else {
+      kategorie.zkratka = kategorie.typ.substring(0, 1).toUpperCase();
       normalized = kategorie;
     }
   });

@@ -9,7 +9,8 @@ Object {
   vek: { min: 50, max: 59 } } vs. { id: ==id==,
   pohlavi: 'žena',
   typ: 'maraton',
-  vek: { min: 40, max: 49 } }",
+  vek: { min: 40, max: 49 },
+  zkratka: '1Ž' }",
 }
 `;
 
