@@ -88,7 +88,7 @@ export const getPoradiSorted = ({
   const mapped = ucasti.map(jeden => {
     const { id, ucast } = jeden;
     const {
-      udaje: { prijmeni, jmeno, narozeni },
+      udaje: { prijmeni, jmeno, narozeni, obec, klub },
       vykon
     } = ucast;
     if (!vykon) {
@@ -102,6 +102,8 @@ export const getPoradiSorted = ({
       prijmeni,
       jmeno,
       narozeni,
+      obec,
+      klub,
       kategorie: jednaKategorie,
       startCislo,
       dokonceno,
