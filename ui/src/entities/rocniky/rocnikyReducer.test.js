@@ -93,7 +93,8 @@ it('po načtení ročníků', () => {
                   vek: {
                     max: 49,
                     min: 40
-                  }
+                  },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a09b1fd371dec1e99b7e1c9',
@@ -102,7 +103,8 @@ it('po načtení ročníků', () => {
                   vek: {
                     max: 59,
                     min: 50
-                  }
+                  },
+                  zkratka: '2Ž'
                 }
               ]
             }
@@ -130,7 +132,8 @@ it('po načtení ročníků', () => {
                   vek: {
                     max: 49,
                     min: 40
-                  }
+                  },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a09b1fd371dec1e99b7e1c9',
@@ -139,7 +142,8 @@ it('po načtení ročníků', () => {
                   vek: {
                     max: 59,
                     min: 50
-                  }
+                  },
+                  zkratka: '2Ž'
                 }
               ]
             },
@@ -149,7 +153,8 @@ it('po načtení ročníků', () => {
                 naMiste: 25,
                 predem: 25
               },
-              typ: 'pěší'
+              typ: 'pěší',
+              zkratka: 'P'
             },
             půlmaraton: {
               muž: [
@@ -160,7 +165,8 @@ it('po načtení ročníků', () => {
                   vek: {
                     max: 59,
                     min: 50
-                  }
+                  },
+                  zkratka: '1M'
                 }
               ],
               startCisla: '100-199',
@@ -176,7 +182,8 @@ it('po načtení ročníků', () => {
                   vek: {
                     max: 49,
                     min: 40
-                  }
+                  },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '3279b1fd371dec1e99b7e1c9',
@@ -185,7 +192,8 @@ it('po načtení ročníků', () => {
                   vek: {
                     max: 59,
                     min: 50
-                  }
+                  },
+                  zkratka: '2Ž'
                 }
               ]
             }
@@ -230,7 +238,8 @@ it('po odhlášení', () => {
                 vek: {
                   max: 49,
                   min: 40
-                }
+                },
+                zkratka: '1Ž'
               },
               {
                 id: '5a09b1fd371dec1e99b7e1c9',
@@ -239,7 +248,8 @@ it('po odhlášení', () => {
                 vek: {
                   max: 59,
                   min: 50
-                }
+                },
+                zkratka: '2Ž'
               }
             ]
           }
@@ -271,31 +281,36 @@ it('getKategorie(), getKategorieProTyp()', () => {
                 id: '5a587e1a051c181132cf83b8',
                 pohlavi: 'muž',
                 typ: 'maraton',
-                vek: { min: 18, max: 39 }
+                vek: { min: 18, max: 39 },
+                zkratka: '1M'
               },
               {
                 id: '5a587e1a051c181132cf83ba',
                 pohlavi: 'muž',
                 typ: 'maraton',
-                vek: { min: 40, max: 49 }
+                vek: { min: 40, max: 49 },
+                zkratka: '2M'
               },
               {
                 id: '5a587e1a051c181132cf83bc',
                 pohlavi: 'muž',
                 typ: 'maraton',
-                vek: { min: 50, max: 59 }
+                vek: { min: 50, max: 59 },
+                zkratka: '3M'
               },
               {
                 id: '5a587e1b051c181132cf83d6',
                 pohlavi: 'muž',
                 typ: 'maraton',
-                vek: { min: 60, max: 69 }
+                vek: { min: 60, max: 69 },
+                zkratka: '4M'
               },
               {
                 id: '5a587e1b051c181132cf83d8',
                 pohlavi: 'muž',
                 typ: 'maraton',
-                vek: { min: 70, max: 150 }
+                vek: { min: 70, max: 150 },
+                zkratka: '5M'
               }
             ],
             žena: [
@@ -303,31 +318,36 @@ it('getKategorie(), getKategorieProTyp()', () => {
                 id: '5a587e1a051c181132cf83c0',
                 pohlavi: 'žena',
                 typ: 'maraton',
-                vek: { min: 18, max: 39 }
+                vek: { min: 18, max: 39 },
+                zkratka: '1Ž'
               },
               {
                 id: '5a587e1a051c181132cf83c1',
                 pohlavi: 'žena',
                 typ: 'maraton',
-                vek: { min: 40, max: 49 }
+                vek: { min: 40, max: 49 },
+                zkratka: '2Ž'
               },
               {
                 id: '5a587e1a051c181132cf83c2',
                 pohlavi: 'žena',
                 typ: 'maraton',
-                vek: { min: 50, max: 59 }
+                vek: { min: 50, max: 59 },
+                zkratka: '3Ž'
               },
               {
                 id: '5a587e1b051c181132cf83dc',
                 pohlavi: 'žena',
                 typ: 'maraton',
-                vek: { min: 60, max: 69 }
+                vek: { min: 60, max: 69 },
+                zkratka: '4Ž'
               },
               {
                 id: '5a587e1b051c181132cf83de',
                 pohlavi: 'žena',
                 typ: 'maraton',
-                vek: { min: 70, max: 150 }
+                vek: { min: 70, max: 150 },
+                zkratka: '5Ž'
               }
             ],
             startovne: { predem: 200, naMiste: 250 },
@@ -339,25 +359,29 @@ it('getKategorie(), getKategorieProTyp()', () => {
                 id: '5a587e1b051c181132cf83d3',
                 pohlavi: 'muž',
                 typ: 'půlmaraton',
-                vek: { min: 18, max: 39 }
+                vek: { min: 18, max: 39 },
+                zkratka: '1M'
               },
               {
                 id: '5a587e1b051c181132cf83d4',
                 pohlavi: 'muž',
                 typ: 'půlmaraton',
-                vek: { min: 40, max: 49 }
+                vek: { min: 40, max: 49 },
+                zkratka: '2M'
               },
               {
                 id: '5a587e1b051c181132cf83d5',
                 pohlavi: 'muž',
                 typ: 'půlmaraton',
-                vek: { min: 50, max: 59 }
+                vek: { min: 50, max: 59 },
+                zkratka: '3M'
               },
               {
                 id: '5a587e1b051c181132cf83d7',
                 pohlavi: 'muž',
                 typ: 'půlmaraton',
-                vek: { min: 60, max: 150 }
+                vek: { min: 60, max: 150 },
+                zkratka: '4M'
               }
             ],
             žena: [
@@ -365,25 +389,29 @@ it('getKategorie(), getKategorieProTyp()', () => {
                 id: '5a587e1b051c181132cf83d9',
                 pohlavi: 'žena',
                 typ: 'půlmaraton',
-                vek: { min: 18, max: 39 }
+                vek: { min: 18, max: 39 },
+                zkratka: '1Ž'
               },
               {
                 id: '5a587e1b051c181132cf83da',
                 pohlavi: 'žena',
                 typ: 'půlmaraton',
-                vek: { min: 40, max: 49 }
+                vek: { min: 40, max: 49 },
+                zkratka: '2Ž'
               },
               {
                 id: '5a587e1b051c181132cf83db',
                 pohlavi: 'žena',
                 typ: 'půlmaraton',
-                vek: { min: 50, max: 59 }
+                vek: { min: 50, max: 59 },
+                zkratka: '3Ž'
               },
               {
                 id: '5a587e1b051c181132cf83dd',
                 pohlavi: 'žena',
                 typ: 'půlmaraton',
-                vek: { min: 60, max: 150 }
+                vek: { min: 60, max: 150 },
+                zkratka: '4Ž'
               }
             ],
             startovne: { predem: 200, naMiste: 250 },
@@ -398,19 +426,22 @@ it('getKategorie(), getKategorieProTyp()', () => {
                 id: '5a587e1a051c181132cf83b3',
                 pohlavi: 'muž',
                 typ: 'cyklo',
-                vek: { min: 18, max: 35 }
+                vek: { min: 18, max: 35 },
+                zkratka: '1M'
               },
               {
                 id: '5a587e1a051c181132cf83b9',
                 pohlavi: 'muž',
                 typ: 'cyklo',
-                vek: { min: 36, max: 45 }
+                vek: { min: 36, max: 45 },
+                zkratka: '2M'
               },
               {
                 id: '5a587e1a051c181132cf83bb',
                 pohlavi: 'muž',
                 typ: 'cyklo',
-                vek: { min: 46, max: 150 }
+                vek: { min: 46, max: 150 },
+                zkratka: '3M'
               }
             ],
             žena: [
@@ -418,19 +449,22 @@ it('getKategorie(), getKategorieProTyp()', () => {
                 id: '5a587e1a051c181132cf83b5',
                 pohlavi: 'žena',
                 typ: 'cyklo',
-                vek: { min: 18, max: 35 }
+                vek: { min: 18, max: 35 },
+                zkratka: '1Ž'
               },
               {
                 id: '5a587e1a051c181132cf83bd',
                 pohlavi: 'žena',
                 typ: 'cyklo',
-                vek: { min: 36, max: 45 }
+                vek: { min: 36, max: 45 },
+                zkratka: '2Ž'
               },
               {
                 id: '5a587e1a051c181132cf83bf',
                 pohlavi: 'žena',
                 typ: 'cyklo',
-                vek: { min: 46, max: 150 }
+                vek: { min: 46, max: 150 },
+                zkratka: '3Ž'
               }
             ],
             startovne: { predem: 200, naMiste: 250, zaloha: 20 },
@@ -442,7 +476,8 @@ it('getKategorie(), getKategorieProTyp()', () => {
                 id: '5a587e1b051c181132cf83cf',
                 pohlavi: 'muž',
                 typ: 'koloběžka',
-                vek: { min: 18, max: 150 }
+                vek: { min: 18, max: 150 },
+                zkratka: '1M'
               }
             ],
             žena: [
@@ -450,7 +485,8 @@ it('getKategorie(), getKategorieProTyp()', () => {
                 id: '5a587e1b051c181132cf83d0',
                 pohlavi: 'žena',
                 typ: 'koloběžka',
-                vek: { min: 18, max: 150 }
+                vek: { min: 18, max: 150 },
+                zkratka: '1Ž'
               }
             ],
             startovne: { predem: 200, naMiste: 250 },
@@ -459,6 +495,7 @@ it('getKategorie(), getKategorieProTyp()', () => {
           pěší: {
             id: '5a587e1a051c181132cf83b1',
             typ: 'pěší',
+            zkratka: 'P',
             startovne: { predem: 30, naMiste: 30 }
           }
         },

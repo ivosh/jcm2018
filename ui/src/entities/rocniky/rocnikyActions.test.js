@@ -79,7 +79,8 @@ const successfulResponse = {
                 vek: {
                   max: 49,
                   min: 40
-                }
+                },
+                zkratka: '1Ž'
               },
               {
                 id: '5a09b1fd371dec1e99b7e1c9',
@@ -88,7 +89,8 @@ const successfulResponse = {
                 vek: {
                   max: 59,
                   min: 50
-                }
+                },
+                zkratka: '2Ž'
               }
             ]
           }
@@ -116,7 +118,8 @@ const successfulResponse = {
                 vek: {
                   max: 49,
                   min: 40
-                }
+                },
+                zkratka: '1Ž'
               },
               {
                 id: '5a09b1fd371dec1e99b7e1c9',
@@ -125,7 +128,8 @@ const successfulResponse = {
                 vek: {
                   max: 59,
                   min: 50
-                }
+                },
+                zkratka: '2Ž'
               }
             ]
           },
@@ -135,7 +139,8 @@ const successfulResponse = {
               naMiste: 25,
               predem: 25
             },
-            typ: 'pěší'
+            typ: 'pěší',
+            zkratka: 'P'
           },
           půlmaraton: {
             muž: [
@@ -146,7 +151,8 @@ const successfulResponse = {
                 vek: {
                   max: 59,
                   min: 50
-                }
+                },
+                zkratka: '1M'
               }
             ],
             startCisla: '100-199',
@@ -162,7 +168,8 @@ const successfulResponse = {
                 vek: {
                   max: 49,
                   min: 40
-                }
+                },
+                zkratka: '1Ž'
               },
               {
                 id: '3279b1fd371dec1e99b7e1c9',
@@ -171,7 +178,8 @@ const successfulResponse = {
                 vek: {
                   max: 59,
                   min: 50
-                }
+                },
+                zkratka: '2Ž'
               }
             ]
           }

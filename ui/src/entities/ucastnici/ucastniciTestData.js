@@ -257,19 +257,22 @@ const state = {
                   id: '5a587e1a051c181132cf83a7',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 18, max: 30 }
+                  vek: { min: 18, max: 30 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83a8',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 31, max: 40 }
+                  vek: { min: 31, max: 40 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83a9',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 41, max: 150 }
+                  vek: { min: 41, max: 150 },
+                  zkratka: '3M'
                 }
               ],
               žena: [
@@ -277,19 +280,22 @@ const state = {
                   id: '5a587e1a051c181132cf83aa',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 18, max: 30 }
+                  vek: { min: 18, max: 30 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83ab',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 31, max: 40 }
+                  vek: { min: 31, max: 40 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83ac',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 41, max: 150 }
+                  vek: { min: 41, max: 150 },
+                  zkratka: '3Ž'
                 }
               ],
               startovne: { predem: 95, naMiste: 95 },
@@ -307,19 +313,22 @@ const state = {
                   id: '5a587e1a051c181132cf83a7',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 18, max: 30 }
+                  vek: { min: 18, max: 30 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83a8',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 31, max: 40 }
+                  vek: { min: 31, max: 40 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83a9',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 41, max: 150 }
+                  vek: { min: 41, max: 150 },
+                  zkratka: '3M'
                 }
               ],
               žena: [
@@ -327,19 +336,22 @@ const state = {
                   id: '5a587e1a051c181132cf83aa',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 18, max: 30 }
+                  vek: { min: 18, max: 30 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83ab',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 31, max: 40 }
+                  vek: { min: 31, max: 40 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83ac',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 41, max: 150 }
+                  vek: { min: 41, max: 150 },
+                  zkratka: '3Ž'
                 }
               ],
               startovne: { predem: 95, naMiste: 95 },
@@ -348,6 +360,7 @@ const state = {
             cyklo: {
               id: '5a587e1a051c181132cf83ae',
               typ: 'cyklo',
+              zkratka: 'C',
               startovne: { predem: 95, naMiste: 95 },
               startCisla: { rozsahy: ['51-200'] }
             }
@@ -363,19 +376,22 @@ const state = {
                   id: '5a587e1a051c181132cf83a7',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 18, max: 30 }
+                  vek: { min: 18, max: 30 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83a8',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 31, max: 40 }
+                  vek: { min: 31, max: 40 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83a9',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 41, max: 150 }
+                  vek: { min: 41, max: 150 },
+                  zkratka: '3M'
                 }
               ],
               žena: [
@@ -383,19 +399,22 @@ const state = {
                   id: '5a587e1a051c181132cf83aa',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 18, max: 30 }
+                  vek: { min: 18, max: 30 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83ab',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 31, max: 40 }
+                  vek: { min: 31, max: 40 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83ac',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 41, max: 150 }
+                  vek: { min: 41, max: 150 },
+                  zkratka: '3Ž'
                 }
               ],
               startovne: { predem: 95, naMiste: 95 },
@@ -404,6 +423,7 @@ const state = {
             cyklo: {
               id: '5a587e1a051c181132cf83ae',
               typ: 'cyklo',
+              zkratka: 'C',
               startovne: { predem: 95, naMiste: 95 },
               startCisla: { rozsahy: ['71-220'] }
             }
@@ -419,19 +439,22 @@ const state = {
                   id: '5a587e1a051c181132cf83a7',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 18, max: 30 }
+                  vek: { min: 18, max: 30 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83a8',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 31, max: 40 }
+                  vek: { min: 31, max: 40 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83a9',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 41, max: 150 }
+                  vek: { min: 41, max: 150 },
+                  zkratka: '3M'
                 }
               ],
               žena: [
@@ -439,19 +462,22 @@ const state = {
                   id: '5a587e1a051c181132cf83aa',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 18, max: 30 }
+                  vek: { min: 18, max: 30 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83ab',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 31, max: 40 }
+                  vek: { min: 31, max: 40 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83ac',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 41, max: 150 }
+                  vek: { min: 41, max: 150 },
+                  zkratka: '3Ž'
                 }
               ],
               startovne: { predem: 95, naMiste: 95 },
@@ -460,12 +486,14 @@ const state = {
             cyklo: {
               id: '5a587e1a051c181132cf83ae',
               typ: 'cyklo',
+              zkratka: 'C',
               startovne: { predem: 95, naMiste: 95 },
               startCisla: { rozsahy: ['41-190'] }
             },
             pěší: {
               id: '5a587e1a051c181132cf83b1',
               typ: 'pěší',
+              zkratka: 'P',
               startovne: { predem: 25, naMiste: 25 }
             }
           },
@@ -480,19 +508,22 @@ const state = {
                   id: '5a587e1a051c181132cf83a7',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 18, max: 30 }
+                  vek: { min: 18, max: 30 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83a8',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 31, max: 40 }
+                  vek: { min: 31, max: 40 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83a9',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 41, max: 150 }
+                  vek: { min: 41, max: 150 },
+                  zkratka: '3M'
                 }
               ],
               žena: [
@@ -500,19 +531,22 @@ const state = {
                   id: '5a587e1a051c181132cf83aa',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 18, max: 30 }
+                  vek: { min: 18, max: 30 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83ab',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 31, max: 40 }
+                  vek: { min: 31, max: 40 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83ac',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 41, max: 150 }
+                  vek: { min: 41, max: 150 },
+                  zkratka: '3Ž'
                 }
               ],
               startovne: { predem: 95, naMiste: 95 },
@@ -524,13 +558,15 @@ const state = {
                   id: '5a587e1a051c181132cf83b3',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83b4',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 150 }
+                  vek: { min: 36, max: 150 },
+                  zkratka: '2M'
                 }
               ],
               žena: [
@@ -538,13 +574,15 @@ const state = {
                   id: '5a587e1a051c181132cf83b5',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83b6',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 150 }
+                  vek: { min: 36, max: 150 },
+                  zkratka: '2Ž'
                 }
               ],
               startovne: { predem: 95, naMiste: 95 },
@@ -553,6 +591,7 @@ const state = {
             pěší: {
               id: '5a587e1a051c181132cf83b1',
               typ: 'pěší',
+              zkratka: 'P',
               startovne: { predem: 25, naMiste: 25 }
             }
           },
@@ -568,25 +607,29 @@ const state = {
                   id: '5a587e1a051c181132cf83b8',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83ba',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bc',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3M'
                 },
                 {
                   id: '5a587e1a051c181132cf83be',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4M'
                 }
               ],
               žena: [
@@ -594,25 +637,29 @@ const state = {
                   id: '5a587e1a051c181132cf83c0',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c1',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c2',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c3',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4Ž'
                 }
               ],
               startovne: { predem: 95, naMiste: 110 },
@@ -624,19 +671,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b3',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83b9',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bb',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3M'
                 }
               ],
               žena: [
@@ -644,19 +694,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b5',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bd',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bf',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3Ž'
                 }
               ],
               startovne: { predem: 95, naMiste: 110 },
@@ -665,6 +718,7 @@ const state = {
             pěší: {
               id: '5a587e1a051c181132cf83b1',
               typ: 'pěší',
+              zkratka: 'P',
               startovne: { predem: 25, naMiste: 25 }
             }
           },
@@ -680,25 +734,29 @@ const state = {
                   id: '5a587e1a051c181132cf83b8',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83ba',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bc',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3M'
                 },
                 {
                   id: '5a587e1a051c181132cf83be',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4M'
                 }
               ],
               žena: [
@@ -706,25 +764,29 @@ const state = {
                   id: '5a587e1a051c181132cf83c0',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c1',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c2',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c3',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4Ž'
                 }
               ],
               startovne: { predem: 95, naMiste: 110 },
@@ -736,19 +798,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b3',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83b9',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bb',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3M'
                 }
               ],
               žena: [
@@ -756,19 +821,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b5',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bd',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bf',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3Ž'
                 }
               ],
               startovne: { predem: 95, naMiste: 110 },
@@ -777,6 +845,7 @@ const state = {
             pěší: {
               id: '5a587e1a051c181132cf83b1',
               typ: 'pěší',
+              zkratka: 'P',
               startovne: { predem: 25, naMiste: 25 }
             }
           },
@@ -792,25 +861,29 @@ const state = {
                   id: '5a587e1a051c181132cf83b8',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83ba',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bc',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3M'
                 },
                 {
                   id: '5a587e1a051c181132cf83be',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4M'
                 }
               ],
               žena: [
@@ -818,25 +891,29 @@ const state = {
                   id: '5a587e1a051c181132cf83c0',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c1',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c2',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c3',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4Ž'
                 }
               ],
               startovne: { predem: 95, naMiste: 110 },
@@ -848,19 +925,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b3',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83b9',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bb',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3M'
                 }
               ],
               žena: [
@@ -868,19 +948,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b5',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bd',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bf',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3Ž'
                 }
               ],
               startovne: { predem: 95, naMiste: 110 },
@@ -889,6 +972,7 @@ const state = {
             pěší: {
               id: '5a587e1a051c181132cf83b1',
               typ: 'pěší',
+              zkratka: 'P',
               startovne: { predem: 25, naMiste: 25 }
             }
           },
@@ -904,25 +988,29 @@ const state = {
                   id: '5a587e1a051c181132cf83b8',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83ba',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bc',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3M'
                 },
                 {
                   id: '5a587e1a051c181132cf83be',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4M'
                 }
               ],
               žena: [
@@ -930,25 +1018,29 @@ const state = {
                   id: '5a587e1a051c181132cf83c0',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c1',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c2',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c3',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4Ž'
                 }
               ],
               startovne: { predem: 120, naMiste: 140 },
@@ -960,19 +1052,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b3',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83b9',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bb',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3M'
                 }
               ],
               žena: [
@@ -980,19 +1075,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b5',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bd',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bf',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3Ž'
                 }
               ],
               startovne: { predem: 120, naMiste: 140 },
@@ -1001,6 +1099,7 @@ const state = {
             pěší: {
               id: '5a587e1a051c181132cf83b1',
               typ: 'pěší',
+              zkratka: 'P',
               startovne: { predem: 25, naMiste: 25 }
             }
           },
@@ -1016,25 +1115,29 @@ const state = {
                   id: '5a587e1a051c181132cf83b8',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83ba',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bc',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3M'
                 },
                 {
                   id: '5a587e1a051c181132cf83be',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4M'
                 }
               ],
               žena: [
@@ -1042,25 +1145,29 @@ const state = {
                   id: '5a587e1a051c181132cf83c0',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c1',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c2',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c3',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4Ž'
                 }
               ],
               startovne: { predem: 120, naMiste: 140 },
@@ -1075,19 +1182,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b3',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83b9',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bb',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3M'
                 }
               ],
               žena: [
@@ -1095,19 +1205,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b5',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bd',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bf',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3Ž'
                 }
               ],
               startovne: { predem: 120, naMiste: 140 },
@@ -1116,6 +1229,7 @@ const state = {
             pěší: {
               id: '5a587e1a051c181132cf83b1',
               typ: 'pěší',
+              zkratka: 'P',
               startovne: { predem: 25, naMiste: 25 }
             }
           },
@@ -1131,25 +1245,29 @@ const state = {
                   id: '5a587e1a051c181132cf83b8',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83ba',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bc',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3M'
                 },
                 {
                   id: '5a587e1a051c181132cf83be',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4M'
                 }
               ],
               žena: [
@@ -1157,25 +1275,29 @@ const state = {
                   id: '5a587e1a051c181132cf83c0',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c1',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c2',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c3',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '5Ž'
                 }
               ],
               startovne: { predem: 120, naMiste: 140 },
@@ -1190,19 +1312,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b3',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83b9',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bb',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3M'
                 }
               ],
               žena: [
@@ -1210,19 +1335,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b5',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bd',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bf',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3Ž'
                 }
               ],
               startovne: { predem: 120, naMiste: 140 },
@@ -1231,6 +1359,7 @@ const state = {
             pěší: {
               id: '5a587e1a051c181132cf83b1',
               typ: 'pěší',
+              zkratka: 'P',
               startovne: { predem: 25, naMiste: 25 }
             }
           },
@@ -1246,25 +1375,29 @@ const state = {
                   id: '5a587e1a051c181132cf83b8',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83ba',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bc',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3M'
                 },
                 {
                   id: '5a587e1a051c181132cf83be',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4M'
                 }
               ],
               žena: [
@@ -1272,25 +1405,29 @@ const state = {
                   id: '5a587e1a051c181132cf83c0',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c1',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c2',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c3',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4Ž'
                 }
               ],
               startovne: { predem: 120, naMiste: 140 },
@@ -1305,19 +1442,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b3',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83b9',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bb',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3M'
                 }
               ],
               žena: [
@@ -1325,19 +1465,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b5',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bd',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bf',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3Ž'
                 }
               ],
               startovne: { predem: 120, naMiste: 140 },
@@ -1346,6 +1489,7 @@ const state = {
             pěší: {
               id: '5a587e1a051c181132cf83b1',
               typ: 'pěší',
+              zkratka: 'P',
               startovne: { predem: 25, naMiste: 25 }
             }
           },
@@ -1361,25 +1505,29 @@ const state = {
                   id: '5a587e1a051c181132cf83b8',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83ba',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bc',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3M'
                 },
                 {
                   id: '5a587e1a051c181132cf83be',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4M'
                 }
               ],
               žena: [
@@ -1387,25 +1535,29 @@ const state = {
                   id: '5a587e1a051c181132cf83c0',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c1',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c2',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c3',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4Ž'
                 }
               ],
               startovne: { predem: 130, naMiste: 150 },
@@ -1435,19 +1587,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b3',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83b9',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bb',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3M'
                 }
               ],
               žena: [
@@ -1455,19 +1610,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b5',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bd',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bf',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3Ž'
                 }
               ],
               startovne: { predem: 130, naMiste: 150 },
@@ -1476,6 +1634,7 @@ const state = {
             pěší: {
               id: '5a587e1a051c181132cf83b1',
               typ: 'pěší',
+              zkratka: 'P',
               startovne: { predem: 25, naMiste: 25 }
             }
           },
@@ -1491,25 +1650,29 @@ const state = {
                   id: '5a587e1a051c181132cf83b8',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83ba',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bc',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3M'
                 },
                 {
                   id: '5a587e1a051c181132cf83be',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4M'
                 }
               ],
               žena: [
@@ -1517,25 +1680,29 @@ const state = {
                   id: '5a587e1a051c181132cf83c0',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c1',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c2',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c3',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4Ž'
                 }
               ],
               startovne: { predem: 130, naMiste: 150 },
@@ -1550,19 +1717,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b3',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83b9',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bb',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3M'
                 }
               ],
               žena: [
@@ -1570,19 +1740,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b5',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bd',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bf',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3Ž'
                 }
               ],
               startovne: { predem: 130, naMiste: 150 },
@@ -1591,6 +1764,7 @@ const state = {
             pěší: {
               id: '5a587e1a051c181132cf83b1',
               typ: 'pěší',
+              zkratka: 'P',
               startovne: { predem: 25, naMiste: 25 }
             }
           },
@@ -1606,25 +1780,29 @@ const state = {
                   id: '5a587e1a051c181132cf83b8',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83ba',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bc',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3M'
                 },
                 {
                   id: '5a587e1a051c181132cf83be',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4M'
                 }
               ],
               žena: [
@@ -1632,25 +1810,29 @@ const state = {
                   id: '5a587e1a051c181132cf83c0',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c1',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c2',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c3',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4Ž'
                 }
               ],
               startovne: { predem: 130, naMiste: 150 },
@@ -1665,19 +1847,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b3',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83b9',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bb',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3M'
                 }
               ],
               žena: [
@@ -1685,19 +1870,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b5',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bd',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bf',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3Ž'
                 }
               ],
               startovne: { predem: 130, naMiste: 150 },
@@ -1706,6 +1894,7 @@ const state = {
             pěší: {
               id: '5a587e1a051c181132cf83b1',
               typ: 'pěší',
+              zkratka: 'P',
               startovne: { predem: 25, naMiste: 25 }
             }
           },
@@ -1721,25 +1910,29 @@ const state = {
                   id: '5a587e1a051c181132cf83b8',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83ba',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bc',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3M'
                 },
                 {
                   id: '5a587e1a051c181132cf83be',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4M'
                 }
               ],
               žena: [
@@ -1747,25 +1940,29 @@ const state = {
                   id: '5a587e1a051c181132cf83c0',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c1',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c2',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c3',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4Ž'
                 }
               ],
               startovne: { predem: 140, naMiste: 190 },
@@ -1780,19 +1977,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b3',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83b9',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bb',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3M'
                 }
               ],
               žena: [
@@ -1800,19 +2000,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b5',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bd',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bf',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3Ž'
                 }
               ],
               startovne: { predem: 140, naMiste: 190 },
@@ -1824,7 +2027,8 @@ const state = {
                   id: '5a587e1b051c181132cf83cf',
                   pohlavi: 'muž',
                   typ: 'koloběžka',
-                  vek: { min: 18, max: 150 }
+                  vek: { min: 18, max: 150 },
+                  zkratka: '1M'
                 }
               ],
               žena: [
@@ -1832,7 +2036,8 @@ const state = {
                   id: '5a587e1b051c181132cf83d0',
                   pohlavi: 'žena',
                   typ: 'koloběžka',
-                  vek: { min: 18, max: 150 }
+                  vek: { min: 18, max: 150 },
+                  zkratka: '1Ž'
                 }
               ],
               startovne: { predem: 140, naMiste: 190 },
@@ -1841,6 +2046,7 @@ const state = {
             pěší: {
               id: '5a587e1a051c181132cf83b1',
               typ: 'pěší',
+              zkratka: 'P',
               startovne: { predem: 25, naMiste: 25 }
             }
           },
@@ -1856,25 +2062,29 @@ const state = {
                   id: '5a587e1a051c181132cf83b8',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83ba',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bc',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3M'
                 },
                 {
                   id: '5a587e1a051c181132cf83be',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4M'
                 }
               ],
               žena: [
@@ -1882,25 +2092,29 @@ const state = {
                   id: '5a587e1a051c181132cf83c0',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c1',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c2',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c3',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4Ž'
                 }
               ],
               startovne: { predem: 150, naMiste: 200 },
@@ -1915,19 +2129,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b3',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83b9',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bb',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3M'
                 }
               ],
               žena: [
@@ -1935,19 +2152,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b5',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bd',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bf',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3Ž'
                 }
               ],
               startovne: { predem: 150, naMiste: 200 },
@@ -1959,7 +2179,8 @@ const state = {
                   id: '5a587e1b051c181132cf83cf',
                   pohlavi: 'muž',
                   typ: 'koloběžka',
-                  vek: { min: 18, max: 150 }
+                  vek: { min: 18, max: 150 },
+                  zkratka: '1M'
                 }
               ],
               žena: [
@@ -1967,7 +2188,8 @@ const state = {
                   id: '5a587e1b051c181132cf83d0',
                   pohlavi: 'žena',
                   typ: 'koloběžka',
-                  vek: { min: 18, max: 150 }
+                  vek: { min: 18, max: 150 },
+                  zkratka: '1Ž'
                 }
               ],
               startovne: { predem: 150, naMiste: 200 },
@@ -1976,6 +2198,7 @@ const state = {
             pěší: {
               id: '5a587e1a051c181132cf83b1',
               typ: 'pěší',
+              zkratka: 'P',
               startovne: { predem: 25, naMiste: 25 }
             }
           },
@@ -1991,31 +2214,36 @@ const state = {
                   id: '5a587e1a051c181132cf83b8',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83ba',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bc',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3M'
                 },
                 {
                   id: '5a587e1b051c181132cf83d6',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 60, max: 69 }
+                  vek: { min: 60, max: 69 },
+                  zkratka: '4M'
                 },
                 {
                   id: '5a587e1b051c181132cf83d8',
                   pohlavi: 'muž',
                   typ: 'maraton',
-                  vek: { min: 70, max: 150 }
+                  vek: { min: 70, max: 150 },
+                  zkratka: '5M'
                 }
               ],
               žena: [
@@ -2023,31 +2251,36 @@ const state = {
                   id: '5a587e1a051c181132cf83c0',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c1',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83c2',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3Ž'
                 },
                 {
                   id: '5a587e1b051c181132cf83dc',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 60, max: 69 }
+                  vek: { min: 60, max: 69 },
+                  zkratka: '4Ž'
                 },
                 {
                   id: '5a587e1b051c181132cf83de',
                   pohlavi: 'žena',
                   typ: 'maraton',
-                  vek: { min: 70, max: 150 }
+                  vek: { min: 70, max: 150 },
+                  zkratka: '5Ž'
                 }
               ],
               startovne: { predem: 200, naMiste: 250 },
@@ -2059,25 +2292,29 @@ const state = {
                   id: '5a587e1b051c181132cf83d3',
                   pohlavi: 'muž',
                   typ: 'půlmaraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1b051c181132cf83d4',
                   pohlavi: 'muž',
                   typ: 'půlmaraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1b051c181132cf83d5',
                   pohlavi: 'muž',
                   typ: 'půlmaraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3M'
                 },
                 {
                   id: '5a587e1b051c181132cf83d7',
                   pohlavi: 'muž',
                   typ: 'půlmaraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4M'
                 }
               ],
               žena: [
@@ -2085,25 +2322,29 @@ const state = {
                   id: '5a587e1b051c181132cf83d9',
                   pohlavi: 'žena',
                   typ: 'půlmaraton',
-                  vek: { min: 18, max: 39 }
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1b051c181132cf83da',
                   pohlavi: 'žena',
                   typ: 'půlmaraton',
-                  vek: { min: 40, max: 49 }
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1b051c181132cf83db',
                   pohlavi: 'žena',
                   typ: 'půlmaraton',
-                  vek: { min: 50, max: 59 }
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3Ž'
                 },
                 {
                   id: '5a587e1b051c181132cf83dd',
                   pohlavi: 'žena',
                   typ: 'půlmaraton',
-                  vek: { min: 60, max: 150 }
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4Ž'
                 }
               ],
               startovne: { predem: 200, naMiste: 250 },
@@ -2118,19 +2359,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b3',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1M'
                 },
                 {
                   id: '5a587e1a051c181132cf83b9',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2M'
                 },
                 {
                   id: '5a587e1a051c181132cf83bb',
                   pohlavi: 'muž',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3M'
                 }
               ],
               žena: [
@@ -2138,19 +2382,22 @@ const state = {
                   id: '5a587e1a051c181132cf83b5',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 18, max: 35 }
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bd',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 36, max: 45 }
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2Ž'
                 },
                 {
                   id: '5a587e1a051c181132cf83bf',
                   pohlavi: 'žena',
                   typ: 'cyklo',
-                  vek: { min: 46, max: 150 }
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3Ž'
                 }
               ],
               startovne: { predem: 200, naMiste: 250, zaloha: 20 },
@@ -2162,7 +2409,8 @@ const state = {
                   id: '5a587e1b051c181132cf83cf',
                   pohlavi: 'muž',
                   typ: 'koloběžka',
-                  vek: { min: 18, max: 150 }
+                  vek: { min: 18, max: 150 },
+                  zkratka: '1M'
                 }
               ],
               žena: [
@@ -2170,7 +2418,8 @@ const state = {
                   id: '5a587e1b051c181132cf83d0',
                   pohlavi: 'žena',
                   typ: 'koloběžka',
-                  vek: { min: 18, max: 150 }
+                  vek: { min: 18, max: 150 },
+                  zkratka: '1Ž'
                 }
               ],
               startovne: { predem: 200, naMiste: 250 },
@@ -2179,6 +2428,7 @@ const state = {
             pěší: {
               id: '5a587e1a051c181132cf83b1',
               typ: 'pěší',
+              zkratka: 'P',
               startovne: { predem: 30, naMiste: 30 }
             }
           },
