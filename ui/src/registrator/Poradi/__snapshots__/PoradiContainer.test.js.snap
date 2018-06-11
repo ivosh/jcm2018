@@ -50,6 +50,7 @@ Array [
         "max": 150,
         "min": 60,
       },
+      "zkratka": "4M",
     },
     "klub": undefined,
     "narozeni": Object {
@@ -73,6 +74,7 @@ Array [
         "max": 39,
         "min": 18,
       },
+      "zkratka": "1Ž",
     },
     "klub": "SK Nudle",
     "narozeni": Object {

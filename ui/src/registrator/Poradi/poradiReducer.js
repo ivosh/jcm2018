@@ -79,11 +79,12 @@ export const getPoradiSorted = ({
   textFilter,
   sortColumn,
   sortDir,
-  kategorie,
   rocniky,
   ucastnici,
   rok = AKTUALNI_ROK
 }) => {
+  const kategorieProRocnik = getKategorie({ rocniky, rok });
+
   const ucasti = getUcastiProRok({ rok, ucastnici });
   const mapped = ucasti.map(jeden => {
     const { id, ucast } = jeden;
@@ -95,7 +96,6 @@ export const getPoradiSorted = ({
       return undefined;
     }
     const { kategorie: kategorieId, startCislo, dokonceno, cas } = vykon;
-    const jednaKategorie = kategorie[kategorieId];
 
     return {
       id,
@@ -104,7 +104,7 @@ export const getPoradiSorted = ({
       narozeni,
       obec,
       klub,
-      kategorie: jednaKategorie,
+      kategorie: kategorieProRocnik.kategorie[kategorieId], // will contain 'zkratka' as well
       startCislo,
       dokonceno,
       cas
@@ -112,7 +112,6 @@ export const getPoradiSorted = ({
   });
   const filtered = mapped.filter(jeden => jeden);
 
-  const kategorieProRocnik = getKategorie({ rocniky, rok });
   const sPoradim = computePoradiOverall({ data: filtered, kategorieProRocnik });
 
   const parsed = parseInt(textFilter, 10);
