@@ -61,7 +61,7 @@ export const computePoradiOverall = ({ data, kategorieProRocnik }) => {
     const sAbsPoradim = computePoradi({ data: proTyp, key: 'absPoradi' });
 
     const serazeni = [];
-    kategorieProRocnik[typ].forEach(({ id }) => {
+    kategorieProRocnik[typ].list.forEach(({ id }) => {
       const proKategorii = sAbsPoradim.filter(({ kategorie }) => kategorie.id === id);
       const sRelPoradim = computePoradi({ data: proKategorii, key: 'relPoradi' });
       serazeni.push(...sRelPoradim);

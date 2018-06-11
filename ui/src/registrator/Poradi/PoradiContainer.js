@@ -25,7 +25,7 @@ const mapStateToProps = ({ entities, registrator: { poradi } }) => {
 
   const kategorieSubFiltersVisible = kategorieFilter !== '';
   const kategorieSubFilters =
-    kategorieFilter === '' ? [] : getKategorieProTyp({ ...entities, typ: kategorieFilter });
+    kategorieFilter === '' ? [] : getKategorieProTyp({ ...entities, typ: kategorieFilter }).list;
   const kategorieSubFiltersActive = kategorieSubFilters.map(jedna => {
     const active = kategorieSubFilter === jedna.id;
     return { ...jedna, active };

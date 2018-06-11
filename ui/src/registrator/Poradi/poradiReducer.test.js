@@ -105,7 +105,11 @@ it('filtrovat na dvě písmena', () => {
 
 it('computePoradiOverall()', () => {
   const kategorieProRocnik = getKategorie({ rocniky: ucastniciTestData.entities.rocniky });
-  const { maraton, cyklo, pěší } = kategorieProRocnik;
+  const {
+    maraton: { list: maraton },
+    cyklo: { list: cyklo },
+    pěší: { list: pěší }
+  } = kategorieProRocnik;
   const data = [
     { kategorie: cyklo[4], dokonceno: false, cas: undefined },
     { kategorie: cyklo[2], dokonceno: true, cas: 'PT2H15M32.5S' },

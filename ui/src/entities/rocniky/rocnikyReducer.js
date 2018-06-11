@@ -22,15 +22,25 @@ export const getTypKategorie = ({ rok, typ, rocniky }) => {
   return rocnik.kategorie[typ];
 };
 
+const buildLookup = list => {
+  const lookup = {};
+  list.forEach(kategorie => {
+    lookup[kategorie.id] = kategorie;
+  });
+  return lookup;
+};
+
 export const getKategorieProTyp = ({ typ, rocniky, rok = AKTUALNI_ROK }) => {
   const typKategorie = getTypKategorie({ rok, typ, rocniky });
 
+  let list;
   // :TODO: juniorská kategorie cyklo je v současnosti nevybratelná
   if (!typKategorie['muž'] && !typKategorie['žena']) {
-    return [typKategorie]; // jediná kategorie
+    list = [typKategorie]; // jediná kategorie
+  } else {
+    list = [...typKategorie['muž'], ...typKategorie['žena']];
   }
-
-  return [...typKategorie['muž'], ...typKategorie['žena']];
+  return { list, lookup: buildLookup(list) };
 };
 
 export const getKategorie = ({ rocniky, rok = AKTUALNI_ROK }) => {
