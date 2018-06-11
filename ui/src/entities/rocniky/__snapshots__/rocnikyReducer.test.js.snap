@@ -585,571 +585,844 @@ Object {
 
 exports[`getKategorie(), getKategorieProTyp() 6`] = `
 Object {
-  "cyklo": Object {
-    "list": Array [
-      Object {
-        "id": "5a587e1a051c181132cf83b3",
-        "pohlavi": "muž",
-        "typ": "cyklo",
-        "vek": Object {
-          "max": 35,
-          "min": 18,
-        },
-        "zkratka": "1M",
+  "kategorie": Object {
+    "5a587e1a051c181132cf83b1": Object {
+      "id": "5a587e1a051c181132cf83b1",
+      "startovne": Object {
+        "naMiste": 30,
+        "predem": 30,
       },
-      Object {
-        "id": "5a587e1a051c181132cf83b9",
-        "pohlavi": "muž",
-        "typ": "cyklo",
-        "vek": Object {
-          "max": 45,
-          "min": 36,
-        },
-        "zkratka": "2M",
+      "typ": "pěší",
+      "zkratka": "P",
+    },
+    "5a587e1a051c181132cf83b3": Object {
+      "id": "5a587e1a051c181132cf83b3",
+      "pohlavi": "muž",
+      "typ": "cyklo",
+      "vek": Object {
+        "max": 35,
+        "min": 18,
       },
-      Object {
-        "id": "5a587e1a051c181132cf83bb",
-        "pohlavi": "muž",
-        "typ": "cyklo",
-        "vek": Object {
-          "max": 150,
-          "min": 46,
-        },
-        "zkratka": "3M",
+      "zkratka": "1M",
+    },
+    "5a587e1a051c181132cf83b5": Object {
+      "id": "5a587e1a051c181132cf83b5",
+      "pohlavi": "žena",
+      "typ": "cyklo",
+      "vek": Object {
+        "max": 35,
+        "min": 18,
       },
-      Object {
-        "id": "5a587e1a051c181132cf83b5",
-        "pohlavi": "žena",
-        "typ": "cyklo",
-        "vek": Object {
-          "max": 35,
-          "min": 18,
-        },
-        "zkratka": "1Ž",
+      "zkratka": "1Ž",
+    },
+    "5a587e1a051c181132cf83b8": Object {
+      "id": "5a587e1a051c181132cf83b8",
+      "pohlavi": "muž",
+      "typ": "maraton",
+      "vek": Object {
+        "max": 39,
+        "min": 18,
       },
-      Object {
-        "id": "5a587e1a051c181132cf83bd",
-        "pohlavi": "žena",
-        "typ": "cyklo",
-        "vek": Object {
-          "max": 45,
-          "min": 36,
-        },
-        "zkratka": "2Ž",
+      "zkratka": "1M",
+    },
+    "5a587e1a051c181132cf83b9": Object {
+      "id": "5a587e1a051c181132cf83b9",
+      "pohlavi": "muž",
+      "typ": "cyklo",
+      "vek": Object {
+        "max": 45,
+        "min": 36,
       },
-      Object {
-        "id": "5a587e1a051c181132cf83bf",
-        "pohlavi": "žena",
-        "typ": "cyklo",
-        "vek": Object {
-          "max": 150,
-          "min": 46,
-        },
-        "zkratka": "3Ž",
+      "zkratka": "2M",
+    },
+    "5a587e1a051c181132cf83ba": Object {
+      "id": "5a587e1a051c181132cf83ba",
+      "pohlavi": "muž",
+      "typ": "maraton",
+      "vek": Object {
+        "max": 49,
+        "min": 40,
       },
-    ],
-    "lookup": Object {
-      "5a587e1a051c181132cf83b3": Object {
-        "id": "5a587e1a051c181132cf83b3",
-        "pohlavi": "muž",
-        "typ": "cyklo",
-        "vek": Object {
-          "max": 35,
-          "min": 18,
-        },
-        "zkratka": "1M",
+      "zkratka": "2M",
+    },
+    "5a587e1a051c181132cf83bb": Object {
+      "id": "5a587e1a051c181132cf83bb",
+      "pohlavi": "muž",
+      "typ": "cyklo",
+      "vek": Object {
+        "max": 150,
+        "min": 46,
       },
-      "5a587e1a051c181132cf83b5": Object {
-        "id": "5a587e1a051c181132cf83b5",
-        "pohlavi": "žena",
-        "typ": "cyklo",
-        "vek": Object {
-          "max": 35,
-          "min": 18,
-        },
-        "zkratka": "1Ž",
+      "zkratka": "3M",
+    },
+    "5a587e1a051c181132cf83bc": Object {
+      "id": "5a587e1a051c181132cf83bc",
+      "pohlavi": "muž",
+      "typ": "maraton",
+      "vek": Object {
+        "max": 59,
+        "min": 50,
       },
-      "5a587e1a051c181132cf83b9": Object {
-        "id": "5a587e1a051c181132cf83b9",
-        "pohlavi": "muž",
-        "typ": "cyklo",
-        "vek": Object {
-          "max": 45,
-          "min": 36,
-        },
-        "zkratka": "2M",
+      "zkratka": "3M",
+    },
+    "5a587e1a051c181132cf83bd": Object {
+      "id": "5a587e1a051c181132cf83bd",
+      "pohlavi": "žena",
+      "typ": "cyklo",
+      "vek": Object {
+        "max": 45,
+        "min": 36,
       },
-      "5a587e1a051c181132cf83bb": Object {
-        "id": "5a587e1a051c181132cf83bb",
-        "pohlavi": "muž",
-        "typ": "cyklo",
-        "vek": Object {
-          "max": 150,
-          "min": 46,
-        },
-        "zkratka": "3M",
+      "zkratka": "2Ž",
+    },
+    "5a587e1a051c181132cf83bf": Object {
+      "id": "5a587e1a051c181132cf83bf",
+      "pohlavi": "žena",
+      "typ": "cyklo",
+      "vek": Object {
+        "max": 150,
+        "min": 46,
       },
-      "5a587e1a051c181132cf83bd": Object {
-        "id": "5a587e1a051c181132cf83bd",
-        "pohlavi": "žena",
-        "typ": "cyklo",
-        "vek": Object {
-          "max": 45,
-          "min": 36,
-        },
-        "zkratka": "2Ž",
+      "zkratka": "3Ž",
+    },
+    "5a587e1a051c181132cf83c0": Object {
+      "id": "5a587e1a051c181132cf83c0",
+      "pohlavi": "žena",
+      "typ": "maraton",
+      "vek": Object {
+        "max": 39,
+        "min": 18,
       },
-      "5a587e1a051c181132cf83bf": Object {
-        "id": "5a587e1a051c181132cf83bf",
-        "pohlavi": "žena",
-        "typ": "cyklo",
-        "vek": Object {
-          "max": 150,
-          "min": 46,
-        },
-        "zkratka": "3Ž",
+      "zkratka": "1Ž",
+    },
+    "5a587e1a051c181132cf83c1": Object {
+      "id": "5a587e1a051c181132cf83c1",
+      "pohlavi": "žena",
+      "typ": "maraton",
+      "vek": Object {
+        "max": 49,
+        "min": 40,
       },
+      "zkratka": "2Ž",
+    },
+    "5a587e1a051c181132cf83c2": Object {
+      "id": "5a587e1a051c181132cf83c2",
+      "pohlavi": "žena",
+      "typ": "maraton",
+      "vek": Object {
+        "max": 59,
+        "min": 50,
+      },
+      "zkratka": "3Ž",
+    },
+    "5a587e1b051c181132cf83cf": Object {
+      "id": "5a587e1b051c181132cf83cf",
+      "pohlavi": "muž",
+      "typ": "koloběžka",
+      "vek": Object {
+        "max": 150,
+        "min": 18,
+      },
+      "zkratka": "1M",
+    },
+    "5a587e1b051c181132cf83d0": Object {
+      "id": "5a587e1b051c181132cf83d0",
+      "pohlavi": "žena",
+      "typ": "koloběžka",
+      "vek": Object {
+        "max": 150,
+        "min": 18,
+      },
+      "zkratka": "1Ž",
+    },
+    "5a587e1b051c181132cf83d3": Object {
+      "id": "5a587e1b051c181132cf83d3",
+      "pohlavi": "muž",
+      "typ": "půlmaraton",
+      "vek": Object {
+        "max": 39,
+        "min": 18,
+      },
+      "zkratka": "1M",
+    },
+    "5a587e1b051c181132cf83d4": Object {
+      "id": "5a587e1b051c181132cf83d4",
+      "pohlavi": "muž",
+      "typ": "půlmaraton",
+      "vek": Object {
+        "max": 49,
+        "min": 40,
+      },
+      "zkratka": "2M",
+    },
+    "5a587e1b051c181132cf83d5": Object {
+      "id": "5a587e1b051c181132cf83d5",
+      "pohlavi": "muž",
+      "typ": "půlmaraton",
+      "vek": Object {
+        "max": 59,
+        "min": 50,
+      },
+      "zkratka": "3M",
+    },
+    "5a587e1b051c181132cf83d6": Object {
+      "id": "5a587e1b051c181132cf83d6",
+      "pohlavi": "muž",
+      "typ": "maraton",
+      "vek": Object {
+        "max": 69,
+        "min": 60,
+      },
+      "zkratka": "4M",
+    },
+    "5a587e1b051c181132cf83d7": Object {
+      "id": "5a587e1b051c181132cf83d7",
+      "pohlavi": "muž",
+      "typ": "půlmaraton",
+      "vek": Object {
+        "max": 150,
+        "min": 60,
+      },
+      "zkratka": "4M",
+    },
+    "5a587e1b051c181132cf83d8": Object {
+      "id": "5a587e1b051c181132cf83d8",
+      "pohlavi": "muž",
+      "typ": "maraton",
+      "vek": Object {
+        "max": 150,
+        "min": 70,
+      },
+      "zkratka": "5M",
+    },
+    "5a587e1b051c181132cf83d9": Object {
+      "id": "5a587e1b051c181132cf83d9",
+      "pohlavi": "žena",
+      "typ": "půlmaraton",
+      "vek": Object {
+        "max": 39,
+        "min": 18,
+      },
+      "zkratka": "1Ž",
+    },
+    "5a587e1b051c181132cf83da": Object {
+      "id": "5a587e1b051c181132cf83da",
+      "pohlavi": "žena",
+      "typ": "půlmaraton",
+      "vek": Object {
+        "max": 49,
+        "min": 40,
+      },
+      "zkratka": "2Ž",
+    },
+    "5a587e1b051c181132cf83db": Object {
+      "id": "5a587e1b051c181132cf83db",
+      "pohlavi": "žena",
+      "typ": "půlmaraton",
+      "vek": Object {
+        "max": 59,
+        "min": 50,
+      },
+      "zkratka": "3Ž",
+    },
+    "5a587e1b051c181132cf83dc": Object {
+      "id": "5a587e1b051c181132cf83dc",
+      "pohlavi": "žena",
+      "typ": "maraton",
+      "vek": Object {
+        "max": 69,
+        "min": 60,
+      },
+      "zkratka": "4Ž",
+    },
+    "5a587e1b051c181132cf83dd": Object {
+      "id": "5a587e1b051c181132cf83dd",
+      "pohlavi": "žena",
+      "typ": "půlmaraton",
+      "vek": Object {
+        "max": 150,
+        "min": 60,
+      },
+      "zkratka": "4Ž",
+    },
+    "5a587e1b051c181132cf83de": Object {
+      "id": "5a587e1b051c181132cf83de",
+      "pohlavi": "žena",
+      "typ": "maraton",
+      "vek": Object {
+        "max": 150,
+        "min": 70,
+      },
+      "zkratka": "5Ž",
     },
   },
-  "koloběžka": Object {
-    "list": Array [
-      Object {
-        "id": "5a587e1b051c181132cf83cf",
-        "pohlavi": "muž",
-        "typ": "koloběžka",
-        "vek": Object {
-          "max": 150,
-          "min": 18,
+  "typy": Object {
+    "cyklo": Object {
+      "list": Array [
+        Object {
+          "id": "5a587e1a051c181132cf83b3",
+          "pohlavi": "muž",
+          "typ": "cyklo",
+          "vek": Object {
+            "max": 35,
+            "min": 18,
+          },
+          "zkratka": "1M",
         },
-        "zkratka": "1M",
-      },
-      Object {
-        "id": "5a587e1b051c181132cf83d0",
-        "pohlavi": "žena",
-        "typ": "koloběžka",
-        "vek": Object {
-          "max": 150,
-          "min": 18,
+        Object {
+          "id": "5a587e1a051c181132cf83b9",
+          "pohlavi": "muž",
+          "typ": "cyklo",
+          "vek": Object {
+            "max": 45,
+            "min": 36,
+          },
+          "zkratka": "2M",
         },
-        "zkratka": "1Ž",
-      },
-    ],
-    "lookup": Object {
-      "5a587e1b051c181132cf83cf": Object {
-        "id": "5a587e1b051c181132cf83cf",
-        "pohlavi": "muž",
-        "typ": "koloběžka",
-        "vek": Object {
-          "max": 150,
-          "min": 18,
+        Object {
+          "id": "5a587e1a051c181132cf83bb",
+          "pohlavi": "muž",
+          "typ": "cyklo",
+          "vek": Object {
+            "max": 150,
+            "min": 46,
+          },
+          "zkratka": "3M",
         },
-        "zkratka": "1M",
-      },
-      "5a587e1b051c181132cf83d0": Object {
-        "id": "5a587e1b051c181132cf83d0",
-        "pohlavi": "žena",
-        "typ": "koloběžka",
-        "vek": Object {
-          "max": 150,
-          "min": 18,
+        Object {
+          "id": "5a587e1a051c181132cf83b5",
+          "pohlavi": "žena",
+          "typ": "cyklo",
+          "vek": Object {
+            "max": 35,
+            "min": 18,
+          },
+          "zkratka": "1Ž",
         },
-        "zkratka": "1Ž",
-      },
-    },
-  },
-  "maraton": Object {
-    "list": Array [
-      Object {
-        "id": "5a587e1a051c181132cf83b8",
-        "pohlavi": "muž",
-        "typ": "maraton",
-        "vek": Object {
-          "max": 39,
-          "min": 18,
+        Object {
+          "id": "5a587e1a051c181132cf83bd",
+          "pohlavi": "žena",
+          "typ": "cyklo",
+          "vek": Object {
+            "max": 45,
+            "min": 36,
+          },
+          "zkratka": "2Ž",
         },
-        "zkratka": "1M",
-      },
-      Object {
-        "id": "5a587e1a051c181132cf83ba",
-        "pohlavi": "muž",
-        "typ": "maraton",
-        "vek": Object {
-          "max": 49,
-          "min": 40,
+        Object {
+          "id": "5a587e1a051c181132cf83bf",
+          "pohlavi": "žena",
+          "typ": "cyklo",
+          "vek": Object {
+            "max": 150,
+            "min": 46,
+          },
+          "zkratka": "3Ž",
         },
-        "zkratka": "2M",
-      },
-      Object {
-        "id": "5a587e1a051c181132cf83bc",
-        "pohlavi": "muž",
-        "typ": "maraton",
-        "vek": Object {
-          "max": 59,
-          "min": 50,
+      ],
+      "lookup": Object {
+        "5a587e1a051c181132cf83b3": Object {
+          "id": "5a587e1a051c181132cf83b3",
+          "pohlavi": "muž",
+          "typ": "cyklo",
+          "vek": Object {
+            "max": 35,
+            "min": 18,
+          },
+          "zkratka": "1M",
         },
-        "zkratka": "3M",
-      },
-      Object {
-        "id": "5a587e1b051c181132cf83d6",
-        "pohlavi": "muž",
-        "typ": "maraton",
-        "vek": Object {
-          "max": 69,
-          "min": 60,
+        "5a587e1a051c181132cf83b5": Object {
+          "id": "5a587e1a051c181132cf83b5",
+          "pohlavi": "žena",
+          "typ": "cyklo",
+          "vek": Object {
+            "max": 35,
+            "min": 18,
+          },
+          "zkratka": "1Ž",
         },
-        "zkratka": "4M",
-      },
-      Object {
-        "id": "5a587e1b051c181132cf83d8",
-        "pohlavi": "muž",
-        "typ": "maraton",
-        "vek": Object {
-          "max": 150,
-          "min": 70,
+        "5a587e1a051c181132cf83b9": Object {
+          "id": "5a587e1a051c181132cf83b9",
+          "pohlavi": "muž",
+          "typ": "cyklo",
+          "vek": Object {
+            "max": 45,
+            "min": 36,
+          },
+          "zkratka": "2M",
         },
-        "zkratka": "5M",
-      },
-      Object {
-        "id": "5a587e1a051c181132cf83c0",
-        "pohlavi": "žena",
-        "typ": "maraton",
-        "vek": Object {
-          "max": 39,
-          "min": 18,
+        "5a587e1a051c181132cf83bb": Object {
+          "id": "5a587e1a051c181132cf83bb",
+          "pohlavi": "muž",
+          "typ": "cyklo",
+          "vek": Object {
+            "max": 150,
+            "min": 46,
+          },
+          "zkratka": "3M",
         },
-        "zkratka": "1Ž",
-      },
-      Object {
-        "id": "5a587e1a051c181132cf83c1",
-        "pohlavi": "žena",
-        "typ": "maraton",
-        "vek": Object {
-          "max": 49,
-          "min": 40,
+        "5a587e1a051c181132cf83bd": Object {
+          "id": "5a587e1a051c181132cf83bd",
+          "pohlavi": "žena",
+          "typ": "cyklo",
+          "vek": Object {
+            "max": 45,
+            "min": 36,
+          },
+          "zkratka": "2Ž",
         },
-        "zkratka": "2Ž",
-      },
-      Object {
-        "id": "5a587e1a051c181132cf83c2",
-        "pohlavi": "žena",
-        "typ": "maraton",
-        "vek": Object {
-          "max": 59,
-          "min": 50,
+        "5a587e1a051c181132cf83bf": Object {
+          "id": "5a587e1a051c181132cf83bf",
+          "pohlavi": "žena",
+          "typ": "cyklo",
+          "vek": Object {
+            "max": 150,
+            "min": 46,
+          },
+          "zkratka": "3Ž",
         },
-        "zkratka": "3Ž",
-      },
-      Object {
-        "id": "5a587e1b051c181132cf83dc",
-        "pohlavi": "žena",
-        "typ": "maraton",
-        "vek": Object {
-          "max": 69,
-          "min": 60,
-        },
-        "zkratka": "4Ž",
-      },
-      Object {
-        "id": "5a587e1b051c181132cf83de",
-        "pohlavi": "žena",
-        "typ": "maraton",
-        "vek": Object {
-          "max": 150,
-          "min": 70,
-        },
-        "zkratka": "5Ž",
-      },
-    ],
-    "lookup": Object {
-      "5a587e1a051c181132cf83b8": Object {
-        "id": "5a587e1a051c181132cf83b8",
-        "pohlavi": "muž",
-        "typ": "maraton",
-        "vek": Object {
-          "max": 39,
-          "min": 18,
-        },
-        "zkratka": "1M",
-      },
-      "5a587e1a051c181132cf83ba": Object {
-        "id": "5a587e1a051c181132cf83ba",
-        "pohlavi": "muž",
-        "typ": "maraton",
-        "vek": Object {
-          "max": 49,
-          "min": 40,
-        },
-        "zkratka": "2M",
-      },
-      "5a587e1a051c181132cf83bc": Object {
-        "id": "5a587e1a051c181132cf83bc",
-        "pohlavi": "muž",
-        "typ": "maraton",
-        "vek": Object {
-          "max": 59,
-          "min": 50,
-        },
-        "zkratka": "3M",
-      },
-      "5a587e1a051c181132cf83c0": Object {
-        "id": "5a587e1a051c181132cf83c0",
-        "pohlavi": "žena",
-        "typ": "maraton",
-        "vek": Object {
-          "max": 39,
-          "min": 18,
-        },
-        "zkratka": "1Ž",
-      },
-      "5a587e1a051c181132cf83c1": Object {
-        "id": "5a587e1a051c181132cf83c1",
-        "pohlavi": "žena",
-        "typ": "maraton",
-        "vek": Object {
-          "max": 49,
-          "min": 40,
-        },
-        "zkratka": "2Ž",
-      },
-      "5a587e1a051c181132cf83c2": Object {
-        "id": "5a587e1a051c181132cf83c2",
-        "pohlavi": "žena",
-        "typ": "maraton",
-        "vek": Object {
-          "max": 59,
-          "min": 50,
-        },
-        "zkratka": "3Ž",
-      },
-      "5a587e1b051c181132cf83d6": Object {
-        "id": "5a587e1b051c181132cf83d6",
-        "pohlavi": "muž",
-        "typ": "maraton",
-        "vek": Object {
-          "max": 69,
-          "min": 60,
-        },
-        "zkratka": "4M",
-      },
-      "5a587e1b051c181132cf83d8": Object {
-        "id": "5a587e1b051c181132cf83d8",
-        "pohlavi": "muž",
-        "typ": "maraton",
-        "vek": Object {
-          "max": 150,
-          "min": 70,
-        },
-        "zkratka": "5M",
-      },
-      "5a587e1b051c181132cf83dc": Object {
-        "id": "5a587e1b051c181132cf83dc",
-        "pohlavi": "žena",
-        "typ": "maraton",
-        "vek": Object {
-          "max": 69,
-          "min": 60,
-        },
-        "zkratka": "4Ž",
-      },
-      "5a587e1b051c181132cf83de": Object {
-        "id": "5a587e1b051c181132cf83de",
-        "pohlavi": "žena",
-        "typ": "maraton",
-        "vek": Object {
-          "max": 150,
-          "min": 70,
-        },
-        "zkratka": "5Ž",
       },
     },
-  },
-  "pěší": Object {
-    "list": Array [
-      Object {
-        "id": "5a587e1a051c181132cf83b1",
-        "startovne": Object {
-          "naMiste": 30,
-          "predem": 30,
+    "koloběžka": Object {
+      "list": Array [
+        Object {
+          "id": "5a587e1b051c181132cf83cf",
+          "pohlavi": "muž",
+          "typ": "koloběžka",
+          "vek": Object {
+            "max": 150,
+            "min": 18,
+          },
+          "zkratka": "1M",
         },
-        "typ": "pěší",
-        "zkratka": "P",
-      },
-    ],
-    "lookup": Object {
-      "5a587e1a051c181132cf83b1": Object {
-        "id": "5a587e1a051c181132cf83b1",
-        "startovne": Object {
-          "naMiste": 30,
-          "predem": 30,
+        Object {
+          "id": "5a587e1b051c181132cf83d0",
+          "pohlavi": "žena",
+          "typ": "koloběžka",
+          "vek": Object {
+            "max": 150,
+            "min": 18,
+          },
+          "zkratka": "1Ž",
         },
-        "typ": "pěší",
-        "zkratka": "P",
+      ],
+      "lookup": Object {
+        "5a587e1b051c181132cf83cf": Object {
+          "id": "5a587e1b051c181132cf83cf",
+          "pohlavi": "muž",
+          "typ": "koloběžka",
+          "vek": Object {
+            "max": 150,
+            "min": 18,
+          },
+          "zkratka": "1M",
+        },
+        "5a587e1b051c181132cf83d0": Object {
+          "id": "5a587e1b051c181132cf83d0",
+          "pohlavi": "žena",
+          "typ": "koloběžka",
+          "vek": Object {
+            "max": 150,
+            "min": 18,
+          },
+          "zkratka": "1Ž",
+        },
       },
     },
-  },
-  "půlmaraton": Object {
-    "list": Array [
-      Object {
-        "id": "5a587e1b051c181132cf83d3",
-        "pohlavi": "muž",
-        "typ": "půlmaraton",
-        "vek": Object {
-          "max": 39,
-          "min": 18,
+    "maraton": Object {
+      "list": Array [
+        Object {
+          "id": "5a587e1a051c181132cf83b8",
+          "pohlavi": "muž",
+          "typ": "maraton",
+          "vek": Object {
+            "max": 39,
+            "min": 18,
+          },
+          "zkratka": "1M",
         },
-        "zkratka": "1M",
+        Object {
+          "id": "5a587e1a051c181132cf83ba",
+          "pohlavi": "muž",
+          "typ": "maraton",
+          "vek": Object {
+            "max": 49,
+            "min": 40,
+          },
+          "zkratka": "2M",
+        },
+        Object {
+          "id": "5a587e1a051c181132cf83bc",
+          "pohlavi": "muž",
+          "typ": "maraton",
+          "vek": Object {
+            "max": 59,
+            "min": 50,
+          },
+          "zkratka": "3M",
+        },
+        Object {
+          "id": "5a587e1b051c181132cf83d6",
+          "pohlavi": "muž",
+          "typ": "maraton",
+          "vek": Object {
+            "max": 69,
+            "min": 60,
+          },
+          "zkratka": "4M",
+        },
+        Object {
+          "id": "5a587e1b051c181132cf83d8",
+          "pohlavi": "muž",
+          "typ": "maraton",
+          "vek": Object {
+            "max": 150,
+            "min": 70,
+          },
+          "zkratka": "5M",
+        },
+        Object {
+          "id": "5a587e1a051c181132cf83c0",
+          "pohlavi": "žena",
+          "typ": "maraton",
+          "vek": Object {
+            "max": 39,
+            "min": 18,
+          },
+          "zkratka": "1Ž",
+        },
+        Object {
+          "id": "5a587e1a051c181132cf83c1",
+          "pohlavi": "žena",
+          "typ": "maraton",
+          "vek": Object {
+            "max": 49,
+            "min": 40,
+          },
+          "zkratka": "2Ž",
+        },
+        Object {
+          "id": "5a587e1a051c181132cf83c2",
+          "pohlavi": "žena",
+          "typ": "maraton",
+          "vek": Object {
+            "max": 59,
+            "min": 50,
+          },
+          "zkratka": "3Ž",
+        },
+        Object {
+          "id": "5a587e1b051c181132cf83dc",
+          "pohlavi": "žena",
+          "typ": "maraton",
+          "vek": Object {
+            "max": 69,
+            "min": 60,
+          },
+          "zkratka": "4Ž",
+        },
+        Object {
+          "id": "5a587e1b051c181132cf83de",
+          "pohlavi": "žena",
+          "typ": "maraton",
+          "vek": Object {
+            "max": 150,
+            "min": 70,
+          },
+          "zkratka": "5Ž",
+        },
+      ],
+      "lookup": Object {
+        "5a587e1a051c181132cf83b8": Object {
+          "id": "5a587e1a051c181132cf83b8",
+          "pohlavi": "muž",
+          "typ": "maraton",
+          "vek": Object {
+            "max": 39,
+            "min": 18,
+          },
+          "zkratka": "1M",
+        },
+        "5a587e1a051c181132cf83ba": Object {
+          "id": "5a587e1a051c181132cf83ba",
+          "pohlavi": "muž",
+          "typ": "maraton",
+          "vek": Object {
+            "max": 49,
+            "min": 40,
+          },
+          "zkratka": "2M",
+        },
+        "5a587e1a051c181132cf83bc": Object {
+          "id": "5a587e1a051c181132cf83bc",
+          "pohlavi": "muž",
+          "typ": "maraton",
+          "vek": Object {
+            "max": 59,
+            "min": 50,
+          },
+          "zkratka": "3M",
+        },
+        "5a587e1a051c181132cf83c0": Object {
+          "id": "5a587e1a051c181132cf83c0",
+          "pohlavi": "žena",
+          "typ": "maraton",
+          "vek": Object {
+            "max": 39,
+            "min": 18,
+          },
+          "zkratka": "1Ž",
+        },
+        "5a587e1a051c181132cf83c1": Object {
+          "id": "5a587e1a051c181132cf83c1",
+          "pohlavi": "žena",
+          "typ": "maraton",
+          "vek": Object {
+            "max": 49,
+            "min": 40,
+          },
+          "zkratka": "2Ž",
+        },
+        "5a587e1a051c181132cf83c2": Object {
+          "id": "5a587e1a051c181132cf83c2",
+          "pohlavi": "žena",
+          "typ": "maraton",
+          "vek": Object {
+            "max": 59,
+            "min": 50,
+          },
+          "zkratka": "3Ž",
+        },
+        "5a587e1b051c181132cf83d6": Object {
+          "id": "5a587e1b051c181132cf83d6",
+          "pohlavi": "muž",
+          "typ": "maraton",
+          "vek": Object {
+            "max": 69,
+            "min": 60,
+          },
+          "zkratka": "4M",
+        },
+        "5a587e1b051c181132cf83d8": Object {
+          "id": "5a587e1b051c181132cf83d8",
+          "pohlavi": "muž",
+          "typ": "maraton",
+          "vek": Object {
+            "max": 150,
+            "min": 70,
+          },
+          "zkratka": "5M",
+        },
+        "5a587e1b051c181132cf83dc": Object {
+          "id": "5a587e1b051c181132cf83dc",
+          "pohlavi": "žena",
+          "typ": "maraton",
+          "vek": Object {
+            "max": 69,
+            "min": 60,
+          },
+          "zkratka": "4Ž",
+        },
+        "5a587e1b051c181132cf83de": Object {
+          "id": "5a587e1b051c181132cf83de",
+          "pohlavi": "žena",
+          "typ": "maraton",
+          "vek": Object {
+            "max": 150,
+            "min": 70,
+          },
+          "zkratka": "5Ž",
+        },
       },
-      Object {
-        "id": "5a587e1b051c181132cf83d4",
-        "pohlavi": "muž",
-        "typ": "půlmaraton",
-        "vek": Object {
-          "max": 49,
-          "min": 40,
+    },
+    "pěší": Object {
+      "list": Array [
+        Object {
+          "id": "5a587e1a051c181132cf83b1",
+          "startovne": Object {
+            "naMiste": 30,
+            "predem": 30,
+          },
+          "typ": "pěší",
+          "zkratka": "P",
         },
-        "zkratka": "2M",
+      ],
+      "lookup": Object {
+        "5a587e1a051c181132cf83b1": Object {
+          "id": "5a587e1a051c181132cf83b1",
+          "startovne": Object {
+            "naMiste": 30,
+            "predem": 30,
+          },
+          "typ": "pěší",
+          "zkratka": "P",
+        },
       },
-      Object {
-        "id": "5a587e1b051c181132cf83d5",
-        "pohlavi": "muž",
-        "typ": "půlmaraton",
-        "vek": Object {
-          "max": 59,
-          "min": 50,
+    },
+    "půlmaraton": Object {
+      "list": Array [
+        Object {
+          "id": "5a587e1b051c181132cf83d3",
+          "pohlavi": "muž",
+          "typ": "půlmaraton",
+          "vek": Object {
+            "max": 39,
+            "min": 18,
+          },
+          "zkratka": "1M",
         },
-        "zkratka": "3M",
-      },
-      Object {
-        "id": "5a587e1b051c181132cf83d7",
-        "pohlavi": "muž",
-        "typ": "půlmaraton",
-        "vek": Object {
-          "max": 150,
-          "min": 60,
+        Object {
+          "id": "5a587e1b051c181132cf83d4",
+          "pohlavi": "muž",
+          "typ": "půlmaraton",
+          "vek": Object {
+            "max": 49,
+            "min": 40,
+          },
+          "zkratka": "2M",
         },
-        "zkratka": "4M",
-      },
-      Object {
-        "id": "5a587e1b051c181132cf83d9",
-        "pohlavi": "žena",
-        "typ": "půlmaraton",
-        "vek": Object {
-          "max": 39,
-          "min": 18,
+        Object {
+          "id": "5a587e1b051c181132cf83d5",
+          "pohlavi": "muž",
+          "typ": "půlmaraton",
+          "vek": Object {
+            "max": 59,
+            "min": 50,
+          },
+          "zkratka": "3M",
         },
-        "zkratka": "1Ž",
-      },
-      Object {
-        "id": "5a587e1b051c181132cf83da",
-        "pohlavi": "žena",
-        "typ": "půlmaraton",
-        "vek": Object {
-          "max": 49,
-          "min": 40,
+        Object {
+          "id": "5a587e1b051c181132cf83d7",
+          "pohlavi": "muž",
+          "typ": "půlmaraton",
+          "vek": Object {
+            "max": 150,
+            "min": 60,
+          },
+          "zkratka": "4M",
         },
-        "zkratka": "2Ž",
-      },
-      Object {
-        "id": "5a587e1b051c181132cf83db",
-        "pohlavi": "žena",
-        "typ": "půlmaraton",
-        "vek": Object {
-          "max": 59,
-          "min": 50,
+        Object {
+          "id": "5a587e1b051c181132cf83d9",
+          "pohlavi": "žena",
+          "typ": "půlmaraton",
+          "vek": Object {
+            "max": 39,
+            "min": 18,
+          },
+          "zkratka": "1Ž",
         },
-        "zkratka": "3Ž",
-      },
-      Object {
-        "id": "5a587e1b051c181132cf83dd",
-        "pohlavi": "žena",
-        "typ": "půlmaraton",
-        "vek": Object {
-          "max": 150,
-          "min": 60,
+        Object {
+          "id": "5a587e1b051c181132cf83da",
+          "pohlavi": "žena",
+          "typ": "půlmaraton",
+          "vek": Object {
+            "max": 49,
+            "min": 40,
+          },
+          "zkratka": "2Ž",
         },
-        "zkratka": "4Ž",
-      },
-    ],
-    "lookup": Object {
-      "5a587e1b051c181132cf83d3": Object {
-        "id": "5a587e1b051c181132cf83d3",
-        "pohlavi": "muž",
-        "typ": "půlmaraton",
-        "vek": Object {
-          "max": 39,
-          "min": 18,
+        Object {
+          "id": "5a587e1b051c181132cf83db",
+          "pohlavi": "žena",
+          "typ": "půlmaraton",
+          "vek": Object {
+            "max": 59,
+            "min": 50,
+          },
+          "zkratka": "3Ž",
         },
-        "zkratka": "1M",
-      },
-      "5a587e1b051c181132cf83d4": Object {
-        "id": "5a587e1b051c181132cf83d4",
-        "pohlavi": "muž",
-        "typ": "půlmaraton",
-        "vek": Object {
-          "max": 49,
-          "min": 40,
+        Object {
+          "id": "5a587e1b051c181132cf83dd",
+          "pohlavi": "žena",
+          "typ": "půlmaraton",
+          "vek": Object {
+            "max": 150,
+            "min": 60,
+          },
+          "zkratka": "4Ž",
         },
-        "zkratka": "2M",
-      },
-      "5a587e1b051c181132cf83d5": Object {
-        "id": "5a587e1b051c181132cf83d5",
-        "pohlavi": "muž",
-        "typ": "půlmaraton",
-        "vek": Object {
-          "max": 59,
-          "min": 50,
+      ],
+      "lookup": Object {
+        "5a587e1b051c181132cf83d3": Object {
+          "id": "5a587e1b051c181132cf83d3",
+          "pohlavi": "muž",
+          "typ": "půlmaraton",
+          "vek": Object {
+            "max": 39,
+            "min": 18,
+          },
+          "zkratka": "1M",
         },
-        "zkratka": "3M",
-      },
-      "5a587e1b051c181132cf83d7": Object {
-        "id": "5a587e1b051c181132cf83d7",
-        "pohlavi": "muž",
-        "typ": "půlmaraton",
-        "vek": Object {
-          "max": 150,
-          "min": 60,
+        "5a587e1b051c181132cf83d4": Object {
+          "id": "5a587e1b051c181132cf83d4",
+          "pohlavi": "muž",
+          "typ": "půlmaraton",
+          "vek": Object {
+            "max": 49,
+            "min": 40,
+          },
+          "zkratka": "2M",
         },
-        "zkratka": "4M",
-      },
-      "5a587e1b051c181132cf83d9": Object {
-        "id": "5a587e1b051c181132cf83d9",
-        "pohlavi": "žena",
-        "typ": "půlmaraton",
-        "vek": Object {
-          "max": 39,
-          "min": 18,
+        "5a587e1b051c181132cf83d5": Object {
+          "id": "5a587e1b051c181132cf83d5",
+          "pohlavi": "muž",
+          "typ": "půlmaraton",
+          "vek": Object {
+            "max": 59,
+            "min": 50,
+          },
+          "zkratka": "3M",
         },
-        "zkratka": "1Ž",
-      },
-      "5a587e1b051c181132cf83da": Object {
-        "id": "5a587e1b051c181132cf83da",
-        "pohlavi": "žena",
-        "typ": "půlmaraton",
-        "vek": Object {
-          "max": 49,
-          "min": 40,
+        "5a587e1b051c181132cf83d7": Object {
+          "id": "5a587e1b051c181132cf83d7",
+          "pohlavi": "muž",
+          "typ": "půlmaraton",
+          "vek": Object {
+            "max": 150,
+            "min": 60,
+          },
+          "zkratka": "4M",
         },
-        "zkratka": "2Ž",
-      },
-      "5a587e1b051c181132cf83db": Object {
-        "id": "5a587e1b051c181132cf83db",
-        "pohlavi": "žena",
-        "typ": "půlmaraton",
-        "vek": Object {
-          "max": 59,
-          "min": 50,
+        "5a587e1b051c181132cf83d9": Object {
+          "id": "5a587e1b051c181132cf83d9",
+          "pohlavi": "žena",
+          "typ": "půlmaraton",
+          "vek": Object {
+            "max": 39,
+            "min": 18,
+          },
+          "zkratka": "1Ž",
         },
-        "zkratka": "3Ž",
-      },
-      "5a587e1b051c181132cf83dd": Object {
-        "id": "5a587e1b051c181132cf83dd",
-        "pohlavi": "žena",
-        "typ": "půlmaraton",
-        "vek": Object {
-          "max": 150,
-          "min": 60,
+        "5a587e1b051c181132cf83da": Object {
+          "id": "5a587e1b051c181132cf83da",
+          "pohlavi": "žena",
+          "typ": "půlmaraton",
+          "vek": Object {
+            "max": 49,
+            "min": 40,
+          },
+          "zkratka": "2Ž",
         },
-        "zkratka": "4Ž",
+        "5a587e1b051c181132cf83db": Object {
+          "id": "5a587e1b051c181132cf83db",
+          "pohlavi": "žena",
+          "typ": "půlmaraton",
+          "vek": Object {
+            "max": 59,
+            "min": 50,
+          },
+          "zkratka": "3Ž",
+        },
+        "5a587e1b051c181132cf83dd": Object {
+          "id": "5a587e1b051c181132cf83dd",
+          "pohlavi": "žena",
+          "typ": "půlmaraton",
+          "vek": Object {
+            "max": 150,
+            "min": 60,
+          },
+          "zkratka": "4Ž",
+        },
       },
     },
   },

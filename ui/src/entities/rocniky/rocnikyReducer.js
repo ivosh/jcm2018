@@ -44,10 +44,11 @@ export const getKategorieProTyp = ({ typ, rocniky, rok = AKTUALNI_ROK }) => {
 };
 
 export const getKategorie = ({ rocniky, rok = AKTUALNI_ROK }) => {
-  const result = {};
+  const result = { kategorie: {}, typy: {} };
   TYPY_KATEGORII.forEach(typ => {
-    result[typ] = getKategorieProTyp({ typ, rocniky, rok });
+    result.typy[typ] = getKategorieProTyp({ typ, rocniky, rok });
+    result.kategorie = {...result.kategorie, ...buildLookup(result.typy[typ].list) };
   });
-
+  
   return result;
 };

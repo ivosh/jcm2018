@@ -55,13 +55,13 @@ const computePoradi = ({ data, key }) => {
 export const computePoradiOverall = ({ data, kategorieProRocnik }) => {
   const vsichni = [];
 
-  const vsechnyKategorie = Object.keys(kategorieProRocnik);
+  const vsechnyKategorie = Object.keys(kategorieProRocnik.typy);
   vsechnyKategorie.forEach(typ => {
     const proTyp = data.filter(({ kategorie }) => kategorie.typ === typ);
     const sAbsPoradim = computePoradi({ data: proTyp, key: 'absPoradi' });
 
     const serazeni = [];
-    kategorieProRocnik[typ].list.forEach(({ id }) => {
+    kategorieProRocnik.typy[typ].list.forEach(({ id }) => {
       const proKategorii = sAbsPoradim.filter(({ kategorie }) => kategorie.id === id);
       const sRelPoradim = computePoradi({ data: proKategorii, key: 'relPoradi' });
       serazeni.push(...sRelPoradim);

@@ -109,7 +109,7 @@ it('computePoradiOverall()', () => {
     maraton: { list: maraton },
     cyklo: { list: cyklo },
     pěší: { list: pěší }
-  } = kategorieProRocnik;
+  } = kategorieProRocnik.typy;
   const data = [
     { kategorie: cyklo[4], dokonceno: false, cas: undefined },
     { kategorie: cyklo[2], dokonceno: true, cas: 'PT2H15M32.5S' },
