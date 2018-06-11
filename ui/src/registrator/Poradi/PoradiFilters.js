@@ -80,6 +80,7 @@ PoradiFilters.propTypes = {
       active: PropTypes.bool,
       id: PropTypes.string.isRequired,
       typ: PropTypes.string.isRequired,
+      zkratka: PropTypes.string.isRequired,
       onClick: PropTypes.func.isRequired
     }).isRequired
   ).isRequired,

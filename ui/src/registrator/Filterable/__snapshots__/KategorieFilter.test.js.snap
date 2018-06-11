@@ -16,6 +16,7 @@ exports[`renders active 1`] = `
     <PopisekKategorie
       heightPercentage={100}
       showTyp={true}
+      showZkratka={false}
       typ="pěší"
     />
   </Button>
@@ -38,6 +39,7 @@ exports[`renders nonactive 1`] = `
     <PopisekKategorie
       heightPercentage={100}
       showTyp={true}
+      showZkratka={false}
       typ="koloběžka"
     />
   </Button>

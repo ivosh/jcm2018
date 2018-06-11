@@ -17,7 +17,7 @@ const casFormat = ({ cellData }) => {
 
 const dokoncenoFormat = ({ cellData }) => findDokonceno(cellData).popisek;
 
-const kategorieFormat = ({ cellData }) => <PopisekKategorie {...cellData} />;
+const kategorieFormat = ({ cellData }) => <PopisekKategorie {...cellData} showZkratka={true} />;
 kategorieFormat.propTypes = {
   cellData: PropTypes.object.isRequired
 };
@@ -73,7 +73,7 @@ const Poradi = ({
       cellDataFormatter: kategorieFormat,
       key: 'kategorie',
       sortable: true,
-      width: 200
+      width: 220
     },
     {
       cellClassNames: () => ['align-right'],

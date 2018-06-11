@@ -20,7 +20,8 @@ const poradi = [
       id: '5a587e1b051c181132cf83d7',
       pohlavi: 'muž',
       typ: 'půlmaraton',
-      vek: { min: 60, max: 150 }
+      vek: { min: 60, max: 150 },
+      zkratka: '4M'
     },
     startCislo: 15,
     dokonceno: false
@@ -34,7 +35,8 @@ const poradi = [
       id: '5a587e1b051c181132cf83d9',
       typ: 'půlmaraton',
       pohlavi: 'žena',
-      vek: { min: 18, max: 39 }
+      vek: { min: 18, max: 39 },
+      zkratka: '1Ž'
     },
     startCislo: 11,
     dokonceno: true,
@@ -51,7 +53,8 @@ const poradi = [
       id: '5a587e1b051c181132cf83d9',
       typ: 'půlmaraton',
       pohlavi: 'žena',
-      vek: { min: 18, max: 39 }
+      vek: { min: 18, max: 39 },
+      zkratka: '1Ž'
     },
     startCislo: 15,
     dokonceno: undefined

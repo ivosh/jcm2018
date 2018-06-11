@@ -386,7 +386,7 @@ exports[`renders 1`] = `
             style={
               Object {
                 "height": 35,
-                "width": 590,
+                "width": 610,
               }
             }
           >
@@ -406,7 +406,7 @@ exports[`renders 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 880,
+                  "width": 900,
                   "willChange": "transform",
                 }
               }
@@ -419,11 +419,11 @@ exports[`renders 1`] = `
                   Object {
                     "height": 35,
                     "maxHeight": 35,
-                    "maxWidth": 880,
+                    "maxWidth": 900,
                     "overflow": "hidden",
                     "pointerEvents": "",
                     "position": "relative",
-                    "width": 880,
+                    "width": 900,
                   }
                 }
               >
@@ -435,7 +435,7 @@ exports[`renders 1`] = `
                       "left": 290,
                       "position": "absolute",
                       "top": 0,
-                      "width": 200,
+                      "width": 220,
                     }
                   }
                 >
@@ -453,7 +453,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 490,
+                      "left": 510,
                       "position": "absolute",
                       "top": 0,
                       "width": 60,
@@ -474,7 +474,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 550,
+                      "left": 570,
                       "position": "absolute",
                       "top": 0,
                       "width": 110,
@@ -495,7 +495,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 660,
+                      "left": 680,
                       "position": "absolute",
                       "top": 0,
                       "width": 100,
@@ -516,7 +516,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 760,
+                      "left": 780,
                       "position": "absolute",
                       "top": 0,
                       "width": 60,
@@ -537,7 +537,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 820,
+                      "left": 840,
                       "position": "absolute",
                       "top": 0,
                       "width": 60,
@@ -560,7 +560,7 @@ exports[`renders 1`] = `
             style={
               Object {
                 "height": 105,
-                "width": 880,
+                "width": 900,
               }
             }
           >
@@ -580,7 +580,7 @@ exports[`renders 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 880,
+                  "width": 900,
                   "willChange": "transform",
                 }
               }
@@ -593,11 +593,11 @@ exports[`renders 1`] = `
                   Object {
                     "height": 105,
                     "maxHeight": 105,
-                    "maxWidth": 880,
+                    "maxWidth": 900,
                     "overflow": "hidden",
                     "pointerEvents": "",
                     "position": "relative",
-                    "width": 880,
+                    "width": 900,
                   }
                 }
               >
@@ -609,7 +609,7 @@ exports[`renders 1`] = `
                       "left": 290,
                       "position": "absolute",
                       "top": 0,
-                      "width": 200,
+                      "width": 220,
                     }
                   }
                 >
@@ -634,6 +634,7 @@ exports[`renders 1`] = `
                       title="muž"
                     />
                     60 let a více
+                     (4M)
                   </span>
                 </div>
                 <div
@@ -641,7 +642,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 490,
+                      "left": 510,
                       "position": "absolute",
                       "top": 0,
                       "width": 60,
@@ -655,7 +656,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 550,
+                      "left": 570,
                       "position": "absolute",
                       "top": 0,
                       "width": 110,
@@ -669,7 +670,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 660,
+                      "left": 680,
                       "position": "absolute",
                       "top": 0,
                       "width": 100,
@@ -683,7 +684,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 760,
+                      "left": 780,
                       "position": "absolute",
                       "top": 0,
                       "width": 60,
@@ -697,7 +698,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 820,
+                      "left": 840,
                       "position": "absolute",
                       "top": 0,
                       "width": 60,
@@ -714,7 +715,7 @@ exports[`renders 1`] = `
                       "left": 290,
                       "position": "absolute",
                       "top": 35,
-                      "width": 200,
+                      "width": 220,
                     }
                   }
                 >
@@ -739,6 +740,7 @@ exports[`renders 1`] = `
                       title="žena"
                     />
                     18 - 39 let
+                     (1Ž)
                   </span>
                 </div>
                 <div
@@ -746,7 +748,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 490,
+                      "left": 510,
                       "position": "absolute",
                       "top": 35,
                       "width": 60,
@@ -760,7 +762,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 550,
+                      "left": 570,
                       "position": "absolute",
                       "top": 35,
                       "width": 110,
@@ -774,7 +776,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 660,
+                      "left": 680,
                       "position": "absolute",
                       "top": 35,
                       "width": 100,
@@ -788,7 +790,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 760,
+                      "left": 780,
                       "position": "absolute",
                       "top": 35,
                       "width": 60,
@@ -802,7 +804,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 820,
+                      "left": 840,
                       "position": "absolute",
                       "top": 35,
                       "width": 60,
@@ -819,7 +821,7 @@ exports[`renders 1`] = `
                       "left": 290,
                       "position": "absolute",
                       "top": 70,
-                      "width": 200,
+                      "width": 220,
                     }
                   }
                 >
@@ -844,6 +846,7 @@ exports[`renders 1`] = `
                       title="žena"
                     />
                     18 - 39 let
+                     (1Ž)
                   </span>
                 </div>
                 <div
@@ -851,7 +854,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 490,
+                      "left": 510,
                       "position": "absolute",
                       "top": 70,
                       "width": 60,
@@ -865,7 +868,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 550,
+                      "left": 570,
                       "position": "absolute",
                       "top": 70,
                       "width": 110,
@@ -879,7 +882,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 660,
+                      "left": 680,
                       "position": "absolute",
                       "top": 70,
                       "width": 100,
@@ -893,7 +896,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 760,
+                      "left": 780,
                       "position": "absolute",
                       "top": 70,
                       "width": 60,
@@ -907,7 +910,7 @@ exports[`renders 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 820,
+                      "left": 840,
                       "position": "absolute",
                       "top": 70,
                       "width": 60,

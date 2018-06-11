@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import './KategorieSubFilter.css';
 
-const KategorieSubFilter = ({ active, pohlavi, typ, vek, onClick }) => (
+const KategorieSubFilter = ({ active, pohlavi, typ, vek, zkratka, onClick }) => (
   <span className="KategorieSubFilter Bootstrap-buttons--active">
     <Button
       active={active}
@@ -15,8 +15,10 @@ const KategorieSubFilter = ({ active, pohlavi, typ, vek, onClick }) => (
         heightPercentage={85}
         pohlavi={pohlavi}
         showTyp={false}
+        showZkratka={true}
         typ={typ}
         vek={vek}
+        zkratka={zkratka}
       />
     </Button>
   </span>
@@ -30,6 +32,7 @@ KategorieSubFilter.propTypes = {
     min: PropTypes.number.isRequired,
     max: PropTypes.number.isRequired
   }),
+  zkratka: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired
 };
 
