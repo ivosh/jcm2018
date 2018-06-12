@@ -74,9 +74,9 @@ export const computePoradiOverall = ({ data, kategorieProRocnik }) => {
 };
 
 export const getPoradiSorted = ({
-  kategorieFilter,
-  kategorieSubFilter,
-  textFilter,
+  kategorieFilter = '',
+  kategorieSubFilter = '',
+  textFilter = '',
   sortColumn,
   sortDir,
   rocniky,
