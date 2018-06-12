@@ -59,6 +59,7 @@ Array [
     "obec": "Ostrava 2",
     "prijmeni": "Balabák",
     "startCislo": 15,
+    "stat": "Česká republika",
   },
   Object {
     "absPoradi": 1,
@@ -86,6 +87,7 @@ Array [
     "prijmeni": "Zralá",
     "relPoradi": 1,
     "startCislo": 11,
+    "stat": "Česká republika",
   },
 ]
 `;

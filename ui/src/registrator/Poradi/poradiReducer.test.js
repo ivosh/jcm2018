@@ -164,6 +164,7 @@ it('getPoradiSorted() by default', () => {
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
       obec: 'Ostrava 2',
+      stat: 'Česká republika',
       kategorie: {
         id: '5a587e1b051c181132cf83d7',
         pohlavi: 'muž',
@@ -180,6 +181,7 @@ it('getPoradiSorted() by default', () => {
       jmeno: 'Hana',
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
+      stat: 'Česká republika',
       klub: 'SK Nudle',
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
@@ -224,6 +226,7 @@ it('getPoradiSorted() - filter for startovní číslo 11', () => {
       jmeno: 'Hana',
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
+      stat: 'Česká republika',
       klub: 'SK Nudle',
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
@@ -268,6 +271,7 @@ it('getPoradiSorted() - filter for kategorie půlmaraton/žena/18-39', () => {
       jmeno: 'Hana',
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
+      stat: 'Česká republika',
       klub: 'SK Nudle',
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
