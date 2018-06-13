@@ -83,6 +83,13 @@ const navs = {
     name: 'Pokladna',
     path: '/pokladna'
   },
+  vysledky: {
+    key: '4.6',
+    glyph: 'flag',
+    menu: 'po startu',
+    name: 'Výsledky',
+    path: '/vysledky'
+  },
   main: {
     key: '1',
     glyph: 'home',

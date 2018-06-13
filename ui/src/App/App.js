@@ -23,6 +23,7 @@ import StartujiciContainer from '../registrator/Startujici/StartujiciContainer';
 import Stopky from '../casomeric/Stopky/Stopky';
 import UbytovaniContainer from '../registrator/Ubytovani/UbytovaniContainer';
 import UcastniciDigestContainer from '../registrator/UcastniciDigest/UcastniciDigestContainer';
+import VysledkyContainer from '../registrator/Vysledky/VysledkyContainer';
 import { navsForMenu, navForRoute, navMenus } from './nav';
 import './App.css';
 import logo from './logo.svg';
@@ -151,6 +152,7 @@ class App extends PureComponent {
               path="/ucastnici"
               component={withAuth(withFetchUcastnici(UcastniciDigestContainer))}
             />
+            <Route path="/vysledky" component={withAuth(withFetchUcastnici(VysledkyContainer))} />
             <Redirect to="/" />
           </Switch>
         </main>
