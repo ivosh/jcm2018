@@ -1,0 +1,463 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<div
+  className="Vysledky"
+>
+  <div />
+  <div
+    className="panel panel-info"
+    id={undefined}
+  >
+    <div
+      className="panel-heading"
+    >
+      cyklisté
+    </div>
+    <div
+      className="panel-body"
+    >
+      <div />
+      <table
+        className="VysledkyTypuUcastnici__table"
+      >
+        <thead
+          className="VysledkyTypuUcastnici__thead"
+        >
+          <tr>
+            <th
+              colSpan={6}
+            >
+              cyklisté
+            </th>
+          </tr>
+          <tr>
+            <th
+              rowSpan="3"
+            >
+              start.
+              <br />
+              číslo
+            </th>
+            <th
+              rowSpan="3"
+            >
+              příjmení a jméno
+            </th>
+            <th
+              rowSpan="3"
+            >
+              klub (město)
+            </th>
+            <th
+              rowSpan="3"
+            >
+              nar.
+            </th>
+            <th
+              rowSpan="3"
+            >
+              čas
+            </th>
+            <th
+              colSpan={1}
+            >
+              umístění
+            </th>
+          </tr>
+          <tr>
+            <th
+              rowSpan="2"
+            >
+              abs.
+            </th>
+            <th
+              colSpan={0}
+            >
+              v kategorii
+            </th>
+          </tr>
+          <tr />
+        </thead>
+        <tbody />
+      </table>
+    </div>
+  </div>
+  <div
+    className="panel panel-info"
+    id={undefined}
+  >
+    <div
+      className="panel-heading"
+    >
+      koloběžky
+    </div>
+    <div
+      className="panel-body"
+    >
+      <div />
+      <table
+        className="VysledkyTypuUcastnici__table"
+      >
+        <thead
+          className="VysledkyTypuUcastnici__thead"
+        >
+          <tr>
+            <th
+              colSpan={6}
+            >
+              koloběžky
+            </th>
+          </tr>
+          <tr>
+            <th
+              rowSpan="3"
+            >
+              start.
+              <br />
+              číslo
+            </th>
+            <th
+              rowSpan="3"
+            >
+              příjmení a jméno
+            </th>
+            <th
+              rowSpan="3"
+            >
+              klub (město)
+            </th>
+            <th
+              rowSpan="3"
+            >
+              nar.
+            </th>
+            <th
+              rowSpan="3"
+            >
+              čas
+            </th>
+            <th
+              colSpan={1}
+            >
+              umístění
+            </th>
+          </tr>
+          <tr>
+            <th
+              rowSpan="2"
+            >
+              abs.
+            </th>
+            <th
+              colSpan={0}
+            >
+              v kategorii
+            </th>
+          </tr>
+          <tr />
+        </thead>
+        <tbody />
+      </table>
+    </div>
+  </div>
+  <div
+    className="panel panel-info"
+    id={undefined}
+  >
+    <div
+      className="panel-heading"
+    >
+      maratonci
+    </div>
+    <div
+      className="panel-body"
+    >
+      <div />
+      <table
+        className="VysledkyTypuUcastnici__table"
+      >
+        <thead
+          className="VysledkyTypuUcastnici__thead"
+        >
+          <tr>
+            <th
+              colSpan={6}
+            >
+              maratonci
+            </th>
+          </tr>
+          <tr>
+            <th
+              rowSpan="3"
+            >
+              start.
+              <br />
+              číslo
+            </th>
+            <th
+              rowSpan="3"
+            >
+              příjmení a jméno
+            </th>
+            <th
+              rowSpan="3"
+            >
+              klub (město)
+            </th>
+            <th
+              rowSpan="3"
+            >
+              nar.
+            </th>
+            <th
+              rowSpan="3"
+            >
+              čas
+            </th>
+            <th
+              colSpan={1}
+            >
+              umístění
+            </th>
+          </tr>
+          <tr>
+            <th
+              rowSpan="2"
+            >
+              abs.
+            </th>
+            <th
+              colSpan={0}
+            >
+              v kategorii
+            </th>
+          </tr>
+          <tr />
+        </thead>
+        <tbody />
+      </table>
+    </div>
+  </div>
+  <div
+    className="panel panel-info"
+    id={undefined}
+  >
+    <div
+      className="panel-heading"
+    >
+      turisté
+    </div>
+    <div
+      className="panel-body"
+    >
+      <div />
+      <table
+        className="VysledkyTypuUcastnici__table"
+      >
+        <thead
+          className="VysledkyTypuUcastnici__thead"
+        >
+          <tr>
+            <th
+              colSpan={6}
+            >
+              turisté
+            </th>
+          </tr>
+          <tr>
+            <th
+              rowSpan="3"
+            >
+              start.
+              <br />
+              číslo
+            </th>
+            <th
+              rowSpan="3"
+            >
+              příjmení a jméno
+            </th>
+            <th
+              rowSpan="3"
+            >
+              klub (město)
+            </th>
+            <th
+              rowSpan="3"
+            >
+              nar.
+            </th>
+            <th
+              rowSpan="3"
+            >
+              čas
+            </th>
+            <th
+              colSpan={1}
+            >
+              umístění
+            </th>
+          </tr>
+          <tr>
+            <th
+              rowSpan="2"
+            >
+              abs.
+            </th>
+            <th
+              colSpan={0}
+            >
+              v kategorii
+            </th>
+          </tr>
+          <tr />
+        </thead>
+        <tbody />
+      </table>
+    </div>
+  </div>
+  <div
+    className="panel panel-info"
+    id={undefined}
+  >
+    <div
+      className="panel-heading"
+    >
+      půlmaratonci
+    </div>
+    <div
+      className="panel-body"
+    >
+      <div />
+      <table
+        className="VysledkyTypuUcastnici__table"
+      >
+        <thead
+          className="VysledkyTypuUcastnici__thead"
+        >
+          <tr>
+            <th
+              colSpan={8}
+            >
+              půlmaratonci
+            </th>
+          </tr>
+          <tr>
+            <th
+              rowSpan="3"
+            >
+              start.
+              <br />
+              číslo
+            </th>
+            <th
+              rowSpan="3"
+            >
+              příjmení a jméno
+            </th>
+            <th
+              rowSpan="3"
+            >
+              klub (město)
+            </th>
+            <th
+              rowSpan="3"
+            >
+              nar.
+            </th>
+            <th
+              rowSpan="3"
+            >
+              čas
+            </th>
+            <th
+              colSpan={3}
+            >
+              umístění
+            </th>
+          </tr>
+          <tr>
+            <th
+              rowSpan="2"
+            >
+              abs.
+            </th>
+            <th
+              colSpan={2}
+            >
+              v kategorii
+            </th>
+          </tr>
+          <tr>
+            <th>
+              4M
+            </th>
+            <th>
+              1Ž
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              11
+            </td>
+            <td>
+              Zralá
+               
+              Hana
+            </td>
+            <td>
+              SK Nudle
+            </td>
+            <td>
+              1999
+            </td>
+            <td>
+              PT2H06M32.6S
+            </td>
+            <td>
+              1.
+            </td>
+            <td>
+               
+            </td>
+            <td>
+               
+            </td>
+          </tr>
+          <tr>
+            <td>
+              15
+            </td>
+            <td>
+              Balabák
+               
+              Roman
+            </td>
+            <td>
+              Ostrava 2
+            </td>
+            <td>
+              1956
+            </td>
+            <td>
+              nedokončeno
+            </td>
+            <td>
+              -
+            </td>
+            <td>
+               
+            </td>
+            <td>
+               
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+`;

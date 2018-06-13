@@ -1,0 +1,7 @@
+.VysledkyTypuUcastnici__table {
+  width: 100%;
+}
+
+.VysledkyTypuUcastnici__thead {
+  display: table-header-group;
+}
