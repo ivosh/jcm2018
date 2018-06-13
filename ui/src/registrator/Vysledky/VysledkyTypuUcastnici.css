@@ -1,7 +1,19 @@
 .VysledkyTypuUcastnici__table {
+  border-width: 1px;
+  border-style: solid;
+  border-spacing: 0px;
+  border-color: gray;
+  border-collapse: collapse;
   width: 100%;
 }
 
 .VysledkyTypuUcastnici__thead {
   display: table-header-group;
+}
+
+.VysledkyTypuUcastnici__table td,
+.VysledkyTypuUcastnici__table th {
+  border-width: 1px;
+  border-style: dotted;
+  border-color: gray;
 }

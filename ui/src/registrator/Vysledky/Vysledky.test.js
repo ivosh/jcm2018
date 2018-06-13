@@ -95,7 +95,7 @@ const vysledky = {
         },
         {
           absPoradi: undefined,
-          cas: undefined,
+          cas: 'nedokončeno',
           dokonceno: false,
           id: '5a09b1fd371dec1e99b7e1c9',
           jmeno: 'Roman',

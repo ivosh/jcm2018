@@ -72,7 +72,7 @@ Object {
       "ucastnici": Array [
         Object {
           "absPoradi": 1,
-          "cas": "PT2H06M32.6S",
+          "cas": "2:06:32,60",
           "dokonceno": true,
           "id": "7a09b1fd371dec1e99b7e142",
           "jmeno": "Hana",
@@ -94,7 +94,7 @@ Object {
         },
         Object {
           "absPoradi": undefined,
-          "cas": undefined,
+          "cas": "nedokončeno",
           "dokonceno": false,
           "id": "5a09b1fd371dec1e99b7e1c9",
           "jmeno": "Roman",

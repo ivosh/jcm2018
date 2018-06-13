@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import momentPropTypes from 'react-moment-proptypes';
-import { findDokonceno } from '../../Util';
 import './VysledkyTypuUcastnici.css';
 
 const VysledkyTypuUcastnici = ({ popisek, ucastnici, zkratky }) => (
@@ -35,7 +33,6 @@ const VysledkyTypuUcastnici = ({ popisek, ucastnici, zkratky }) => (
           jmeno,
           misto,
           narozeni,
-          dokonceno,
           cas,
           absPoradi,
           relPoradi,
@@ -48,7 +45,7 @@ const VysledkyTypuUcastnici = ({ popisek, ucastnici, zkratky }) => (
             </td>
             <td>{misto}</td>
             <td>{narozeni}</td>
-            <td>{dokonceno ? cas : findDokonceno(dokonceno).popisek}</td>
+            <td>{cas}</td>
             <td>{absPoradi ? `${absPoradi}.` : '-'}</td>
             {zkratky.map(jedna => (
               <td key={jedna}>{jedna === zkratka ? (relPoradi ? `${relPoradi}.` : '-') : ' '}</td>
@@ -70,7 +67,7 @@ VysledkyTypuUcastnici.propTypes = {
       misto: PropTypes.string.isRequired,
       narozeni: PropTypes.number.isRequired,
       dokonceno: PropTypes.bool.isRequired,
-      cas: momentPropTypes.durationObj,
+      cas: PropTypes.string.isRequired,
       absPoradi: PropTypes.number,
       relPoradi: PropTypes.number,
       kategorie: PropTypes.shape({

@@ -1,4 +1,6 @@
+import moment from 'moment';
 import { AKTUALNI_ROK, TYPY_KATEGORII } from '../../constants';
+import { convertDuration, findDokonceno } from '../../Util';
 import { getKategorieProTyp } from '../../entities/rocniky/rocnikyReducer';
 import { getPoradiSorted } from '../Poradi/poradiReducer';
 
@@ -80,6 +82,13 @@ export const getVysledky = ({ rocniky, ucastnici, rok = AKTUALNI_ROK }) => {
         relPoradi
       }) => {
         const { zkratka } = kategorie;
+        let casAsText;
+        if (dokonceno) {
+          const duration = convertDuration(moment.duration(cas));
+          casAsText = `${duration.hours}:${duration.mins}:${duration.secs},${duration.subsecs}`;
+        } else {
+          casAsText = findDokonceno(dokonceno).popisek;
+        }
         const ucastnik = {
           id,
           prijmeni,
@@ -89,7 +98,7 @@ export const getVysledky = ({ rocniky, ucastnici, rok = AKTUALNI_ROK }) => {
           kategorie,
           startCislo,
           dokonceno,
-          cas,
+          cas: casAsText,
           absPoradi,
           relPoradi
         };
