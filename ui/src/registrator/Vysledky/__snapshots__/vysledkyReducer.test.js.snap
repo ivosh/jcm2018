@@ -12,6 +12,7 @@ Object {
   "typy": Object {
     "cyklo": Object {
       "popisek": "cyklisté",
+      "startCisla": true,
       "stats": Object {
         "dokoncilo": 0,
         "startovalo": 0,
@@ -22,6 +23,7 @@ Object {
     },
     "koloběžka": Object {
       "popisek": "koloběžky",
+      "startCisla": true,
       "stats": Object {
         "dokoncilo": 0,
         "startovalo": 0,
@@ -32,6 +34,7 @@ Object {
     },
     "maraton": Object {
       "popisek": "maratonci",
+      "startCisla": true,
       "stats": Object {
         "dokoncilo": 0,
         "startovalo": 0,
@@ -42,6 +45,7 @@ Object {
     },
     "pěší": Object {
       "popisek": "turisté",
+      "startCisla": false,
       "stats": Object {
         "dokoncilo": 0,
         "startovalo": 0,
@@ -52,6 +56,7 @@ Object {
     },
     "půlmaraton": Object {
       "popisek": "půlmaratonci",
+      "startCisla": true,
       "stats": Object {
         "1Ž": Object {
           "dokoncilo": 1,

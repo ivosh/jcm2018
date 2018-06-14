@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './VysledkyTypuUcastnici.css';
 
-const VysledkyTypuUcastnici = ({ popisek, ucastnici, zkratky }) => (
+const VysledkyTypuZavodnici = ({ popisek, ucastnici, zkratky }) => (
   <table className="VysledkyTypuUcastnici__table">
     <thead className="VysledkyTypuUcastnici__thead">
       <tr>
@@ -13,7 +13,7 @@ const VysledkyTypuUcastnici = ({ popisek, ucastnici, zkratky }) => (
           start.<br />číslo
         </th>
         <th rowSpan="3">příjmení a jméno</th>
-        <th rowSpan="3">klub (město)</th>
+        <th rowSpan="3">klub či obec</th>
         <th rowSpan="3">nar.</th>
         <th rowSpan="3">čas</th>
         <th colSpan={1 + zkratky.length}>umístění</th>
@@ -36,7 +36,7 @@ const VysledkyTypuUcastnici = ({ popisek, ucastnici, zkratky }) => (
           cas,
           absPoradi,
           relPoradi,
-          kategorie: zkratka
+          kategorie: { zkratka }
         }) => (
           <tr key={id}>
             <td>{startCislo}</td>
@@ -57,7 +57,7 @@ const VysledkyTypuUcastnici = ({ popisek, ucastnici, zkratky }) => (
   </table>
 );
 
-VysledkyTypuUcastnici.propTypes = {
+VysledkyTypuZavodnici.propTypes = {
   popisek: PropTypes.string.isRequired,
   ucastnici: PropTypes.arrayOf(
     PropTypes.shape({
@@ -78,4 +78,4 @@ VysledkyTypuUcastnici.propTypes = {
   zkratky: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
-export default VysledkyTypuUcastnici;
+export default VysledkyTypuZavodnici;

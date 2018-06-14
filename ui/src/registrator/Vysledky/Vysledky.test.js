@@ -13,6 +13,7 @@ const vysledky = {
   typy: {
     cyklo: {
       popisek: 'cyklisté',
+      startCisla: true,
       stats: {
         dokoncilo: 0,
         startovalo: 0
@@ -23,6 +24,7 @@ const vysledky = {
     },
     koloběžka: {
       popisek: 'koloběžky',
+      startCisla: true,
       stats: {
         dokoncilo: 0,
         startovalo: 0
@@ -33,6 +35,7 @@ const vysledky = {
     },
     maraton: {
       popisek: 'maratonci',
+      startCisla: true,
       stats: {
         dokoncilo: 0,
         startovalo: 0
@@ -43,6 +46,7 @@ const vysledky = {
     },
     pěší: {
       popisek: 'turisté',
+      startCisla: false,
       stats: {
         dokoncilo: 0,
         startovalo: 0
@@ -53,6 +57,7 @@ const vysledky = {
     },
     půlmaraton: {
       popisek: 'půlmaratonci',
+      startCisla: true,
       stats: {
         '1Ž': {
           dokoncilo: 1,

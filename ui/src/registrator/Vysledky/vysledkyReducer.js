@@ -44,8 +44,8 @@ const popisekTypu = {
 
 // eslint-disable-next-line import/prefer-default-export
 export const getVysledky = ({ rocniky, ucastnici, rok = AKTUALNI_ROK }) => {
-  const { datum } = rocniky.byRoky[rok];
-  const date = new Date(datum);
+  const rocnik = rocniky.byRoky[rok];
+  const date = new Date(rocnik.datum);
 
   const vysledky = {
     title: 'Výsledková listina',
@@ -132,6 +132,7 @@ export const getVysledky = ({ rocniky, ucastnici, rok = AKTUALNI_ROK }) => {
 
     vysledky.typy[typ] = {
       popisek: popisekTypu[typ],
+      startCisla: !!rocnik.kategorie[typ].startCisla,
       stats,
       typ,
       ucastnici: ucastniciProTyp,
