@@ -6,13 +6,14 @@ const VysledkyTypuNezavodnici = ({ popisek, ucastnici }) => (
   <table className="VysledkyTypuUcastnici__table">
     <thead className="VysledkyTypuUcastnici__thead">
       <tr>
-        <th colSpan={4}>{popisek}</th>
+        <th className="VysledkyTypuUcastnici__th--caption" colSpan={3}>
+          {popisek}
+        </th>
       </tr>
       <tr>
         <th>příjmení a jméno</th>
         <th>klub či obec</th>
         <th>nar.</th>
-        <th />
       </tr>
     </thead>
     <tbody>

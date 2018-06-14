@@ -16,4 +16,20 @@
   border-width: 1px;
   border-style: dotted;
   border-color: gray;
+  padding-left: 0.3em;
+}
+
+.VysledkyTypuUcastnici__table th {
+  text-align: center;
+}
+
+.VysledkyTypuUcastnici__th--caption {
+  background-color: #b2ffbd;
+}
+
+.VysledkyTypuUcastnici__td--startCislo,
+.VysledkyTypuUcastnici__td--poradi {
+  text-align: right;
+  padding-left: 0;
+  padding-right: 0.3em;
 }

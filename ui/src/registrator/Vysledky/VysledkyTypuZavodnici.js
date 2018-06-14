@@ -6,7 +6,9 @@ const VysledkyTypuZavodnici = ({ popisek, ucastnici, zkratky }) => (
   <table className="VysledkyTypuUcastnici__table">
     <thead className="VysledkyTypuUcastnici__thead">
       <tr>
-        <th colSpan={6 + zkratky.length}>{popisek}</th>
+        <th className="VysledkyTypuUcastnici__th--caption" colSpan={6 + zkratky.length}>
+          {popisek}
+        </th>
       </tr>
       <tr>
         <th rowSpan="3">
@@ -39,16 +41,20 @@ const VysledkyTypuZavodnici = ({ popisek, ucastnici, zkratky }) => (
           kategorie: { zkratka }
         }) => (
           <tr key={id}>
-            <td>{startCislo}</td>
+            <td className="VysledkyTypuUcastnici__td--startCislo">{startCislo}</td>
             <td>
               {prijmeni} {jmeno}
             </td>
             <td>{misto}</td>
             <td>{narozeni}</td>
             <td>{cas}</td>
-            <td>{absPoradi ? `${absPoradi}.` : '-'}</td>
+            <td className="VysledkyTypuUcastnici__td--poradi">
+              {absPoradi ? `${absPoradi}.` : '-'}
+            </td>
             {zkratky.map(jedna => (
-              <td key={jedna}>{jedna === zkratka ? (relPoradi ? `${relPoradi}.` : '-') : ' '}</td>
+              <td className="VysledkyTypuUcastnici__td--poradi" key={jedna}>
+                {jedna === zkratka ? (relPoradi ? `${relPoradi}.` : '-') : ' '}
+              </td>
             ))}
           </tr>
         )
