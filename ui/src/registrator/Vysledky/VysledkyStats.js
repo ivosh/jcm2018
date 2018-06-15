@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Panel } from 'react-bootstrap';
 import VysledkyTypuStats from './VysledkyTypuStats';
 import './VysledkyStats.css';
 
 const VysledkyStats = ({ summary, typy }) => (
-  <Panel bsStyle="primary" header="přehled">
+  <div>
     {Object.values(typy).map(typ => (
       <div className="VysledkyStats__typ" key={typ.typ}>
         <VysledkyTypuStats {...typ} anchorHref={true} />
       </div>
     ))}
     <div>účastníků celkem: {summary.startovalo}</div>
-  </Panel>
+  </div>
 );
 
 VysledkyStats.propTypes = {

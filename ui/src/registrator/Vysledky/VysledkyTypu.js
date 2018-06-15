@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Panel } from 'react-bootstrap';
 import VysledkyTypuStats from './VysledkyTypuStats';
 import VysledkyTypuZavodnici from './VysledkyTypuZavodnici';
 import VysledkyTypuNezavodnici from './VysledkyTypuNezavodnici';
 import './VysledkyTypu.css';
 
 const VysledkyTypu = ({ popisek, startCisla, stats, typ, ucastnici, zkratky }) => (
-  <Panel bsStyle="info" header={popisek}>
+  <div className={startCisla ? 'VysledkyTypu--zavodnici' : 'VysledkyTypu--nezavodnici'}>
     <div className="VysledkyTypu__stats">
       <VysledkyTypuStats
         anchorHref={false}
@@ -21,7 +20,7 @@ const VysledkyTypu = ({ popisek, startCisla, stats, typ, ucastnici, zkratky }) =
       <VysledkyTypuZavodnici popisek={popisek} ucastnici={ucastnici} zkratky={zkratky} />
     )}
     {!startCisla && <VysledkyTypuNezavodnici popisek={popisek} ucastnici={ucastnici} />}
-  </Panel>
+  </div>
 );
 
 VysledkyTypu.propTypes = {
