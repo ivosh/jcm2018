@@ -2,3 +2,20 @@
   margin-left: 2em;
   margin-right: 2em;
 }
+
+.Vysledky__title {
+  font-size: 18pt;
+  color: #0a0a2d;
+  text-align: center;
+}
+
+.Vysledky__subtitle {
+  font-size: 14pt;
+  color: #3a0536;
+  text-align: center;
+}
+
+.Vysledky__datum {
+  font-size: 12pt;
+  text-align: center;
+}

@@ -4,24 +4,35 @@ exports[`renders 1`] = `
 <div
   className="Vysledky"
 >
-  <div />
+  <h1
+    className="Vysledky__title"
+  >
+    Výsledková listina
+  </h1>
+  <h2
+    className="Vysledky__subtitle"
+  >
+    Jirkovský crossmarathon a Jirkovský půlmarathon 2018
+  </h2>
+  <h3
+    className="Vysledky__datum"
+  >
+    9. června 2018
+  </h3>
   <div
-    className="panel panel-info"
+    className="panel panel-primary"
     id={undefined}
   >
     <div
       className="panel-heading"
     >
-      cyklisté
+      přehled
     </div>
     <div
       className="panel-body"
     >
-      <a
-        name="cyklo"
-      />
       <div
-        className="VysledkyTypu__stats"
+        className="VysledkyStats__typ"
       >
         <table
           className="VysledkyTypuStats__table"
@@ -30,7 +41,12 @@ exports[`renders 1`] = `
             <tr>
               <th />
               <th>
-                cyklisté
+                <a
+                  className="VysledkyTypuStats__a"
+                  name="cyklo"
+                >
+                  cyklisté
+                </a>
               </th>
               <th>
                 startovalo
@@ -48,10 +64,303 @@ exports[`renders 1`] = `
               <td>
                 celkem
               </td>
-              <td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
                 0
               </td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
+                0
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div
+        className="VysledkyStats__typ"
+      >
+        <table
+          className="VysledkyTypuStats__table"
+        >
+          <thead>
+            <tr>
+              <th />
+              <th>
+                <a
+                  className="VysledkyTypuStats__a"
+                  name="koloběžka"
+                >
+                  koloběžky
+                </a>
+              </th>
+              <th>
+                startovalo
+              </th>
+              <th>
+                dokončilo
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              className="VysledkyTypuStats__tr--total"
+            >
+              <td />
               <td>
+                celkem
+              </td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
+                0
+              </td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
+                0
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div
+        className="VysledkyStats__typ"
+      >
+        <table
+          className="VysledkyTypuStats__table"
+        >
+          <thead>
+            <tr>
+              <th />
+              <th>
+                <a
+                  className="VysledkyTypuStats__a"
+                  name="maraton"
+                >
+                  maratonci
+                </a>
+              </th>
+              <th>
+                startovalo
+              </th>
+              <th>
+                dokončilo
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              className="VysledkyTypuStats__tr--total"
+            >
+              <td />
+              <td>
+                celkem
+              </td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
+                0
+              </td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
+                0
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div
+        className="VysledkyStats__typ"
+      >
+        <table
+          className="VysledkyTypuStats__table"
+        >
+          <thead>
+            <tr>
+              <th />
+              <th>
+                <a
+                  className="VysledkyTypuStats__a"
+                  name="pěší"
+                >
+                  turisté
+                </a>
+              </th>
+              <th>
+                startovalo
+              </th>
+              <th>
+                dokončilo
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              className="VysledkyTypuStats__tr--total"
+            >
+              <td />
+              <td>
+                celkem
+              </td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
+                0
+              </td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
+                0
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div
+        className="VysledkyStats__typ"
+      >
+        <table
+          className="VysledkyTypuStats__table"
+        >
+          <thead>
+            <tr>
+              <th />
+              <th>
+                <a
+                  className="VysledkyTypuStats__a"
+                  name="půlmaraton"
+                >
+                  půlmaratonci
+                </a>
+              </th>
+              <th>
+                startovalo
+              </th>
+              <th>
+                dokončilo
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                4M
+              </td>
+              <td>
+                muži 60 a více
+              </td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
+                1
+              </td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
+                0
+              </td>
+            </tr>
+            <tr>
+              <td>
+                1Ž
+              </td>
+              <td>
+                ženy 18-39
+              </td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
+                1
+              </td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
+                1
+              </td>
+            </tr>
+            <tr
+              className="VysledkyTypuStats__tr--total"
+            >
+              <td />
+              <td>
+                celkem
+              </td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
+                2
+              </td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
+                1
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        účastníků celkem: 
+        2
+      </div>
+    </div>
+  </div>
+  <div
+    className="panel panel-info"
+    id={undefined}
+  >
+    <div
+      className="panel-heading"
+    >
+      cyklisté
+    </div>
+    <div
+      className="panel-body"
+    >
+      <div
+        className="VysledkyTypu__stats"
+      >
+        <table
+          className="VysledkyTypuStats__table"
+        >
+          <thead>
+            <tr>
+              <th />
+              <th>
+                <a
+                  className="VysledkyTypuStats__a"
+                  name="cyklo"
+                >
+                  cyklisté
+                </a>
+              </th>
+              <th>
+                startovalo
+              </th>
+              <th>
+                dokončilo
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              className="VysledkyTypuStats__tr--total"
+            >
+              <td />
+              <td>
+                celkem
+              </td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
+                0
+              </td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
                 0
               </td>
             </tr>
@@ -136,9 +445,6 @@ exports[`renders 1`] = `
     <div
       className="panel-body"
     >
-      <a
-        name="koloběžka"
-      />
       <div
         className="VysledkyTypu__stats"
       >
@@ -149,7 +455,12 @@ exports[`renders 1`] = `
             <tr>
               <th />
               <th>
-                koloběžky
+                <a
+                  className="VysledkyTypuStats__a"
+                  name="koloběžka"
+                >
+                  koloběžky
+                </a>
               </th>
               <th>
                 startovalo
@@ -167,10 +478,14 @@ exports[`renders 1`] = `
               <td>
                 celkem
               </td>
-              <td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
                 0
               </td>
-              <td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
                 0
               </td>
             </tr>
@@ -255,9 +570,6 @@ exports[`renders 1`] = `
     <div
       className="panel-body"
     >
-      <a
-        name="maraton"
-      />
       <div
         className="VysledkyTypu__stats"
       >
@@ -268,7 +580,12 @@ exports[`renders 1`] = `
             <tr>
               <th />
               <th>
-                maratonci
+                <a
+                  className="VysledkyTypuStats__a"
+                  name="maraton"
+                >
+                  maratonci
+                </a>
               </th>
               <th>
                 startovalo
@@ -286,10 +603,14 @@ exports[`renders 1`] = `
               <td>
                 celkem
               </td>
-              <td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
                 0
               </td>
-              <td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
                 0
               </td>
             </tr>
@@ -374,9 +695,6 @@ exports[`renders 1`] = `
     <div
       className="panel-body"
     >
-      <a
-        name="pěší"
-      />
       <div
         className="VysledkyTypu__stats"
       >
@@ -387,7 +705,12 @@ exports[`renders 1`] = `
             <tr>
               <th />
               <th>
-                turisté
+                <a
+                  className="VysledkyTypuStats__a"
+                  name="pěší"
+                >
+                  turisté
+                </a>
               </th>
               <th>
                 startovalo
@@ -405,10 +728,14 @@ exports[`renders 1`] = `
               <td>
                 celkem
               </td>
-              <td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
                 0
               </td>
-              <td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
                 0
               </td>
             </tr>
@@ -457,9 +784,6 @@ exports[`renders 1`] = `
     <div
       className="panel-body"
     >
-      <a
-        name="půlmaraton"
-      />
       <div
         className="VysledkyTypu__stats"
       >
@@ -470,7 +794,12 @@ exports[`renders 1`] = `
             <tr>
               <th />
               <th>
-                půlmaratonci
+                <a
+                  className="VysledkyTypuStats__a"
+                  name="půlmaraton"
+                >
+                  půlmaratonci
+                </a>
               </th>
               <th>
                 startovalo
@@ -488,10 +817,14 @@ exports[`renders 1`] = `
               <td>
                 muži 60 a více
               </td>
-              <td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
                 1
               </td>
-              <td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
                 0
               </td>
             </tr>
@@ -502,10 +835,14 @@ exports[`renders 1`] = `
               <td>
                 ženy 18-39
               </td>
-              <td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
                 1
               </td>
-              <td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
                 1
               </td>
             </tr>
@@ -516,10 +853,14 @@ exports[`renders 1`] = `
               <td>
                 celkem
               </td>
-              <td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
                 2
               </td>
-              <td>
+              <td
+                className="VysledkyTypuStats__td--pocty"
+              >
                 1
               </td>
             </tr>

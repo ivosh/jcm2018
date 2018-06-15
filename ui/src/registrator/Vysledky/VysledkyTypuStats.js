@@ -7,7 +7,11 @@ const VysledkyTypuStats = ({ popisek, stats, typ, zkratky }) => (
     <thead>
       <tr>
         <th />
-        <th>{popisek}</th>
+        <th>
+          <a className="VysledkyTypuStats__a" name={typ}>
+            {popisek}
+          </a>
+        </th>
         <th>startovalo</th>
         <th>dokončilo</th>
       </tr>
@@ -18,15 +22,15 @@ const VysledkyTypuStats = ({ popisek, stats, typ, zkratky }) => (
           <tr key={zkratka}>
             <td>{zkratka}</td>
             <td>{stats[zkratka].popisek}</td>
-            <td>{stats[zkratka].startovalo}</td>
-            <td>{stats[zkratka].dokoncilo}</td>
+            <td className="VysledkyTypuStats__td--pocty">{stats[zkratka].startovalo}</td>
+            <td className="VysledkyTypuStats__td--pocty">{stats[zkratka].dokoncilo}</td>
           </tr>
         ))}
       <tr className="VysledkyTypuStats__tr--total">
         <td />
         <td>celkem</td>
-        <td>{stats.startovalo}</td>
-        <td>{stats.dokoncilo}</td>
+        <td className="VysledkyTypuStats__td--pocty">{stats.startovalo}</td>
+        <td className="VysledkyTypuStats__td--pocty">{stats.dokoncilo}</td>
       </tr>
     </tbody>
   </table>

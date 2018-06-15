@@ -8,7 +8,6 @@ import './VysledkyTypu.css';
 
 const VysledkyTypu = ({ popisek, startCisla, stats, typ, ucastnici, zkratky }) => (
   <Panel bsStyle="info" header={popisek}>
-    <a name={typ} />
     <div className="VysledkyTypu__stats">
       <VysledkyTypuStats popisek={popisek} stats={stats} typ={typ} zkratky={zkratky} />
     </div>
