@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './VysledkyTypuUcastnici.css';
 
 const VysledkyTypuNezavodnici = ({ popisek, ucastnici }) => (
-  <table className="VysledkyTypuUcastnici__table">
+  <table className="VysledkyTypuNezavodnici__table">
     <thead className="VysledkyTypuUcastnici__thead">
       <tr>
         <th className="VysledkyTypuUcastnici__th--caption" colSpan={3}>

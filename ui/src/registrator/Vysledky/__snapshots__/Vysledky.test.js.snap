@@ -365,7 +365,7 @@ exports[`renders 1`] = `
         </table>
       </div>
       <table
-        className="VysledkyTypuUcastnici__table"
+        className="VysledkyTypuZavodnici__table"
       >
         <thead
           className="VysledkyTypuUcastnici__thead"
@@ -492,7 +492,7 @@ exports[`renders 1`] = `
         </table>
       </div>
       <table
-        className="VysledkyTypuUcastnici__table"
+        className="VysledkyTypuZavodnici__table"
       >
         <thead
           className="VysledkyTypuUcastnici__thead"
@@ -619,7 +619,7 @@ exports[`renders 1`] = `
         </table>
       </div>
       <table
-        className="VysledkyTypuUcastnici__table"
+        className="VysledkyTypuZavodnici__table"
       >
         <thead
           className="VysledkyTypuUcastnici__thead"
@@ -746,7 +746,7 @@ exports[`renders 1`] = `
         </table>
       </div>
       <table
-        className="VysledkyTypuUcastnici__table"
+        className="VysledkyTypuNezavodnici__table"
       >
         <thead
           className="VysledkyTypuUcastnici__thead"
@@ -873,7 +873,7 @@ exports[`renders 1`] = `
         </table>
       </div>
       <table
-        className="VysledkyTypuUcastnici__table"
+        className="VysledkyTypuZavodnici__table"
       >
         <thead
           className="VysledkyTypuUcastnici__thead"

@@ -1,26 +1,41 @@
-.VysledkyTypuUcastnici__table {
+.VysledkyTypuZavodnici__table,
+.VysledkyTypuNezavodnici__table {
   border-width: 1px;
   border-style: solid;
   border-spacing: 0px;
   border-color: gray;
   border-collapse: collapse;
+}
+
+.VysledkyTypuZavodnici__table {
   width: 100%;
+}
+.VysledkyTypuNezavodnici__table {
+  width: 60%;
 }
 
 .VysledkyTypuUcastnici__thead {
   display: table-header-group;
 }
 
-.VysledkyTypuUcastnici__table td,
-.VysledkyTypuUcastnici__table th {
+.VysledkyTypuZavodnici__table td,
+.VysledkyTypuNezavodnici__table td,
+.VysledkyTypuZavodnici__table th,
+.VysledkyTypuNezavodnici__table th {
   border-width: 1px;
   border-style: dotted;
   border-color: gray;
   padding-left: 0.3em;
 }
 
-.VysledkyTypuUcastnici__table th {
+.VysledkyTypuZavodnici__table th,
+.VysledkyTypuNezavodnici__table th {
   text-align: center;
+}
+
+.VysledkyTypuZavodnici__table > tbody > tr:nth-child(odd),
+.VysledkyTypuNezavodnici__table > tbody > tr:nth-child(odd) {
+  background-color: #f2f2f2;
 }
 
 .VysledkyTypuUcastnici__th--caption {
