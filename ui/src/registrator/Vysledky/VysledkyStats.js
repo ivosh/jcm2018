@@ -8,7 +8,7 @@ const VysledkyStats = ({ summary, typy }) => (
   <Panel bsStyle="primary" header="přehled">
     {Object.values(typy).map(typ => (
       <div className="VysledkyStats__typ" key={typ.typ}>
-        <VysledkyTypuStats {...typ} />
+        <VysledkyTypuStats {...typ} anchorHref={true} />
       </div>
     ))}
     <div>účastníků celkem: {summary.startovalo}</div>

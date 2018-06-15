@@ -42,8 +42,7 @@ exports[`renders 1`] = `
               <th />
               <th>
                 <a
-                  className="VysledkyTypuStats__a"
-                  name="cyklo"
+                  href="#cyklo"
                 >
                   cyklisté
                 </a>
@@ -89,8 +88,7 @@ exports[`renders 1`] = `
               <th />
               <th>
                 <a
-                  className="VysledkyTypuStats__a"
-                  name="koloběžka"
+                  href="#koloběžka"
                 >
                   koloběžky
                 </a>
@@ -136,8 +134,7 @@ exports[`renders 1`] = `
               <th />
               <th>
                 <a
-                  className="VysledkyTypuStats__a"
-                  name="maraton"
+                  href="#maraton"
                 >
                   maratonci
                 </a>
@@ -183,8 +180,7 @@ exports[`renders 1`] = `
               <th />
               <th>
                 <a
-                  className="VysledkyTypuStats__a"
-                  name="pěší"
+                  href="#pěší"
                 >
                   turisté
                 </a>
@@ -230,8 +226,7 @@ exports[`renders 1`] = `
               <th />
               <th>
                 <a
-                  className="VysledkyTypuStats__a"
-                  name="půlmaraton"
+                  href="#půlmaraton"
                 >
                   půlmaratonci
                 </a>
@@ -334,7 +329,9 @@ exports[`renders 1`] = `
                   className="VysledkyTypuStats__a"
                   name="cyklo"
                 >
+                   
                   cyklisté
+                   
                 </a>
               </th>
               <th>
@@ -459,7 +456,9 @@ exports[`renders 1`] = `
                   className="VysledkyTypuStats__a"
                   name="koloběžka"
                 >
+                   
                   koloběžky
+                   
                 </a>
               </th>
               <th>
@@ -584,7 +583,9 @@ exports[`renders 1`] = `
                   className="VysledkyTypuStats__a"
                   name="maraton"
                 >
+                   
                   maratonci
+                   
                 </a>
               </th>
               <th>
@@ -709,7 +710,9 @@ exports[`renders 1`] = `
                   className="VysledkyTypuStats__a"
                   name="pěší"
                 >
+                   
                   turisté
+                   
                 </a>
               </th>
               <th>
@@ -798,7 +801,9 @@ exports[`renders 1`] = `
                   className="VysledkyTypuStats__a"
                   name="půlmaraton"
                 >
+                   
                   půlmaratonci
+                   
                 </a>
               </th>
               <th>

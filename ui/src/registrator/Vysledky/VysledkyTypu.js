@@ -9,7 +9,13 @@ import './VysledkyTypu.css';
 const VysledkyTypu = ({ popisek, startCisla, stats, typ, ucastnici, zkratky }) => (
   <Panel bsStyle="info" header={popisek}>
     <div className="VysledkyTypu__stats">
-      <VysledkyTypuStats popisek={popisek} stats={stats} typ={typ} zkratky={zkratky} />
+      <VysledkyTypuStats
+        anchorHref={false}
+        popisek={popisek}
+        stats={stats}
+        typ={typ}
+        zkratky={zkratky}
+      />
     </div>
     {startCisla && (
       <VysledkyTypuZavodnici popisek={popisek} ucastnici={ucastnici} zkratky={zkratky} />

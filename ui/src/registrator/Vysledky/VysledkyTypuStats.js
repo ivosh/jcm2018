@@ -2,15 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './VysledkyTypuStats.css';
 
-const VysledkyTypuStats = ({ popisek, stats, typ, zkratky }) => (
+const VysledkyTypuStats = ({ anchorHref, popisek, stats, typ, zkratky }) => (
   <table className="VysledkyTypuStats__table">
     <thead>
       <tr>
         <th />
         <th>
-          <a className="VysledkyTypuStats__a" name={typ}>
-            {popisek}
-          </a>
+          {anchorHref && <a href={`#${typ}`}>{popisek}</a>}
+          {!anchorHref && (
+            <a className="VysledkyTypuStats__a" name={typ}>
+              {' '}
+              {popisek}{' '}
+            </a>
+          )}
         </th>
         <th>startovalo</th>
         <th>dokončilo</th>
@@ -37,6 +41,7 @@ const VysledkyTypuStats = ({ popisek, stats, typ, zkratky }) => (
 );
 
 VysledkyTypuStats.propTypes = {
+  anchorHref: PropTypes.bool.isRequired,
   popisek: PropTypes.string.isRequired,
   stats: PropTypes.object.isRequired,
   typ: PropTypes.string.isRequired,
