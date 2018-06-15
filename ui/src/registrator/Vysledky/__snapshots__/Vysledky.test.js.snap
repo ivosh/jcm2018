@@ -31,6 +31,7 @@ exports[`renders 1`] = `
             <th />
             <th>
               <a
+                className="VysledkTypuStats__a--href"
                 href="#cyklo"
               >
                 cyklisté
@@ -77,6 +78,7 @@ exports[`renders 1`] = `
             <th />
             <th>
               <a
+                className="VysledkTypuStats__a--href"
                 href="#koloběžka"
               >
                 koloběžky
@@ -123,6 +125,7 @@ exports[`renders 1`] = `
             <th />
             <th>
               <a
+                className="VysledkTypuStats__a--href"
                 href="#maraton"
               >
                 maratonci
@@ -169,6 +172,7 @@ exports[`renders 1`] = `
             <th />
             <th>
               <a
+                className="VysledkTypuStats__a--href"
                 href="#pěší"
               >
                 turisté
@@ -215,6 +219,7 @@ exports[`renders 1`] = `
             <th />
             <th>
               <a
+                className="VysledkTypuStats__a--href"
                 href="#půlmaraton"
               >
                 půlmaratonci

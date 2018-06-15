@@ -8,7 +8,11 @@ const VysledkyTypuStats = ({ anchorHref, popisek, stats, typ, zkratky }) => (
       <tr>
         <th />
         <th>
-          {anchorHref && <a href={`#${typ}`}>{popisek}</a>}
+          {anchorHref && (
+            <a className="VysledkTypuStats__a--href" href={`#${typ}`}>
+              {popisek}
+            </a>
+          )}
           {!anchorHref && (
             <a className="VysledkyTypuStats__a" name={typ}>
               {' '}
