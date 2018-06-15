@@ -1,0 +1,15 @@
+.VysledkyTypuStats__table {
+  border: 0;
+}
+
+.VysledkyTypuStats__table th,
+.VysledkyTypuStats__table td {
+  padding: 0.3em;
+}
+
+.VysledkyTypuStats__tr--total {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: gray;
+  font-style: italic;
+}

@@ -17,7 +17,47 @@ exports[`renders 1`] = `
     <div
       className="panel-body"
     >
-      <div />
+      <a
+        name="cyklo"
+      />
+      <div
+        className="VysledkyTypu__stats"
+      >
+        <table
+          className="VysledkyTypuStats__table"
+        >
+          <thead>
+            <tr>
+              <th />
+              <th>
+                cyklisté
+              </th>
+              <th>
+                startovalo
+              </th>
+              <th>
+                dokončilo
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              className="VysledkyTypuStats__tr--total"
+            >
+              <td />
+              <td>
+                celkem
+              </td>
+              <td>
+                0
+              </td>
+              <td>
+                0
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <table
         className="VysledkyTypuUcastnici__table"
       >
@@ -96,7 +136,47 @@ exports[`renders 1`] = `
     <div
       className="panel-body"
     >
-      <div />
+      <a
+        name="koloběžka"
+      />
+      <div
+        className="VysledkyTypu__stats"
+      >
+        <table
+          className="VysledkyTypuStats__table"
+        >
+          <thead>
+            <tr>
+              <th />
+              <th>
+                koloběžky
+              </th>
+              <th>
+                startovalo
+              </th>
+              <th>
+                dokončilo
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              className="VysledkyTypuStats__tr--total"
+            >
+              <td />
+              <td>
+                celkem
+              </td>
+              <td>
+                0
+              </td>
+              <td>
+                0
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <table
         className="VysledkyTypuUcastnici__table"
       >
@@ -175,7 +255,47 @@ exports[`renders 1`] = `
     <div
       className="panel-body"
     >
-      <div />
+      <a
+        name="maraton"
+      />
+      <div
+        className="VysledkyTypu__stats"
+      >
+        <table
+          className="VysledkyTypuStats__table"
+        >
+          <thead>
+            <tr>
+              <th />
+              <th>
+                maratonci
+              </th>
+              <th>
+                startovalo
+              </th>
+              <th>
+                dokončilo
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              className="VysledkyTypuStats__tr--total"
+            >
+              <td />
+              <td>
+                celkem
+              </td>
+              <td>
+                0
+              </td>
+              <td>
+                0
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <table
         className="VysledkyTypuUcastnici__table"
       >
@@ -254,7 +374,47 @@ exports[`renders 1`] = `
     <div
       className="panel-body"
     >
-      <div />
+      <a
+        name="pěší"
+      />
+      <div
+        className="VysledkyTypu__stats"
+      >
+        <table
+          className="VysledkyTypuStats__table"
+        >
+          <thead>
+            <tr>
+              <th />
+              <th>
+                turisté
+              </th>
+              <th>
+                startovalo
+              </th>
+              <th>
+                dokončilo
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              className="VysledkyTypuStats__tr--total"
+            >
+              <td />
+              <td>
+                celkem
+              </td>
+              <td>
+                0
+              </td>
+              <td>
+                0
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <table
         className="VysledkyTypuUcastnici__table"
       >
@@ -297,7 +457,75 @@ exports[`renders 1`] = `
     <div
       className="panel-body"
     >
-      <div />
+      <a
+        name="půlmaraton"
+      />
+      <div
+        className="VysledkyTypu__stats"
+      >
+        <table
+          className="VysledkyTypuStats__table"
+        >
+          <thead>
+            <tr>
+              <th />
+              <th>
+                půlmaratonci
+              </th>
+              <th>
+                startovalo
+              </th>
+              <th>
+                dokončilo
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                4M
+              </td>
+              <td>
+                muži 60 a více
+              </td>
+              <td>
+                1
+              </td>
+              <td>
+                0
+              </td>
+            </tr>
+            <tr>
+              <td>
+                1Ž
+              </td>
+              <td>
+                ženy 18-39
+              </td>
+              <td>
+                1
+              </td>
+              <td>
+                1
+              </td>
+            </tr>
+            <tr
+              className="VysledkyTypuStats__tr--total"
+            >
+              <td />
+              <td>
+                celkem
+              </td>
+              <td>
+                2
+              </td>
+              <td>
+                1
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <table
         className="VysledkyTypuUcastnici__table"
       >
