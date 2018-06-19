@@ -8,7 +8,7 @@ const findAllRocniky = require('../Rocnik/findAllRocniky');
 const broadcastUcastnik = require('./broadcastUcastnik');
 const createUcast = require('./createUcast');
 
-const deepPrint = obj => util.inspect(obj, false, null);
+const deepPrint = obj => util.inspect(obj, { depth: null });
 
 const findUcasti = async ({ rok, startCislo, typ }) => {
   const ucastnici = await Ucastnik.find(
