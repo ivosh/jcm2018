@@ -106,6 +106,19 @@ const server = http.createServer((request, response) => {
     responseAbend(response, message);
   });
 
+  if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
+    const proto = request.headers['x-forwarded-proto'];
+    if (proto !== 'https') {
+      const redirect = `https://${request.hostname}${request.url}`;
+      logger.debug(
+        `Redirecting to ${redirect} from originating protocol '${proto}' in production.`
+      );
+      logger.silly(JSON.stringify(request.headers));
+      response.writeHead(301, { Location: redirect });
+      return;
+    }
+  }
+
   if (request.url.startsWith('/api')) {
     response.setHeader('Content-Type', 'application/json');
     response.write('{ "message" : "Hello from the API server!" }', () => {
