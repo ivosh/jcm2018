@@ -66,7 +66,8 @@ const streamFile = async (filename, response) => {
 
   response.writeHead(200, {
     'Content-Type': contentType,
-    'Content-Length': stats.size
+    'Content-Length': stats.size,
+    'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload'
   });
 
   const rs = fs.createReadStream(undefined, { fd });
