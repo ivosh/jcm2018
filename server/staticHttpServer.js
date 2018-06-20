@@ -4,6 +4,7 @@ const fs = require('async-file');
 const http = require('http');
 const path = require('path');
 const url = require('url');
+const common = require('../common/common');
 const logger = require('./logger');
 
 const STATIC_ASSETS_PATH = '../ui/build';
@@ -68,7 +69,9 @@ const streamFile = async ({ filename, response }) => {
   response.writeHead(200, {
     'Content-Type': contentType,
     'Content-Length': stats.size,
-    'Content-Security-Policy': `default-src 'self'; connect-src http://localhost https://${jcmHostname} ws://localhost ws://localhost:4000 wss://${jcmHostname}`,
+    'Content-Security-Policy': `default-src 'self'; connect-src http://localhost https://${jcmHostname} ws://localhost ws://localhost:${
+      common.PORT_DEV_SERVER
+    } wss://${jcmHostname}`,
     'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
     'X-Content-Type-Options': 'nosniff',
     'X-Frame-Options': 'DENY',
