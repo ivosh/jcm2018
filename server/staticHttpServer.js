@@ -8,6 +8,7 @@ const logger = require('./logger');
 
 const STATIC_ASSETS_PATH = '../ui/build';
 const INITIAL_FILE = 'index.html';
+const jcmHostname = 'jcm2018.herokuapp.com';
 
 const pickContentType = extension => {
   const contentTypes = {
@@ -33,7 +34,7 @@ const responseAbend = (response, message) => {
   response.end(`Internal error: ${message}`);
 };
 
-const streamFile = async ({ filename, request, response }) => {
+const streamFile = async ({ filename, response }) => {
   const file = path.resolve(__dirname, STATIC_ASSETS_PATH, filename);
 
   let fd;
@@ -64,12 +65,10 @@ const streamFile = async ({ filename, request, response }) => {
     throw new Error(message);
   }
 
-  const hostname = request.hostname || 'localhost';
-  const schema = hostname === 'localhost' ? 'ws' : 'wss';
   response.writeHead(200, {
     'Content-Type': contentType,
     'Content-Length': stats.size,
-    'Content-Security-Policy': `default-src 'self'; connect-src ${schema}://${hostname}`,
+    'Content-Security-Policy': `default-src 'self'; connect-src http://localhost https://${jcmHostname} ws://localhost ws://localhost:4000 wss://${jcmHostname}`,
     'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
     'X-Content-Type-Options': 'nosniff',
     'X-Frame-Options': 'DENY',
@@ -90,11 +89,11 @@ const streamFile = async ({ filename, request, response }) => {
   return true;
 };
 
-const streamRequest = async ({ filename, request, response }) => {
-  let handled = await streamFile({ filename, request, response });
+const streamRequest = async ({ filename, response }) => {
+  let handled = await streamFile({ filename, response });
   if (!handled) {
     // Handle all the remaining requests so the React app can handle routing.
-    handled = await streamFile({ filename: INITIAL_FILE, request, response });
+    handled = await streamFile({ filename: INITIAL_FILE, response });
     if (!handled) {
       const message = `Failed to serve ${INITIAL_FILE}.`;
       logger.error(message);
@@ -139,7 +138,7 @@ const server = http.createServer((request, response) => {
       pathname = INITIAL_FILE;
     }
 
-    streamRequest({ filename: pathname, request, response })
+    streamRequest({ filename: pathname, response })
       .then()
       .catch(err => responseAbend(response, err.message));
   }
