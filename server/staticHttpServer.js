@@ -33,7 +33,7 @@ const responseAbend = (response, message) => {
   response.end(`Internal error: ${message}`);
 };
 
-const streamFile = async (filename, response) => {
+const streamFile = async ({ filename, request, response }) => {
   const file = path.resolve(__dirname, STATIC_ASSETS_PATH, filename);
 
   let fd;
@@ -64,10 +64,12 @@ const streamFile = async (filename, response) => {
     throw new Error(message);
   }
 
+  const hostname = request.hostname || 'localhost';
+  const schema = hostname === 'localhost' ? 'ws' : 'wss';
   response.writeHead(200, {
     'Content-Type': contentType,
     'Content-Length': stats.size,
-    'Content-Security-Policy': "default-src 'self'; connect-src 'https://jcm2018.herokuapp.com'",
+    'Content-Security-Policy': `default-src 'self'; connect-src ${schema}://${hostname}`,
     'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
     'X-Content-Type-Options': 'nosniff',
     'X-Frame-Options': 'DENY',
@@ -88,11 +90,11 @@ const streamFile = async (filename, response) => {
   return true;
 };
 
-const streamRequest = async (pathname, response) => {
-  let handled = await streamFile(pathname, response);
+const streamRequest = async ({ filename, request, response }) => {
+  let handled = await streamFile({ filename, request, response });
   if (!handled) {
     // Handle all the remaining requests so the React app can handle routing.
-    handled = await streamFile(INITIAL_FILE, response);
+    handled = await streamFile({ filename: INITIAL_FILE, request, response });
     if (!handled) {
       const message = `Failed to serve ${INITIAL_FILE}.`;
       logger.error(message);
@@ -137,7 +139,7 @@ const server = http.createServer((request, response) => {
       pathname = INITIAL_FILE;
     }
 
-    streamRequest(pathname, response)
+    streamRequest({ filename: pathname, request, response })
       .then()
       .catch(err => responseAbend(response, err.message));
   }
