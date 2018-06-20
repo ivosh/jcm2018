@@ -11,7 +11,8 @@
    diff -u common/common.js ui/src/common.js
  */
 
-const PORT = 4000;
+const PORT_DEV_CLIENT = 3000;
+const PORT_DEV_SERVER = 4000;
 const PLATBA_TYPY = ['hotově', 'převodem', 'složenkou'];
 
 const BROADCAST_STOPKY = 'broadcastStopky';
@@ -249,7 +250,8 @@ const ubytovaniNeprespano = ({ den, ubytovani = {} }) => ({
 });
 
 const exported = {
-  PORT,
+  PORT_DEV_CLIENT,
+  PORT_DEV_SERVER,
   PLATBA_TYPY,
   BROADCAST_STOPKY,
   BROADCAST_UCASTNIK,
@@ -300,7 +302,8 @@ const exported = {
 
 export default exported;
 export {
-  PORT,
+  PORT_DEV_CLIENT,
+  PORT_DEV_SERVER,
   PLATBA_TYPY,
   BROADCAST_STOPKY,
   BROADCAST_UCASTNIK,

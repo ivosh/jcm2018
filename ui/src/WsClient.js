@@ -1,6 +1,6 @@
 import WebSocketAsPromised from 'websocket-as-promised';
 import Channel from 'chnl';
-import { PORT } from './common';
+import { PORT_DEV_CLIENT, PORT_DEV_SERVER } from './common';
 import { WEBSOCKET_RECONNECT_INTERVAL, WEBSOCKET_REQUEST_TIMEOUT } from './constants';
 
 /**
@@ -12,7 +12,7 @@ import { WEBSOCKET_RECONNECT_INTERVAL, WEBSOCKET_REQUEST_TIMEOUT } from './const
  */
 class WsClient {
   constructor({
-    port = PORT,
+    port: portArg,
     reconnectInterval = WEBSOCKET_RECONNECT_INTERVAL,
     requestTimeout = WEBSOCKET_REQUEST_TIMEOUT,
     onBroadcast,
@@ -20,8 +20,10 @@ class WsClient {
     onClose
   } = {}) {
     const hostname = (window && window.location && window.location.hostname) || 'localhost';
+    const port = parseInt((window && window.location && window.location.port) || '80', 10);
     if (hostname === 'localhost') {
-      this.url = `ws://${hostname}:${port}/`;
+      const wsPort = portArg || (port === PORT_DEV_CLIENT ? PORT_DEV_SERVER : port);
+      this.url = `ws://${hostname}:${wsPort}/`;
     } else {
       this.url = `wss://${hostname}/`;
     }
