@@ -41,10 +41,11 @@ const unsuccessfulResponse = {
 
 const middlewares = [thunk.withExtraArgument(mockWsClient)];
 const mockStore = configureStore(middlewares);
+const state = { entities: {} };
 
 it('signIn() should dispatch two successful actions', async () => {
   mockWsClient.sendRequest = async () => successfulResponse;
-  const store = mockStore();
+  const store = mockStore(state);
 
   await store.dispatch(signIn('tomáš', 'vrba798'));
   const actions = store.getActions();
@@ -66,7 +67,7 @@ it('signIn() should dispatch two successful actions', async () => {
 
 it('signIn() should dispatch two unsuccessful actions', async () => {
   mockWsClient.sendRequest = async () => unsuccessfulResponse;
-  const store = mockStore();
+  const store = mockStore(state);
 
   await store.dispatch(signIn('', ''));
   const actions = store.getActions();
@@ -82,7 +83,7 @@ it('signIn() should dispatch two unsuccessful actions', async () => {
 
 it('signIn() should dispatch two unsuccessful actions on error', async () => {
   mockWsClient.sendRequest = async () => Promise.reject(new Error('Parse error!'));
-  const store = mockStore();
+  const store = mockStore(state);
 
   await store.dispatch(signIn('', ''));
   const actions = store.getActions();
@@ -98,7 +99,7 @@ it('signIn() should dispatch two unsuccessful actions on error', async () => {
 
 it('signIn() should dispatch two unsuccessful actions [nonce mismatch]', async () => {
   mockWsClient.sendRequest = async () => mismatchedNonceResponse;
-  const store = mockStore();
+  const store = mockStore(state);
 
   await store.dispatch(signIn('', ''));
   const actions = store.getActions();
