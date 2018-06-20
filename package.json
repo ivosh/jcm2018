@@ -13,10 +13,7 @@
   "engines": {
     "node": "10.x"
   },
-  "cacheDirectories": [
-    "node_modules",
-    "ui/node_modules"
-  ],
+  "cacheDirectories": ["node_modules", "ui/node_modules"],
   "scripts": {
     "start": "node server/server.js",
     "_comment_1": "'node' binary must be granted 'cap_net_bind_service' capability:",
@@ -25,27 +22,30 @@
     "start:80": "PORT=80 npm start",
     "test:server": "NODE_ENV=test LOG_LEVEL=error jest --env=node --runInBand common/ server/",
     "test": "npm run test:server -- && cd ui/ && npm test && cd ..",
-    "prettier:server": "prettier --write '{common,server}/**/*.js' && prettier --write 'setversion'",
+    "prettier:server":
+      "prettier --write '{common,server}/**/*.js' && prettier --parser babylon --write 'setversion'",
     "prettier": "npm run prettier:server && cd ui/ && npm run prettier && cd ..",
     "lint:server": "eslint common server setversion",
     "lint": "npm run lint:server; cd ui/ && npm run lint",
-    "coverage": "NODE_ENV=test LOG_LEVEL=error jest --env=node --runInBand --coverage common/ server/ && cd ui/ && npm run coverage && cd ..",
+    "coverage":
+      "NODE_ENV=test LOG_LEVEL=error jest --env=node --runInBand --coverage common/ server/ && cd ui/ && npm run coverage && cd ..",
     "coverage:report": "npm run coverage && codecov",
     "clean": "rm -rf coverage && cd ui/ && npm run clean && cd ..",
     "clobber": "rm -rf coverage node_modules && cd ui/ && npm run clobber && cd ..",
-    "heroku-postbuild": "cd ui/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build && cd .."
+    "heroku-postbuild":
+      "cd ui/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build && cd .."
   },
   "dependencies": {
     "async-file": "^2.0.2",
     "bcrypt": "^2.0.1",
-    "jsonwebtoken": "^8.2.1",
-    "moment": "^2.22.1",
-    "mongoose": "^5.1.2",
+    "jsonwebtoken": "^8.3.0",
+    "moment": "^2.22.2",
+    "mongoose": "^5.1.6",
     "mongoose-unique-array": "^0.2.0",
-    "node": "^10.2.0",
+    "node": "^10.4.1",
     "websocket": "^1.0.26",
     "websocket-as-promised": "^0.6.0",
-    "winston": "^3.0.0-rc5",
+    "winston": "^3.0.0",
     "xml2js": "^0.4.19"
   },
   "devDependencies": {
@@ -57,11 +57,11 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jasmine": "^2.10.1",
     "eslint-plugin-prettier": "^2.6.0",
-    "eslint-plugin-react": "^7.8.2",
-    "jest": "^23.0.0",
-    "jscodeshift": "^0.5.0",
+    "eslint-plugin-react": "^7.9.1",
+    "jest": "^23.1.0",
+    "jscodeshift": "^0.5.1",
     "jsonfile-updater": "^3.1.0",
-    "prettier": "^1.12.1",
+    "prettier": "^1.13.5",
     "supertest": "^3.1.0"
   },
   "jest": {

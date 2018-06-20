@@ -20,7 +20,10 @@ class DB {
 
   async reconnect() {
     try {
-      await mongoose.connect(config.db.uri, this.options);
+      await mongoose.connect(
+        config.db.uri,
+        this.options
+      );
       logger.info('Connected to the DB');
     } catch (err) {
       this.handleError(err);
