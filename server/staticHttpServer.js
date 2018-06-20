@@ -67,7 +67,7 @@ const streamFile = async (filename, response) => {
   response.writeHead(200, {
     'Content-Type': contentType,
     'Content-Length': stats.size,
-    'Content-Security-Policy': "default-src 'self'",
+    'Content-Security-Policy': "default-src 'self'; connect-src 'https://jcm2018.herokuapp.com'",
     'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
     'X-Content-Type-Options': 'nosniff',
     'X-Frame-Options': 'DENY',
