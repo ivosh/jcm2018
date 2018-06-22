@@ -71,7 +71,7 @@ const streamFile = async ({ filename, response }) => {
     'Content-Length': stats.size,
     'Content-Security-Policy': `default-src 'self'; connect-src http://localhost https://${jcmHostname} ws://localhost ws://localhost:${
       common.PORT_DEV_SERVER
-    } wss://${jcmHostname}`,
+    } wss://${jcmHostname} img-src 'self' data:`,
     'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
     'X-Content-Type-Options': 'nosniff',
     'X-Frame-Options': 'DENY',
