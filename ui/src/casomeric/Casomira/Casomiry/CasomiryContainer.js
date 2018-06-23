@@ -9,6 +9,9 @@ const mapDispatchToProps = dispatch => ({
   onRemoveCasomira: casomira => dispatch(removeCasomira(casomira))
 });
 
-const CasomiryContainer = connect(mapStateToProps, mapDispatchToProps)(Casomiry);
+const CasomiryContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Casomiry);
 
 export default CasomiryContainer;

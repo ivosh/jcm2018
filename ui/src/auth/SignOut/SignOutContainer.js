@@ -6,6 +6,9 @@ const mapDispatchToProps = dispatch => ({
   signOut: () => dispatch(signOut())
 });
 
-const SignOutContainer = connect(null, mapDispatchToProps)(SignOut);
+const SignOutContainer = connect(
+  null,
+  mapDispatchToProps
+)(SignOut);
 
 export default SignOutContainer;

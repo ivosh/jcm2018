@@ -28,7 +28,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-const CasomiraContainer = connect(mapStateToProps, mapDispatchToProps)(Casomira);
+const CasomiraContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Casomira);
 
 CasomiraContainer.propTypes = {
   accessKey: PropTypes.string.isRequired,

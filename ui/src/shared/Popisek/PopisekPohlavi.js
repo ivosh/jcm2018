@@ -13,7 +13,7 @@ const PopisekPohlavi = ({ heightPercentage, pohlavi }) => (
     src={pohlaviToImg[pohlavi]}
     alt={pohlavi}
     title={pohlavi}
-    height={heightPercentage * 28 / 100}
+    height={(heightPercentage * 28) / 100}
   />
 );
 

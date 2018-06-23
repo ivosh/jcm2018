@@ -67,9 +67,11 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   return result;
 };
 
-const PrihlaskyFormContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(
-  PrihlaskyForm
-);
+const PrihlaskyFormContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+  mergeProps
+)(PrihlaskyForm);
 
 PrihlaskyFormContainer.propTypes = {
   actionPrefix: PropTypes.string.isRequired,

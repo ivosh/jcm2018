@@ -20,7 +20,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-const FilterableContainer = connect(mapStateToProps, mapDispatchToProps)(Filterable);
+const FilterableContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Filterable);
 
 FilterableContainer.propTypes = {
   actionPrefix: PropTypes.string.isRequired,

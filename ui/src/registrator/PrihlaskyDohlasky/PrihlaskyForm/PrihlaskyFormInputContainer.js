@@ -55,7 +55,10 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const PrihlaskyFormInputContainer = connect(mapStateToProps, {})(InputContainer);
+const PrihlaskyFormInputContainer = connect(
+  mapStateToProps,
+  {}
+)(InputContainer);
 
 PrihlaskyFormInputContainer.propTypes = {
   actionPrefix: PropTypes.string.isRequired,

@@ -79,9 +79,11 @@ const mergeProps = (stateProps, dispatchProps) => {
 
 const MezicasyResponsive = withResponsive(Mezicasy, { disableWidth: true });
 
-const MezicasyContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(
-  MezicasyResponsive
-);
+const MezicasyContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+  mergeProps
+)(MezicasyResponsive);
 
 MezicasyContainer.propTypes = {
   typ: PropTypes.string.isRequired

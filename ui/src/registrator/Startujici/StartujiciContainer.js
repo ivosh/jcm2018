@@ -13,6 +13,9 @@ const mapDispatchToProps = dispatch => ({
   moveOdstartovan: id => dispatch(deleteVykon({ id }))
 });
 
-const StartujiciContainer = connect(mapStateToProps, mapDispatchToProps)(Startujici);
+const StartujiciContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Startujici);
 
 export default StartujiciContainer;

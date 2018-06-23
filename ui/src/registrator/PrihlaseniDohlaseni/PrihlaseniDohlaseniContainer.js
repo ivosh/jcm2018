@@ -45,9 +45,11 @@ const mergeProps = (stateProps, dispatchProps) => {
   };
 };
 
-const PrihlaseniDohlaseniContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(
-  PrihlaseniDohlaseni
-);
+const PrihlaseniDohlaseniContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+  mergeProps
+)(PrihlaseniDohlaseni);
 
 PrihlaseniDohlaseniContainer.propTypes = {
   actionPrefix: PropTypes.string.isRequired,

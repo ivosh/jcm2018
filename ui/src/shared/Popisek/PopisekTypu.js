@@ -18,7 +18,7 @@ const renderTyp = ({ pohlavi, typAsText, vek }) => (!pohlavi && !vek) || typAsTe
 
 const PopisekTypu = ({ heightPercentage, pohlavi, typ, typAsText, vek }) => (
   <React.Fragment>
-    <img src={typToImg[typ]} alt={typ} title={typ} height={30 * heightPercentage / 100} />{' '}
+    <img src={typToImg[typ]} alt={typ} title={typ} height={(30 * heightPercentage) / 100} />{' '}
     {renderTyp({ pohlavi, typAsText, vek }) && typ}
   </React.Fragment>
 );

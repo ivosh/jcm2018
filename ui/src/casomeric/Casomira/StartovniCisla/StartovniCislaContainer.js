@@ -19,7 +19,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-const StartovniCislaContainer = connect(null, mapDispatchToProps)(StartovniCisla);
+const StartovniCislaContainer = connect(
+  null,
+  mapDispatchToProps
+)(StartovniCisla);
 
 StartovniCislaContainer.propTypes = {
   typ: PropTypes.string.isRequired

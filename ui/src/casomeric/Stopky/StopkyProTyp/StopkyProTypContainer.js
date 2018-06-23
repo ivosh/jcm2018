@@ -51,9 +51,11 @@ const mergeProps = (stateProps, dispatchProps) => {
   };
 };
 
-const StopkyProTypContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(
-  StopkyProTyp
-);
+const StopkyProTypContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+  mergeProps
+)(StopkyProTyp);
 
 StopkyProTypContainer.propTypes = {
   typ: PropTypes.string.isRequired

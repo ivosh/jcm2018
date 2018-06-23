@@ -30,7 +30,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-const NovyMezicasContainer = connect(mapStateToProps, mapDispatchToProps)(NovyMezicas);
+const NovyMezicasContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NovyMezicas);
 
 NovyMezicasContainer.propTypes = {
   typ: PropTypes.string.isRequired

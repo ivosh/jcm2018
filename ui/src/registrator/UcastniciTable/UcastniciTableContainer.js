@@ -23,9 +23,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-const UcastniciTableContainer = connect(mapStateToProps, mapDispatchToProps)(
-  withResponsive(UcastniciTable)
-);
+const UcastniciTableContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withResponsive(UcastniciTable));
 
 // columns+data+fixedColumnCount+rowHeight are simply passed through to UcastniciTable
 UcastniciTableContainer.propTypes = {

@@ -42,7 +42,11 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   };
 };
 
-const InputContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(Input);
+const InputContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+  mergeProps
+)(Input);
 
 InputContainer.propTypes = {
   form: PropTypes.object.isRequired,

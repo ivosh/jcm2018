@@ -60,7 +60,11 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   };
 };
 
-const PlatbyContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(Platby);
+const PlatbyContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+  mergeProps
+)(Platby);
 
 PlatbyContainer.propTypes = {
   actionPrefix: PropTypes.string.isRequired,

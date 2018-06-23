@@ -15,7 +15,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-const PrihlaskySearchContainer = connect(mapStateToProps, mapDispatchToProps)(PrihlaskySearch);
+const PrihlaskySearchContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PrihlaskySearch);
 
 PrihlaskySearchContainer.propTypes = {
   routeOnSelect: PropTypes.func.isRequired
