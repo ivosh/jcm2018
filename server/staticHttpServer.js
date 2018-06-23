@@ -71,7 +71,7 @@ const streamFile = async ({ filename, response }) => {
     'Content-Length': stats.size,
     'Content-Security-Policy': `default-src 'self'; connect-src http://localhost https://${jcmHostname} ws://localhost ws://localhost:${
       common.PORT_DEV_SERVER
-    } wss://${jcmHostname}; img-src 'self' data:; style-src: 'sha256-deDIoPlRijnpfbTDYsK+8JmDfUBmpwpnb0L/SUV8NeU='`,
+    } wss://${jcmHostname}; img-src 'self' data:; style-src 'sha256-deDIoPlRijnpfbTDYsK+8JmDfUBmpwpnb0L/SUV8NeU='`,
     'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
     'X-Content-Type-Options': 'nosniff',
     'X-Frame-Options': 'DENY',
