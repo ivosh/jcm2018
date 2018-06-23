@@ -11,24 +11,27 @@ const Rocnik = require('./Rocnik/Rocnik');
 const Ucastnik = require('./Ucastnik/Ucastnik');
 
 const convertNazevTypuKategorie = nazev => {
-  if (nazev === 'beh') {
-    return 'maraton';
-  } else if (nazev === 'kolobezka') {
-    return 'koloběžka';
-  } else if (nazev === 'pesi') {
-    return 'pěší';
+  switch (nazev) {
+    case 'beh':
+      return 'maraton';
+    case 'kolobezka':
+      return 'koloběžka';
+    case 'pesi':
+      return 'pěší';
+    default:
+      return nazev;
   }
-  return nazev;
 };
 
 const processPohlavi = pohlavi => {
-  if (pohlavi === 'muz') {
-    return 'muž';
-  } else if (pohlavi === 'zena') {
-    return 'žena';
+  switch (pohlavi) {
+    case 'muz':
+      return 'muž';
+    case 'zena':
+      return 'žena';
+    default:
+      throw new Error(`Co to je za pohlaví? ${pohlavi}`);
   }
-
-  throw new Error(`Co to je za pohlaví? ${pohlavi}`);
 };
 
 const vytvorUbytovaniRocniku = rocnik => {
