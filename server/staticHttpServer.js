@@ -9,7 +9,6 @@ const logger = require('./logger');
 
 const STATIC_ASSETS_PATH = '../ui/build';
 const INITIAL_FILE = 'index.html';
-const jcmHostname = 'jcm2018.herokuapp.com';
 
 const pickContentType = extension => {
   const contentTypes = {
@@ -35,7 +34,7 @@ const responseAbend = (response, message) => {
   response.end(`Internal error: ${message}`);
 };
 
-const streamFile = async ({ filename, response }) => {
+const streamFile = async ({ filename, host, response }) => {
   const file = path.resolve(__dirname, STATIC_ASSETS_PATH, filename);
 
   let fd;
@@ -66,12 +65,14 @@ const streamFile = async ({ filename, response }) => {
     throw new Error(message);
   }
 
+  const httpConnectSrc = host.startsWith('localhost') ? `http://${host}` : `https://${host}`;
+  const wsConnectSrc = host.startsWith('localhost')
+    ? `ws://localhost:${common.PORT_DEV_SERVER}`
+    : `wss://${host}`;
   response.writeHead(200, {
     'Content-Type': contentType,
     'Content-Length': stats.size,
-    'Content-Security-Policy': `default-src 'self'; connect-src http://localhost https://${jcmHostname} ws://localhost ws://localhost:${
-      common.PORT_DEV_SERVER
-    } wss://${jcmHostname}; img-src 'self' data:; style-src 'self' 'sha256-deDIoPlRijnpfbTDYsK+8JmDfUBmpwpnb0L/SUV8NeU='`,
+    'Content-Security-Policy': `default-src 'self'; connect-src ${httpConnectSrc} ${wsConnectSrc}; img-src 'self' data:; style-src 'self' 'sha256-deDIoPlRijnpfbTDYsK+8JmDfUBmpwpnb0L/SUV8NeU='`,
     'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
     'X-Content-Type-Options': 'nosniff',
     'X-Frame-Options': 'DENY',
@@ -92,11 +93,11 @@ const streamFile = async ({ filename, response }) => {
   return true;
 };
 
-const streamRequest = async ({ filename, response }) => {
-  let handled = await streamFile({ filename, response });
+const streamRequest = async ({ filename, host, response }) => {
+  let handled = await streamFile({ filename, host, response });
   if (!handled) {
     // Handle all the remaining requests so the React app can handle routing.
-    handled = await streamFile({ filename: INITIAL_FILE, response });
+    handled = await streamFile({ filename: INITIAL_FILE, host, response });
     if (!handled) {
       const message = `Failed to serve ${INITIAL_FILE}.`;
       logger.error(message);
@@ -141,7 +142,7 @@ const server = http.createServer((request, response) => {
       pathname = INITIAL_FILE;
     }
 
-    streamRequest({ filename: pathname, response })
+    streamRequest({ filename: pathname, host: request.headers.host, response })
       .then()
       .catch(err => responseAbend(response, err.message));
   }
