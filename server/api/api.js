@@ -14,7 +14,7 @@ const savePrihlaska = require('./Ucastnik/Prihlaska/savePrihlaska');
 const saveStopky = require('./Stopky/saveStopky');
 const saveUbytovani = require('./Ucastnik/saveUbytovani');
 const saveUdaje = require('./Ucastnik/Udaje/saveUdaje');
-const saveVykon = require('./Ucastnik/saveVykon');
+const saveVykon = require('./Ucastnik/Vykon/saveVykon');
 const signIn = require('./User/signIn');
 const signOut = require('./User/signOut');
 
