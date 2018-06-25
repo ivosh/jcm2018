@@ -2,6 +2,6 @@
 
 const Actions = require('../../../../common/common');
 
-const updateVykon = async () => ({ code: Actions.CODE_OK });
+const validateVykon = async () => ({ code: Actions.CODE_OK });
 
-module.exports = updateVykon;
+module.exports = validateVykon;

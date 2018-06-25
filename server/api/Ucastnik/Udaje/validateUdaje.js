@@ -2,6 +2,6 @@
 
 const Actions = require('../../../../common/common');
 
-const updateUdaje = async () => ({ code: Actions.CODE_OK });
+const validateUdaje = async () => ({ code: Actions.CODE_OK });
 
-module.exports = updateUdaje;
+module.exports = validateUdaje;
