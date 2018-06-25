@@ -27,6 +27,7 @@ const SAVE_PLATBY = 'savePlatby';
 const SAVE_PRIHLASKA = 'savePrihlaska';
 const SAVE_STOPKY = 'saveStopky';
 const SAVE_UBYTOVANI = 'saveUbytovani';
+const SAVE_UCAST = 'saveUcast';
 const SAVE_UDAJE = 'saveUdaje';
 const SAVE_VYKON = 'saveVykon';
 const SIGN_IN = 'signIn';
@@ -92,6 +93,12 @@ const saveStopky = (stopky, token) => ({
 const saveUbytovani = ({ id, rok, ubytovani }, token) => ({
   action: SAVE_UBYTOVANI,
   request: { id, rok, ubytovani },
+  token
+});
+
+const saveUcast = ({ id, rok, udaje, prihlaska, vykon, platby, ubytovani, poznamka }, token) => ({
+  action: SAVE_UCAST,
+  request: { id, rok, udaje, prihlaska, vykon, platby, ubytovani, poznamka },
   token
 });
 
@@ -265,6 +272,7 @@ module.exports = {
   SAVE_PRIHLASKA,
   SAVE_STOPKY,
   SAVE_UBYTOVANI,
+  SAVE_UCAST,
   SAVE_UDAJE,
   SAVE_VYKON,
   SIGN_IN,
@@ -292,6 +300,7 @@ module.exports = {
   savePrihlaska,
   saveStopky,
   saveUbytovani,
+  saveUcast,
   saveUdaje,
   saveVykon,
   signIn,
