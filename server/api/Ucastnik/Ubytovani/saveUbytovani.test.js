@@ -1,13 +1,13 @@
 'use strict';
 
-const db = require('../../db');
-const Actions = require('../../../common/common');
-const createWsServer = require('../../createWsServer');
-const createWsClient = require('./../createWsClient');
-const Kategorie = require('../../model/Kategorie/Kategorie');
-const Rocnik = require('../../model/Rocnik/Rocnik');
-const Ucastnik = require('../../model/Ucastnik/Ucastnik');
-const generateTestToken = require('../generateTestToken');
+const db = require('../../../db');
+const Actions = require('../../../../common/common');
+const createWsServer = require('../../../createWsServer');
+const createWsClient = require('./../../createWsClient');
+const Kategorie = require('../../../model/Kategorie/Kategorie');
+const Rocnik = require('../../../model/Rocnik/Rocnik');
+const Ucastnik = require('../../../model/Ucastnik/Ucastnik');
+const generateTestToken = require('../../generateTestToken');
 
 const port = 5601;
 const wsServer = createWsServer({});
