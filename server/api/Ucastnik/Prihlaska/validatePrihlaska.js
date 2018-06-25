@@ -1,12 +1,8 @@
 'use strict';
 
 const util = require('util');
-const Actions = require('../../../common/common');
-const logger = require('../../logger');
-const Ucastnik = require('../../model/Ucastnik/Ucastnik');
-const findAllRocniky = require('../Rocnik/findAllRocniky');
-const broadcastUcastnik = require('./broadcastUcastnik');
-const createUcast = require('./createUcast');
+const Actions = require('../../../../common/common');
+const Ucastnik = require('../../../model/Ucastnik/Ucastnik');
 
 const deepPrint = obj => util.inspect(obj, { depth: null });
 
@@ -21,17 +17,10 @@ const findUcasti = async ({ rok, startCislo, typ }) => {
   return ucastnici.filter(ucastnik => ucastnik.ucasti[0].prihlaska.kategorie.typ === typ);
 };
 
-const savePrihlaska = async ({ request }) => {
-  const { id, rok, prihlaska } = request;
-
+// const { kategorie, rocniky } = await findAllRocniky();
+const validatePrihlaska = async ({ id, rok, ucast, prihlaska, kategorie, rocniky }) => {
   // :TODO: zkontrolovat mladistveho
   // :TODO: zkontrolovat vyplnene cele narozeni pokud je vybrana kategorie vek.presne
-
-  const responseRocniky = await findAllRocniky();
-  if (responseRocniky.code !== Actions.CODE_OK) {
-    return { code: responseRocniky.code, status: responseRocniky.status };
-  }
-  const { kategorie, rocniky } = responseRocniky.response;
 
   if (!kategorie[prihlaska.kategorie]) {
     return {
@@ -39,16 +28,6 @@ const savePrihlaska = async ({ request }) => {
       status: `Kategorie id '${prihlaska.kategorie}' neexistuje.`
     };
   }
-
-  const { code, status, ucastnik } = await createUcast({ id, rok });
-  logger.debug(
-    `createUcast(id: ${id}, rok: ${rok}): code: ${code}, id: ${ucastnik ? ucastnik.id : '?'}`
-  );
-  if (code !== Actions.CODE_OK) {
-    return { code, status };
-  }
-
-  const ucast = ucastnik.ucasti.find(oneUcast => oneUcast.rok === rok);
 
   const { typ } = kategorie[prihlaska.kategorie];
   const found = Actions.findKategorie(rocniky, {
@@ -74,11 +53,6 @@ const savePrihlaska = async ({ request }) => {
     };
   }
 
-  delete prihlaska.typ;
-  if (!rocniky[rok].kategorie[typ].startCisla) {
-    delete prihlaska.startCislo;
-  }
-
   if (prihlaska.startCislo) {
     const kandidati = await findUcasti({
       rok,
@@ -96,10 +70,7 @@ const savePrihlaska = async ({ request }) => {
     }
   }
 
-  ucast.prihlaska = prihlaska;
-  await ucastnik.save();
-  const broadcast = await broadcastUcastnik(id); // :TODO: could broadcast only Prihlaska in future
-  return { broadcast, code: Actions.CODE_OK, status: 'uloženo v pořádku' };
+  return { code: Actions.CODE_OK };
 };
 
-module.exports = savePrihlaska;
+module.exports = validatePrihlaska;

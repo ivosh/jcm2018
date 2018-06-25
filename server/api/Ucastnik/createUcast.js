@@ -33,12 +33,23 @@ const createUcast = async ({ id, rok, udaje }) => {
   const existujiciUcast = ucastnik.ucasti.find(ucast => ucast.rok === rok);
   if (existujiciUcast) {
     logger.debug(`Nalezena účast pro rok ${rok} účastníka ${ucastnik.id}.`);
-    return { code: Actions.CODE_OK, status: `Nalezena existující účast pro rok ${rok}.`, ucastnik };
+    return {
+      code: Actions.CODE_OK,
+      status: `Nalezena existující účast pro rok ${rok}.`,
+      ucast: existujiciUcast,
+      ucastnik
+    };
   }
   logger.debug(`Vytvářím novou účast pro rok ${rok} účastníka ${ucastnik.id}.`);
   ucastnik.ucasti.push({ rok, udaje });
   await ucastnik.save();
-  return { code: Actions.CODE_OK, status: `Vytvořena účast pro rok ${rok}.`, ucastnik };
+  const novaUcast = ucastnik.ucasti.find(ucast => ucast.rok === rok);
+  return {
+    code: Actions.CODE_OK,
+    status: `Vytvořena účast pro rok ${rok}.`,
+    ucast: novaUcast,
+    ucastnik
+  };
 };
 
 module.exports = createUcast;
