@@ -1,14 +1,14 @@
 'use strict';
 
-const Actions = require('../../../common/common');
-const logger = require('../../logger');
-const broadcastUcastnik = require('./broadcastUcastnik');
-const createUcast = require('./createUcast');
+const Actions = require('../../../../common/common');
+const logger = require('../../../logger');
+const broadcastUcastnik = require('../broadcastUcastnik');
+const createUcast = require('../createUcast');
 
 const deleteVykon = async ({ request }) => {
   const { id, rok } = request;
 
-  const { code, status, ucastnik } = await createUcast({ id, rok });
+  const { code, status, ucast, ucastnik } = await createUcast({ id, rok });
   logger.debug(
     `createUcast(id: ${id}, rok: ${rok}): code: ${code}, id: ${ucastnik ? ucastnik.id : '?'}`
   );
@@ -16,7 +16,6 @@ const deleteVykon = async ({ request }) => {
     return { code, status };
   }
 
-  const ucast = ucastnik.ucasti.find(oneUcast => oneUcast.rok === rok);
   ucast.vykon = undefined;
   await ucastnik.save();
 
