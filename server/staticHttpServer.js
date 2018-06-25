@@ -73,6 +73,7 @@ const streamFile = async ({ filename, host, response }) => {
     'Content-Type': contentType,
     'Content-Length': stats.size,
     'Content-Security-Policy': `default-src 'self'; connect-src ${httpConnectSrc} ${wsConnectSrc}; img-src 'self' data:; style-src 'self' 'sha256-deDIoPlRijnpfbTDYsK+8JmDfUBmpwpnb0L/SUV8NeU='`,
+    'Referrer-Policy': 'strict-origin-when-cross-origin',
     'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
     'X-Content-Type-Options': 'nosniff',
     'X-Frame-Options': 'DENY',
