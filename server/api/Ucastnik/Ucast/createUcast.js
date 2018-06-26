@@ -1,8 +1,8 @@
 'use strict';
 
-const Actions = require('../../../common/common');
-const logger = require('../../logger');
-const Ucastnik = require('../../model/Ucastnik/Ucastnik');
+const Actions = require('../../../../common/common');
+const logger = require('../../../logger');
+const Ucastnik = require('../../../model/Ucastnik/Ucastnik');
 
 /* Creates účast and účastník if necessary. Returns {code, ucastnik: Ucastnik instance}. */
 const createUcast = async ({ id, rok, udaje }) => {

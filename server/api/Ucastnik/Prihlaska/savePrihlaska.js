@@ -3,8 +3,8 @@
 const Actions = require('../../../../common/common');
 const logger = require('../../../logger');
 const findAllRocniky = require('../../Rocnik/findAllRocniky');
+const createUcast = require('../Ucast/createUcast');
 const broadcastUcastnik = require('../broadcastUcastnik');
-const createUcast = require('../createUcast');
 const updatePrihlaska = require('./updatePrihlaska');
 const validatePrihlaska = require('./validatePrihlaska');
 
