@@ -13,6 +13,7 @@ const savePlatby = require('./Ucastnik/Platby/savePlatby');
 const savePrihlaska = require('./Ucastnik/Prihlaska/savePrihlaska');
 const saveStopky = require('./Stopky/saveStopky');
 const saveUbytovani = require('./Ucastnik/Ubytovani/saveUbytovani');
+const saveUcast = require('./Ucastnik/Ucast/saveUcast');
 const saveUdaje = require('./Ucastnik/Udaje/saveUdaje');
 const saveVykon = require('./Ucastnik/Vykon/saveVykon');
 const signIn = require('./User/signIn');
@@ -54,6 +55,7 @@ const processRequest = async ({ action = '', request, requestId, token, connecti
     [Actions.SAVE_PRIHLASKA]: { authRequired: true, action: async req => savePrihlaska(req) },
     [Actions.SAVE_STOPKY]: { authRequired: true, action: async req => saveStopky(req) },
     [Actions.SAVE_UBYTOVANI]: { authRequired: true, action: async req => saveUbytovani(req) },
+    [Actions.SAVE_UCAST]: { authRequired: true, action: async req => saveUcast(req) },
     [Actions.SAVE_UDAJE]: { authRequired: true, action: async req => saveUdaje(req) },
     [Actions.SAVE_VYKON]: { authRequired: true, action: async req => saveVykon(req) },
     [Actions.SIGN_IN]: { authRequired: false, action: async req => signIn(req) },

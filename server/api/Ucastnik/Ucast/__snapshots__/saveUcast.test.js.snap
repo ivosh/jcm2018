@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`chybná kategorie (věk) 1`] = `
+Object {
+  "code": "chybná kategorie",
+  "status": "Chybně vybraná kategorie id ==id== oproti správné ==id==. Detaily: { id: ==id==,
+  typ: 'maraton',
+  pohlavi: 'žena',
+  vek: { min: 50, max: 59 } } vs. { id: ==id==,
+  pohlavi: 'žena',
+  typ: 'maraton',
+  vek: { min: 40, max: 49 },
+  zkratka: '1Ž' }",
+}
+`;
+
+exports[`kategorie neexistuje 1`] = `
+Object {
+  "code": "neexistuje",
+  "status": "Kategorie id '===neexistující===' neexistuje.",
+}
+`;
+
+exports[`saveUcast [not authenticated] 1`] = `
+Object {
+  "code": "authentication token invalid",
+  "status": "Špatný ověřovací token. Zkus se přihlásit znovu. Detaily: JsonWebTokenError: jwt must be provided",
+}
+`;
+
+exports[`ulož startovní číslo - duplicitní v kategorii 1`] = `
+Object {
+  "code": "duplicitní startovní číslo",
+  "status": "Startovní číslo 7 je již obsazené v kategorii půlmaraton účastníkem: Sukdoláková Božena",
+}
+`;
+
+exports[`ulož startovní číslo - duplicitní v kategorii 2`] = `
+Array [
+  Object {
+    "__v": 0,
+    "ucasti": Array [
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2018-05-03T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+          "kod": "===kod1===",
+          "startCislo": 7,
+        },
+        "rok": 2018,
+        "udaje": Object {
+          "jmeno": "Božena",
+          "narozeni": Object {
+            "rok": 1967,
+          },
+          "obec": "Kladno Rozdělov",
+          "pohlavi": "žena",
+          "prijmeni": "Sukdoláková",
+          "psc": "327 41",
+          "stat": "Česká republika",
+        },
+      },
+    ],
+  },
+  Object {
+    "__v": 0,
+    "ucasti": Array [
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2018-02-07T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k2===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          "kod": "===kod3===",
+          "startCislo": 8,
+        },
+        "rok": 2018,
+        "udaje": Object {
+          "jmeno": "Milena",
+          "narozeni": Object {
+            "den": 6,
+            "mesic": 5,
+            "rok": 1973,
+          },
+          "obec": "Nusle",
+          "pohlavi": "žena",
+          "prijmeni": "Moulová",
+          "stat": "Česká republika",
+        },
+      },
+    ],
+  },
+  Object {
+    "__v": 1,
+    "ucasti": Array [
+      Object {
+        "platby": Array [],
+        "rok": 2018,
+        "udaje": Object {
+          "jmeno": "František",
+          "narozeni": Object {
+            "rok": 1953,
+          },
+          "obec": "Ostrava 1",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+      },
+    ],
+  },
+]
+`;
+
+exports[`vytvoř minimálního účastníka 1`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "id": "===id===",
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`vytvoř minimálního účastníka 2`] = `
+Array [
+  Object {
+    "__v": 2,
+    "ucasti": Array [
+      Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": 2018-06-01T00:00:00.000Z,
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": 2018-02-07T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "muž",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+          "kod": "===kod===",
+          "startovnePoSleve": 0,
+        },
+        "rok": 2018,
+        "udaje": Object {
+          "jmeno": "František",
+          "narozeni": Object {
+            "rok": 1953,
+          },
+          "obec": "Ostrava 1",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+      },
+    ],
+  },
+]
+`;
