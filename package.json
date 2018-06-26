@@ -33,6 +33,7 @@
     "coverage:report": "npm run coverage && codecov",
     "clean": "rm -rf coverage && cd ui/ && npm run clean && cd ..",
     "clobber": "rm -rf coverage node_modules && cd ui/ && npm run clobber && cd ..",
+    "deploy": "git push && git push --tags",
     "heroku-postbuild": "cd ui/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build && cd .."
   },
   "dependencies": {
@@ -52,16 +53,16 @@
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.5",
     "codecov": "^3.0.2",
-    "eslint": "^5.0.0",
+    "eslint": "^5.0.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jasmine": "^2.10.1",
     "eslint-plugin-prettier": "^2.6.1",
-    "eslint-plugin-react": "^7.9.1",
-    "jest": "^23.1.0",
+    "eslint-plugin-react": "^7.10.0",
+    "jest": "^23.2.0",
     "jscodeshift": "^0.5.1",
     "jsonfile-updater": "^3.1.0",
-    "prettier": "^1.13.5",
+    "prettier": "^1.13.6",
     "supertest": "^3.1.0"
   },
   "jest": {
