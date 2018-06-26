@@ -3,6 +3,10 @@
 const Actions = require('../../../../common/common');
 
 const validateUbytovani = async ({ rok, ubytovani, rocniky }) => {
+  if (!ubytovani) {
+    return { code: Actions.CODE_OK };
+  }
+
   const rocnik = rocniky[rok];
 
   if (!rocnik) {

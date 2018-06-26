@@ -22,6 +22,10 @@ const validatePrihlaska = async ({ id, rok, ucast, prihlaska, kategorie, rocniky
   // :TODO: zkontrolovat mladistveho
   // :TODO: zkontrolovat vyplnene cele narozeni pokud je vybrana kategorie vek.presne
 
+  if (!prihlaska) {
+    return { code: Actions.CODE_NONEXISTING, status: 'Přihláška není vyplněna.' };
+  }
+
   if (!kategorie[prihlaska.kategorie]) {
     return {
       code: Actions.CODE_NONEXISTING,
