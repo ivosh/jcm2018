@@ -72,7 +72,7 @@ const streamFile = async ({ filename, host, response }) => {
   response.writeHead(200, {
     'Content-Type': contentType,
     'Content-Length': stats.size,
-    'Content-Security-Policy': `default-src 'none'; connect-src ${httpConnectSrc} ${wsConnectSrc}; img-src 'self' data:; style-src 'self' 'sha256-deDIoPlRijnpfbTDYsK+8JmDfUBmpwpnb0L/SUV8NeU='`,
+    'Content-Security-Policy': `default-src 'none'; connect-src ${httpConnectSrc} ${wsConnectSrc}; font-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'sha256-deDIoPlRijnpfbTDYsK+8JmDfUBmpwpnb0L/SUV8NeU='`,
     'Referrer-Policy': 'strict-origin-when-cross-origin',
     'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
     'X-Content-Type-Options': 'nosniff',
