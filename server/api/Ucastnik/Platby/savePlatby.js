@@ -8,7 +8,7 @@ const updatePlatby = require('./updatePlatby');
 const validatePlatby = require('./validatePlatby');
 
 const savePlatby = async ({ request }) => {
-  const { id, rok, platby } = request;
+  const { id, rok } = request;
 
   const createdUcast = await createUcast({ id, rok });
   let { code, status } = createdUcast;
@@ -25,7 +25,7 @@ const savePlatby = async ({ request }) => {
     return { code, status };
   }
 
-  ({ code, status } = await updatePlatby({ ucast, platby }));
+  ({ code, status } = await updatePlatby({ ...request, ucast }));
   if (code !== Actions.CODE_OK) {
     return { code, status };
   }

@@ -9,7 +9,7 @@ const updatePrihlaska = require('./updatePrihlaska');
 const validatePrihlaska = require('./validatePrihlaska');
 
 const savePrihlaska = async ({ request }) => {
-  const { id, rok, prihlaska } = request;
+  const { id, rok } = request;
 
   const responseRocniky = await findAllRocniky();
   if (responseRocniky.code !== Actions.CODE_OK) {
@@ -27,19 +27,12 @@ const savePrihlaska = async ({ request }) => {
     return { code, status };
   }
 
-  ({ code, status } = await validatePrihlaska({
-    id,
-    rok,
-    ucast,
-    prihlaska,
-    kategorie,
-    rocniky
-  }));
+  ({ code, status } = await validatePrihlaska({ ...request, ucast, kategorie, rocniky }));
   if (code !== Actions.CODE_OK) {
     return { code, status };
   }
 
-  ({ code, status } = await updatePrihlaska({ rok, ucast, prihlaska, kategorie, rocniky }));
+  ({ code, status } = await updatePrihlaska({ ...request, ucast, kategorie, rocniky }));
   if (code !== Actions.CODE_OK) {
     return { code, status };
   }

@@ -9,7 +9,7 @@ const updateUbytovani = require('./updateUbytovani');
 const validateUbytovani = require('./validateUbytovani');
 
 const saveUbytovani = async ({ request }) => {
-  const { id, rok, ubytovani } = request;
+  const { id, rok } = request;
 
   const responseRocniky = await findAllRocniky();
   if (responseRocniky.code !== Actions.CODE_OK) {
@@ -27,12 +27,12 @@ const saveUbytovani = async ({ request }) => {
     return { code, status };
   }
 
-  ({ code, status } = await validateUbytovani({ rok, ubytovani, rocniky }));
+  ({ code, status } = await validateUbytovani({ ...request, rocniky }));
   if (code !== Actions.CODE_OK) {
     return { code, status };
   }
 
-  ({ code, status } = await updateUbytovani({ ucast, ubytovani }));
+  ({ code, status } = await updateUbytovani({ ...request, ucast }));
   if (code !== Actions.CODE_OK) {
     return { code, status };
   }

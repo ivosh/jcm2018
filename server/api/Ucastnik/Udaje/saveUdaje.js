@@ -25,7 +25,7 @@ const saveUdaje = async ({ request }) => {
     return { code, status };
   }
 
-  ({ code, status } = await updateUdaje({ ucast, udaje }));
+  ({ code, status } = await updateUdaje({ ...request, ucast }));
   if (code !== Actions.CODE_OK) {
     return { code, status };
   }
