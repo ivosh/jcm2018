@@ -10,8 +10,7 @@ const createUcast = async ({ id, rok, udaje }) => {
 
   if (!id) {
     ucastnik = new Ucastnik();
-    await ucastnik.save();
-    logger.debug(`Účastník created: id ${ucastnik.id}.`);
+    logger.debug('Účastník created.');
   } else {
     try {
       ucastnik = await Ucastnik.findById(id);
@@ -42,7 +41,6 @@ const createUcast = async ({ id, rok, udaje }) => {
   }
   logger.debug(`Vytvářím novou účast pro rok ${rok} účastníka ${ucastnik.id}.`);
   ucastnik.ucasti.push({ rok, udaje });
-  await ucastnik.save();
   const novaUcast = ucastnik.ucasti.find(ucast => ucast.rok === rok);
   return {
     code: Actions.CODE_OK,

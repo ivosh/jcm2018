@@ -17,7 +17,7 @@ Object {
 exports[`vytvoř minimálního účastníka 2`] = `
 Array [
   Object {
-    "__v": 2,
+    "__v": 1,
     "ucasti": Array [
       Object {
         "platby": Array [

@@ -31,7 +31,7 @@ Object {
 exports[`přepiš existující přihlášku 2`] = `
 Array [
   Object {
-    "__v": 4,
+    "__v": 3,
     "ucasti": Array [
       Object {
         "platby": Array [],
@@ -160,7 +160,7 @@ Object {
 exports[`přihláška na pěší 2`] = `
 Array [
   Object {
-    "__v": 1,
+    "__v": 0,
     "ucasti": Array [
       Object {
         "platby": Array [],
@@ -675,7 +675,7 @@ Object {
 exports[`vytvoř dvě účasti s přihláškami 5`] = `
 Array [
   Object {
-    "__v": 2,
+    "__v": 1,
     "ucasti": Array [
       Object {
         "platby": Array [],
@@ -753,7 +753,7 @@ Object {
 exports[`vytvoř minimálního účastníka 2`] = `
 Array [
   Object {
-    "__v": 1,
+    "__v": 0,
     "ucasti": Array [
       Object {
         "platby": Array [],

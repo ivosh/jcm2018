@@ -17,7 +17,7 @@ Object {
 exports[`přihlaš a zase odhlaš 3`] = `
 Array [
   Object {
-    "__v": 1,
+    "__v": 0,
     "ucasti": Array [
       Object {
         "platby": Array [],
@@ -49,7 +49,7 @@ Object {
 exports[`ročník neexistuje 2`] = `
 Array [
   Object {
-    "__v": 1,
+    "__v": 0,
     "ucasti": Array [
       Object {
         "platby": Array [],
@@ -87,7 +87,7 @@ Object {
 exports[`ubytování nevypsáno 2`] = `
 Array [
   Object {
-    "__v": 1,
+    "__v": 0,
     "ucasti": Array [
       Object {
         "platby": Array [],
@@ -118,7 +118,7 @@ Object {
 exports[`vytvoř minimálního účastníka 2`] = `
 Array [
   Object {
-    "__v": 1,
+    "__v": 0,
     "ucasti": Array [
       Object {
         "platby": Array [],
@@ -159,7 +159,7 @@ Object {
 exports[`zapiš nepřespáno 2`] = `
 Array [
   Object {
-    "__v": 1,
+    "__v": 0,
     "ucasti": Array [
       Object {
         "platby": Array [],

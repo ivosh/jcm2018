@@ -108,25 +108,6 @@ Array [
       },
     ],
   },
-  Object {
-    "__v": 1,
-    "ucasti": Array [
-      Object {
-        "platby": Array [],
-        "rok": 2018,
-        "udaje": Object {
-          "jmeno": "František",
-          "narozeni": Object {
-            "rok": 1953,
-          },
-          "obec": "Ostrava 1",
-          "pohlavi": "muž",
-          "prijmeni": "Balabák",
-          "stat": "Česká republika",
-        },
-      },
-    ],
-  },
 ]
 `;
 
@@ -143,7 +124,7 @@ Object {
 exports[`vytvoř minimálního účastníka 2`] = `
 Array [
   Object {
-    "__v": 2,
+    "__v": 0,
     "ucasti": Array [
       Object {
         "platby": Array [
