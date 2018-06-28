@@ -32,10 +32,7 @@ const savePrihlaska = async ({ request }) => {
     return { code, status };
   }
 
-  ({ code, status } = await updatePrihlaska({ ...request, ucast, kategorie, rocniky }));
-  if (code !== Actions.CODE_OK) {
-    return { code, status };
-  }
+  updatePrihlaska({ ...request, ucast, kategorie, rocniky });
 
   await ucastnik.save();
   const broadcast = await broadcastUcastnik(id); // :TODO: could broadcast only Prihlaska in future

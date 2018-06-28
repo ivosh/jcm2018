@@ -25,10 +25,7 @@ const savePlatby = async ({ request }) => {
     return { code, status };
   }
 
-  ({ code, status } = await updatePlatby({ ...request, ucast }));
-  if (code !== Actions.CODE_OK) {
-    return { code, status };
-  }
+  updatePlatby({ ...request, ucast });
 
   await ucastnik.save();
   const broadcast = await broadcastUcastnik(id); // :TODO: could broadcast only Platby in future.

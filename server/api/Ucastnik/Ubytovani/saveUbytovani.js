@@ -32,10 +32,7 @@ const saveUbytovani = async ({ request }) => {
     return { code, status };
   }
 
-  ({ code, status } = await updateUbytovani({ ...request, ucast }));
-  if (code !== Actions.CODE_OK) {
-    return { code, status };
-  }
+  updateUbytovani({ ...request, ucast });
 
   await ucastnik.save();
   const broadcast = await broadcastUcastnik(id); // :TODO: could broadcast only Ubytovani in future.

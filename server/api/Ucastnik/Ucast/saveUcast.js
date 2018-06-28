@@ -58,15 +58,7 @@ const saveUcast = async ({ request }) => {
     return { code, status };
   }
 
-  // TODO: This should be eventually rewritten with async iteration: for await (const x of xy).
-  // eslint-disable-next-line no-restricted-syntax
-  for (const update of updates) {
-    // eslint-disable-next-line no-await-in-loop
-    ({ code, status } = await callback(update, { code, status }));
-  }
-  if (code !== Actions.CODE_OK) {
-    return { code, status };
-  }
+  updates.forEach(update => update({ ...request, ucast, kategorie, rocniky }));
 
   await ucastnik.save();
   const broadcast = await broadcastUcastnik(id);

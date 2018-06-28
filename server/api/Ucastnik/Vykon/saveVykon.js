@@ -25,10 +25,7 @@ const saveVykon = async ({ request }) => {
     return { code, status };
   }
 
-  ({ code, status } = await updateVykon({ ...request, ucast }));
-  if (code !== Actions.CODE_OK) {
-    return { code, status };
-  }
+  updateVykon({ ...request, ucast });
 
   ucast.vykon = vykon;
   await ucastnik.save();

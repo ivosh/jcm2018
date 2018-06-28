@@ -25,10 +25,7 @@ const saveUdaje = async ({ request }) => {
     return { code, status };
   }
 
-  ({ code, status } = await updateUdaje({ ...request, ucast }));
-  if (code !== Actions.CODE_OK) {
-    return { code, status };
-  }
+  updateUdaje({ ...request, ucast });
 
   await ucastnik.save();
   const broadcast = await broadcastUcastnik(id); // :TODO: could broadcast only Udaje in future.
