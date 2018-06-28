@@ -165,3 +165,10 @@ Array [
   },
 ]
 `;
+
+exports[`účastník neexistuje 1`] = `
+Object {
+  "code": "neexistuje",
+  "status": "Účastník s id 41224d776a326fb40f000001 neexistuje.",
+}
+`;

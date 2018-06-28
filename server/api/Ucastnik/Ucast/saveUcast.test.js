@@ -275,6 +275,13 @@ it('chybná kategorie (věk)', async () => {
   expect(response).toMatchSnapshot();
 });
 
+it('účastník neexistuje', async () => {
+  const { requestId, ...response } = await wsClient.sendRequest(
+    Actions.savePrihlaska({ id: '41224d776a326fb40f000001', rok: 2018 }, generateTestToken())
+  );
+  expect(response).toMatchSnapshot();
+});
+
 it('saveUcast [not authenticated]', async () => {
   const { requestId, ...response } = await wsClient.sendRequest(Actions.saveUcast({}, null));
   expect(response).toMatchSnapshot();

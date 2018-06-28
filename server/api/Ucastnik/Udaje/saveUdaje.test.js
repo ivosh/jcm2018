@@ -144,7 +144,29 @@ it('účastník neexistuje - špatné ID', async () => {
   expect(response).toMatchSnapshot();
 });
 
-it('saveUcast [not authenticated]', async () => {
+it('údaje chybí', async () => {
+  const udaje = {
+    prijmeni: 'Sukdoláková',
+    jmeno: 'Božena',
+    narozeni: { rok: 1967 },
+    pohlavi: 'žena',
+    obec: 'Kladno 1',
+    psc: '327 41'
+  };
+
+  const response1 = await wsClient.sendRequest(
+    Actions.saveUdaje({ rok: 2018, udaje }, generateTestToken())
+  );
+  const { id } = response1.response;
+  expect(id).toBeTruthy();
+
+  const { requestId, ...response } = await wsClient.sendRequest(
+    Actions.saveUdaje({ id, rok: 2018 }, generateTestToken())
+  );
+  expect(response).toMatchSnapshot();
+});
+
+it('saveUdaje [not authenticated]', async () => {
   const { requestId, ...response } = await wsClient.sendRequest(Actions.saveUdaje({}, null));
   expect(response).toMatchSnapshot();
 });

@@ -2,6 +2,9 @@
 
 const Actions = require('../../../../common/common');
 
-const validateUdaje = async () => ({ code: Actions.CODE_OK });
+const validateUdaje = async ({ udaje }) =>
+  udaje
+    ? { code: Actions.CODE_OK }
+    : { code: Actions.CODE_NONEXISTING, status: 'Údaje nejsou vyplněny.' };
 
 module.exports = validateUdaje;

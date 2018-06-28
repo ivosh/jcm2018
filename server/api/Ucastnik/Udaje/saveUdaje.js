@@ -20,7 +20,7 @@ const saveUdaje = async ({ request }) => {
     return { code, status };
   }
 
-  ({ code, status } = await validateUdaje());
+  ({ code, status } = await validateUdaje({ ...request }));
   if (code !== Actions.CODE_OK) {
     return { code, status };
   }
