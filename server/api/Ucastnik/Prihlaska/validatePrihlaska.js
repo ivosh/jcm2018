@@ -18,7 +18,7 @@ const findUcasti = async ({ rok, startCislo, typ }) => {
 };
 
 // const { kategorie, rocniky } = await findAllRocniky();
-const validatePrihlaska = async ({ id, rok, ucast, prihlaska, kategorie, rocniky }) => {
+const validatePrihlaska = async ({ id, rok, ucast, prihlaska, kategorie, rocniky, ...request }) => {
   // :TODO: zkontrolovat mladistveho
   // :TODO: zkontrolovat vyplnene cele narozeni pokud je vybrana kategorie vek.presne
 
@@ -33,12 +33,13 @@ const validatePrihlaska = async ({ id, rok, ucast, prihlaska, kategorie, rocniky
     };
   }
 
+  const udaje = request.udaje || ucast.udaje;
   const { typ } = kategorie[prihlaska.kategorie];
   const found = Actions.findKategorie(rocniky, {
     rok,
     typ,
-    pohlavi: ucast.udaje.pohlavi,
-    narozeni: ucast.udaje.narozeni,
+    pohlavi: udaje.pohlavi,
+    narozeni: udaje.narozeni,
     mladistvyPotvrzen: prihlaska.mladistvyPotvrzen
   });
   if (found.code !== Actions.CODE_OK) {

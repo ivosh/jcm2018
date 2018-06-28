@@ -5,7 +5,7 @@ const logger = require('../../../logger');
 const Ucastnik = require('../../../model/Ucastnik/Ucastnik');
 
 /* Creates účast and účastník if necessary. Returns {code, ucastnik: Ucastnik instance}. */
-const createUcast = async ({ id, rok, udaje }) => {
+const createUcast = async ({ id, rok }) => {
   let ucastnik = null;
 
   if (!id) {
@@ -40,7 +40,7 @@ const createUcast = async ({ id, rok, udaje }) => {
     };
   }
   logger.debug(`Vytvářím novou účast pro rok ${rok} účastníka ${ucastnik.id}.`);
-  ucastnik.ucasti.push({ rok, udaje });
+  ucastnik.ucasti.push({ rok });
   const novaUcast = ucastnik.ucasti.find(ucast => ucast.rok === rok);
   return {
     code: Actions.CODE_OK,

@@ -26,7 +26,7 @@ const validates = [
 const updates = [updateUdaje, updatePrihlaska, updateVykon, updatePlatby, updateUbytovani];
 
 const saveUcast = async ({ request }) => {
-  const { id, rok, udaje } = request;
+  const { id, rok } = request;
 
   const responseRocniky = await findAllRocniky();
   if (responseRocniky.code !== Actions.CODE_OK) {
@@ -34,7 +34,7 @@ const saveUcast = async ({ request }) => {
   }
   const { kategorie, rocniky } = responseRocniky.response;
 
-  const createdUcast = await createUcast({ id, rok, udaje });
+  const createdUcast = await createUcast({ id, rok });
   let { code, status } = createdUcast;
   const { ucast, ucastnik } = createdUcast;
   logger.debug(

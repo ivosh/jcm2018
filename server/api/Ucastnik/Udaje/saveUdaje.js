@@ -8,9 +8,9 @@ const updateUdaje = require('./updateUdaje');
 const validateUdaje = require('./validateUdaje');
 
 const saveUdaje = async ({ request }) => {
-  const { id, rok, udaje } = request;
+  const { id, rok } = request;
 
-  const createdUcast = await createUcast({ id, rok, udaje });
+  const createdUcast = await createUcast({ id, rok });
   let { code, status } = createdUcast;
   const { ucast, ucastnik } = createdUcast;
   logger.debug(
