@@ -150,6 +150,13 @@ Array [
 ]
 `;
 
+exports[`přihláška chybí 1`] = `
+Object {
+  "code": "neexistuje",
+  "status": "Přihláška není vyplněna.",
+}
+`;
+
 exports[`přihláška na pěší 1`] = `
 Object {
   "code": "ok",

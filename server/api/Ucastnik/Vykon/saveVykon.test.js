@@ -66,6 +66,18 @@ it('vytvoř minimálního účastníka', async () => {
   expect(ucastnici).toMatchSnapshot();
 });
 
+it('výkon bez účastníka', async () => {
+  const vykon = { kategorie: kategorie.id, startCislo: 15, dokonceno: true, cas: 'T3:24:15.048S' };
+
+  const { requestId, ...response } = await wsClient.sendRequest(
+    Actions.saveVykon({ id: '==bogus==', rok: 2018, vykon }, generateTestToken())
+  );
+  expect(response).toMatchSnapshot();
+
+  const ucastnici = await Ucastnik.find({}, { _id: 0 }).lean();
+  expect(ucastnici).toMatchSnapshot();
+});
+
 it('saveVykon [not authenticated]', async () => {
   const { requestId, ...response } = await wsClient.sendRequest(Actions.saveVykon({}, null));
   expect(response).toMatchSnapshot();

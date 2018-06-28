@@ -43,3 +43,12 @@ Array [
   },
 ]
 `;
+
+exports[`výkon bez účastníka 1`] = `
+Object {
+  "code": "neexistuje",
+  "status": "Účastník s id ==bogus== neexistuje. Detaily: CastError: Cast to ObjectId failed for value \\"==bogus==\\" at path \\"_id\\" for model \\"Ucastnik\\"",
+}
+`;
+
+exports[`výkon bez účastníka 2`] = `Array []`;

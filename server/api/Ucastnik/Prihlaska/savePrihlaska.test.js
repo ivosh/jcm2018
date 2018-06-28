@@ -500,6 +500,28 @@ it('chybná kategorie (věk)', async () => {
   expect(response).toMatchSnapshot();
 });
 
+it('přihláška chybí', async () => {
+  const udaje = {
+    prijmeni: 'Sukdoláková',
+    jmeno: 'Božena',
+    narozeni: { rok: 1967 },
+    pohlavi: 'žena',
+    obec: 'Kladno 1',
+    psc: '327 41'
+  };
+
+  const response1 = await wsClient.sendRequest(
+    Actions.saveUdaje({ rok: 2018, udaje }, generateTestToken())
+  );
+  const { id } = response1.response;
+  expect(id).toBeTruthy();
+
+  const { requestId, ...response } = await wsClient.sendRequest(
+    Actions.savePrihlaska({ id, rok: 2018 }, generateTestToken())
+  );
+  expect(response).toMatchSnapshot();
+});
+
 it('savePrihlaska [not authenticated]', async () => {
   const { requestId, ...response } = await wsClient.sendRequest(Actions.savePrihlaska({}, null));
   expect(response).toMatchSnapshot();
