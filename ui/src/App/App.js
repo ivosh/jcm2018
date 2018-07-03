@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Link, Redirect, Route, Switch } from 'react-router-dom';
 import { Glyphicon, MenuItem, Nav, Navbar, NavDropdown, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import withAuth from '../auth/withAuth';
-import withoutAuth from '../auth/withoutAuth';
+import AuthorizedRoute from '../auth/AuthorizedRoute';
+import UnauthorizedRoute from '../auth/UnauthorizedRoute';
 import withFetchStopky from '../entities/withFetchStopky/withFetchStopky';
 import withFetchUcastnici from '../entities/withFetchUcastnici/withFetchUcastnici';
 import About from './About';
@@ -126,33 +126,33 @@ class App extends PureComponent {
           <Switch>
             <Route exact path="/" component={Main} />
             <Route path="/about" component={() => <About username={username} />} />
-            <Route
+            <AuthorizedRoute
               path="/casomira"
-              component={withAuth(withFetchUcastnici(withFetchStopky(CasomiryContainer)))}
+              component={withFetchUcastnici(withFetchStopky(CasomiryContainer))}
             />
-            <Route path="/dohlaseni" component={withAuth(withFetchUcastnici(Dohlaseni))} />
-            <Route path="/dohlasky" component={withAuth(withFetchUcastnici(Dohlasky))} />
-            <Route path="/pokladna" component={withAuth(withFetchUcastnici(PokladnaContainer))} />
-            <Route path="/poradi" component={withAuth(withFetchUcastnici(PoradiContainer))} />
-            <Route path="/prihlaseni" component={withAuth(withFetchUcastnici(Prihlaseni))} />
-            <Route path="/prihlasky" component={withAuth(withFetchUcastnici(Prihlasky))} />
-            <Route path="/signin" component={withoutAuth(SignInContainer)} />
-            <Route path="/signout" component={withAuth(SignOutContainer)} />
-            <Route
+            <AuthorizedRoute path="/dohlaseni" component={withFetchUcastnici(Dohlaseni)} />
+            <AuthorizedRoute path="/dohlasky" component={withFetchUcastnici(Dohlasky)} />
+            <AuthorizedRoute path="/pokladna" component={withFetchUcastnici(PokladnaContainer)} />
+            <AuthorizedRoute path="/poradi" component={withFetchUcastnici(PoradiContainer)} />
+            <AuthorizedRoute path="/prihlaseni" component={withFetchUcastnici(Prihlaseni)} />
+            <AuthorizedRoute path="/prihlasky" component={withFetchUcastnici(Prihlasky)} />
+            <UnauthorizedRoute path="/signin" component={SignInContainer} />
+            <AuthorizedRoute path="/signout" component={SignOutContainer} />
+            <AuthorizedRoute
               path="/startujici"
-              component={withAuth(withFetchUcastnici(StartujiciContainer))}
+              component={withFetchUcastnici(StartujiciContainer)}
             />
-            <Route
+            <AuthorizedRoute
               path="/startovni-cisla"
-              component={withAuth(withFetchUcastnici(StartovniCislaContainer))}
+              component={withFetchUcastnici(StartovniCislaContainer)}
             />
-            <Route path="/stopky" component={withAuth(withFetchStopky(Stopky))} />
-            <Route path="/ubytovani" component={withAuth(withFetchUcastnici(UbytovaniContainer))} />
-            <Route
+            <AuthorizedRoute path="/stopky" component={withFetchStopky(Stopky)} />
+            <AuthorizedRoute path="/ubytovani" component={withFetchUcastnici(UbytovaniContainer)} />
+            <AuthorizedRoute
               path="/ucastnici"
-              component={withAuth(withFetchUcastnici(UcastniciDigestContainer))}
+              component={withFetchUcastnici(UcastniciDigestContainer)}
             />
-            <Route path="/vysledky" component={withAuth(withFetchUcastnici(VysledkyContainer))} />
+            <AuthorizedRoute path="/vysledky" component={withFetchUcastnici(VysledkyContainer)} />
             <Redirect to="/" />
           </Switch>
         </main>

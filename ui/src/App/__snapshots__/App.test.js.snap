@@ -93,63 +93,63 @@ exports[`with websocket connected, authenticated 1`] = `
         component={[Function]}
         path="/about"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/casomira"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/dohlaseni"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/dohlasky"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/pokladna"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/poradi"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/prihlaseni"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/prihlasky"
       />
-      <Route
+      <Connect(UnauthorizedRoute)
         component={[Function]}
         path="/signin"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/signout"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/startujici"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/startovni-cisla"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/stopky"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/ubytovani"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/ucastnici"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/vysledky"
       />
@@ -241,63 +241,63 @@ exports[`with websocket connected, not authenticated 1`] = `
         component={[Function]}
         path="/about"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/casomira"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/dohlaseni"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/dohlasky"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/pokladna"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/poradi"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/prihlaseni"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/prihlasky"
       />
-      <Route
+      <Connect(UnauthorizedRoute)
         component={[Function]}
         path="/signin"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/signout"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/startujici"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/startovni-cisla"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/stopky"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/ubytovani"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/ucastnici"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/vysledky"
       />
@@ -403,63 +403,63 @@ exports[`with websocket disconnected, authenticated 1`] = `
         component={[Function]}
         path="/about"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/casomira"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/dohlaseni"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/dohlasky"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/pokladna"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/poradi"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/prihlaseni"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/prihlasky"
       />
-      <Route
+      <Connect(UnauthorizedRoute)
         component={[Function]}
         path="/signin"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/signout"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/startujici"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/startovni-cisla"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/stopky"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/ubytovani"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/ucastnici"
       />
-      <Route
+      <Connect(AuthorizedRoute)
         component={[Function]}
         path="/vysledky"
       />
