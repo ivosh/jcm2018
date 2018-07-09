@@ -7,26 +7,11 @@ const actionPrefix = 'PRIHLASKY_YYY';
 const reduxName = 'prihlasky_yyy';
 const saveUcast = createSaveUcast(actionPrefix, reduxName);
 
-const successfulResponseSaveUdaje = {
+const successfulResponse = {
   code: 'ok',
   response: {
     id: '===id==='
   },
-  requestId: '0.9310306652587377'
-};
-
-const successfulResponseSavePrihlaska = {
-  code: 'ok',
-  requestId: '0.9310306652587377'
-};
-
-const successfulResponseSavePlatby = {
-  code: 'ok',
-  requestId: '0.9310306652587377'
-};
-
-const successfulResponseSaveUbytovani = {
-  code: 'ok',
   requestId: '0.9310306652587377'
 };
 
@@ -40,26 +25,15 @@ const authTokenInvalidResponse = {
   status: 'Neplatný ověřovací token.'
 };
 
-let responseNumber;
-beforeEach(() => {
-  responseNumber = 0;
-});
-
 const mockWsClient = new WsClient();
-let responses = [];
-// eslint-disable-next-line no-plusplus
-mockWsClient.sendRequest = async () => responses[responseNumber++];
+let response;
+mockWsClient.sendRequest = async () => response;
 
 const middlewares = [thunk.withExtraArgument(mockWsClient)];
 const mockStore = configureStore(middlewares);
 
-it('saveUcast() should dispatch four successful actions', async () => {
-  responses = [
-    successfulResponseSaveUdaje,
-    successfulResponseSavePrihlaska,
-    successfulResponseSavePlatby,
-    successfulResponseSaveUbytovani
-  ];
+it('saveUcast() should dispatch four successful actions (new účastník)', async () => {
+  response = successfulResponse;
   const store = mockStore({
     auth: { token: '===token===' },
     entities: { rocniky: { byRoky: {} } },
@@ -72,38 +46,104 @@ it('saveUcast() should dispatch four successful actions', async () => {
   const actions = store.getActions();
   expect(actions[0]).toEqual({ type: `${actionPrefix}_VALIDATE_FORM` });
   expect(actions[1]).toEqual({ type: `${actionPrefix}_SAVE_REQUEST` });
-  expect(actions[2]).toEqual(
-    expect.objectContaining({
-      id: '===id===',
-      type: `${actionPrefix}_SAVE_SUCCESS`
-    })
-  );
+  expect(actions[2]).toEqual({
+    type: `${actionPrefix}_SAVE_SUCCESS`,
+    id: '===id===',
+    rok: 2018,
+    udaje: { narozeni: {} },
+    prihlaska: {},
+    platby: [],
+    ubytovani: {},
+    receivedAt: expect.any(Number)
+  });
   expect(actions[3]).toEqual({ type: `${actionPrefix}_SAVE_SHOW_MODAL` });
 });
 
-it('saveUcast() should dispatch two unsuccessful actions 1/2', async () => {
-  responses = [unsuccessfulResponse, unsuccessfulResponse];
+it('saveUcast() should dispatch four successful actions (existing účastník, existing rok)', async () => {
+  response = successfulResponse;
   const store = mockStore({
     auth: { token: '===token===' },
-    entities: { rocniky: { byRoky: {} } },
-    registrator: { [reduxName]: { form: { udaje: { narozeni: {} }, prihlaska: {} } } }
+    entities: {
+      rocniky: { byRoky: {} },
+      ucastnici: {
+        byIds: {
+          '===id===': {
+            roky: [2018],
+            2018: {
+              vykon: { kategorie: '===kat1===' }
+            }
+          }
+        }
+      }
+    },
+    registrator: {
+      [reduxName]: {
+        form: { ucastnikId: '===id===', validate: false, udaje: { narozeni: {} }, prihlaska: {} }
+      }
+    }
   });
 
   await store.dispatch(saveUcast());
   const actions = store.getActions();
   expect(actions[0]).toEqual({ type: `${actionPrefix}_VALIDATE_FORM` });
   expect(actions[1]).toEqual({ type: `${actionPrefix}_SAVE_REQUEST` });
-  expect(actions[2]).toEqual(
-    expect.objectContaining({
-      type: `${actionPrefix}_SAVE_ERROR`,
-      code: 'unfulfilled request',
-      status: 'A strange error occurred.'
-    })
-  );
+  expect(actions[2]).toEqual({
+    type: `${actionPrefix}_SAVE_SUCCESS`,
+    id: '===id===',
+    rok: 2018,
+    udaje: { narozeni: {} },
+    prihlaska: {},
+    vykon: { kategorie: '===kat1===' },
+    platby: [],
+    ubytovani: {},
+    receivedAt: expect.any(Number)
+  });
+  expect(actions[3]).toEqual({ type: `${actionPrefix}_SAVE_SHOW_MODAL` });
 });
 
-it('saveUcast() should dispatch two unsuccessful actions 2/2', async () => {
-  responses = [successfulResponseSaveUdaje, unsuccessfulResponse];
+it('saveUcast() should dispatch four successful actions (existing účastník, different rok)', async () => {
+  response = successfulResponse;
+  const store = mockStore({
+    auth: { token: '===token===' },
+    entities: {
+      rocniky: { byRoky: {} },
+      ucastnici: {
+        byIds: {
+          '===id===': {
+            roky: [2017],
+            2017: {
+              vykon: { kategorie: '===kat1===' }
+            }
+          }
+        }
+      }
+    },
+    registrator: {
+      [reduxName]: {
+        form: { ucastnikId: '===id===', validate: false, udaje: { narozeni: {} }, prihlaska: {} }
+      }
+    }
+  });
+
+  await store.dispatch(saveUcast());
+  const actions = store.getActions();
+  expect(actions[0]).toEqual({ type: `${actionPrefix}_VALIDATE_FORM` });
+  expect(actions[1]).toEqual({ type: `${actionPrefix}_SAVE_REQUEST` });
+  expect(actions[2]).toEqual({
+    type: `${actionPrefix}_SAVE_SUCCESS`,
+    id: '===id===',
+    rok: 2018,
+    udaje: { narozeni: {} },
+    prihlaska: {},
+    platby: [],
+    ubytovani: {},
+    receivedAt: expect.any(Number)
+  });
+  expect(actions[3]).toEqual({ type: `${actionPrefix}_SAVE_SHOW_MODAL` });
+});
+
+it('saveUcast() should dispatch two unsuccessful actions 1/2', async () => {
+  response = unsuccessfulResponse;
   const store = mockStore({
     auth: { token: '===token===' },
     entities: { rocniky: { byRoky: {} } },
@@ -124,7 +164,7 @@ it('saveUcast() should dispatch two unsuccessful actions 2/2', async () => {
 });
 
 it('saveUcast() should dispatch two unsuccessful actions on an invalid token', async () => {
-  responses = [authTokenInvalidResponse, unsuccessfulResponse];
+  response = authTokenInvalidResponse;
   const store = mockStore({
     auth: { token: '===token===' },
     entities: { rocniky: { byRoky: {} } },
@@ -135,21 +175,16 @@ it('saveUcast() should dispatch two unsuccessful actions on an invalid token', a
   const actions = store.getActions();
   expect(actions[0]).toEqual({ type: `${actionPrefix}_VALIDATE_FORM` });
   expect(actions[1]).toEqual({ type: `${actionPrefix}_SAVE_REQUEST` });
-  expect(actions[2]).toEqual(
-    expect.objectContaining({
-      type: 'SIGN_IN_ERROR',
-      code: 'authentication token invalid',
-      status: 'Platnost ověřovacího tokenu pravděpodobně vypršela. Neplatný ověřovací token.'
-    })
-  );
+  expect(actions[2]).toEqual({
+    type: 'SIGN_IN_ERROR',
+    code: 'authentication token invalid',
+    status: 'Platnost ověřovacího tokenu pravděpodobně vypršela. Neplatný ověřovací token.',
+    receivedAt: expect.any(Number)
+  });
 });
 
 it('saveUcast() should dispatch validation error', async () => {
-  responses = [
-    successfulResponseSaveUdaje,
-    successfulResponseSavePrihlaska,
-    successfulResponseSavePlatby
-  ];
+  response = successfulResponse;
   const store = mockStore({
     auth: { token: '===token===' },
     entities: { rocniky: { byRoky: {} } },
@@ -192,13 +227,12 @@ it('saveUcast() should dispatch two unsuccessful actions on error', async () => 
   const actions = store.getActions();
   expect(actions[0]).toEqual({ type: `${actionPrefix}_VALIDATE_FORM` });
   expect(actions[1]).toEqual({ type: `${actionPrefix}_SAVE_REQUEST` });
-  expect(actions[2]).toEqual(
-    expect.objectContaining({
-      type: `${actionPrefix}_SAVE_ERROR`,
-      code: 'internal error',
-      err: 'Error: Parse error!'
-    })
-  );
+  expect(actions[2]).toEqual({
+    type: `${actionPrefix}_SAVE_ERROR`,
+    code: 'internal error',
+    err: 'Error: Parse error!',
+    receivedAt: expect.any(Number)
+  });
 });
 
 /* Beware: overrides mockWsClient.sendRequest! */

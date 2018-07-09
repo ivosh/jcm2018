@@ -1,11 +1,4 @@
-import {
-  CODE_OK,
-  CODE_TOKEN_INVALID,
-  savePlatby,
-  savePrihlaska,
-  saveUbytovani,
-  saveUdaje
-} from '../../../common';
+import { CODE_OK, CODE_TOKEN_INVALID, saveUcast } from '../../../common';
 import { AKTUALNI_ROK, PRIHLASKY_SAVE_MODAL_TIMEOUT } from '../../../constants';
 import { errorToStr } from '../../../Util';
 import { authTokenExpired } from '../../../auth/SignIn/SignInActions';
@@ -74,23 +67,19 @@ export const createSaveUcastRequest = actionPrefix => () => ({
 });
 
 export const createSaveUcastSuccess = actionPrefix => ({
-  id,
-  rok,
-  udaje,
   prihlaska,
   platby = [],
-  ubytovani = {}
+  ubytovani = {},
+  ...props
 }) => {
   const { typ, ...jenPrihlaska } = prihlaska;
 
   return {
     type: `${actionPrefix}_SAVE_SUCCESS`,
-    id,
-    rok,
-    udaje,
     prihlaska: jenPrihlaska,
     platby,
     ubytovani,
+    ...props,
     receivedAt: Date.now()
   };
 };
@@ -128,12 +117,13 @@ export const createSaveUcast = (actionPrefix, reduxName) => () => async (
 
   const state = getState();
   const {
+    entities: { rocniky, ucastnici },
     registrator: {
       [reduxName]: { form }
     }
   } = state;
 
-  const errors = formErrors({ form, rocniky: state.entities.rocniky });
+  const errors = formErrors({ form, rocniky });
   if (errors.length > 0) {
     dispatch(createValidationError(actionPrefix)(errors));
     return;
@@ -142,17 +132,13 @@ export const createSaveUcast = (actionPrefix, reduxName) => () => async (
   dispatch(createSaveUcastRequest(actionPrefix)());
 
   const rok = AKTUALNI_ROK;
+  const existingUcast = form.ucastnikId ? ucastnici.byIds[form.ucastnikId][rok] || {} : {};
   const { udaje, prihlaska, platby, ubytovani } = form;
+  const ucast = { ...existingUcast, udaje, prihlaska, platby, ubytovani };
+
   try {
-    let response = await wsClient.sendRequest(
-      saveUdaje(
-        {
-          id: form.ucastnikId,
-          rok,
-          udaje
-        },
-        state.auth.token
-      )
+    const response = await wsClient.sendRequest(
+      saveUcast({ id: form.ucastnikId, rok, ...ucast }, state.auth.token)
     );
     if (response.code !== CODE_OK) {
       handleErrors({ actionPrefix, dispatch, response });
@@ -160,27 +146,8 @@ export const createSaveUcast = (actionPrefix, reduxName) => () => async (
     }
 
     const { id } = response.response;
-    response = await wsClient.sendRequest(savePrihlaska({ id, rok, prihlaska }, state.auth.token));
-    if (response.code !== CODE_OK) {
-      handleErrors({ actionPrefix, dispatch, response });
-      return;
-    }
-
-    response = await wsClient.sendRequest(savePlatby({ id, rok, platby }, state.auth.token));
-    if (response.code !== CODE_OK) {
-      handleErrors({ actionPrefix, dispatch, response });
-      return;
-    }
-
-    response = await wsClient.sendRequest(saveUbytovani({ id, rok, ubytovani }, state.auth.token));
-    if (response.code === CODE_OK) {
-      dispatch(
-        createSaveUcastSuccess(actionPrefix)({ id, rok, udaje, prihlaska, platby, ubytovani })
-      );
-      showModalWithTimeout(actionPrefix, dispatch);
-    } else {
-      handleErrors({ actionPrefix, dispatch, response });
-    }
+    dispatch(createSaveUcastSuccess(actionPrefix)({ id, rok, ...ucast }));
+    showModalWithTimeout(actionPrefix, dispatch);
   } catch (err) {
     dispatch(createSaveUcastError(actionPrefix)({ code: 'internal error', err }));
   }
