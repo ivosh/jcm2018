@@ -50,7 +50,6 @@
     "xml2js": "^0.4.19"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.5",
     "codecov": "^3.0.2",
     "eslint": "^5.0.1",
@@ -60,7 +59,6 @@
     "eslint-plugin-prettier": "^2.6.1",
     "eslint-plugin-react": "^7.10.0",
     "jest": "^23.2.0",
-    "jscodeshift": "^0.5.1",
     "jsonfile-updater": "^3.1.0",
     "prettier": "^1.13.7",
     "supertest": "^3.1.0"

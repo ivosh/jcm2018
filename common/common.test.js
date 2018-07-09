@@ -4,12 +4,7 @@
    - common/common.test.js in CommonJS format (understood by Node JS)
    - ui/src/common.test.js in ES6 format (as required by create-react-app scripts)
 
-   Convert from CommonJS format by the following incantation:
-   cp common/common.test.js ui/src/common.test.js
-   ./node_modules/jscodeshift/bin/jscodeshift.sh \
-       -t node_modules/5to6-codemod/transforms/cjs.js ui/src/common.test.js
-   diff -u common/common.test.js ui/src/common.test.js
-   diff -u common/__snapshots__/common.test.js.snap ui/src/__snapshots__/common.test.js.snap
+   When Node.JS supports MJS modules formats natively, this could be just a single file.
  */
 
 const {

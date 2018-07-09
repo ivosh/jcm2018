@@ -2,13 +2,7 @@
    - common/common.js in CommonJS format (understood by Node JS)
    - ui/src/common.js in ES6 format (as required by create-react-app scripts)
 
-   Convert from CommonJS format by the following incantation:
-   cp common/common.js ui/src/common.js
-   ./node_modules/jscodeshift/bin/jscodeshift.sh \
-       -t node_modules/5to6-codemod/transforms/exports.js ui/src/common.js
-   ./node_modules/jscodeshift/bin/jscodeshift.sh \
-       -t node_modules/5to6-codemod/transforms/named-export-generation.js ui/src/common.js
-   diff -u common/common.js ui/src/common.js
+   When Node.JS supports MJS modules formats natively, this could be just a single file.
  */
 
 const PORT_DEV_CLIENT = 3000;
