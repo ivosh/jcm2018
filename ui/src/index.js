@@ -7,7 +7,7 @@ import 'react-bootstrap-typeahead/css/Typeahead.css';
 import 'react-virtualized/styles.css';
 import registerServiceWorker from './registerServiceWorker';
 import WsClient from './WsClient';
-import configureStore from './configureStore';
+import configureStore from './store/configureStore';
 import AppContainer from './App/AppContainer';
 import './index.css';
 

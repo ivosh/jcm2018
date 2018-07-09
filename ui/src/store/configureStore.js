@@ -1,10 +1,10 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { BROADCAST_STOPKY, BROADCAST_UCASTNIK } from './common';
-import appReducer from './App/appReducer';
-import { websocketConnected, websocketDisconnected } from './App/AppActions';
-import { broadcastStopky } from './entities/stopky/stopkyActions';
-import { broadcastUcastnik } from './entities/ucastnici/ucastniciActions';
+import { BROADCAST_STOPKY, BROADCAST_UCASTNIK } from '../common';
+import appReducer from '../App/appReducer';
+import { websocketConnected, websocketDisconnected } from '../App/AppActions';
+import { broadcastStopky } from '../entities/stopky/stopkyActions';
+import { broadcastUcastnik } from '../entities/ucastnici/ucastniciActions';
 
 const loadState = () => {
   try {
