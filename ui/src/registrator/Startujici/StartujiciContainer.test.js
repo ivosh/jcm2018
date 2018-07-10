@@ -1,7 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
+import { API_DELETE_VYKON, API_SAVE_VYKON } from '../../common';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
+import { WS_API } from '../../store/wsAPI';
+import { STARTUJICI_CREATE_VYKON, STARTUJICI_DELETE_VYKON } from './StartujiciActions';
 import StartujiciContainer from './StartujiciContainer';
 
 const mockStore = configureStore();
@@ -23,13 +26,25 @@ it('maps state to props', () => {
 });
 
 it('maps movePrihlasen to dispatch createVykon', () => {
-  wrapper.props().movePrihlasen({ id: '8344bc71dec1e99b7e1d01e' });
+  wrapper.props().movePrihlasen('8344bc71dec1e99b7e1d01e');
 
-  expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
+  expect(store.dispatch).toHaveBeenCalledWith({
+    [WS_API]: {
+      type: STARTUJICI_CREATE_VYKON,
+      endpoint: API_SAVE_VYKON,
+      request: expect.any(Function)
+    }
+  });
 });
 
 it('maps moveOdstartovan to dispatch deleteVykon', () => {
-  wrapper.props().moveOdstartovan({ id: '8344bc71dec1e99b7e1d01e' });
+  wrapper.props().moveOdstartovan('8344bc71dec1e99b7e1d01e');
 
-  expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
+  expect(store.dispatch).toHaveBeenCalledWith({
+    [WS_API]: {
+      type: STARTUJICI_DELETE_VYKON,
+      endpoint: API_DELETE_VYKON,
+      request: { id: '8344bc71dec1e99b7e1d01e', rok: 2018 }
+    }
+  });
 });

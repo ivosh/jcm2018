@@ -4,10 +4,11 @@ import { websocketDisconnected } from '../../App/AppActions';
 import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
 import { createSaveUcastSuccess } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
 import {
-  createVykonSuccess,
-  deleteVykonSuccess
+  STARTUJICI_CREATE_VYKON,
+  STARTUJICI_DELETE_VYKON
 } from '../../registrator/Startujici/StartujiciActions';
 import { saveUbytovaniSuccess } from '../../registrator/Ubytovani/UbytovaniActions';
+import { createSuccess } from '../../store/wsAPI';
 import ucastniciReducer, { getUcastiProRok } from './ucastniciReducer';
 import { broadcastUcastnik, fetchUcastniciSuccess } from './ucastniciActions';
 import ucastniciTestData from './ucastniciTestData';
@@ -259,23 +260,31 @@ it('saveUcastSuccess() - přihlášky - nový účastník', () => {
   ).toMatchSnapshot();
 });
 
-it('createVykonSuccess()', () => {
+it('STARTUJICI_CREATE_VYKON_SUCCESS', () => {
   const stateBefore = { ...ucastniciTestData.entities.ucastnici };
   deepFreeze(stateBefore);
-  const id = '8344bc71dec1e99b7e1d01e';
-  const rok = 2018;
-  const vykon = { dokonceno: null, kategorie: '5a587e1b051c181132cf83d9', startCislo: 15 };
+  const request = {
+    id: '8344bc71dec1e99b7e1d01e',
+    rok: 2018,
+    vykon: { dokonceno: null, kategorie: '5a587e1b051c181132cf83d9', startCislo: 15 }
+  };
 
-  expect(ucastniciReducer(stateBefore, createVykonSuccess({ id, rok, vykon }))).toMatchSnapshot();
+  expect(
+    ucastniciReducer(stateBefore, createSuccess({ type: STARTUJICI_CREATE_VYKON, request }))
+  ).toMatchSnapshot();
 });
 
-it('deleteVykonSuccess()', () => {
+it('STARTUJICI_DELETE_VYKON_SUCCESS', () => {
   const stateBefore = { ...ucastniciTestData.entities.ucastnici };
   deepFreeze(stateBefore);
-  const id = '7a09b1fd371dec1e99b7e142';
-  const rok = 2018;
+  const request = {
+    id: '7a09b1fd371dec1e99b7e142',
+    rok: 2018
+  };
 
-  expect(ucastniciReducer(stateBefore, deleteVykonSuccess({ id, rok }))).toMatchSnapshot();
+  expect(
+    ucastniciReducer(stateBefore, createSuccess({ type: STARTUJICI_DELETE_VYKON, request }))
+  ).toMatchSnapshot();
 });
 
 it('broadcastUcastnik - změna', () => {

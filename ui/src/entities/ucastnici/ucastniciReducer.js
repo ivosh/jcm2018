@@ -1,4 +1,8 @@
 import { AKTUALNI_ROK } from '../../constants';
+import {
+  STARTUJICI_CREATE_VYKON,
+  STARTUJICI_DELETE_VYKON
+} from '../../registrator/Startujici/StartujiciActions';
 
 export const initialState = { allIds: [], byIds: {}, invalidated: false };
 
@@ -54,12 +58,12 @@ const ucastniciReducer = (state = initialState, action) => {
     }
     case 'SIGN_OUT_SUCCESS':
       return initialState;
-    case 'STARTUJICI_CREATE_VYKON_SUCCESS': {
-      const { id, rok, vykon } = action;
+    case `${STARTUJICI_CREATE_VYKON}_SUCCESS`: {
+      const { id, rok, vykon } = action.request;
       return updateUcast(state, id, rok, 'vykon', vykon);
     }
-    case 'STARTUJICI_DELETE_VYKON_SUCCESS': {
-      const { id, rok } = action;
+    case `${STARTUJICI_DELETE_VYKON}_SUCCESS`: {
+      const { id, rok } = action.request;
       return updateUcast(state, id, rok, 'vykon', undefined);
     }
     case 'UBYTOVANI_SAVE_SUCCESS': {
