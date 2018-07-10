@@ -24,6 +24,8 @@ const SAVE_UDAJE = 'saveUdaje';
 const SAVE_VYKON = 'saveVykon';
 const SIGN_IN = 'signIn';
 const SIGN_OUT = 'signOut';
+const API_DELETE_VYKON = DELETE_VYKON;
+const API_SAVE_VYKON = SAVE_VYKON;
 
 const CODE_OK = 'ok';
 const CODE_ALREADY_EXISTING = 'již existuje';
@@ -39,6 +41,8 @@ const CODE_TOKEN_INVALID = 'authentication token invalid';
 const CODE_UNFULFILLED_REQUEST = 'unfulfilled request';
 const CODE_UNPARSEABLE_MESSAGE = 'unparseable message';
 const CODE_UNRECOGNIZED_ACTION = 'unrecognized action';
+
+const apiCall = ({ endpoint, request, token }) => ({ action: endpoint, request, token });
 
 const deleteVykon = ({ id, rok }, token) => ({
   action: DELETE_VYKON,
@@ -269,6 +273,8 @@ const exported = {
   SAVE_VYKON,
   SIGN_IN,
   SIGN_OUT,
+  API_DELETE_VYKON,
+  API_SAVE_VYKON,
   CODE_OK,
   CODE_ALREADY_EXISTING,
   CODE_DB_DISCONNECTED,
@@ -283,6 +289,7 @@ const exported = {
   CODE_UNFULFILLED_REQUEST,
   CODE_UNPARSEABLE_MESSAGE,
   CODE_UNRECOGNIZED_ACTION,
+  apiCall,
   deleteVykon,
   findAllRocniky,
   findAllStopky,
@@ -323,6 +330,8 @@ export {
   SAVE_VYKON,
   SIGN_IN,
   SIGN_OUT,
+  API_DELETE_VYKON,
+  API_SAVE_VYKON,
   CODE_OK,
   CODE_ALREADY_EXISTING,
   CODE_DB_DISCONNECTED,
@@ -337,6 +346,7 @@ export {
   CODE_UNFULFILLED_REQUEST,
   CODE_UNPARSEABLE_MESSAGE,
   CODE_UNRECOGNIZED_ACTION,
+  apiCall,
   deleteVykon,
   findAllRocniky,
   findAllStopky,

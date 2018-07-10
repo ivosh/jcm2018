@@ -5,6 +5,7 @@ import appReducer from '../App/appReducer';
 import { websocketConnected, websocketDisconnected } from '../App/AppActions';
 import { broadcastStopky } from '../entities/stopky/stopkyActions';
 import { broadcastUcastnik } from '../entities/ucastnici/ucastniciActions';
+import wsAPI from './wsAPI';
 
 const loadState = () => {
   try {
@@ -62,14 +63,14 @@ const setupWsClient = (wsClient, store) => {
 const configureStore = (wsClient, initialStateParam = loadState()) => {
   const initialState = initialStateParam || {};
 
-  // :TODO: determine highest id for mezičasy
-
   // eslint-disable-next-line no-underscore-dangle
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(
     appReducer,
     initialState,
-    composeEnhancers(applyMiddleware(thunk.withExtraArgument(wsClient)))
+    composeEnhancers(
+      applyMiddleware(thunk.withExtraArgument(wsClient), wsAPI.withExtraArgument(wsClient))
+    )
   );
 
   store.subscribe(() => {
