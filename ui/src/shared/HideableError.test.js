@@ -9,25 +9,25 @@ it('it renders', () => {
       code="chybový kód"
       message="Dlouhý popisek chyby"
       title="Chyba při něčem!"
-      onHideError={jest.fn()}
+      onHide={jest.fn()}
     />
   );
   expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('handle hide error', () => {
-  const onHideError = jest.fn();
+  const onHide = jest.fn();
 
   const wrapper = mount(
     <HideableError
       code="chybový kód"
       message="Dlouhý popisek chyby"
       title="Chyba při něčem!"
-      onHideError={onHideError}
+      onHide={onHide}
     />
   );
   expect(wrapper.find('button.close')).toHaveLength(1);
 
   wrapper.find('button.close').simulate('click');
-  expect(onHideError).toHaveBeenCalledWith();
+  expect(onHide).toHaveBeenCalledWith();
 });

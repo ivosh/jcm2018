@@ -307,7 +307,7 @@ class PrihlaskyForm extends PureComponent {
             code={errorCode}
             message={errorMessage}
             title="Chyba při ukládání!"
-            onHideError={onHideError}
+            onHide={onHideError}
           />
         )}
       </div>

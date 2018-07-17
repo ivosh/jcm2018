@@ -64,7 +64,7 @@ class SignIn extends PureComponent {
             code={errorCode}
             message={errorMessage}
             title="Chyba při přihlášení!"
-            onHideError={onHideError}
+            onHide={onHideError}
           />
         )}
       </div>

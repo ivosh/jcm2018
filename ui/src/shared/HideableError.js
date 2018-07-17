@@ -5,7 +5,7 @@ import { Alert, Button } from 'react-bootstrap';
 class HideableError extends PureComponent {
   handleDismiss = event => {
     event.preventDefault();
-    this.props.onHideError();
+    this.props.onHide();
   };
 
   render = () => {
@@ -27,7 +27,7 @@ HideableError.propTypes = {
   code: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  onHideError: PropTypes.func.isRequired
+  onHide: PropTypes.func.isRequired
 };
 
 export default HideableError;
