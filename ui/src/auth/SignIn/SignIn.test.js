@@ -18,7 +18,7 @@ it('formulář při načítání', () => {
 });
 
 it('formulář s chybou', () => {
-  const component = renderer.create(
+  const wrapper = mount(
     <SignIn
       signingIn={false}
       errorCode="kód"
@@ -28,7 +28,7 @@ it('formulář s chybou', () => {
       onSubmit={jest.fn()}
     />
   );
-  expect(component.toJSON()).toMatchSnapshot();
+  expect(wrapper.find('Alert')).toHaveLength(1);
 });
 
 it('handle succesfull form submit', () => {

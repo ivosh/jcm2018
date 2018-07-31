@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { ControlLabel, Form, FormGroup, FormControl, Panel } from 'react-bootstrap';
-import HideableError from '../../shared/HideableError';
+import ErrorInModal from '../../shared/ErrorInModal';
 import LoadingButton from '../../shared/LoadingButton';
 import './SignIn.css';
 
@@ -59,14 +59,13 @@ class SignIn extends PureComponent {
             </FormGroup>
           </Form>
         </Panel>
-        {showError && (
-          <HideableError
-            code={errorCode}
-            message={errorMessage}
-            title="Chyba při přihlášení!"
-            onHide={onHideError}
-          />
-        )}
+        <ErrorInModal
+          code={errorCode}
+          message={errorMessage}
+          show={showError}
+          title="Chyba při přihlášení!"
+          onHide={onHideError}
+        />
       </div>
     );
   };
