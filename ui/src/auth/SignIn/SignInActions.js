@@ -1,9 +1,7 @@
 import jwtDecode from 'jwt-decode';
 import { CODE_OK, CODE_NONCE_MISMATCH, signIn as signInAction } from '../../common';
-import { errorToStr } from '../../Util';
 import { fetchRocniky } from '../../entities/rocniky/rocnikyActions';
-
-export const hideError = () => ({ type: 'SIGN_IN_HIDE_ERROR' });
+import { showError } from '../../shared/ErrorInModalActions';
 
 export const generateNonce = (len = 20) => {
   const arr = new Uint8Array(len / 2);
@@ -29,14 +27,7 @@ export const signInSuccess = (json, decodedToken) => {
   };
 };
 
-export const signInError = ({ code, status, err, ...rest }) => ({
-  type: 'SIGN_IN_ERROR',
-  code,
-  status,
-  err: errorToStr(err),
-  ...rest,
-  receivedAt: Date.now()
-});
+export const signInError = args => showError({ type: 'SIGN_IN_ERROR', ...args });
 
 export const authTokenExpired = ({ code, status }) =>
   signInError({

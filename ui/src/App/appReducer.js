@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import authReducer from '../auth/authReducer';
 import casomericReducer from '../casomeric/casomericReducer';
+import errorInModalReducer from '../shared/errorInModalReducer';
 import registratorReducer from '../registrator/registratorReducer';
 import entitiesReducer from '../entities/entitiesReducer';
 
@@ -29,6 +30,7 @@ const fetchingReducer = name => (state = 'init', action) => {
 
 const appReducer = combineReducers({
   auth: authReducer,
+  error: errorInModalReducer,
   casomeric: casomericReducer,
   registrator: registratorReducer,
   entities: entitiesReducer,

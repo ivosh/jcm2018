@@ -1,5 +1,5 @@
 import deepFreeze from 'deep-freeze';
-import { hideError, signInRequest, signInSuccess, signInError } from './SignInActions';
+import { signInRequest, signInSuccess, signInError } from './SignInActions';
 import signInReducer from './signInReducer';
 
 const successfulResponse = {
@@ -27,18 +27,10 @@ it('na začátku', () => {
 
   const stateAfter = signInReducer(stateBefore, {});
   expect(stateAfter.signingIn).toEqual(false);
-  expect(stateAfter.errorCode).toEqual('');
-  expect(stateAfter.errorMessage).toEqual('');
-  expect(stateAfter.showError).toBe(false);
 });
 
 it('signInRequest()', () => {
-  const stateBefore = {
-    signingIn: false,
-    errorCode: '',
-    errorMessage: '',
-    showError: false
-  };
+  const stateBefore = { signingIn: false };
   const stateAfter = { ...stateBefore, signingIn: true };
   deepFreeze(stateBefore);
 
@@ -46,12 +38,7 @@ it('signInRequest()', () => {
 });
 
 it('signInSuccess()', () => {
-  const stateBefore = {
-    signingIn: true,
-    errorCode: '',
-    errorMessage: '',
-    showError: false
-  };
+  const stateBefore = { signingIn: true };
   const stateAfter = { ...stateBefore, signingIn: false };
   deepFreeze(stateBefore);
 
@@ -61,33 +48,9 @@ it('signInSuccess()', () => {
 });
 
 it('signInError()', () => {
-  const stateBefore = {
-    signingIn: true,
-    errorCode: '',
-    errorMessage: '',
-    showError: false
-  };
-  const stateAfter = {
-    ...stateBefore,
-    signingIn: false,
-    errorCode: 'password incorrect',
-    errorMessage: 'Špatné jméno či heslo. Uživatel může být též zamčený.',
-    showError: true
-  };
+  const stateBefore = { signingIn: true };
+  const stateAfter = { ...stateBefore, signingIn: false };
   deepFreeze(stateBefore);
 
   expect(signInReducer(stateBefore, signInError(unsuccessfulResponse))).toEqual(stateAfter);
-});
-
-it('hideError()', () => {
-  const stateBefore = {
-    signingIn: false,
-    errorCode: 'password incorrect',
-    errorMessage: 'Špatné jméno či heslo. Uživatel může být též zamčený.',
-    showError: true
-  };
-  const stateAfter = { ...stateBefore, showError: false };
-  deepFreeze(stateBefore);
-
-  expect(signInReducer(stateBefore, hideError())).toEqual(stateAfter);
 });

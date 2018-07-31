@@ -4,87 +4,85 @@ exports[`formulář při načítání 1`] = `
 <div
   className="SignIn_div"
 >
-  <div
-    className="SignIn_panel panel panel-primary"
-    id={undefined}
+  <Panel
+    bsClass="panel"
+    bsStyle="primary"
+    className="SignIn_panel"
+    defaultExpanded={false}
+    header="Přihlášení do aplikace JCM"
   >
-    <div
-      className="panel-heading"
+    <Form
+      autoComplete="off"
+      bsClass="form"
+      className="SignIn_form"
+      componentClass="form"
+      horizontal={false}
+      inline={true}
+      onSubmit={[Function]}
     >
-      Přihlášení do aplikace JCM
-    </div>
-    <div
-      className="panel-body"
-    >
-      <form
-        autoComplete="off"
-        className="SignIn_form form-inline"
-        onSubmit={[Function]}
+      <FormGroup
+        bsClass="form-group"
+        controlId="username"
       >
-        <div
-          className="form-group"
+        <ControlLabel
+          bsClass="control-label"
+          srOnly={false}
         >
-          <label
-            className="control-label"
-            htmlFor="username"
-          >
-            Jméno
-          </label>
-           
-          <input
-            className="form-control"
-            id="username"
-            onChange={[Function]}
-            placeholder="uživatelské jméno"
-            type="text"
-            value=""
-          />
-        </div>
-        <span
-          className="SignIn_spacing"
+          Jméno
+        </ControlLabel>
+         
+        <FormControl
+          bsClass="form-control"
+          componentClass="input"
+          onChange={[Function]}
+          placeholder="uživatelské jméno"
+          type="text"
+          value=""
         />
-        <div
-          className="form-group"
+      </FormGroup>
+      <span
+        className="SignIn_spacing"
+      />
+      <FormGroup
+        bsClass="form-group"
+        controlId="password"
+      >
+        <ControlLabel
+          bsClass="control-label"
+          srOnly={false}
         >
-          <label
-            className="control-label"
-            htmlFor="password"
-          >
-            Heslo
-          </label>
-           
-          <input
-            className="form-control"
-            id="password"
-            onChange={[Function]}
-            placeholder="heslo"
-            type="password"
-            value=""
-          />
-        </div>
-        <span
-          className="SignIn_spacing"
+          Heslo
+        </ControlLabel>
+         
+        <FormControl
+          bsClass="form-control"
+          componentClass="input"
+          onChange={[Function]}
+          placeholder="heslo"
+          type="password"
+          value=""
         />
-        <div
-          className="form-group"
+      </FormGroup>
+      <span
+        className="SignIn_spacing"
+      />
+      <FormGroup
+        bsClass="form-group"
+      >
+        <LoadingButton
+          bsStyle="success"
+          loading={true}
+          loadingText="Probíhá přihlašování..."
+          type="submit"
         >
-          <button
-            className="btn btn-success"
-            disabled={true}
-            type="submit"
-          >
-            <span>
-              <span
-                className="LoadingIndicator glyphicon glyphicon-repeat"
-              />
-               
-              Probíhá přihlašování...
-            </span>
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
+          Přihlásit
+        </LoadingButton>
+      </FormGroup>
+    </Form>
+  </Panel>
+  <Connect(ErrorInModal)
+    title="Chyba při přihlášení!"
+  />
 </div>
 `;
 
@@ -92,80 +90,84 @@ exports[`prázdný formulář 1`] = `
 <div
   className="SignIn_div"
 >
-  <div
-    className="SignIn_panel panel panel-primary"
-    id={undefined}
+  <Panel
+    bsClass="panel"
+    bsStyle="primary"
+    className="SignIn_panel"
+    defaultExpanded={false}
+    header="Přihlášení do aplikace JCM"
   >
-    <div
-      className="panel-heading"
+    <Form
+      autoComplete="off"
+      bsClass="form"
+      className="SignIn_form"
+      componentClass="form"
+      horizontal={false}
+      inline={true}
+      onSubmit={[Function]}
     >
-      Přihlášení do aplikace JCM
-    </div>
-    <div
-      className="panel-body"
-    >
-      <form
-        autoComplete="off"
-        className="SignIn_form form-inline"
-        onSubmit={[Function]}
+      <FormGroup
+        bsClass="form-group"
+        controlId="username"
       >
-        <div
-          className="form-group"
+        <ControlLabel
+          bsClass="control-label"
+          srOnly={false}
         >
-          <label
-            className="control-label"
-            htmlFor="username"
-          >
-            Jméno
-          </label>
-           
-          <input
-            className="form-control"
-            id="username"
-            onChange={[Function]}
-            placeholder="uživatelské jméno"
-            type="text"
-            value=""
-          />
-        </div>
-        <span
-          className="SignIn_spacing"
+          Jméno
+        </ControlLabel>
+         
+        <FormControl
+          bsClass="form-control"
+          componentClass="input"
+          onChange={[Function]}
+          placeholder="uživatelské jméno"
+          type="text"
+          value=""
         />
-        <div
-          className="form-group"
+      </FormGroup>
+      <span
+        className="SignIn_spacing"
+      />
+      <FormGroup
+        bsClass="form-group"
+        controlId="password"
+      >
+        <ControlLabel
+          bsClass="control-label"
+          srOnly={false}
         >
-          <label
-            className="control-label"
-            htmlFor="password"
-          >
-            Heslo
-          </label>
-           
-          <input
-            className="form-control"
-            id="password"
-            onChange={[Function]}
-            placeholder="heslo"
-            type="password"
-            value=""
-          />
-        </div>
-        <span
-          className="SignIn_spacing"
+          Heslo
+        </ControlLabel>
+         
+        <FormControl
+          bsClass="form-control"
+          componentClass="input"
+          onChange={[Function]}
+          placeholder="heslo"
+          type="password"
+          value=""
         />
-        <div
-          className="form-group"
+      </FormGroup>
+      <span
+        className="SignIn_spacing"
+      />
+      <FormGroup
+        bsClass="form-group"
+      >
+        <LoadingButton
+          bsStyle="success"
+          loading={false}
+          loadingText="Probíhá přihlašování..."
+          type="submit"
         >
-          <button
-            className="btn btn-success"
-            disabled={false}
-            type="submit"
-          >
-            Přihlásit
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
+          Přihlásit
+        </LoadingButton>
+      </FormGroup>
+    </Form>
+  </Panel>
+  <Connect(ErrorInModal)
+    title="Chyba při přihlášení!"
+  />
 </div>
 `;

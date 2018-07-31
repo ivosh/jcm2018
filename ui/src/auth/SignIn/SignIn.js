@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { ControlLabel, Form, FormGroup, FormControl, Panel } from 'react-bootstrap';
-import ErrorInModal from '../../shared/ErrorInModal';
+import ErrorInModalContainer from '../../shared/ErrorInModalContainer';
 import LoadingButton from '../../shared/LoadingButton';
 import './SignIn.css';
 
@@ -22,7 +22,7 @@ class SignIn extends PureComponent {
   };
 
   render = () => {
-    const { signingIn, errorCode, errorMessage, showError, onHideError } = this.props;
+    const { signingIn } = this.props;
     return (
       <div className="SignIn_div">
         <Panel bsStyle="primary" header="Přihlášení do aplikace JCM" className="SignIn_panel">
@@ -59,13 +59,7 @@ class SignIn extends PureComponent {
             </FormGroup>
           </Form>
         </Panel>
-        <ErrorInModal
-          code={errorCode}
-          message={errorMessage}
-          show={showError}
-          title="Chyba při přihlášení!"
-          onHide={onHideError}
-        />
+        <ErrorInModalContainer title="Chyba při přihlášení!" />
       </div>
     );
   };
@@ -73,10 +67,6 @@ class SignIn extends PureComponent {
 
 SignIn.propTypes = {
   signingIn: PropTypes.bool.isRequired,
-  errorCode: PropTypes.string,
-  errorMessage: PropTypes.string,
-  showError: PropTypes.bool,
-  onHideError: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
 };
 

@@ -61,12 +61,7 @@ it('signInError()', () => {
     authenticated: false,
     decodedToken: null,
     token: null,
-    signIn: {
-      signingIn: false,
-      errorCode: 'password incorrect',
-      errorMessage: 'Špatné jméno či heslo. Uživatel může být též zamčený.',
-      showError: true
-    }
+    signIn: { signingIn: false }
   };
   deepFreeze(stateBefore);
 
@@ -78,14 +73,14 @@ it('signOutSuccess()', () => {
     authenticated: true,
     token: '===token===',
     decodedToken: '===decoded===',
-    signIn: { signingIn: false, errorCode: '', errorMessage: '', showError: false }
+    signIn: { signingIn: false }
   };
   const stateAfter = {
     ...stateBefore,
     authenticated: false,
     token: null,
     decodedToken: null,
-    signIn: { signingIn: false, errorCode: '', errorMessage: '', showError: false }
+    signIn: { signingIn: false }
   };
   deepFreeze(stateBefore);
 
@@ -97,13 +92,13 @@ it('signOutError()', () => {
     authenticated: true,
     token: '===token===',
     decodedToken: '===decoded===',
-    signIn: { signingIn: false, errorCode: '', errorMessage: '', showError: false }
+    signIn: { signingIn: false }
   };
   const stateAfter = {
     authenticated: false,
     decodedToken: null,
     token: null,
-    signIn: { signingIn: false, errorCode: '', errorMessage: '', showError: false }
+    signIn: { signingIn: false }
   };
   deepFreeze(stateBefore);
 
