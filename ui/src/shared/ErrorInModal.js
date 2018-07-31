@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Alert, Button, Modal } from 'react-bootstrap';
 
-const ErrorInModal = ({ code, message, show = false, title, onHide }) => (
+const ErrorInModal = ({ code, message, show, title, onHide }) => (
   <Modal show={show} onHide={onHide} bsSize="small">
     <Modal.Header closeButton>
       <Modal.Title>{title}</Modal.Title>
@@ -23,8 +23,8 @@ const ErrorInModal = ({ code, message, show = false, title, onHide }) => (
 ErrorInModal.propTypes = {
   code: PropTypes.string,
   message: PropTypes.string,
-  show: PropTypes.bool,
-  title: PropTypes.string,
+  show: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
   onHide: PropTypes.func.isRequired
 };
 
