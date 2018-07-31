@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders not showing 1`] = `<div />`;
+
+exports[`it renders showing 1`] = `
+<div>
+  <ErrorInModal
+    code="chybový kód"
+    message="Dlouhý popisek chyby"
+    onHide={[Function]}
+    show={true}
+    title="Chyba při něčem!"
+  />
+</div>
+`;
