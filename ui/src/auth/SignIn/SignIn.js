@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { ControlLabel, Form, FormGroup, FormControl, Panel } from 'react-bootstrap';
-import ErrorInModalContainer from '../../shared/ErrorInModalContainer';
+import ErrorInModalContainer from '../../shared/ErrorInModal/ErrorInModalContainer';
 import LoadingButton from '../../shared/LoadingButton';
 import './SignIn.css';
 

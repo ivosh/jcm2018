@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
-import { signInError } from '../auth/SignIn/SignInActions';
-import { signOutError } from '../auth/SignOut/SignOutActions';
+import { signInError } from '../../auth/SignIn/SignInActions';
+import { signOutError } from '../../auth/SignOut/SignOutActions';
 import { hideError } from './ErrorInModalActions';
 import errorInModalReducer from './errorInModalReducer';
 

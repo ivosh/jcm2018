@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import authReducer from '../auth/authReducer';
 import casomericReducer from '../casomeric/casomericReducer';
-import errorInModalReducer from '../shared/errorInModalReducer';
+import errorInModalReducer from '../shared/ErrorInModal/errorInModalReducer';
 import registratorReducer from '../registrator/registratorReducer';
 import entitiesReducer from '../entities/entitiesReducer';
 

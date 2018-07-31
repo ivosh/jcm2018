@@ -1,4 +1,4 @@
-import { errorToStr } from '../Util';
+import { errorToStr } from '../../Util';
 
 export const hideError = () => ({ type: 'HIDE_ERROR' });
 
