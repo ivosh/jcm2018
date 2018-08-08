@@ -1,6 +1,11 @@
 import deepFreeze from 'deep-freeze';
 import { signInError } from '../../auth/SignIn/SignInActions';
 import { signOutError } from '../../auth/SignOut/SignOutActions';
+import {
+  STARTUJICI_CREATE_VYKON,
+  STARTUJICI_DELETE_VYKON
+} from '../../registrator/Startujici/StartujiciActions';
+import { createFailure } from '../../store/wsAPI';
 import { hideError } from './ErrorInModalActions';
 import errorInModalReducer from './errorInModalReducer';
 
@@ -51,6 +56,44 @@ it('signOutError()', () => {
   expect(errorInModalReducer(stateBefore, signOutError(unsuccessfulSignOutResponse))).toEqual(
     stateAfter
   );
+});
+
+it('STARTUJICI_CREATE_VYKON_ERROR', () => {
+  const stateBefore = {};
+  const stateAfter = {
+    code: 'unfulfilled request',
+    message: 'A strange error occurred.',
+    show: true
+  };
+  deepFreeze(stateBefore);
+
+  const request = { id: '===id===', rok: 2018 };
+  const response = { code: 'unfulfilled request', status: 'A strange error occurred.' };
+  expect(
+    errorInModalReducer(
+      stateBefore,
+      createFailure({ type: STARTUJICI_CREATE_VYKON, request, response })
+    )
+  ).toEqual(stateAfter);
+});
+
+it('STARTUJICI_DELETE_VYKON_ERROR', () => {
+  const stateBefore = {};
+  const stateAfter = {
+    code: 'unfulfilled request',
+    message: 'A strange error occurred.',
+    show: true
+  };
+  deepFreeze(stateBefore);
+
+  const request = { id: '===id===', rok: 2018 };
+  const response = { code: 'unfulfilled request', status: 'A strange error occurred.' };
+  expect(
+    errorInModalReducer(
+      stateBefore,
+      createFailure({ type: STARTUJICI_DELETE_VYKON, request, response })
+    )
+  ).toEqual(stateAfter);
 });
 
 it('hideError()', () => {

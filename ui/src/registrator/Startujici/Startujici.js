@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Glyphicon } from 'react-bootstrap';
 import { DragTypes } from '../../constants';
+import ErrorInModalContainer from '../../shared/ErrorInModal/ErrorInModalContainer';
 import DroppableStartujiciPanel from './DroppableStartujiciPanel';
 import './Startujici.css';
 
@@ -43,6 +44,7 @@ class Startujici extends PureComponent {
           seznam={odstartovani}
           onDrop={movePrihlasen}
         />
+        <ErrorInModalContainer title="Chyba při ukládání startujícího!" />
       </div>
     );
   };
