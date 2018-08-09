@@ -78,6 +78,10 @@ const authTokenInvalidResponse = {
 const middlewares = [wsAPI.withExtraArgument(mockWsClient)];
 const mockStore = configureStore(middlewares);
 
+const decorate = json => ({
+  getCode: () => json.code
+});
+
 const normalize = json => {
   const byIds = json.response;
   const allIds = Object.keys(byIds);
@@ -92,7 +96,9 @@ const state = { auth: { token: '===token===' } };
 it('successful wsAPI action should dispatch REQUEST/SUCCESS redux actions', async () => {
   mockWsClient.sendRequest = async () => successfulResponse;
   const store = mockStore(state);
-  await store.dispatch({ [WS_API]: { type: 'FETCH_ACTION', endpoint, normalize, request } });
+  await store.dispatch({
+    [WS_API]: { type: 'FETCH_ACTION', decorate, endpoint, normalize, request }
+  });
 
   const actions = store.getActions();
   expect(actions[0]).toEqual({
@@ -102,6 +108,7 @@ it('successful wsAPI action should dispatch REQUEST/SUCCESS redux actions', asyn
   });
   expect(actions[1]).toEqual({
     type: 'FETCH_ACTION_SUCCESS',
+    getCode: expect.any(Function),
     request,
     response: {
       allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
@@ -115,7 +122,9 @@ it('successful wsAPI action should dispatch REQUEST/SUCCESS redux actions', asyn
 it('unsuccessful wsAPI action should dispatch REQUEST/ERROR actions', async () => {
   mockWsClient.sendRequest = async () => unsuccessfulResponse;
   const store = mockStore(state);
-  await store.dispatch({ [WS_API]: { type: 'FETCH_ACTION', endpoint, normalize, request } });
+  await store.dispatch({
+    [WS_API]: { type: 'FETCH_ACTION', decorate, endpoint, normalize, request }
+  });
 
   const actions = store.getActions();
   expect(actions[0]).toEqual({
@@ -171,6 +180,63 @@ it('expired authentication token for wsAPI action should dispatch REQUEST/ERROR 
     response: {
       code: 'authentication token invalid',
       status: 'Platnost ověřovacího tokenu pravděpodobně vypršela. Neplatný ověřovací token.'
+    },
+    receivedAt: expect.any(Number)
+  });
+});
+
+it('wsAPI should process array of three actions in sequence', async () => {
+  mockWsClient.sendRequest = async () => successfulResponse;
+  const store = mockStore(state);
+  await store.dispatch([
+    { [WS_API]: { type: 'FETCH_ACTION_1', endpoint, normalize, request } },
+    { [WS_API]: { type: 'FETCH_ACTION_2', endpoint, normalize, request } },
+    { [WS_API]: { type: 'FETCH_ACTION_3', endpoint, normalize, request } }
+  ]);
+
+  const actions = store.getActions();
+  expect(actions[0]).toEqual({
+    type: 'FETCH_ACTION_1_REQUEST',
+    request,
+    receivedAt: expect.any(Number)
+  });
+  expect(actions[1]).toEqual({
+    type: 'FETCH_ACTION_1_SUCCESS',
+    request,
+    response: {
+      allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
+      byIds: successfulResponse.response,
+      code: 'ok'
+    },
+    receivedAt: expect.any(Number)
+  });
+  expect(actions[2]).toEqual({
+    type: 'FETCH_ACTION_2_REQUEST',
+    request,
+    receivedAt: expect.any(Number)
+  });
+  expect(actions[3]).toEqual({
+    type: 'FETCH_ACTION_2_SUCCESS',
+    request,
+    response: {
+      allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
+      byIds: successfulResponse.response,
+      code: 'ok'
+    },
+    receivedAt: expect.any(Number)
+  });
+  expect(actions[4]).toEqual({
+    type: 'FETCH_ACTION_3_REQUEST',
+    request,
+    receivedAt: expect.any(Number)
+  });
+  expect(actions[5]).toEqual({
+    type: 'FETCH_ACTION_3_SUCCESS',
+    request,
+    response: {
+      allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
+      byIds: successfulResponse.response,
+      code: 'ok'
     },
     receivedAt: expect.any(Number)
   });
