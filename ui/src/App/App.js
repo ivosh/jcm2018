@@ -11,6 +11,7 @@ import About from './About';
 import CasomiryContainer from '../casomeric/Casomira/Casomiry/CasomiryContainer';
 import Dohlaseni from '../registrator/PrihlaseniDohlaseni/Dohlaseni';
 import Dohlasky from '../registrator/PrihlaskyDohlasky/Dohlasky';
+import ErrorInModalContainer from '../shared/ErrorInModal/ErrorInModalContainer';
 import Main from './Main';
 import PokladnaContainer from '../registrator/Pokladna/PokladnaContainer';
 import PoradiContainer from '../registrator/Poradi/PoradiContainer';
@@ -155,6 +156,7 @@ class App extends PureComponent {
             <AuthorizedRoute path="/vysledky" component={withFetchUcastnici(VysledkyContainer)} />
             <Redirect to="/" />
           </Switch>
+          <ErrorInModalContainer title="Chybka se vloudila..." />
         </main>
       </div>
     );

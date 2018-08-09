@@ -22,6 +22,7 @@ const store = mockStore({
     rocniky: { byRoky: {}, roky: [] },
     ucastnici: { allIds: [], byIds: {} }
   },
+  error: { code: '', message: '', show: false },
   fetchingStopky: 'done',
   fetchingUcastnici: 'done',
   registrator: {

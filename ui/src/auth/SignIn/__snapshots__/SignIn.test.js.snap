@@ -80,9 +80,6 @@ exports[`formulář při načítání 1`] = `
       </FormGroup>
     </Form>
   </Panel>
-  <Connect(ErrorInModal)
-    title="Chyba při přihlášení!"
-  />
 </div>
 `;
 
@@ -166,8 +163,5 @@ exports[`prázdný formulář 1`] = `
       </FormGroup>
     </Form>
   </Panel>
-  <Connect(ErrorInModal)
-    title="Chyba při přihlášení!"
-  />
 </div>
 `;

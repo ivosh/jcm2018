@@ -158,6 +158,9 @@ exports[`with websocket connected, authenticated 1`] = `
         to="/"
       />
     </Switch>
+    <Connect(ErrorInModal)
+      title="Chybka se vloudila..."
+    />
   </main>
 </div>
 `;
@@ -306,6 +309,9 @@ exports[`with websocket connected, not authenticated 1`] = `
         to="/"
       />
     </Switch>
+    <Connect(ErrorInModal)
+      title="Chybka se vloudila..."
+    />
   </main>
 </div>
 `;
@@ -468,6 +474,9 @@ exports[`with websocket disconnected, authenticated 1`] = `
         to="/"
       />
     </Switch>
+    <Connect(ErrorInModal)
+      title="Chybka se vloudila..."
+    />
   </main>
 </div>
 `;

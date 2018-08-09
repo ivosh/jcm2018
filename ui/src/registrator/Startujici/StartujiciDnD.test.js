@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import configureStore from 'redux-mock-store';
 import { wrapInDnDTestContext } from '../../testing';
 import Startujici from './Startujici';
 
@@ -20,12 +19,8 @@ const prihlaseni = [
   }
 ];
 
-const mockStore = configureStore();
-const state = { error: { code: '', message: '', show: false } };
-const store = mockStore(state);
-
 // Render with the test context that uses the test backend.
-const StartujiciDnD = wrapInDnDTestContext(Startujici, store);
+const StartujiciDnD = wrapInDnDTestContext(Startujici);
 
 it('can simulate a full drag and drop interaction', () => {
   const movePrihlasen = jest.fn();

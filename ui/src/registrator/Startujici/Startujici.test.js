@@ -1,6 +1,5 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import configureStore from 'redux-mock-store';
 import { wrapInDnDTestContext } from '../../testing';
 import Startujici from './Startujici';
 
@@ -62,12 +61,8 @@ const odstartovani = [
   }
 ];
 
-const mockStore = configureStore();
-const state = { error: { code: '', message: '', show: false } };
-const store = mockStore(state);
-
 // Render with the test context that uses the test backend.
-const StartujiciDnD = wrapInDnDTestContext(Startujici, store);
+const StartujiciDnD = wrapInDnDTestContext(Startujici);
 
 it('žádný přihlášený', () => {
   const component = renderer.create(
