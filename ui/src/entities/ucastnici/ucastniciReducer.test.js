@@ -3,12 +3,9 @@ import { ubytovaniNeprespano } from '../../common';
 import { websocketDisconnected } from '../../App/AppActions';
 import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
 import { createSaveUcastSuccess } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
-import {
-  STARTUJICI_CREATE_VYKON,
-  STARTUJICI_DELETE_VYKON
-} from '../../registrator/Startujici/StartujiciActions';
+import { createVykon, deleteVykon } from '../../registrator/Startujici/StartujiciActions';
 import { saveUbytovaniSuccess } from '../../registrator/Ubytovani/UbytovaniActions';
-import { createSuccess } from '../../store/wsAPI';
+import { createSuccessFromAction } from '../../store/wsAPI';
 import ucastniciReducer, { getUcastiProRok } from './ucastniciReducer';
 import { broadcastUcastnik, fetchUcastniciSuccess } from './ucastniciActions';
 import ucastniciTestData from './ucastniciTestData';
@@ -260,7 +257,7 @@ it('saveUcastSuccess() - přihlášky - nový účastník', () => {
   ).toMatchSnapshot();
 });
 
-it('STARTUJICI_CREATE_VYKON_SUCCESS', () => {
+it('createVykon() - success', () => {
   const stateBefore = { ...ucastniciTestData.entities.ucastnici };
   deepFreeze(stateBefore);
   const request = {
@@ -270,11 +267,11 @@ it('STARTUJICI_CREATE_VYKON_SUCCESS', () => {
   };
 
   expect(
-    ucastniciReducer(stateBefore, createSuccess({ type: STARTUJICI_CREATE_VYKON, request }))
+    ucastniciReducer(stateBefore, createSuccessFromAction({ action: createVykon({}), request }))
   ).toMatchSnapshot();
 });
 
-it('STARTUJICI_DELETE_VYKON_SUCCESS', () => {
+it('deleteVykon() - success', () => {
   const stateBefore = { ...ucastniciTestData.entities.ucastnici };
   deepFreeze(stateBefore);
   const request = {
@@ -283,7 +280,7 @@ it('STARTUJICI_DELETE_VYKON_SUCCESS', () => {
   };
 
   expect(
-    ucastniciReducer(stateBefore, createSuccess({ type: STARTUJICI_DELETE_VYKON, request }))
+    ucastniciReducer(stateBefore, createSuccessFromAction({ action: deleteVykon({}), request }))
   ).toMatchSnapshot();
 });
 

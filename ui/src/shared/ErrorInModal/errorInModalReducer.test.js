@@ -1,11 +1,8 @@
 import deepFreeze from 'deep-freeze';
 import { signInError } from '../../auth/SignIn/SignInActions';
 import { signOutError } from '../../auth/SignOut/SignOutActions';
-import {
-  STARTUJICI_CREATE_VYKON,
-  STARTUJICI_DELETE_VYKON
-} from '../../registrator/Startujici/StartujiciActions';
-import { createFailure } from '../../store/wsAPI';
+import { createVykon, deleteVykon } from '../../registrator/Startujici/StartujiciActions';
+import { createFailureFromAction } from '../../store/wsAPI';
 import { hideError } from './ErrorInModalActions';
 import errorInModalReducer from './errorInModalReducer';
 
@@ -72,7 +69,7 @@ it('STARTUJICI_CREATE_VYKON_ERROR', () => {
   expect(
     errorInModalReducer(
       stateBefore,
-      createFailure({ type: STARTUJICI_CREATE_VYKON, request, response })
+      createFailureFromAction({ action: createVykon({}), request, response })
     )
   ).toEqual(stateAfter);
 });
@@ -91,7 +88,7 @@ it('STARTUJICI_DELETE_VYKON_ERROR', () => {
   expect(
     errorInModalReducer(
       stateBefore,
-      createFailure({ type: STARTUJICI_DELETE_VYKON, request, response })
+      createFailureFromAction({ action: deleteVykon({}), request, response })
     )
   ).toEqual(stateAfter);
 });

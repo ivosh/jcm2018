@@ -4,7 +4,9 @@ import { errorToStr } from '../Util';
 // Action key that carries API call info interpreted by this Redux middleware.
 export const WS_API = 'Websocket API';
 
-export const createSuccess = ({
+const getRequest = (request, state) => (typeof request === 'function' ? request(state) : request);
+
+const createSuccess = ({
   type,
   decorate = () => {},
   normalize = data => data,
@@ -18,7 +20,18 @@ export const createSuccess = ({
   ...decorate(response)
 });
 
-export const createFailure = ({ type, error, request, response }) => ({
+// For testing.
+// state is required only if request is not supplied and needs to be created using a function.
+export const createSuccessFromAction = ({ action, request, response, state }) => {
+  const { [WS_API]: callAPI } = action;
+  const { decorate, normalize, type } = callAPI;
+  if (!request) {
+    request = getRequest(callAPI.request, state); // eslint-disable-line no-param-reassign
+  }
+  return createSuccess({ type, decorate, normalize, request, response });
+};
+
+const createFailure = ({ type, error, request, response }) => ({
   type: `${type}_ERROR`,
   error: errorToStr(error),
   request,
@@ -26,7 +39,7 @@ export const createFailure = ({ type, error, request, response }) => ({
   receivedAt: Date.now()
 });
 
-export const createAuthTokenExpired = ({ response, ...rest }) =>
+const createAuthTokenExpired = ({ response, ...rest }) =>
   createFailure({
     ...rest,
     response: {
@@ -34,6 +47,17 @@ export const createAuthTokenExpired = ({ response, ...rest }) =>
       status: `Platnost ověřovacího tokenu pravděpodobně vypršela. ${response.status}`
     }
   });
+
+// For testing.
+// state is required only if request is not supplied and needs to be created using a function.
+export const createFailureFromAction = ({ action, error, request, response, state }) => {
+  const { [WS_API]: callAPI } = action;
+  const { type } = callAPI;
+  if (!request) {
+    request = getRequest(callAPI.request, state); // eslint-disable-line no-param-reassign
+  }
+  return createFailure({ type, error, request, response });
+};
 
 // Processes an array of actions and applies function 'fn' on every item.
 // The function 'fn' returns a promise which is waited upon.
@@ -51,10 +75,7 @@ const doOneAction = ({ action, next, store, wsClient }) => {
 
   const state = store.getState();
   const { decorate, endpoint, normalize, type, useCached } = callAPI;
-  let { request } = callAPI;
-  if (typeof request === 'function') {
-    request = request(state);
-  }
+  const request = getRequest(callAPI.request, state);
   if (!endpoint) {
     throw new Error('Specify an API endpoint.');
   }
