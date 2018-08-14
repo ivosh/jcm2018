@@ -4,164 +4,88 @@ exports[`formulář při načítání 1`] = `
 <div
   className="SignIn_div"
 >
-  <Panel
-    bsClass="panel"
-    bsStyle="primary"
-    className="SignIn_panel"
-    defaultExpanded={false}
-    header="Přihlášení do aplikace JCM"
+  <div
+    className="SignIn_panel panel panel-primary"
+    id={undefined}
   >
-    <Form
-      autoComplete="off"
-      bsClass="form"
-      className="SignIn_form"
-      componentClass="form"
-      horizontal={false}
-      inline={true}
-      onSubmit={[Function]}
+    <div
+      className="panel-heading"
     >
-      <FormGroup
-        bsClass="form-group"
-        controlId="username"
+      Přihlášení do aplikace JCM
+    </div>
+    <div
+      className="panel-body"
+    >
+      <form
+        autoComplete="off"
+        className="SignIn_form form-inline"
+        onSubmit={[Function]}
       >
-        <ControlLabel
-          bsClass="control-label"
-          srOnly={false}
+        <div
+          className="form-group"
         >
-          Jméno
-        </ControlLabel>
-         
-        <FormControl
-          bsClass="form-control"
-          componentClass="input"
-          onChange={[Function]}
-          placeholder="uživatelské jméno"
-          type="text"
-          value=""
+          <label
+            className="control-label"
+            htmlFor="username"
+          >
+            Jméno
+          </label>
+           
+          <input
+            className="form-control"
+            id="username"
+            onChange={[Function]}
+            placeholder="uživatelské jméno"
+            type="text"
+            value=""
+          />
+        </div>
+        <span
+          className="SignIn_spacing"
         />
-      </FormGroup>
-      <span
-        className="SignIn_spacing"
-      />
-      <FormGroup
-        bsClass="form-group"
-        controlId="password"
-      >
-        <ControlLabel
-          bsClass="control-label"
-          srOnly={false}
+        <div
+          className="form-group"
         >
-          Heslo
-        </ControlLabel>
-         
-        <FormControl
-          bsClass="form-control"
-          componentClass="input"
-          onChange={[Function]}
-          placeholder="heslo"
-          type="password"
-          value=""
+          <label
+            className="control-label"
+            htmlFor="password"
+          >
+            Heslo
+          </label>
+           
+          <input
+            className="form-control"
+            id="password"
+            onChange={[Function]}
+            placeholder="heslo"
+            type="password"
+            value=""
+          />
+        </div>
+        <span
+          className="SignIn_spacing"
         />
-      </FormGroup>
-      <span
-        className="SignIn_spacing"
-      />
-      <FormGroup
-        bsClass="form-group"
-      >
-        <LoadingButton
-          bsStyle="success"
-          loading={true}
-          loadingText="Probíhá přihlašování..."
-          type="submit"
+        <div
+          className="form-group"
         >
-          Přihlásit
-        </LoadingButton>
-      </FormGroup>
-    </Form>
-  </Panel>
+          <button
+            className="btn btn-success"
+            disabled={true}
+            type="submit"
+          >
+            <span>
+              <span
+                className="LoadingIndicator glyphicon glyphicon-repeat"
+              />
+               
+              Probíhá přihlašování...
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 `;
 
-exports[`prázdný formulář 1`] = `
-<div
-  className="SignIn_div"
->
-  <Panel
-    bsClass="panel"
-    bsStyle="primary"
-    className="SignIn_panel"
-    defaultExpanded={false}
-    header="Přihlášení do aplikace JCM"
-  >
-    <Form
-      autoComplete="off"
-      bsClass="form"
-      className="SignIn_form"
-      componentClass="form"
-      horizontal={false}
-      inline={true}
-      onSubmit={[Function]}
-    >
-      <FormGroup
-        bsClass="form-group"
-        controlId="username"
-      >
-        <ControlLabel
-          bsClass="control-label"
-          srOnly={false}
-        >
-          Jméno
-        </ControlLabel>
-         
-        <FormControl
-          bsClass="form-control"
-          componentClass="input"
-          onChange={[Function]}
-          placeholder="uživatelské jméno"
-          type="text"
-          value=""
-        />
-      </FormGroup>
-      <span
-        className="SignIn_spacing"
-      />
-      <FormGroup
-        bsClass="form-group"
-        controlId="password"
-      >
-        <ControlLabel
-          bsClass="control-label"
-          srOnly={false}
-        >
-          Heslo
-        </ControlLabel>
-         
-        <FormControl
-          bsClass="form-control"
-          componentClass="input"
-          onChange={[Function]}
-          placeholder="heslo"
-          type="password"
-          value=""
-        />
-      </FormGroup>
-      <span
-        className="SignIn_spacing"
-      />
-      <FormGroup
-        bsClass="form-group"
-      >
-        <LoadingButton
-          bsStyle="success"
-          loading={false}
-          loadingText="Probíhá přihlašování..."
-          type="submit"
-        >
-          Přihlásit
-        </LoadingButton>
-      </FormGroup>
-    </Form>
-  </Panel>
-</div>
-`;
+exports[`prázdný formulář 1`] = `[Function]`;

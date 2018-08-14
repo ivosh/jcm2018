@@ -1,16 +1,16 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import toJSON from 'enzyme-to-json';
+import renderer from 'react-test-renderer';
+import { mount } from 'enzyme';
 import SignIn from './SignIn';
 
 it('prázdný formulář', () => {
-  const wrapper = shallow(<SignIn signingIn={false} onSubmit={jest.fn()} />);
-  expect(toJSON(wrapper)).toMatchSnapshot();
+  const component = renderer.create(<SignIn signingIn={false} onSubmit={jest.fn()} />);
+  expect(component.toJSON).toMatchSnapshot();
 });
 
 it('formulář při načítání', () => {
-  const wrapper = shallow(<SignIn signingIn={true} onSubmit={jest.fn()} />);
-  expect(toJSON(wrapper)).toMatchSnapshot();
+  const component = renderer.create(<SignIn signingIn={true} onSubmit={jest.fn()} />);
+  expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('handle succesfull form submit', () => {
