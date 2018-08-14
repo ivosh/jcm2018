@@ -32,7 +32,8 @@ it('maps movePrihlasen to dispatch createVykon', () => {
     [WS_API]: {
       type: STARTUJICI_CREATE_VYKON,
       endpoint: API_SAVE_VYKON,
-      request: expect.any(Function)
+      request: expect.any(Function),
+      title: 'vytváření registrace na start'
     }
   });
 });
@@ -44,7 +45,8 @@ it('maps moveOdstartovan to dispatch deleteVykon', () => {
     [WS_API]: {
       type: STARTUJICI_DELETE_VYKON,
       endpoint: API_DELETE_VYKON,
-      request: { id: '8344bc71dec1e99b7e1d01e', rok: 2018 }
+      request: { id: '8344bc71dec1e99b7e1d01e', rok: 2018 },
+      title: 'rušení registrace na start'
     }
   });
 });

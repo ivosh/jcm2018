@@ -44,6 +44,7 @@ it('createVykon() should dispatch two successful actions', async () => {
     type: `${STARTUJICI_CREATE_VYKON}_SUCCESS`,
     request,
     response: { code: 'ok', requestId: expect.any(String), response: { id: '===id===' } },
+    title: 'vytváření registrace na start',
     receivedAt: expect.any(Number)
   });
 });
@@ -64,6 +65,7 @@ it('deleteVykon() should dispatch two successful actions', async () => {
     type: `${STARTUJICI_DELETE_VYKON}_SUCCESS`,
     request,
     response: { code: 'ok', requestId: expect.any(String), response: { id: '===id===' } },
+    title: 'rušení registrace na start',
     receivedAt: expect.any(Number)
   });
 });
@@ -89,6 +91,7 @@ it('createVykon() should dispatch two unsuccessful actions', async () => {
       code: 'unfulfilled request',
       status: 'A strange error occurred.'
     },
+    title: 'vytváření registrace na start',
     receivedAt: expect.any(Number)
   });
 });
@@ -114,6 +117,7 @@ it('deleteVykon() should dispatch two unsuccessful actions', async () => {
       code: 'unfulfilled request',
       status: 'A strange error occurred.'
     },
+    title: 'rušení registrace na start',
     receivedAt: expect.any(Number)
   });
 });

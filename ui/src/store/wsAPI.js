@@ -11,31 +11,34 @@ const createSuccess = ({
   decorate = () => {},
   normalize = data => data,
   request,
-  response = {}
+  response = {},
+  title
 }) => ({
   type: `${type}_SUCCESS`,
   request,
   response: { ...normalize(response), code: response.code, status: response.status },
+  title,
   receivedAt: Date.now(),
   ...decorate(response)
 });
 
 // For testing.
 // state is required only if request is not supplied and needs to be created using a function.
-export const createSuccessFromAction = ({ action, request, response, state }) => {
+export const createSuccessFromAction = ({ action, request, response, state, title }) => {
   const { [WS_API]: callAPI } = action;
   const { decorate, normalize, type } = callAPI;
   if (!request) {
     request = getRequest(callAPI.request, state); // eslint-disable-line no-param-reassign
   }
-  return createSuccess({ type, decorate, normalize, request, response });
+  return createSuccess({ type, decorate, normalize, request, response, title });
 };
 
-const createFailure = ({ type, error, request, response }) => ({
+const createFailure = ({ type, error, request, response, title }) => ({
   type: `${type}_ERROR`,
   error: errorToStr(error),
   request,
   response,
+  title,
   receivedAt: Date.now()
 });
 
@@ -50,13 +53,13 @@ const createAuthTokenExpired = ({ response, ...rest }) =>
 
 // For testing.
 // state is required only if request is not supplied and needs to be created using a function.
-export const createFailureFromAction = ({ action, error, request, response, state }) => {
+export const createFailureFromAction = ({ action, error, request, response, state, title }) => {
   const { [WS_API]: callAPI } = action;
   const { type } = callAPI;
   if (!request) {
     request = getRequest(callAPI.request, state); // eslint-disable-line no-param-reassign
   }
-  return createFailure({ type, error, request, response });
+  return createFailure({ type, error, request, response, title });
 };
 
 // Processes an array of actions and applies function 'fn' on every item.
@@ -74,7 +77,7 @@ const doOneAction = ({ action, next, store, wsClient }) => {
   }
 
   const state = store.getState();
-  const { decorate, endpoint, normalize, type, useCached } = callAPI;
+  const { decorate, endpoint, normalize, title, type, useCached } = callAPI;
   const request = getRequest(callAPI.request, state);
   if (!endpoint) {
     throw new Error('Specify an API endpoint.');
@@ -94,14 +97,15 @@ const doOneAction = ({ action, next, store, wsClient }) => {
       const { code } = response;
       switch (code) {
         case CODE_OK:
-          return next(createSuccess({ type, decorate, normalize, request, response }));
+          return next(createSuccess({ type, decorate, normalize, request, response, title }));
         case CODE_TOKEN_INVALID:
-          return next(createAuthTokenExpired({ type, request, response }));
+          return next(createAuthTokenExpired({ type, request, response, title }));
         default:
-          return next(createFailure({ type, request, response }));
+          return next(createFailure({ type, request, response, title }));
       }
     },
-    error => next(createFailure({ type, error, request, response: { code: 'internal error' } }))
+    error =>
+      next(createFailure({ type, error, request, response: { code: 'internal error' }, title }))
   );
 };
 

@@ -166,7 +166,9 @@ it('error wsAPI action should dispatch REQUEST/ERROR actions', async () => {
 it('expired authentication token for wsAPI action should dispatch REQUEST/ERROR actions', async () => {
   mockWsClient.sendRequest = async () => authTokenInvalidResponse;
   const store = mockStore(state);
-  await store.dispatch({ [WS_API]: { type: 'FETCH_ACTION', endpoint, request } });
+  await store.dispatch({
+    [WS_API]: { type: 'FETCH_ACTION', endpoint, request, title: '...error, my darling!' }
+  });
 
   const actions = store.getActions();
   expect(actions[0]).toEqual({
@@ -181,6 +183,7 @@ it('expired authentication token for wsAPI action should dispatch REQUEST/ERROR 
       code: 'authentication token invalid',
       status: 'Platnost ověřovacího tokenu pravděpodobně vypršela. Neplatný ověřovací token.'
     },
+    title: '...error, my darling!',
     receivedAt: expect.any(Number)
   });
 });

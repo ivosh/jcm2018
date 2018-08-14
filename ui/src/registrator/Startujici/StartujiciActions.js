@@ -14,7 +14,8 @@ export const createVykon = ({ id, rok = AKTUALNI_ROK }) => ({
   [WS_API]: {
     type: STARTUJICI_CREATE_VYKON,
     endpoint: API_SAVE_VYKON,
-    request: state => createVykonData({ id, rok, state })
+    request: state => createVykonData({ id, rok, state }),
+    title: 'vytváření registrace na start'
   }
 });
 
@@ -23,6 +24,7 @@ export const deleteVykon = ({ id, rok = AKTUALNI_ROK }) => ({
   [WS_API]: {
     type: STARTUJICI_DELETE_VYKON,
     endpoint: API_DELETE_VYKON,
-    request: { id, rok }
+    request: { id, rok },
+    title: 'rušení registrace na start'
   }
 });
