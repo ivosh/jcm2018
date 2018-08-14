@@ -1,6 +1,6 @@
 {
   "name": "ui",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",
@@ -38,8 +38,7 @@
     "eject": "react-scripts eject",
     "clean": "rm -rf coverage",
     "clobber": "rm -rf coverage node_modules",
-    "source-map-explorer":
-      "npm run build && node ./node_modules/source-map-explorer/index.js build/static/js/main.*.js build/static/js/main.*.js.map"
+    "source-map-explorer": "npm run build && node ./node_modules/source-map-explorer/index.js build/static/js/main.*.js build/static/js/main.*.js.map"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.5",
