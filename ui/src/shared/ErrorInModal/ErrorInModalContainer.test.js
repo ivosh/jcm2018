@@ -8,10 +8,10 @@ const mockStore = configureStore();
 let store;
 let wrapper;
 beforeEach(() => {
-  const state = { error: { code: 'code', message: 'message', show: false } };
+  const state = { error: { code: 'code', message: 'message', show: false, title: 'Error title' } };
   store = mockStore(state);
   store.dispatch = jest.fn();
-  wrapper = shallow(<ErrorInModalContainer title="Error title" store={store} />);
+  wrapper = shallow(<ErrorInModalContainer store={store} />);
 });
 
 it('maps state and dispatch to props', () => {

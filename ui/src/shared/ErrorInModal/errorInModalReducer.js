@@ -1,7 +1,8 @@
 const initialState = {
   code: '',
   message: '',
-  show: false
+  show: false,
+  title: ''
 };
 
 const errorInModalReducer = (state = initialState, action) => {
@@ -13,7 +14,7 @@ const errorInModalReducer = (state = initialState, action) => {
       // wsAPI furnishes action.response; legacy actions prepare code+status
       const code = action.response ? action.response.code : action.code;
       const message = action.response ? action.response.status : action.status;
-      return { ...state, code, message, show: true };
+      return { ...state, code, message, show: true, title: action.title };
     }
     case 'HIDE_ERROR':
       return initialState;

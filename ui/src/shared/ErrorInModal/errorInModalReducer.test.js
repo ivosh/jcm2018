@@ -25,6 +25,7 @@ it('na začátku', () => {
   expect(stateAfter.code).toEqual('');
   expect(stateAfter.message).toEqual('');
   expect(stateAfter.show).toBe(false);
+  expect(stateAfter.title).toEqual('');
 });
 
 it('signInError()', () => {
@@ -60,7 +61,8 @@ it('STARTUJICI_CREATE_VYKON_ERROR', () => {
   const stateAfter = {
     code: 'unfulfilled request',
     message: 'A strange error occurred.',
-    show: true
+    show: true,
+    title: 'vytváření registrace na start'
   };
   deepFreeze(stateBefore);
 
@@ -79,7 +81,8 @@ it('STARTUJICI_DELETE_VYKON_ERROR', () => {
   const stateAfter = {
     code: 'unfulfilled request',
     message: 'A strange error occurred.',
-    show: true
+    show: true,
+    title: 'rušení registrace na start'
   };
   deepFreeze(stateBefore);
 
@@ -94,8 +97,8 @@ it('STARTUJICI_DELETE_VYKON_ERROR', () => {
 });
 
 it('hideError()', () => {
-  const stateBefore = { code: 'code', message: 'Errrorr!', show: true };
-  const stateAfter = { code: '', message: '', show: false };
+  const stateBefore = { code: 'code', message: 'Errrorr!', show: true, title: 'Chyba při něčem!' };
+  const stateAfter = { code: '', message: '', show: false, title: '' };
   deepFreeze(stateBefore);
 
   expect(errorInModalReducer(stateBefore, hideError())).toEqual(stateAfter);

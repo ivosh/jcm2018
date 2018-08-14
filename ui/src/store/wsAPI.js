@@ -30,6 +30,9 @@ export const createSuccessFromAction = ({ action, request, response, state, titl
   if (!request) {
     request = getRequest(callAPI.request, state); // eslint-disable-line no-param-reassign
   }
+  if (!title) {
+    title = action.title; //eslint-disable-line no-param-reassign
+  }
   return createSuccess({ type, decorate, normalize, request, response, title });
 };
 
@@ -58,6 +61,9 @@ export const createFailureFromAction = ({ action, error, request, response, stat
   const { type } = callAPI;
   if (!request) {
     request = getRequest(callAPI.request, state); // eslint-disable-line no-param-reassign
+  }
+  if (!title) {
+    title = callAPI.title; //eslint-disable-line no-param-reassign
   }
   return createFailure({ type, error, request, response, title });
 };
