@@ -6,11 +6,28 @@ export const WS_API = 'Websocket API';
 
 const getRequest = (request, state) => (typeof request === 'function' ? request(state) : request);
 
+const createRequest = ({ type, request }) => ({
+  type: `${type}_REQUEST`,
+  request,
+  receivedAt: Date.now()
+});
+
+// For testing.
+// state is required only if request is not supplied and needs to be created using a function.
+export const createRequestFromAction = ({ action, request, state }) => {
+  const { [WS_API]: callAPI } = action;
+  const { type } = callAPI;
+  if (!request) {
+    request = getRequest(callAPI.request, state); // eslint-disable-line no-param-reassign
+  }
+  return createRequest({ type, request });
+};
+
 const createSuccess = ({
   type,
   suffix = 'SUCCESS',
   decorate = () => {},
-  normalize = data => data,
+  normalize = data => data, // Called also for client-created failures (SignIn nonce check).
   request,
   response = {},
   title
@@ -27,14 +44,11 @@ const createClientFailure = args => createSuccess({ ...args, suffix: 'ERROR' });
 
 // For testing.
 // state is required only if request is not supplied and needs to be created using a function.
-export const createSuccessFromAction = ({ action, request, response, state, title }) => {
+export const createSuccessFromAction = ({ action, request, response, state }) => {
   const { [WS_API]: callAPI } = action;
-  const { decorate, normalize, type } = callAPI;
+  const { decorate, normalize, title, type } = callAPI;
   if (!request) {
     request = getRequest(callAPI.request, state); // eslint-disable-line no-param-reassign
-  }
-  if (!title) {
-    ({ title } = callAPI); // eslint-disable-line no-param-reassign
   }
   return createSuccess({ type, decorate, normalize, request, response, title });
 };
@@ -59,14 +73,11 @@ const createAuthTokenExpired = ({ response, ...rest }) =>
 
 // For testing.
 // state is required only if request is not supplied and needs to be created using a function.
-export const createFailureFromAction = ({ action, error, request, response, state, title }) => {
+export const createFailureFromAction = ({ action, error, request, response, state }) => {
   const { [WS_API]: callAPI } = action;
-  const { type } = callAPI;
+  const { title, type } = callAPI;
   if (!request) {
     request = getRequest(callAPI.request, state); // eslint-disable-line no-param-reassign
-  }
-  if (!title) {
-    ({ title } = callAPI); // eslint-disable-line no-param-reassign
   }
   return createFailure({ type, error, request, response, title });
 };
@@ -108,7 +119,7 @@ const doOneAction = ({ action, next, store, wsClient }) => {
     return Promise.resolve();
   }
 
-  next({ type: `${type}_REQUEST`, request, receivedAt: Date.now() });
+  next(createRequest({ type, request }));
 
   const commonArgs = { type, decorate, normalize, request, title };
   const token = dontUseToken ? undefined : state.auth.token;
