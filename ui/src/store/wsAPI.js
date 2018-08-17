@@ -8,19 +8,22 @@ const getRequest = (request, state) => (typeof request === 'function' ? request(
 
 const createSuccess = ({
   type,
+  suffix = 'SUCCESS',
   decorate = () => {},
   normalize = data => data,
   request,
   response = {},
   title
 }) => ({
-  type: `${type}_SUCCESS`,
+  type: `${type}_${suffix}`,
   request,
-  response: { ...normalize(response), code: response.code, status: response.status },
+  response: { code: response.code, status: response.status, ...normalize(response) },
   title,
   receivedAt: Date.now(),
   ...decorate(response)
 });
+
+const createClientFailure = args => createSuccess({ ...args, suffix: 'ERROR' });
 
 // For testing.
 // state is required only if request is not supplied and needs to be created using a function.
@@ -31,7 +34,7 @@ export const createSuccessFromAction = ({ action, request, response, state, titl
     request = getRequest(callAPI.request, state); // eslint-disable-line no-param-reassign
   }
   if (!title) {
-    title = action.title; //eslint-disable-line no-param-reassign
+    ({ title } = callAPI); // eslint-disable-line no-param-reassign
   }
   return createSuccess({ type, decorate, normalize, request, response, title });
 };
@@ -63,7 +66,7 @@ export const createFailureFromAction = ({ action, error, request, response, stat
     request = getRequest(callAPI.request, state); // eslint-disable-line no-param-reassign
   }
   if (!title) {
-    title = callAPI.title; //eslint-disable-line no-param-reassign
+    ({ title } = callAPI); // eslint-disable-line no-param-reassign
   }
   return createFailure({ type, error, request, response, title });
 };
@@ -83,7 +86,16 @@ const doOneAction = ({ action, next, store, wsClient }) => {
   }
 
   const state = store.getState();
-  const { decorate, endpoint, normalize, title, type, useCached } = callAPI;
+  const {
+    type,
+    checkResponse,
+    decorate,
+    endpoint,
+    normalize,
+    title,
+    useCached,
+    dontUseToken
+  } = callAPI;
   const request = getRequest(callAPI.request, state);
   if (!endpoint) {
     throw new Error('Specify an API endpoint.');
@@ -98,20 +110,29 @@ const doOneAction = ({ action, next, store, wsClient }) => {
 
   next({ type: `${type}_REQUEST`, request, receivedAt: Date.now() });
 
-  return wsClient.sendRequest(apiCall({ endpoint, request, token: state.auth.token })).then(
+  const commonArgs = { type, decorate, normalize, request, title };
+  const token = dontUseToken ? undefined : state.auth.token;
+  return wsClient.sendRequest(apiCall({ endpoint, request, token })).then(
     response => {
       const { code } = response;
       switch (code) {
-        case CODE_OK:
-          return next(createSuccess({ type, decorate, normalize, request, response, title }));
+        case CODE_OK: {
+          if (checkResponse) {
+            const checkResult = checkResponse({ request, response });
+            response = { ...response, check: checkResult }; // eslint-disable-line no-param-reassign
+            if (checkResult.code !== CODE_OK) {
+              return next(createClientFailure({ ...commonArgs, response }));
+            }
+          }
+          return next(createSuccess({ ...commonArgs, response }));
+        }
         case CODE_TOKEN_INVALID:
-          return next(createAuthTokenExpired({ type, request, response, title }));
+          return next(createAuthTokenExpired({ ...commonArgs, response }));
         default:
-          return next(createFailure({ type, request, response, title }));
+          return next(createFailure({ ...commonArgs, response }));
       }
     },
-    error =>
-      next(createFailure({ type, error, request, response: { code: 'internal error' }, title }))
+    error => next(createFailure({ ...commonArgs, error, response: { code: 'internal error' } }))
   );
 };
 
