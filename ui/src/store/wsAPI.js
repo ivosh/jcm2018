@@ -25,32 +25,42 @@ export const createRequestFromAction = ({ action, request, state }) => {
 
 const createSuccess = ({
   type,
-  suffix = 'SUCCESS',
+  checkResponse,
   decorate = () => {},
   normalize = data => data, // Called also for client-created failures (SignIn nonce check).
   request,
   response = {},
   title
-}) => ({
-  type: `${type}_${suffix}`,
-  request,
-  response: { code: response.code, status: response.status, ...normalize(response) },
-  title,
-  receivedAt: Date.now(),
-  ...decorate(response)
-});
+}) => {
+  let suffix = 'SUCCESS';
 
-const createClientFailure = args => createSuccess({ ...args, suffix: 'ERROR' });
+  if (checkResponse) {
+    const checkResult = checkResponse({ request, response });
+    response = { ...response, check: checkResult }; // eslint-disable-line no-param-reassign
+    if (checkResult.code !== CODE_OK) {
+      suffix = 'ERROR';
+    }
+  }
+
+  return {
+    type: `${type}_${suffix}`,
+    request,
+    response: { code: response.code, status: response.status, ...normalize(response) },
+    title,
+    receivedAt: Date.now(),
+    ...decorate(response)
+  };
+};
 
 // For testing.
 // state is required only if request is not supplied and needs to be created using a function.
 export const createSuccessFromAction = ({ action, request, response, state }) => {
   const { [WS_API]: callAPI } = action;
-  const { decorate, normalize, title, type } = callAPI;
+  const { checkResponse, decorate, normalize, title, type } = callAPI;
   if (!request) {
     request = getRequest(callAPI.request, state); // eslint-disable-line no-param-reassign
   }
-  return createSuccess({ type, decorate, normalize, request, response, title });
+  return createSuccess({ type, checkResponse, decorate, normalize, request, response, title });
 };
 
 const createFailure = ({ type, error, request, response, title }) => ({
@@ -121,20 +131,13 @@ const doOneAction = ({ action, next, store, wsClient }) => {
 
   next(createRequest({ type, request }));
 
-  const commonArgs = { type, decorate, normalize, request, title };
+  const commonArgs = { type, checkResponse, decorate, normalize, request, title };
   const token = dontUseToken ? undefined : state.auth.token;
   return wsClient.sendRequest(apiCall({ endpoint, request, token })).then(
     response => {
       const { code } = response;
       switch (code) {
         case CODE_OK: {
-          if (checkResponse) {
-            const checkResult = checkResponse({ request, response });
-            response = { ...response, check: checkResult }; // eslint-disable-line no-param-reassign
-            if (checkResult.code !== CODE_OK) {
-              return next(createClientFailure({ ...commonArgs, response }));
-            }
-          }
           return next(createSuccess({ ...commonArgs, response }));
         }
         case CODE_TOKEN_INVALID:
