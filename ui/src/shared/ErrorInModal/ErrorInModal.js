@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { Alert, Button, Modal } from 'react-bootstrap';
 
 const ErrorInModal = ({ code, message, show, title, onHide }) => (
-  <Modal show={show} onHide={onHide} bsSize="small">
+  <Modal show={show} onHide={onHide} bsSize="large">
     <Modal.Header closeButton>
-      <Modal.Title>{title}</Modal.Title>
+      <Modal.Title>Chybka se vloudila...</Modal.Title>
     </Modal.Header>
     <Modal.Body>
       <Alert bsStyle="danger">
-        <h4>{title}</h4>
+        <h3>Chyba při {title}</h3>
         <p>Popis: {message}</p>
         <p>Chybový kód: {code}</p>
       </Alert>
