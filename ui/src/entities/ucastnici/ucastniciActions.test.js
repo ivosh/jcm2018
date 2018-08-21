@@ -150,9 +150,11 @@ it('fetchUcastnici() should dispatch two unsuccessful actions on error', async (
   );
 });
 
+global.crypto = { getRandomValues: arr => arr.fill(86) };
+
 it('fetchUcastnici() should dispatch two unsuccessful actions on invalid token', async () => {
   mockWsClient.sendRequest = async () => authTokenInvalidResponse;
-  const store = mockStore({ entities: { rocniky: { roky: [2011] } } });
+  const store = mockStore({ entities: { rocniky: { roky: [2011] } }, error: {} });
 
   await store.dispatch(fetchUcastnici());
   const actions = store.getActions();
@@ -160,8 +162,10 @@ it('fetchUcastnici() should dispatch two unsuccessful actions on invalid token',
   expect(actions[1]).toEqual(
     expect.objectContaining({
       type: 'SIGN_IN_ERROR',
-      code: 'authentication token invalid',
-      status: 'Platnost ověřovacího tokenu pravděpodobně vypršela. Neplatný ověřovací token.'
+      response: {
+        code: 'authentication token invalid',
+        status: 'Platnost ověřovacího tokenu pravděpodobně vypršela. Neplatný ověřovací token.'
+      }
     })
   );
 });

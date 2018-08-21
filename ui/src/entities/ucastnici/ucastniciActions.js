@@ -50,7 +50,7 @@ export const fetchUcastnici = () => async (dispatch, getState, wsClient) => {
     if (response.code === CODE_OK) {
       dispatch(fetchUcastniciSuccess(response));
     } else if (response.code === CODE_TOKEN_INVALID) {
-      dispatch(authTokenExpired(response));
+      dispatch(authTokenExpired({ response }));
     } else {
       dispatch(fetchUcastniciError(response));
     }

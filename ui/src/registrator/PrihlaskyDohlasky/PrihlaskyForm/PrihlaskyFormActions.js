@@ -95,7 +95,7 @@ export const createSaveUcastError = actionPrefix => ({ code, status, err, ...res
 
 const handleErrors = ({ actionPrefix, dispatch, response }) => {
   if (response.code === CODE_TOKEN_INVALID) {
-    dispatch(authTokenExpired(response));
+    dispatch(authTokenExpired({ response }));
   } else {
     dispatch(createSaveUcastError(actionPrefix)(response));
   }

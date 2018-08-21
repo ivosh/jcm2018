@@ -48,7 +48,7 @@ export const fetchRocniky = () => async (dispatch, getState, wsClient) => {
       dispatch(fetchKategorieSuccess(response));
       dispatch(fetchRocnikySuccess(response));
     } else if (response.code === CODE_TOKEN_INVALID) {
-      dispatch(authTokenExpired(response));
+      dispatch(authTokenExpired({ response }));
     } else {
       dispatch(fetchKategorieError(response));
       dispatch(fetchRocnikyError(response));

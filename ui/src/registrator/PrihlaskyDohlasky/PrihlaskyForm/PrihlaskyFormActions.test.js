@@ -163,6 +163,8 @@ it('saveUcast() should dispatch two unsuccessful actions 1/2', async () => {
   );
 });
 
+global.crypto = { getRandomValues: arr => arr.fill(86) };
+
 it('saveUcast() should dispatch two unsuccessful actions on an invalid token', async () => {
   response = authTokenInvalidResponse;
   const store = mockStore({
@@ -177,8 +179,14 @@ it('saveUcast() should dispatch two unsuccessful actions on an invalid token', a
   expect(actions[1]).toEqual({ type: `${actionPrefix}_SAVE_REQUEST` });
   expect(actions[2]).toEqual({
     type: 'SIGN_IN_ERROR',
-    code: 'authentication token invalid',
-    status: 'Platnost ověřovacího tokenu pravděpodobně vypršela. Neplatný ověřovací token.',
+    request: {
+      nonce: expect.any(String)
+    },
+    response: {
+      code: 'authentication token invalid',
+      status: 'Platnost ověřovacího tokenu pravděpodobně vypršela. Neplatný ověřovací token.'
+    },
+    title: 'přihlašování',
     receivedAt: expect.any(Number)
   });
 });
@@ -233,22 +241,4 @@ it('saveUcast() should dispatch two unsuccessful actions on error', async () => 
     err: 'Error: Parse error!',
     receivedAt: expect.any(Number)
   });
-});
-
-/* Beware: overrides mockWsClient.sendRequest! */
-it('saveUcast() should use auth token if available', async () => {
-  const tokenSent = { tokenSent: false };
-  mockWsClient.sendRequest = async token => {
-    if (token) {
-      tokenSent.tokenSent = true;
-    }
-  };
-  const store = mockStore({
-    auth: { token: '===token===' },
-    entities: { rocniky: { byRoky: {} } },
-    registrator: { [reduxName]: { form: { udaje: { narozeni: {} }, prihlaska: {} } } }
-  });
-
-  await store.dispatch(saveUcast());
-  expect(tokenSent.tokenSent).toBe(true);
 });

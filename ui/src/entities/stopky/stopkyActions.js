@@ -45,7 +45,7 @@ export const fetchStopky = () => async (dispatch, getState, wsClient) => {
     if (response.code === CODE_OK) {
       dispatch(fetchStopkySuccess(response));
     } else if (response.code === CODE_TOKEN_INVALID) {
-      dispatch(authTokenExpired(response));
+      dispatch(authTokenExpired({ response }));
     } else {
       dispatch(fetchStopkyError(response));
     }
