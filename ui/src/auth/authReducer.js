@@ -17,7 +17,7 @@ const authenticatedReducer = (state = false, action) => {
 const decodedTokenReducer = (state = null, action) => {
   switch (action.type) {
     case 'SIGN_IN_SUCCESS':
-      return action.decodedToken;
+      return action.response.decodedToken;
     case 'SIGN_IN_ERROR':
     case 'SIGN_OUT_SUCCESS':
     case 'SIGN_OUT_ERROR':
@@ -30,7 +30,7 @@ const decodedTokenReducer = (state = null, action) => {
 const tokenReducer = (state = null, action) => {
   switch (action.type) {
     case 'SIGN_IN_SUCCESS':
-      return action.token;
+      return action.response.token;
     case 'SIGN_IN_ERROR':
     case 'SIGN_OUT_SUCCESS':
     case 'SIGN_OUT_ERROR':

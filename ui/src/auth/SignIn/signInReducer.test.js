@@ -1,5 +1,10 @@
 import deepFreeze from 'deep-freeze';
-import { signInRequest, signInSuccess, signInError } from './SignInActions';
+import {
+  createFailureFromAction,
+  createRequestFromAction,
+  createSuccessFromAction
+} from '../../store/wsAPI';
+import { signIn } from './SignInActions';
 import signInReducer from './signInReducer';
 
 const successfulResponse = {
@@ -17,11 +22,6 @@ const unsuccessfulResponse = {
   requestId: '0.9310306652587374'
 };
 
-const decodedToken = {
-  username: 'tomáš',
-  nonce: '4345ab771'
-};
-
 it('na začátku', () => {
   const stateBefore = undefined;
 
@@ -34,7 +34,9 @@ it('signInRequest()', () => {
   const stateAfter = { ...stateBefore, signingIn: true };
   deepFreeze(stateBefore);
 
-  expect(signInReducer(stateBefore, signInRequest())).toEqual(stateAfter);
+  expect(
+    signInReducer(stateBefore, createRequestFromAction({ action: signIn({}), request: {} }))
+  ).toEqual(stateAfter);
 });
 
 it('signInSuccess()', () => {
@@ -42,9 +44,12 @@ it('signInSuccess()', () => {
   const stateAfter = { ...stateBefore, signingIn: false };
   deepFreeze(stateBefore);
 
-  expect(signInReducer(stateBefore, signInSuccess(successfulResponse, decodedToken))).toEqual(
-    stateAfter
-  );
+  expect(
+    signInReducer(
+      stateBefore,
+      createSuccessFromAction({ action: signIn({}), request: {}, response: successfulResponse })
+    )
+  ).toEqual(stateAfter);
 });
 
 it('signInError()', () => {
@@ -52,5 +57,14 @@ it('signInError()', () => {
   const stateAfter = { ...stateBefore, signingIn: false };
   deepFreeze(stateBefore);
 
-  expect(signInReducer(stateBefore, signInError(unsuccessfulResponse))).toEqual(stateAfter);
+  expect(
+    signInReducer(
+      stateBefore,
+      createFailureFromAction({
+        action: signIn({}),
+        request: {},
+        response: unsuccessfulResponse
+      })
+    )
+  ).toEqual(stateAfter);
 });

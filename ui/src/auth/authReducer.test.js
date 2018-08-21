@@ -1,12 +1,14 @@
 import deepFreeze from 'deep-freeze';
-import { signInSuccess, signInError } from './SignIn/SignInActions';
+import { generateTestToken } from '../testing';
+import { createFailureFromAction, createSuccessFromAction } from '../store/wsAPI';
+import { signIn } from './SignIn/SignInActions';
 import { signOutSuccess, signOutError } from './SignOut/SignOutActions';
 import authReducer from './authReducer';
 
 const successfulSignInResponse = {
   code: 'ok',
   response: {
-    token: '=======token=========',
+    token: generateTestToken({ username: 'tomáš', nonce: 'abc5656' }),
     username: 'tomáš'
   },
   requestId: '0.9310306652587374'
@@ -16,11 +18,6 @@ const unsuccessfulSignInResponse = {
   code: 'password incorrect',
   status: 'Špatné jméno či heslo. Uživatel může být též zamčený.',
   requestId: '0.9310306652587374'
-};
-
-const decodedToken = {
-  username: 'tomáš',
-  nonce: '4345ab771'
 };
 
 const unsuccessfulSignOutResponse = {
@@ -42,17 +39,26 @@ it('signInSuccess()', () => {
   const stateAfter = {
     ...stateBefore,
     authenticated: true,
-    token: '=======token=========',
+    token: expect.any(String),
     decodedToken: {
       username: 'tomáš',
-      nonce: '4345ab771'
+      nonce: 'abc5656',
+      exp: expect.any(Number),
+      iat: expect.any(Number)
     }
   };
   deepFreeze(stateBefore);
 
-  expect(authReducer(stateBefore, signInSuccess(successfulSignInResponse, decodedToken))).toEqual(
-    stateAfter
-  );
+  expect(
+    authReducer(
+      stateBefore,
+      createSuccessFromAction({
+        action: signIn({}),
+        request: { username: 'tomáš', nonce: 'abc5656' },
+        response: successfulSignInResponse
+      })
+    )
+  ).toEqual(stateAfter);
 });
 
 it('signInError()', () => {
@@ -65,7 +71,12 @@ it('signInError()', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(authReducer(stateBefore, signInError(unsuccessfulSignInResponse))).toEqual(stateAfter);
+  expect(
+    authReducer(
+      stateBefore,
+      createFailureFromAction({ action: signIn({}), response: unsuccessfulSignInResponse })
+    )
+  ).toEqual(stateAfter);
 });
 
 it('signOutSuccess()', () => {

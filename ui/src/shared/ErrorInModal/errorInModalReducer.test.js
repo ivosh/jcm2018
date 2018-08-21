@@ -1,5 +1,5 @@
 import deepFreeze from 'deep-freeze';
-import { signInError } from '../../auth/SignIn/SignInActions';
+import { signIn } from '../../auth/SignIn/SignInActions';
 import { signOutError } from '../../auth/SignOut/SignOutActions';
 import { createVykon, deleteVykon } from '../../registrator/Startujici/StartujiciActions';
 import { createFailureFromAction } from '../../store/wsAPI';
@@ -28,18 +28,24 @@ it('na začátku', () => {
   expect(stateAfter.title).toEqual('');
 });
 
-it('signInError()', () => {
+global.crypto = { getRandomValues: arr => arr.fill(86) };
+
+it('SIGN_IN_ERROR', () => {
   const stateBefore = {};
   const stateAfter = {
     code: 'password incorrect',
     message: 'Špatné jméno či heslo. Uživatel může být též zamčený.',
-    show: true
+    show: true,
+    title: 'přihlašování'
   };
   deepFreeze(stateBefore);
 
-  expect(errorInModalReducer(stateBefore, signInError(unsuccessfulSignInResponse))).toEqual(
-    stateAfter
-  );
+  expect(
+    errorInModalReducer(
+      stateBefore,
+      createFailureFromAction({ action: signIn({}), response: unsuccessfulSignInResponse })
+    )
+  ).toEqual(stateAfter);
 });
 
 it('signOutError()', () => {

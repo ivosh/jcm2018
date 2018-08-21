@@ -1,12 +1,13 @@
 import React from 'react';
-import thunk from 'redux-thunk';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
+import { API_SIGN_IN } from '../../common';
 import WsClient from '../../WsClient';
+import { WS_API } from '../../store/wsAPI';
+import { SIGN_IN } from './SignInActions';
 import SignInContainer from './SignInContainer';
 
-const middlewares = [thunk];
-const mockStore = configureStore(middlewares);
+const mockStore = configureStore();
 
 const mockWsClient = new WsClient();
 mockWsClient.sendRequest = async () => ({});
@@ -22,11 +23,20 @@ beforeEach(() => {
 
 it('maps state and dispatch to props', () => {
   expect(wrapper.props().signingIn).toBe(false);
-  expect(wrapper.props()).toEqual(expect.objectContaining({ onSubmit: expect.any(Function) }));
 });
 
 it('maps onSubmit to dispatch signIn action', async () => {
   await wrapper.props().onSubmit('tumáš', 'jcm');
 
-  expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
+  expect(store.dispatch).toHaveBeenCalledWith({
+    [WS_API]: {
+      type: SIGN_IN,
+      checkResponse: expect.any(Function),
+      dontUseToken: true,
+      endpoint: API_SIGN_IN,
+      normalize: expect.any(Function),
+      request: expect.any(Function),
+      title: 'přihlašování'
+    }
+  });
 });

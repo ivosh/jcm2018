@@ -1,7 +1,6 @@
 import jwtDecode from 'jwt-decode';
-import { CODE_OK, CODE_NONCE_MISMATCH, signIn as signInAction } from '../../common';
-import { fetchRocniky } from '../../entities/rocniky/rocnikyActions';
-import { showError } from '../../shared/ErrorInModal/ErrorInModalActions';
+import { API_SIGN_IN, CODE_OK, CODE_NONCE_MISMATCH, CODE_TOKEN_INVALID } from '../../common';
+import { WS_API, createFailureFromAction } from '../../store/wsAPI';
 
 export const generateNonce = (len = 20) => {
   const arr = new Uint8Array(len / 2);
@@ -9,62 +8,58 @@ export const generateNonce = (len = 20) => {
   return Array.from(arr, val => val.toString(16)).join('');
 };
 
-export const signInRequest = () => ({
-  type: 'SIGN_IN_REQUEST'
-});
-
 const decodeToken = token => jwtDecode(token);
 
-export const signInSuccess = (json, decodedToken) => {
-  const { username, token } = json.response;
+const checkResponse = ({ request, response }) => {
+  let decodedToken;
+  try {
+    decodedToken = decodeToken(response.response.token);
+  } catch (error) {
+    return {
+      code: CODE_TOKEN_INVALID,
+      status: 'Špatný přihlašovací token. Zkus se přihlásit znovu.',
+      token: response.response.token
+    };
+  }
+
+  if (decodedToken.nonce === request.nonce) {
+    return { code: CODE_OK, decodedToken };
+  }
 
   return {
-    type: 'SIGN_IN_SUCCESS',
-    username,
-    token,
-    decodedToken,
-    receivedAt: Date.now()
+    code: CODE_NONCE_MISMATCH,
+    status:
+      'Jednorázový přihlašovací kód vygenerovaný prohlížečem nesouhlasí s kódem, který poslal server.',
+    client: request.nonce,
+    server: decodedToken.nonce
   };
 };
 
-export const signInError = args => showError({ type: 'SIGN_IN_ERROR', ...args });
+const normalize = ({
+  check: { client, code, decodedToken, server, status } = {},
+  response: { token, username }
+}) => ({ client, code, decodedToken, server, status, token, username });
 
-export const authTokenExpired = ({ code, status }) =>
-  signInError({
-    code,
-    status: `Platnost ověřovacího tokenu pravděpodobně vypršela. ${status}`
-  });
-
-export const signIn = (username, password) => async (dispatch, getState, wsClient) => {
-  dispatch(signInRequest());
-
-  const nonce = generateNonce();
-  try {
-    const response = await wsClient.sendRequest(signInAction(username, password, nonce));
-    const { code } = response;
-    if (code === CODE_OK) {
-      const decodedToken = decodeToken(response.response.token);
-      if (decodedToken.nonce === nonce) {
-        dispatch(signInSuccess(response, decodedToken));
-
-        /* Fetch ročníky. They will get usefull in the whole app. However individual actions
-           must not rely on this alone - they need to use: await dispatch(fetchRocniky()). */
-        dispatch(fetchRocniky());
-      } else {
-        dispatch(
-          signInError({
-            code: CODE_NONCE_MISMATCH,
-            status:
-              'Jednorázový přihlašovací kód vygenerovaný prohlížečem nesouhlasí s kódem, který poslal server.',
-            client: nonce,
-            server: decodedToken.nonce
-          })
-        );
-      }
-    } else {
-      dispatch(signInError(response));
-    }
-  } catch (err) {
-    dispatch(signInError({ code: 'internal error', err }));
+export const SIGN_IN = 'SIGN_IN';
+export const signIn = ({ username, password }) => ({
+  [WS_API]: {
+    type: SIGN_IN,
+    checkResponse,
+    dontUseToken: true,
+    endpoint: API_SIGN_IN,
+    normalize,
+    request: () => ({ username, password, nonce: generateNonce() }),
+    title: 'přihlašování'
   }
-};
+});
+
+// :TODO: used only by legacy code. Remove when not needed.
+export const authTokenExpired = ({ response, ...rest }) =>
+  createFailureFromAction({
+    ...rest,
+    action: signIn({}),
+    response: {
+      ...response,
+      status: `Platnost ověřovacího tokenu pravděpodobně vypršela. ${response.status}`
+    }
+  });

@@ -5,7 +5,7 @@ import { signIn } from './SignInActions';
 const mapStateToProps = state => state.auth.signIn;
 
 const mapDispatchToProps = dispatch => ({
-  onSubmit: (username, password) => dispatch(signIn(username, password))
+  onSubmit: (username, password) => dispatch(signIn({ username, password }))
 });
 
 const SignInContainer = connect(

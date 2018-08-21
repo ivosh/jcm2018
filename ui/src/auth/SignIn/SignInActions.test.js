@@ -1,24 +1,16 @@
 import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import jwt from 'jsonwebtoken';
+import { generateTestToken } from '../../testing';
 import WsClient from '../../WsClient';
-import { signIn } from './SignInActions';
+import wsAPI from '../../store/wsAPI';
+import { SIGN_IN, signIn } from './SignInActions';
 
 const mockWsClient = new WsClient();
 mockWsClient.sendRequest = null;
 
-global.crypto = { getRandomValues: arr => arr.fill(86) };
-
-/* Taken from server/api/User/signIn.js. expireTime is 1. 1. 2040 (seconds since Epoch). */
-const generateToken = ({ username, nonce, exp = 2208988800, secret = 'jwt_secret' }) => {
-  const payload = { username, nonce, exp };
-  return jwt.sign(payload, secret);
-};
-
 const successfulResponse = {
   code: 'ok',
   response: {
-    token: generateToken({ username: 'tomáš', nonce: '56565656565656565656' }),
+    token: generateTestToken({ username: 'tomáš', nonce: '56565656565656565656' }),
     username: 'tomáš'
   },
   requestId: '0.9310306652587374'
@@ -27,7 +19,7 @@ const successfulResponse = {
 const mismatchedNonceResponse = {
   code: 'ok',
   response: {
-    token: generateToken({ username: 'tomáš', nonce: 'abc5656' }),
+    token: generateTestToken({ username: 'tomáš', nonce: 'abc5656' }),
     username: 'tomáš'
   },
   requestId: '0.9310306652587374'
@@ -39,19 +31,27 @@ const unsuccessfulResponse = {
   requestId: '0.9310306652587374'
 };
 
-const middlewares = [thunk.withExtraArgument(mockWsClient)];
+const middlewares = [wsAPI.withExtraArgument(mockWsClient)];
 const mockStore = configureStore(middlewares);
 const state = { entities: {} };
 
 it('signIn() should dispatch two successful actions', async () => {
+  const request = { username: 'tomáš', password: 'vrba798', nonce: '56565656565656565656' };
   mockWsClient.sendRequest = async () => successfulResponse;
   const store = mockStore(state);
 
-  await store.dispatch(signIn('tomáš', 'vrba798'));
+  await store.dispatch(signIn({ username: 'tomáš', password: 'vrba798' }));
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'SIGN_IN_REQUEST' });
-  expect(actions[1]).toEqual(
-    expect.objectContaining({
+  expect(actions[0]).toEqual({
+    type: `${SIGN_IN}_REQUEST`,
+    request,
+    receivedAt: expect.any(Number)
+  });
+  expect(actions[1]).toEqual({
+    type: `${SIGN_IN}_SUCCESS`,
+    request,
+    response: {
+      code: 'ok',
       decodedToken: {
         exp: 2208988800,
         iat: expect.any(Number),
@@ -59,59 +59,87 @@ it('signIn() should dispatch two successful actions', async () => {
         username: 'tomáš'
       },
       token: expect.any(String),
-      username: 'tomáš',
-      type: 'SIGN_IN_SUCCESS'
-    })
-  );
+      username: 'tomáš'
+    },
+    title: 'přihlašování',
+    receivedAt: expect.any(Number)
+  });
 });
 
 it('signIn() should dispatch two unsuccessful actions', async () => {
+  const request = { username: '', password: '', nonce: '56565656565656565656' };
   mockWsClient.sendRequest = async () => unsuccessfulResponse;
   const store = mockStore(state);
 
-  await store.dispatch(signIn('', ''));
+  await store.dispatch(signIn({ username: '', password: '' }));
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'SIGN_IN_REQUEST' });
-  expect(actions[1]).toEqual(
-    expect.objectContaining({
-      type: 'SIGN_IN_ERROR',
+  expect(actions[0]).toEqual({
+    type: `${SIGN_IN}_REQUEST`,
+    request,
+    receivedAt: expect.any(Number)
+  });
+  expect(actions[1]).toEqual({
+    type: `${SIGN_IN}_ERROR`,
+    request,
+    response: {
       code: 'password incorrect',
+      requestId: expect.any(String),
       status: 'Špatné jméno či heslo. Uživatel může být též zamčený.'
-    })
-  );
+    },
+    title: 'přihlašování',
+    receivedAt: expect.any(Number)
+  });
 });
 
 it('signIn() should dispatch two unsuccessful actions on error', async () => {
+  const request = { username: '', password: '', nonce: '56565656565656565656' };
   mockWsClient.sendRequest = async () => Promise.reject(new Error('Parse error!'));
   const store = mockStore(state);
 
-  await store.dispatch(signIn('', ''));
+  await store.dispatch(signIn({ username: '', password: '' }));
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'SIGN_IN_REQUEST' });
-  expect(actions[1]).toEqual(
-    expect.objectContaining({
-      type: 'SIGN_IN_ERROR',
-      code: 'internal error',
-      err: 'Error: Parse error!'
-    })
-  );
+  expect(actions[0]).toEqual({
+    type: `${SIGN_IN}_REQUEST`,
+    request,
+    receivedAt: expect.any(Number)
+  });
+  expect(actions[1]).toEqual({
+    type: `${SIGN_IN}_ERROR`,
+    error: 'Error: Parse error!',
+    request,
+    response: {
+      code: 'internal error'
+    },
+    title: 'přihlašování',
+    receivedAt: expect.any(Number)
+  });
 });
 
 it('signIn() should dispatch two unsuccessful actions [nonce mismatch]', async () => {
+  const request = { username: 'tomáš', password: 'vrba798', nonce: '56565656565656565656' };
   mockWsClient.sendRequest = async () => mismatchedNonceResponse;
   const store = mockStore(state);
 
-  await store.dispatch(signIn('', ''));
+  await store.dispatch(signIn({ username: 'tomáš', password: 'vrba798' }));
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'SIGN_IN_REQUEST' });
-  expect(actions[1]).toEqual(
-    expect.objectContaining({
-      type: 'SIGN_IN_ERROR',
+  expect(actions[0]).toEqual({
+    type: `${SIGN_IN}_REQUEST`,
+    request,
+    receivedAt: expect.any(Number)
+  });
+  expect(actions[1]).toEqual({
+    type: `${SIGN_IN}_ERROR`,
+    request,
+    response: {
+      client: '56565656565656565656',
       code: 'nesouhlas jednorázového přihlašovacího kódu',
+      server: 'abc5656',
       status:
         'Jednorázový přihlašovací kód vygenerovaný prohlížečem nesouhlasí s kódem, který poslal server.',
-      client: '56565656565656565656',
-      server: 'abc5656'
-    })
-  );
+      token: expect.any(String),
+      username: 'tomáš'
+    },
+    title: 'přihlašování',
+    receivedAt: expect.any(Number)
+  });
 });
