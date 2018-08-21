@@ -1,19 +1,12 @@
 import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import jwt from 'jsonwebtoken';
+import { CODE_OK } from '../../common';
+import { generateTestToken } from '../../testing';
 import WsClient from '../../WsClient';
-import { signOut } from './SignOutActions';
+import wsAPI from '../../store/wsAPI';
+import { SIGN_OUT, signOut } from './SignOutActions';
 
 const mockWsClient = new WsClient();
 mockWsClient.sendRequest = null;
-
-global.crypto = { getRandomValues: arr => arr.fill(86) };
-
-/* Taken from server/api/User/signIn.js. expireTime is 1. 1. 2040 (seconds since Epoch). */
-const generateToken = ({ username, nonce, exp = 2208988800, secret = 'jwt_secret' }) => {
-  const payload = { username, nonce, exp };
-  return jwt.sign(payload, secret);
-};
 
 const successfulResponse = {
   code: 'ok',
@@ -29,11 +22,11 @@ const unsuccessfulResponse = {
 const initialState = {
   auth: {
     authenticated: true,
-    token: generateToken({ username: 'tomáš', nonce: '56565656565656565656' })
+    token: generateTestToken({ username: 'tomáš', nonce: '56565656565656565656' })
   }
 };
 
-const middlewares = [thunk.withExtraArgument(mockWsClient)];
+const middlewares = [wsAPI.withExtraArgument(mockWsClient)];
 const mockStore = configureStore(middlewares);
 
 it('signOut() should dispatch two successful actions', async () => {
@@ -42,12 +35,16 @@ it('signOut() should dispatch two successful actions', async () => {
 
   await store.dispatch(signOut());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'SIGN_OUT_REQUEST' });
-  expect(actions[1]).toEqual(
-    expect.objectContaining({
-      type: 'SIGN_OUT_SUCCESS'
-    })
-  );
+  expect(actions[0]).toEqual({ type: `${SIGN_OUT}_REQUEST`, receivedAt: expect.any(Number) });
+  expect(actions[1]).toEqual({
+    type: `${SIGN_OUT}_SUCCESS`,
+    response: {
+      code: CODE_OK,
+      requestId: expect.any(String)
+    },
+    title: 'odhlašování',
+    receivedAt: expect.any(Number)
+  });
 });
 
 it('signOut() should dispatch two unsuccessful actions', async () => {
@@ -56,14 +53,18 @@ it('signOut() should dispatch two unsuccessful actions', async () => {
 
   await store.dispatch(signOut());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'SIGN_OUT_REQUEST' });
-  expect(actions[1]).toEqual(
-    expect.objectContaining({
-      type: 'SIGN_OUT_ERROR',
+  expect(actions[0]).toEqual({ type: `${SIGN_OUT}_REQUEST`, receivedAt: expect.any(Number) });
+  expect(actions[1]).toEqual({
+    type: 'SIGN_OUT_ERROR',
+    response: {
       code: 'authentication token invalid',
-      status: 'Špatný ověřovací token. Nicméně odhlášení proběhlo.'
-    })
-  );
+      requestId: expect.any(String),
+      status:
+        'Platnost ověřovacího tokenu pravděpodobně vypršela. Špatný ověřovací token. Nicméně odhlášení proběhlo.'
+    },
+    title: 'odhlašování',
+    receivedAt: expect.any(Number)
+  });
 });
 
 it('signOut() should dispatch two unsuccessful actions on error', async () => {
@@ -72,14 +73,16 @@ it('signOut() should dispatch two unsuccessful actions on error', async () => {
 
   await store.dispatch(signOut());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'SIGN_OUT_REQUEST' });
-  expect(actions[1]).toEqual(
-    expect.objectContaining({
-      type: 'SIGN_OUT_ERROR',
-      code: 'internal error',
-      err: 'Error: Parse error!'
-    })
-  );
+  expect(actions[0]).toEqual({ type: `${SIGN_OUT}_REQUEST`, receivedAt: expect.any(Number) });
+  expect(actions[1]).toEqual({
+    type: 'SIGN_OUT_ERROR',
+    error: 'Error: Parse error!',
+    response: {
+      code: 'internal error'
+    },
+    title: 'odhlašování',
+    receivedAt: expect.any(Number)
+  });
 });
 
 it('signOut() should dispatch no actions if not authenticated', async () => {

@@ -1,41 +1,14 @@
-import { CODE_OK, signOut as signOutAction } from '../../common';
-import { errorToStr } from '../../Util';
+import { API_SIGN_OUT } from '../../common';
+import { WS_API } from '../../store/wsAPI';
 
-export const signOutRequest = () => ({
-  type: 'SIGN_OUT_REQUEST'
-});
+const useCached = state => !state.auth.authenticated;
 
-export const signOutSuccess = () => ({
-  type: 'SIGN_OUT_SUCCESS',
-  receivedAt: Date.now()
-});
-
-export const signOutError = ({ code, status, err, ...rest }) => ({
-  type: 'SIGN_OUT_ERROR',
-  code,
-  status,
-  err: errorToStr(err),
-  ...rest,
-  receivedAt: Date.now()
-});
-
-export const signOut = () => async (dispatch, getState, wsClient) => {
-  const { auth } = getState();
-  if (!auth.authenticated) {
-    return;
+export const SIGN_OUT = 'SIGN_OUT';
+export const signOut = () => ({
+  [WS_API]: {
+    type: SIGN_OUT,
+    endpoint: API_SIGN_OUT,
+    useCached,
+    title: 'odhlašování'
   }
-
-  dispatch(signOutRequest());
-
-  try {
-    const response = await wsClient.sendRequest(signOutAction(auth.token));
-    const { code } = response;
-    if (code === CODE_OK) {
-      dispatch(signOutSuccess());
-    } else {
-      dispatch(signOutError(response));
-    }
-  } catch (err) {
-    dispatch(signOutError({ code: 'internal error', err }));
-  }
-};
+});

@@ -1,7 +1,7 @@
 import deepFreeze from 'deep-freeze';
 import { ubytovaniNeprespano } from '../../common';
 import { websocketDisconnected } from '../../App/AppActions';
-import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
+import { signOut } from '../../auth/SignOut/SignOutActions';
 import { createSaveUcastSuccess } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
 import { createVykon, deleteVykon } from '../../registrator/Startujici/StartujiciActions';
 import { saveUbytovaniSuccess } from '../../registrator/Ubytovani/UbytovaniActions';
@@ -158,7 +158,9 @@ it('po odhlášení', () => {
   const stateAfter = { allIds: [], byIds: {}, invalidated: false };
   deepFreeze(stateBefore);
 
-  expect(ucastniciReducer(stateBefore, signOutSuccess())).toEqual(stateAfter);
+  expect(ucastniciReducer(stateBefore, createSuccessFromAction({ action: signOut() }))).toEqual(
+    stateAfter
+  );
 });
 
 it('after disconnect', () => {

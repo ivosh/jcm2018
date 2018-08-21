@@ -1,5 +1,6 @@
 import deepFreeze from 'deep-freeze';
-import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
+import { signOut } from '../../auth/SignOut/SignOutActions';
+import { createSuccessFromAction } from '../../store/wsAPI';
 import kategorieReducer from './kategorieReducer';
 import { fetchKategorieSuccess } from './kategorieActions';
 
@@ -220,5 +221,7 @@ it('po odhlášení', () => {
   const stateAfter = {};
   deepFreeze(stateBefore);
 
-  expect(kategorieReducer(stateBefore, signOutSuccess())).toEqual(stateAfter);
+  expect(kategorieReducer(stateBefore, createSuccessFromAction({ action: signOut() }))).toEqual(
+    stateAfter
+  );
 });

@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import { signIn } from '../../auth/SignIn/SignInActions';
-import { signOutError } from '../../auth/SignOut/SignOutActions';
+import { signOut } from '../../auth/SignOut/SignOutActions';
 import { createVykon, deleteVykon } from '../../registrator/Startujici/StartujiciActions';
 import { createFailureFromAction } from '../../store/wsAPI';
 import { hideError } from './ErrorInModalActions';
@@ -48,18 +48,22 @@ it('SIGN_IN_ERROR', () => {
   ).toEqual(stateAfter);
 });
 
-it('signOutError()', () => {
+it('SIGN_OUT_ERROR', () => {
   const stateBefore = {};
   const stateAfter = {
     code: 'authentication token invalid',
     message: 'Špatný ověřovací token. Zkus se přihlásit znovu.',
-    show: true
+    show: true,
+    title: 'odhlašování'
   };
   deepFreeze(stateBefore);
 
-  expect(errorInModalReducer(stateBefore, signOutError(unsuccessfulSignOutResponse))).toEqual(
-    stateAfter
-  );
+  expect(
+    errorInModalReducer(
+      stateBefore,
+      createFailureFromAction({ action: signOut(), response: unsuccessfulSignOutResponse })
+    )
+  ).toEqual(stateAfter);
 });
 
 it('STARTUJICI_CREATE_VYKON_ERROR', () => {

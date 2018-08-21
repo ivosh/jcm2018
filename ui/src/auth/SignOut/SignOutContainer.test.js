@@ -1,15 +1,17 @@
 import React from 'react';
-import thunk from 'redux-thunk';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
+import { API_SIGN_OUT } from '../../common';
 import WsClient from '../../WsClient';
+import wsAPI, { WS_API } from '../../store/wsAPI';
+import { SIGN_OUT } from './SignOutActions';
 import SignOutContainer from './SignOutContainer';
-
-const middlewares = [thunk];
-const mockStore = configureStore(middlewares);
 
 const mockWsClient = new WsClient();
 mockWsClient.sendRequest = async () => ({});
+
+const middlewares = [wsAPI.withExtraArgument(mockWsClient)];
+const mockStore = configureStore(middlewares);
 
 let store;
 let wrapper;
@@ -32,5 +34,12 @@ it('maps ownProps and dispatch to props', () => {
 it('maps signOut to dispatch signOut action', async () => {
   await wrapper.props().signOut();
 
-  expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
+  expect(store.dispatch).toHaveBeenCalledWith({
+    [WS_API]: {
+      type: SIGN_OUT,
+      endpoint: API_SIGN_OUT,
+      useCached: expect.any(Function),
+      title: 'odhlašování'
+    }
+  });
 });

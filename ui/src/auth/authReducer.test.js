@@ -2,7 +2,7 @@ import deepFreeze from 'deep-freeze';
 import { generateTestToken } from '../testing';
 import { createFailureFromAction, createSuccessFromAction } from '../store/wsAPI';
 import { signIn } from './SignIn/SignInActions';
-import { signOutSuccess, signOutError } from './SignOut/SignOutActions';
+import { signOut } from './SignOut/SignOutActions';
 import authReducer from './authReducer';
 
 const successfulSignInResponse = {
@@ -95,7 +95,9 @@ it('signOutSuccess()', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(authReducer(stateBefore, signOutSuccess())).toEqual(stateAfter);
+  expect(authReducer(stateBefore, createSuccessFromAction({ action: signOut() }))).toEqual(
+    stateAfter
+  );
 });
 
 it('signOutError()', () => {
@@ -113,5 +115,10 @@ it('signOutError()', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(authReducer(stateBefore, signOutError(unsuccessfulSignOutResponse))).toEqual(stateAfter);
+  expect(
+    authReducer(
+      stateBefore,
+      createFailureFromAction({ action: signOut(), response: unsuccessfulSignOutResponse })
+    )
+  ).toEqual(stateAfter);
 });

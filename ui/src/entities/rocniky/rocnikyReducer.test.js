@@ -1,6 +1,7 @@
 import deepFreeze from 'deep-freeze';
 import { TYPY_KATEGORII } from '../../constants';
-import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
+import { signOut } from '../../auth/SignOut/SignOutActions';
+import { createSuccessFromAction } from '../../store/wsAPI';
 import { fetchRocnikySuccess } from './rocnikyActions';
 import rocnikyReducer, { getDatumKonani, getKategorie, getKategorieProTyp } from './rocnikyReducer';
 
@@ -265,7 +266,9 @@ it('po odhlášení', () => {
   const stateAfter = { byRoky: {}, roky: [] };
   deepFreeze(stateBefore);
 
-  expect(rocnikyReducer(stateBefore, signOutSuccess())).toEqual(stateAfter);
+  expect(rocnikyReducer(stateBefore, createSuccessFromAction({ action: signOut() }))).toEqual(
+    stateAfter
+  );
 });
 
 it('getKategorie(), getKategorieProTyp()', () => {

@@ -5,119 +5,104 @@
    When Node.JS supports MJS modules formats natively, this could be just a single file.
  */
 
-const PORT_DEV_CLIENT = 3000;
-const PORT_DEV_SERVER = 4000;
-const PLATBA_TYPY = ['hotově', 'převodem', 'složenkou'];
+export const PORT_DEV_CLIENT = 3000;
+export const PORT_DEV_SERVER = 4000;
+export const PLATBA_TYPY = ['hotově', 'převodem', 'složenkou'];
 
-const BROADCAST_STOPKY = 'broadcastStopky';
-const BROADCAST_UCASTNIK = 'broadcastUcastnik';
-const DELETE_VYKON = 'deleteVykon';
-const FIND_ALL_ROCNIKY = 'findAllRocniky';
-const FIND_ALL_STOPKY = 'findAllStopky';
-const FIND_ALL_UCASTNICI = 'findAllUcastnici';
-const SAVE_PLATBY = 'savePlatby';
-const SAVE_PRIHLASKA = 'savePrihlaska';
-const SAVE_STOPKY = 'saveStopky';
-const SAVE_UBYTOVANI = 'saveUbytovani';
-const SAVE_UCAST = 'saveUcast';
-const SAVE_UDAJE = 'saveUdaje';
-const SAVE_VYKON = 'saveVykon';
-const SIGN_IN = 'signIn';
-const SIGN_OUT = 'signOut';
-const API_DELETE_VYKON = DELETE_VYKON;
-const API_SAVE_VYKON = SAVE_VYKON;
-const API_SIGN_IN = SIGN_IN;
+export const API_DELETE_VYKON = 'deleteVykon';
+export const API_SAVE_VYKON = 'saveVykon';
+export const API_SIGN_IN = 'signIn';
+export const API_SIGN_OUT = 'signOut';
+export const BROADCAST_STOPKY = 'broadcastStopky';
+export const BROADCAST_UCASTNIK = 'broadcastUcastnik';
+export const FIND_ALL_ROCNIKY = 'findAllRocniky';
+export const FIND_ALL_STOPKY = 'findAllStopky';
+export const FIND_ALL_UCASTNICI = 'findAllUcastnici';
+export const SAVE_PLATBY = 'savePlatby';
+export const SAVE_PRIHLASKA = 'savePrihlaska';
+export const SAVE_STOPKY = 'saveStopky';
+export const SAVE_UBYTOVANI = 'saveUbytovani';
+export const SAVE_UCAST = 'saveUcast';
+export const SAVE_UDAJE = 'saveUdaje';
+export const SAVE_VYKON = API_SAVE_VYKON;
 
-const CODE_OK = 'ok';
-const CODE_ALREADY_EXISTING = 'již existuje';
-const CODE_DB_DISCONNECTED = 'nepřipojeno k databázi';
-const CODE_DUPLICIT_START_CISLO = 'duplicitní startovní číslo';
-const CODE_KATEGORIE_INVALID = 'chybná kategorie';
-const CODE_MAX_LOGIN_ATTEMPTS = 'max login attempts reached';
-const CODE_MLADISTVY_UCASTNIK = 'účastník potřebuje souhlas zákonného zástupce';
-const CODE_NONCE_MISMATCH = 'nesouhlas jednorázového přihlašovacího kódu';
-const CODE_NONEXISTING = 'neexistuje';
-const CODE_PASSWORD_INCORRECT = 'password incorrect';
-const CODE_TOKEN_INVALID = 'authentication token invalid';
-const CODE_UNFULFILLED_REQUEST = 'unfulfilled request';
-const CODE_UNPARSEABLE_MESSAGE = 'unparseable message';
-const CODE_UNRECOGNIZED_ACTION = 'unrecognized action';
+export const CODE_OK = 'ok';
+export const CODE_ALREADY_EXISTING = 'již existuje';
+export const CODE_DB_DISCONNECTED = 'nepřipojeno k databázi';
+export const CODE_DUPLICIT_START_CISLO = 'duplicitní startovní číslo';
+export const CODE_KATEGORIE_INVALID = 'chybná kategorie';
+export const CODE_MAX_LOGIN_ATTEMPTS = 'max login attempts reached';
+export const CODE_MLADISTVY_UCASTNIK = 'účastník potřebuje souhlas zákonného zástupce';
+export const CODE_NONCE_MISMATCH = 'nesouhlas jednorázového přihlašovacího kódu';
+export const CODE_NONEXISTING = 'neexistuje';
+export const CODE_PASSWORD_INCORRECT = 'password incorrect';
+export const CODE_TOKEN_INVALID = 'authentication token invalid';
+export const CODE_UNFULFILLED_REQUEST = 'unfulfilled request';
+export const CODE_UNPARSEABLE_MESSAGE = 'unparseable message';
+export const CODE_UNRECOGNIZED_ACTION = 'unrecognized action';
 
-const apiCall = ({ endpoint, request, token }) => ({ action: endpoint, request, token });
+export const apiCall = ({ endpoint, request, token }) => ({ action: endpoint, request, token });
 
-const deleteVykon = ({ id, rok }, token) => ({
-  action: DELETE_VYKON,
-  request: { id, rok },
-  token
-});
-
-const findAllRocniky = token => ({
+export const findAllRocniky = token => ({
   action: FIND_ALL_ROCNIKY,
   request: undefined,
   token
 });
 
-const findAllStopky = token => ({
+export const findAllStopky = token => ({
   action: FIND_ALL_STOPKY,
   request: undefined,
   token
 });
 
-const findAllUcastnici = token => ({
+export const findAllUcastnici = token => ({
   action: FIND_ALL_UCASTNICI,
   request: undefined,
   token
 });
 
-const savePlatby = ({ id, rok, platby }, token) => ({
+export const savePlatby = ({ id, rok, platby }, token) => ({
   action: SAVE_PLATBY,
   request: { id, rok, platby },
   token
 });
 
-const savePrihlaska = ({ id, rok, prihlaska }, token) => ({
+export const savePrihlaska = ({ id, rok, prihlaska }, token) => ({
   action: SAVE_PRIHLASKA,
   request: { id, rok, prihlaska },
   token
 });
 
-const saveStopky = (stopky, token) => ({
+export const saveStopky = (stopky, token) => ({
   action: SAVE_STOPKY,
   request: stopky,
   token
 });
 
-const saveUbytovani = ({ id, rok, ubytovani }, token) => ({
+export const saveUbytovani = ({ id, rok, ubytovani }, token) => ({
   action: SAVE_UBYTOVANI,
   request: { id, rok, ubytovani },
   token
 });
 
-const saveUcast = ({ id, rok, udaje, prihlaska, vykon, platby, ubytovani, poznamka }, token) => ({
-  action: SAVE_UCAST,
-  request: { id, rok, udaje, prihlaska, vykon, platby, ubytovani, poznamka },
-  token
-});
-
-const saveUdaje = ({ id, rok, udaje }, token) => ({
-  action: SAVE_UDAJE,
-  request: { id, rok, udaje },
-  token
-});
-
-const saveVykon = ({ id, rok, vykon }, token) => ({
+export const saveVykon = ({ id, rok, vykon }, token) => ({
   action: SAVE_VYKON,
   request: { id, rok, vykon },
   token
 });
 
-const signIn = (username, password, nonce) => ({
-  action: SIGN_IN,
-  request: { username, password, nonce }
+export const saveUcast = (
+  { id, rok, udaje, prihlaska, vykon, platby, ubytovani, poznamka },
+  token
+) => ({
+  action: SAVE_UCAST,
+  request: { id, rok, udaje, prihlaska, vykon, platby, ubytovani, poznamka },
+  token
 });
 
-const signOut = token => ({
-  action: SIGN_OUT,
+export const saveUdaje = ({ id, rok, udaje }, token) => ({
+  action: SAVE_UDAJE,
+  request: { id, rok, udaje },
   token
 });
 
@@ -153,7 +138,7 @@ const filtrujPodleVeku = (kategorie, { rok, datum, narozeni }) =>
     return item.vek.min <= vek && vek <= item.vek.max;
   });
 
-const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyPotvrzen }) => {
+export const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyPotvrzen }) => {
   const rocnik = rocniky[rok];
   if (!rocnik) {
     return { kategorie: null, code: CODE_NONEXISTING, status: `Ročník pro ${rok} neexistuje.` };
@@ -238,134 +223,19 @@ const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyPotvrzen
   };
 };
 
-const ubytovaniPrihlasit = ({ den, ubytovani = {} }) => ({
+export const ubytovaniPrihlasit = ({ den, ubytovani = {} }) => ({
   ...ubytovani,
   [den]: { ...ubytovani[den], prihlaseno: true }
 });
-const ubytovaniOdhlasit = ({ den, ubytovani = {} }) => {
+export const ubytovaniOdhlasit = ({ den, ubytovani = {} }) => {
   const { [den]: remove, ...rest } = ubytovani;
   return rest;
 };
-const ubytovaniPrespano = ({ den, ubytovani = {} }) => ({
+export const ubytovaniPrespano = ({ den, ubytovani = {} }) => ({
   ...ubytovani,
   [den]: { ...ubytovani[den], prespano: true }
 });
-const ubytovaniNeprespano = ({ den, ubytovani = {} }) => ({
+export const ubytovaniNeprespano = ({ den, ubytovani = {} }) => ({
   ...ubytovani,
   [den]: { ...ubytovani[den], prespano: false }
 });
-
-const exported = {
-  PORT_DEV_CLIENT,
-  PORT_DEV_SERVER,
-  PLATBA_TYPY,
-  BROADCAST_STOPKY,
-  BROADCAST_UCASTNIK,
-  DELETE_VYKON,
-  FIND_ALL_ROCNIKY,
-  FIND_ALL_STOPKY,
-  FIND_ALL_UCASTNICI,
-  SAVE_PLATBY,
-  SAVE_PRIHLASKA,
-  SAVE_STOPKY,
-  SAVE_UBYTOVANI,
-  SAVE_UCAST,
-  SAVE_UDAJE,
-  SAVE_VYKON,
-  SIGN_IN,
-  SIGN_OUT,
-  API_DELETE_VYKON,
-  API_SAVE_VYKON,
-  API_SIGN_IN,
-  CODE_OK,
-  CODE_ALREADY_EXISTING,
-  CODE_DB_DISCONNECTED,
-  CODE_DUPLICIT_START_CISLO,
-  CODE_KATEGORIE_INVALID,
-  CODE_MAX_LOGIN_ATTEMPTS,
-  CODE_MLADISTVY_UCASTNIK,
-  CODE_NONCE_MISMATCH,
-  CODE_NONEXISTING,
-  CODE_PASSWORD_INCORRECT,
-  CODE_TOKEN_INVALID,
-  CODE_UNFULFILLED_REQUEST,
-  CODE_UNPARSEABLE_MESSAGE,
-  CODE_UNRECOGNIZED_ACTION,
-  apiCall,
-  deleteVykon,
-  findAllRocniky,
-  findAllStopky,
-  findAllUcastnici,
-  findKategorie,
-  savePlatby,
-  savePrihlaska,
-  saveStopky,
-  saveUbytovani,
-  saveUcast,
-  saveUdaje,
-  saveVykon,
-  signIn,
-  signOut,
-  ubytovaniNeprespano,
-  ubytovaniOdhlasit,
-  ubytovaniPrespano,
-  ubytovaniPrihlasit
-};
-
-export default exported;
-export {
-  PORT_DEV_CLIENT,
-  PORT_DEV_SERVER,
-  PLATBA_TYPY,
-  BROADCAST_STOPKY,
-  BROADCAST_UCASTNIK,
-  DELETE_VYKON,
-  FIND_ALL_ROCNIKY,
-  FIND_ALL_STOPKY,
-  FIND_ALL_UCASTNICI,
-  SAVE_PLATBY,
-  SAVE_PRIHLASKA,
-  SAVE_STOPKY,
-  SAVE_UBYTOVANI,
-  SAVE_UCAST,
-  SAVE_UDAJE,
-  SAVE_VYKON,
-  SIGN_IN,
-  SIGN_OUT,
-  API_DELETE_VYKON,
-  API_SAVE_VYKON,
-  API_SIGN_IN,
-  CODE_OK,
-  CODE_ALREADY_EXISTING,
-  CODE_DB_DISCONNECTED,
-  CODE_DUPLICIT_START_CISLO,
-  CODE_KATEGORIE_INVALID,
-  CODE_MAX_LOGIN_ATTEMPTS,
-  CODE_MLADISTVY_UCASTNIK,
-  CODE_NONCE_MISMATCH,
-  CODE_NONEXISTING,
-  CODE_PASSWORD_INCORRECT,
-  CODE_TOKEN_INVALID,
-  CODE_UNFULFILLED_REQUEST,
-  CODE_UNPARSEABLE_MESSAGE,
-  CODE_UNRECOGNIZED_ACTION,
-  apiCall,
-  deleteVykon,
-  findAllRocniky,
-  findAllStopky,
-  findAllUcastnici,
-  findKategorie,
-  savePlatby,
-  savePrihlaska,
-  saveStopky,
-  saveUbytovani,
-  saveUcast,
-  saveUdaje,
-  saveVykon,
-  signIn,
-  signOut,
-  ubytovaniNeprespano,
-  ubytovaniOdhlasit,
-  ubytovaniPrespano,
-  ubytovaniPrihlasit
-};

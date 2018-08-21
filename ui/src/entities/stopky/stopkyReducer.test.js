@@ -1,5 +1,6 @@
 import deepFreeze from 'deep-freeze';
-import { signOutSuccess } from '../../auth/SignOut/SignOutActions';
+import { signOut } from '../../auth/SignOut/SignOutActions';
+import { createSuccessFromAction } from '../../store/wsAPI';
 import stopkyReducer from './stopkyReducer';
 import { broadcastStopky, fetchStopkySuccess } from './stopkyActions';
 
@@ -77,7 +78,9 @@ it('po odhlášení', () => {
   const stateAfter = { ...stateBefore, invalidated: true };
   deepFreeze(stateBefore);
 
-  expect(stopkyReducer(stateBefore, signOutSuccess())).toEqual(stateAfter);
+  expect(stopkyReducer(stateBefore, createSuccessFromAction({ action: signOut() }))).toEqual(
+    stateAfter
+  );
 });
 
 it('broadcastStopky - změna', () => {
