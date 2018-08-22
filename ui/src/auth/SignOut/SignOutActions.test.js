@@ -55,7 +55,7 @@ it('signOut() should dispatch two unsuccessful actions', async () => {
   const actions = store.getActions();
   expect(actions[0]).toEqual({ type: `${SIGN_OUT}_REQUEST`, receivedAt: expect.any(Number) });
   expect(actions[1]).toEqual({
-    type: 'SIGN_OUT_ERROR',
+    type: `${SIGN_OUT}_ERROR`,
     response: {
       code: 'authentication token invalid',
       requestId: expect.any(String),
@@ -75,7 +75,7 @@ it('signOut() should dispatch two unsuccessful actions on error', async () => {
   const actions = store.getActions();
   expect(actions[0]).toEqual({ type: `${SIGN_OUT}_REQUEST`, receivedAt: expect.any(Number) });
   expect(actions[1]).toEqual({
-    type: 'SIGN_OUT_ERROR',
+    type: `${SIGN_OUT}_ERROR`,
     error: 'Error: Parse error!',
     response: {
       code: 'internal error'
