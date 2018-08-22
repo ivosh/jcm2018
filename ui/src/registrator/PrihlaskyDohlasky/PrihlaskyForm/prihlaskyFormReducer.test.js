@@ -1,4 +1,5 @@
 import deepFreeze from 'deep-freeze';
+import { DOHLASKY } from '../../../constants';
 import { fetchRocnikySuccess } from '../../../entities/rocniky/rocnikyActions';
 import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import { predepsaneStartovne } from '../../platby';
@@ -29,7 +30,7 @@ import {
 
 const actionPrefix = 'PRIHLASKY_YYY';
 const addPlatba = createAddPlatba(actionPrefix);
-const dohlaskyFormReducer = createPrihlaskyFormReducer('DOHLASKY');
+const dohlaskyFormReducer = createPrihlaskyFormReducer(DOHLASKY);
 const hideError = createHideError(actionPrefix);
 const hideModal = createHideModal(actionPrefix);
 const inputChanged = createInputChanged({
@@ -779,7 +780,7 @@ it('prihlaska.datum - dohlášky', () => {
 
   const stateAfter = dohlaskyFormReducer(
     stateBefore,
-    createReset({ actionPrefix: 'DOHLASKY' })({ rocniky })
+    createReset({ actionPrefix: DOHLASKY })({ rocniky })
   );
   expect(stateAfter.jePrihlaskou).toBe(false);
   expect(isInputEnabled({ name, form: stateAfter, rocniky })).toBe(false);

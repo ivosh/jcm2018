@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import { mount } from 'enzyme';
+import { DOHLASKY } from '../../constants';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import Dohlasky from './Dohlasky';
 import PrihlaskyDohlaskyMain from './PrihlaskyDohlaskyMain';
@@ -73,11 +74,11 @@ it('renders /dohlasky/reset route', () => {
   expect(wrapper.find('Connect(PrihlaskyForm)').props()).toMatchSnapshot();
   expect(store.dispatch).toHaveBeenCalledTimes(3); // fetchUcastnici + Form/reset + Platby/reset
   expect(store.dispatch).toHaveBeenCalledWith({
-    type: 'DOHLASKY_RESET',
+    type: `${DOHLASKY}_RESET`,
     datumKonani: '2018-06-09T00:00:00.000Z'
   });
   expect(store.dispatch).toHaveBeenCalledWith({
-    type: 'DOHLASKY_NOVA_PLATBA_RESET',
+    type: `${DOHLASKY}_NOVA_PLATBA_RESET`,
     datumKonani: '2018-06-09T00:00:00.000Z'
   });
 });
@@ -98,7 +99,7 @@ it('renders /dohlasky/:id route', () => {
   expect(store.dispatch).toHaveBeenCalledWith({
     datumKonani: '2018-06-09T00:00:00.000Z',
     id: '6f09b1fd371dec1e99b7e1c9',
-    type: 'DOHLASKY_UCASTNIK_LOAD',
+    type: `${DOHLASKY}_UCASTNIK_LOAD`,
     udaje: {
       jmeno: 'Martina',
       narozeni: { den: 7, mesic: 12, rok: 1963 },

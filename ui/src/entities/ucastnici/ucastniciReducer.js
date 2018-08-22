@@ -1,4 +1,4 @@
-import { AKTUALNI_ROK } from '../../constants';
+import { AKTUALNI_ROK, DOHLASKY, PRIHLASKY } from '../../constants';
 import { SIGN_OUT } from '../../auth/SignOut/SignOutActions';
 import { CASOMIRA_SAVE_VYKON } from '../../casomeric/Casomira/StartovniCisla/StartovniCislaActions';
 import {
@@ -50,8 +50,8 @@ const ucastniciReducer = (state = initialState, action) => {
     }
     case 'FETCH_UCASTNICI_SUCCESS':
       return { ...action.data, invalidated: false };
-    case 'DOHLASKY_SAVE_SUCCESS':
-    case 'PRIHLASKY_SAVE_SUCCESS': {
+    case `${DOHLASKY}_SAVE_SUCCESS`:
+    case `${PRIHLASKY}_SAVE_SUCCESS`: {
       const { id, rok, udaje, prihlaska, platby, ubytovani } = action;
       const state1 = updateUcast(state, id, rok, 'udaje', udaje);
       const state2 = updateUcast(state1, id, rok, 'prihlaska', prihlaska);

@@ -1,5 +1,5 @@
 import { CODE_OK, CODE_TOKEN_INVALID, saveUcast } from '../../../common';
-import { AKTUALNI_ROK, PRIHLASKY_SAVE_MODAL_TIMEOUT } from '../../../constants';
+import { AKTUALNI_ROK, PRIHLASKY, PRIHLASKY_SAVE_MODAL_TIMEOUT } from '../../../constants';
 import { errorToStr } from '../../../Util';
 import { authTokenExpired } from '../../../auth/SignIn/SignInActions';
 import { getDatumKonani } from '../../../entities/rocniky/rocnikyReducer';
@@ -19,7 +19,7 @@ export const createHideError = actionPrefix => () => ({ type: `${actionPrefix}_H
 
 export const createReset = ({
   actionPrefix,
-  jePrihlaskou = actionPrefix === 'PRIHLASKY',
+  jePrihlaskou = actionPrefix === PRIHLASKY,
   now = new Date()
 }) => ({ rocniky }) => {
   now.setUTCHours(0, 0, 0, 0);
@@ -30,7 +30,7 @@ export const createReset = ({
 
 export const createLoadUcastnik = ({
   actionPrefix,
-  jePrihlaskou = actionPrefix === 'PRIHLASKY'
+  jePrihlaskou = actionPrefix === PRIHLASKY
 }) => ({ id, kategorie, rocniky, ucastnici }) => {
   const ucastnik = ucastnici.byIds[id];
   const posledniRok = ucastnik.roky[0];

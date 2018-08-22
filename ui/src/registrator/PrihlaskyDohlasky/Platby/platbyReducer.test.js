@@ -1,4 +1,5 @@
 import deepFreeze from 'deep-freeze';
+import { DOHLASKY } from '../../../constants';
 import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import {
   createAddPlatba,
@@ -74,9 +75,9 @@ it('reset() - dohlášky', () => {
   deepFreeze(stateBefore);
   const { rocniky } = ucastniciTestData.entities;
 
-  const dohlaskyPlatbyReducer = createPlatbyReducer('DOHLASKY');
+  const dohlaskyPlatbyReducer = createPlatbyReducer(DOHLASKY);
   expect(
-    dohlaskyPlatbyReducer(stateBefore, createReset({ actionPrefix: 'DOHLASKY' })({ rocniky }))
+    dohlaskyPlatbyReducer(stateBefore, createReset({ actionPrefix: DOHLASKY })({ rocniky }))
   ).toEqual(stateAfter);
 });
 

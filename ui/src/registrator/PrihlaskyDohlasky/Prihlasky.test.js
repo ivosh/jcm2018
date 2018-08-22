@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import { mount } from 'enzyme';
+import { PRIHLASKY } from '../../constants';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import Prihlasky from './Prihlasky';
 import PrihlaskyDohlaskyMain from './PrihlaskyDohlaskyMain';
@@ -73,10 +74,10 @@ it('renders /prihlasky/reset route', () => {
   expect(wrapper.find('Connect(PrihlaskyForm)').props()).toMatchSnapshot();
   expect(store.dispatch).toHaveBeenCalledTimes(3); // fetchUcastnici + Form/reset + Platby/reset
   expect(store.dispatch).toHaveBeenCalledWith({
-    type: 'PRIHLASKY_RESET',
+    type: `${PRIHLASKY}_RESET`,
     datumKonani: expect.any(String)
   });
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASKY_NOVA_PLATBA_RESET' });
+  expect(store.dispatch).toHaveBeenCalledWith({ type: `${PRIHLASKY}_NOVA_PLATBA_RESET` });
 });
 
 it('renders /prihlasky/:id route', () => {
@@ -94,7 +95,7 @@ it('renders /prihlasky/:id route', () => {
   expect(store.dispatch).toHaveBeenCalledTimes(2); // fetchUcastnici + load
   expect(store.dispatch).toHaveBeenCalledWith({
     id: '6f09b1fd371dec1e99b7e1c9',
-    type: 'PRIHLASKY_UCASTNIK_LOAD',
+    type: `${PRIHLASKY}_UCASTNIK_LOAD`,
     udaje: {
       jmeno: 'Martina',
       narozeni: { den: 7, mesic: 12, rok: 1963 },

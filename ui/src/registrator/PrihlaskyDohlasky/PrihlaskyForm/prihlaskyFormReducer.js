@@ -6,7 +6,7 @@ import {
   CODE_OK,
   CODE_MLADISTVY_UCASTNIK
 } from '../../../common';
-import { AKTUALNI_ROK, TYPY_KATEGORII } from '../../../constants';
+import { AKTUALNI_ROK, PRIHLASKY, TYPY_KATEGORII } from '../../../constants';
 import {
   datumValid,
   narozeniToStr,
@@ -83,7 +83,7 @@ const reduceUbytovani = ({ den, value, ubytovani }) => {
 
 export const createPrihlaskyFormReducer = (
   actionPrefix,
-  jePrihlaskou = actionPrefix === 'PRIHLASKY'
+  jePrihlaskou = actionPrefix === PRIHLASKY
 ) => (state = { ...initialState, jePrihlaskou }, action) => {
   switch (action.type) {
     case `${actionPrefix}_HIDE_ERROR`:

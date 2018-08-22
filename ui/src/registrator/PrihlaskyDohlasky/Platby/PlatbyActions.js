@@ -1,3 +1,4 @@
+import { PRIHLASKY } from '../../../constants';
 import { getDatumKonani } from '../../../entities/rocniky/rocnikyReducer';
 import { createInputChanged as genericCreateInputChanged } from '../Input/InputActions';
 import { formErrors } from './platbyReducer';
@@ -15,7 +16,7 @@ export const createAddPlatba = actionPrefix => ({ castka, datum, typ, poznamka }
   }
 });
 
-export const createReset = ({ actionPrefix, jePrihlaskou = actionPrefix === 'PRIHLASKY' }) => ({
+export const createReset = ({ actionPrefix, jePrihlaskou = actionPrefix === PRIHLASKY }) => ({
   rocniky
 }) => {
   if (jePrihlaskou) {

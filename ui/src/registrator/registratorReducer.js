@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { DOHLASKY, PRIHLASKY } from '../constants';
 import poradiReducer from './Poradi/poradiReducer';
 import { createPrihlaseniDohlaseniReducer } from './PrihlaseniDohlaseni/prihlaseniDohlaseniReducer';
 import { createPrihlaskyDohlaskyReducer } from './PrihlaskyDohlasky/prihlaskyDohlaskyReducer';
@@ -8,10 +9,10 @@ import ucastniciDigestReducer from './UcastniciDigest/ucastniciDigestReducer';
 
 const registratorReducer = combineReducers({
   dohlaseni: createPrihlaseniDohlaseniReducer('DOHLASENI'),
-  dohlasky: createPrihlaskyDohlaskyReducer('DOHLASKY'),
+  dohlasky: createPrihlaskyDohlaskyReducer(DOHLASKY),
   poradi: poradiReducer,
   prihlaseni: createPrihlaseniDohlaseniReducer('PRIHLASENI'),
-  prihlasky: createPrihlaskyDohlaskyReducer('PRIHLASKY'),
+  prihlasky: createPrihlaskyDohlaskyReducer(PRIHLASKY),
   startovniCisla: startovniCislaReducer,
   ubytovani: ubytovaniReducer,
   ucastniciDigest: ucastniciDigestReducer
