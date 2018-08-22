@@ -10,6 +10,7 @@ export const PORT_DEV_SERVER = 4000;
 export const PLATBA_TYPY = ['hotově', 'převodem', 'složenkou'];
 
 export const API_DELETE_VYKON = 'deleteVykon';
+export const API_SAVE_STOPKY = 'saveStopky';
 export const API_SAVE_VYKON = 'saveVykon';
 export const API_SIGN_IN = 'signIn';
 export const API_SIGN_OUT = 'signOut';
@@ -20,7 +21,6 @@ export const FIND_ALL_STOPKY = 'findAllStopky';
 export const FIND_ALL_UCASTNICI = 'findAllUcastnici';
 export const SAVE_PLATBY = 'savePlatby';
 export const SAVE_PRIHLASKA = 'savePrihlaska';
-export const SAVE_STOPKY = 'saveStopky';
 export const SAVE_UBYTOVANI = 'saveUbytovani';
 export const SAVE_UCAST = 'saveUcast';
 export const SAVE_UDAJE = 'saveUdaje';
@@ -73,21 +73,9 @@ export const savePrihlaska = ({ id, rok, prihlaska }, token) => ({
   token
 });
 
-export const saveStopky = (stopky, token) => ({
-  action: SAVE_STOPKY,
-  request: stopky,
-  token
-});
-
 export const saveUbytovani = ({ id, rok, ubytovani }, token) => ({
   action: SAVE_UBYTOVANI,
   request: { id, rok, ubytovani },
-  token
-});
-
-export const saveVykon = ({ id, rok, vykon }, token) => ({
-  action: SAVE_VYKON,
-  request: { id, rok, vykon },
   token
 });
 

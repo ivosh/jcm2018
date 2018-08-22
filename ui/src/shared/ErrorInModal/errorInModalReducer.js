@@ -1,3 +1,12 @@
+import { CASOMIRA_SAVE_VYKON } from '../../casomeric/Casomira/StartovniCisla/StartovniCislaActions';
+import { SAVE_STOPKY } from '../../casomeric/Stopky/StopkyProTyp/StopkyProTypActions';
+import { SIGN_IN } from '../../auth/SignIn/SignInActions';
+import { SIGN_OUT } from '../../auth/SignOut/SignOutActions';
+import {
+  STARTUJICI_CREATE_VYKON,
+  STARTUJICI_DELETE_VYKON
+} from '../../registrator/Startujici/StartujiciActions';
+
 const initialState = {
   code: '',
   message: '',
@@ -7,11 +16,12 @@ const initialState = {
 
 const errorInModalReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'CASOMIRA_SAVE_VYKON_ERROR':
-    case 'SIGN_IN_ERROR':
-    case 'SIGN_OUT_ERROR':
-    case 'STARTUJICI_CREATE_VYKON_ERROR':
-    case 'STARTUJICI_DELETE_VYKON_ERROR': {
+    case `${CASOMIRA_SAVE_VYKON}_ERROR`:
+    case `${SAVE_STOPKY}_ERROR`:
+    case `${SIGN_IN}_ERROR`:
+    case `${SIGN_OUT}_ERROR`:
+    case `${STARTUJICI_CREATE_VYKON}_ERROR`:
+    case `${STARTUJICI_DELETE_VYKON}_ERROR`: {
       // wsAPI furnishes action.response; legacy actions prepare code+status
       const code = action.response ? action.response.code : action.code;
       const message = action.response ? action.response.status : action.status;

@@ -2,7 +2,10 @@ import React from 'react';
 import moment from 'moment';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
+import { API_SAVE_STOPKY } from '../../../common';
 import WsClient from '../../../WsClient';
+import { WS_API } from '../../../store/wsAPI';
+import { SAVE_STOPKY } from './StopkyProTypActions';
 import StopkyProTypContainer from './StopkyProTypContainer';
 
 const mockStore = configureStore();
@@ -72,20 +75,22 @@ it('maps onStart to dispatch stopkyStart action', async () => {
 
   wrapper.props().onStart();
 
-  expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
+  expect(store.dispatch).toHaveBeenCalledWith({
+    [WS_API]: {
+      type: SAVE_STOPKY,
+      endpoint: API_SAVE_STOPKY,
+      request: expect.any(Function),
+      title: 'ukládání stopek'
+    }
+  });
 
-  const fun = store.dispatch.mock.calls[0][0];
-  await fun(store.dispatch, () => state, mockWsClient);
-  expect(store.dispatch).toHaveBeenCalledWith(
-    expect.objectContaining({
-      type: 'SAVE_STOPKY_SUCCESS',
-      typ: 'půlmaraton',
-      stopky: expect.objectContaining({
-        delta: 'P0D',
-        running: true
-      })
-    })
-  );
+  const request = store.dispatch.mock.calls[0][0][WS_API].request(state);
+  expect(request).toEqual({
+    base: expect.any(String),
+    delta: 'P0D',
+    running: true,
+    typ: 'půlmaraton'
+  });
 });
 
 it('maps onStop to dispatch stopkyStop action', async () => {
@@ -109,18 +114,20 @@ it('maps onStop to dispatch stopkyStop action', async () => {
 
   wrapper.props().onStop();
 
-  expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
+  expect(store.dispatch).toHaveBeenCalledWith({
+    [WS_API]: {
+      type: SAVE_STOPKY,
+      endpoint: API_SAVE_STOPKY,
+      request: expect.any(Function),
+      title: 'ukládání stopek'
+    }
+  });
 
-  const fun = store.dispatch.mock.calls[0][0];
-  await fun(store.dispatch, () => state, mockWsClient);
-  expect(store.dispatch).toHaveBeenCalledWith(
-    expect.objectContaining({
-      type: 'SAVE_STOPKY_SUCCESS',
-      typ: 'cyklo',
-      stopky: expect.objectContaining({
-        base: null,
-        running: false
-      })
-    })
-  );
+  const request = store.dispatch.mock.calls[0][0][WS_API].request(state);
+  expect(request).toEqual({
+    base: null,
+    delta: expect.any(String),
+    running: false,
+    typ: 'cyklo'
+  });
 });
