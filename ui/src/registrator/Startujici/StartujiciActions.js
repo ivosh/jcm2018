@@ -2,7 +2,7 @@ import { API_DELETE_VYKON, API_SAVE_VYKON } from '../../common';
 import { AKTUALNI_ROK } from '../../constants';
 import { WS_API } from '../../store/wsAPI';
 
-const createVykonData = ({ id, rok, state }) => {
+const createRequest = ({ id, rok, state }) => {
   const { kategorie, startCislo } = state.entities.ucastnici.byIds[id][rok].prihlaska;
   const vykon = { dokonceno: null, kategorie, startCislo };
 
@@ -14,7 +14,7 @@ export const createVykon = ({ id, rok = AKTUALNI_ROK }) => ({
   [WS_API]: {
     type: STARTUJICI_CREATE_VYKON,
     endpoint: API_SAVE_VYKON,
-    request: state => createVykonData({ id, rok, state }),
+    request: state => createRequest({ id, rok, state }),
     title: 'vytváření registrace na start'
   }
 });

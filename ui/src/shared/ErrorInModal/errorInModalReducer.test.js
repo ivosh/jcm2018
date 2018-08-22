@@ -1,10 +1,16 @@
 import deepFreeze from 'deep-freeze';
 import { signIn } from '../../auth/SignIn/SignInActions';
 import { signOut } from '../../auth/SignOut/SignOutActions';
+import { saveVykon } from '../../casomeric/Casomira/StartovniCisla/StartovniCislaActions';
 import { createVykon, deleteVykon } from '../../registrator/Startujici/StartujiciActions';
 import { createFailureFromAction } from '../../store/wsAPI';
 import { hideError } from './ErrorInModalActions';
 import errorInModalReducer from './errorInModalReducer';
+
+const genericUnsuccessfulResponse = {
+  code: 'unfulfilled request',
+  status: 'A strange error occurred.'
+};
 
 const unsuccessfulSignInResponse = {
   code: 'password incorrect',
@@ -29,6 +35,29 @@ it('na začátku', () => {
 });
 
 global.crypto = { getRandomValues: arr => arr.fill(86) };
+
+it('CASOMIRA_SAVE_VYKON_ERROR', () => {
+  const stateBefore = {};
+  const stateAfter = {
+    code: 'unfulfilled request',
+    message: 'A strange error occurred.',
+    show: true,
+    title: 'ukládání registrace na start'
+  };
+  deepFreeze(stateBefore);
+
+  const request = { id: '===id===' };
+  expect(
+    errorInModalReducer(
+      stateBefore,
+      createFailureFromAction({
+        action: saveVykon({}),
+        request,
+        response: genericUnsuccessfulResponse
+      })
+    )
+  ).toEqual(stateAfter);
+});
 
 it('SIGN_IN_ERROR', () => {
   const stateBefore = {};
@@ -77,11 +106,14 @@ it('STARTUJICI_CREATE_VYKON_ERROR', () => {
   deepFreeze(stateBefore);
 
   const request = { id: '===id===', rok: 2018 };
-  const response = { code: 'unfulfilled request', status: 'A strange error occurred.' };
   expect(
     errorInModalReducer(
       stateBefore,
-      createFailureFromAction({ action: createVykon({}), request, response })
+      createFailureFromAction({
+        action: createVykon({}),
+        request,
+        response: genericUnsuccessfulResponse
+      })
     )
   ).toEqual(stateAfter);
 });
@@ -97,11 +129,14 @@ it('STARTUJICI_DELETE_VYKON_ERROR', () => {
   deepFreeze(stateBefore);
 
   const request = { id: '===id===', rok: 2018 };
-  const response = { code: 'unfulfilled request', status: 'A strange error occurred.' };
   expect(
     errorInModalReducer(
       stateBefore,
-      createFailureFromAction({ action: deleteVykon({}), request, response })
+      createFailureFromAction({
+        action: deleteVykon({}),
+        request,
+        response: genericUnsuccessfulResponse
+      })
     )
   ).toEqual(stateAfter);
 });

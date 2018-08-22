@@ -1,4 +1,6 @@
 import { AKTUALNI_ROK } from '../../constants';
+import { SIGN_OUT } from '../../auth/SignOut/SignOutActions';
+import { CASOMIRA_SAVE_VYKON } from '../../casomeric/Casomira/StartovniCisla/StartovniCislaActions';
 import {
   STARTUJICI_CREATE_VYKON,
   STARTUJICI_DELETE_VYKON
@@ -42,8 +44,8 @@ const ucastniciReducer = (state = initialState, action) => {
       const updated = { ...state, byIds: { ...state.byIds, [id]: { roky, ...ucasti } } };
       return state.byIds[id] ? updated : { ...updated, allIds: [...updated.allIds, id] };
     }
-    case 'CASOMIRA_SAVE_VYKON_SUCCESS': {
-      const { id, rok, vykon } = action;
+    case `${CASOMIRA_SAVE_VYKON}_SUCCESS`: {
+      const { id, rok, vykon } = action.request;
       return updateUcast(state, id, rok, 'vykon', vykon);
     }
     case 'FETCH_UCASTNICI_SUCCESS':
@@ -56,7 +58,7 @@ const ucastniciReducer = (state = initialState, action) => {
       const state3 = updateUcast(state2, id, rok, 'platby', platby);
       return updateUcast(state3, id, rok, 'ubytovani', ubytovani);
     }
-    case 'SIGN_OUT_SUCCESS':
+    case `${SIGN_OUT}_SUCCESS`:
       return initialState;
     case `${STARTUJICI_CREATE_VYKON}_SUCCESS`: {
       const { id, rok, vykon } = action.request;

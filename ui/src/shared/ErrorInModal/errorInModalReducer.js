@@ -7,6 +7,7 @@ const initialState = {
 
 const errorInModalReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'CASOMIRA_SAVE_VYKON_ERROR':
     case 'SIGN_IN_ERROR':
     case 'SIGN_OUT_ERROR':
     case 'STARTUJICI_CREATE_VYKON_ERROR':
