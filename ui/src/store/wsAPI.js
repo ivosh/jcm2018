@@ -96,14 +96,15 @@ export const createFailureFromAction = ({ action, error, request, response, stat
 // The function 'fn' returns a promise which is waited upon.
 const processArray = async (actions, fn, data) =>
   actions.reduce(async (last, current) => {
-    await last;
-    return fn({ action: current, ...data });
-  }, Promise.resolve());
+    const { code } = await last;
+    return code === CODE_OK ? fn({ action: current, ...data }) : { code };
+  }, Promise.resolve({ code: CODE_OK }));
 
 const doOneAction = async ({ action, next, store, wsClient }) => {
   const { [WS_API]: callAPI } = action;
   if (!callAPI) {
-    return next(action);
+    next(action);
+    return { code: CODE_OK };
   }
 
   const state = store.getState();
@@ -126,7 +127,7 @@ const doOneAction = async ({ action, next, store, wsClient }) => {
   }
 
   if (useCached && useCached(state)) {
-    return Promise.resolve();
+    return { code: CODE_OK };
   }
 
   next(createRequest({ type, request }));
@@ -135,18 +136,26 @@ const doOneAction = async ({ action, next, store, wsClient }) => {
   const token = dontUseToken ? undefined : state.auth.token;
   try {
     const response = await wsClient.sendRequest(apiCall({ endpoint, request, token }));
-    const { code } = response;
+    let { code } = response;
     switch (code) {
       case CODE_OK: {
-        return next(createSuccess({ ...commonArgs, response }));
+        const createdAction = createSuccess({ ...commonArgs, response });
+        next(createdAction);
+        ({ code } = createdAction.response);
+        break;
       }
       case CODE_TOKEN_INVALID:
-        return next(createAuthTokenExpired({ ...commonArgs, response }));
+        next(createAuthTokenExpired({ ...commonArgs, response }));
+        break;
       default:
-        return next(createFailure({ ...commonArgs, response }));
+        next(createFailure({ ...commonArgs, response }));
+        break;
     }
+    return { code };
   } catch (error) {
-    return next(createFailure({ ...commonArgs, error, response: { code: 'internal error' } }));
+    const code = 'internal error';
+    next(createFailure({ ...commonArgs, error, response: { code } }));
+    return { code };
   }
 };
 

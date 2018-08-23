@@ -1,5 +1,5 @@
 import configureStore from 'redux-mock-store';
-import { CODE_OK, CODE_NONCE_MISMATCH } from '../common';
+import { CODE_OK, CODE_NONCE_MISMATCH, CODE_TOKEN_INVALID } from '../common';
 import WsClient from '../WsClient';
 import wsAPI, { WS_API } from '../store/wsAPI';
 
@@ -97,9 +97,10 @@ const state = { auth: { token: '===token===' } };
 it('successful wsAPI action should dispatch REQUEST/SUCCESS redux actions', async () => {
   mockWsClient.sendRequest = async () => successfulResponse;
   const store = mockStore(state);
-  await store.dispatch({
+  const { code } = await store.dispatch({
     [WS_API]: { type: 'FETCH_ACTION', decorate, endpoint, normalize, request: apiRequest }
   });
+  expect(code).toEqual(CODE_OK);
 
   const actions = store.getActions();
   expect(actions[0]).toEqual({
@@ -123,9 +124,10 @@ it('successful wsAPI action should dispatch REQUEST/SUCCESS redux actions', asyn
 it('unsuccessful wsAPI action should dispatch REQUEST/ERROR actions', async () => {
   mockWsClient.sendRequest = async () => unsuccessfulResponse;
   const store = mockStore(state);
-  await store.dispatch({
+  const { code } = await store.dispatch({
     [WS_API]: { type: 'FETCH_ACTION', decorate, endpoint, normalize, request: apiRequest }
   });
+  expect(code).toEqual('unfulfilled request');
 
   const actions = store.getActions();
   expect(actions[0]).toEqual({
@@ -147,7 +149,10 @@ it('unsuccessful wsAPI action should dispatch REQUEST/ERROR actions', async () =
 it('error wsAPI action should dispatch REQUEST/ERROR actions', async () => {
   mockWsClient.sendRequest = async () => Promise.reject(new Error('Parse error!'));
   const store = mockStore(state);
-  await store.dispatch({ [WS_API]: { type: 'FETCH_ACTION', endpoint, request: apiRequest } });
+  const { code } = await store.dispatch({
+    [WS_API]: { type: 'FETCH_ACTION', endpoint, request: apiRequest }
+  });
+  expect(code).toEqual('internal error');
 
   const actions = store.getActions();
   expect(actions[0]).toEqual({
@@ -167,7 +172,7 @@ it('error wsAPI action should dispatch REQUEST/ERROR actions', async () => {
 it('expired authentication token for wsAPI action should dispatch REQUEST/ERROR actions', async () => {
   mockWsClient.sendRequest = async () => authTokenInvalidResponse;
   const store = mockStore(state);
-  await store.dispatch({
+  const { code } = await store.dispatch({
     [WS_API]: {
       type: 'FETCH_ACTION',
       endpoint,
@@ -175,6 +180,7 @@ it('expired authentication token for wsAPI action should dispatch REQUEST/ERROR 
       title: '...error, my darling!'
     }
   });
+  expect(code).toEqual(CODE_TOKEN_INVALID);
 
   const actions = store.getActions();
   expect(actions[0]).toEqual({
@@ -197,11 +203,12 @@ it('expired authentication token for wsAPI action should dispatch REQUEST/ERROR 
 it('wsAPI should process array of three actions in sequence', async () => {
   mockWsClient.sendRequest = async () => successfulResponse;
   const store = mockStore(state);
-  await store.dispatch([
+  const { code } = await store.dispatch([
     { [WS_API]: { type: 'FETCH_ACTION_1', endpoint, normalize, request: apiRequest } },
     { [WS_API]: { type: 'FETCH_ACTION_2', endpoint, normalize, request: apiRequest } },
     { [WS_API]: { type: 'FETCH_ACTION_3', endpoint, normalize, request: apiRequest } }
   ]);
+  expect(code).toEqual(CODE_OK);
 
   const actions = store.getActions();
   expect(actions[0]).toEqual({
@@ -266,7 +273,7 @@ it('successful wsAPI action with checkResponse returning CODE_OK', async () => {
   mockWsClient.sendRequest = async () => signInResponse;
   const checkResponse = () => ({ code: CODE_OK, decodedToken: '===decoded-token===' });
   const store = mockStore(state);
-  await store.dispatch({
+  const { code } = await store.dispatch({
     [WS_API]: {
       type: 'FETCH_ACTION',
       checkResponse,
@@ -275,6 +282,7 @@ it('successful wsAPI action with checkResponse returning CODE_OK', async () => {
       request: signInRequest
     }
   });
+  expect(code).toEqual(CODE_OK);
 
   const actions = store.getActions();
   expect(actions[0]).toEqual({
@@ -304,7 +312,7 @@ it('successful wsAPI action with checkResponse returning CODE_NONCE_MISMATCH', a
     server: '===server==='
   });
   const store = mockStore(state);
-  await store.dispatch({
+  const { code } = await store.dispatch({
     [WS_API]: {
       type: 'FETCH_ACTION',
       checkResponse,
@@ -313,6 +321,7 @@ it('successful wsAPI action with checkResponse returning CODE_NONCE_MISMATCH', a
       request: signInRequest
     }
   });
+  expect(code).toEqual(CODE_NONCE_MISMATCH);
 
   const actions = store.getActions();
   expect(actions[0]).toEqual({
