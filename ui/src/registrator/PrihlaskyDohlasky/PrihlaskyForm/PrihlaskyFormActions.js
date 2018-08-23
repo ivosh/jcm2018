@@ -15,8 +15,6 @@ export const createInputChanged = ({ actionPrefix, rocniky }) => (name, event) =
   };
 };
 
-export const createHideError = actionPrefix => () => ({ type: `${actionPrefix}_HIDE_ERROR` });
-
 export const createReset = ({
   actionPrefix,
   jePrihlaskou = actionPrefix === PRIHLASKY,
@@ -59,7 +57,8 @@ export const createValidationError = actionPrefix => errors => ({
   type: `${actionPrefix}_FORM_INVALID`,
   code: 'nejde uložit',
   errors,
-  status: 'Přihláška nejde uložit. Povinná pole nejsou vyplněna.'
+  status: 'Přihláška nejde uložit. Povinná pole nejsou vyplněna.',
+  title: 'vyplňování formuláře'
 });
 
 export const createSaveUcastRequest = actionPrefix => () => ({

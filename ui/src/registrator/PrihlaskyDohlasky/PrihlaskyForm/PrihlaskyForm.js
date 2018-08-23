@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Form, Glyphicon, Modal, Panel } from 'react-bootstrap';
-import HideableError from '../../../shared/HideableError';
 import LoadingButton from '../../../shared/LoadingButton';
 import PopisekKategorie from '../../../shared/Popisek/PopisekKategorie';
 import PopisekPohlavi from '../../../shared/Popisek/PopisekPohlavi';
@@ -69,18 +68,7 @@ class PrihlaskyForm extends PureComponent {
   };
 
   render = () => {
-    const {
-      actionPrefix,
-      errorCode,
-      errorMessage,
-      existujiciUcastnik,
-      reduxName,
-      showError,
-      saved,
-      saving,
-      onHideError,
-      onHideModal
-    } = this.props;
+    const { actionPrefix, existujiciUcastnik, reduxName, saved, saving, onHideModal } = this.props;
     const jePrihlaskou = reduxName === 'prihlasky';
 
     return (
@@ -302,14 +290,6 @@ class PrihlaskyForm extends PureComponent {
             </Button>
           </div>
         </Form>
-        {showError && (
-          <HideableError
-            code={errorCode}
-            message={errorMessage}
-            title="Chyba při ukládání!"
-            onHide={onHideError}
-          />
-        )}
       </div>
     );
   };
@@ -317,15 +297,11 @@ class PrihlaskyForm extends PureComponent {
 
 PrihlaskyForm.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
-  errorCode: PropTypes.string,
-  errorMessage: PropTypes.string,
-  showError: PropTypes.bool,
   saved: PropTypes.bool.isRequired,
   saving: PropTypes.bool.isRequired,
   existujiciUcastnik: PropTypes.bool.isRequired,
   reduxName: PropTypes.string.isRequired,
   reset: PropTypes.bool,
-  onHideError: PropTypes.func.isRequired,
   onHideModal: PropTypes.func.isRequired,
   onLoadId: PropTypes.func,
   onReset: PropTypes.func.isRequired,

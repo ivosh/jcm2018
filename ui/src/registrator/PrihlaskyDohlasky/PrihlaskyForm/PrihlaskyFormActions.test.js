@@ -218,7 +218,8 @@ it('saveUcast() should dispatch validation error', async () => {
       { name: 'prihlaska.kategorie', value: undefined },
       { name: 'prihlaska.typ', value: undefined }
     ],
-    status: 'Přihláška nejde uložit. Povinná pole nejsou vyplněna.'
+    status: 'Přihláška nejde uložit. Povinná pole nejsou vyplněna.',
+    title: 'vyplňování formuláře'
   });
 });
 

@@ -1,7 +1,12 @@
 import deepFreeze from 'deep-freeze';
+import { DOHLASKY, PRIHLASKY } from '../../constants';
 import { signIn } from '../../auth/SignIn/SignInActions';
 import { signOut } from '../../auth/SignOut/SignOutActions';
 import { saveVykon } from '../../casomeric/Casomira/StartovniCisla/StartovniCislaActions';
+import {
+  createSaveUcastError,
+  createValidationError
+} from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
 import { createVykon, deleteVykon } from '../../registrator/Startujici/StartujiciActions';
 import { createFailureFromAction } from '../../store/wsAPI';
 import { hideError } from './ErrorInModalActions';
@@ -10,6 +15,12 @@ import errorInModalReducer from './errorInModalReducer';
 const genericUnsuccessfulResponse = {
   code: 'unfulfilled request',
   status: 'A strange error occurred.'
+};
+
+const unsuccessfulSaveResponse = {
+  code: 'neexistuje',
+  status: 'účastník s id ===id=== neexistuje.',
+  requestId: '0.9310306652587374'
 };
 
 const unsuccessfulSignInResponse = {
@@ -56,6 +67,64 @@ it('CASOMIRA_SAVE_VYKON_ERROR', () => {
         response: genericUnsuccessfulResponse
       })
     )
+  ).toEqual(stateAfter);
+});
+
+it('DOHLASKY_FORM_INVALID', () => {
+  const stateBefore = {};
+  const stateAfter = {
+    ...stateBefore,
+    code: 'nejde uložit',
+    message: 'Přihláška nejde uložit. Povinná pole nejsou vyplněna.',
+    show: true,
+    title: 'vyplňování formuláře'
+  };
+  deepFreeze(stateBefore);
+
+  expect(errorInModalReducer(stateBefore, createValidationError(DOHLASKY)())).toEqual(stateAfter);
+});
+
+it('DOHLASKY_SAVE_ERROR', () => {
+  const stateBefore = {};
+  const stateAfter = {
+    ...stateBefore,
+    code: 'neexistuje',
+    message: 'účastník s id ===id=== neexistuje.',
+    show: true
+  };
+  deepFreeze(stateBefore);
+
+  expect(
+    errorInModalReducer(stateBefore, createSaveUcastError(DOHLASKY)(unsuccessfulSaveResponse))
+  ).toEqual(stateAfter);
+});
+
+it('PRIHLASKY_FORM_INVALID', () => {
+  const stateBefore = {};
+  const stateAfter = {
+    ...stateBefore,
+    code: 'nejde uložit',
+    message: 'Přihláška nejde uložit. Povinná pole nejsou vyplněna.',
+    show: true,
+    title: 'vyplňování formuláře'
+  };
+  deepFreeze(stateBefore);
+
+  expect(errorInModalReducer(stateBefore, createValidationError(PRIHLASKY)())).toEqual(stateAfter);
+});
+
+it('PRIHLASKY_SAVE_ERROR', () => {
+  const stateBefore = {};
+  const stateAfter = {
+    ...stateBefore,
+    code: 'neexistuje',
+    message: 'účastník s id ===id=== neexistuje.',
+    show: true
+  };
+  deepFreeze(stateBefore);
+
+  expect(
+    errorInModalReducer(stateBefore, createSaveUcastError(PRIHLASKY)(unsuccessfulSaveResponse))
   ).toEqual(stateAfter);
 });
 

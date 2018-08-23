@@ -15,9 +15,6 @@ const state = {
   registrator: {
     [reduxName]: {
       form: {
-        errorCode: '',
-        errorMessage: '',
-        showError: false,
         saved: false,
         saving: true,
         ucastnikId: '---id---',
@@ -44,7 +41,6 @@ it('prázdný formulář', () => {
       reduxName={reduxName}
       saved={false}
       saving={false}
-      onHideError={jest.fn()}
       onHideModal={jest.fn()}
       onReset={jest.fn()}
       onSubmit={jest.fn()}
@@ -61,27 +57,6 @@ it('formulář s existujícím účastníkem', () => {
       reduxName={reduxName}
       saved={false}
       saving={false}
-      onHideError={jest.fn()}
-      onHideModal={jest.fn()}
-      onReset={jest.fn()}
-      onSubmit={jest.fn()}
-    />
-  );
-  expect(toJSON(wrapper)).toMatchSnapshot();
-});
-
-it('formulář s chybou', () => {
-  const wrapper = shallow(
-    <PrihlaskyForm
-      actionPrefix={actionPrefix}
-      errorCode="chybový kód"
-      errorMessage="Popisek chyby, která se stala."
-      existujiciUcastnik={true}
-      reduxName={reduxName}
-      showError={true}
-      saved={false}
-      saving={false}
-      onHideError={jest.fn()}
       onHideModal={jest.fn()}
       onReset={jest.fn()}
       onSubmit={jest.fn()}
@@ -94,14 +69,10 @@ it('formulář po uložení', () => {
   const wrapper = shallow(
     <PrihlaskyForm
       actionPrefix={actionPrefix}
-      errorCode="chybový kód"
-      errorMessage="Popisek chyby, která se stala."
       existujiciUcastnik={true}
       reduxName={reduxName}
-      showError={false}
       saved={true}
       saving={false}
-      onHideError={jest.fn()}
       onHideModal={jest.fn()}
       onReset={jest.fn()}
       onSubmit={jest.fn()}
@@ -121,7 +92,6 @@ it('handle succesfull form submit', () => {
         reduxName={reduxName}
         saved={false}
         saving={false}
-        onHideError={jest.fn()}
         onHideModal={jest.fn()}
         onReset={jest.fn()}
         onSubmit={onSubmit}
@@ -145,7 +115,6 @@ it('handle form reset', () => {
         reduxName={reduxName}
         saved={false}
         saving={false}
-        onHideError={jest.fn()}
         onHideModal={jest.fn()}
         onReset={onReset}
         onSubmit={jest.fn()}
@@ -167,7 +136,6 @@ it('handle Enter key and move focus', () => {
         reduxName={reduxName}
         saved={false}
         saving={false}
-        onHideError={jest.fn()}
         onHideModal={jest.fn()}
         onReset={jest.fn()}
         onSubmit={jest.fn()}
@@ -196,7 +164,6 @@ it('handle Enter key and move focus from last to first', () => {
         reduxName={reduxName}
         saved={false}
         saving={false}
-        onHideError={jest.fn()}
         onHideModal={jest.fn()}
         onReset={jest.fn()}
         onSubmit={jest.fn()}
@@ -224,7 +191,6 @@ it('prázdný formulář - přihlášky', () => {
       reduxName="prihlasky"
       saved={false}
       saving={false}
-      onHideError={jest.fn()}
       onHideModal={jest.fn()}
       onReset={jest.fn()}
       onSubmit={jest.fn()}

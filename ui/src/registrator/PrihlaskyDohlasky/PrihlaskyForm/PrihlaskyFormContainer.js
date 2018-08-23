@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { createReset as createResetNovaPlatba } from '../Platby/PlatbyActions';
 import PrihlaskyForm from './PrihlaskyForm';
 import {
-  createHideError,
   createHideModal,
   createLoadUcastnik,
   createReset as createResetForm,
@@ -18,15 +17,12 @@ const mapStateToProps = (state, ownProps) => {
       [reduxName]: { form }
     }
   } = state;
-  const { errorCode, errorMessage, showError, saved, saving, ucastnikId } = form;
+  const { saved, saving, ucastnikId } = form;
 
   return {
     actionPrefix,
     entities,
-    errorCode,
-    errorMessage,
     reduxName,
-    showError,
     saved,
     saving,
     existujiciUcastnik: !!ucastnikId,
@@ -38,7 +34,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { actionPrefix, reduxName } = ownProps;
 
   return {
-    onHideError: () => dispatch(createHideError(actionPrefix)()),
     onHideModal: () => dispatch(createHideModal(actionPrefix)()),
     onReset: rocniky => {
       dispatch(createResetForm({ actionPrefix })({ rocniky }));

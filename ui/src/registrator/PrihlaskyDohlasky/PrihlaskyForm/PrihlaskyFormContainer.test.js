@@ -16,9 +16,6 @@ beforeEach(() => {
     registrator: {
       [reduxName]: {
         form: {
-          errorCode: 'Chybový kód.',
-          errorMessage: 'Chybová hláška trochu dlouhá.',
-          showError: true,
           saved: false,
           saving: true,
           ucastnikId: '---id---',
@@ -36,19 +33,10 @@ beforeEach(() => {
 
 it('maps state and dispatch to props', () => {
   expect(wrapper.props().actionPrefix).toEqual(actionPrefix);
-  expect(wrapper.props().errorCode).toEqual('Chybový kód.');
-  expect(wrapper.props().errorMessage).toEqual('Chybová hláška trochu dlouhá.');
   expect(wrapper.props().reduxName).toEqual(reduxName);
-  expect(wrapper.props().showError).toBe(true);
   expect(wrapper.props().saved).toBe(false);
   expect(wrapper.props().saving).toBe(true);
   expect(wrapper.props().existujiciUcastnik).toBe(true);
-});
-
-it('maps onHideError to dispatch hideError action', () => {
-  wrapper.props().onHideError();
-
-  expect(store.dispatch).toHaveBeenCalledWith({ type: `${actionPrefix}_HIDE_ERROR` });
 });
 
 it('maps onHideModal to dispatch hideModal action', () => {

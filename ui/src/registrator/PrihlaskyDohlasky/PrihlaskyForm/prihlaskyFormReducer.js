@@ -17,10 +17,7 @@ import {
 import { getTypKategorie } from '../../../entities/rocniky/rocnikyReducer';
 
 const initialState = {
-  errorCode: '',
-  errorMessage: '',
   jePrihlaskou: undefined,
-  showError: false,
   saved: false,
   saving: false,
   ucastnikId: undefined,
@@ -86,8 +83,6 @@ export const createPrihlaskyFormReducer = (
   jePrihlaskou = actionPrefix === PRIHLASKY
 ) => (state = { ...initialState, jePrihlaskou }, action) => {
   switch (action.type) {
-    case `${actionPrefix}_HIDE_ERROR`:
-      return { ...state, showError: false };
     case `${actionPrefix}_INPUT_CHANGED`: {
       const [section, name] = action.name.split('.');
       let { value } = action;
@@ -174,25 +169,12 @@ export const createPrihlaskyFormReducer = (
       };
     case `${actionPrefix}_VALIDATE_FORM`:
       return { ...state, validate: true };
-    case `${actionPrefix}_FORM_INVALID`:
-      return {
-        ...state,
-        showError: true,
-        errorCode: action.code,
-        errorMessage: action.status
-      };
     case `${actionPrefix}_SAVE_REQUEST`:
       return { ...state, saving: true };
     case `${actionPrefix}_SAVE_SUCCESS`:
-      return { ...state, ucastnikId: action.id, saving: false, showError: false };
+      return { ...state, ucastnikId: action.id, saving: false };
     case `${actionPrefix}_SAVE_ERROR`:
-      return {
-        ...state,
-        saving: false,
-        errorCode: action.code,
-        errorMessage: action.status,
-        showError: true
-      };
+      return { ...state, saving: false };
     case `${actionPrefix}_SAVE_SHOW_MODAL`:
       return { ...state, saved: true };
     case `${actionPrefix}_SAVE_HIDE_MODAL`:

@@ -5,7 +5,6 @@ import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import { predepsaneStartovne } from '../../platby';
 import { createAddPlatba, createRemovePlatba } from '../Platby/PlatbyActions';
 import {
-  createHideError,
   createHideModal,
   createInputChanged,
   createLoadUcastnik,
@@ -14,8 +13,7 @@ import {
   createSaveUcastSuccess,
   createSaveUcastError,
   createShowModal,
-  createValidate,
-  createValidationError
+  createValidate
 } from './PrihlaskyFormActions';
 import {
   createPrihlaskyFormReducer,
@@ -31,7 +29,6 @@ import {
 const actionPrefix = 'PRIHLASKY_YYY';
 const addPlatba = createAddPlatba(actionPrefix);
 const dohlaskyFormReducer = createPrihlaskyFormReducer(DOHLASKY);
-const hideError = createHideError(actionPrefix);
 const hideModal = createHideModal(actionPrefix);
 const inputChanged = createInputChanged({
   actionPrefix,
@@ -46,7 +43,6 @@ const saveUcastSuccess = createSaveUcastSuccess(actionPrefix);
 const saveUcastError = createSaveUcastError(actionPrefix);
 const showModal = createShowModal(actionPrefix);
 const validate = createValidate(actionPrefix);
-const validationError = createValidationError(actionPrefix);
 
 const unsuccessfulResponse = {
   code: 'neexistuje',
@@ -58,10 +54,7 @@ it('na začátku - jePrihlaskou: true', () => {
   const stateBefore = undefined;
 
   const stateAfter = prihlaskyFormReducer(stateBefore, {});
-  expect(stateAfter.errorCode).toEqual('');
-  expect(stateAfter.errorMessage).toEqual('');
   expect(stateAfter.jePrihlaskou).toBe(true);
-  expect(stateAfter.showError).toBe(false);
   expect(stateAfter.saving).toBe(false);
   expect(stateAfter.ucastnikId).toBe(undefined);
   expect(stateAfter.validate).toBe(false);
@@ -96,24 +89,8 @@ it('na začátku - jePrihlaskou: false', () => {
   expect(stateAfter.jePrihlaskou).toBe(false);
 });
 
-it('hideError()', () => {
-  const stateBefore = {
-    saving: false,
-    errorCode: 'database problem',
-    errorMessage: 'Problém při komunikaci s databází.',
-    showError: true
-  };
-  const stateAfter = { ...stateBefore, showError: false };
-  deepFreeze(stateBefore);
-
-  expect(prihlaskyFormReducer(stateBefore, hideError())).toEqual(stateAfter);
-});
-
 it('reset()', () => {
   const stateBefore = {
-    errorCode: 'chybový kód',
-    errorMessage: 'Dlouhá chybová hláška.',
-    showError: true,
     saved: true,
     saving: true,
     ucastnikId: '===id===',
@@ -143,9 +120,6 @@ it('reset()', () => {
     ubytovani: { pátek: { prihlaseno: true } }
   };
   const stateAfter = {
-    errorCode: '',
-    errorMessage: '',
-    showError: false,
     jePrihlaskou: true,
     saved: false,
     saving: false,
@@ -211,7 +185,7 @@ it('saveUcastRequest()', () => {
 
 it('saveUcastSuccess()', () => {
   const stateBefore = { saving: true };
-  const stateAfter = { ...stateBefore, ucastnikId: '===id===', saving: false, showError: false };
+  const stateAfter = { ...stateBefore, ucastnikId: '===id===', saving: false };
   deepFreeze(stateBefore);
 
   expect(
@@ -223,14 +197,8 @@ it('saveUcastSuccess()', () => {
 });
 
 it('saveUcastError()', () => {
-  const stateBefore = { saving: true, errorCode: '', errorMessage: '', showError: false };
-  const stateAfter = {
-    ...stateBefore,
-    saving: false,
-    errorCode: 'neexistuje',
-    errorMessage: 'účastník s id ===id=== neexistuje.',
-    showError: true
-  };
+  const stateBefore = { saving: true };
+  const stateAfter = { ...stateBefore, saving: false };
   deepFreeze(stateBefore);
 
   expect(prihlaskyFormReducer(stateBefore, saveUcastError(unsuccessfulResponse))).toEqual(
@@ -298,7 +266,7 @@ it('validation of the initial state [validate === false]', () => {
       rocniky
     })
   ).toBe(undefined);
-  expect(inputValid({ name: 'complete.nonsense', value: 'huh', form })).toBe('error');
+  expect(inputValid({ name: 'complete.nonsense', value: 'huh', form })).toEqual('error');
   expect(formErrors({ form, rocniky })).toEqual([]);
   expect(isInputEnabled({ name: 'prihlaska.startCislo', form, rocniky })).toBe(false);
   expect(isInputEnabled({ name: 'ubytovani.pátek', form, rocniky })).toBe(true);
@@ -533,19 +501,6 @@ it('validate()', () => {
   deepFreeze(stateBefore);
 
   expect(prihlaskyFormReducer(stateBefore, validate())).toEqual(stateAfter);
-});
-
-it('validationError()', () => {
-  const stateBefore = {};
-  const stateAfter = {
-    ...stateBefore,
-    showError: true,
-    errorCode: 'nejde uložit',
-    errorMessage: 'Přihláška nejde uložit. Povinná pole nejsou vyplněna.'
-  };
-  deepFreeze(stateBefore);
-
-  expect(prihlaskyFormReducer(stateBefore, validationError())).toEqual(stateAfter);
 });
 
 it('udaje.pohlavi - nahodí ženu', () => {
@@ -1210,10 +1165,7 @@ it('loadUcastnik() - údaje i přihláška', () => {
     }
   };
   const stateAfter = {
-    errorCode: '',
-    errorMessage: '',
     jePrihlaskou: true,
-    showError: false,
     saved: false,
     saving: false,
     ucastnikId: '5a09b1fd371dec1e99b7e1c9',
@@ -1271,10 +1223,7 @@ it('loadUcastnik() - jen údaje', () => {
     }
   };
   const stateAfter = {
-    errorCode: '',
-    errorMessage: '',
     jePrihlaskou: true,
-    showError: false,
     saved: false,
     saving: false,
     ucastnikId: '6f09b1fd371dec1e99b7e1c9',
@@ -1332,10 +1281,7 @@ it('loadUcastnik() - dohláška', () => {
     }
   };
   const stateAfter = {
-    errorCode: '',
-    errorMessage: '',
     jePrihlaskou: true,
-    showError: false,
     saved: false,
     saving: false,
     ucastnikId: '6f09b1fd371dec1e99b7e1c9',

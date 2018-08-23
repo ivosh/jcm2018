@@ -73,8 +73,6 @@ Object {
     },
     "dohlasky": Object {
       "form": Object {
-        "errorCode": "",
-        "errorMessage": "",
         "jePrihlaskou": false,
         "platby": Array [],
         "prihlaska": Object {
@@ -88,7 +86,6 @@ Object {
         },
         "saved": false,
         "saving": false,
-        "showError": false,
         "ubytovani": Object {},
         "ucastnikId": undefined,
         "udaje": Object {
@@ -139,8 +136,6 @@ Object {
     },
     "prihlasky": Object {
       "form": Object {
-        "errorCode": "",
-        "errorMessage": "",
         "jePrihlaskou": true,
         "platby": Array [],
         "prihlaska": Object {
@@ -154,7 +149,6 @@ Object {
         },
         "saved": false,
         "saving": false,
-        "showError": false,
         "ubytovani": Object {},
         "ucastnikId": undefined,
         "udaje": Object {
@@ -281,8 +275,6 @@ Object {
     },
     "dohlasky": Object {
       "form": Object {
-        "errorCode": "",
-        "errorMessage": "",
         "jePrihlaskou": false,
         "platby": Array [],
         "prihlaska": Object {
@@ -296,7 +288,6 @@ Object {
         },
         "saved": false,
         "saving": false,
-        "showError": false,
         "ubytovani": Object {},
         "ucastnikId": undefined,
         "udaje": Object {
@@ -347,8 +338,6 @@ Object {
     },
     "prihlasky": Object {
       "form": Object {
-        "errorCode": "",
-        "errorMessage": "",
         "jePrihlaskou": true,
         "platby": Array [],
         "prihlaska": Object {
@@ -362,7 +351,6 @@ Object {
         },
         "saved": false,
         "saving": false,
-        "showError": false,
         "ubytovani": Object {},
         "ucastnikId": undefined,
         "udaje": Object {
@@ -489,8 +477,6 @@ Object {
     },
     "dohlasky": Object {
       "form": Object {
-        "errorCode": "",
-        "errorMessage": "",
         "jePrihlaskou": false,
         "platby": Array [],
         "prihlaska": Object {
@@ -504,7 +490,6 @@ Object {
         },
         "saved": false,
         "saving": false,
-        "showError": false,
         "ubytovani": Object {},
         "ucastnikId": undefined,
         "udaje": Object {
@@ -555,8 +540,6 @@ Object {
     },
     "prihlasky": Object {
       "form": Object {
-        "errorCode": "",
-        "errorMessage": "",
         "jePrihlaskou": true,
         "platby": Array [],
         "prihlaska": Object {
@@ -570,7 +553,6 @@ Object {
         },
         "saved": false,
         "saving": false,
-        "showError": false,
         "ubytovani": Object {},
         "ucastnikId": undefined,
         "udaje": Object {
