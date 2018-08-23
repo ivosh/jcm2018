@@ -94,13 +94,13 @@ export const createFailureFromAction = ({ action, error, request, response, stat
 
 // Processes an array of actions and applies function 'fn' on every item.
 // The function 'fn' returns a promise which is waited upon.
-const processArray = (actions, fn, data) =>
-  actions.reduce(
-    (last, current) => last.then(() => fn({ action: current, ...data }).then()),
-    Promise.resolve()
-  );
+const processArray = async (actions, fn, data) =>
+  actions.reduce(async (last, current) => {
+    await last;
+    return fn({ action: current, ...data });
+  }, Promise.resolve());
 
-const doOneAction = ({ action, next, store, wsClient }) => {
+const doOneAction = async ({ action, next, store, wsClient }) => {
   const { [WS_API]: callAPI } = action;
   if (!callAPI) {
     return next(action);
@@ -133,28 +133,28 @@ const doOneAction = ({ action, next, store, wsClient }) => {
 
   const commonArgs = { type, checkResponse, decorate, normalize, request, title };
   const token = dontUseToken ? undefined : state.auth.token;
-  return wsClient.sendRequest(apiCall({ endpoint, request, token })).then(
-    response => {
-      const { code } = response;
-      switch (code) {
-        case CODE_OK: {
-          return next(createSuccess({ ...commonArgs, response }));
-        }
-        case CODE_TOKEN_INVALID:
-          return next(createAuthTokenExpired({ ...commonArgs, response }));
-        default:
-          return next(createFailure({ ...commonArgs, response }));
+  try {
+    const response = await wsClient.sendRequest(apiCall({ endpoint, request, token }));
+    const { code } = response;
+    switch (code) {
+      case CODE_OK: {
+        return next(createSuccess({ ...commonArgs, response }));
       }
-    },
-    error => next(createFailure({ ...commonArgs, error, response: { code: 'internal error' } }))
-  );
+      case CODE_TOKEN_INVALID:
+        return next(createAuthTokenExpired({ ...commonArgs, response }));
+      default:
+        return next(createFailure({ ...commonArgs, response }));
+    }
+  } catch (error) {
+    return next(createFailure({ ...commonArgs, error, response: { code: 'internal error' } }));
+  }
 };
 
 // A Redux middleware that interprets actions with WS_API info specified.
 // Performs the call and promises when such actions are dispatched.
 // eslint-disable-next-line arrow-body-style
 const createWsAPIMiddleware = wsClient => {
-  return store => next => actions =>
+  return store => next => async actions =>
     Array.isArray(actions)
       ? processArray(actions, doOneAction, { next, store, wsClient })
       : doOneAction({ action: actions, next, store, wsClient });
