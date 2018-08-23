@@ -8,10 +8,12 @@ import StartovniCislaProTypContainer from '../../shared/StartovniCislaProTyp/Sta
 import Legenda from '../../shared/StartovniCislaProTyp/Legenda';
 import './StartovniCisla.css';
 
-export const Renderer = ({ id, startCislo, dokonceno }) =>
+const navLink = (id, odstartovani) => (odstartovani ? `/dohlasky/${id}` : `/prihlasky/${id}`);
+
+export const Renderer = ({ id, startCislo, dokonceno, odstartovani }) =>
   id ? (
     <NavLink
-      to={`/prihlasky/${id}`}
+      to={navLink(id, odstartovani)}
       className={`StartovniCislaProTyp__item Legenda__item--${findDokonceno(dokonceno).name}`}
     >
       {startCislo}
@@ -23,7 +25,8 @@ export const Renderer = ({ id, startCislo, dokonceno }) =>
 Renderer.propTypes = {
   id: PropTypes.string,
   startCislo: PropTypes.number.isRequired,
-  dokonceno: PropTypes.bool
+  dokonceno: PropTypes.bool,
+  odstartovani: PropTypes.bool.isRequired
 };
 
 const legendaOdstartovani = () => Object.values(dokoncene);

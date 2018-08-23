@@ -35,7 +35,11 @@ it('Renderer', () => {
 
   const component = renderer.create(
     <MemoryRouter>
-      <StartovniCislaProTyp startovniCisla={startovniCisla} Renderer={Renderer} />
+      <StartovniCislaProTyp
+        odstartovani={false}
+        startovniCisla={startovniCisla}
+        Renderer={Renderer}
+      />
     </MemoryRouter>
   );
   expect(component.toJSON()).toMatchSnapshot();
