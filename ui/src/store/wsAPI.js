@@ -23,11 +23,12 @@ export const createRequestFromAction = ({ action, request, state }) => {
   return createRequest({ type, request });
 };
 
+// Called also for client-created failures (SignIn nonce check).
 const createSuccess = ({
   type,
   checkResponse,
   decorate = () => {},
-  normalize = data => data, // Called also for client-created failures (SignIn nonce check).
+  normalize = ({ response }) => response,
   request,
   response = {},
   title
@@ -45,7 +46,7 @@ const createSuccess = ({
   return {
     type: `${type}_${suffix}`,
     request,
-    response: { code: response.code, status: response.status, ...normalize(response) },
+    response: { code: response.code, status: response.status, ...normalize({ request, response }) },
     title,
     receivedAt: Date.now(),
     ...decorate(response)

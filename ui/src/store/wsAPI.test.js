@@ -83,8 +83,8 @@ const decorate = json => ({
   getCode: () => json.code
 });
 
-const normalize = json => {
-  const byIds = json.response;
+const normalize = ({ response }) => {
+  const byIds = response.response;
   const allIds = Object.keys(byIds);
 
   return { allIds, byIds };
@@ -265,8 +265,10 @@ const signInResponse = {
   requestId: 'blablabla'
 };
 const normalizeSignInResponse = ({
-  check: { client, code, decodedToken, server, status },
-  response: { token, username }
+  response: {
+    check: { client, code, decodedToken, server, status },
+    response: { token, username }
+  }
 }) => ({ client, code, decodedToken, server, status, token, username });
 
 it('successful wsAPI action with checkResponse returning CODE_OK', async () => {
