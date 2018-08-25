@@ -28,7 +28,7 @@ const createSuccess = ({
   type,
   checkResponse,
   decorate = () => {},
-  normalize = ({ response }) => response,
+  normalize = ({ request, response }) => ({ request, response }),
   request,
   response = {},
   title
@@ -43,10 +43,15 @@ const createSuccess = ({
     }
   }
 
+  const { request: normalizedRequest, response: normalizedResponse } = normalize({
+    request,
+    response
+  });
+
   return {
     type: `${type}_${suffix}`,
-    request,
-    response: { code: response.code, status: response.status, ...normalize({ request, response }) },
+    request: normalizedRequest,
+    response: { code: response.code, status: response.status, ...normalizedResponse },
     title,
     receivedAt: Date.now(),
     ...decorate(response)

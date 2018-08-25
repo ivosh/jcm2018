@@ -83,11 +83,11 @@ const decorate = json => ({
   getCode: () => json.code
 });
 
-const normalize = ({ response }) => {
+const normalize = ({ request, response }) => {
   const byIds = response.response;
   const allIds = Object.keys(byIds);
 
-  return { allIds, byIds };
+  return { request, response: { allIds, byIds } };
 };
 
 const endpoint = 'FETCH_API';
@@ -265,11 +265,12 @@ const signInResponse = {
   requestId: 'blablabla'
 };
 const normalizeSignInResponse = ({
+  request,
   response: {
     check: { client, code, decodedToken, server, status },
     response: { token, username }
   }
-}) => ({ client, code, decodedToken, server, status, token, username });
+}) => ({ request, response: { client, code, decodedToken, server, status, token, username } });
 
 it('successful wsAPI action with checkResponse returning CODE_OK', async () => {
   mockWsClient.sendRequest = async () => signInResponse;

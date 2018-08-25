@@ -36,11 +36,12 @@ const checkResponse = ({ request, response }) => {
 };
 
 const normalize = ({
+  request,
   response: {
     check: { client, code, decodedToken, server, status } = {},
     response: { token, username }
   }
-}) => ({ client, code, decodedToken, server, status, token, username });
+}) => ({ request, response: { client, code, decodedToken, server, status, token, username } });
 
 export const SIGN_IN = 'SIGN_IN';
 export const signIn = ({ username, password }) => ({
