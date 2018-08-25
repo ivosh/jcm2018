@@ -4,13 +4,16 @@ import { signIn } from '../../auth/SignIn/SignInActions';
 import { signOut } from '../../auth/SignOut/SignOutActions';
 import { saveVykon } from '../../casomeric/Casomira/StartovniCisla/StartovniCislaActions';
 import {
-  createSaveUcastError,
+  createPrihlaskySave,
   createValidationError
 } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
 import { createVykon, deleteVykon } from '../../registrator/Startujici/StartujiciActions';
 import { createFailureFromAction } from '../../store/wsAPI';
 import { hideError } from './ErrorInModalActions';
 import errorInModalReducer from './errorInModalReducer';
+
+const dohlaskySave = createPrihlaskySave(DOHLASKY);
+const prihlaskySave = createPrihlaskySave(PRIHLASKY);
 
 const genericUnsuccessfulResponse = {
   code: 'unfulfilled request',
@@ -90,12 +93,20 @@ it('DOHLASKY_SAVE_ERROR', () => {
     ...stateBefore,
     code: 'neexistuje',
     message: 'účastník s id ===id=== neexistuje.',
-    show: true
+    show: true,
+    title: 'ukládání formuláře'
   };
   deepFreeze(stateBefore);
 
   expect(
-    errorInModalReducer(stateBefore, createSaveUcastError(DOHLASKY)(unsuccessfulSaveResponse))
+    errorInModalReducer(
+      stateBefore,
+      createFailureFromAction({
+        action: dohlaskySave(),
+        request: {},
+        response: unsuccessfulSaveResponse
+      })
+    )
   ).toEqual(stateAfter);
 });
 
@@ -119,12 +130,20 @@ it('PRIHLASKY_SAVE_ERROR', () => {
     ...stateBefore,
     code: 'neexistuje',
     message: 'účastník s id ===id=== neexistuje.',
-    show: true
+    show: true,
+    title: 'ukládání formuláře'
   };
   deepFreeze(stateBefore);
 
   expect(
-    errorInModalReducer(stateBefore, createSaveUcastError(PRIHLASKY)(unsuccessfulSaveResponse))
+    errorInModalReducer(
+      stateBefore,
+      createFailureFromAction({
+        action: prihlaskySave(),
+        request: {},
+        response: unsuccessfulSaveResponse
+      })
+    )
   ).toEqual(stateAfter);
 });
 

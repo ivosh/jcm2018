@@ -11,6 +11,7 @@ export const PLATBA_TYPY = ['hotově', 'převodem', 'složenkou'];
 
 export const API_DELETE_VYKON = 'deleteVykon';
 export const API_SAVE_STOPKY = 'saveStopky';
+export const API_SAVE_UCAST = 'saveUcast';
 export const API_SAVE_VYKON = 'saveVykon';
 export const API_SIGN_IN = 'signIn';
 export const API_SIGN_OUT = 'signOut';
@@ -22,7 +23,6 @@ export const FIND_ALL_UCASTNICI = 'findAllUcastnici';
 export const SAVE_PLATBY = 'savePlatby';
 export const SAVE_PRIHLASKA = 'savePrihlaska';
 export const SAVE_UBYTOVANI = 'saveUbytovani';
-export const SAVE_UCAST = 'saveUcast';
 export const SAVE_UDAJE = 'saveUdaje';
 export const SAVE_VYKON = API_SAVE_VYKON;
 
@@ -61,36 +61,9 @@ export const findAllUcastnici = token => ({
   token
 });
 
-export const savePlatby = ({ id, rok, platby }, token) => ({
-  action: SAVE_PLATBY,
-  request: { id, rok, platby },
-  token
-});
-
-export const savePrihlaska = ({ id, rok, prihlaska }, token) => ({
-  action: SAVE_PRIHLASKA,
-  request: { id, rok, prihlaska },
-  token
-});
-
 export const saveUbytovani = ({ id, rok, ubytovani }, token) => ({
   action: SAVE_UBYTOVANI,
   request: { id, rok, ubytovani },
-  token
-});
-
-export const saveUcast = (
-  { id, rok, udaje, prihlaska, vykon, platby, ubytovani, poznamka },
-  token
-) => ({
-  action: SAVE_UCAST,
-  request: { id, rok, udaje, prihlaska, vykon, platby, ubytovani, poznamka },
-  token
-});
-
-export const saveUdaje = ({ id, rok, udaje }, token) => ({
-  action: SAVE_UDAJE,
-  request: { id, rok, udaje },
   token
 });
 

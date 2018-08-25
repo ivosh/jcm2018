@@ -1,6 +1,10 @@
-import { AKTUALNI_ROK, DOHLASKY, PRIHLASKY } from '../../constants';
+import { AKTUALNI_ROK } from '../../constants';
 import { SIGN_OUT } from '../../auth/SignOut/SignOutActions';
 import { CASOMIRA_SAVE_VYKON } from '../../casomeric/Casomira/StartovniCisla/StartovniCislaActions';
+import {
+  DOHLASKY_SAVE,
+  PRIHLASKY_SAVE
+} from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
 import {
   STARTUJICI_CREATE_VYKON,
   STARTUJICI_DELETE_VYKON
@@ -50,9 +54,10 @@ const ucastniciReducer = (state = initialState, action) => {
     }
     case 'FETCH_UCASTNICI_SUCCESS':
       return { ...action.data, invalidated: false };
-    case `${DOHLASKY}_SAVE_SUCCESS`:
-    case `${PRIHLASKY}_SAVE_SUCCESS`: {
-      const { id, rok, udaje, prihlaska, platby, ubytovani } = action;
+    case `${DOHLASKY_SAVE}_SUCCESS`:
+    case `${PRIHLASKY_SAVE}_SUCCESS`: {
+      const { rok, udaje, prihlaska, platby, ubytovani } = action.request;
+      const { id } = action.response;
       const state1 = updateUcast(state, id, rok, 'udaje', udaje);
       const state2 = updateUcast(state1, id, rok, 'prihlaska', prihlaska);
       const state3 = updateUcast(state2, id, rok, 'platby', platby);

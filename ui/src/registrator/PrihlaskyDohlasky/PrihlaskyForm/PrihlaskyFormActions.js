@@ -1,8 +1,12 @@
-import { CODE_OK, CODE_TOKEN_INVALID, saveUcast } from '../../../common';
-import { AKTUALNI_ROK, PRIHLASKY, PRIHLASKY_SAVE_MODAL_TIMEOUT } from '../../../constants';
-import { errorToStr } from '../../../Util';
-import { authTokenExpired } from '../../../auth/SignIn/SignInActions';
+import { API_SAVE_UCAST, CODE_OK } from '../../../common';
+import {
+  AKTUALNI_ROK,
+  DOHLASKY,
+  PRIHLASKY,
+  PRIHLASKY_SAVE_MODAL_TIMEOUT
+} from '../../../constants';
 import { getDatumKonani } from '../../../entities/rocniky/rocnikyReducer';
+import { WS_API } from '../../../store/wsAPI';
 import { createInputChanged as genericCreateInputChanged } from '../Input/InputActions';
 import { formErrors, kategorieInputOptions } from './prihlaskyFormReducer';
 
@@ -61,45 +65,6 @@ export const createValidationError = actionPrefix => errors => ({
   title: 'vyplňování formuláře'
 });
 
-export const createSaveUcastRequest = actionPrefix => () => ({
-  type: `${actionPrefix}_SAVE_REQUEST`
-});
-
-export const createSaveUcastSuccess = actionPrefix => ({
-  prihlaska,
-  platby = [],
-  ubytovani = {},
-  ...props
-}) => {
-  const { typ, ...jenPrihlaska } = prihlaska;
-
-  return {
-    type: `${actionPrefix}_SAVE_SUCCESS`,
-    prihlaska: jenPrihlaska,
-    platby,
-    ubytovani,
-    ...props,
-    receivedAt: Date.now()
-  };
-};
-
-export const createSaveUcastError = actionPrefix => ({ code, status, err, ...rest }) => ({
-  type: `${actionPrefix}_SAVE_ERROR`,
-  code,
-  status,
-  err: errorToStr(err),
-  ...rest,
-  receivedAt: Date.now()
-});
-
-const handleErrors = ({ actionPrefix, dispatch, response }) => {
-  if (response.code === CODE_TOKEN_INVALID) {
-    dispatch(authTokenExpired({ response }));
-  } else {
-    dispatch(createSaveUcastError(actionPrefix)(response));
-  }
-};
-
 export const createHideModal = actionPrefix => () => ({ type: `${actionPrefix}_SAVE_HIDE_MODAL` });
 export const createShowModal = actionPrefix => () => ({ type: `${actionPrefix}_SAVE_SHOW_MODAL` });
 const showModalWithTimeout = (actionPrefix, dispatch) => {
@@ -107,47 +72,69 @@ const showModalWithTimeout = (actionPrefix, dispatch) => {
   setTimeout(() => dispatch(createHideModal(actionPrefix)()), PRIHLASKY_SAVE_MODAL_TIMEOUT);
 };
 
-export const createSaveUcast = (actionPrefix, reduxName) => () => async (
-  dispatch,
-  getState,
-  wsClient
-) => {
-  await dispatch(createValidate(actionPrefix)());
-
-  const state = getState();
+const createRequest = ({ reduxName, state }) => {
+  const rok = AKTUALNI_ROK;
   const {
-    entities: { rocniky, ucastnici },
+    entities: { ucastnici },
     registrator: {
       [reduxName]: { form }
     }
   } = state;
-
-  const errors = formErrors({ form, rocniky });
-  if (errors.length > 0) {
-    dispatch(createValidationError(actionPrefix)(errors));
-    return;
-  }
-
-  dispatch(createSaveUcastRequest(actionPrefix)());
-
-  const rok = AKTUALNI_ROK;
   const existingUcast = form.ucastnikId ? ucastnici.byIds[form.ucastnikId][rok] || {} : {};
   const { udaje, prihlaska, platby, ubytovani } = form;
-  const ucast = { ...existingUcast, udaje, prihlaska, platby, ubytovani };
 
-  try {
-    const response = await wsClient.sendRequest(
-      saveUcast({ id: form.ucastnikId, rok, ...ucast }, state.auth.token)
-    );
-    if (response.code !== CODE_OK) {
-      handleErrors({ actionPrefix, dispatch, response });
+  return { id: form.ucastnikId, rok, ...existingUcast, udaje, prihlaska, platby, ubytovani };
+};
+
+const normalize = ({
+  request,
+  response: {
+    response: { id }
+  }
+}) => {
+  const { typ, ...jenPrihlaska } = request.prihlaska;
+  return { request: { ...request, prihlaska: jenPrihlaska }, response: { id } };
+};
+
+export const CREATE_PRIHLASKY_SAVE = actionPrefix => `${actionPrefix}_SAVE`;
+export const DOHLASKY_SAVE = CREATE_PRIHLASKY_SAVE(DOHLASKY);
+export const PRIHLASKY_SAVE = CREATE_PRIHLASKY_SAVE(PRIHLASKY);
+
+export const createPrihlaskySave = (actionPrefix, reduxName) => () => ({
+  [WS_API]: {
+    type: CREATE_PRIHLASKY_SAVE(actionPrefix),
+    endpoint: API_SAVE_UCAST,
+    normalize,
+    request: state => createRequest({ reduxName, state }),
+    title: 'ukládání formuláře'
+  }
+});
+
+export const createSaveUcast = (actionPrefix, reduxName) => {
+  const validate = createValidate(actionPrefix);
+  const validationError = createValidationError(actionPrefix);
+  const prihlaskySave = createPrihlaskySave(actionPrefix, reduxName);
+
+  return () => async (dispatch, getState) => {
+    await dispatch(validate());
+
+    const state = getState();
+    const {
+      entities: { rocniky },
+      registrator: {
+        [reduxName]: { form }
+      }
+    } = state;
+
+    const errors = formErrors({ form, rocniky });
+    if (errors.length > 0) {
+      dispatch(validationError(errors));
       return;
     }
 
-    const { id } = response.response;
-    dispatch(createSaveUcastSuccess(actionPrefix)({ id, rok, ...ucast }));
-    showModalWithTimeout(actionPrefix, dispatch);
-  } catch (err) {
-    dispatch(createSaveUcastError(actionPrefix)({ code: 'internal error', err }));
-  }
+    const { code } = await dispatch(prihlaskySave());
+    if (code === CODE_OK) {
+      showModalWithTimeout(actionPrefix, dispatch);
+    }
+  };
 };

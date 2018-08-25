@@ -2,16 +2,19 @@ import deepFreeze from 'deep-freeze';
 import { DOHLASKY } from '../../../constants';
 import { fetchRocnikySuccess } from '../../../entities/rocniky/rocnikyActions';
 import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
+import {
+  createFailureFromAction,
+  createRequestFromAction,
+  createSuccessFromAction
+} from '../../../store/wsAPI';
 import { predepsaneStartovne } from '../../platby';
 import { createAddPlatba, createRemovePlatba } from '../Platby/PlatbyActions';
 import {
   createHideModal,
   createInputChanged,
   createLoadUcastnik,
+  createPrihlaskySave,
   createReset,
-  createSaveUcastRequest,
-  createSaveUcastSuccess,
-  createSaveUcastError,
   createShowModal,
   createValidate
 } from './PrihlaskyFormActions';
@@ -36,11 +39,9 @@ const inputChanged = createInputChanged({
 });
 const loadUcastnik = createLoadUcastnik({ actionPrefix, jePrihlaskou: true });
 const prihlaskyFormReducer = createPrihlaskyFormReducer(actionPrefix, true);
+const prihlaskySave = createPrihlaskySave(actionPrefix);
 const removePlatba = createRemovePlatba(actionPrefix);
 const reset = createReset({ actionPrefix, jePrihlaskou: true, now: new Date('2018-06-01') });
-const saveUcastRequest = createSaveUcastRequest(actionPrefix);
-const saveUcastSuccess = createSaveUcastSuccess(actionPrefix);
-const saveUcastError = createSaveUcastError(actionPrefix);
 const showModal = createShowModal(actionPrefix);
 const validate = createValidate(actionPrefix);
 
@@ -175,35 +176,44 @@ it('showModal()', () => {
   expect(prihlaskyFormReducer(stateBefore, showModal())).toEqual(stateAfter);
 });
 
-it('saveUcastRequest()', () => {
+it('prihlaskySave() - request', () => {
   const stateBefore = { saving: false };
   const stateAfter = { ...stateBefore, saving: true };
   deepFreeze(stateBefore);
+  const request = { id: '===id===', udaje: {}, prihlaska: {}, platby: [], ubytovani: {} };
 
-  expect(prihlaskyFormReducer(stateBefore, saveUcastRequest())).toEqual(stateAfter);
+  expect(
+    prihlaskyFormReducer(stateBefore, createRequestFromAction({ action: prihlaskySave(), request }))
+  ).toEqual(stateAfter);
 });
 
-it('saveUcastSuccess()', () => {
+it('prihlaskySave() - success', () => {
   const stateBefore = { saving: true };
   const stateAfter = { ...stateBefore, ucastnikId: '===id===', saving: false };
   deepFreeze(stateBefore);
+  const request = { id: '===id===', udaje: {}, prihlaska: {}, platby: [], ubytovani: {} };
+  const response = { response: { id: '===id===' } };
 
   expect(
     prihlaskyFormReducer(
       stateBefore,
-      saveUcastSuccess({ id: '===id===', udaje: {}, prihlaska: {}, platby: [], ubytovani: {} })
+      createSuccessFromAction({ action: prihlaskySave(), request, response })
     )
   ).toEqual(stateAfter);
 });
 
-it('saveUcastError()', () => {
+it('prihlaskySave() - error', () => {
   const stateBefore = { saving: true };
   const stateAfter = { ...stateBefore, saving: false };
   deepFreeze(stateBefore);
+  const request = { id: '===id===', udaje: {}, prihlaska: {}, platby: [], ubytovani: {} };
 
-  expect(prihlaskyFormReducer(stateBefore, saveUcastError(unsuccessfulResponse))).toEqual(
-    stateAfter
-  );
+  expect(
+    prihlaskyFormReducer(
+      stateBefore,
+      createFailureFromAction({ action: prihlaskySave(), request, response: unsuccessfulResponse })
+    )
+  ).toEqual(stateAfter);
 });
 
 it('validation of the initial state [validate === false]', () => {

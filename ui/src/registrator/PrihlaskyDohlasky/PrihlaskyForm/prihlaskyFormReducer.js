@@ -172,7 +172,7 @@ export const createPrihlaskyFormReducer = (
     case `${actionPrefix}_SAVE_REQUEST`:
       return { ...state, saving: true };
     case `${actionPrefix}_SAVE_SUCCESS`:
-      return { ...state, ucastnikId: action.id, saving: false };
+      return { ...state, ucastnikId: action.response.id, saving: false };
     case `${actionPrefix}_SAVE_ERROR`:
       return { ...state, saving: false };
     case `${actionPrefix}_SAVE_SHOW_MODAL`:

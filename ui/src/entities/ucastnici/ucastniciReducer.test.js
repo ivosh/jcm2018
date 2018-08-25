@@ -3,7 +3,7 @@ import { ubytovaniNeprespano } from '../../common';
 import { PRIHLASKY } from '../../constants';
 import { websocketDisconnected } from '../../App/AppActions';
 import { signOut } from '../../auth/SignOut/SignOutActions';
-import { createSaveUcastSuccess } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
+import { createPrihlaskySave } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
 import { createVykon, deleteVykon } from '../../registrator/Startujici/StartujiciActions';
 import { saveUbytovaniSuccess } from '../../registrator/Ubytovani/UbytovaniActions';
 import { createSuccessFromAction } from '../../store/wsAPI';
@@ -11,7 +11,7 @@ import ucastniciReducer, { getUcastiProRok } from './ucastniciReducer';
 import { broadcastUcastnik, fetchUcastniciSuccess } from './ucastniciActions';
 import ucastniciTestData from './ucastniciTestData';
 
-const saveUcastSuccessPrihlasky = createSaveUcastSuccess(PRIHLASKY);
+const prihlaskySave = createPrihlaskySave(PRIHLASKY);
 
 it('nic se nestalo 1', () => {
   const stateBefore = undefined;
@@ -185,7 +185,7 @@ it('saveUbytovaniSuccess()', () => {
   ).toMatchSnapshot();
 });
 
-it('saveUcastSuccess() - přihlášky - stávající účastník - nový rok', () => {
+it('prihlaskySave() - success - stávající účastník - nový rok', () => {
   const stateBefore = { ...ucastniciTestData.entities.ucastnici };
   deepFreeze(stateBefore);
   const id = '6f09b1fd371dec1e99b7e1c9';
@@ -203,16 +203,17 @@ it('saveUcastSuccess() - přihlášky - stávající účastník - nový rok', (
   };
   const platby = [{ castka: 200, datum: '2018-05-12T00:00:00.000Z', typ: 'převodem' }];
   const ubytovani = { pátek: { prihlaseno: true } };
+  const request = { rok, udaje, prihlaska, platby, ubytovani };
 
   expect(
     ucastniciReducer(
       stateBefore,
-      saveUcastSuccessPrihlasky({ id, rok, udaje, prihlaska, platby, ubytovani })
+      createSuccessFromAction({ action: prihlaskySave(), request, response: { response: { id } } })
     )
   ).toMatchSnapshot();
 });
 
-it('saveUcastSuccess() - přihlášky - stávající účastník - stávající rok', () => {
+it('prihlaskySave() - success - stávající účastník - stávající rok', () => {
   const stateBefore = { ...ucastniciTestData.entities.ucastnici };
   deepFreeze(stateBefore);
   const id = '5a09b1fd371dec1e99b7e1c9';
@@ -221,13 +222,17 @@ it('saveUcastSuccess() - přihlášky - stávající účastník - stávající 
   const { udaje } = ucastnik[2018];
   let { prihlaska } = ucastnik[2018];
   prihlaska = { ...prihlaska, startCislo: 18 };
+  const request = { id, rok, udaje, prihlaska };
 
   expect(
-    ucastniciReducer(stateBefore, saveUcastSuccessPrihlasky({ id, rok, udaje, prihlaska }))
+    ucastniciReducer(
+      stateBefore,
+      createSuccessFromAction({ action: prihlaskySave(), request, response: { response: { id } } })
+    )
   ).toMatchSnapshot();
 });
 
-it('saveUcastSuccess() - přihlášky - nový účastník', () => {
+it('prihlaskySave() - success - nový účastník', () => {
   const stateBefore = { ...ucastniciTestData.entities.ucastnici };
   deepFreeze(stateBefore);
   const id = '7a09b1fd371dec1e99b79853';
@@ -251,11 +256,12 @@ it('saveUcastSuccess() - přihlášky - nový účastník', () => {
   };
   const platby = [{ castka: 200, datum: '2018-05-12T00:00:00.000Z', typ: 'složenkou' }];
   const ubytovani = { pátek: { prihlaseno: true, prespano: true } };
+  const request = { rok, udaje, prihlaska, platby, ubytovani };
 
   expect(
     ucastniciReducer(
       stateBefore,
-      saveUcastSuccessPrihlasky({ id, rok, udaje, prihlaska, platby, ubytovani })
+      createSuccessFromAction({ action: prihlaskySave(), request, response: { response: { id } } })
     )
   ).toMatchSnapshot();
 });

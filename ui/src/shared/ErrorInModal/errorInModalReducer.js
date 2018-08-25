@@ -4,6 +4,10 @@ import { SAVE_STOPKY } from '../../casomeric/Stopky/StopkyProTyp/StopkyProTypAct
 import { SIGN_IN } from '../../auth/SignIn/SignInActions';
 import { SIGN_OUT } from '../../auth/SignOut/SignOutActions';
 import {
+  DOHLASKY_SAVE,
+  PRIHLASKY_SAVE
+} from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
+import {
   STARTUJICI_CREATE_VYKON,
   STARTUJICI_DELETE_VYKON
 } from '../../registrator/Startujici/StartujiciActions';
@@ -19,9 +23,9 @@ const errorInModalReducer = (state = initialState, action) => {
   switch (action.type) {
     case `${CASOMIRA_SAVE_VYKON}_ERROR`:
     case `${DOHLASKY}_FORM_INVALID`:
-    case `${DOHLASKY}_SAVE_ERROR`:
+    case `${DOHLASKY_SAVE}_ERROR`:
     case `${PRIHLASKY}_FORM_INVALID`:
-    case `${PRIHLASKY}_SAVE_ERROR`:
+    case `${PRIHLASKY_SAVE}_ERROR`:
     case `${SAVE_STOPKY}_ERROR`:
     case `${SIGN_IN}_ERROR`:
     case `${SIGN_OUT}_ERROR`:
