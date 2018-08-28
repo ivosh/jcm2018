@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "async-file": "^2.0.2",
-    "bcrypt": "^2.0.1",
+    "bcrypt": "^3.0.0",
     "jsonwebtoken": "^8.3.0",
     "moment": "^2.22.2",
     "mongoose": "^5.1.6",
