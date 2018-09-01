@@ -779,7 +779,7 @@ exports[`dva účastníci 1`] = `
                       }
                     }
                   >
-                    <undefined />
+                    <Component />
                   </div>
                 </div>
               </div>
