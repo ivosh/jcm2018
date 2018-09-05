@@ -2,7 +2,7 @@ import deepFreeze from 'deep-freeze';
 import { signOut } from '../../auth/SignOut/SignOutActions';
 import { createSuccessFromAction } from '../../store/wsAPI';
 import stopkyReducer from './stopkyReducer';
-import { broadcastStopky, fetchStopkySuccess } from './stopkyActions';
+import { broadcastStopky, fetchStopky } from './stopkyActions';
 
 it('nic se nestalo 1', () => {
   const stateBefore = undefined;
@@ -59,7 +59,9 @@ it('po načtení stopek', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(stopkyReducer(stateBefore, fetchStopkySuccess(json))).toEqual(stateAfter);
+  expect(
+    stopkyReducer(stateBefore, createSuccessFromAction({ action: fetchStopky(), response: json }))
+  ).toEqual(stateAfter);
 });
 
 it('po odhlášení', () => {

@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import wsAPI from '../../store/wsAPI';
+import { fetchStopky } from '../stopky/stopkyActions';
 import withFetchStopky from './withFetchStopky';
 
-const middlewares = [thunk];
+const middlewares = [wsAPI];
 const mockStore = configureStore(middlewares);
 
 const Foo = ({ bar }) => <div>{bar}</div>;
@@ -25,7 +26,7 @@ it('na začátku', () => {
     </Provider>
   );
 
-  expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
+  expect(store.dispatch).toHaveBeenCalledWith(fetchStopky());
   expect(component.toJSON()).toMatchSnapshot();
 });
 
@@ -39,7 +40,7 @@ it('při načítání', () => {
     </Provider>
   );
 
-  expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
+  expect(store.dispatch).toHaveBeenCalledWith(fetchStopky());
   expect(component.toJSON()).toMatchSnapshot();
 });
 
@@ -53,6 +54,6 @@ it('po načtení', () => {
     </Provider>
   );
 
-  expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
+  expect(store.dispatch).toHaveBeenCalledWith(fetchStopky());
   expect(component.toJSON()).toMatchSnapshot();
 });

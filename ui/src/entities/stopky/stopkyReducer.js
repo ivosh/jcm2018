@@ -14,8 +14,10 @@ const stopkyReducer = (state = initialState, action) => {
       const { typ, ...stopky } = action.data;
       return updateState({ state, typ, stopky });
     }
-    case 'FETCH_STOPKY_SUCCESS':
-      return { ...action.data, invalidated: false };
+    case 'FETCH_STOPKY_SUCCESS': {
+      const { byTypy, typy } = action.response;
+      return { byTypy, typy, invalidated: false };
+    }
     case `${SIGN_OUT}_SUCCESS`:
       return { ...state, invalidated: true };
     case `${SAVE_STOPKY}_SUCCESS`: {

@@ -1,7 +1,7 @@
 import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import WsClient from '../../WsClient';
-import { fetchStopky } from './stopkyActions';
+import wsAPI from '../../store/wsAPI';
+import { FETCH_STOPKY, fetchStopky } from './stopkyActions';
 
 const mockWsClient = new WsClient();
 mockWsClient.sendRequest = null;
@@ -42,12 +42,7 @@ const unsuccessfulResponse = {
   status: 'A strange error occurred.'
 };
 
-const authTokenInvalidResponse = {
-  code: 'authentication token invalid',
-  status: 'Neplatný ověřovací token.'
-};
-
-const middlewares = [thunk.withExtraArgument(mockWsClient)];
+const middlewares = [wsAPI.withExtraArgument(mockWsClient)];
 const mockStore = configureStore(middlewares);
 
 it('fetchStopky() should not dispatch anything if stopky cached', async () => {
@@ -60,83 +55,55 @@ it('fetchStopky() should not dispatch anything if stopky cached', async () => {
 
 it('fetchStopky() should dispatch two successful actions [not cached]', async () => {
   mockWsClient.sendRequest = async () => successfulResponse;
-  const store = mockStore({ entities: { stopky: {} } });
+  const store = mockStore({ auth: { token: '===token===' }, entities: { stopky: {} } });
 
   await store.dispatch(fetchStopky());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'FETCH_STOPKY_REQUEST' });
-  expect(actions[1]).toEqual(
-    expect.objectContaining({
-      data: {
-        byTypy: successfulResponse.response,
-        typy: ['cyklo', 'koloběžka', 'maraton', 'půlmaraton']
-      },
-      type: 'FETCH_STOPKY_SUCCESS'
-    })
-  );
-});
-
-it('fetchStopky() should use auth token if available', async () => {
-  const tokenSent = { tokenSent: false };
-  mockWsClient.sendRequest = async token => {
-    if (token) {
-      tokenSent.tokenSent = true;
-    }
-  };
-  const store = mockStore({ auth: { token: '===token===' }, entities: {} });
-
-  await store.dispatch(fetchStopky());
-  expect(tokenSent.tokenSent).toBe(true);
+  expect(actions[0]).toEqual({ type: `${FETCH_STOPKY}_REQUEST`, receivedAt: expect.any(Number) });
+  expect(actions[1]).toEqual({
+    type: `${FETCH_STOPKY}_SUCCESS`,
+    response: {
+      code: 'ok',
+      byTypy: successfulResponse.response,
+      typy: ['cyklo', 'koloběžka', 'maraton', 'půlmaraton']
+    },
+    title: 'načítání stopek',
+    receivedAt: expect.any(Number)
+  });
 });
 
 it('fetchStopky() should dispatch two unsuccessful actions', async () => {
   mockWsClient.sendRequest = async () => unsuccessfulResponse;
-  const store = mockStore({ entities: {} });
+  const store = mockStore({ auth: { token: '===token===' }, entities: {} });
 
   await store.dispatch(fetchStopky());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'FETCH_STOPKY_REQUEST' });
-  expect(actions[1]).toEqual(
-    expect.objectContaining({
-      type: 'FETCH_STOPKY_ERROR',
+  expect(actions[0]).toEqual({ type: `${FETCH_STOPKY}_REQUEST`, receivedAt: expect.any(Number) });
+  expect(actions[1]).toEqual({
+    type: `${FETCH_STOPKY}_ERROR`,
+    response: {
       code: 'unfulfilled request',
       status: 'A strange error occurred.'
-    })
-  );
+    },
+    title: 'načítání stopek',
+    receivedAt: expect.any(Number)
+  });
 });
 
 it('fetchStopky() should dispatch two unsuccessful actions on error', async () => {
   mockWsClient.sendRequest = async () => Promise.reject(new Error('Parse error!'));
-  const store = mockStore({ entities: {} });
+  const store = mockStore({ auth: { token: '===token===' }, entities: {} });
 
   await store.dispatch(fetchStopky());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'FETCH_STOPKY_REQUEST' });
-  expect(actions[1]).toEqual(
-    expect.objectContaining({
-      type: 'FETCH_STOPKY_ERROR',
-      code: 'internal error',
-      err: 'Error: Parse error!'
-    })
-  );
-});
-
-global.crypto = { getRandomValues: arr => arr.fill(86) };
-
-it('fetchStopky() should dispatch two unsuccessful actions on invalid token', async () => {
-  mockWsClient.sendRequest = async () => authTokenInvalidResponse;
-  const store = mockStore({ entities: {}, error: {} });
-
-  await store.dispatch(fetchStopky());
-  const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'FETCH_STOPKY_REQUEST' });
-  expect(actions[1]).toEqual(
-    expect.objectContaining({
-      type: 'SIGN_IN_ERROR',
-      response: {
-        code: 'authentication token invalid',
-        status: 'Platnost ověřovacího tokenu pravděpodobně vypršela. Neplatný ověřovací token.'
-      }
-    })
-  );
+  expect(actions[0]).toEqual({ type: `${FETCH_STOPKY}_REQUEST`, receivedAt: expect.any(Number) });
+  expect(actions[1]).toEqual({
+    type: `${FETCH_STOPKY}_ERROR`,
+    error: 'Error: Parse error!',
+    response: {
+      code: 'internal error'
+    },
+    title: 'načítání stopek',
+    receivedAt: expect.any(Number)
+  });
 });
