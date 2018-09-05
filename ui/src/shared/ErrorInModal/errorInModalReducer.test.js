@@ -3,6 +3,7 @@ import { DOHLASKY, PRIHLASKY } from '../../constants';
 import { signIn } from '../../auth/SignIn/SignInActions';
 import { signOut } from '../../auth/SignOut/SignOutActions';
 import { saveVykon } from '../../casomeric/Casomira/StartovniCisla/StartovniCislaActions';
+import { fetchStopky } from '../../entities/stopky/stopkyActions';
 import {
   createPrihlaskySave,
   createValidationError
@@ -105,6 +106,28 @@ it('DOHLASKY_SAVE_ERROR', () => {
         action: dohlaskySave(),
         request: {},
         response: unsuccessfulSaveResponse
+      })
+    )
+  ).toEqual(stateAfter);
+});
+
+it('FETCH_STOPKY_ERROR', () => {
+  const stateBefore = {};
+  const stateAfter = {
+    ...stateBefore,
+    code: 'unfulfilled request',
+    message: 'A strange error occurred.',
+    show: true,
+    title: 'načítání stopek'
+  };
+  deepFreeze(stateBefore);
+
+  expect(
+    errorInModalReducer(
+      stateBefore,
+      createFailureFromAction({
+        action: fetchStopky(),
+        response: genericUnsuccessfulResponse
       })
     )
   ).toEqual(stateAfter);

@@ -1,8 +1,9 @@
 import { DOHLASKY, PRIHLASKY } from '../../constants';
-import { CASOMIRA_SAVE_VYKON } from '../../casomeric/Casomira/StartovniCisla/StartovniCislaActions';
-import { SAVE_STOPKY } from '../../casomeric/Stopky/StopkyProTyp/StopkyProTypActions';
 import { SIGN_IN } from '../../auth/SignIn/SignInActions';
 import { SIGN_OUT } from '../../auth/SignOut/SignOutActions';
+import { CASOMIRA_SAVE_VYKON } from '../../casomeric/Casomira/StartovniCisla/StartovniCislaActions';
+import { SAVE_STOPKY } from '../../casomeric/Stopky/StopkyProTyp/StopkyProTypActions';
+import { FETCH_STOPKY } from '../../entities/stopky/stopkyActions';
 import {
   DOHLASKY_SAVE,
   PRIHLASKY_SAVE
@@ -24,6 +25,7 @@ const errorInModalReducer = (state = initialState, action) => {
     case `${CASOMIRA_SAVE_VYKON}_ERROR`:
     case `${DOHLASKY}_FORM_INVALID`:
     case `${DOHLASKY_SAVE}_ERROR`:
+    case `${FETCH_STOPKY}_ERROR`:
     case `${PRIHLASKY}_FORM_INVALID`:
     case `${PRIHLASKY_SAVE}_ERROR`:
     case `${SAVE_STOPKY}_ERROR`:
