@@ -14,7 +14,9 @@ const Pokladna = ({ pokladna: { total, typy } }) => (
     </Panel>
     <Panel bsStyle="info" header="po kategoriích" className="Pokladna__panel">
       <div className="Pokladna__typy">
-        {Object.keys(typy).map(name => <PokladnaTypu key={name} name={name} {...typy[name]} />)}
+        {Object.keys(typy).map(name => (
+          <PokladnaTypu key={name} name={name} {...typy[name]} />
+        ))}
       </div>
     </Panel>
     <Panel bsStyle="info" header="po částkách" className="Pokladna__panel">

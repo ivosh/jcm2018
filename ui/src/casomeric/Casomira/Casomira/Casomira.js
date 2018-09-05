@@ -38,7 +38,8 @@ const Casomira = ({
           onClick={onStopkyAddMezicas}
           accessKey={accessKey}
         >
-          <Glyphicon glyph="time" /> (Alt-{accessKey})
+          <Glyphicon glyph="time" /> (Alt-
+          {accessKey})
         </Button>
         <div className="Casomira__stopky-novy-mezicas">
           <NovyMezicasContainer typ={typ} />

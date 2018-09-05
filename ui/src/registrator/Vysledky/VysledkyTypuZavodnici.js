@@ -12,7 +12,9 @@ const VysledkyTypuZavodnici = ({ popisek, ucastnici, zkratky }) => (
       </tr>
       <tr>
         <th rowSpan="3">
-          start.<br />číslo
+          start.
+          <br />
+          číslo
         </th>
         <th rowSpan="3">příjmení a jméno</th>
         <th rowSpan="3">klub či obec</th>
@@ -24,7 +26,11 @@ const VysledkyTypuZavodnici = ({ popisek, ucastnici, zkratky }) => (
         <th rowSpan="2">abs.</th>
         <th colSpan={zkratky.length}>v kategorii</th>
       </tr>
-      <tr>{zkratky.map(zkratka => <th key={zkratka}>{zkratka}</th>)}</tr>
+      <tr>
+        {zkratky.map(zkratka => (
+          <th key={zkratka}>{zkratka}</th>
+        ))}
+      </tr>
     </thead>
     <tbody>
       {ucastnici.map(

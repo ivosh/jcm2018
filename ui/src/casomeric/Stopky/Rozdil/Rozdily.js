@@ -4,7 +4,11 @@ import Rozdil from './Rozdil';
 import './Rozdily.css';
 
 const Rozdily = ({ rozdily }) => (
-  <div className="Rozdily">{rozdily.map(rozdil => <Rozdil key={rozdil.name} {...rozdil} />)}</div>
+  <div className="Rozdily">
+    {rozdily.map(rozdil => (
+      <Rozdil key={rozdil.name} {...rozdil} />
+    ))}
+  </div>
 );
 
 Rozdily.propTypes = {

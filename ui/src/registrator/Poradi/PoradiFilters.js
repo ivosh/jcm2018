@@ -14,21 +14,23 @@ const PoradiSubFilters = ({ kategorieSubFilters }) => {
     return (
       <div className="PoradiFilters__sub-kategorie">
         <div>
-          {kategorieSubFilters
-            .slice(0, half)
-            .map(({ id, ...props }) => <KategorieSubFilter key={id} {...props} />)}
+          {kategorieSubFilters.slice(0, half).map(({ id, ...props }) => (
+            <KategorieSubFilter key={id} {...props} />
+          ))}
         </div>
         <div>
-          {kategorieSubFilters
-            .slice(half, length)
-            .map(({ id, ...props }) => <KategorieSubFilter key={id} {...props} />)}
+          {kategorieSubFilters.slice(half, length).map(({ id, ...props }) => (
+            <KategorieSubFilter key={id} {...props} />
+          ))}
         </div>
       </div>
     );
   }
   return (
     <div className="PoradiFilters__sub-kategorie">
-      {kategorieSubFilters.map(({ id, ...props }) => <KategorieSubFilter key={id} {...props} />)}
+      {kategorieSubFilters.map(({ id, ...props }) => (
+        <KategorieSubFilter key={id} {...props} />
+      ))}
     </div>
   );
 };

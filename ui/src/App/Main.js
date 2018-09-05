@@ -40,7 +40,9 @@ const Main = () => (
   <div className="Main__div">
     <p>Možnosti aplikace:</p>
     <div className="Main__menus">
-      {navMenus.map(({ glyph, name }) => <Menu key={name} glyph={glyph} menu={name} />)}
+      {navMenus.map(({ glyph, name }) => (
+        <Menu key={name} glyph={glyph} menu={name} />
+      ))}
     </div>
   </div>
 );
