@@ -1,23 +1,22 @@
 import { CODE_OK, CODE_TOKEN_INVALID, findAllRocniky } from '../../common';
 import { AKTUALNI_ROK } from '../../constants';
 import { errorToStr } from '../../Util';
-import { fetchKategorieSuccess, fetchKategorieError } from '../kategorie/kategorieActions';
 import { authTokenExpired } from '../../auth/SignIn/SignInActions';
 
 const fetchRocnikyRequest = () => ({
   type: 'FETCH_ROCNIKY_REQUEST'
 });
 
-const normalizeRocniky = json => {
-  const byRoky = json.response.rocniky;
+const normalize = json => {
+  const { kategorie, rocniky: byRoky } = json.response;
   const roky = Object.keys(byRoky).map(value => parseInt(value, 10));
 
-  return { byRoky, roky };
+  return { kategorie, rocniky: { byRoky, roky } };
 };
 
 export const fetchRocnikySuccess = json => ({
   type: 'FETCH_ROCNIKY_SUCCESS',
-  data: normalizeRocniky(json),
+  data: normalize(json),
   receivedAt: Date.now(),
   getDatumKonani: (rok = AKTUALNI_ROK) => json.response.rocniky[rok].datum
 });
@@ -45,16 +44,13 @@ export const fetchRocniky = () => async (dispatch, getState, wsClient) => {
   try {
     const response = await wsClient.sendRequest(findAllRocniky((auth && auth.token) || null));
     if (response.code === CODE_OK) {
-      dispatch(fetchKategorieSuccess(response));
       dispatch(fetchRocnikySuccess(response));
     } else if (response.code === CODE_TOKEN_INVALID) {
       dispatch(authTokenExpired({ response }));
     } else {
-      dispatch(fetchKategorieError(response));
       dispatch(fetchRocnikyError(response));
     }
   } catch (err) {
-    dispatch(fetchKategorieError({ code: 'internal error', err }));
     dispatch(fetchRocnikyError({ code: 'internal error', err }));
   }
 };

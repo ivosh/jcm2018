@@ -212,7 +212,7 @@ it('fetchRocniky() should not dispatch anything if rocniky cached', async () => 
   expect(store.getActions()).toHaveLength(0);
 });
 
-it('fetchRocniky() should dispatch three successful actions if rocniky not cached', async () => {
+it('fetchRocniky() should dispatch two successful actions if rocniky not cached', async () => {
   mockWsClient.sendRequest = async () => successfulResponse;
   const store = mockStore({ entities: { rocniky: {} } });
 
@@ -221,13 +221,10 @@ it('fetchRocniky() should dispatch three successful actions if rocniky not cache
   expect(actions[0]).toEqual({ type: 'FETCH_ROCNIKY_REQUEST' });
   expect(actions[1]).toEqual(
     expect.objectContaining({
-      data: successfulResponse.response.kategorie,
-      type: 'FETCH_KATEGORIE_SUCCESS'
-    })
-  );
-  expect(actions[2]).toEqual(
-    expect.objectContaining({
-      data: { byRoky: successfulResponse.response.rocniky, roky: [2017, 2018] },
+      data: {
+        kategorie: successfulResponse.response.kategorie,
+        rocniky: { byRoky: successfulResponse.response.rocniky, roky: [2017, 2018] }
+      },
       type: 'FETCH_ROCNIKY_SUCCESS'
     })
   );
@@ -246,7 +243,7 @@ it('fetchRocniky() should use auth token if available', async () => {
   expect(tokenSent.tokenSent).toBe(true);
 });
 
-it('fetchRocniky() should dispatch two unsuccessful actions if rocniky not cached', async () => {
+it('fetchRocniky() should dispatch one unsuccessful action if rocniky not cached', async () => {
   mockWsClient.sendRequest = async () => unsuccessfulResponse;
   const store = mockStore({ entities: {} });
 
@@ -255,13 +252,6 @@ it('fetchRocniky() should dispatch two unsuccessful actions if rocniky not cache
   expect(actions[0]).toEqual({ type: 'FETCH_ROCNIKY_REQUEST' });
   expect(actions[1]).toEqual(
     expect.objectContaining({
-      type: 'FETCH_KATEGORIE_ERROR',
-      code: 'unfulfilled request',
-      status: 'A strange error occurred.'
-    })
-  );
-  expect(actions[2]).toEqual(
-    expect.objectContaining({
       type: 'FETCH_ROCNIKY_ERROR',
       code: 'unfulfilled request',
       status: 'A strange error occurred.'
@@ -269,7 +259,7 @@ it('fetchRocniky() should dispatch two unsuccessful actions if rocniky not cache
   );
 });
 
-it('fetchRocniky() should dispatch two unsuccessful actions on error', async () => {
+it('fetchRocniky() should dispatch one unsuccessful action on error', async () => {
   mockWsClient.sendRequest = async () => Promise.reject(new Error('Parse error!'));
   const store = mockStore({ entities: {} });
 
@@ -277,13 +267,6 @@ it('fetchRocniky() should dispatch two unsuccessful actions on error', async () 
   const actions = store.getActions();
   expect(actions[0]).toEqual({ type: 'FETCH_ROCNIKY_REQUEST' });
   expect(actions[1]).toEqual(
-    expect.objectContaining({
-      type: 'FETCH_KATEGORIE_ERROR',
-      code: 'internal error',
-      err: 'Error: Parse error!'
-    })
-  );
-  expect(actions[2]).toEqual(
     expect.objectContaining({
       type: 'FETCH_ROCNIKY_ERROR',
       code: 'internal error',
@@ -294,7 +277,7 @@ it('fetchRocniky() should dispatch two unsuccessful actions on error', async () 
 
 global.crypto = { getRandomValues: arr => arr.fill(86) };
 
-it('fetchRocniky() should dispatch two unsuccessful actions on invalid token', async () => {
+it('fetchRocniky() should dispatch one unsuccessful action on invalid token', async () => {
   mockWsClient.sendRequest = async () => authTokenInvalidResponse;
   const store = mockStore({ entities: {} });
 
