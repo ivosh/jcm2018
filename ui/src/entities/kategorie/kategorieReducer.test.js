@@ -1,7 +1,7 @@
 import deepFreeze from 'deep-freeze';
 import { signOut } from '../../auth/SignOut/SignOutActions';
 import { createSuccessFromAction } from '../../store/wsAPI';
-import { fetchRocnikySuccess } from '../rocniky/rocnikyActions';
+import { fetchRocniky } from '../rocniky/rocnikyActions';
 import kategorieReducer from './kategorieReducer';
 
 it('nic se nestalo 1', () => {
@@ -203,7 +203,12 @@ it('po načtení ročníků a kategorií', () => {
   const stateAfter = { ...json.response.kategorie };
   deepFreeze(stateBefore);
 
-  expect(kategorieReducer(stateBefore, fetchRocnikySuccess(json))).toEqual(stateAfter);
+  expect(
+    kategorieReducer(
+      stateBefore,
+      createSuccessFromAction({ action: fetchRocniky(), response: json })
+    )
+  ).toEqual(stateAfter);
 });
 
 it('po odhlášení', () => {

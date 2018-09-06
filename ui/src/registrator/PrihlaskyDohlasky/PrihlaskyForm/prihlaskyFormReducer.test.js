@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import { DOHLASKY } from '../../../constants';
-import { fetchRocnikySuccess } from '../../../entities/rocniky/rocnikyActions';
+import { fetchRocniky } from '../../../entities/rocniky/rocnikyActions';
 import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
 import {
   createFailureFromAction,
@@ -1333,7 +1333,12 @@ it('fetchRocnikySuccess - přihláška', () => {
   deepFreeze(stateBefore);
 
   const json = { response: { rocniky: ucastniciTestData.entities.rocniky.byRoky } };
-  expect(prihlaskyFormReducer(stateBefore, fetchRocnikySuccess(json))).toEqual(stateAfter);
+  expect(
+    prihlaskyFormReducer(
+      stateBefore,
+      createSuccessFromAction({ action: fetchRocniky(), response: json })
+    )
+  ).toEqual(stateAfter);
 });
 
 it('fetchRocnikySuccess - dohláška', () => {
@@ -1342,7 +1347,12 @@ it('fetchRocnikySuccess - dohláška', () => {
   deepFreeze(stateBefore);
 
   const json = { response: { rocniky: ucastniciTestData.entities.rocniky.byRoky } };
-  expect(dohlaskyFormReducer(stateBefore, fetchRocnikySuccess(json))).toEqual(stateAfter);
+  expect(
+    dohlaskyFormReducer(
+      stateBefore,
+      createSuccessFromAction({ action: fetchRocniky(), response: json })
+    )
+  ).toEqual(stateAfter);
 });
 
 it('predepsaneStartovne - cyklo - přihláška předem', () => {

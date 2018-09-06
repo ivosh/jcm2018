@@ -1,6 +1,7 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import WsClient from '../../WsClient';
+import wsAPI from '../../store/wsAPI';
 import { fetchUcastnici } from './ucastniciActions';
 
 const mockWsClient = new WsClient();
@@ -76,7 +77,7 @@ const authTokenInvalidResponse = {
   status: 'Neplatný ověřovací token.'
 };
 
-const middlewares = [thunk.withExtraArgument(mockWsClient)];
+const middlewares = [thunk.withExtraArgument(mockWsClient), wsAPI.withExtraArgument(mockWsClient)];
 const mockStore = configureStore(middlewares);
 
 it('fetchUcastnici() should not dispatch anything if účastníci cached', async () => {

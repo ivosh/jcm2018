@@ -1,7 +1,7 @@
 import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import WsClient from '../../WsClient';
-import { fetchRocniky } from './rocnikyActions';
+import wsAPI from '../../store/wsAPI';
+import { FETCH_ROCNIKY, fetchRocniky } from './rocnikyActions';
 
 const mockWsClient = new WsClient();
 mockWsClient.sendRequest = null;
@@ -198,12 +198,7 @@ const unsuccessfulResponse = {
   status: 'A strange error occurred.'
 };
 
-const authTokenInvalidResponse = {
-  code: 'authentication token invalid',
-  status: 'Neplatný ověřovací token.'
-};
-
-const middlewares = [thunk.withExtraArgument(mockWsClient)];
+const middlewares = [wsAPI.withExtraArgument(mockWsClient)];
 const mockStore = configureStore(middlewares);
 
 it('fetchRocniky() should not dispatch anything if rocniky cached', async () => {
@@ -214,83 +209,58 @@ it('fetchRocniky() should not dispatch anything if rocniky cached', async () => 
 
 it('fetchRocniky() should dispatch two successful actions if rocniky not cached', async () => {
   mockWsClient.sendRequest = async () => successfulResponse;
-  const store = mockStore({ entities: { rocniky: {} } });
+  const store = mockStore({ auth: { token: '===token===' }, entities: { rocniky: {} } });
 
   await store.dispatch(fetchRocniky());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'FETCH_ROCNIKY_REQUEST' });
-  expect(actions[1]).toEqual(
-    expect.objectContaining({
-      data: {
-        kategorie: successfulResponse.response.kategorie,
-        rocniky: { byRoky: successfulResponse.response.rocniky, roky: [2017, 2018] }
-      },
-      type: 'FETCH_ROCNIKY_SUCCESS'
-    })
-  );
-});
+  expect(actions[0]).toEqual({ type: `${FETCH_ROCNIKY}_REQUEST`, receivedAt: expect.any(Number) });
+  expect(actions[1]).toEqual({
+    type: `${FETCH_ROCNIKY}_SUCCESS`,
+    getDatumKonani: expect.any(Function),
+    response: {
+      code: 'ok',
+      kategorie: successfulResponse.response.kategorie,
+      rocniky: { byRoky: successfulResponse.response.rocniky, roky: [2017, 2018] }
+    },
+    title: 'načítání ročníků',
+    receivedAt: expect.any(Number)
+  });
 
-it('fetchRocniky() should use auth token if available', async () => {
-  const tokenSent = { tokenSent: false };
-  mockWsClient.sendRequest = async token => {
-    if (token) {
-      tokenSent.tokenSent = true;
-    }
-  };
-  const store = mockStore({ auth: { token: '===token===' }, entities: {} });
-
-  await store.dispatch(fetchRocniky());
-  expect(tokenSent.tokenSent).toBe(true);
+  expect(actions[1].getDatumKonani()).toEqual(new Date('2018-06-08').toJSON());
 });
 
 it('fetchRocniky() should dispatch one unsuccessful action if rocniky not cached', async () => {
   mockWsClient.sendRequest = async () => unsuccessfulResponse;
-  const store = mockStore({ entities: {} });
+  const store = mockStore({ auth: { token: '===token===' }, entities: {} });
 
   await store.dispatch(fetchRocniky());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'FETCH_ROCNIKY_REQUEST' });
-  expect(actions[1]).toEqual(
-    expect.objectContaining({
-      type: 'FETCH_ROCNIKY_ERROR',
+  expect(actions[0]).toEqual({ type: `${FETCH_ROCNIKY}_REQUEST`, receivedAt: expect.any(Number) });
+  expect(actions[1]).toEqual({
+    type: `${FETCH_ROCNIKY}_ERROR`,
+    response: {
       code: 'unfulfilled request',
       status: 'A strange error occurred.'
-    })
-  );
+    },
+    title: 'načítání ročníků',
+    receivedAt: expect.any(Number)
+  });
 });
 
 it('fetchRocniky() should dispatch one unsuccessful action on error', async () => {
   mockWsClient.sendRequest = async () => Promise.reject(new Error('Parse error!'));
-  const store = mockStore({ entities: {} });
+  const store = mockStore({ auth: { token: '===token===' }, entities: {} });
 
   await store.dispatch(fetchRocniky());
   const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'FETCH_ROCNIKY_REQUEST' });
-  expect(actions[1]).toEqual(
-    expect.objectContaining({
-      type: 'FETCH_ROCNIKY_ERROR',
-      code: 'internal error',
-      err: 'Error: Parse error!'
-    })
-  );
-});
-
-global.crypto = { getRandomValues: arr => arr.fill(86) };
-
-it('fetchRocniky() should dispatch one unsuccessful action on invalid token', async () => {
-  mockWsClient.sendRequest = async () => authTokenInvalidResponse;
-  const store = mockStore({ entities: {} });
-
-  await store.dispatch(fetchRocniky());
-  const actions = store.getActions();
-  expect(actions[0]).toEqual({ type: 'FETCH_ROCNIKY_REQUEST' });
-  expect(actions[1]).toEqual(
-    expect.objectContaining({
-      type: 'SIGN_IN_ERROR',
-      response: {
-        code: 'authentication token invalid',
-        status: 'Platnost ověřovacího tokenu pravděpodobně vypršela. Neplatný ověřovací token.'
-      }
-    })
-  );
+  expect(actions[0]).toEqual({ type: `${FETCH_ROCNIKY}_REQUEST`, receivedAt: expect.any(Number) });
+  expect(actions[1]).toEqual({
+    type: `${FETCH_ROCNIKY}_ERROR`,
+    error: 'Error: Parse error!',
+    response: {
+      code: 'internal error'
+    },
+    title: 'načítání ročníků',
+    receivedAt: expect.any(Number)
+  });
 });

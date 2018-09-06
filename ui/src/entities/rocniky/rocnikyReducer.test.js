@@ -2,7 +2,7 @@ import deepFreeze from 'deep-freeze';
 import { TYPY_KATEGORII } from '../../constants';
 import { signOut } from '../../auth/SignOut/SignOutActions';
 import { createSuccessFromAction } from '../../store/wsAPI';
-import { fetchRocnikySuccess } from './rocnikyActions';
+import { fetchRocniky } from './rocnikyActions';
 import rocnikyReducer, { getDatumKonani, getKategorie, getKategorieProTyp } from './rocnikyReducer';
 
 it('nic se nestalo 1', () => {
@@ -211,10 +211,10 @@ it('po načtení ročníků', () => {
   const stateBefore = { byRoky: {}, roky: [] };
   const stateAfter = { byRoky: { ...json.response.rocniky }, roky: [2017, 2018] };
   deepFreeze(stateBefore);
-  const action = fetchRocnikySuccess(json);
 
-  expect(rocnikyReducer(stateBefore, action)).toEqual(stateAfter);
-  expect(action.getDatumKonani()).toEqual(new Date('2018-06-09').toJSON());
+  expect(
+    rocnikyReducer(stateBefore, createSuccessFromAction({ action: fetchRocniky(), response: json }))
+  ).toEqual(stateAfter);
   expect(getDatumKonani({ rocniky: stateAfter })).toEqual(new Date('2018-06-09').toJSON());
 });
 

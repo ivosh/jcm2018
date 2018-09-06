@@ -1,56 +1,34 @@
-import { CODE_OK, CODE_TOKEN_INVALID, findAllRocniky } from '../../common';
+import { API_FIND_ALL_ROCNIKY } from '../../common';
 import { AKTUALNI_ROK } from '../../constants';
-import { errorToStr } from '../../Util';
-import { authTokenExpired } from '../../auth/SignIn/SignInActions';
+import { WS_API } from '../../store/wsAPI';
 
-const fetchRocnikyRequest = () => ({
-  type: 'FETCH_ROCNIKY_REQUEST'
-});
-
-const normalize = json => {
-  const { kategorie, rocniky: byRoky } = json.response;
-  const roky = Object.keys(byRoky).map(value => parseInt(value, 10));
-
-  return { kategorie, rocniky: { byRoky, roky } };
-};
-
-export const fetchRocnikySuccess = json => ({
-  type: 'FETCH_ROCNIKY_SUCCESS',
-  data: normalize(json),
-  receivedAt: Date.now(),
+const decorate = json => ({
   getDatumKonani: (rok = AKTUALNI_ROK) => json.response.rocniky[rok].datum
 });
 
-// TODO: no component is subscribed to this action.
-const fetchRocnikyError = ({ code, status, err }) => ({
-  type: 'FETCH_ROCNIKY_ERROR',
-  code,
-  status,
-  err: errorToStr(err),
-  receivedAt: Date.now()
+const normalize = ({
+  request,
+  response: {
+    response: { kategorie, rocniky: byRoky }
+  }
+}) => ({
+  request,
+  response: {
+    kategorie,
+    rocniky: { byRoky, roky: Object.keys(byRoky).map(value => parseInt(value, 10)) }
+  }
 });
 
-export const fetchRocniky = () => async (dispatch, getState, wsClient) => {
-  const {
-    auth,
-    entities: { rocniky }
-  } = getState();
-  if (rocniky && rocniky.roky && rocniky.roky.length > 0) {
-    return; // Use cached value.
-  }
+const useCached = ({ entities: { rocniky } }) => rocniky && rocniky.roky && rocniky.roky.length > 0;
 
-  dispatch(fetchRocnikyRequest());
-
-  try {
-    const response = await wsClient.sendRequest(findAllRocniky((auth && auth.token) || null));
-    if (response.code === CODE_OK) {
-      dispatch(fetchRocnikySuccess(response));
-    } else if (response.code === CODE_TOKEN_INVALID) {
-      dispatch(authTokenExpired({ response }));
-    } else {
-      dispatch(fetchRocnikyError(response));
-    }
-  } catch (err) {
-    dispatch(fetchRocnikyError({ code: 'internal error', err }));
+export const FETCH_ROCNIKY = 'FETCH_ROCNIKY';
+export const fetchRocniky = () => ({
+  [WS_API]: {
+    type: FETCH_ROCNIKY,
+    decorate,
+    endpoint: API_FIND_ALL_ROCNIKY,
+    normalize,
+    title: 'načítání ročníků',
+    useCached
   }
-};
+});
