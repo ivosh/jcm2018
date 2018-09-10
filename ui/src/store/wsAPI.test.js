@@ -203,11 +203,13 @@ it('expired authentication token for wsAPI action should dispatch REQUEST/ERROR 
 it('wsAPI should process array of three actions in sequence', async () => {
   mockWsClient.sendRequest = async () => successfulResponse;
   const store = mockStore(state);
-  const { code } = await store.dispatch([
-    { [WS_API]: { type: 'FETCH_ACTION_1', endpoint, normalize, request: apiRequest } },
-    { [WS_API]: { type: 'FETCH_ACTION_2', endpoint, normalize, request: apiRequest } },
-    { [WS_API]: { type: 'FETCH_ACTION_3', endpoint, normalize, request: apiRequest } }
-  ]);
+  const { code } = await store.dispatch({
+    [WS_API]: [
+      { type: 'FETCH_ACTION_1', endpoint, normalize, request: apiRequest },
+      { type: 'FETCH_ACTION_2', endpoint, normalize, request: apiRequest },
+      { type: 'FETCH_ACTION_3', endpoint, normalize, request: apiRequest }
+    ]
+  });
   expect(code).toEqual(CODE_OK);
 
   const actions = store.getActions();

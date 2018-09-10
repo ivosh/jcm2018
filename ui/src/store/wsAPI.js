@@ -107,12 +107,6 @@ const processArray = async (actions, fn, data) =>
   }, Promise.resolve({ code: CODE_OK }));
 
 const doOneAction = async ({ action, next, store, wsClient }) => {
-  const { [WS_API]: callAPI } = action;
-  if (!callAPI) {
-    next(action);
-    return { code: CODE_OK };
-  }
-
   const state = store.getState();
   const {
     type,
@@ -123,8 +117,8 @@ const doOneAction = async ({ action, next, store, wsClient }) => {
     title,
     useCached,
     dontUseToken
-  } = callAPI;
-  const request = getRequest(callAPI.request, state);
+  } = action;
+  const request = getRequest(action.request, state);
   if (!endpoint) {
     throw new Error('Specify an API endpoint.');
   }
@@ -169,10 +163,16 @@ const doOneAction = async ({ action, next, store, wsClient }) => {
 // Performs the call and promises when such actions are dispatched.
 // eslint-disable-next-line arrow-body-style
 const createWsAPIMiddleware = wsClient => {
-  return store => next => async actions =>
-    Array.isArray(actions)
-      ? processArray(actions, doOneAction, { next, store, wsClient })
-      : doOneAction({ action: actions, next, store, wsClient });
+  return store => next => async action => {
+    const { [WS_API]: callAPI } = action;
+    if (!callAPI) {
+      next(action);
+      return { code: CODE_OK };
+    }
+    return Array.isArray(callAPI)
+      ? processArray(callAPI, doOneAction, { next, store, wsClient })
+      : doOneAction({ action: callAPI, next, store, wsClient });
+  };
 };
 
 const wsAPI = createWsAPIMiddleware();
