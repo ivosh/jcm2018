@@ -39,6 +39,23 @@ const unsuccessfulSignOutResponse = {
   requestId: '0.9310306652587371'
 };
 
+const testUnsuccessfulResponse = ({
+  action,
+  code = 'unfulfilled request',
+  message = 'A strange error occurred.',
+  request,
+  response = genericUnsuccessfulResponse,
+  title
+}) => {
+  const stateBefore = {};
+  const stateAfter = { code, message, show: true, title };
+  deepFreeze(stateBefore);
+
+  expect(
+    errorInModalReducer(stateBefore, createFailureFromAction({ action, request, response }))
+  ).toEqual(stateAfter);
+};
+
 it('na začátku', () => {
   const stateBefore = undefined;
 
@@ -51,28 +68,12 @@ it('na začátku', () => {
 
 global.crypto = { getRandomValues: arr => arr.fill(86) };
 
-it('CASOMIRA_SAVE_VYKON_ERROR', () => {
-  const stateBefore = {};
-  const stateAfter = {
-    code: 'unfulfilled request',
-    message: 'A strange error occurred.',
-    show: true,
+it('CASOMIRA_SAVE_VYKON_ERROR', () =>
+  testUnsuccessfulResponse({
+    action: saveVykon({}),
+    request: { id: '===id===' },
     title: 'ukládání registrace na start'
-  };
-  deepFreeze(stateBefore);
-
-  const request = { id: '===id===' };
-  expect(
-    errorInModalReducer(
-      stateBefore,
-      createFailureFromAction({
-        action: saveVykon({}),
-        request,
-        response: genericUnsuccessfulResponse
-      })
-    )
-  ).toEqual(stateAfter);
-});
+  }));
 
 it('DOHLASKY_FORM_INVALID', () => {
   const stateBefore = {};
@@ -88,50 +89,21 @@ it('DOHLASKY_FORM_INVALID', () => {
   expect(errorInModalReducer(stateBefore, createValidationError(DOHLASKY)())).toEqual(stateAfter);
 });
 
-it('DOHLASKY_SAVE_ERROR', () => {
-  const stateBefore = {};
-  const stateAfter = {
-    ...stateBefore,
+it('DOHLASKY_SAVE_ERROR', () =>
+  testUnsuccessfulResponse({
+    action: dohlaskySave(),
     code: 'neexistuje',
     message: 'účastník s id ===id=== neexistuje.',
-    show: true,
+    request: {},
+    response: unsuccessfulSaveResponse,
     title: 'ukládání formuláře'
-  };
-  deepFreeze(stateBefore);
+  }));
 
-  expect(
-    errorInModalReducer(
-      stateBefore,
-      createFailureFromAction({
-        action: dohlaskySave(),
-        request: {},
-        response: unsuccessfulSaveResponse
-      })
-    )
-  ).toEqual(stateAfter);
-});
-
-it('FETCH_STOPKY_ERROR', () => {
-  const stateBefore = {};
-  const stateAfter = {
-    ...stateBefore,
-    code: 'unfulfilled request',
-    message: 'A strange error occurred.',
-    show: true,
+it('FETCH_STOPKY_ERROR', () =>
+  testUnsuccessfulResponse({
+    action: fetchStopky(),
     title: 'načítání stopek'
-  };
-  deepFreeze(stateBefore);
-
-  expect(
-    errorInModalReducer(
-      stateBefore,
-      createFailureFromAction({
-        action: fetchStopky(),
-        response: genericUnsuccessfulResponse
-      })
-    )
-  ).toEqual(stateAfter);
-});
+  }));
 
 it('PRIHLASKY_FORM_INVALID', () => {
   const stateBefore = {};
@@ -147,110 +119,47 @@ it('PRIHLASKY_FORM_INVALID', () => {
   expect(errorInModalReducer(stateBefore, createValidationError(PRIHLASKY)())).toEqual(stateAfter);
 });
 
-it('PRIHLASKY_SAVE_ERROR', () => {
-  const stateBefore = {};
-  const stateAfter = {
-    ...stateBefore,
+it('PRIHLASKY_SAVE_ERROR', () =>
+  testUnsuccessfulResponse({
+    action: prihlaskySave(),
     code: 'neexistuje',
     message: 'účastník s id ===id=== neexistuje.',
-    show: true,
+    request: {},
+    response: unsuccessfulSaveResponse,
     title: 'ukládání formuláře'
-  };
-  deepFreeze(stateBefore);
+  }));
 
-  expect(
-    errorInModalReducer(
-      stateBefore,
-      createFailureFromAction({
-        action: prihlaskySave(),
-        request: {},
-        response: unsuccessfulSaveResponse
-      })
-    )
-  ).toEqual(stateAfter);
-});
-
-it('SIGN_IN_ERROR', () => {
-  const stateBefore = {};
-  const stateAfter = {
+it('SIGN_IN_ERROR', () =>
+  testUnsuccessfulResponse({
+    action: signIn({}),
     code: 'password incorrect',
     message: 'Špatné jméno či heslo. Uživatel může být též zamčený.',
-    show: true,
+    response: unsuccessfulSignInResponse,
     title: 'přihlašování'
-  };
-  deepFreeze(stateBefore);
+  }));
 
-  expect(
-    errorInModalReducer(
-      stateBefore,
-      createFailureFromAction({ action: signIn({}), response: unsuccessfulSignInResponse })
-    )
-  ).toEqual(stateAfter);
-});
-
-it('SIGN_OUT_ERROR', () => {
-  const stateBefore = {};
-  const stateAfter = {
+it('SIGN_OUT_ERROR', () =>
+  testUnsuccessfulResponse({
+    action: signOut(),
     code: 'authentication token invalid',
     message: 'Špatný ověřovací token. Zkus se přihlásit znovu.',
-    show: true,
+    response: unsuccessfulSignOutResponse,
     title: 'odhlašování'
-  };
-  deepFreeze(stateBefore);
+  }));
 
-  expect(
-    errorInModalReducer(
-      stateBefore,
-      createFailureFromAction({ action: signOut(), response: unsuccessfulSignOutResponse })
-    )
-  ).toEqual(stateAfter);
-});
-
-it('STARTUJICI_CREATE_VYKON_ERROR', () => {
-  const stateBefore = {};
-  const stateAfter = {
-    code: 'unfulfilled request',
-    message: 'A strange error occurred.',
-    show: true,
+it('STARTUJICI_CREATE_VYKON_ERROR', () =>
+  testUnsuccessfulResponse({
+    action: createVykon({}),
+    request: { id: '===id===', rok: 2018 },
     title: 'vytváření registrace na start'
-  };
-  deepFreeze(stateBefore);
+  }));
 
-  const request = { id: '===id===', rok: 2018 };
-  expect(
-    errorInModalReducer(
-      stateBefore,
-      createFailureFromAction({
-        action: createVykon({}),
-        request,
-        response: genericUnsuccessfulResponse
-      })
-    )
-  ).toEqual(stateAfter);
-});
-
-it('STARTUJICI_DELETE_VYKON_ERROR', () => {
-  const stateBefore = {};
-  const stateAfter = {
-    code: 'unfulfilled request',
-    message: 'A strange error occurred.',
-    show: true,
+it('STARTUJICI_DELETE_VYKON_ERROR', () =>
+  testUnsuccessfulResponse({
+    action: deleteVykon({}),
+    request: { id: '===id===', rok: 2018 },
     title: 'rušení registrace na start'
-  };
-  deepFreeze(stateBefore);
-
-  const request = { id: '===id===', rok: 2018 };
-  expect(
-    errorInModalReducer(
-      stateBefore,
-      createFailureFromAction({
-        action: deleteVykon({}),
-        request,
-        response: genericUnsuccessfulResponse
-      })
-    )
-  ).toEqual(stateAfter);
-});
+  }));
 
 it('hideError()', () => {
   const stateBefore = { code: 'code', message: 'Errrorr!', show: true, title: 'Chyba při něčem!' };
