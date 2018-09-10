@@ -3,6 +3,7 @@ import { DOHLASKY, PRIHLASKY } from '../../constants';
 import { signIn } from '../../auth/SignIn/SignInActions';
 import { signOut } from '../../auth/SignOut/SignOutActions';
 import { saveVykon } from '../../casomeric/Casomira/StartovniCisla/StartovniCislaActions';
+import { fetchRocniky } from '../../entities/rocniky/rocnikyActions';
 import { fetchStopky } from '../../entities/stopky/stopkyActions';
 import {
   createPrihlaskySave,
@@ -97,6 +98,12 @@ it('DOHLASKY_SAVE_ERROR', () =>
     request: {},
     response: unsuccessfulSaveResponse,
     title: 'ukládání formuláře'
+  }));
+
+it('FETCH_ROCNIKY_ERROR', () =>
+  testUnsuccessfulResponse({
+    action: fetchRocniky(),
+    title: 'načítání ročníků'
   }));
 
 it('FETCH_STOPKY_ERROR', () =>
