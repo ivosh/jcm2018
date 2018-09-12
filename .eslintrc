@@ -20,6 +20,12 @@
   extends: [ 'eslint:recommended', 'airbnb-base', 'plugin:jasmine/recommended',
              'plugin:react/recommended' ],
 
+  settings: {
+    react: {
+      version: "16.4",
+    }
+  },
+
   globals: {
     document: true,
     fetch: true,

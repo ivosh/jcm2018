@@ -9,6 +9,7 @@
     "jwt-decode": "^2.2.0",
     "moment": "^2.22.2",
     "prop-types": "^15.6.2",
+    "---on react version upgrade---": "Update the version in .eslintrc as well.",
     "react": "^16.4.1",
     "react-bootstrap": "^0.31.5",
     "react-bootstrap-typeahead": "^2.6.0",
