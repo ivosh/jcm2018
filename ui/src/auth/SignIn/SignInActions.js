@@ -1,6 +1,6 @@
 import jwtDecode from 'jwt-decode';
 import { API_SIGN_IN, CODE_OK, CODE_NONCE_MISMATCH, CODE_TOKEN_INVALID } from '../../common';
-import { WS_API, createFailureFromAction } from '../../store/wsAPI';
+import { WS_API } from '../../store/wsAPI';
 
 export const generateNonce = (len = 20) => {
   const arr = new Uint8Array(len / 2);
@@ -55,14 +55,3 @@ export const signIn = ({ username, password }) => ({
     title: 'přihlašování'
   }
 });
-
-// :TODO: used only by legacy code. Remove when not needed.
-export const authTokenExpired = ({ response, ...rest }) =>
-  createFailureFromAction({
-    ...rest,
-    action: signIn({}),
-    response: {
-      ...response,
-      status: `Platnost ověřovacího tokenu pravděpodobně vypršela. ${response.status}`
-    }
-  });
