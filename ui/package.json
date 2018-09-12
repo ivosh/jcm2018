@@ -30,6 +30,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "---run test under Windows---": "winpty npm.cmd run test",
     "test": "react-scripts test --env=jsdom",
     "coverage": "react-scripts test --env=jsdom --coverage",
     "prettier": "prettier --write \"src/**/*.{js,jsx,json,css}\"",
