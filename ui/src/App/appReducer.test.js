@@ -1,10 +1,7 @@
 import deepFreeze from 'deep-freeze';
 import { createRequestFromAction, createSuccessFromAction } from '../store/wsAPI';
 import { fetchStopky } from '../entities/stopky/stopkyActions';
-import {
-  fetchUcastniciRequest,
-  fetchUcastniciSuccess
-} from '../entities/ucastnici/ucastniciActions';
+import { fetchUcastnici } from '../entities/ucastnici/ucastniciActions';
 import appReducer from './appReducer';
 import { websocketConnected, websocketDisconnected } from './AppActions';
 
@@ -33,23 +30,26 @@ it('websocket disconnected', () => {
   expect(stateAfter).toMatchSnapshot();
 });
 
-it('fetchUcastniciRequest()', () => {
+it('FETCH_UCASTNICI_REQUEST', () => {
   const stateBefore = { fetchingUcastnici: undefined };
   deepFreeze(stateBefore);
 
-  const stateAfter = appReducer(stateBefore, fetchUcastniciRequest());
+  const stateAfter = appReducer(stateBefore, createRequestFromAction({ action: fetchUcastnici() }));
   expect(stateAfter.fetchingUcastnici).toEqual('fetching');
 });
 
-it('fetchUcastniciSuccess()', () => {
+it('FETCH_UCASTNICI_SUCCESS', () => {
   const stateBefore = { fetchingUcastnici: 'fetching' };
   deepFreeze(stateBefore);
 
-  const stateAfter = appReducer(stateBefore, fetchUcastniciSuccess({ response: {} }));
+  const stateAfter = appReducer(
+    stateBefore,
+    createSuccessFromAction({ action: fetchUcastnici(), response: { response: {} } })
+  );
   expect(stateAfter.fetchingUcastnici).toEqual('done');
 });
 
-it('fetchStopkyRequest()', () => {
+it('FETCH_STOPKY_REQUEST', () => {
   const stateBefore = { fetchingStopky: undefined };
   deepFreeze(stateBefore);
 
@@ -57,7 +57,7 @@ it('fetchStopkyRequest()', () => {
   expect(stateAfter.fetchingStopky).toEqual('fetching');
 });
 
-it('fetchStopkySuccess()', () => {
+it('FETCH_STOPKY_SUCCESS', () => {
   const stateBefore = { fetchingStopky: 'fetching' };
   deepFreeze(stateBefore);
 

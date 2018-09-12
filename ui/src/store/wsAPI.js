@@ -12,10 +12,11 @@ const createRequest = ({ type, request }) => ({
   receivedAt: Date.now()
 });
 
-// For testing.
+// For testing. Takes the last action in case array of actions is passed.
 // state is required only if request is not supplied and needs to be created using a function.
 export const createRequestFromAction = ({ action, request, state }) => {
-  const { [WS_API]: callAPI } = action;
+  const { [WS_API]: wsAPI } = action;
+  const callAPI = Array.isArray(wsAPI) ? wsAPI.slice(-1)[0] : wsAPI;
   const { type } = callAPI;
   if (!request) {
     request = getRequest(callAPI.request, state); // eslint-disable-line no-param-reassign
@@ -58,10 +59,11 @@ const createSuccess = ({
   };
 };
 
-// For testing.
+// For testing. Takes the last action in case array of actions is passed.
 // state is required only if request is not supplied and needs to be created using a function.
 export const createSuccessFromAction = ({ action, request, response, state }) => {
-  const { [WS_API]: callAPI } = action;
+  const { [WS_API]: wsAPI } = action;
+  const callAPI = Array.isArray(wsAPI) ? wsAPI.slice(-1)[0] : wsAPI;
   const { checkResponse, decorate, normalize, title, type } = callAPI;
   if (!request) {
     request = getRequest(callAPI.request, state); // eslint-disable-line no-param-reassign

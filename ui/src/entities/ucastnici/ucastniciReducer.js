@@ -9,6 +9,7 @@ import {
   STARTUJICI_CREATE_VYKON,
   STARTUJICI_DELETE_VYKON
 } from '../../registrator/Startujici/StartujiciActions';
+import { FETCH_UCASTNICI } from './ucastniciActions';
 
 export const initialState = { allIds: [], byIds: {}, invalidated: false };
 
@@ -52,8 +53,10 @@ const ucastniciReducer = (state = initialState, action) => {
       const { id, rok, vykon } = action.request;
       return updateUcast(state, id, rok, 'vykon', vykon);
     }
-    case 'FETCH_UCASTNICI_SUCCESS':
-      return { ...action.data, invalidated: false };
+    case `${FETCH_UCASTNICI}_SUCCESS`: {
+      const { allIds, byIds } = action.response;
+      return { allIds, byIds, invalidated: false };
+    }
     case `${DOHLASKY_SAVE}_SUCCESS`:
     case `${PRIHLASKY_SAVE}_SUCCESS`: {
       const { rok, udaje, prihlaska, platby, ubytovani } = action.request;

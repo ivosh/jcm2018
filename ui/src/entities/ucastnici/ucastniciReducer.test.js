@@ -8,7 +8,7 @@ import { createVykon, deleteVykon } from '../../registrator/Startujici/Startujic
 import { saveUbytovaniSuccess } from '../../registrator/Ubytovani/UbytovaniActions';
 import { createSuccessFromAction } from '../../store/wsAPI';
 import ucastniciReducer, { getUcastiProRok } from './ucastniciReducer';
-import { broadcastUcastnik, fetchUcastniciSuccess } from './ucastniciActions';
+import { broadcastUcastnik, fetchUcastnici } from './ucastniciActions';
 import ucastniciTestData from './ucastniciTestData';
 
 const prihlaskySave = createPrihlaskySave(PRIHLASKY);
@@ -151,7 +151,12 @@ it('po načtení účastníků', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(ucastniciReducer(stateBefore, fetchUcastniciSuccess(json))).toEqual(stateAfter);
+  expect(
+    ucastniciReducer(
+      stateBefore,
+      createSuccessFromAction({ action: fetchUcastnici(), response: json })
+    )
+  ).toEqual(stateAfter);
 });
 
 it('po odhlášení', () => {

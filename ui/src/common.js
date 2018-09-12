@@ -12,6 +12,7 @@ export const PLATBA_TYPY = ['hotově', 'převodem', 'složenkou'];
 export const API_DELETE_VYKON = 'deleteVykon';
 export const API_FIND_ALL_ROCNIKY = 'findAllRocniky';
 export const API_FIND_ALL_STOPKY = 'findAllStopky';
+export const API_FIND_ALL_UCASTNICI = 'findAllUcastnici';
 export const API_SAVE_STOPKY = 'saveStopky';
 export const API_SAVE_UCAST = 'saveUcast';
 export const API_SAVE_VYKON = 'saveVykon';
@@ -19,7 +20,6 @@ export const API_SIGN_IN = 'signIn';
 export const API_SIGN_OUT = 'signOut';
 export const BROADCAST_STOPKY = 'broadcastStopky';
 export const BROADCAST_UCASTNIK = 'broadcastUcastnik';
-export const FIND_ALL_UCASTNICI = 'findAllUcastnici';
 export const SAVE_PLATBY = 'savePlatby';
 export const SAVE_PRIHLASKA = 'savePrihlaska';
 export const SAVE_UBYTOVANI = 'saveUbytovani';
@@ -42,12 +42,6 @@ export const CODE_UNPARSEABLE_MESSAGE = 'unparseable message';
 export const CODE_UNRECOGNIZED_ACTION = 'unrecognized action';
 
 export const apiCall = ({ endpoint, request, token }) => ({ action: endpoint, request, token });
-
-export const findAllUcastnici = token => ({
-  action: FIND_ALL_UCASTNICI,
-  request: undefined,
-  token
-});
 
 export const saveUbytovani = ({ id, rok, ubytovani }, token) => ({
   action: SAVE_UBYTOVANI,
