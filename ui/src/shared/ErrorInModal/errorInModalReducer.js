@@ -5,6 +5,7 @@ import { CASOMIRA_SAVE_VYKON } from '../../casomeric/Casomira/StartovniCisla/Sta
 import { SAVE_STOPKY } from '../../casomeric/Stopky/StopkyProTyp/StopkyProTypActions';
 import { FETCH_ROCNIKY } from '../../entities/rocniky/rocnikyActions';
 import { FETCH_STOPKY } from '../../entities/stopky/stopkyActions';
+import { FETCH_UCASTNICI } from '../../entities/ucastnici/ucastniciActions';
 import {
   DOHLASKY_SAVE,
   PRIHLASKY_SAVE
@@ -28,6 +29,7 @@ const errorInModalReducer = (state = initialState, action) => {
     case `${DOHLASKY_SAVE}_ERROR`:
     case `${FETCH_ROCNIKY}_ERROR`:
     case `${FETCH_STOPKY}_ERROR`:
+    case `${FETCH_UCASTNICI}_ERROR`:
     case `${PRIHLASKY}_FORM_INVALID`:
     case `${PRIHLASKY_SAVE}_ERROR`:
     case `${SAVE_STOPKY}_ERROR`:

@@ -5,6 +5,7 @@ import { signOut } from '../../auth/SignOut/SignOutActions';
 import { saveVykon } from '../../casomeric/Casomira/StartovniCisla/StartovniCislaActions';
 import { fetchRocniky } from '../../entities/rocniky/rocnikyActions';
 import { fetchStopky } from '../../entities/stopky/stopkyActions';
+import { fetchUcastnici } from '../../entities/ucastnici/ucastniciActions';
 import {
   createPrihlaskySave,
   createValidationError
@@ -110,6 +111,12 @@ it('FETCH_STOPKY_ERROR', () =>
   testUnsuccessfulResponse({
     action: fetchStopky(),
     title: 'načítání stopek'
+  }));
+
+it('FETCH_UCASTNICI_ERROR', () =>
+  testUnsuccessfulResponse({
+    action: fetchUcastnici(),
+    title: 'načítání účastníků'
   }));
 
 it('PRIHLASKY_FORM_INVALID', () => {
