@@ -1,9 +1,10 @@
 import deepFreeze from 'deep-freeze';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { SortDirTypes } from '../../sort';
+import { createRequestFromAction, createSuccessFromAction } from '../../store/wsAPI';
 import { createTextFilterChange } from '../Filterable/FilterableActions';
 import { createSortDirChange } from '../UcastniciTable/UcastniciTableActions';
-import { changeUbytovani, saveUbytovaniRequest, saveUbytovaniSuccess } from './UbytovaniActions';
+import { changeUbytovani, saveUbytovani } from './UbytovaniActions';
 import ubytovaniReducer, { getUbytovaniSorted } from './ubytovaniReducer';
 
 const sortDirChange = createSortDirChange('UBYTOVANI');
@@ -43,7 +44,10 @@ it('loading - zapnutí', () => {
   expect(
     ubytovaniReducer(
       stateBefore,
-      saveUbytovaniRequest({ id: '5a09b1fd371dec1e99b7e1c9', rok: 2018 })
+      createRequestFromAction({
+        action: saveUbytovani({}),
+        request: { id: '5a09b1fd371dec1e99b7e1c9', rok: 2018 }
+      })
     )
   ).toEqual(stateAfter);
 });
@@ -56,7 +60,10 @@ it('loading - vypnutí', () => {
   expect(
     ubytovaniReducer(
       stateBefore,
-      saveUbytovaniSuccess({ id: '5a09b1fd371dec1e99b7e1c9', rok: 2018 })
+      createSuccessFromAction({
+        action: saveUbytovani({}),
+        request: { id: '5a09b1fd371dec1e99b7e1c9', rok: 2018 }
+      })
     )
   ).toEqual(stateAfter);
 });

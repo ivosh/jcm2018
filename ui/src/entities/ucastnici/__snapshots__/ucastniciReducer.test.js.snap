@@ -1276,7 +1276,7 @@ Object {
 }
 `;
 
-exports[`saveUbytovaniSuccess() 1`] = `
+exports[`saveUbytovani - success() 1`] = `
 Object {
   "allIds": Array [
     "6f09b1fd371dec1e99b7e1c9",

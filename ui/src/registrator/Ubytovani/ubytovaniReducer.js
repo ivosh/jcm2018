@@ -6,6 +6,7 @@ import {
   createUcastniciTableReducer,
   initialState as ucastniciTableInitialState
 } from '../UcastniciTable/ucastniciTableReducer';
+import { SAVE_UBYTOVANI } from './UbytovaniActions';
 
 export const initialState = {
   loading: {},
@@ -24,11 +25,11 @@ const ubytovaniReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'UBYTOVANI_CHANGE_UBYTOVANI':
       return { ...state, jenUbytovani: !state.jenUbytovani };
-    case 'UBYTOVANI_SAVE_REQUEST':
-      return { ...state, loading: { ...state.loading, [action.id]: true } };
-    case 'UBYTOVANI_SAVE_SUCCESS':
-    case 'UBYTOVANI_SAVE_ERROR': {
-      const { [action.id]: remove, ...rest } = state.loading;
+    case `${SAVE_UBYTOVANI}_REQUEST`:
+      return { ...state, loading: { ...state.loading, [action.request.id]: true } };
+    case `${SAVE_UBYTOVANI}_SUCCESS`:
+    case `${SAVE_UBYTOVANI}_ERROR`: {
+      const { [action.request.id]: remove, ...rest } = state.loading;
       return { ...state, loading: rest };
     }
     default:

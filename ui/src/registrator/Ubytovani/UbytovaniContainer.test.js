@@ -1,7 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
+import { API_SAVE_UBYTOVANI } from '../../common';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
+import { WS_API } from '../../store/wsAPI';
+import { SAVE_UBYTOVANI } from './UbytovaniActions';
 import UbytovaniContainer from './UbytovaniContainer';
 
 const mockStore = configureStore();
@@ -49,5 +52,13 @@ it('maps onTextFilterChange to dispatch textFilterChange action', () => {
 it('maps onSelect to dispatch saveUbytovani action', () => {
   wrapper.props().ubytovani[0].akce.onSelect({ target: { value: 'Odhlásit' } });
 
-  expect(store.dispatch).toHaveBeenCalledWith(expect.any(Function));
+  expect(store.dispatch).toHaveBeenCalledWith({
+    [WS_API]: {
+      type: SAVE_UBYTOVANI,
+      endpoint: API_SAVE_UBYTOVANI,
+      normalize: expect.any(Function),
+      request: expect.any(Function),
+      title: 'ukládání ubytování'
+    }
+  });
 });

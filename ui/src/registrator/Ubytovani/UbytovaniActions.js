@@ -1,44 +1,19 @@
 import {
-  CODE_OK,
-  saveUbytovani as saveUbytovaniAPI,
+  API_SAVE_UBYTOVANI,
   ubytovaniNeprespano,
   ubytovaniOdhlasit,
   ubytovaniPrespano,
   ubytovaniPrihlasit
 } from '../../common';
 import { AKTUALNI_ROK } from '../../constants';
-import { errorToStr } from '../../Util';
+import { WS_API } from '../../store/wsAPI';
 
 export const changeUbytovani = () => ({
   type: 'UBYTOVANI_CHANGE_UBYTOVANI'
 });
 
-export const saveUbytovaniRequest = ({ id, rok }) => ({
-  type: 'UBYTOVANI_SAVE_REQUEST',
-  id,
-  rok,
-  receivedAt: Date.now()
-});
-
-export const saveUbytovaniError = ({ code, status, err, ...rest }) => ({
-  type: 'UBYTOVANI_SAVE_ERROR',
-  code,
-  status,
-  err: errorToStr(err),
-  ...rest,
-  receivedAt: Date.now()
-});
-
 export const hideError = () => ({ type: 'UBYTOVANI_HIDE_ERROR' });
 export const showError = () => ({ type: 'UBYTOVANI_SHOW_ERROR' });
-
-export const saveUbytovaniSuccess = ({ id, rok, ubytovani }) => ({
-  type: 'UBYTOVANI_SAVE_SUCCESS',
-  id,
-  rok,
-  ubytovani,
-  receivedAt: Date.now()
-});
 
 const reducers = {
   Nepřespáno: ubytovaniNeprespano,
@@ -47,32 +22,21 @@ const reducers = {
   Přihlásit: ubytovaniPrihlasit
 };
 
-export const saveUbytovani = ({ akce, den = 'pátek', id }) => async (
-  dispatch,
-  getState,
-  wsClient
-) => {
+const createRequest = ({ akce, den, id, rok, state }) => {
   const reducer = reducers[akce];
-  if (!reducer) {
-    return;
-  }
-
-  const rok = AKTUALNI_ROK;
-  dispatch(saveUbytovaniRequest({ id, rok }));
-
-  const state = getState();
   const ubytovani = reducer({ den, ubytovani: state.entities.ucastnici.byIds[id][rok].ubytovani });
-
-  try {
-    const response = await wsClient.sendRequest(
-      saveUbytovaniAPI({ id, rok, ubytovani }, state.auth.token)
-    );
-    if (response.code === CODE_OK) {
-      dispatch(saveUbytovaniSuccess({ id, rok, ubytovani }));
-    } else {
-      dispatch(saveUbytovaniError(response));
-    }
-  } catch (err) {
-    dispatch(saveUbytovaniError({ code: 'internal error', err }));
-  }
+  return { id, rok, ubytovani };
 };
+
+const normalize = ({ request }) => ({ request, response: {} });
+
+export const SAVE_UBYTOVANI = 'SAVE_UBYTOVANI';
+export const saveUbytovani = ({ akce, den = 'pátek', id, rok = AKTUALNI_ROK }) => ({
+  [WS_API]: {
+    type: SAVE_UBYTOVANI,
+    endpoint: API_SAVE_UBYTOVANI,
+    normalize,
+    request: state => createRequest({ akce, den, id, rok, state }),
+    title: 'ukládání ubytování'
+  }
+});

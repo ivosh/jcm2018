@@ -14,17 +14,13 @@ export const API_FIND_ALL_ROCNIKY = 'findAllRocniky';
 export const API_FIND_ALL_STOPKY = 'findAllStopky';
 export const API_FIND_ALL_UCASTNICI = 'findAllUcastnici';
 export const API_SAVE_STOPKY = 'saveStopky';
+export const API_SAVE_UBYTOVANI = 'saveUbytovani';
 export const API_SAVE_UCAST = 'saveUcast';
 export const API_SAVE_VYKON = 'saveVykon';
 export const API_SIGN_IN = 'signIn';
 export const API_SIGN_OUT = 'signOut';
 export const BROADCAST_STOPKY = 'broadcastStopky';
 export const BROADCAST_UCASTNIK = 'broadcastUcastnik';
-export const SAVE_PLATBY = 'savePlatby';
-export const SAVE_PRIHLASKA = 'savePrihlaska';
-export const SAVE_UBYTOVANI = 'saveUbytovani';
-export const SAVE_UDAJE = 'saveUdaje';
-export const SAVE_VYKON = API_SAVE_VYKON;
 
 export const CODE_OK = 'ok';
 export const CODE_ALREADY_EXISTING = 'již existuje';
@@ -42,12 +38,6 @@ export const CODE_UNPARSEABLE_MESSAGE = 'unparseable message';
 export const CODE_UNRECOGNIZED_ACTION = 'unrecognized action';
 
 export const apiCall = ({ endpoint, request, token }) => ({ action: endpoint, request, token });
-
-export const saveUbytovani = ({ id, rok, ubytovani }, token) => ({
-  action: SAVE_UBYTOVANI,
-  request: { id, rok, ubytovani },
-  token
-});
 
 const zkontrolujMladistvy = (kategorie, { datum, narozeni, mladistvyPotvrzen }) => {
   if (!kategorie.vek) {
