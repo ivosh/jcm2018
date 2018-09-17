@@ -1,7 +1,7 @@
 'use strict';
 
 const db = require('../../../db');
-const Actions = require('../../../../common/common');
+const { API_SAVE_UDAJE, apiCall } = require('../../../../common/common');
 const createWsServer = require('../../../createWsServer');
 const createWsClient = require('./../../createWsClient');
 const Ucastnik = require('../../../model/Ucastnik/Ucastnik');
@@ -10,6 +10,7 @@ const generateTestToken = require('../../generateTestToken');
 const port = 5601;
 const wsServer = createWsServer({});
 const wsClient = createWsClient({ port });
+const token = generateTestToken();
 
 beforeAll(async () => {
   wsServer.httpServer().listen(port);
@@ -39,7 +40,7 @@ it('vytvoř minimálního účastníka', async () => {
   };
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.saveUdaje({ rok: 2018, udaje }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_UDAJE, request: { rok: 2018, udaje }, token })
   );
   expect(response.response.id).not.toBeNull();
   response.response.id = '---';
@@ -61,12 +62,16 @@ it('vytvoř dvě účasti', async () => {
   const udaje2 = { ...udaje1, obec: 'Kamenický Přívoz' };
 
   const response1 = await wsClient.sendRequest(
-    Actions.saveUdaje({ rok: 2017, udaje: udaje1 }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_UDAJE, request: { rok: 2017, udaje: udaje1 }, token })
   );
 
   const ucastnikId = response1.response.id;
   const { requestId, ...response2 } = await wsClient.sendRequest(
-    Actions.saveUdaje({ id: ucastnikId, rok: 2018, udaje: udaje2 }, generateTestToken())
+    apiCall({
+      endpoint: API_SAVE_UDAJE,
+      request: { id: ucastnikId, rok: 2018, udaje: udaje2 },
+      token
+    })
   );
   response2.response.id = '---';
   expect(response2).toMatchSnapshot();
@@ -90,22 +95,38 @@ it('přepiš existující účast', async () => {
   const udaje5 = { ...udaje1, obec: 'Kladno 5' };
 
   const response1 = await wsClient.sendRequest(
-    Actions.saveUdaje({ rok: 2018, udaje: udaje1 }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_UDAJE, request: { rok: 2018, udaje: udaje1 }, token })
   );
   const ucastnikId = response1.response.id;
 
   await wsClient.sendRequest(
-    Actions.saveUdaje({ id: ucastnikId, rok: 2017, udaje: udaje2 }, generateTestToken())
+    apiCall({
+      endpoint: API_SAVE_UDAJE,
+      request: { id: ucastnikId, rok: 2017, udaje: udaje2 },
+      token
+    })
   );
   await wsClient.sendRequest(
-    Actions.saveUdaje({ id: ucastnikId, rok: 2016, udaje: udaje3 }, generateTestToken())
+    apiCall({
+      endpoint: API_SAVE_UDAJE,
+      request: { id: ucastnikId, rok: 2016, udaje: udaje3 },
+      token
+    })
   );
   await wsClient.sendRequest(
-    Actions.saveUdaje({ id: ucastnikId, rok: 2015, udaje: udaje4 }, generateTestToken())
+    apiCall({
+      endpoint: API_SAVE_UDAJE,
+      request: { id: ucastnikId, rok: 2015, udaje: udaje4 },
+      token
+    })
   );
 
   const { requestId, ...response5 } = await wsClient.sendRequest(
-    Actions.saveUdaje({ id: ucastnikId, rok: 2017, udaje: udaje5 }, generateTestToken())
+    apiCall({
+      endpoint: API_SAVE_UDAJE,
+      request: { id: ucastnikId, rok: 2017, udaje: udaje5 },
+      token
+    })
   );
   response5.response.id = '---';
   expect(response5).toMatchSnapshot();
@@ -124,7 +145,11 @@ it('účastník neexistuje', async () => {
   };
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.saveUdaje({ id: '41224d776a326fb40f000001', rok: 2018, udaje }, generateTestToken())
+    apiCall({
+      endpoint: API_SAVE_UDAJE,
+      request: { id: '41224d776a326fb40f000001', rok: 2018, udaje },
+      token
+    })
   );
   expect(response).toMatchSnapshot();
 });
@@ -139,7 +164,11 @@ it('účastník neexistuje - špatné ID', async () => {
   };
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.saveUdaje({ id: '===neexistujici===', rok: 2018, udaje }, generateTestToken())
+    apiCall({
+      endpoint: API_SAVE_UDAJE,
+      request: { id: '===neexistujici===', rok: 2018, udaje },
+      token
+    })
   );
   expect(response).toMatchSnapshot();
 });
@@ -155,18 +184,20 @@ it('údaje chybí', async () => {
   };
 
   const response1 = await wsClient.sendRequest(
-    Actions.saveUdaje({ rok: 2018, udaje }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_UDAJE, request: { rok: 2018, udaje }, token })
   );
   const { id } = response1.response;
   expect(id).toBeTruthy();
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.saveUdaje({ id, rok: 2018 }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_UDAJE, request: { id, rok: 2018 }, token })
   );
   expect(response).toMatchSnapshot();
 });
 
 it('saveUdaje [not authenticated]', async () => {
-  const { requestId, ...response } = await wsClient.sendRequest(Actions.saveUdaje({}, null));
+  const { requestId, ...response } = await wsClient.sendRequest(
+    apiCall({ endpoint: API_SAVE_UDAJE })
+  );
   expect(response).toMatchSnapshot();
 });

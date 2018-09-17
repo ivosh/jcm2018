@@ -1,7 +1,7 @@
 'use strict';
 
 const jwt = require('jsonwebtoken');
-const Actions = require('../../../common/common');
+const { API_SIGN_IN, apiCall } = require('../../../common/common');
 const config = require('../../config');
 const db = require('../../db');
 const createWsServer = require('../../createWsServer');
@@ -36,7 +36,10 @@ it('signIn successfully', async () => {
   await user.save();
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.signIn('tumáš', 'jcm2018', 'x834t8df')
+    apiCall({
+      endpoint: API_SIGN_IN,
+      request: { username: 'tumáš', password: 'jcm2018', nonce: 'x834t8df' }
+    })
   );
   expect(response.response.token).toBeTruthy();
 
@@ -53,7 +56,10 @@ it('signIn unsuccessfully (špatné heslo)', async () => {
   await user.save();
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.signIn('tumáš', 'jcm2017', 'ab87cxf')
+    apiCall({
+      endpoint: API_SIGN_IN,
+      request: { username: 'tumáš', password: 'jcm2017', nonce: 'ab87cxf' }
+    })
   );
   expect(response).toMatchSnapshot();
 });
@@ -63,7 +69,10 @@ it('signIn unsuccessfully (špatný uživatel)', async () => {
   await user.save();
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.signIn('tomáš', 'jcm2018', '29cms4487')
+    apiCall({
+      endpoint: API_SIGN_IN,
+      request: { username: 'tomáš', password: 'jcm2018', nonce: '29cms4487' }
+    })
   );
   expect(response).toMatchSnapshot();
 });
@@ -80,7 +89,10 @@ it('signIn unsuccessfully (zamčený uživatel)', async () => {
   await user.save();
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.signIn('tumáš', 'jcm2018', '75z7wax')
+    apiCall({
+      endpoint: API_SIGN_IN,
+      request: { username: 'tumáš', password: 'jcm2018', nonce: '75z7wax' }
+    })
   );
   expect(response).toMatchSnapshot();
 });

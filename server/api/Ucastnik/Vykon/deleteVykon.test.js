@@ -1,7 +1,12 @@
 'use strict';
 
 const db = require('../../../db');
-const Actions = require('../../../../common/common');
+const {
+  API_DELETE_VYKON,
+  API_SAVE_UDAJE,
+  API_SAVE_VYKON,
+  apiCall
+} = require('../../../../common/common');
 const createWsServer = require('../../../createWsServer');
 const createWsClient = require('./../../createWsClient');
 const Kategorie = require('../../../model/Kategorie/Kategorie');
@@ -11,6 +16,7 @@ const generateTestToken = require('../../generateTestToken');
 const port = 5601;
 const wsServer = createWsServer({});
 const wsClient = createWsClient({ port });
+const token = generateTestToken();
 
 let kategorie;
 beforeAll(async () => {
@@ -50,18 +56,18 @@ it('vytvoř minimálního účastníka', async () => {
   const vykon = { kategorie: kategorie.id, startCislo: 15, dokonceno: true, cas: 'T3:24:15.048S' };
 
   const response1 = await wsClient.sendRequest(
-    Actions.saveUdaje({ rok: 2018, udaje }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_UDAJE, request: { rok: 2018, udaje }, token })
   );
   const { id } = response1.response;
   expect(id).toBeTruthy();
 
   let { requestId, ...response } = await wsClient.sendRequest(
-    Actions.saveVykon({ id, rok: 2018, vykon }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_VYKON, request: { id, rok: 2018, vykon }, token })
   );
   expect(response).toMatchSnapshot();
 
   ({ requestId, ...response } = await wsClient.sendRequest(
-    Actions.deleteVykon({ id, rok: 2018 }, generateTestToken())
+    apiCall({ endpoint: API_DELETE_VYKON, request: { id, rok: 2018 }, token })
   ));
   expect(response).toMatchSnapshot();
 
@@ -71,6 +77,8 @@ it('vytvoř minimálního účastníka', async () => {
 });
 
 it('deleteVykon [not authenticated]', async () => {
-  const { requestId, ...response } = await wsClient.sendRequest(Actions.deleteVykon({}, null));
+  const { requestId, ...response } = await wsClient.sendRequest(
+    apiCall({ endpoint: API_DELETE_VYKON })
+  );
   expect(response).toMatchSnapshot();
 });

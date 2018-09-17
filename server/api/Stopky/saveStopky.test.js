@@ -1,7 +1,7 @@
 'use strict';
 
 const db = require('../../db');
-const Actions = require('../../../common/common');
+const { API_SAVE_STOPKY, apiCall } = require('../../../common/common');
 const createWsServer = require('../../createWsServer');
 const createWsClient = require('./../createWsClient');
 const Stopky = require('../../model/Stopky/Stopky');
@@ -33,7 +33,7 @@ it('vytvoř stopky', async () => {
   const stopky = { typ: 'půlmaraton', base: null, delta: 'PT0H0M12.5S', running: false };
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.saveStopky({ ...stopky }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_STOPKY, request: stopky, token: generateTestToken() })
   );
   expect(response).toMatchSnapshot();
 
@@ -58,12 +58,12 @@ it('přepiš existující stopky', async () => {
   };
 
   let { requestId, ...response } = await wsClient.sendRequest(
-    Actions.saveStopky({ ...stopky1 }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_STOPKY, request: stopky1, token: generateTestToken() })
   );
   expect(response).toMatchSnapshot();
 
   ({ requestId, ...response } = await wsClient.sendRequest(
-    Actions.saveStopky({ ...stopky2 }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_STOPKY, request: stopky2, token: generateTestToken() })
   ));
   expect(response).toMatchSnapshot();
 
@@ -72,6 +72,8 @@ it('přepiš existující stopky', async () => {
 });
 
 it('saveStopky [not authenticated]', async () => {
-  const { requestId, ...response } = await wsClient.sendRequest(Actions.saveStopky({}, null));
+  const { requestId, ...response } = await wsClient.sendRequest(
+    apiCall({ endpoint: API_SAVE_STOPKY })
+  );
   expect(response).toMatchSnapshot();
 });

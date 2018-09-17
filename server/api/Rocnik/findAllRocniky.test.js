@@ -1,7 +1,7 @@
 'use strict';
 
 const db = require('../../db');
-const Actions = require('../../../common/common');
+const { API_FIND_ALL_ROCNIKY, apiCall } = require('../../../common/common');
 const createWsServer = require('../../createWsServer');
 const createWsClient = require('../createWsClient');
 const Kategorie = require('../../model/Kategorie/Kategorie');
@@ -11,6 +11,7 @@ const generateTestToken = require('../generateTestToken');
 const port = 5603;
 const wsServer = createWsServer({});
 const wsClient = createWsClient({ port });
+const token = generateTestToken();
 
 beforeAll(async () => {
   wsServer.httpServer().listen(port);
@@ -103,7 +104,7 @@ it('findAllRocniky', async () => {
   await rocnik2.save();
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.findAllRocniky(generateTestToken())
+    apiCall({ endpoint: API_FIND_ALL_ROCNIKY, token })
   );
   const { kategorie, rocniky } = response.response;
 
@@ -134,6 +135,8 @@ it('findAllRocniky', async () => {
 });
 
 it('findAllRocniky [not authenticated]', async () => {
-  const { requestId, ...response } = await wsClient.sendRequest(Actions.findAllRocniky(null));
+  const { requestId, ...response } = await wsClient.sendRequest(
+    apiCall({ endpoint: API_FIND_ALL_ROCNIKY })
+  );
   expect(response).toMatchSnapshot();
 });

@@ -1,7 +1,7 @@
 'use strict';
 
 const db = require('../../../db');
-const Actions = require('../../../../common/common');
+const { API_SAVE_UCAST, apiCall } = require('../../../../common/common');
 const createWsServer = require('../../../createWsServer');
 const createWsClient = require('../../createWsClient');
 const Kategorie = require('../../../model/Kategorie/Kategorie');
@@ -12,6 +12,7 @@ const generateTestToken = require('../../generateTestToken');
 const port = 5601;
 const wsServer = createWsServer({});
 const wsClient = createWsClient({ port });
+const token = generateTestToken();
 
 let kategorie1;
 let kategorie2;
@@ -147,7 +148,7 @@ it('vytvoř minimálního účastníka', async () => {
   const platby = [{ datum: '2018-06-01T00:00:00.000Z', castka: 200, typ: 'převodem' }];
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.saveUcast({ rok: 2018, udaje, prihlaska, platby }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_UCAST, request: { rok: 2018, udaje, prihlaska, platby }, token })
   );
   const { id } = response.response;
   expect(id).toBeTruthy();
@@ -220,7 +221,7 @@ it('ulož startovní číslo - duplicitní v kategorii', async () => {
   };
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.saveUcast({ rok: 2018, udaje, prihlaska }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_UCAST, request: { rok: 2018, udaje, prihlaska }, token })
   );
   expect(response.code).not.toEqual('ok'); // nesmí projít
   expect(response).toMatchSnapshot();
@@ -248,7 +249,7 @@ it('kategorie neexistuje', async () => {
   };
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.saveUcast({ rok: 2018, udaje, prihlaska }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_UCAST, request: { rok: 2018, udaje, prihlaska }, token })
   );
   expect(response).toMatchSnapshot();
 });
@@ -269,7 +270,7 @@ it('chybná kategorie (věk)', async () => {
   };
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.saveUcast({ rok: 2015, udaje, prihlaska }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_UCAST, request: { rok: 2015, udaje, prihlaska }, token })
   );
   response.status = response.status.replace(/[a-f\d]{24}/g, '==id==');
   expect(response).toMatchSnapshot();
@@ -277,12 +278,18 @@ it('chybná kategorie (věk)', async () => {
 
 it('účastník neexistuje', async () => {
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.savePrihlaska({ id: '41224d776a326fb40f000001', rok: 2018 }, generateTestToken())
+    apiCall({
+      endpoint: API_SAVE_UCAST,
+      request: { id: '41224d776a326fb40f000001', rok: 2018 },
+      token
+    })
   );
   expect(response).toMatchSnapshot();
 });
 
 it('saveUcast [not authenticated]', async () => {
-  const { requestId, ...response } = await wsClient.sendRequest(Actions.saveUcast({}, null));
+  const { requestId, ...response } = await wsClient.sendRequest(
+    apiCall({ endpoint: API_SAVE_UCAST })
+  );
   expect(response).toMatchSnapshot();
 });

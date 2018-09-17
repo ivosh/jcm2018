@@ -11,21 +11,21 @@ const PORT_DEV_CLIENT = 3000;
 const PORT_DEV_SERVER = 4000;
 const PLATBA_TYPY = ['hotově', 'převodem', 'složenkou'];
 
+const API_DELETE_VYKON = 'deleteVykon';
+const API_FIND_ALL_ROCNIKY = 'findAllRocniky';
+const API_FIND_ALL_STOPKY = 'findAllStopky';
+const API_FIND_ALL_UCASTNICI = 'findAllUcastnici';
+const API_SAVE_PLATBY = 'savePlatby';
+const API_SAVE_PRIHLASKA = 'savePrihlaska';
+const API_SAVE_STOPKY = 'saveStopky';
+const API_SAVE_UBYTOVANI = 'saveUbytovani';
+const API_SAVE_UCAST = 'saveUcast';
+const API_SAVE_UDAJE = 'saveUdaje';
+const API_SAVE_VYKON = 'saveVykon';
+const API_SIGN_IN = 'signIn';
+const API_SIGN_OUT = 'signOut';
 const BROADCAST_STOPKY = 'broadcastStopky';
 const BROADCAST_UCASTNIK = 'broadcastUcastnik';
-const DELETE_VYKON = 'deleteVykon';
-const FIND_ALL_ROCNIKY = 'findAllRocniky';
-const FIND_ALL_STOPKY = 'findAllStopky';
-const FIND_ALL_UCASTNICI = 'findAllUcastnici';
-const SAVE_PLATBY = 'savePlatby';
-const SAVE_PRIHLASKA = 'savePrihlaska';
-const SAVE_STOPKY = 'saveStopky';
-const SAVE_UBYTOVANI = 'saveUbytovani';
-const SAVE_UCAST = 'saveUcast';
-const SAVE_UDAJE = 'saveUdaje';
-const SAVE_VYKON = 'saveVykon';
-const SIGN_IN = 'signIn';
-const SIGN_OUT = 'signOut';
 
 const CODE_OK = 'ok';
 const CODE_ALREADY_EXISTING = 'již existuje';
@@ -42,81 +42,7 @@ const CODE_UNFULFILLED_REQUEST = 'unfulfilled request';
 const CODE_UNPARSEABLE_MESSAGE = 'unparseable message';
 const CODE_UNRECOGNIZED_ACTION = 'unrecognized action';
 
-const deleteVykon = ({ id, rok }, token) => ({
-  action: DELETE_VYKON,
-  request: { id, rok },
-  token
-});
-
-const findAllRocniky = token => ({
-  action: FIND_ALL_ROCNIKY,
-  request: undefined,
-  token
-});
-
-const findAllStopky = token => ({
-  action: FIND_ALL_STOPKY,
-  request: undefined,
-  token
-});
-
-const findAllUcastnici = token => ({
-  action: FIND_ALL_UCASTNICI,
-  request: undefined,
-  token
-});
-
-const savePlatby = ({ id, rok, platby }, token) => ({
-  action: SAVE_PLATBY,
-  request: { id, rok, platby },
-  token
-});
-
-const savePrihlaska = ({ id, rok, prihlaska }, token) => ({
-  action: SAVE_PRIHLASKA,
-  request: { id, rok, prihlaska },
-  token
-});
-
-const saveStopky = (stopky, token) => ({
-  action: SAVE_STOPKY,
-  request: stopky,
-  token
-});
-
-const saveUbytovani = ({ id, rok, ubytovani }, token) => ({
-  action: SAVE_UBYTOVANI,
-  request: { id, rok, ubytovani },
-  token
-});
-
-const saveUcast = ({ id, rok, udaje, prihlaska, vykon, platby, ubytovani, poznamka }, token) => ({
-  action: SAVE_UCAST,
-  request: { id, rok, udaje, prihlaska, vykon, platby, ubytovani, poznamka },
-  token
-});
-
-const saveUdaje = ({ id, rok, udaje }, token) => ({
-  action: SAVE_UDAJE,
-  request: { id, rok, udaje },
-  token
-});
-
-const saveVykon = ({ id, rok, vykon }, token) => ({
-  action: SAVE_VYKON,
-  request: { id, rok, vykon },
-  token
-});
-
-const signIn = (username, password, nonce) => ({
-  action: SIGN_IN,
-  request: { username, password, nonce }
-});
-
-const signOut = token => ({
-  action: SIGN_OUT,
-  token
-});
+const apiCall = ({ endpoint, request, token }) => ({ action: endpoint, request, token });
 
 const zkontrolujMladistvy = (kategorie, { datum, narozeni, mladistvyPotvrzen }) => {
   if (!kategorie.vek) {
@@ -256,21 +182,21 @@ module.exports = {
   PORT_DEV_CLIENT,
   PORT_DEV_SERVER,
   PLATBA_TYPY,
+  API_DELETE_VYKON,
+  API_FIND_ALL_ROCNIKY,
+  API_FIND_ALL_STOPKY,
+  API_FIND_ALL_UCASTNICI,
+  API_SAVE_PLATBY,
+  API_SAVE_PRIHLASKA,
+  API_SAVE_STOPKY,
+  API_SAVE_UBYTOVANI,
+  API_SAVE_UCAST,
+  API_SAVE_UDAJE,
+  API_SAVE_VYKON,
+  API_SIGN_IN,
+  API_SIGN_OUT,
   BROADCAST_STOPKY,
   BROADCAST_UCASTNIK,
-  DELETE_VYKON,
-  FIND_ALL_ROCNIKY,
-  FIND_ALL_STOPKY,
-  FIND_ALL_UCASTNICI,
-  SAVE_PLATBY,
-  SAVE_PRIHLASKA,
-  SAVE_STOPKY,
-  SAVE_UBYTOVANI,
-  SAVE_UCAST,
-  SAVE_UDAJE,
-  SAVE_VYKON,
-  SIGN_IN,
-  SIGN_OUT,
   CODE_OK,
   CODE_ALREADY_EXISTING,
   CODE_DB_DISCONNECTED,
@@ -285,20 +211,8 @@ module.exports = {
   CODE_UNFULFILLED_REQUEST,
   CODE_UNPARSEABLE_MESSAGE,
   CODE_UNRECOGNIZED_ACTION,
-  deleteVykon,
-  findAllRocniky,
-  findAllStopky,
-  findAllUcastnici,
+  apiCall,
   findKategorie,
-  savePlatby,
-  savePrihlaska,
-  saveStopky,
-  saveUbytovani,
-  saveUcast,
-  saveUdaje,
-  saveVykon,
-  signIn,
-  signOut,
   ubytovaniNeprespano,
   ubytovaniOdhlasit,
   ubytovaniPrespano,

@@ -1,7 +1,7 @@
 'use strict';
 
 const db = require('../../../db');
-const Actions = require('../../../../common/common');
+const { API_SAVE_PRIHLASKA, API_SAVE_UDAJE, apiCall } = require('../../../../common/common');
 const createWsServer = require('../../../createWsServer');
 const createWsClient = require('../../createWsClient');
 const Kategorie = require('../../../model/Kategorie/Kategorie');
@@ -12,6 +12,7 @@ const generateTestToken = require('../../generateTestToken');
 const port = 5601;
 const wsServer = createWsServer({});
 const wsClient = createWsClient({ port });
+const token = generateTestToken();
 
 let kategorie1;
 let kategorie2;
@@ -146,13 +147,13 @@ it('vytvoř minimálního účastníka', async () => {
   };
 
   const response1 = await wsClient.sendRequest(
-    Actions.saveUdaje({ rok: 2018, udaje }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_UDAJE, request: { rok: 2018, udaje }, token })
   );
   const { id } = response1.response;
   expect(id).toBeTruthy();
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.savePrihlaska({ id, rok: 2018, prihlaska }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_PRIHLASKA, request: { id, rok: 2018, prihlaska }, token })
   );
   expect(response).toMatchSnapshot();
 
@@ -190,7 +191,7 @@ it('vytvoř dvě účasti s přihláškami', async () => {
   let requestId;
   let response;
   ({ requestId, ...response } = await wsClient.sendRequest(
-    Actions.saveUdaje({ rok: 2017, udaje: udaje1 }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_UDAJE, request: { rok: 2017, udaje: udaje1 }, token })
   ));
   const { id } = response.response;
   expect(id).toBeTruthy();
@@ -199,17 +200,25 @@ it('vytvoř dvě účasti s přihláškami', async () => {
   expect(response).toMatchSnapshot();
 
   ({ requestId, ...response } = await wsClient.sendRequest(
-    Actions.saveUdaje({ id, rok: 2018, udaje: udaje2 }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_UDAJE, request: { id, rok: 2018, udaje: udaje2 }, token })
   ));
   response.response.id = '===id===';
   expect(response).toMatchSnapshot();
 
   ({ requestId, ...response } = await wsClient.sendRequest(
-    Actions.savePrihlaska({ id, rok: 2017, prihlaska: prihlaska1 }, generateTestToken())
+    apiCall({
+      endpoint: API_SAVE_PRIHLASKA,
+      request: { id, rok: 2017, prihlaska: prihlaska1 },
+      token
+    })
   ));
   expect(response).toMatchSnapshot();
   ({ requestId, ...response } = await wsClient.sendRequest(
-    Actions.savePrihlaska({ id, rok: 2018, prihlaska: prihlaska2 }, generateTestToken())
+    apiCall({
+      endpoint: API_SAVE_PRIHLASKA,
+      request: { id, rok: 2018, prihlaska: prihlaska2 },
+      token
+    })
   ));
   expect(response).toMatchSnapshot();
 
@@ -237,29 +246,55 @@ it('přepiš existující přihlášku', async () => {
   const prihlaska5 = { datum: new Date('2017-04-01Z'), kategorie: kategorie2.id };
 
   const response1 = await wsClient.sendRequest(
-    Actions.saveUdaje({ rok: 2018, udaje }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_UDAJE, request: { rok: 2018, udaje }, token })
   );
   const { id } = response1.response;
   expect(id).toBeTruthy();
 
-  await wsClient.sendRequest(Actions.saveUdaje({ id, rok: 2017, udaje }, generateTestToken()));
-  await wsClient.sendRequest(Actions.saveUdaje({ id, rok: 2016, udaje }, generateTestToken()));
-  await wsClient.sendRequest(Actions.saveUdaje({ id, rok: 2015, udaje }, generateTestToken()));
+  await wsClient.sendRequest(
+    apiCall({ endpoint: API_SAVE_UDAJE, request: { id, rok: 2017, udaje }, token })
+  );
+  await wsClient.sendRequest(
+    apiCall({ endpoint: API_SAVE_UDAJE, request: { id, rok: 2016, udaje }, token })
+  );
+  await wsClient.sendRequest(
+    apiCall({ endpoint: API_SAVE_UDAJE, request: { id, rok: 2015, udaje }, token })
+  );
 
   await wsClient.sendRequest(
-    Actions.savePrihlaska({ id, rok: 2018, prihlaska: prihlaska1 }, generateTestToken())
+    apiCall({
+      endpoint: API_SAVE_PRIHLASKA,
+      request: { id, rok: 2018, prihlaska: prihlaska1 },
+      token
+    })
   );
   await wsClient.sendRequest(
-    Actions.savePrihlaska({ id, rok: 2017, prihlaska: prihlaska2 }, generateTestToken())
+    apiCall({
+      endpoint: API_SAVE_PRIHLASKA,
+      request: { id, rok: 2017, prihlaska: prihlaska2 },
+      token
+    })
   );
   await wsClient.sendRequest(
-    Actions.savePrihlaska({ id, rok: 2016, prihlaska: prihlaska3 }, generateTestToken())
+    apiCall({
+      endpoint: API_SAVE_PRIHLASKA,
+      request: { id, rok: 2016, prihlaska: prihlaska3 },
+      token
+    })
   );
   await wsClient.sendRequest(
-    Actions.savePrihlaska({ id, rok: 2015, prihlaska: prihlaska4 }, generateTestToken())
+    apiCall({
+      endpoint: API_SAVE_PRIHLASKA,
+      request: { id, rok: 2015, prihlaska: prihlaska4 },
+      token
+    })
   );
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.savePrihlaska({ id, rok: 2017, prihlaska: prihlaska5 }, generateTestToken())
+    apiCall({
+      endpoint: API_SAVE_PRIHLASKA,
+      request: { id, rok: 2017, prihlaska: prihlaska5 },
+      token
+    })
   );
   expect(response).toMatchSnapshot();
 
@@ -341,7 +376,11 @@ const setup = async () => {
 it('ulož startovní číslo - sám sebe', async () => {
   const [id2, prihlaska2] = await setup();
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.savePrihlaska({ id: id2, rok: 2018, prihlaska: prihlaska2 }, generateTestToken())
+    apiCall({
+      endpoint: API_SAVE_PRIHLASKA,
+      request: { id: id2, rok: 2018, prihlaska: prihlaska2 },
+      token
+    })
   );
 
   expect(response.code).toEqual('ok'); // sám sebe musí projít
@@ -359,10 +398,11 @@ it('ulož startovní číslo - sám sebe', async () => {
 it('ulož startovní číslo - startovní číslo obsazené v jiné kategorii', async () => {
   const [id2, prihlaska2] = await setup();
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.savePrihlaska(
-      { id: id2, rok: 2018, prihlaska: { ...prihlaska2, startCislo: 8 } },
-      generateTestToken()
-    )
+    apiCall({
+      endpoint: API_SAVE_PRIHLASKA,
+      request: { id: id2, rok: 2018, prihlaska: { ...prihlaska2, startCislo: 8 } },
+      token
+    })
   );
   expect(response.code).toEqual('ok'); // 8 je obsazeno v jiném typu kategorie, musí projít
   expect(response).toMatchSnapshot();
@@ -379,10 +419,11 @@ it('ulož startovní číslo - startovní číslo obsazené v jiné kategorii', 
 it('ulož startovní číslo - duplicitní v kategorii', async () => {
   const [id2, prihlaska2] = await setup();
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.savePrihlaska(
-      { id: id2, rok: 2018, prihlaska: { ...prihlaska2, startCislo: 7 } },
-      generateTestToken()
-    )
+    apiCall({
+      endpoint: API_SAVE_PRIHLASKA,
+      request: { id: id2, rok: 2018, prihlaska: { ...prihlaska2, startCislo: 7 } },
+      token
+    })
   );
   expect(response.code).not.toEqual('ok'); // nesmí projít
   expect(response).toMatchSnapshot();
@@ -413,13 +454,13 @@ it('přihláška na pěší', async () => {
   };
 
   const response1 = await wsClient.sendRequest(
-    Actions.saveUdaje({ rok: 2018, udaje }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_UDAJE, request: { rok: 2018, udaje }, token })
   );
   const { id } = response1.response;
   expect(id).toBeTruthy();
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.savePrihlaska({ id, rok: 2018, prihlaska }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_PRIHLASKA, request: { id, rok: 2018, prihlaska }, token })
   );
   expect(response).toMatchSnapshot();
 
@@ -438,10 +479,11 @@ it('účastník neexistuje', async () => {
   };
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.savePrihlaska(
-      { id: '41224d776a326fb40f000001', rok: 2018, prihlaska },
-      generateTestToken()
-    )
+    apiCall({
+      endpoint: API_SAVE_PRIHLASKA,
+      request: { id: '41224d776a326fb40f000001', rok: 2018, prihlaska },
+      token
+    })
   );
   expect(response).toMatchSnapshot();
 });
@@ -461,13 +503,13 @@ it('kategorie neexistuje', async () => {
   };
 
   const response1 = await wsClient.sendRequest(
-    Actions.saveUdaje({ rok: 2018, udaje }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_UDAJE, request: { rok: 2018, udaje }, token })
   );
   const { id } = response1.response;
   expect(id).toBeTruthy();
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.savePrihlaska({ id, rok: 2018, prihlaska }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_PRIHLASKA, request: { id, rok: 2018, prihlaska }, token })
   );
   expect(response).toMatchSnapshot();
 });
@@ -488,13 +530,13 @@ it('chybná kategorie (věk)', async () => {
   };
 
   const response1 = await wsClient.sendRequest(
-    Actions.saveUdaje({ rok: 2015, udaje }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_UDAJE, request: { rok: 2015, udaje }, token })
   );
   const { id } = response1.response;
   expect(id).toBeTruthy();
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.savePrihlaska({ id, rok: 2015, prihlaska }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_PRIHLASKA, request: { id, rok: 2015, prihlaska }, token })
   );
   response.status = response.status.replace(/[a-f\d]{24}/g, '==id==');
   expect(response).toMatchSnapshot();
@@ -511,18 +553,20 @@ it('přihláška chybí', async () => {
   };
 
   const response1 = await wsClient.sendRequest(
-    Actions.saveUdaje({ rok: 2018, udaje }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_UDAJE, request: { rok: 2018, udaje }, token })
   );
   const { id } = response1.response;
   expect(id).toBeTruthy();
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.savePrihlaska({ id, rok: 2018 }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_PRIHLASKA, request: { id, rok: 2018 }, token })
   );
   expect(response).toMatchSnapshot();
 });
 
 it('savePrihlaska [not authenticated]', async () => {
-  const { requestId, ...response } = await wsClient.sendRequest(Actions.savePrihlaska({}, null));
+  const { requestId, ...response } = await wsClient.sendRequest(
+    apiCall({ endpoint: API_SAVE_PRIHLASKA })
+  );
   expect(response).toMatchSnapshot();
 });

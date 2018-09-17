@@ -1,7 +1,7 @@
 'use strict';
 
 const db = require('../../db');
-const Actions = require('../../../common/common');
+const { API_FIND_ALL_UCASTNICI, apiCall } = require('../../../common/common');
 const createWsServer = require('../../createWsServer');
 const createWsClient = require('../createWsClient');
 const Kategorie = require('../../model/Kategorie/Kategorie');
@@ -11,6 +11,7 @@ const generateTestToken = require('../generateTestToken');
 const port = 5602;
 const wsServer = createWsServer({});
 const wsClient = createWsClient({ port });
+const token = generateTestToken();
 
 beforeAll(async () => {
   wsServer.httpServer().listen(port);
@@ -103,7 +104,7 @@ it('findAllUcastnici', async () => {
   await ucastnik2.save();
 
   const { code, status, requestId, response, ...theRest } = await wsClient.sendRequest(
-    Actions.findAllUcastnici(generateTestToken())
+    apiCall({ endpoint: API_FIND_ALL_UCASTNICI, token })
   );
   expect(theRest).toEqual({});
   const ids = Object.keys(response);
@@ -122,6 +123,8 @@ it('findAllUcastnici', async () => {
 });
 
 it('findAllUcastnici [not authenticated]', async () => {
-  const { requestId, ...response } = await wsClient.sendRequest(Actions.findAllUcastnici(null));
+  const { requestId, ...response } = await wsClient.sendRequest(
+    apiCall({ endpoint: API_FIND_ALL_UCASTNICI })
+  );
   expect(response).toMatchSnapshot();
 });

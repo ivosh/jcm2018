@@ -1,7 +1,7 @@
 'use strict';
 
 const db = require('../../db');
-const Actions = require('../../../common/common');
+const { API_FIND_ALL_STOPKY, apiCall } = require('../../../common/common');
 const createWsServer = require('../../createWsServer');
 const createWsClient = require('../createWsClient');
 const Stopky = require('../../model/Stopky/Stopky');
@@ -66,13 +66,15 @@ it('findAllStopky', async () => {
   await stopky4.save();
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.findAllStopky(generateTestToken())
+    apiCall({ endpoint: API_FIND_ALL_STOPKY, token: generateTestToken() })
   );
 
   expect(response).toMatchSnapshot();
 });
 
 it('findAllStopky [not authenticated]', async () => {
-  const { requestId, ...response } = await wsClient.sendRequest(Actions.findAllStopky(null));
+  const { requestId, ...response } = await wsClient.sendRequest(
+    apiCall({ endpoint: API_FIND_ALL_STOPKY })
+  );
   expect(response).toMatchSnapshot();
 });

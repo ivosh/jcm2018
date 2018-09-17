@@ -1,7 +1,27 @@
 'use strict';
 
 const jwt = require('jsonwebtoken');
-const Actions = require('../../common/common');
+const {
+  API_DELETE_VYKON,
+  API_FIND_ALL_ROCNIKY,
+  API_FIND_ALL_STOPKY,
+  API_FIND_ALL_UCASTNICI,
+  API_SAVE_PLATBY,
+  API_SAVE_PRIHLASKA,
+  API_SAVE_STOPKY,
+  API_SAVE_UBYTOVANI,
+  API_SAVE_UCAST,
+  API_SAVE_UDAJE,
+  API_SAVE_VYKON,
+  API_SIGN_IN,
+  API_SIGN_OUT,
+  CODE_DB_DISCONNECTED,
+  CODE_OK,
+  CODE_TOKEN_INVALID,
+  CODE_UNFULFILLED_REQUEST,
+  CODE_UNPARSEABLE_MESSAGE,
+  CODE_UNRECOGNIZED_ACTION
+} = require('../../common/common');
 const config = require('../config');
 const db = require('../db');
 const logger = require('../logger');
@@ -23,13 +43,13 @@ const processAuthentication = ({ token, connection }) => {
   try {
     jwt.verify(token, config.jwt.secret);
     connection.onAuth(true);
-    return { code: Actions.CODE_OK };
+    return { code: CODE_OK };
   } catch (err) {
     connection.onAuth(false);
     logger.warn(`Failed to verify authentication token: ${token}`);
     logger.debug(err);
     return {
-      code: Actions.CODE_TOKEN_INVALID,
+      code: CODE_TOKEN_INVALID,
       status: `Špatný ověřovací token. Zkus se přihlásit znovu. Detaily: ${err}`
     };
   }
@@ -38,32 +58,35 @@ const processAuthentication = ({ token, connection }) => {
 const processRequest = async ({ action = '', request, requestId, token, connection }) => {
   if (!db.isConnected()) {
     return {
-      code: Actions.CODE_DB_DISCONNECTED,
+      code: CODE_DB_DISCONNECTED,
       status: 'Není připojeno k databázi'
     };
   }
 
   const actions = {
-    [Actions.DELETE_VYKON]: { authRequired: true, action: async req => deleteVykon(req) },
-    [Actions.FIND_ALL_ROCNIKY]: { authRequired: true, action: async req => findAllRocniky(req) },
-    [Actions.FIND_ALL_STOPKY]: { authRequired: true, action: async req => findAllStopky(req) },
-    [Actions.FIND_ALL_UCASTNICI]: {
+    [API_DELETE_VYKON]: { authRequired: true, action: async req => deleteVykon(req) },
+    [API_FIND_ALL_ROCNIKY]: {
+      authRequired: true,
+      action: async req => findAllRocniky(req)
+    },
+    [API_FIND_ALL_STOPKY]: { authRequired: true, action: async req => findAllStopky(req) },
+    [API_FIND_ALL_UCASTNICI]: {
       authRequired: true,
       action: async req => findAllUcastnici(req)
     },
-    [Actions.SAVE_PLATBY]: { authRequired: true, action: async req => savePlatby(req) },
-    [Actions.SAVE_PRIHLASKA]: { authRequired: true, action: async req => savePrihlaska(req) },
-    [Actions.SAVE_STOPKY]: { authRequired: true, action: async req => saveStopky(req) },
-    [Actions.SAVE_UBYTOVANI]: { authRequired: true, action: async req => saveUbytovani(req) },
-    [Actions.SAVE_UCAST]: { authRequired: true, action: async req => saveUcast(req) },
-    [Actions.SAVE_UDAJE]: { authRequired: true, action: async req => saveUdaje(req) },
-    [Actions.SAVE_VYKON]: { authRequired: true, action: async req => saveVykon(req) },
-    [Actions.SIGN_IN]: { authRequired: false, action: async req => signIn(req) },
-    [Actions.SIGN_OUT]: { authRequired: false, action: async req => signOut(req) },
+    [API_SAVE_PLATBY]: { authRequired: true, action: async req => savePlatby(req) },
+    [API_SAVE_PRIHLASKA]: { authRequired: true, action: async req => savePrihlaska(req) },
+    [API_SAVE_STOPKY]: { authRequired: true, action: async req => saveStopky(req) },
+    [API_SAVE_UBYTOVANI]: { authRequired: true, action: async req => saveUbytovani(req) },
+    [API_SAVE_UCAST]: { authRequired: true, action: async req => saveUcast(req) },
+    [API_SAVE_UDAJE]: { authRequired: true, action: async req => saveUdaje(req) },
+    [API_SAVE_VYKON]: { authRequired: true, action: async req => saveVykon(req) },
+    [API_SIGN_IN]: { authRequired: false, action: async req => signIn(req) },
+    [API_SIGN_OUT]: { authRequired: false, action: async req => signOut(req) },
     default: {
       authRequired: false,
       action: () => ({
-        code: Actions.CODE_UNRECOGNIZED_ACTION,
+        code: CODE_UNRECOGNIZED_ACTION,
         status: `neznámá akce: ${action}`
       })
     }
@@ -78,7 +101,7 @@ const processRequest = async ({ action = '', request, requestId, token, connecti
 
   if (processMessageAction.authRequired) {
     const result = processAuthentication({ token, connection });
-    if (result.code !== Actions.CODE_OK) {
+    if (result.code !== CODE_OK) {
       return result;
     }
   }
@@ -115,7 +138,7 @@ const processMessage = async (connection, message) => {
       logger.debug(err);
       sendResponse({
         connection,
-        code: Actions.CODE_UNFULFILLED_REQUEST,
+        code: CODE_UNFULFILLED_REQUEST,
         status: err.message,
         requestId
       });
@@ -124,7 +147,7 @@ const processMessage = async (connection, message) => {
     logger.warn(`Cannot parse '${message.utf8Data}' as JSON.`);
     sendResponse({
       connection,
-      code: Actions.CODE_UNPARSEABLE_MESSAGE,
+      code: CODE_UNPARSEABLE_MESSAGE,
       requestId: null
     });
   }

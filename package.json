@@ -28,6 +28,7 @@
     "prettier:server": "prettier --write \"{common,server}/**/*.js\" && prettier --parser babylon --write \"setversion\"",
     "prettier": "npm run prettier:server && cd ui/ && npm run prettier && cd ..",
     "lint:server": "eslint common server setversion",
+    "lint-cache:server": "eslint --cache common server setversion",
     "lint": "npm run lint:server; cd ui/ && npm run lint",
     "coverage": "NODE_ENV=test LOG_LEVEL=error jest --env=node --runInBand --coverage common/ server/ && cd ui/ && npm run coverage && cd ..",
     "coverage:report": "npm run coverage && codecov",

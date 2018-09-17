@@ -1,7 +1,7 @@
 'use strict';
 
 const db = require('../../../db');
-const Actions = require('../../../../common/common');
+const { API_SAVE_PLATBY, API_SAVE_UDAJE, apiCall } = require('../../../../common/common');
 const createWsServer = require('../../../createWsServer');
 const createWsClient = require('./../../createWsClient');
 const Ucastnik = require('../../../model/Ucastnik/Ucastnik');
@@ -10,6 +10,7 @@ const generateTestToken = require('../../generateTestToken');
 const port = 5601;
 const wsServer = createWsServer({});
 const wsClient = createWsClient({ port });
+const token = generateTestToken();
 
 beforeAll(async () => {
   wsServer.httpServer().listen(port);
@@ -43,13 +44,13 @@ it('vytvoř minimálního účastníka', async () => {
   ];
 
   const response1 = await wsClient.sendRequest(
-    Actions.saveUdaje({ rok: 2018, udaje }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_UDAJE, request: { rok: 2018, udaje }, token })
   );
   const { id } = response1.response;
   expect(id).toBeTruthy();
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.savePlatby({ id, rok: 2018, platby }, generateTestToken())
+    apiCall({ endpoint: API_SAVE_PLATBY, request: { id, rok: 2018, platby }, token })
   );
   expect(response).toMatchSnapshot();
 
@@ -61,12 +62,18 @@ it('účastník neexistuje', async () => {
   const platby = [];
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.savePlatby({ id: '41224d776a326fb40f000001', rok: 2018, platby }, generateTestToken())
+    apiCall({
+      endpoint: API_SAVE_PLATBY,
+      request: { id: '41224d776a326fb40f000001', rok: 2018, platby },
+      token
+    })
   );
   expect(response).toMatchSnapshot();
 });
 
 it('savePlatby [not authenticated]', async () => {
-  const { requestId, ...response } = await wsClient.sendRequest(Actions.savePlatby({}, null));
+  const { requestId, ...response } = await wsClient.sendRequest(
+    apiCall({ endpoint: API_SAVE_PLATBY })
+  );
   expect(response).toMatchSnapshot();
 });

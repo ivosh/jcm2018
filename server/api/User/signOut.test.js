@@ -1,6 +1,6 @@
 'use strict';
 
-const Actions = require('../../../common/common');
+const { API_SIGN_IN, API_SIGN_OUT, apiCall } = require('../../../common/common');
 const db = require('../../db');
 const createWsServer = require('../../createWsServer');
 const createWsClient = require('./../createWsClient');
@@ -33,18 +33,23 @@ it('signOut successfully', async () => {
   await user.save();
 
   let { requestId, ...response } = await wsClient.sendRequest(
-    Actions.signIn('tumáš', 'jcm2018', 'x834t8df')
+    apiCall({
+      endpoint: API_SIGN_IN,
+      request: { username: 'tumáš', password: 'jcm2018', nonce: 'x834t8df' }
+    })
   );
   const { token } = response.response;
   expect(token).toBeTruthy();
 
-  ({ requestId, ...response } = await wsClient.sendRequest(Actions.signOut(token)));
+  ({ requestId, ...response } = await wsClient.sendRequest(
+    apiCall({ endpoint: API_SIGN_OUT, token })
+  ));
   expect(response.response).toMatchSnapshot();
 });
 
 it('signOut unsuccessful (bogus token)', async () => {
   const { requestId, ...response } = await wsClient.sendRequest(
-    Actions.signOut('===bogus token===')
+    apiCall({ endpoint: API_SIGN_OUT, token: '===bogus token===' })
   );
   expect(response).toMatchSnapshot();
 });
