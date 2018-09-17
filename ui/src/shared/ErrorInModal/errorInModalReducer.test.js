@@ -11,6 +11,7 @@ import {
   createValidationError
 } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
 import { createVykon, deleteVykon } from '../../registrator/Startujici/StartujiciActions';
+import { saveUbytovani } from '../../registrator/Ubytovani/UbytovaniActions';
 import { createFailureFromAction } from '../../store/wsAPI';
 import { hideError } from './ErrorInModalActions';
 import errorInModalReducer from './errorInModalReducer';
@@ -141,6 +142,16 @@ it('PRIHLASKY_SAVE_ERROR', () =>
     request: {},
     response: unsuccessfulSaveResponse,
     title: 'ukládání formuláře'
+  }));
+
+it('SAVE_UBYTOVANI_ERROR', () =>
+  testUnsuccessfulResponse({
+    action: saveUbytovani({ akce: 'Nepřespáno' }),
+    code: 'neexistuje',
+    message: 'účastník s id ===id=== neexistuje.',
+    request: {},
+    response: unsuccessfulSaveResponse,
+    title: 'ukládání ubytování'
   }));
 
 it('SIGN_IN_ERROR', () =>
