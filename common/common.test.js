@@ -8,11 +8,12 @@
  */
 
 const {
+  UBYTOVANI_NEPRESPANO,
+  UBYTOVANI_ODHLASIT,
+  UBYTOVANI_PRESPANO,
+  UBYTOVANI_PRIHLASIT,
   findKategorie,
-  ubytovaniOdhlasit,
-  ubytovaniNeprespano,
-  ubytovaniPrespano,
-  ubytovaniPrihlasit
+  ubytovaniModifications
 } = require('./common');
 
 it('findKategorie() - ročník neexistuje', () => {
@@ -383,38 +384,50 @@ it('findKategorie() - junior a cyklo přesný věk - mladistvý - těsně za hra
   expect(nalezeno).toMatchSnapshot();
 });
 
-it('ubytovaniPrihlasit - default', () => {
+it('přihlásit ubytování - default', () => {
   const stateBefore = undefined;
   const stateAfter = { pátek: { prihlaseno: true } };
-  expect(ubytovaniPrihlasit({ den: 'pátek', ubytovani: stateBefore })).toEqual(stateAfter);
+  expect(
+    ubytovaniModifications[UBYTOVANI_PRIHLASIT]({ den: 'pátek', ubytovani: stateBefore })
+  ).toEqual(stateAfter);
 });
 
-it('ubytovaniPrespano - default', () => {
+it('ubytování přespáno - default', () => {
   const stateBefore = undefined;
   const stateAfter = { pátek: { prespano: true } };
-  expect(ubytovaniPrespano({ den: 'pátek', ubytovani: stateBefore })).toEqual(stateAfter);
+  expect(
+    ubytovaniModifications[UBYTOVANI_PRESPANO]({ den: 'pátek', ubytovani: stateBefore })
+  ).toEqual(stateAfter);
 });
 
-it('ubytovaniNeprespano - default', () => {
+it('ubytování nepřespáno - default', () => {
   const stateBefore = undefined;
   const stateAfter = { pátek: { prespano: false } };
-  expect(ubytovaniNeprespano({ den: 'pátek', ubytovani: stateBefore })).toEqual(stateAfter);
+  expect(
+    ubytovaniModifications[UBYTOVANI_NEPRESPANO]({ den: 'pátek', ubytovani: stateBefore })
+  ).toEqual(stateAfter);
 });
 
-it('ubytovaniNeprespano - přihlášeno', () => {
+it('ubytování nepřespáno - přihlášeno', () => {
   const stateBefore = { sobota: { prihlaseno: true } };
   const stateAfter = { sobota: { prihlaseno: true, prespano: false } };
-  expect(ubytovaniNeprespano({ den: 'sobota', ubytovani: stateBefore })).toEqual(stateAfter);
+  expect(
+    ubytovaniModifications[UBYTOVANI_NEPRESPANO]({ den: 'sobota', ubytovani: stateBefore })
+  ).toEqual(stateAfter);
 });
 
-it('ubytovaniOdhlasit - default', () => {
+it('odhlásit ubytování - default', () => {
   const stateBefore = undefined;
   const stateAfter = {};
-  expect(ubytovaniOdhlasit({ den: 'pátek', ubytovani: stateBefore })).toEqual(stateAfter);
+  expect(
+    ubytovaniModifications[UBYTOVANI_ODHLASIT]({ den: 'pátek', ubytovani: stateBefore })
+  ).toEqual(stateAfter);
 });
 
-it('ubytovaniOdhlasit - přihlášeno', () => {
+it('odhlásit ubytování - přihlášeno', () => {
   const stateBefore = { pátek: { prihlaseno: true } };
   const stateAfter = {};
-  expect(ubytovaniOdhlasit({ den: 'pátek', ubytovani: stateBefore })).toEqual(stateAfter);
+  expect(
+    ubytovaniModifications[UBYTOVANI_ODHLASIT]({ den: 'pátek', ubytovani: stateBefore })
+  ).toEqual(stateAfter);
 });

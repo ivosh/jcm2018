@@ -15,6 +15,7 @@ const API_DELETE_VYKON = 'deleteVykon';
 const API_FIND_ALL_ROCNIKY = 'findAllRocniky';
 const API_FIND_ALL_STOPKY = 'findAllStopky';
 const API_FIND_ALL_UCASTNICI = 'findAllUcastnici';
+const API_MODIFY_UBYTOVANI = 'modifyUbytovani';
 const API_SAVE_PLATBY = 'savePlatby';
 const API_SAVE_PRIHLASKA = 'savePrihlaska';
 const API_SAVE_STOPKY = 'saveStopky';
@@ -161,22 +162,28 @@ const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyPotvrzen
   };
 };
 
-const ubytovaniPrihlasit = ({ den, ubytovani = {} }) => ({
-  ...ubytovani,
-  [den]: { ...ubytovani[den], prihlaseno: true }
-});
-const ubytovaniOdhlasit = ({ den, ubytovani = {} }) => {
-  const { [den]: remove, ...rest } = ubytovani;
-  return rest;
+const UBYTOVANI_PRIHLASIT = 'přihlásit';
+const UBYTOVANI_ODHLASIT = 'odhlásit';
+const UBYTOVANI_PRESPANO = 'přespáno';
+const UBYTOVANI_NEPRESPANO = 'nepřespáno';
+const ubytovaniModifications = {
+  [UBYTOVANI_PRIHLASIT]: ({ den, ubytovani = {} }) => ({
+    ...ubytovani,
+    [den]: { ...ubytovani[den], prihlaseno: true }
+  }),
+  [UBYTOVANI_ODHLASIT]: ({ den, ubytovani = {} }) => {
+    const { [den]: remove, ...rest } = ubytovani;
+    return rest;
+  },
+  [UBYTOVANI_PRESPANO]: ({ den, ubytovani = {} }) => ({
+    ...ubytovani,
+    [den]: { ...ubytovani[den], prespano: true }
+  }),
+  [UBYTOVANI_NEPRESPANO]: ({ den, ubytovani = {} }) => ({
+    ...ubytovani,
+    [den]: { ...ubytovani[den], prespano: false }
+  })
 };
-const ubytovaniPrespano = ({ den, ubytovani = {} }) => ({
-  ...ubytovani,
-  [den]: { ...ubytovani[den], prespano: true }
-});
-const ubytovaniNeprespano = ({ den, ubytovani = {} }) => ({
-  ...ubytovani,
-  [den]: { ...ubytovani[den], prespano: false }
-});
 
 module.exports = {
   PORT_DEV_CLIENT,
@@ -186,6 +193,7 @@ module.exports = {
   API_FIND_ALL_ROCNIKY,
   API_FIND_ALL_STOPKY,
   API_FIND_ALL_UCASTNICI,
+  API_MODIFY_UBYTOVANI,
   API_SAVE_PLATBY,
   API_SAVE_PRIHLASKA,
   API_SAVE_STOPKY,
@@ -211,10 +219,11 @@ module.exports = {
   CODE_UNFULFILLED_REQUEST,
   CODE_UNPARSEABLE_MESSAGE,
   CODE_UNRECOGNIZED_ACTION,
+  UBYTOVANI_NEPRESPANO,
+  UBYTOVANI_ODHLASIT,
+  UBYTOVANI_PRESPANO,
+  UBYTOVANI_PRIHLASIT,
   apiCall,
   findKategorie,
-  ubytovaniNeprespano,
-  ubytovaniOdhlasit,
-  ubytovaniPrespano,
-  ubytovaniPrihlasit
+  ubytovaniModifications
 };

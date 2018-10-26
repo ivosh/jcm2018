@@ -5,7 +5,8 @@ const logger = require('../../../logger');
 const Ucastnik = require('../../../model/Ucastnik/Ucastnik');
 const findUcast = require('./findUcast');
 
-/* Creates účast and účastník if necessary. Returns {code, ucast, ucastnik}. */
+/* Creates účast and účastník if necessary. Returns {code, ucast, ucastnik}.
+   Note: ucast and ucastnik are MongoDB objects. */
 const createUcast = async ({ id, rok }) => {
   let ucast = null;
   let ucastnik = null;

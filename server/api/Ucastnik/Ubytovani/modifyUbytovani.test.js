@@ -2,13 +2,13 @@
 
 const db = require('../../../db');
 const {
-  API_SAVE_UBYTOVANI,
-  API_SAVE_UDAJE,
+  API_MODIFY_UBYTOVANI,
+  API_SAVE_UCAST,
   UBYTOVANI_NEPRESPANO,
   UBYTOVANI_ODHLASIT,
+  UBYTOVANI_PRESPANO,
   UBYTOVANI_PRIHLASIT,
-  apiCall,
-  ubytovaniModifications
+  apiCall
 } = require('../../../../common/common');
 const createWsServer = require('../../../createWsServer');
 const createWsClient = require('./../../createWsClient');
@@ -22,6 +22,7 @@ const wsServer = createWsServer({});
 const wsClient = createWsClient({ port });
 const token = generateTestToken();
 
+let kategorie1;
 beforeAll(async () => {
   wsServer.httpServer().listen(port);
   await wsClient.open();
@@ -30,7 +31,7 @@ beforeAll(async () => {
 
   await Promise.all([Kategorie.remove(), Rocnik.remove()]);
 
-  const kategorie1 = new Kategorie({
+  kategorie1 = new Kategorie({
     typ: 'maraton',
     pohlavi: 'žena',
     vek: { min: 40, max: 49 }
@@ -70,58 +71,64 @@ afterAll(async () => {
   await db.disconnect();
 });
 
-it('vytvoř minimálního účastníka', async () => {
+it('přihlaš ubytování (nebyla nikdy přihlášena)', async () => {
   const udaje = {
-    prijmeni: 'Balabák',
-    jmeno: 'František',
+    prijmeni: 'Sukdoláková',
+    jmeno: 'Františka',
     narozeni: { rok: 1953 },
-    pohlavi: 'muž',
+    pohlavi: 'žena',
     obec: 'Ostrava 1'
   };
-  const ubytovani = {
-    pátek: { prihlaseno: true, prespano: false },
-    sobota: { prihlaseno: true, prespano: true }
-  };
+  const prihlaska = { kategorie: kategorie1.id, datum: '2018-06-20' };
 
   const response1 = await wsClient.sendRequest(
-    apiCall({ endpoint: API_SAVE_UDAJE, request: { rok: 2017, udaje }, token })
+    apiCall({
+      endpoint: API_SAVE_UCAST,
+      request: { rok: 2018, udaje, prihlaska, ubytovani: {} },
+      token
+    })
   );
   const { id } = response1.response;
   expect(id).toBeTruthy();
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    apiCall({ endpoint: API_SAVE_UBYTOVANI, request: { id, rok: 2017, ubytovani }, token })
+    apiCall({
+      endpoint: API_MODIFY_UBYTOVANI,
+      request: { id, rok: 2018, den: 'pátek', modifikace: UBYTOVANI_PRIHLASIT },
+      token
+    })
   );
   expect(response).toMatchSnapshot();
 
   const ucastnici = await Ucastnik.find({}, { _id: 0 }).lean();
+  ucastnici[0].ucasti[0].prihlaska.kategorie = '===id===';
   expect(ucastnici).toMatchSnapshot();
 });
 
-it('přihlaš a zase odhlaš', async () => {
+it('odhlaš a přihlaš ubytování', async () => {
   const udaje = {
-    prijmeni: 'Balabák',
-    jmeno: 'František',
+    prijmeni: 'Sukdoláková',
+    jmeno: 'Františka',
     narozeni: { rok: 1953 },
-    pohlavi: 'muž',
+    pohlavi: 'žena',
     obec: 'Ostrava 1'
   };
-  const ubytovaniPrihlaseno = ubytovaniModifications[UBYTOVANI_PRIHLASIT]({ den: 'pátek' });
-  const ubytovaniOdhlaseno = ubytovaniModifications[UBYTOVANI_ODHLASIT]({
-    den: 'pátek',
-    ubytovani: ubytovaniPrihlaseno
-  });
+  const prihlaska = { kategorie: kategorie1.id, datum: '2018-06-20' };
 
   const response1 = await wsClient.sendRequest(
-    apiCall({ endpoint: API_SAVE_UDAJE, request: { rok: 2018, udaje }, token })
+    apiCall({
+      endpoint: API_SAVE_UCAST,
+      request: { rok: 2018, udaje, prihlaska, ubytovani: { pátek: { prihlaseno: true } } },
+      token
+    })
   );
   const { id } = response1.response;
   expect(id).toBeTruthy();
 
   let { requestId, ...response } = await wsClient.sendRequest(
     apiCall({
-      endpoint: API_SAVE_UBYTOVANI,
-      request: { id, rok: 2018, ubytovani: ubytovaniPrihlaseno },
+      endpoint: API_MODIFY_UBYTOVANI,
+      request: { id, rok: 2018, den: 'pátek', modifikace: UBYTOVANI_ODHLASIT },
       token
     })
   );
@@ -129,115 +136,142 @@ it('přihlaš a zase odhlaš', async () => {
 
   ({ requestId, ...response } = await wsClient.sendRequest(
     apiCall({
-      endpoint: API_SAVE_UBYTOVANI,
-      request: { id, rok: 2018, ubytovani: ubytovaniOdhlaseno },
+      endpoint: API_MODIFY_UBYTOVANI,
+      request: { id, rok: 2018, den: 'pátek', modifikace: UBYTOVANI_PRIHLASIT },
       token
     })
   ));
   expect(response).toMatchSnapshot();
 
   const ucastnici = await Ucastnik.find({}, { _id: 0 }).lean();
+  ucastnici[0].ucasti[0].prihlaska.kategorie = '===id===';
   expect(ucastnici).toMatchSnapshot();
 });
 
-it('zapiš nepřespáno', async () => {
+it('ubytování přihlásila a přespala', async () => {
   const udaje = {
-    prijmeni: 'Balabák',
-    jmeno: 'František',
+    prijmeni: 'Sukdoláková',
+    jmeno: 'Františka',
     narozeni: { rok: 1953 },
-    pohlavi: 'muž',
+    pohlavi: 'žena',
     obec: 'Ostrava 1'
   };
+  const prihlaska = { kategorie: kategorie1.id, datum: '2018-06-20' };
 
   const response1 = await wsClient.sendRequest(
-    apiCall({ endpoint: API_SAVE_UDAJE, request: { rok: 2018, udaje }, token })
+    apiCall({
+      endpoint: API_SAVE_UCAST,
+      request: { rok: 2018, udaje, prihlaska, ubytovani: { pátek: { prihlaseno: true } } },
+      token
+    })
   );
   const { id } = response1.response;
   expect(id).toBeTruthy();
 
   const { requestId, ...response } = await wsClient.sendRequest(
     apiCall({
-      endpoint: API_SAVE_UBYTOVANI,
-      request: {
-        id,
-        rok: 2018,
-        ubytovani: ubytovaniModifications[UBYTOVANI_NEPRESPANO]({ den: 'pátek' })
-      },
+      endpoint: API_MODIFY_UBYTOVANI,
+      request: { id, rok: 2018, den: 'pátek', modifikace: UBYTOVANI_PRESPANO },
       token
     })
   );
   expect(response).toMatchSnapshot();
 
   const ucastnici = await Ucastnik.find({}, { _id: 0 }).lean();
+  ucastnici[0].ucasti[0].prihlaska.kategorie = '===id===';
   expect(ucastnici).toMatchSnapshot();
 });
 
-it('ročník neexistuje', async () => {
+it('ubytování přihlásila a nepřespala', async () => {
   const udaje = {
-    prijmeni: 'Balabák',
-    jmeno: 'František',
+    prijmeni: 'Sukdoláková',
+    jmeno: 'Františka',
     narozeni: { rok: 1953 },
-    pohlavi: 'muž',
+    pohlavi: 'žena',
     obec: 'Ostrava 1'
   };
-  const ubytovani = { pátek: { prihlaseno: true, prespano: false } };
+  const prihlaska = { kategorie: kategorie1.id, datum: '2018-06-20' };
 
   const response1 = await wsClient.sendRequest(
-    apiCall({ endpoint: API_SAVE_UDAJE, request: { rok: 2016, udaje }, token })
+    apiCall({
+      endpoint: API_SAVE_UCAST,
+      request: { rok: 2018, udaje, prihlaska, ubytovani: { pátek: { prihlaseno: true } } },
+      token
+    })
   );
   const { id } = response1.response;
   expect(id).toBeTruthy();
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    apiCall({ endpoint: API_SAVE_UBYTOVANI, request: { id, rok: 2016, ubytovani }, token })
+    apiCall({
+      endpoint: API_MODIFY_UBYTOVANI,
+      request: { id, rok: 2018, den: 'pátek', modifikace: UBYTOVANI_NEPRESPANO },
+      token
+    })
   );
   expect(response).toMatchSnapshot();
 
   const ucastnici = await Ucastnik.find({}, { _id: 0 }).lean();
+  ucastnici[0].ucasti[0].prihlaska.kategorie = '===id===';
   expect(ucastnici).toMatchSnapshot();
 });
 
 it('ubytování nevypsáno', async () => {
   const udaje = {
-    prijmeni: 'Balabák',
-    jmeno: 'František',
+    prijmeni: 'Sukdoláková',
+    jmeno: 'Františka',
     narozeni: { rok: 1953 },
-    pohlavi: 'muž',
+    pohlavi: 'žena',
     obec: 'Ostrava 1'
   };
-  const ubytovani = { sobota: { prihlaseno: true, prespano: false } };
+  const prihlaska = { kategorie: kategorie1.id, datum: '2018-06-20' };
 
   const response1 = await wsClient.sendRequest(
-    apiCall({ endpoint: API_SAVE_UDAJE, request: { rok: 2018, udaje }, token })
+    apiCall({
+      endpoint: API_SAVE_UCAST,
+      request: { rok: 2018, udaje, prihlaska, ubytovani: {} },
+      token
+    })
   );
   const { id } = response1.response;
   expect(id).toBeTruthy();
 
   const { requestId, ...response } = await wsClient.sendRequest(
-    apiCall({ endpoint: API_SAVE_UBYTOVANI, request: { id, rok: 2018, ubytovani }, token })
-  );
-  expect(response).toMatchSnapshot();
-
-  const ucastnici = await Ucastnik.find({}, { _id: 0 }).lean();
-  expect(ucastnici).toMatchSnapshot();
-});
-
-it('účastník neexistuje', async () => {
-  const ubytovani = {};
-
-  const { requestId, ...response } = await wsClient.sendRequest(
     apiCall({
-      endpoint: API_SAVE_UBYTOVANI,
-      request: { id: '41224d776a326fb40f000001', rok: 2018, ubytovani },
+      endpoint: API_MODIFY_UBYTOVANI,
+      request: { id, rok: 2018, den: 'sobota', modifikace: UBYTOVANI_PRIHLASIT },
       token
     })
   );
   expect(response).toMatchSnapshot();
 });
 
-it('saveUbytovani [not authenticated]', async () => {
+it('účastník neexistuje', async () => {
   const { requestId, ...response } = await wsClient.sendRequest(
-    apiCall({ endpoint: API_SAVE_UBYTOVANI })
+    apiCall({
+      endpoint: API_MODIFY_UBYTOVANI,
+      request: {
+        id: '41224d776a326fb40f000001',
+        rok: 2018,
+        den: 'pátek',
+        modifikace: UBYTOVANI_PRIHLASIT
+      },
+      token
+    })
+  );
+  expect(response).toMatchSnapshot();
+});
+
+it('neexistující modifikace', async () => {
+  const { requestId, ...response } = await wsClient.sendRequest(
+    apiCall({ endpoint: API_MODIFY_UBYTOVANI, request: { modifikace: 'huh' }, token })
+  );
+  expect(response).toMatchSnapshot();
+});
+
+it('not authenticated', async () => {
+  const { requestId, ...response } = await wsClient.sendRequest(
+    apiCall({ endpoint: API_MODIFY_UBYTOVANI })
   );
   expect(response).toMatchSnapshot();
 });

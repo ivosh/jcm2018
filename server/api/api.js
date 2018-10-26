@@ -6,6 +6,7 @@ const {
   API_FIND_ALL_ROCNIKY,
   API_FIND_ALL_STOPKY,
   API_FIND_ALL_UCASTNICI,
+  API_MODIFY_UBYTOVANI,
   API_SAVE_PLATBY,
   API_SAVE_PRIHLASKA,
   API_SAVE_STOPKY,
@@ -29,6 +30,7 @@ const deleteVykon = require('./Ucastnik/Vykon/deleteVykon');
 const findAllRocniky = require('./Rocnik/findAllRocniky');
 const findAllStopky = require('./Stopky/findAllStopky');
 const findAllUcastnici = require('./Ucastnik/findAllUcastnici');
+const modifyUbytovani = require('./Ucastnik/Ubytovani/modifyUbytovani');
 const savePlatby = require('./Ucastnik/Platby/savePlatby');
 const savePrihlaska = require('./Ucastnik/Prihlaska/savePrihlaska');
 const saveStopky = require('./Stopky/saveStopky');
@@ -74,6 +76,7 @@ const processRequest = async ({ action = '', request, requestId, token, connecti
       authRequired: true,
       action: async req => findAllUcastnici(req)
     },
+    [API_MODIFY_UBYTOVANI]: { authRequired: true, action: async req => modifyUbytovani(req) },
     [API_SAVE_PLATBY]: { authRequired: true, action: async req => savePlatby(req) },
     [API_SAVE_PRIHLASKA]: { authRequired: true, action: async req => savePrihlaska(req) },
     [API_SAVE_STOPKY]: { authRequired: true, action: async req => saveStopky(req) },

@@ -4,7 +4,8 @@ const { CODE_OK, CODE_NONEXISTING } = require('../../../../common/common');
 const logger = require('../../../logger');
 const Ucastnik = require('../../../model/Ucastnik/Ucastnik');
 
-/* Finds an existing účast for an existing účastník. Returns {code, ucast, ucastnik}. */
+/* Finds an existing účast for an existing účastník. Returns {code, ucast, ucastnik}.
+   Note: ucast and ucastnik are MongoDB objects. */
 const findUcast = async ({ id, rok }) => {
   let ucastnik = null;
   try {
