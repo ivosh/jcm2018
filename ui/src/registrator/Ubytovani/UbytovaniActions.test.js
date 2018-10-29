@@ -1,5 +1,6 @@
 import configureStore from 'redux-mock-store';
 import WsClient from '../../WsClient';
+import { UBYTOVANI_PRIHLASIT, UBYTOVANI_ODHLASIT } from '../../common';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import wsAPI from '../../store/wsAPI';
 import { SAVE_UBYTOVANI, saveUbytovani } from './UbytovaniActions';
@@ -30,7 +31,9 @@ it('saveUbytovani() should dispatch two successful actions', async () => {
     registrator: { ubytovani: {} }
   });
 
-  await store.dispatch(saveUbytovani({ akce: 'Přihlásit', id: '7a09b1fd371dec1e99b7e142' }));
+  await store.dispatch(
+    saveUbytovani({ akce: UBYTOVANI_PRIHLASIT, id: '7a09b1fd371dec1e99b7e142' })
+  );
   const request = {
     id: '7a09b1fd371dec1e99b7e142',
     rok: 2018,
@@ -61,7 +64,7 @@ it('saveUbytovani() should dispatch two unsuccessful actions', async () => {
     registrator: { ubytovani: {} }
   });
 
-  await store.dispatch(saveUbytovani({ akce: 'Odhlásit', id: '7a09b1fd371dec1e99b7e142' }));
+  await store.dispatch(saveUbytovani({ akce: UBYTOVANI_ODHLASIT, id: '7a09b1fd371dec1e99b7e142' }));
   const request = {
     id: '7a09b1fd371dec1e99b7e142',
     rok: 2018,

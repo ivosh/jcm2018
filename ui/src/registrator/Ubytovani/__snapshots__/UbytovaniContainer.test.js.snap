@@ -8,8 +8,8 @@ Array [
       "onSelect": [Function],
       "options": Array [
         "<vyber>",
-        "Odhlásit",
-        "Nepřespáno",
+        "odhlásit",
+        "nepřespáno",
       ],
     },
     "datum": 2018-06-09T00:00:00.000Z,
@@ -30,9 +30,9 @@ Array [
       "onSelect": [Function],
       "options": Array [
         "<vyber>",
-        "Odhlásit",
-        "Přespáno",
-        "Nepřespáno",
+        "odhlásit",
+        "přespáno",
+        "nepřespáno",
       ],
     },
     "datum": 2018-05-12T00:00:00.000Z,

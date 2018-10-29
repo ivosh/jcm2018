@@ -1,3 +1,9 @@
+import {
+  UBYTOVANI_ODHLASIT,
+  UBYTOVANI_PRIHLASIT,
+  UBYTOVANI_PRESPANO,
+  UBYTOVANI_NEPRESPANO
+} from '../../common';
 import { AKTUALNI_ROK } from '../../constants';
 import { sortForColumn } from '../../sort';
 import { getUcastiProRok } from '../../entities/ucastnici/ucastniciReducer';
@@ -66,12 +72,12 @@ export const getUbytovaniSorted = ({
         const prespano = ubytovani.pátek && ubytovani.pátek.prespano;
 
         const akceOptions = ['<vyber>'];
-        akceOptions.push(prihlaseno ? 'Odhlásit' : 'Přihlásit');
+        akceOptions.push(prihlaseno ? UBYTOVANI_ODHLASIT : UBYTOVANI_PRIHLASIT);
         if (!prespano) {
-          akceOptions.push('Přespáno');
+          akceOptions.push(UBYTOVANI_PRESPANO);
         }
         if (prespano === true || prespano === undefined) {
-          akceOptions.push('Nepřespáno');
+          akceOptions.push(UBYTOVANI_NEPRESPANO);
         }
 
         return {

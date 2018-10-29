@@ -159,7 +159,7 @@ it('getUbytovaniSorted() by default', () => {
       prespano: true,
       akce: {
         loading: false,
-        options: ['<vyber>', 'Odhlásit', 'Nepřespáno']
+        options: ['<vyber>', 'odhlásit', 'nepřespáno']
       }
     },
     {
@@ -173,7 +173,7 @@ it('getUbytovaniSorted() by default', () => {
       prihlaseno: true,
       akce: {
         loading: true,
-        options: ['<vyber>', 'Odhlásit', 'Přespáno', 'Nepřespáno']
+        options: ['<vyber>', 'odhlásit', 'přespáno', 'nepřespáno']
       }
     }
   ];
@@ -211,7 +211,7 @@ it('getUbytovaniSorted() filtrováno na z', () => {
       prihlaseno: true,
       akce: {
         loading: false,
-        options: ['<vyber>', 'Odhlásit', 'Přespáno', 'Nepřespáno']
+        options: ['<vyber>', 'odhlásit', 'přespáno', 'nepřespáno']
       }
     }
   ];

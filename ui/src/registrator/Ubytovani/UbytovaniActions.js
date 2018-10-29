@@ -1,11 +1,4 @@
-import {
-  API_SAVE_UBYTOVANI,
-  UBYTOVANI_NEPRESPANO,
-  UBYTOVANI_ODHLASIT,
-  UBYTOVANI_PRIHLASIT,
-  UBYTOVANI_PRESPANO,
-  ubytovaniModifications
-} from '../../common';
+import { API_SAVE_UBYTOVANI, ubytovaniModifications } from '../../common';
 import { AKTUALNI_ROK } from '../../constants';
 import { WS_API } from '../../store/wsAPI';
 
@@ -16,15 +9,8 @@ export const changeUbytovani = () => ({
 export const hideError = () => ({ type: 'UBYTOVANI_HIDE_ERROR' });
 export const showError = () => ({ type: 'UBYTOVANI_SHOW_ERROR' });
 
-const reducers = {
-  Nepřespáno: UBYTOVANI_NEPRESPANO,
-  Odhlásit: UBYTOVANI_ODHLASIT,
-  Přespáno: UBYTOVANI_PRESPANO,
-  Přihlásit: UBYTOVANI_PRIHLASIT
-};
-
 const createRequest = ({ akce, den, id, rok, state }) => {
-  const reducer = ubytovaniModifications[reducers[akce]];
+  const reducer = ubytovaniModifications[akce];
   const ubytovani = reducer({ den, ubytovani: state.entities.ucastnici.byIds[id][rok].ubytovani });
   return { id, rok, ubytovani };
 };
