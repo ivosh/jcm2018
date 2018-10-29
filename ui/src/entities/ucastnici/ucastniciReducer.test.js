@@ -5,7 +5,7 @@ import { websocketDisconnected } from '../../App/AppActions';
 import { signOut } from '../../auth/SignOut/SignOutActions';
 import { createPrihlaskySave } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
 import { createVykon, deleteVykon } from '../../registrator/Startujici/StartujiciActions';
-import { saveUbytovani } from '../../registrator/Ubytovani/UbytovaniActions';
+import { modifyUbytovani } from '../../registrator/Ubytovani/UbytovaniActions';
 import { createSuccessFromAction } from '../../store/wsAPI';
 import ucastniciReducer, { getUcastiProRok } from './ucastniciReducer';
 import { broadcastUcastnik, fetchUcastnici } from './ucastniciActions';
@@ -177,7 +177,7 @@ it('after disconnect', () => {
   expect(ucastniciReducer(stateBefore, websocketDisconnected())).toEqual(stateAfter);
 });
 
-it('saveUbytovani - success()', () => {
+it('modifyUbytovani - success()', () => {
   const stateBefore = { ...ucastniciTestData.entities.ucastnici };
   deepFreeze(stateBefore);
   const id = '5a09b1fd371dec1e99b7e1c9';
@@ -191,7 +191,10 @@ it('saveUbytovani - success()', () => {
   expect(
     ucastniciReducer(
       stateBefore,
-      createSuccessFromAction({ action: saveUbytovani({}), request: { id, rok, ubytovani } })
+      createSuccessFromAction({
+        action: modifyUbytovani({ id, modifikace: UBYTOVANI_NEPRESPANO, rok }),
+        response: { response: { ubytovani } }
+      })
     )
   ).toMatchSnapshot();
 });

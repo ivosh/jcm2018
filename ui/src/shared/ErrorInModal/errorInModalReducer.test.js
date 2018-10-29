@@ -1,4 +1,5 @@
 import deepFreeze from 'deep-freeze';
+import { UBYTOVANI_NEPRESPANO } from '../../common';
 import { DOHLASKY, PRIHLASKY } from '../../constants';
 import { signIn } from '../../auth/SignIn/SignInActions';
 import { signOut } from '../../auth/SignOut/SignOutActions';
@@ -11,7 +12,7 @@ import {
   createValidationError
 } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
 import { createVykon, deleteVykon } from '../../registrator/Startujici/StartujiciActions';
-import { saveUbytovani } from '../../registrator/Ubytovani/UbytovaniActions';
+import { modifyUbytovani } from '../../registrator/Ubytovani/UbytovaniActions';
 import { createFailureFromAction } from '../../store/wsAPI';
 import { hideError } from './ErrorInModalActions';
 import errorInModalReducer from './errorInModalReducer';
@@ -144,9 +145,9 @@ it('PRIHLASKY_SAVE_ERROR', () =>
     title: 'ukládání formuláře'
   }));
 
-it('SAVE_UBYTOVANI_ERROR', () =>
+it('MODIFY_UBYTOVANI_ERROR', () =>
   testUnsuccessfulResponse({
-    action: saveUbytovani({ akce: 'Nepřespáno' }),
+    action: modifyUbytovani({ modifikace: UBYTOVANI_NEPRESPANO }),
     code: 'neexistuje',
     message: 'účastník s id ===id=== neexistuje.',
     request: {},

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { createTextFilterChange } from '../Filterable/FilterableActions';
-import { changeUbytovani, saveUbytovani } from './UbytovaniActions';
+import { changeUbytovaniFilter, modifyUbytovani } from './UbytovaniActions';
 import { getUbytovaniSorted } from './ubytovaniReducer';
 import Ubytovani from './Ubytovani';
 
@@ -18,9 +18,9 @@ const mapStateToProps = ({ entities, registrator: { ubytovani } }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onAkceSelect: (id, event) => dispatch(saveUbytovani({ id, akce: event.target.value })),
+  onAkceSelect: (id, event) => dispatch(modifyUbytovani({ id, modifikace: event.target.value })),
   onTextFilterChange: text => dispatch(createTextFilterChange('UBYTOVANI')(text)),
-  onUbytovaniChange: () => dispatch(changeUbytovani())
+  onUbytovaniChange: () => dispatch(changeUbytovaniFilter())
 });
 
 const mergeProps = (stateProps, dispatchProps) => {

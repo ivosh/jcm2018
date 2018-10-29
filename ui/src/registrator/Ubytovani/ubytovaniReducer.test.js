@@ -4,7 +4,7 @@ import { SortDirTypes } from '../../sort';
 import { createRequestFromAction, createSuccessFromAction } from '../../store/wsAPI';
 import { createTextFilterChange } from '../Filterable/FilterableActions';
 import { createSortDirChange } from '../UcastniciTable/UcastniciTableActions';
-import { changeUbytovani, saveUbytovani } from './UbytovaniActions';
+import { changeUbytovaniFilter, modifyUbytovani } from './UbytovaniActions';
 import ubytovaniReducer, { getUbytovaniSorted } from './ubytovaniReducer';
 
 const sortDirChange = createSortDirChange('UBYTOVANI');
@@ -25,7 +25,7 @@ it('přepínání jenUbytovani - tam', () => {
   const stateBefore = { jenUbytovani: true };
   const stateAfter = { jenUbytovani: false };
 
-  expect(ubytovaniReducer(stateBefore, changeUbytovani())).toEqual(stateAfter);
+  expect(ubytovaniReducer(stateBefore, changeUbytovaniFilter())).toEqual(stateAfter);
 });
 
 it('přepínání jenUbytovani - a zpět', () => {
@@ -33,7 +33,7 @@ it('přepínání jenUbytovani - a zpět', () => {
   const stateAfter = { jenUbytovani: true };
   deepFreeze(stateBefore);
 
-  expect(ubytovaniReducer(stateBefore, changeUbytovani())).toEqual(stateAfter);
+  expect(ubytovaniReducer(stateBefore, changeUbytovaniFilter())).toEqual(stateAfter);
 });
 
 it('loading - zapnutí', () => {
@@ -45,8 +45,7 @@ it('loading - zapnutí', () => {
     ubytovaniReducer(
       stateBefore,
       createRequestFromAction({
-        action: saveUbytovani({}),
-        request: { id: '5a09b1fd371dec1e99b7e1c9', rok: 2018 }
+        action: modifyUbytovani({ id: '5a09b1fd371dec1e99b7e1c9', rok: 2018 })
       })
     )
   ).toEqual(stateAfter);
@@ -61,8 +60,8 @@ it('loading - vypnutí', () => {
     ubytovaniReducer(
       stateBefore,
       createSuccessFromAction({
-        action: saveUbytovani({}),
-        request: { id: '5a09b1fd371dec1e99b7e1c9', rok: 2018 }
+        action: modifyUbytovani({ id: '5a09b1fd371dec1e99b7e1c9', rok: 2018 }),
+        response: { response: {} }
       })
     )
   ).toEqual(stateAfter);

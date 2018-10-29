@@ -12,7 +12,7 @@ import {
   createUcastniciTableReducer,
   initialState as ucastniciTableInitialState
 } from '../UcastniciTable/ucastniciTableReducer';
-import { SAVE_UBYTOVANI } from './UbytovaniActions';
+import { MODIFY_UBYTOVANI } from './UbytovaniActions';
 
 export const initialState = {
   loading: {},
@@ -29,12 +29,12 @@ const ubytovaniReducer = (state = initialState, action) => {
   state = ucastniciTableReducer(state, action); // eslint-disable-line no-param-reassign
 
   switch (action.type) {
-    case 'UBYTOVANI_CHANGE_UBYTOVANI':
+    case 'UBYTOVANI_CHANGE_FILTER':
       return { ...state, jenUbytovani: !state.jenUbytovani };
-    case `${SAVE_UBYTOVANI}_REQUEST`:
+    case `${MODIFY_UBYTOVANI}_REQUEST`:
       return { ...state, loading: { ...state.loading, [action.request.id]: true } };
-    case `${SAVE_UBYTOVANI}_SUCCESS`:
-    case `${SAVE_UBYTOVANI}_ERROR`: {
+    case `${MODIFY_UBYTOVANI}_SUCCESS`:
+    case `${MODIFY_UBYTOVANI}_ERROR`: {
       const { [action.request.id]: remove, ...rest } = state.loading;
       return { ...state, loading: rest };
     }

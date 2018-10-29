@@ -14,7 +14,7 @@ import {
   STARTUJICI_CREATE_VYKON,
   STARTUJICI_DELETE_VYKON
 } from '../../registrator/Startujici/StartujiciActions';
-import { SAVE_UBYTOVANI } from '../../registrator/Ubytovani/UbytovaniActions';
+import { MODIFY_UBYTOVANI } from '../../registrator/Ubytovani/UbytovaniActions';
 
 const initialState = {
   code: '',
@@ -31,10 +31,10 @@ const errorInModalReducer = (state = initialState, action) => {
     case `${FETCH_ROCNIKY}_ERROR`:
     case `${FETCH_STOPKY}_ERROR`:
     case `${FETCH_UCASTNICI}_ERROR`:
+    case `${MODIFY_UBYTOVANI}_ERROR`:
     case `${PRIHLASKY}_FORM_INVALID`:
     case `${PRIHLASKY_SAVE}_ERROR`:
     case `${SAVE_STOPKY}_ERROR`:
-    case `${SAVE_UBYTOVANI}_ERROR`:
     case `${SIGN_IN}_ERROR`:
     case `${SIGN_OUT}_ERROR`:
     case `${STARTUJICI_CREATE_VYKON}_ERROR`:

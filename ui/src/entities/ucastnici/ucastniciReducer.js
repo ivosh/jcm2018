@@ -9,7 +9,7 @@ import {
   STARTUJICI_CREATE_VYKON,
   STARTUJICI_DELETE_VYKON
 } from '../../registrator/Startujici/StartujiciActions';
-import { SAVE_UBYTOVANI } from '../../registrator/Ubytovani/UbytovaniActions';
+import { MODIFY_UBYTOVANI } from '../../registrator/Ubytovani/UbytovaniActions';
 import { FETCH_UCASTNICI } from './ucastniciActions';
 
 export const initialState = { allIds: [], byIds: {}, invalidated: false };
@@ -77,8 +77,11 @@ const ucastniciReducer = (state = initialState, action) => {
       const { id, rok } = action.request;
       return updateUcast(state, id, rok, 'vykon', undefined);
     }
-    case `${SAVE_UBYTOVANI}_SUCCESS`: {
-      const { id, rok, ubytovani } = action.request;
+    case `${MODIFY_UBYTOVANI}_SUCCESS`: {
+      const {
+        request: { id, rok },
+        response: { ubytovani }
+      } = action;
       return updateUcast(state, id, rok, 'ubytovani', ubytovani);
     }
     case 'WEBSOCKET_DISCONNECTED':
