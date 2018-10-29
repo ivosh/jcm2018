@@ -17,6 +17,9 @@ Object {
 exports[`odhlaš a přihlaš ubytování 1`] = `
 Object {
   "code": "ok",
+  "response": Object {
+    "ubytovani": Object {},
+  },
   "status": "uloženo v pořádku",
 }
 `;
@@ -24,6 +27,13 @@ Object {
 exports[`odhlaš a přihlaš ubytování 2`] = `
 Object {
   "code": "ok",
+  "response": Object {
+    "ubytovani": Object {
+      "pátek": Object {
+        "prihlaseno": true,
+      },
+    },
+  },
   "status": "uloženo v pořádku",
 }
 `;
@@ -63,6 +73,13 @@ Array [
 exports[`přihlaš ubytování (nebyla nikdy přihlášena) 1`] = `
 Object {
   "code": "ok",
+  "response": Object {
+    "ubytovani": Object {
+      "pátek": Object {
+        "prihlaseno": true,
+      },
+    },
+  },
   "status": "uloženo v pořádku",
 }
 `;
@@ -109,6 +126,14 @@ Object {
 exports[`ubytování přihlásila a nepřespala 1`] = `
 Object {
   "code": "ok",
+  "response": Object {
+    "ubytovani": Object {
+      "pátek": Object {
+        "prespano": false,
+        "prihlaseno": true,
+      },
+    },
+  },
   "status": "uloženo v pořádku",
 }
 `;
@@ -149,6 +174,14 @@ Array [
 exports[`ubytování přihlásila a přespala 1`] = `
 Object {
   "code": "ok",
+  "response": Object {
+    "ubytovani": Object {
+      "pátek": Object {
+        "prespano": true,
+        "prihlaseno": true,
+      },
+    },
+  },
   "status": "uloženo v pořádku",
 }
 `;

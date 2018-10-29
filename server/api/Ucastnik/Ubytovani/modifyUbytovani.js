@@ -32,8 +32,8 @@ const modifyUbytovani = async ({ request }) => {
     return { code, status };
   }
 
-  const origUbytovani = ucast.ubytovani.toObject(); // convert to POJO from MongoDB sub-document
-  const ubytovani = modifyFunction({ den, ubytovani: origUbytovani });
+  const ubytovaniPOJO = ucast.ubytovani.toObject(); // convert to POJO from MongoDB sub-document
+  const ubytovani = modifyFunction({ den, ubytovani: ubytovaniPOJO });
   ({ code, status } = await validateUbytovani({ rok, ubytovani, rocniky }));
   if (code !== CODE_OK) {
     return { code, status };
@@ -42,7 +42,7 @@ const modifyUbytovani = async ({ request }) => {
 
   await ucastnik.save();
   const broadcast = await broadcastUcastnik(id); // :TODO: could broadcast only Ubytovani in future.
-  return { broadcast, code: CODE_OK, status: 'uloženo v pořádku' };
+  return { broadcast, code: CODE_OK, status: 'uloženo v pořádku', response: { ubytovani } };
 };
 
 module.exports = modifyUbytovani;
