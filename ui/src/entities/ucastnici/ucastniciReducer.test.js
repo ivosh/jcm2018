@@ -1,5 +1,5 @@
 import deepFreeze from 'deep-freeze';
-import { ubytovaniNeprespano } from '../../common';
+import { UBYTOVANI_NEPRESPANO, ubytovaniModifications } from '../../common';
 import { PRIHLASKY } from '../../constants';
 import { websocketDisconnected } from '../../App/AppActions';
 import { signOut } from '../../auth/SignOut/SignOutActions';
@@ -183,7 +183,10 @@ it('saveUbytovani - success()', () => {
   const id = '5a09b1fd371dec1e99b7e1c9';
   const rok = 2018;
   const ucastnik = ucastniciTestData.entities.ucastnici.byIds[id];
-  const ubytovani = ubytovaniNeprespano({ den: 'pátek', ubytovani: ucastnik[2018].ubytovani });
+  const ubytovani = ubytovaniModifications[UBYTOVANI_NEPRESPANO]({
+    den: 'pátek',
+    ubytovani: ucastnik[2018].ubytovani
+  });
 
   expect(
     ucastniciReducer(

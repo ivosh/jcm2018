@@ -1,10 +1,11 @@
 import moment from 'moment';
 import {
-  findKategorie,
-  ubytovaniOdhlasit,
-  ubytovaniPrihlasit,
   CODE_OK,
-  CODE_MLADISTVY_UCASTNIK
+  CODE_MLADISTVY_UCASTNIK,
+  UBYTOVANI_ODHLASIT,
+  UBYTOVANI_PRIHLASIT,
+  findKategorie,
+  ubytovaniModifications
 } from '../../../common';
 import { AKTUALNI_ROK, PRIHLASKY, TYPY_KATEGORII } from '../../../constants';
 import {
@@ -73,9 +74,9 @@ const parseNarozeni = value => {
 
 const reduceUbytovani = ({ den, value, ubytovani }) => {
   if (value) {
-    return ubytovaniPrihlasit({ den, ubytovani });
+    return ubytovaniModifications[UBYTOVANI_PRIHLASIT]({ den, ubytovani });
   }
-  return ubytovaniOdhlasit({ den, ubytovani });
+  return ubytovaniModifications[UBYTOVANI_ODHLASIT]({ den, ubytovani });
 };
 
 export const createPrihlaskyFormReducer = (

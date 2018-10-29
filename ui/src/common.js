@@ -13,6 +13,7 @@ export const API_DELETE_VYKON = 'deleteVykon';
 export const API_FIND_ALL_ROCNIKY = 'findAllRocniky';
 export const API_FIND_ALL_STOPKY = 'findAllStopky';
 export const API_FIND_ALL_UCASTNICI = 'findAllUcastnici';
+export const API_MODIFY_UBYTOVANI = 'modifyUbytovani';
 export const API_SAVE_PLATBY = 'savePlatby';
 export const API_SAVE_PRIHLASKA = 'savePrihlaska';
 export const API_SAVE_STOPKY = 'saveStopky';
@@ -159,19 +160,25 @@ export const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyP
   };
 };
 
-export const ubytovaniPrihlasit = ({ den, ubytovani = {} }) => ({
-  ...ubytovani,
-  [den]: { ...ubytovani[den], prihlaseno: true }
-});
-export const ubytovaniOdhlasit = ({ den, ubytovani = {} }) => {
-  const { [den]: remove, ...rest } = ubytovani;
-  return rest;
+export const UBYTOVANI_PRIHLASIT = 'přihlásit';
+export const UBYTOVANI_ODHLASIT = 'odhlásit';
+export const UBYTOVANI_PRESPANO = 'přespáno';
+export const UBYTOVANI_NEPRESPANO = 'nepřespáno';
+export const ubytovaniModifications = {
+  [UBYTOVANI_PRIHLASIT]: ({ den, ubytovani = {} }) => ({
+    ...ubytovani,
+    [den]: { ...ubytovani[den], prihlaseno: true }
+  }),
+  [UBYTOVANI_ODHLASIT]: ({ den, ubytovani = {} }) => {
+    const { [den]: remove, ...rest } = ubytovani;
+    return rest;
+  },
+  [UBYTOVANI_PRESPANO]: ({ den, ubytovani = {} }) => ({
+    ...ubytovani,
+    [den]: { ...ubytovani[den], prespano: true }
+  }),
+  [UBYTOVANI_NEPRESPANO]: ({ den, ubytovani = {} }) => ({
+    ...ubytovani,
+    [den]: { ...ubytovani[den], prespano: false }
+  })
 };
-export const ubytovaniPrespano = ({ den, ubytovani = {} }) => ({
-  ...ubytovani,
-  [den]: { ...ubytovani[den], prespano: true }
-});
-export const ubytovaniNeprespano = ({ den, ubytovani = {} }) => ({
-  ...ubytovani,
-  [den]: { ...ubytovani[den], prespano: false }
-});
