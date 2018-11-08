@@ -228,7 +228,8 @@ const nonEmptyInputValid = ({ value, validate }) => {
       return 'error';
     }
     return undefined;
-  } else if (!value) {
+  }
+  if (!value) {
     return 'error';
   }
   return 'success';

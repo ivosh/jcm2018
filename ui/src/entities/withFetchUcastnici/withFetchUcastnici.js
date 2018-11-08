@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchUcastnici as fetchUcastniciAction } from '../../entities/ucastnici/ucastniciActions';
+import { fetchUcastnici as fetchUcastniciAction } from '../ucastnici/ucastniciActions';
 import LoadingIndicator from '../../shared/LoadingIndicator';
 
 const withFetchUcastnici = WrappedComponent => {

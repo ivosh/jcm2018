@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchStopky as fetchStopkyAction } from '../../entities/stopky/stopkyActions';
+import { fetchStopky as fetchStopkyAction } from '../stopky/stopkyActions';
 import LoadingIndicator from '../../shared/LoadingIndicator';
 
 const withFetchStopky = WrappedComponent => {

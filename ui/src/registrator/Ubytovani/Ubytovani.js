@@ -39,7 +39,8 @@ const prihlasenoFormat = ({ cellData }) => (cellData ? '✓' : '✗');
 const prespanoFormat = ({ cellData }) => {
   if (cellData === true) {
     return '✓';
-  } else if (cellData === false) {
+  }
+  if (cellData === false) {
     return '✗';
   }
   return '?';
@@ -48,7 +49,8 @@ const prespanoFormat = ({ cellData }) => {
 const prespanoClasses = ({ cellData }) => {
   if (cellData === true) {
     return ['Ubytovani--prespano'];
-  } else if (cellData === false) {
+  }
+  if (cellData === false) {
     return ['Ubytovani--neprespano'];
   }
   return ['Ubytovani--nevime'];

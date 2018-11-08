@@ -19,7 +19,8 @@ class PrihlaskyForm extends PureComponent {
     if (onLoadId) {
       onLoadId();
       return;
-    } else if (reset) {
+    }
+    if (reset) {
       onReset();
       return;
     }

@@ -91,7 +91,8 @@ const PrihlaseniDohlaseni = ({
       cellClassNames: ({ cellData, data, rowIndex }) => {
         if (cellData >= data[rowIndex].predepsano) {
           return ['PrihlaseniDohlaseni--zaplaceno'];
-        } else if (cellData > 0) {
+        }
+        if (cellData > 0) {
           return ['PrihlaseniDohlaseni--castecne-zaplaceno'];
         }
         return ['PrihlaseniDohlaseni--nezaplaceno'];

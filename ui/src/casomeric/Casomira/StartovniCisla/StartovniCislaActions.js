@@ -45,9 +45,11 @@ export const createDropAction = ({ source, destination }) => {
   const { cas, typ } = destination;
   if (destination.name === 'nedokonceno') {
     return saveVykon({ action: startCisloNedokonceno({ id }), id, startCislo, typ });
-  } else if (destination.name === 'na-trase') {
+  }
+  if (destination.name === 'na-trase') {
     return saveVykon({ action: startCisloNaTrase({ id }), id, startCislo, typ });
-  } else if (id && cas && (source.dokonceno === null || source.dokonceno === undefined)) {
+  }
+  if (id && cas && (source.dokonceno === null || source.dokonceno === undefined)) {
     return saveVykon({ action: startCisloDokonceno({ id, cas }), id, startCislo, typ });
   }
   return undefined;

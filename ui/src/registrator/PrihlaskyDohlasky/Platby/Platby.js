@@ -13,7 +13,8 @@ const zaplacenoStyle = (zaplaceno, predepsano) => {
       return 'default';
     }
     return 'success';
-  } else if (zaplaceno > 0) {
+  }
+  if (zaplaceno > 0) {
     return 'warning';
   }
   return 'danger';

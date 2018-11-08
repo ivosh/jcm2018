@@ -11,7 +11,8 @@ const vykonCellDataFormatter = ({ cellData }) => {
   if (cellData) {
     if (cellData.dokonceno === true) {
       return '✓';
-    } else if (cellData.dokonceno === false) {
+    }
+    if (cellData.dokonceno === false) {
       return '✗';
     }
     return '?';
