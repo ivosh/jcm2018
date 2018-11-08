@@ -51,7 +51,7 @@ UserSchema.methods.comparePassword = async function comparePassword(candidatePas
 UserSchema.methods.incLoginAttempts = async function incLoginAttempts() {
   // If we have a previous lock that has expired, restart at 1.
   if (this.lockUntil && this.lockUntil < new Date()) {
-    return this.update({
+    return this.updateOne({
       $set: { loginAttempts: 1 },
       $unset: { lockUntil: 1 }
     });
@@ -66,7 +66,7 @@ UserSchema.methods.incLoginAttempts = async function incLoginAttempts() {
     updates.$set = { lockUntil: new Date(now.getTime() + config.auth.lockTime) };
   }
 
-  return this.update(updates);
+  return this.updateOne(updates);
 };
 
 UserSchema.static('authenticate', async function authenticate(username, password) {
@@ -89,7 +89,7 @@ UserSchema.static('authenticate', async function authenticate(username, password
         $set: { loginAttempts: 0 },
         $unset: { lockUntil: 1 }
       };
-      await user.update(updates);
+      await user.updateOne(updates);
     }
     return { code: codes.CODE_OK };
   }

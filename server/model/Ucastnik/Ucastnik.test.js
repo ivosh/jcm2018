@@ -9,7 +9,7 @@ beforeAll(async () => {
 });
 
 beforeEach(async () => {
-  await Promise.all([Kategorie.remove(), Ucastnik.remove()]);
+  await Promise.all([Kategorie.deleteMany(), Ucastnik.deleteMany()]);
 });
 
 afterAll(async () => {
