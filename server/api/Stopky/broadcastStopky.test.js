@@ -6,7 +6,7 @@ const broadcastStopky = require('./broadcastStopky');
 
 beforeAll(async () => {
   await db.connect();
-  await Stopky.remove();
+  await Stopky.deleteMany();
 });
 
 afterAll(async () => {

@@ -29,7 +29,7 @@ beforeAll(async () => {
 
   await db.connect();
 
-  await Promise.all([Kategorie.remove(), Rocnik.remove()]);
+  await Promise.all([Kategorie.deleteMany(), Rocnik.deleteMany()]);
 
   kategorie1 = new Kategorie({
     typ: 'maraton',
@@ -61,7 +61,7 @@ beforeAll(async () => {
 });
 
 beforeEach(async () => {
-  await Ucastnik.remove();
+  await Ucastnik.deleteMany();
 });
 
 afterAll(async () => {

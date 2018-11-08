@@ -6,6 +6,7 @@ const logger = require('./logger');
 
 /* Use native ES6 promises. */
 mongoose.Promise = global.Promise;
+mongoose.set('useCreateIndex', true);
 
 /* Enable for debugging. */
 // mongoose.set('debug', true);
@@ -13,7 +14,7 @@ mongoose.Promise = global.Promise;
 class DB {
   async connect() {
     const { uri, ...options } = config.db;
-    this.options = options;
+    this.options = { ...options, useNewUrlParser: true };
 
     await this.reconnect();
   }

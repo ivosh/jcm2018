@@ -20,7 +20,7 @@ beforeAll(async () => {
 
   await db.connect();
 
-  await Kategorie.remove();
+  await Kategorie.deleteMany();
   kategorie = new Kategorie({
     typ: 'maraton',
     pohlavi: 'žena',
@@ -30,7 +30,7 @@ beforeAll(async () => {
 });
 
 beforeEach(async () => {
-  await Ucastnik.remove();
+  await Ucastnik.deleteMany();
 });
 
 afterAll(async () => {

@@ -20,7 +20,7 @@ beforeAll(async () => {
 });
 
 beforeEach(async () => {
-  await Ucastnik.remove();
+  await Ucastnik.deleteMany();
 });
 
 afterAll(async () => {

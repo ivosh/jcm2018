@@ -18,7 +18,7 @@ beforeAll(async () => {
 });
 
 beforeEach(async () => {
-  await User.remove();
+  await User.deleteMany();
 });
 
 afterAll(async () => {

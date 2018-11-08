@@ -19,7 +19,7 @@ beforeAll(async () => {
 });
 
 beforeEach(async () => {
-  await Stopky.remove();
+  await Stopky.deleteMany();
 });
 
 afterAll(async () => {

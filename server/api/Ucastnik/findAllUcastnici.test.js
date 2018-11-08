@@ -18,7 +18,7 @@ beforeAll(async () => {
   await wsClient.open();
 
   await db.connect();
-  await Kategorie.remove();
+  await Kategorie.deleteMany();
 
   const kategorie1 = new Kategorie({ typ: 'maraton', pohlavi: 'žena', vek: { min: 18, max: 60 } });
   const kategorie2 = new Kategorie({ typ: 'maraton', pohlavi: 'muž', vek: { min: 18, max: 60 } });
@@ -26,7 +26,7 @@ beforeAll(async () => {
 });
 
 beforeEach(async () => {
-  await Ucastnik.remove();
+  await Ucastnik.deleteMany();
 });
 
 afterAll(async () => {

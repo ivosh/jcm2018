@@ -19,7 +19,7 @@ const saveStopky = async ({ request }) => {
     logger.debug(`Nalezeny stopky pro typ ${typ}.`);
   } else {
     if (nalezene.length > 1) {
-      await Stopky.remove();
+      await Stopky.deleteMany({ typ });
     }
     stopky = new Stopky({ typ });
     logger.debug(`Vytvářím stopky pro typ ${typ}.`);

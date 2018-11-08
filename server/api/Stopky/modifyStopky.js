@@ -104,7 +104,7 @@ const modifyStopky = async ({ request }) => {
     logger.debug(`Nalezeny stopky pro typ ${typ}.`);
   } else {
     if (nalezene.length > 1) {
-      await Stopky.remove(); // precaution
+      await Stopky.deleteMany({ typ }); // precaution
     }
     stopky = new Stopky({ typ, running: false });
     logger.debug(`Vytvářím stopky pro typ ${typ}.`);
