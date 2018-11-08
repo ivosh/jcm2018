@@ -1,0 +1,362 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dvakrát stop 1`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "stopky": Object {
+      "__v": 0,
+      "_id": "===id===",
+      "base": "2018-11-05T08:14:32.500Z",
+      "delta": "P0D",
+      "mezicasy": Array [],
+      "running": true,
+      "typ": "cyklo",
+    },
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`dvakrát stop 2`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "stopky": Object {
+      "__v": 0,
+      "_id": "===id===",
+      "base": null,
+      "delta": "PT1H7M",
+      "mezicasy": Array [],
+      "running": false,
+      "typ": "cyklo",
+    },
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`dvakrát stop 3`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "stopky": Object {
+      "__v": 0,
+      "_id": "===id===",
+      "base": null,
+      "delta": "PT1H7M",
+      "mezicasy": Array [],
+      "running": false,
+      "typ": "cyklo",
+    },
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`dvakrát stop 4`] = `
+Array [
+  Object {
+    "__v": 0,
+    "base": null,
+    "delta": "PT1H7M",
+    "mezicasy": Array [],
+    "running": false,
+    "typ": "cyklo",
+  },
+]
+`;
+
+exports[`nastartuj již nastartované stopky 1`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "stopky": Object {
+      "__v": 0,
+      "_id": "===id===",
+      "base": "2018-11-05T08:14:32.500Z",
+      "delta": "P0D",
+      "mezicasy": Array [],
+      "running": true,
+      "typ": "cyklo",
+    },
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`nastartuj již nastartované stopky 2`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "stopky": Object {
+      "__v": 0,
+      "_id": "===id===",
+      "base": "2018-11-05T08:14:32.500Z",
+      "delta": "P0D",
+      "mezicasy": Array [],
+      "running": true,
+      "typ": "cyklo",
+    },
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`nastartuj již nastartované stopky 3`] = `
+Array [
+  Object {
+    "__v": 0,
+    "base": 2018-11-05T08:14:32.500Z,
+    "delta": "P0D",
+    "mezicasy": Array [],
+    "running": true,
+    "typ": "cyklo",
+  },
+]
+`;
+
+exports[`nastartuj stopky (stopky neexistují) 1`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "stopky": Object {
+      "__v": 0,
+      "_id": "===id===",
+      "base": "2018-11-05T08:14:32.500Z",
+      "delta": "P0D",
+      "mezicasy": Array [],
+      "running": true,
+      "typ": "cyklo",
+    },
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`nastartuj stopky (stopky neexistují) 2`] = `
+Array [
+  Object {
+    "__v": 0,
+    "base": 2018-11-05T08:14:32.500Z,
+    "delta": "P0D",
+    "mezicasy": Array [],
+    "running": true,
+    "typ": "cyklo",
+  },
+]
+`;
+
+exports[`neexistující modifikace 1`] = `
+Object {
+  "code": "neexistuje",
+  "status": "Neexistující modifikace stopek 'huh'.",
+}
+`;
+
+exports[`not authenticated 1`] = `
+Object {
+  "code": "authentication token invalid",
+  "status": "Špatný ověřovací token. Zkus se přihlásit znovu. Detaily: JsonWebTokenError: jwt must be provided",
+}
+`;
+
+exports[`přidej mezičas (stopky nastartovány) 1`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "stopky": Object {
+      "__v": 0,
+      "_id": "===id===",
+      "base": "2018-11-05T16:02:23.010Z",
+      "delta": "P0D",
+      "mezicasy": Array [],
+      "running": true,
+      "typ": "půlmaraton",
+    },
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`přidej mezičas (stopky nastartovány) 2`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "stopky": Object {
+      "__v": 1,
+      "_id": "===id===",
+      "base": "2018-11-05T16:02:23.010Z",
+      "delta": "P0D",
+      "mezicasy": Array [
+        Object {
+          "cas": "PT1M49.09S",
+        },
+      ],
+      "running": true,
+      "typ": "půlmaraton",
+    },
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`přidej mezičas (stopky nastartovány) 3`] = `
+Array [
+  Object {
+    "__v": 1,
+    "base": 2018-11-05T16:02:23.010Z,
+    "delta": "P0D",
+    "mezicasy": Array [
+      Object {
+        "cas": "PT1M49.09S",
+      },
+    ],
+    "running": true,
+    "typ": "půlmaraton",
+  },
+]
+`;
+
+exports[`přidej mezičas (stopky neexistují) 1`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "stopky": Object {
+      "__v": 0,
+      "_id": "===id===",
+      "mezicasy": Array [],
+      "running": false,
+      "typ": "půlmaraton",
+    },
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`přidej mezičas (stopky neexistují) 2`] = `
+Array [
+  Object {
+    "__v": 0,
+    "mezicasy": Array [],
+    "running": false,
+    "typ": "půlmaraton",
+  },
+]
+`;
+
+exports[`reset 1`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "stopky": Object {
+      "__v": 0,
+      "_id": "===id===",
+      "base": "2018-11-05T08:14:32.500Z",
+      "delta": "P0D",
+      "mezicasy": Array [],
+      "running": true,
+      "typ": "cyklo",
+    },
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`reset 2`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "stopky": Object {
+      "__v": 0,
+      "_id": "===id===",
+      "base": null,
+      "delta": "PT1H7M",
+      "mezicasy": Array [],
+      "running": false,
+      "typ": "cyklo",
+    },
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`reset 3`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "stopky": Object {
+      "__v": 0,
+      "_id": "===id===",
+      "base": null,
+      "delta": "P0D",
+      "mezicasy": Array [],
+      "running": false,
+      "typ": "cyklo",
+    },
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`reset 4`] = `
+Array [
+  Object {
+    "__v": 0,
+    "base": null,
+    "delta": "P0D",
+    "mezicasy": Array [],
+    "running": false,
+    "typ": "cyklo",
+  },
+]
+`;
+
+exports[`start a stop 1`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "stopky": Object {
+      "__v": 0,
+      "_id": "===id===",
+      "base": "2018-11-05T08:14:32.500Z",
+      "delta": "P0D",
+      "mezicasy": Array [],
+      "running": true,
+      "typ": "cyklo",
+    },
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`start a stop 2`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "stopky": Object {
+      "__v": 0,
+      "_id": "===id===",
+      "base": null,
+      "delta": "PT1H7M",
+      "mezicasy": Array [],
+      "running": false,
+      "typ": "cyklo",
+    },
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`start a stop 3`] = `
+Array [
+  Object {
+    "__v": 0,
+    "base": null,
+    "delta": "PT1H7M",
+    "mezicasy": Array [],
+    "running": false,
+    "typ": "cyklo",
+  },
+]
+`;
