@@ -125,8 +125,8 @@ export const getVysledky = ({ rocniky, ucastnici, rok = AKTUALNI_ROK }) => {
     );
 
     const kategorieProTyp = getKategorieProTyp({ typ, rocniky, rok });
-    const vsechnyZkratky = kategorieProTyp.list.map(
-      ({ zkratka }) => (stats[zkratka] ? zkratka : undefined)
+    const vsechnyZkratky = kategorieProTyp.list.map(({ zkratka }) =>
+      stats[zkratka] ? zkratka : undefined
     );
     const zkratky = vsechnyZkratky.filter(zkratka => zkratka);
 
