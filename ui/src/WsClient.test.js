@@ -7,8 +7,10 @@ let mockServer;
 let wsClient;
 const createServer = () => {
   mockServer = new Server(`ws://localhost:${PORT}`);
-  // Sends the same message unmodified back to the client.
-  mockServer.on('message', message => mockServer.send(message));
+  mockServer.on('connection', socket => {
+    // Sends the same message unmodified back to the client.
+    socket.on('message', message => socket.send(message));
+  });
 };
 beforeEach(() => createServer());
 
