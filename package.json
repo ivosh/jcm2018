@@ -40,9 +40,9 @@
   "dependencies": {
     "async-file": "^2.0.2",
     "bcrypt": "^3.0.2",
-    "jsonwebtoken": "^8.3.0",
+    "jsonwebtoken": "^8.4.0",
     "moment": "^2.22.2",
-    "mongoose": "^5.3.10",
+    "mongoose": "^5.3.12",
     "mongoose-unique-array": "^0.2.0",
     "node": "^10.13.0",
     "websocket": "^1.0.28",
@@ -53,7 +53,7 @@
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "codecov": "^3.1.0",
-    "eslint": "^5.8.0",
+    "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jasmine": "^2.10.1",
@@ -61,7 +61,7 @@
     "eslint-plugin-react": "^7.11.1",
     "jest": "^23.6.0",
     "jsonfile-updater": "^3.1.0",
-    "prettier": "^1.15.1",
+    "prettier": "^1.15.2",
     "supertest": "^3.3.0"
   },
   "jest": {
