@@ -4,6 +4,7 @@ const db = require('../../db');
 const {
   API_MODIFY_STOPKY,
   STOPKY_ADD_MEZICAS,
+  STOPKY_INSERT_MEZICAS,
   STOPKY_RESET,
   STOPKY_START,
   STOPKY_STOP,
@@ -37,11 +38,11 @@ afterAll(async () => {
   await db.disconnect();
 });
 
-const apiRequest = async ({ modifikace, now, typ }) => {
+const apiRequest = async ({ cas, modifikace, now, typ }) => {
   const { requestId, ...response } = await wsClient.sendRequest(
     apiCall({
       endpoint: API_MODIFY_STOPKY,
-      request: { modifikace, now: now.toJSON(), typ },
+      request: { cas, modifikace, now: now ? now.toJSON() : undefined, typ },
       token
     })
   );
@@ -177,6 +178,39 @@ it('reset', async () => {
     modifikace: STOPKY_RESET,
     now: new Date('2018-11-05T10:15:32.5Z'),
     typ: 'cyklo'
+  });
+  expect(response).toMatchSnapshot();
+
+  const stopky = await Stopky.find({}, { _id: 0 }).lean();
+  expect(stopky).toMatchSnapshot();
+});
+
+it('insert mezičas', async () => {
+  let response = await apiRequest({
+    modifikace: STOPKY_START,
+    now: new Date('2018-11-05T16:02:23.01Z'),
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  response = await apiRequest({
+    modifikace: STOPKY_ADD_MEZICAS,
+    now: new Date('2018-11-05T16:04:12.1Z'),
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  response = await apiRequest({
+    modifikace: STOPKY_ADD_MEZICAS,
+    now: new Date('2018-11-05T16:08:12.1Z'),
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  response = await apiRequest({
+    modifikace: STOPKY_INSERT_MEZICAS,
+    cas: 'PT5M32.7S',
+    typ: 'půlmaraton'
   });
   expect(response).toMatchSnapshot();
 

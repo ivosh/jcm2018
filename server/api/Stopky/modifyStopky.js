@@ -44,6 +44,12 @@ const modifications = {
     }
     return { code: CODE_OK, changes: [] };
   },
+  [STOPKY_INSERT_MEZICAS]: ({ request: { cas }, stopky: { mezicasy } }) => {
+    if (!cas) {
+      return { code: CODE_UNFULFILLED_REQUEST, status: 'chybí parameter "cas"' };
+    }
+    return { code: CODE_OK, changes: [{ name: 'mezicasy', value: addCasAndSort(mezicasy, cas) }] };
+  },
   [STOPKY_RESET]: () => ({
     code: CODE_OK,
     changes: [

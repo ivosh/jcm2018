@@ -67,6 +67,122 @@ Array [
 ]
 `;
 
+exports[`insert mezičas 1`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "stopky": Object {
+      "__v": 0,
+      "_id": "===id===",
+      "base": "2018-11-05T16:02:23.010Z",
+      "delta": "P0D",
+      "mezicasy": Array [],
+      "running": true,
+      "typ": "půlmaraton",
+    },
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`insert mezičas 2`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "stopky": Object {
+      "__v": 1,
+      "_id": "===id===",
+      "base": "2018-11-05T16:02:23.010Z",
+      "delta": "P0D",
+      "mezicasy": Array [
+        Object {
+          "cas": "PT1M49.09S",
+        },
+      ],
+      "running": true,
+      "typ": "půlmaraton",
+    },
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`insert mezičas 3`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "stopky": Object {
+      "__v": 2,
+      "_id": "===id===",
+      "base": "2018-11-05T16:02:23.010Z",
+      "delta": "P0D",
+      "mezicasy": Array [
+        Object {
+          "cas": "PT1M49.09S",
+        },
+        Object {
+          "cas": "PT5M49.09S",
+        },
+      ],
+      "running": true,
+      "typ": "půlmaraton",
+    },
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`insert mezičas 4`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "stopky": Object {
+      "__v": 3,
+      "_id": "===id===",
+      "base": "2018-11-05T16:02:23.010Z",
+      "delta": "P0D",
+      "mezicasy": Array [
+        Object {
+          "cas": "PT1M49.09S",
+        },
+        Object {
+          "cas": "PT5M32.7S",
+        },
+        Object {
+          "cas": "PT5M49.09S",
+        },
+      ],
+      "running": true,
+      "typ": "půlmaraton",
+    },
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`insert mezičas 5`] = `
+Array [
+  Object {
+    "__v": 3,
+    "base": 2018-11-05T16:02:23.010Z,
+    "delta": "P0D",
+    "mezicasy": Array [
+      Object {
+        "cas": "PT1M49.09S",
+      },
+      Object {
+        "cas": "PT5M32.7S",
+      },
+      Object {
+        "cas": "PT5M49.09S",
+      },
+    ],
+    "running": true,
+    "typ": "půlmaraton",
+  },
+]
+`;
+
 exports[`nastartuj již nastartované stopky 1`] = `
 Object {
   "code": "ok",
