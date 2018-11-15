@@ -1,6 +1,6 @@
 {
   "name": "ui",
-  "version": "1.0.34",
+  "version": "1.0.35",
   "private": true,
   "---on react version upgrade---": "Update the version in .eslintrc as well.",
   "dependencies": {
@@ -21,7 +21,7 @@
     "react-redux": "^5.1.0",
     "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^1.1.5",
+    "react-scripts": "^2.1.1",
     "react-virtualized": "^9.21.0",
     "reduce-reducers": "^0.4.3",
     "redux": "^4.0.1",
