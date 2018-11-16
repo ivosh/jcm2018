@@ -21,7 +21,7 @@
     "react-redux": "^5.1.0",
     "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^1.1.5",
+    "react-scripts": "^2.1.1",
     "react-virtualized": "^9.21.0",
     "reduce-reducers": "^0.4.3",
     "redux": "^4.0.1",
@@ -43,12 +43,12 @@
     "source-map-explorer": "npm run build && node ./node_modules/source-map-explorer/index.js build/static/js/main.*.js build/static/js/main.*.js.map"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "9.0.0",
     "deep-freeze": "0.0.1",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "enzyme-to-json": "^3.3.4",
-    "eslint": "^5.9.0",
+    "eslint": "5.6.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jasmine": "^2.10.1",
     "eslint-plugin-prettier": "^3.0.0",
@@ -63,10 +63,11 @@
     "redux-mock-store": "^1.5.3",
     "source-map-explorer": "^1.5.0"
   },
-  "proxy": {
-    "/api": {
-      "target": "ws://localhost:4000",
-      "ws": true
-    }
-  }
+  "proxy": "http://localhost:4000",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

@@ -6,7 +6,6 @@ exports[`it renders 1`] = `
 >
   <div
     className="panel panel-info"
-    id={undefined}
   >
     <div
       className="panel-heading"

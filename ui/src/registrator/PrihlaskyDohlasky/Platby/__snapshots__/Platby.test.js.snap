@@ -37,7 +37,6 @@ exports[`platby v mínusu 1`] = `
   </div>
   <div
     className="NovaPlatba panel panel-info"
-    id={undefined}
   >
     <div
       className="panel-heading"
@@ -109,7 +108,6 @@ exports[`platby v mínusu 1`] = `
             id="novaPlatba.typ"
             name="novaPlatba.typ"
             onChange={[Function]}
-            type={undefined}
           >
             <option
               value="hotově"
@@ -154,7 +152,7 @@ exports[`platby v mínusu 1`] = `
       <button
         className="btn btn-sm btn-primary"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         <span
@@ -267,7 +265,7 @@ exports[`platby v plusu 1`] = `
           <button
             className="btn btn-xs btn-danger"
             disabled={false}
-            onClick={[Function]}
+            onClick={[MockFunction]}
             type="button"
           >
             <span
@@ -292,7 +290,7 @@ exports[`platby v plusu 1`] = `
           <button
             className="btn btn-xs btn-danger"
             disabled={false}
-            onClick={[Function]}
+            onClick={[MockFunction]}
             type="button"
           >
             <span
@@ -306,7 +304,7 @@ exports[`platby v plusu 1`] = `
   <button
     className="btn btn-primary"
     disabled={false}
-    onClick={[Function]}
+    onClick={[MockFunction]}
     type="button"
   >
     <span
@@ -417,7 +415,7 @@ exports[`platby v plusu, novaPlatba expanded 1`] = `
           <button
             className="btn btn-xs btn-danger"
             disabled={false}
-            onClick={[Function]}
+            onClick={[MockFunction]}
             type="button"
           >
             <span
@@ -442,7 +440,7 @@ exports[`platby v plusu, novaPlatba expanded 1`] = `
           <button
             className="btn btn-xs btn-danger"
             disabled={false}
-            onClick={[Function]}
+            onClick={[MockFunction]}
             type="button"
           >
             <span
@@ -455,7 +453,6 @@ exports[`platby v plusu, novaPlatba expanded 1`] = `
   </table>
   <div
     className="NovaPlatba panel panel-info"
-    id={undefined}
   >
     <div
       className="panel-heading"
@@ -527,7 +524,6 @@ exports[`platby v plusu, novaPlatba expanded 1`] = `
             id="novaPlatba.typ"
             name="novaPlatba.typ"
             onChange={[Function]}
-            type={undefined}
           >
             <option
               value="hotově"
@@ -572,7 +568,7 @@ exports[`platby v plusu, novaPlatba expanded 1`] = `
       <button
         className="btn btn-sm btn-primary"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         <span
@@ -685,7 +681,7 @@ exports[`platby částečně v mínusu 1`] = `
           <button
             className="btn btn-xs btn-danger"
             disabled={false}
-            onClick={[Function]}
+            onClick={[MockFunction]}
             type="button"
           >
             <span
@@ -710,7 +706,7 @@ exports[`platby částečně v mínusu 1`] = `
           <button
             className="btn btn-xs btn-danger"
             disabled={false}
-            onClick={[Function]}
+            onClick={[MockFunction]}
             type="button"
           >
             <span
@@ -723,7 +719,6 @@ exports[`platby částečně v mínusu 1`] = `
   </table>
   <div
     className="NovaPlatba panel panel-info"
-    id={undefined}
   >
     <div
       className="panel-heading"
@@ -795,7 +790,6 @@ exports[`platby částečně v mínusu 1`] = `
             id="novaPlatba.typ"
             name="novaPlatba.typ"
             onChange={[Function]}
-            type={undefined}
           >
             <option
               value="hotově"
@@ -840,7 +834,7 @@ exports[`platby částečně v mínusu 1`] = `
       <button
         className="btn btn-sm btn-primary"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         <span

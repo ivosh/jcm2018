@@ -7,7 +7,7 @@ exports[`it renders showing 1`] = `
   <ErrorInModal
     code="chybový kód"
     message="Dlouhý popisek chyby"
-    onHide={[Function]}
+    onHide={[MockFunction]}
     show={true}
     title="Chyba při něčem!"
   />

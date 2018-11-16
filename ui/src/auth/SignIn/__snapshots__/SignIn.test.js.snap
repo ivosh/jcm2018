@@ -6,7 +6,6 @@ exports[`formulář při načítání 1`] = `
 >
   <div
     className="SignIn_panel panel panel-primary"
-    id={undefined}
   >
     <div
       className="panel-heading"

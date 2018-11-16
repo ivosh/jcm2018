@@ -7,7 +7,6 @@ exports[`dva odstartovaní 1`] = `
   <div>
     <div
       className="StartujiciPanel--isNotOver panel panel-primary"
-      id={undefined}
     >
       <div
         className="panel-heading"
@@ -173,7 +172,6 @@ exports[`dva odstartovaní 1`] = `
   <div>
     <div
       className="StartujiciPanel--isNotOver panel panel-success"
-      id={undefined}
     >
       <div
         className="panel-heading"
@@ -328,7 +326,6 @@ exports[`žádný odstartovaný 1`] = `
   <div>
     <div
       className="StartujiciPanel--isNotOver panel panel-primary"
-      id={undefined}
     >
       <div
         className="panel-heading"
@@ -494,7 +491,6 @@ exports[`žádný odstartovaný 1`] = `
   <div>
     <div
       className="StartujiciPanel--isNotOver panel panel-success"
-      id={undefined}
     >
       <div
         className="panel-heading"
@@ -549,7 +545,6 @@ exports[`žádný přihlášený 1`] = `
   <div>
     <div
       className="StartujiciPanel--isNotOver panel panel-primary"
-      id={undefined}
     >
       <div
         className="panel-heading"
@@ -615,7 +610,6 @@ exports[`žádný přihlášený 1`] = `
   <div>
     <div
       className="StartujiciPanel--isNotOver panel panel-success"
-      id={undefined}
     >
       <div
         className="panel-heading"

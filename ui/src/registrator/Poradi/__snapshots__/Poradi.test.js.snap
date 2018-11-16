@@ -25,7 +25,7 @@ exports[`renders 1`] = `
         <button
           className="KategorieFilter--maraton--active btn btn-default active"
           disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
           type="button"
         >
           <span
@@ -52,7 +52,7 @@ exports[`renders 1`] = `
         <button
           className="KategorieFilter--cyklo--inactive btn btn-default"
           disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
           type="button"
         >
           <span
@@ -104,7 +104,6 @@ exports[`renders 1`] = `
           aria-label="grid"
           aria-readonly={true}
           className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
-          id={undefined}
           onScroll={[Function]}
           role="grid"
           style={
@@ -216,7 +215,6 @@ exports[`renders 1`] = `
           aria-label="grid"
           aria-readonly={true}
           className="ReactVirtualized__Grid UcastniciTable_LeftSideGrid"
-          id={undefined}
           onScroll={[Function]}
           role="grid"
           style={
@@ -394,7 +392,6 @@ exports[`renders 1`] = `
               aria-label="grid"
               aria-readonly={true}
               className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
-              id={undefined}
               onScroll={[Function]}
               role="grid"
               style={
@@ -568,7 +565,6 @@ exports[`renders 1`] = `
               aria-label="grid"
               aria-readonly={true}
               className="ReactVirtualized__Grid UcastniciTable_BodyGrid"
-              id={undefined}
               onScroll={[Function]}
               role="grid"
               style={

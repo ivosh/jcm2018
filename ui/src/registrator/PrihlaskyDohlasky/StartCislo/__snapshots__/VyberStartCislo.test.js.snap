@@ -6,7 +6,6 @@ exports[`Renderer - nevybrané; někdo jiný 1`] = `
 >
   <div
     className="StartovniCislaProTyp__item VyberStartCislo-zabrane"
-    onClick={undefined}
   >
     7
   </div>
@@ -44,7 +43,6 @@ exports[`Renderer 1`] = `
 >
   <div
     className="StartovniCislaProTyp__item VyberStartCislo-zabrane"
-    onClick={undefined}
   >
     7
   </div>
@@ -62,7 +60,7 @@ exports[`renders VyberStartCislo 1`] = `
   Renderer={[Function]}
   jenStartujici={false}
   odstartovani={false}
-  onSelect={[Function]}
+  onSelect={[MockFunction]}
   typ="koloběžka"
 />
 `;

@@ -9,7 +9,6 @@ exports[`Renderer 1`] = `
     className="StartovniCislaProTyp__item Legenda__item--dokonceno"
     href="/prihlasky/10"
     onClick={[Function]}
-    style={undefined}
   >
     7
   </a>
@@ -30,7 +29,7 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
       bsStyle="primary"
       className="StartovniCisla__button"
       disabled={false}
-      onClick={[Function]}
+      onClick={[MockFunction]}
     >
       <Glyphicon
         bsClass="glyphicon"
@@ -45,7 +44,7 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
       bsStyle="success"
       className="StartovniCisla__button"
       disabled={false}
-      onClick={[Function]}
+      onClick={[MockFunction]}
     >
       <Glyphicon
         bsClass="glyphicon"
@@ -180,7 +179,7 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
       bsStyle="primary"
       className="StartovniCisla__button"
       disabled={false}
-      onClick={[Function]}
+      onClick={[MockFunction]}
     >
       <Glyphicon
         bsClass="glyphicon"
@@ -195,7 +194,7 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
       bsStyle="success"
       className="StartovniCisla__button"
       disabled={false}
-      onClick={[Function]}
+      onClick={[MockFunction]}
     >
       <Glyphicon
         bsClass="glyphicon"

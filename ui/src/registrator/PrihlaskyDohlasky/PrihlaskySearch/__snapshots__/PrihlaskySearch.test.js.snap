@@ -37,7 +37,6 @@ exports[`renders 1`] = `
           autoComplete="off"
           className="rbt-input-main"
           disabled={false}
-          name={undefined}
           onBlur={[Function]}
           onChange={[Function]}
           onClick={[Function]}
@@ -60,7 +59,6 @@ exports[`renders 1`] = `
           value=""
         />
         <div
-          className={undefined}
           style={
             Object {
               "bottom": 0,

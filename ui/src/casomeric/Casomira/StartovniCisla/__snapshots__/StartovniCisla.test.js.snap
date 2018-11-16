@@ -5,7 +5,7 @@ exports[`maraton 1`] = `
   store={
     Object {
       "clearActions": [Function],
-      "dispatch": [Function],
+      "dispatch": [MockFunction],
       "getActions": [Function],
       "getState": [Function],
       "replaceReducer": [Function],
@@ -14,18 +14,18 @@ exports[`maraton 1`] = `
   }
 >
   <DragDropContext(DnDTestContextContainer)
-    canDrop={[Function]}
-    onDrop={[Function]}
+    canDrop={[MockFunction]}
+    onDrop={[MockFunction]}
     typ="maraton"
   >
     <DnDTestContextContainer
-      canDrop={[Function]}
-      onDrop={[Function]}
+      canDrop={[MockFunction]}
+      onDrop={[MockFunction]}
       typ="maraton"
     >
       <StartovniCisla
-        canDrop={[Function]}
-        onDrop={[Function]}
+        canDrop={[MockFunction]}
+        onDrop={[MockFunction]}
         typ="maraton"
       >
         <div
@@ -39,7 +39,7 @@ exports[`maraton 1`] = `
           >
             <StartovniCislaProTyp
               Renderer={[Function]}
-              dispatch={[Function]}
+              dispatch={[MockFunction]}
               jenStartujici={true}
               odstartovani={true}
               startovniCisla={Array []}
@@ -54,10 +54,10 @@ exports[`maraton 1`] = `
             className="StartovniCisla-casomeric__legenda"
           >
             <DroppableLegendaItem
-              canDrop={[Function]}
+              canDrop={[MockFunction]}
               key="dokonceno"
               name="dokonceno"
-              onDrop={[Function]}
+              onDrop={[MockFunction]}
               popisek="dokončeno"
               typ="maraton"
             >
@@ -90,10 +90,10 @@ exports[`maraton 1`] = `
               </DropTarget(LegendaItem)>
             </DroppableLegendaItem>
             <DroppableLegendaItem
-              canDrop={[Function]}
+              canDrop={[MockFunction]}
               key="nedokonceno"
               name="nedokonceno"
-              onDrop={[Function]}
+              onDrop={[MockFunction]}
               popisek="nedokončeno"
               typ="maraton"
             >
@@ -126,10 +126,10 @@ exports[`maraton 1`] = `
               </DropTarget(LegendaItem)>
             </DroppableLegendaItem>
             <DroppableLegendaItem
-              canDrop={[Function]}
+              canDrop={[MockFunction]}
               key="na-trase"
               name="na-trase"
-              onDrop={[Function]}
+              onDrop={[MockFunction]}
               popisek="na trase"
               typ="maraton"
             >

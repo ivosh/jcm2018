@@ -3,7 +3,6 @@
 exports[`snapshort po startu 1`] = `
 <div
   className="StopkyProTyp__panel--maraton panel panel-default"
-  id={undefined}
 >
   <div
     className="panel-heading"
@@ -37,7 +36,7 @@ exports[`snapshort po startu 1`] = `
         <button
           className="Cudl btn btn-primary"
           disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
           type="button"
         >
           +X
@@ -50,7 +49,7 @@ exports[`snapshort po startu 1`] = `
         <button
           className="Cudl btn btn-primary"
           disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
           type="button"
         >
           +X
@@ -58,28 +57,7 @@ exports[`snapshort po startu 1`] = `
         <button
           className="Cudl btn btn-primary"
           disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          +X
-        </button>
-      </div>
-      <div />
-      <div
-        className="StopkyProTyp__cudly"
-      >
-        <button
-          className="Cudl btn btn-primary"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          +X
-        </button>
-        <button
-          className="Cudl btn btn-primary"
-          disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
           type="button"
         >
           +X
@@ -92,7 +70,7 @@ exports[`snapshort po startu 1`] = `
         <button
           className="Cudl btn btn-primary"
           disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
           type="button"
         >
           +X
@@ -100,7 +78,28 @@ exports[`snapshort po startu 1`] = `
         <button
           className="Cudl btn btn-primary"
           disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
+          type="button"
+        >
+          +X
+        </button>
+      </div>
+      <div />
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[MockFunction]}
+          type="button"
+        >
+          +X
+        </button>
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[MockFunction]}
           type="button"
         >
           +X
@@ -147,7 +146,7 @@ exports[`snapshort po startu 1`] = `
         <button
           className="Cudl btn btn-primary"
           disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
           type="button"
         >
           +X
@@ -160,7 +159,7 @@ exports[`snapshort po startu 1`] = `
         <button
           className="Cudl btn btn-primary"
           disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
           type="button"
         >
           +X
@@ -168,28 +167,7 @@ exports[`snapshort po startu 1`] = `
         <button
           className="Cudl btn btn-primary"
           disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          +X
-        </button>
-      </div>
-      <div />
-      <div
-        className="StopkyProTyp__cudly"
-      >
-        <button
-          className="Cudl btn btn-primary"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          +X
-        </button>
-        <button
-          className="Cudl btn btn-primary"
-          disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
           type="button"
         >
           +X
@@ -202,7 +180,7 @@ exports[`snapshort po startu 1`] = `
         <button
           className="Cudl btn btn-primary"
           disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
           type="button"
         >
           +X
@@ -210,7 +188,28 @@ exports[`snapshort po startu 1`] = `
         <button
           className="Cudl btn btn-primary"
           disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
+          type="button"
+        >
+          +X
+        </button>
+      </div>
+      <div />
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[MockFunction]}
+          type="button"
+        >
+          +X
+        </button>
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[MockFunction]}
           type="button"
         >
           +X
@@ -302,7 +301,6 @@ exports[`snapshort po startu 1`] = `
 exports[`snapshot před startem 1`] = `
 <div
   className="StopkyProTyp__panel--půlmaraton panel panel-default"
-  id={undefined}
 >
   <div
     className="panel-heading"
@@ -336,7 +334,7 @@ exports[`snapshot před startem 1`] = `
         <button
           className="Cudl btn btn-primary"
           disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
           type="button"
         >
           +X
@@ -349,7 +347,7 @@ exports[`snapshot před startem 1`] = `
         <button
           className="Cudl btn btn-primary"
           disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
           type="button"
         >
           +X
@@ -357,28 +355,7 @@ exports[`snapshot před startem 1`] = `
         <button
           className="Cudl btn btn-primary"
           disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          +X
-        </button>
-      </div>
-      <div />
-      <div
-        className="StopkyProTyp__cudly"
-      >
-        <button
-          className="Cudl btn btn-primary"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          +X
-        </button>
-        <button
-          className="Cudl btn btn-primary"
-          disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
           type="button"
         >
           +X
@@ -391,7 +368,7 @@ exports[`snapshot před startem 1`] = `
         <button
           className="Cudl btn btn-primary"
           disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
           type="button"
         >
           +X
@@ -399,7 +376,28 @@ exports[`snapshot před startem 1`] = `
         <button
           className="Cudl btn btn-primary"
           disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
+          type="button"
+        >
+          +X
+        </button>
+      </div>
+      <div />
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[MockFunction]}
+          type="button"
+        >
+          +X
+        </button>
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[MockFunction]}
           type="button"
         >
           +X
@@ -446,7 +444,7 @@ exports[`snapshot před startem 1`] = `
         <button
           className="Cudl btn btn-primary"
           disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
           type="button"
         >
           +X
@@ -459,7 +457,7 @@ exports[`snapshot před startem 1`] = `
         <button
           className="Cudl btn btn-primary"
           disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
           type="button"
         >
           +X
@@ -467,28 +465,7 @@ exports[`snapshot před startem 1`] = `
         <button
           className="Cudl btn btn-primary"
           disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          +X
-        </button>
-      </div>
-      <div />
-      <div
-        className="StopkyProTyp__cudly"
-      >
-        <button
-          className="Cudl btn btn-primary"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          +X
-        </button>
-        <button
-          className="Cudl btn btn-primary"
-          disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
           type="button"
         >
           +X
@@ -501,7 +478,7 @@ exports[`snapshot před startem 1`] = `
         <button
           className="Cudl btn btn-primary"
           disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
           type="button"
         >
           +X
@@ -509,7 +486,28 @@ exports[`snapshot před startem 1`] = `
         <button
           className="Cudl btn btn-primary"
           disabled={false}
-          onClick={[Function]}
+          onClick={[MockFunction]}
+          type="button"
+        >
+          +X
+        </button>
+      </div>
+      <div />
+      <div
+        className="StopkyProTyp__cudly"
+      >
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[MockFunction]}
+          type="button"
+        >
+          +X
+        </button>
+        <button
+          className="Cudl btn btn-primary"
+          disabled={false}
+          onClick={[MockFunction]}
           type="button"
         >
           +X

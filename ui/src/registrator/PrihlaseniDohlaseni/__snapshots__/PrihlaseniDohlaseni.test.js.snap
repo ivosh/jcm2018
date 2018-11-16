@@ -13,7 +13,7 @@ exports[`dva přihlášení 1`] = `
       <button
         className="btn btn-primary active"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         Přihlášeni
@@ -26,7 +26,7 @@ exports[`dva přihlášení 1`] = `
       <button
         className="btn btn-success"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         Dohlášeni
@@ -213,7 +213,6 @@ exports[`dva přihlášení 1`] = `
           aria-label="grid"
           aria-readonly={true}
           className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
-          id={undefined}
           onScroll={[Function]}
           role="grid"
           style={
@@ -325,7 +324,6 @@ exports[`dva přihlášení 1`] = `
           aria-label="grid"
           aria-readonly={true}
           className="ReactVirtualized__Grid UcastniciTable_LeftSideGrid"
-          id={undefined}
           onScroll={[Function]}
           role="grid"
           style={
@@ -471,7 +469,6 @@ exports[`dva přihlášení 1`] = `
               aria-label="grid"
               aria-readonly={true}
               className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
-              id={undefined}
               onScroll={[Function]}
               role="grid"
               style={
@@ -659,7 +656,6 @@ exports[`dva přihlášení 1`] = `
               aria-label="grid"
               aria-readonly={true}
               className="ReactVirtualized__Grid UcastniciTable_BodyGrid"
-              id={undefined}
               onScroll={[Function]}
               role="grid"
               style={
@@ -949,7 +945,7 @@ exports[`žádný přihlášený 1`] = `
       <button
         className="btn btn-primary active"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         Přihlášeni
@@ -962,7 +958,7 @@ exports[`žádný přihlášený 1`] = `
       <button
         className="btn btn-success"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         Dohlášeni
@@ -1149,7 +1145,6 @@ exports[`žádný přihlášený 1`] = `
           aria-label="grid"
           aria-readonly={true}
           className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
-          id={undefined}
           onScroll={[Function]}
           role="grid"
           style={
@@ -1261,7 +1256,6 @@ exports[`žádný přihlášený 1`] = `
           aria-label="grid"
           aria-readonly={true}
           className="ReactVirtualized__Grid UcastniciTable_LeftSideGrid"
-          id={undefined}
           onScroll={[Function]}
           role="grid"
           style={
@@ -1296,7 +1290,6 @@ exports[`žádný přihlášený 1`] = `
               aria-label="grid"
               aria-readonly={true}
               className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
-              id={undefined}
               onScroll={[Function]}
               role="grid"
               style={
@@ -1484,7 +1477,6 @@ exports[`žádný přihlášený 1`] = `
               aria-label="grid"
               aria-readonly={true}
               className="ReactVirtualized__Grid UcastniciTable_BodyGrid"
-              id={undefined}
               onScroll={[Function]}
               role="grid"
               style={

@@ -22,7 +22,7 @@ exports[`renders kategorie filters 1`] = `
       <button
         className="KategorieFilter--maraton--active btn btn-default active"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         <span
@@ -49,7 +49,7 @@ exports[`renders kategorie filters 1`] = `
       <button
         className="KategorieFilter--cyklo--inactive btn btn-default"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         <span
@@ -106,7 +106,7 @@ exports[`renders kategorie subFilters 1`] = `
       <button
         className="KategorieFilter--maraton--active btn btn-default active"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         <span
@@ -137,7 +137,7 @@ exports[`renders kategorie subFilters 1`] = `
       <button
         className="KategorieSubFilter--maraton--active btn btn-default active"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         <span
@@ -157,7 +157,7 @@ exports[`renders kategorie subFilters 1`] = `
       <button
         className="KategorieSubFilter--maraton--inactive btn btn-default"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         <span
@@ -177,7 +177,7 @@ exports[`renders kategorie subFilters 1`] = `
       <button
         className="KategorieSubFilter--maraton--inactive btn btn-default"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         <span

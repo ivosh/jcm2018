@@ -4,39 +4,39 @@ exports[`po startu 1`] = `
 Array [
   <span
     className="Displej__segment"
->
+  >
     1
-</span>,
+  </span>,
   <span
     className="Displej__separator"
->
+  >
     :
-</span>,
+  </span>,
   <span
     className="Displej__segment"
->
+  >
     43
-</span>,
+  </span>,
   <span
     className="Displej__separator"
->
+  >
     :
-</span>,
+  </span>,
   <span
     className="Displej__segment"
->
+  >
     52
-</span>,
+  </span>,
   <span
     className="Displej__separator"
->
+  >
     ,
-</span>,
+  </span>,
   <span
     className="Displej__segment"
->
+  >
     13
-</span>,
+  </span>,
 ]
 `;
 
@@ -44,38 +44,38 @@ exports[`počáteční stav 1`] = `
 Array [
   <span
     className="Displej__segment"
->
+  >
     -
-</span>,
+  </span>,
   <span
     className="Displej__separator"
->
+  >
     :
-</span>,
+  </span>,
   <span
     className="Displej__segment"
->
+  >
     --
-</span>,
+  </span>,
   <span
     className="Displej__separator"
->
+  >
     :
-</span>,
+  </span>,
   <span
     className="Displej__segment"
->
+  >
     --
-</span>,
+  </span>,
   <span
     className="Displej__separator"
->
+  >
     ,
-</span>,
+  </span>,
   <span
     className="Displej__segment"
->
+  >
     --
-</span>,
+  </span>,
 ]
 `;

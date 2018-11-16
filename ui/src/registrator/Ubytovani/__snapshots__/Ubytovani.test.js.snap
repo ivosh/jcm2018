@@ -20,7 +20,7 @@ exports[`tři ubytovaní 1`] = `
       <button
         className="Ubytovani__button btn btn-success active"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         <span
@@ -31,7 +31,7 @@ exports[`tři ubytovaní 1`] = `
       <button
         className="Ubytovani__button btn btn-primary"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         <span
@@ -70,7 +70,6 @@ exports[`tři ubytovaní 1`] = `
           aria-label="grid"
           aria-readonly={true}
           className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
-          id={undefined}
           onScroll={[Function]}
           role="grid"
           style={
@@ -182,7 +181,6 @@ exports[`tři ubytovaní 1`] = `
           aria-label="grid"
           aria-readonly={true}
           className="ReactVirtualized__Grid UcastniciTable_LeftSideGrid"
-          id={undefined}
           onScroll={[Function]}
           role="grid"
           style={
@@ -375,7 +373,6 @@ exports[`tři ubytovaní 1`] = `
               aria-label="grid"
               aria-readonly={true}
               className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
-              id={undefined}
               onScroll={[Function]}
               role="grid"
               style={
@@ -528,7 +525,6 @@ exports[`tři ubytovaní 1`] = `
               aria-label="grid"
               aria-readonly={true}
               className="ReactVirtualized__Grid UcastniciTable_BodyGrid"
-              id={undefined}
               onScroll={[Function]}
               role="grid"
               style={
@@ -643,10 +639,8 @@ exports[`tři ubytovaní 1`] = `
                 >
                   <select
                     className="form-control"
-                    id={undefined}
                     name="akce"
-                    onChange={[Function]}
-                    type={undefined}
+                    onChange={[MockFunction]}
                   >
                     <option
                       value="Odhlásit"
@@ -826,10 +820,8 @@ exports[`tři ubytovaní 1`] = `
                 >
                   <select
                     className="form-control"
-                    id={undefined}
                     name="akce"
-                    onChange={[Function]}
-                    type={undefined}
+                    onChange={[MockFunction]}
                   >
                     <option
                       value="Odhlásit"
@@ -878,7 +870,7 @@ exports[`žádný ubytovaný 1`] = `
       <button
         className="Ubytovani__button btn btn-success active"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         <span
@@ -889,7 +881,7 @@ exports[`žádný ubytovaný 1`] = `
       <button
         className="Ubytovani__button btn btn-primary"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         <span
@@ -928,7 +920,6 @@ exports[`žádný ubytovaný 1`] = `
           aria-label="grid"
           aria-readonly={true}
           className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
-          id={undefined}
           onScroll={[Function]}
           role="grid"
           style={
@@ -1040,7 +1031,6 @@ exports[`žádný ubytovaný 1`] = `
           aria-label="grid"
           aria-readonly={true}
           className="ReactVirtualized__Grid UcastniciTable_LeftSideGrid"
-          id={undefined}
           onScroll={[Function]}
           role="grid"
           style={
@@ -1075,7 +1065,6 @@ exports[`žádný ubytovaný 1`] = `
               aria-label="grid"
               aria-readonly={true}
               className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
-              id={undefined}
               onScroll={[Function]}
               role="grid"
               style={
@@ -1228,7 +1217,6 @@ exports[`žádný ubytovaný 1`] = `
               aria-label="grid"
               aria-readonly={true}
               className="ReactVirtualized__Grid UcastniciTable_BodyGrid"
-              id={undefined}
               onScroll={[Function]}
               role="grid"
               style={

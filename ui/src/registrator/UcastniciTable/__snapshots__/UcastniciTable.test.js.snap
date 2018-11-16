@@ -840,7 +840,7 @@ exports[`dva účastníci, řazeno dle příjmení 1`] = `
     ]
   }
   fixedColumnCount={2}
-  onSortDirChange={[Function]}
+  onSortDirChange={[MockFunction]}
   rowHeight={35}
   sortColumn="prijmeni"
   sortDir="asc"
