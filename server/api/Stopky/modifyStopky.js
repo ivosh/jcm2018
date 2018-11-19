@@ -50,6 +50,10 @@ const modifications = {
     }
     return { code: CODE_OK, changes: [{ name: 'mezicasy', value: addCasAndSort(mezicasy, cas) }] };
   },
+  [STOPKY_REMOVE_MEZICAS]: ({ request: { cas }, stopky: { mezicasy } }) => ({
+    code: CODE_OK,
+    changes: [{ name: 'mezicasy', value: mezicasy.filter(mezicas => mezicas.cas !== cas) }]
+  }),
   [STOPKY_RESET]: () => ({
     code: CODE_OK,
     changes: [

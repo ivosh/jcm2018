@@ -5,6 +5,7 @@ const {
   API_MODIFY_STOPKY,
   STOPKY_ADD_MEZICAS,
   STOPKY_INSERT_MEZICAS,
+  STOPKY_REMOVE_MEZICAS,
   STOPKY_RESET,
   STOPKY_START,
   STOPKY_STOP,
@@ -210,6 +211,72 @@ it('insert mezičas', async () => {
   response = await apiRequest({
     modifikace: STOPKY_INSERT_MEZICAS,
     cas: 'PT5M32.7S',
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  const stopky = await Stopky.find({}, { _id: 0 }).lean();
+  expect(stopky).toMatchSnapshot();
+});
+
+it('remove mezičas - existující', async () => {
+  let response = await apiRequest({
+    modifikace: STOPKY_START,
+    now: new Date('2018-11-05T16:02:23.01Z'),
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  response = await apiRequest({
+    modifikace: STOPKY_INSERT_MEZICAS,
+    cas: 'PT2M15.7S',
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  response = await apiRequest({
+    modifikace: STOPKY_INSERT_MEZICAS,
+    cas: 'PT4M32.03S',
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  response = await apiRequest({
+    modifikace: STOPKY_REMOVE_MEZICAS,
+    cas: 'PT2M15.7S',
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  const stopky = await Stopky.find({}, { _id: 0 }).lean();
+  expect(stopky).toMatchSnapshot();
+});
+
+it('remove mezičas - neexistující', async () => {
+  let response = await apiRequest({
+    modifikace: STOPKY_START,
+    now: new Date('2018-11-05T16:02:23.01Z'),
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  response = await apiRequest({
+    modifikace: STOPKY_INSERT_MEZICAS,
+    cas: 'PT2M15.7S',
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  response = await apiRequest({
+    modifikace: STOPKY_INSERT_MEZICAS,
+    cas: 'PT4M32.03S',
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  response = await apiRequest({
+    modifikace: STOPKY_REMOVE_MEZICAS,
+    cas: 'PT3M0.0S',
     typ: 'půlmaraton'
   });
   expect(response).toMatchSnapshot();
