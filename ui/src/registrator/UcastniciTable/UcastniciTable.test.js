@@ -73,10 +73,10 @@ it('maps onClick to onSortDirChange for jméno', () => {
     />
   );
 
-  expect(wrapper.find('a')).toHaveLength(2);
-  expect(wrapper.find('a').last()).toHaveLength(1);
+  expect(wrapper.find('button')).toHaveLength(2);
+  expect(wrapper.find('button').last()).toHaveLength(1);
   wrapper
-    .find('a')
+    .find('button')
     .last()
     .simulate('click');
 

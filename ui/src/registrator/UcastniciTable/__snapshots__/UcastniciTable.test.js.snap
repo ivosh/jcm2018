@@ -246,13 +246,13 @@ exports[`dva účastníci 1`] = `
                   onClick={[Function]}
                   sortDir="none"
                 >
-                  <a
-                    className="SortHeader_a"
+                  <button
+                    className="SortHeader"
                     onClick={[Function]}
                   >
                     příjmení
                      
-                  </a>
+                  </button>
                 </SortHeader>
               </div>
               <div
@@ -272,13 +272,13 @@ exports[`dva účastníci 1`] = `
                   onClick={[Function]}
                   sortDir="none"
                 >
-                  <a
-                    className="SortHeader_a"
+                  <button
+                    className="SortHeader"
                     onClick={[Function]}
                   >
                     jméno
                      
-                  </a>
+                  </button>
                 </SortHeader>
               </div>
             </div>
@@ -1045,14 +1045,14 @@ exports[`dva účastníci, řazeno dle příjmení 1`] = `
                   onClick={[Function]}
                   sortDir="asc"
                 >
-                  <a
-                    className="SortHeader_a"
+                  <button
+                    className="SortHeader"
                     onClick={[Function]}
                   >
                     příjmení
                      
                     ↑
-                  </a>
+                  </button>
                 </SortHeader>
               </div>
               <div
@@ -1072,13 +1072,13 @@ exports[`dva účastníci, řazeno dle příjmení 1`] = `
                   onClick={[Function]}
                   sortDir="none"
                 >
-                  <a
-                    className="SortHeader_a"
+                  <button
+                    className="SortHeader"
                     onClick={[Function]}
                   >
                     jméno
                      
-                  </a>
+                  </button>
                 </SortHeader>
               </div>
             </div>
@@ -1707,13 +1707,13 @@ exports[`žádná data 1`] = `
                   onClick={[Function]}
                   sortDir="none"
                 >
-                  <a
-                    className="SortHeader_a"
+                  <button
+                    className="SortHeader"
                     onClick={[Function]}
                   >
                     příjmení
                      
-                  </a>
+                  </button>
                 </SortHeader>
               </div>
               <div
@@ -1733,13 +1733,13 @@ exports[`žádná data 1`] = `
                   onClick={[Function]}
                   sortDir="none"
                 >
-                  <a
-                    className="SortHeader_a"
+                  <button
+                    className="SortHeader"
                     onClick={[Function]}
                   >
                     jméno
                      
-                  </a>
+                  </button>
                 </SortHeader>
               </div>
             </div>

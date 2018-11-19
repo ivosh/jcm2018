@@ -309,14 +309,14 @@ exports[`renders 1`] = `
           <tr>
             <th />
             <th>
-              <a
-                className="VysledkyTypuStats__a"
-                name="cyklo"
+              <div
+                className="VysledkyTypuStats__anchor"
+                id="cyklo"
               >
                  
                 cyklisté
                  
-              </a>
+              </div>
             </th>
             <th>
               startovalo
@@ -426,14 +426,14 @@ exports[`renders 1`] = `
           <tr>
             <th />
             <th>
-              <a
-                className="VysledkyTypuStats__a"
-                name="koloběžka"
+              <div
+                className="VysledkyTypuStats__anchor"
+                id="koloběžka"
               >
                  
                 koloběžky
                  
-              </a>
+              </div>
             </th>
             <th>
               startovalo
@@ -543,14 +543,14 @@ exports[`renders 1`] = `
           <tr>
             <th />
             <th>
-              <a
-                className="VysledkyTypuStats__a"
-                name="maraton"
+              <div
+                className="VysledkyTypuStats__anchor"
+                id="maraton"
               >
                  
                 maratonci
                  
-              </a>
+              </div>
             </th>
             <th>
               startovalo
@@ -660,14 +660,14 @@ exports[`renders 1`] = `
           <tr>
             <th />
             <th>
-              <a
-                className="VysledkyTypuStats__a"
-                name="pěší"
+              <div
+                className="VysledkyTypuStats__anchor"
+                id="pěší"
               >
                  
                 turisté
                  
-              </a>
+              </div>
             </th>
             <th>
               startovalo
@@ -741,14 +741,14 @@ exports[`renders 1`] = `
           <tr>
             <th />
             <th>
-              <a
-                className="VysledkyTypuStats__a"
-                name="půlmaraton"
+              <div
+                className="VysledkyTypuStats__anchor"
+                id="půlmaraton"
               >
                  
                 půlmaratonci
                  
-              </a>
+              </div>
             </th>
             <th>
               startovalo

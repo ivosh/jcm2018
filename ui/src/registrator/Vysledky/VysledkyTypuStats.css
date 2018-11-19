@@ -18,8 +18,8 @@
   text-align: right;
 }
 
-.VysledkyTypuStats__a,
-.VysledkyTypuStats__a:hover {
+.VysledkyTypuStats__anchor,
+.VysledkyTypuStats__anchor:hover {
   color: black;
   text-decoration: none;
 }

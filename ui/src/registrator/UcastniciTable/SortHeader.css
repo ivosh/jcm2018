@@ -1,5 +1,6 @@
-.SortHeader_a {
+.SortHeader {
+  background-color: transparent;
+  border: none;
   color: #4183c4;
-  text-decoration: none;
   cursor: pointer;
 }

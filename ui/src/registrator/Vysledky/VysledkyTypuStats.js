@@ -14,10 +14,10 @@ const VysledkyTypuStats = ({ anchorHref, popisek, stats, typ, zkratky }) => (
             </a>
           )}
           {!anchorHref && (
-            <a className="VysledkyTypuStats__a" name={typ}>
+            <div className="VysledkyTypuStats__anchor" id={typ}>
               {' '}
               {popisek}{' '}
-            </a>
+            </div>
           )}
         </th>
         <th>startovalo</th>

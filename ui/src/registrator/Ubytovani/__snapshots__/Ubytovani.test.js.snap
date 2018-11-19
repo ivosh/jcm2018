@@ -114,14 +114,14 @@ exports[`tři ubytovaní 1`] = `
                 }
               }
             >
-              <a
-                className="SortHeader_a"
+              <button
+                className="SortHeader"
                 onClick={[Function]}
               >
                 příjmení
                  
                 
-              </a>
+              </button>
             </div>
             <div
               className="UcastniciTable_headerCell"
@@ -135,14 +135,14 @@ exports[`tři ubytovaní 1`] = `
                 }
               }
             >
-              <a
-                className="SortHeader_a"
+              <button
+                className="SortHeader"
                 onClick={[Function]}
               >
                 jméno
                  
                 
-              </a>
+              </button>
             </div>
             <div
               className="UcastniciTable_headerCell"
@@ -156,14 +156,14 @@ exports[`tři ubytovaní 1`] = `
                 }
               }
             >
-              <a
-                className="SortHeader_a"
+              <button
+                className="SortHeader"
                 onClick={[Function]}
               >
                 narození
                  
                 
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -417,14 +417,14 @@ exports[`tři ubytovaní 1`] = `
                     }
                   }
                 >
-                  <a
-                    className="SortHeader_a"
+                  <button
+                    className="SortHeader"
                     onClick={[Function]}
                   >
                     obec
                      
                     
-                  </a>
+                  </button>
                 </div>
                 <div
                   className="UcastniciTable_headerCell"
@@ -438,14 +438,14 @@ exports[`tři ubytovaní 1`] = `
                     }
                   }
                 >
-                  <a
-                    className="SortHeader_a"
+                  <button
+                    className="SortHeader"
                     onClick={[Function]}
                   >
                     email
                      
                     
-                  </a>
+                  </button>
                 </div>
                 <div
                   className="UcastniciTable_headerCell"
@@ -459,14 +459,14 @@ exports[`tři ubytovaní 1`] = `
                     }
                   }
                 >
-                  <a
-                    className="SortHeader_a"
+                  <button
+                    className="SortHeader"
                     onClick={[Function]}
                   >
                     přihlášení
                      
                     
-                  </a>
+                  </button>
                 </div>
                 <div
                   className="UcastniciTable_headerCell"
@@ -964,14 +964,14 @@ exports[`žádný ubytovaný 1`] = `
                 }
               }
             >
-              <a
-                className="SortHeader_a"
+              <button
+                className="SortHeader"
                 onClick={[Function]}
               >
                 příjmení
                  
                 
-              </a>
+              </button>
             </div>
             <div
               className="UcastniciTable_headerCell"
@@ -985,14 +985,14 @@ exports[`žádný ubytovaný 1`] = `
                 }
               }
             >
-              <a
-                className="SortHeader_a"
+              <button
+                className="SortHeader"
                 onClick={[Function]}
               >
                 jméno
                  
                 
-              </a>
+              </button>
             </div>
             <div
               className="UcastniciTable_headerCell"
@@ -1006,14 +1006,14 @@ exports[`žádný ubytovaný 1`] = `
                 }
               }
             >
-              <a
-                className="SortHeader_a"
+              <button
+                className="SortHeader"
                 onClick={[Function]}
               >
                 narození
                  
                 
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -1109,14 +1109,14 @@ exports[`žádný ubytovaný 1`] = `
                     }
                   }
                 >
-                  <a
-                    className="SortHeader_a"
+                  <button
+                    className="SortHeader"
                     onClick={[Function]}
                   >
                     obec
                      
                     
-                  </a>
+                  </button>
                 </div>
                 <div
                   className="UcastniciTable_headerCell"
@@ -1130,14 +1130,14 @@ exports[`žádný ubytovaný 1`] = `
                     }
                   }
                 >
-                  <a
-                    className="SortHeader_a"
+                  <button
+                    className="SortHeader"
                     onClick={[Function]}
                   >
                     email
                      
                     
-                  </a>
+                  </button>
                 </div>
                 <div
                   className="UcastniciTable_headerCell"
@@ -1151,14 +1151,14 @@ exports[`žádný ubytovaný 1`] = `
                     }
                   }
                 >
-                  <a
-                    className="SortHeader_a"
+                  <button
+                    className="SortHeader"
                     onClick={[Function]}
                   >
                     přihlášení
                      
                     
-                  </a>
+                  </button>
                 </div>
                 <div
                   className="UcastniciTable_headerCell"

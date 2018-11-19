@@ -29,8 +29,8 @@ it('maps onClick to dispatch onClick action', () => {
       jméno
     </SortHeader>
   );
-  expect(wrapper.find('a')).toHaveLength(1);
-  wrapper.find('a').simulate('click');
+  expect(wrapper.find('button')).toHaveLength(1);
+  wrapper.find('button').simulate('click');
 
   expect(onClick).toHaveBeenCalledWith();
 });

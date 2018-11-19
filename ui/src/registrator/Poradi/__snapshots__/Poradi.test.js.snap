@@ -148,14 +148,14 @@ exports[`renders 1`] = `
                 }
               }
             >
-              <a
-                className="SortHeader_a"
+              <button
+                className="SortHeader"
                 onClick={[Function]}
               >
                 příjmení
                  
                 
-              </a>
+              </button>
             </div>
             <div
               className="UcastniciTable_headerCell"
@@ -169,14 +169,14 @@ exports[`renders 1`] = `
                 }
               }
             >
-              <a
-                className="SortHeader_a"
+              <button
+                className="SortHeader"
                 onClick={[Function]}
               >
                 jméno
                  
                 
-              </a>
+              </button>
             </div>
             <div
               className="UcastniciTable_headerCell"
@@ -190,14 +190,14 @@ exports[`renders 1`] = `
                 }
               }
             >
-              <a
-                className="SortHeader_a"
+              <button
+                className="SortHeader"
                 onClick={[Function]}
               >
                 narození
                  
                 
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -436,14 +436,14 @@ exports[`renders 1`] = `
                     }
                   }
                 >
-                  <a
-                    className="SortHeader_a"
+                  <button
+                    className="SortHeader"
                     onClick={[Function]}
                   >
                     kategorie
                      
                     
-                  </a>
+                  </button>
                 </div>
                 <div
                   className="UcastniciTable_headerCell"
@@ -457,14 +457,14 @@ exports[`renders 1`] = `
                     }
                   }
                 >
-                  <a
-                    className="SortHeader_a"
+                  <button
+                    className="SortHeader"
                     onClick={[Function]}
                   >
                     číslo
                      
                     
-                  </a>
+                  </button>
                 </div>
                 <div
                   className="UcastniciTable_headerCell"
@@ -478,14 +478,14 @@ exports[`renders 1`] = `
                     }
                   }
                 >
-                  <a
-                    className="SortHeader_a"
+                  <button
+                    className="SortHeader"
                     onClick={[Function]}
                   >
                     dokončeno
                      
                     
-                  </a>
+                  </button>
                 </div>
                 <div
                   className="UcastniciTable_headerCell"
@@ -499,14 +499,14 @@ exports[`renders 1`] = `
                     }
                   }
                 >
-                  <a
-                    className="SortHeader_a"
+                  <button
+                    className="SortHeader"
                     onClick={[Function]}
                   >
                     čas
                      
                     
-                  </a>
+                  </button>
                 </div>
                 <div
                   className="UcastniciTable_headerCell"
@@ -520,14 +520,14 @@ exports[`renders 1`] = `
                     }
                   }
                 >
-                  <a
-                    className="SortHeader_a"
+                  <button
+                    className="SortHeader"
                     onClick={[Function]}
                   >
                     abs.
                      
                     
-                  </a>
+                  </button>
                 </div>
                 <div
                   className="UcastniciTable_headerCell"
@@ -541,14 +541,14 @@ exports[`renders 1`] = `
                     }
                   }
                 >
-                  <a
-                    className="SortHeader_a"
+                  <button
+                    className="SortHeader"
                     onClick={[Function]}
                   >
                     rel.
                      
                     
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
