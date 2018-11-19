@@ -47,9 +47,6 @@ const apiRequest = async ({ cas, modifikace, now, typ }) => {
       token
     })
   );
-  if (response.response.stopky) {
-    response.response.stopky._id = '===id===';
-  }
   return response;
 };
 

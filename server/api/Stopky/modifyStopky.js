@@ -30,6 +30,11 @@ const addCasAndSort = (input, cas) => {
   return mezicasy;
 };
 
+const toPOJO = stopky => {
+  const { _id, __v, ...withoutIdAndVersion } = stopky.toObject();
+  return withoutIdAndVersion;
+};
+
 const modifications = {
   [STOPKY_ADD_MEZICAS]: ({ request: { now }, stopky: { base, mezicasy, running } }) => {
     if (!now) {
@@ -130,12 +135,12 @@ const modifyStopky = async ({ request }) => {
     stopky[change.name] = change.value;
   });
   await stopky.save();
-  const broadcast = await broadcastStopky(stopky.toObject()); // TODO omit _id and __v
+  const broadcast = await broadcastStopky(toPOJO(stopky));
   return {
     broadcast,
     code: CODE_OK,
     status: 'uloženo v pořádku',
-    response: { stopky: stopky.toObject() } // TODO omit _id and __v
+    response: { stopky: toPOJO(stopky) }
   };
 };
 

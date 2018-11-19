@@ -5,8 +5,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 0,
-      "_id": "===id===",
       "base": "2018-11-05T08:14:32.500Z",
       "delta": "P0D",
       "mezicasy": Array [],
@@ -23,8 +21,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 0,
-      "_id": "===id===",
       "base": null,
       "delta": "PT1H7M",
       "mezicasy": Array [],
@@ -41,8 +37,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 0,
-      "_id": "===id===",
       "base": null,
       "delta": "PT1H7M",
       "mezicasy": Array [],
@@ -72,8 +66,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 0,
-      "_id": "===id===",
       "base": "2018-11-05T16:02:23.010Z",
       "delta": "P0D",
       "mezicasy": Array [],
@@ -90,8 +82,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 1,
-      "_id": "===id===",
       "base": "2018-11-05T16:02:23.010Z",
       "delta": "P0D",
       "mezicasy": Array [
@@ -112,8 +102,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 2,
-      "_id": "===id===",
       "base": "2018-11-05T16:02:23.010Z",
       "delta": "P0D",
       "mezicasy": Array [
@@ -137,8 +125,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 3,
-      "_id": "===id===",
       "base": "2018-11-05T16:02:23.010Z",
       "delta": "P0D",
       "mezicasy": Array [
@@ -188,8 +174,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 0,
-      "_id": "===id===",
       "base": "2018-11-05T08:14:32.500Z",
       "delta": "P0D",
       "mezicasy": Array [],
@@ -206,8 +190,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 0,
-      "_id": "===id===",
       "base": "2018-11-05T08:14:32.500Z",
       "delta": "P0D",
       "mezicasy": Array [],
@@ -237,8 +219,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 0,
-      "_id": "===id===",
       "base": "2018-11-05T08:14:32.500Z",
       "delta": "P0D",
       "mezicasy": Array [],
@@ -282,8 +262,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 0,
-      "_id": "===id===",
       "base": "2018-11-05T16:02:23.010Z",
       "delta": "P0D",
       "mezicasy": Array [],
@@ -300,8 +278,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 1,
-      "_id": "===id===",
       "base": "2018-11-05T16:02:23.010Z",
       "delta": "P0D",
       "mezicasy": Array [
@@ -339,8 +315,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 0,
-      "_id": "===id===",
       "mezicasy": Array [],
       "running": false,
       "typ": "půlmaraton",
@@ -366,8 +340,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 0,
-      "_id": "===id===",
       "base": "2018-11-05T16:02:23.010Z",
       "delta": "P0D",
       "mezicasy": Array [],
@@ -384,8 +356,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 1,
-      "_id": "===id===",
       "base": "2018-11-05T16:02:23.010Z",
       "delta": "P0D",
       "mezicasy": Array [
@@ -406,8 +376,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 2,
-      "_id": "===id===",
       "base": "2018-11-05T16:02:23.010Z",
       "delta": "P0D",
       "mezicasy": Array [
@@ -431,8 +399,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 3,
-      "_id": "===id===",
       "base": "2018-11-05T16:02:23.010Z",
       "delta": "P0D",
       "mezicasy": Array [
@@ -470,8 +436,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 0,
-      "_id": "===id===",
       "base": "2018-11-05T16:02:23.010Z",
       "delta": "P0D",
       "mezicasy": Array [],
@@ -488,8 +452,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 1,
-      "_id": "===id===",
       "base": "2018-11-05T16:02:23.010Z",
       "delta": "P0D",
       "mezicasy": Array [
@@ -510,8 +472,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 2,
-      "_id": "===id===",
       "base": "2018-11-05T16:02:23.010Z",
       "delta": "P0D",
       "mezicasy": Array [
@@ -535,8 +495,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 3,
-      "_id": "===id===",
       "base": "2018-11-05T16:02:23.010Z",
       "delta": "P0D",
       "mezicasy": Array [
@@ -580,8 +538,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 0,
-      "_id": "===id===",
       "base": "2018-11-05T08:14:32.500Z",
       "delta": "P0D",
       "mezicasy": Array [],
@@ -598,8 +554,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 0,
-      "_id": "===id===",
       "base": null,
       "delta": "PT1H7M",
       "mezicasy": Array [],
@@ -616,8 +570,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 0,
-      "_id": "===id===",
       "base": null,
       "delta": "P0D",
       "mezicasy": Array [],
@@ -647,8 +599,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 0,
-      "_id": "===id===",
       "base": "2018-11-05T08:14:32.500Z",
       "delta": "P0D",
       "mezicasy": Array [],
@@ -665,8 +615,6 @@ Object {
   "code": "ok",
   "response": Object {
     "stopky": Object {
-      "__v": 0,
-      "_id": "===id===",
       "base": null,
       "delta": "PT1H7M",
       "mezicasy": Array [],
