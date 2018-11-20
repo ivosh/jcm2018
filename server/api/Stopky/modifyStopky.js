@@ -35,6 +35,7 @@ const toPOJO = stopky => {
   return withoutIdAndVersion;
 };
 
+// "now" and "base" are in JSON ISO8601 format, "cas" is a JSON duration, "step" is bare [ms]
 const modifications = {
   [STOPKY_ADD_MEZICAS]: ({ request: { now }, stopky: { base, mezicasy, running } }) => {
     if (!now) {
@@ -59,6 +60,27 @@ const modifications = {
     code: CODE_OK,
     changes: [{ name: 'mezicasy', value: mezicasy.filter(mezicas => mezicas.cas !== cas) }]
   }),
+  [STOPKY_CHANGE_TIME]: ({ request: { step }, stopky: { base, delta, running } }) => {
+    if (!step) {
+      return { code: CODE_UNFULFILLED_REQUEST, status: 'chybí parameter "step"' };
+    }
+    if (running) {
+      return {
+        code: CODE_OK,
+        changes: [{ name: 'base', value: new Date(new Date(base).getTime() - step).toJSON() }]
+      };
+    }
+    if (step >= 0) {
+      const newDelta = moment.duration(delta).add(step);
+      return { code: CODE_OK, changes: [{ name: 'delta', value: newDelta.toJSON() }] };
+    }
+
+    const newDelta = moment.duration(delta).subtract(-step);
+    if (newDelta >= 0) {
+      return { code: CODE_OK, changes: [{ name: 'delta', value: newDelta.toJSON() }] };
+    }
+    return { code: CODE_OK, changes: [] };
+  },
   [STOPKY_RESET]: () => ({
     code: CODE_OK,
     changes: [

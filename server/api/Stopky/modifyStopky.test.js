@@ -6,6 +6,7 @@ const {
   STOPKY_ADD_MEZICAS,
   STOPKY_INSERT_MEZICAS,
   STOPKY_REMOVE_MEZICAS,
+  STOPKY_CHANGE_TIME,
   STOPKY_RESET,
   STOPKY_START,
   STOPKY_STOP,
@@ -39,11 +40,11 @@ afterAll(async () => {
   await db.disconnect();
 });
 
-const apiRequest = async ({ cas, modifikace, now, typ }) => {
+const apiRequest = async ({ cas, modifikace, now, step, typ }) => {
   const { requestId, ...response } = await wsClient.sendRequest(
     apiCall({
       endpoint: API_MODIFY_STOPKY,
-      request: { cas, modifikace, now: now ? now.toJSON() : undefined, typ },
+      request: { cas, modifikace, now: now ? now.toJSON() : undefined, step, typ },
       token
     })
   );
@@ -274,6 +275,122 @@ it('remove mezičas - neexistující', async () => {
   response = await apiRequest({
     modifikace: STOPKY_REMOVE_MEZICAS,
     cas: 'PT3M0.0S',
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  const stopky = await Stopky.find({}, { _id: 0 }).lean();
+  expect(stopky).toMatchSnapshot();
+});
+
+it('změň +delta (stopky nastartovány)', async () => {
+  let response = await apiRequest({
+    modifikace: STOPKY_START,
+    now: new Date('2018-11-05T16:02:23.01Z'),
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  response = await apiRequest({
+    modifikace: STOPKY_CHANGE_TIME,
+    step: +10000,
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  const stopky = await Stopky.find({}, { _id: 0 }).lean();
+  expect(stopky).toMatchSnapshot();
+});
+
+it('změň -delta (stopky nastartovány)', async () => {
+  let response = await apiRequest({
+    modifikace: STOPKY_START,
+    now: new Date('2018-11-05T16:02:23.01Z'),
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  response = await apiRequest({
+    modifikace: STOPKY_CHANGE_TIME,
+    step: -100,
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  const stopky = await Stopky.find({}, { _id: 0 }).lean();
+  expect(stopky).toMatchSnapshot();
+});
+
+it('změň +delta (stopky zastaveny)', async () => {
+  let response = await apiRequest({
+    modifikace: STOPKY_START,
+    now: new Date('2018-11-05T16:02:23.01Z'),
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  response = await apiRequest({
+    modifikace: STOPKY_STOP,
+    now: new Date('2018-11-05T16:04:35.37Z'),
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  response = await apiRequest({
+    modifikace: STOPKY_CHANGE_TIME,
+    step: +3 * 60 * 1000,
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  const stopky = await Stopky.find({}, { _id: 0 }).lean();
+  expect(stopky).toMatchSnapshot();
+});
+
+it('změň -delta (stopky zastaveny)', async () => {
+  let response = await apiRequest({
+    modifikace: STOPKY_START,
+    now: new Date('2018-11-05T16:02:23.01Z'),
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  response = await apiRequest({
+    modifikace: STOPKY_STOP,
+    now: new Date('2018-11-05T16:04:35.37Z'),
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  response = await apiRequest({
+    modifikace: STOPKY_CHANGE_TIME,
+    step: -10 * 1000,
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  const stopky = await Stopky.find({}, { _id: 0 }).lean();
+  expect(stopky).toMatchSnapshot();
+});
+
+it('změň -delta (stopky zastaveny) - nelze jít pod 0', async () => {
+  let response = await apiRequest({
+    modifikace: STOPKY_START,
+    now: new Date('2018-11-05T16:02:23.01Z'),
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  response = await apiRequest({
+    modifikace: STOPKY_STOP,
+    now: new Date('2018-11-05T16:02:35.37Z'),
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  response = await apiRequest({
+    modifikace: STOPKY_CHANGE_TIME,
+    step: -20 * 1000,
     typ: 'půlmaraton'
   });
   expect(response).toMatchSnapshot();
