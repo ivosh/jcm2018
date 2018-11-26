@@ -10,7 +10,6 @@ const {
   API_MODIFY_UBYTOVANI,
   API_SAVE_PLATBY,
   API_SAVE_PRIHLASKA,
-  API_SAVE_STOPKY,
   API_SAVE_UBYTOVANI,
   API_SAVE_UCAST,
   API_SAVE_UDAJE,
@@ -35,7 +34,6 @@ const modifyStopky = require('./Stopky/modifyStopky');
 const modifyUbytovani = require('./Ucastnik/Ubytovani/modifyUbytovani');
 const savePlatby = require('./Ucastnik/Platby/savePlatby');
 const savePrihlaska = require('./Ucastnik/Prihlaska/savePrihlaska');
-const saveStopky = require('./Stopky/saveStopky');
 const saveUbytovani = require('./Ucastnik/Ubytovani/saveUbytovani');
 const saveUcast = require('./Ucastnik/Ucast/saveUcast');
 const saveUdaje = require('./Ucastnik/Udaje/saveUdaje');
@@ -82,7 +80,6 @@ const processRequest = async ({ action = '', request, requestId, token, connecti
     [API_MODIFY_UBYTOVANI]: { authRequired: true, action: async req => modifyUbytovani(req) },
     [API_SAVE_PLATBY]: { authRequired: true, action: async req => savePlatby(req) },
     [API_SAVE_PRIHLASKA]: { authRequired: true, action: async req => savePrihlaska(req) },
-    [API_SAVE_STOPKY]: { authRequired: true, action: async req => saveStopky(req) },
     [API_SAVE_UBYTOVANI]: { authRequired: true, action: async req => saveUbytovani(req) },
     [API_SAVE_UCAST]: { authRequired: true, action: async req => saveUcast(req) },
     [API_SAVE_UDAJE]: { authRequired: true, action: async req => saveUdaje(req) },

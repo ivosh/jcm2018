@@ -19,7 +19,6 @@ export const API_MODIFY_STOPKY = 'modifyStopky';
 export const API_MODIFY_UBYTOVANI = 'modifyUbytovani';
 export const API_SAVE_PLATBY = 'savePlatby';
 export const API_SAVE_PRIHLASKA = 'savePrihlaska';
-export const API_SAVE_STOPKY = 'saveStopky';
 export const API_SAVE_UBYTOVANI = 'saveUbytovani';
 export const API_SAVE_UCAST = 'saveUcast';
 export const API_SAVE_UDAJE = 'saveUdaje';

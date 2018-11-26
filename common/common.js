@@ -21,7 +21,6 @@ const API_MODIFY_STOPKY = 'modifyStopky';
 const API_MODIFY_UBYTOVANI = 'modifyUbytovani';
 const API_SAVE_PLATBY = 'savePlatby';
 const API_SAVE_PRIHLASKA = 'savePrihlaska';
-const API_SAVE_STOPKY = 'saveStopky';
 const API_SAVE_UBYTOVANI = 'saveUbytovani';
 const API_SAVE_UCAST = 'saveUcast';
 const API_SAVE_UDAJE = 'saveUdaje';
@@ -210,7 +209,6 @@ module.exports = {
   API_MODIFY_UBYTOVANI,
   API_SAVE_PLATBY,
   API_SAVE_PRIHLASKA,
-  API_SAVE_STOPKY,
   API_SAVE_UBYTOVANI,
   API_SAVE_UCAST,
   API_SAVE_UDAJE,
