@@ -11,16 +11,14 @@ const {
   STOPKY_REMOVE_MEZICAS,
   STOPKY_RESET,
   STOPKY_START,
-  STOPKY_STOP
+  STOPKY_STOP,
+  casSortMethod
 } = require('../../../common/common');
 const logger = require('../../logger');
 const Stopky = require('../../model/Stopky/Stopky');
 const broadcastStopky = require('./broadcastStopky');
 
 const zeroDuration = moment.duration(0).toJSON();
-
-const casSortMethod = (a, b) =>
-  moment.duration(a.cas).asMilliseconds() - moment.duration(b.cas).asMilliseconds();
 const sortByCas = mezicasy => mezicasy.sort(casSortMethod);
 
 const addCasAndSort = (input, cas) => {

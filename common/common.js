@@ -7,6 +7,8 @@
    When Node.JS supports MJS modules formats natively, this could be just a single file.
  */
 
+const moment = require('moment');
+
 const PORT_DEV_CLIENT = 3000;
 const PORT_DEV_SERVER = 4000;
 const PLATBA_TYPY = ['hotově', 'převodem', 'složenkou'];
@@ -170,6 +172,8 @@ const STOPKY_REMOVE_MEZICAS = 'STOPKY_REMOVE_MEZICAS';
 const STOPKY_RESET = 'STOPKY_RESET';
 const STOPKY_START = 'STOPKY_START';
 const STOPKY_STOP = 'STOPKY_STOP';
+const casSortMethod = (a, b) =>
+  moment.duration(a.cas).asMilliseconds() - moment.duration(b.cas).asMilliseconds();
 
 const UBYTOVANI_PRIHLASIT = 'přihlásit';
 const UBYTOVANI_ODHLASIT = 'odhlásit';
@@ -241,6 +245,7 @@ module.exports = {
   UBYTOVANI_PRESPANO,
   UBYTOVANI_PRIHLASIT,
   apiCall,
+  casSortMethod,
   findKategorie,
   ubytovaniModifications
 };

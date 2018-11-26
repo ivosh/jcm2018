@@ -1,36 +1,56 @@
-import { API_SAVE_STOPKY } from '../../../common';
+import {
+  API_MODIFY_STOPKY,
+  STOPKY_ADD_MEZICAS,
+  STOPKY_CHANGE_TIME,
+  STOPKY_INSERT_MEZICAS,
+  STOPKY_REMOVE_MEZICAS,
+  STOPKY_RESET,
+  STOPKY_START,
+  STOPKY_STOP
+} from '../../../common';
 import { WS_API } from '../../../store/wsAPI';
-import stopkyProTypReducer, { getStopkyByTyp } from './stopkyProTypReducer';
 
-export const stopkyAddMezicas = ({ now = new Date() } = {}) => ({
-  type: 'STOPKY_ADD_MEZICAS',
-  now
-});
-export const stopkyInsertMezicas = ({ cas }) => ({
-  type: 'STOPKY_INSERT_MEZICAS',
-  cas: cas.toJSON ? cas.toJSON() : cas
-});
-export const stopkyRemoveMezicas = ({ cas }) => ({
-  type: 'STOPKY_REMOVE_MEZICAS',
-  cas: cas.toJSON ? cas.toJSON() : cas
-});
-export const stopkyReset = () => ({ type: 'STOPKY_RESET' });
-export const stopkyStart = ({ now = new Date() } = {}) => ({ type: 'STOPKY_START', now });
-export const stopkyStop = ({ now = new Date() } = {}) => ({ type: 'STOPKY_STOP', now });
-// step is in milliseconds
-export const stopkyChange = ({ step }) => ({ type: 'STOPKY_CHANGE', step });
+const normalize = ({
+  request,
+  response: {
+    response: { stopky }
+  }
+}) => ({ request, response: { stopky } });
 
-const createRequest = ({ action, state, typ }) => {
-  const stopky = stopkyProTypReducer(getStopkyByTyp({ state, typ }), action);
-  return { ...stopky, typ };
-};
-
-export const SAVE_STOPKY = 'SAVE_STOPKY';
-export const saveStopky = ({ action, typ }) => ({
+export const MODIFY_STOPKY = 'MODIFY_STOPKY';
+export const modifyStopky = ({ cas, modifikace, now, step, typ }) => ({
   [WS_API]: {
-    type: SAVE_STOPKY,
-    endpoint: API_SAVE_STOPKY,
-    request: state => createRequest({ action, state, typ }),
+    type: MODIFY_STOPKY,
+    endpoint: API_MODIFY_STOPKY,
+    normalize,
+    request: { cas, modifikace, now, step, typ },
     title: 'ukládání stopek'
   }
 });
+
+export const stopkyAddMezicas = ({ now = new Date(), typ }) =>
+  modifyStopky({
+    modifikace: STOPKY_ADD_MEZICAS,
+    now: now.toJSON ? now.toJSON() : now,
+    typ
+  });
+export const stopkyInsertMezicas = ({ cas, typ }) =>
+  modifyStopky({
+    modifikace: STOPKY_INSERT_MEZICAS,
+    cas: cas.toJSON ? cas.toJSON() : cas,
+    typ
+  });
+export const stopkyRemoveMezicas = ({ cas, typ }) =>
+  modifyStopky({
+    modifikace: STOPKY_REMOVE_MEZICAS,
+    cas: cas.toJSON ? cas.toJSON() : cas,
+    typ
+  });
+export const stopkyReset = ({ typ }) => modifyStopky({ modifikace: STOPKY_RESET, typ });
+export const stopkyStart = ({ now = new Date(), typ }) =>
+  modifyStopky({ modifikace: STOPKY_START, now: now.toJSON ? now.toJSON() : now, typ });
+export const stopkyStop = ({ now = new Date(), typ }) =>
+  modifyStopky({ modifikace: STOPKY_STOP, now: now.toJSON ? now.toJSON() : now, typ });
+// step is in milliseconds
+export const stopkyChangeTime = ({ step, typ }) =>
+  modifyStopky({ modifikace: STOPKY_CHANGE_TIME, step, typ });

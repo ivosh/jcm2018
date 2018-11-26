@@ -2,29 +2,23 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import { getCudly, getRozdily, getStopkyByTyp } from './stopkyProTypReducer';
-import {
-  saveStopky,
-  stopkyReset,
-  stopkyStart,
-  stopkyStop,
-  stopkyChange
-} from './StopkyProTypActions';
+import { stopkyReset, stopkyStart, stopkyStop, stopkyChangeTime } from './StopkyProTypActions';
 import StopkyProTyp from './StopkyProTyp';
 
 const mapStateToProps = (state, ownProps) => {
   const { typ } = ownProps;
   const cudly = getCudly();
   const rozdily = getRozdily({ state, typ });
-  const stopky = getStopkyByTyp({ state, typ });
+  const { base, delta, running } = getStopkyByTyp({ state, typ });
 
   return {
-    base: new Date(stopky.base),
+    base: new Date(base),
     cudly,
-    delta: moment.duration(stopky.delta),
+    delta: moment.duration(delta),
     rozdily,
-    running: stopky.running,
-    startEnabled: stopky.running === false,
-    stopEnabled: stopky.running === true,
+    running,
+    startEnabled: running === false,
+    stopEnabled: running === true,
     typ
   };
 };
@@ -33,10 +27,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { typ } = ownProps;
 
   return {
-    onReset: () => dispatch(saveStopky({ action: stopkyReset(), typ })),
-    onStart: () => dispatch(saveStopky({ action: stopkyStart(), typ })),
-    onStop: () => dispatch(saveStopky({ action: stopkyStop(), typ })),
-    onChange: step => dispatch(saveStopky({ action: stopkyChange({ step }), typ }))
+    onReset: () => dispatch(stopkyReset({ typ })),
+    onStart: () => dispatch(stopkyStart({ typ })),
+    onStop: () => dispatch(stopkyStop({ typ })),
+    onChange: step => dispatch(stopkyChangeTime({ step, typ }))
   };
 };
 

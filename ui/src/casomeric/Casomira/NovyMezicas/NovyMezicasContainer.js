@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import moment from 'moment';
-import { saveStopky, stopkyInsertMezicas } from '../../Stopky/StopkyProTyp/StopkyProTypActions';
+import { stopkyInsertMezicas } from '../../Stopky/StopkyProTyp/StopkyProTypActions';
 import { hide, inputChanged, show } from './NovyMezicasActions';
 import { casValid } from './novyMezicasReducer';
 import NovyMezicas from './NovyMezicas';
@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onShow: () => dispatch(show(typ)),
     onSubmit: cas => {
       const duration = moment.duration(cas.replace(',', '.'));
-      dispatch(saveStopky({ action: stopkyInsertMezicas({ cas: duration }), typ }));
+      dispatch(stopkyInsertMezicas({ cas: duration, typ }));
     }
   };
 };

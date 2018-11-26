@@ -1,5 +1,5 @@
 import { SIGN_OUT } from '../../auth/SignOut/SignOutActions';
-import { SAVE_STOPKY } from '../../casomeric/Stopky/StopkyProTyp/StopkyProTypActions';
+import { MODIFY_STOPKY } from '../../casomeric/Stopky/StopkyProTyp/StopkyProTypActions';
 
 export const initialState = { byTypy: {}, typy: [], invalidated: false };
 
@@ -20,8 +20,9 @@ const stopkyReducer = (state = initialState, action) => {
     }
     case `${SIGN_OUT}_SUCCESS`:
       return { ...state, invalidated: true };
-    case `${SAVE_STOPKY}_SUCCESS`: {
-      const { typ, ...stopky } = action.request;
+    case `${MODIFY_STOPKY}_SUCCESS`: {
+      const { typ } = action.request;
+      const { stopky } = action.response;
       return updateState({ state, typ, stopky });
     }
     case 'WEBSOCKET_DISCONNECTED':

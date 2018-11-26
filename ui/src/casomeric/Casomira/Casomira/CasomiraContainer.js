@@ -2,19 +2,19 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import { getStopkyByTyp } from '../../Stopky/StopkyProTyp/stopkyProTypReducer';
-import { saveStopky, stopkyAddMezicas } from '../../Stopky/StopkyProTyp/StopkyProTypActions';
+import { stopkyAddMezicas } from '../../Stopky/StopkyProTyp/StopkyProTypActions';
 import Casomira from './Casomira';
 
 const mapStateToProps = (state, ownProps) => {
   const { accessKey, typ, onRemoveCasomira } = ownProps;
-  const stopky = getStopkyByTyp({ state, typ });
+  const { base, delta, running } = getStopkyByTyp({ state, typ });
 
   return {
     accessKey,
-    base: new Date(stopky.base),
-    delta: moment.duration(stopky.delta),
-    mezicasEnabled: stopky.running === true,
-    running: stopky.running,
+    base: new Date(base),
+    delta: moment.duration(delta),
+    mezicasEnabled: running === true,
+    running,
     typ,
     onRemoveCasomira
   };
@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { typ } = ownProps;
 
   return {
-    onStopkyAddMezicas: () => dispatch(saveStopky({ action: stopkyAddMezicas(), typ }))
+    onStopkyAddMezicas: () => dispatch(stopkyAddMezicas({ typ }))
   };
 };
 

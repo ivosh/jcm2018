@@ -5,6 +5,8 @@
    When Node.JS supports MJS modules formats natively, this could be just a single file.
  */
 
+import moment from 'moment';
+
 export const PORT_DEV_CLIENT = 3000;
 export const PORT_DEV_SERVER = 4000;
 export const PLATBA_TYPY = ['hotově', 'převodem', 'složenkou'];
@@ -13,6 +15,7 @@ export const API_DELETE_VYKON = 'deleteVykon';
 export const API_FIND_ALL_ROCNIKY = 'findAllRocniky';
 export const API_FIND_ALL_STOPKY = 'findAllStopky';
 export const API_FIND_ALL_UCASTNICI = 'findAllUcastnici';
+export const API_MODIFY_STOPKY = 'modifyStopky';
 export const API_MODIFY_UBYTOVANI = 'modifyUbytovani';
 export const API_SAVE_PLATBY = 'savePlatby';
 export const API_SAVE_PRIHLASKA = 'savePrihlaska';
@@ -159,6 +162,16 @@ export const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyP
     status: `Pro '${pohlavi}' - '${typ}' v roce ${rok} a věk ${vek} let jsem našel více kategorií.`
   };
 };
+
+export const STOPKY_ADD_MEZICAS = 'STOPKY_ADD_MEZICAS';
+export const STOPKY_CHANGE_TIME = 'STOPKY_CHANGE_TIME';
+export const STOPKY_INSERT_MEZICAS = 'STOPKY_INSERT_MEZICAS';
+export const STOPKY_REMOVE_MEZICAS = 'STOPKY_REMOVE_MEZICAS';
+export const STOPKY_RESET = 'STOPKY_RESET';
+export const STOPKY_START = 'STOPKY_START';
+export const STOPKY_STOP = 'STOPKY_STOP';
+export const casSortMethod = (a, b) =>
+  moment.duration(a.cas).asMilliseconds() - moment.duration(b.cas).asMilliseconds();
 
 export const UBYTOVANI_PRIHLASIT = 'přihlásit';
 export const UBYTOVANI_ODHLASIT = 'odhlásit';

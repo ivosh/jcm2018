@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { saveStopky, stopkyInsertMezicas } from '../../Stopky/StopkyProTyp/StopkyProTypActions';
+import { stopkyInsertMezicas } from '../../Stopky/StopkyProTyp/StopkyProTypActions';
 import { canDrop, createDropAction } from './StartovniCislaActions';
 import StartovniCisla from './StartovniCisla';
 
@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onDrop: dropResult => {
       dispatch(createDropAction(dropResult));
       if (dropResult.source.cas) {
-        dispatch(saveStopky({ action: stopkyInsertMezicas({ cas: dropResult.source.cas }), typ }));
+        dispatch(stopkyInsertMezicas({ cas: dropResult.source.cas, typ }));
       }
       return undefined;
     }

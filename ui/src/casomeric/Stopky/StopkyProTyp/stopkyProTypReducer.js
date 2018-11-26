@@ -1,85 +1,6 @@
 import moment from 'moment';
+import { casSortMethod } from '../../../common';
 import { convertDuration } from '../../../Util';
-
-const zeroDuration = moment.duration(0).toJSON();
-
-export const initialState = {
-  base: null, // a Date when running
-  delta: zeroDuration, // a duration when not running
-  mezicasy: [], // Mezicas = { cas, korekce }
-  running: false,
-  typ: null // supplied by the caller
-};
-
-const sortByCas = mezicasy =>
-  mezicasy.sort(
-    (a, b) => moment.duration(a.cas).asMilliseconds() - moment.duration(b.cas).asMilliseconds()
-  );
-
-const addCasAndSort = (input, cas) => {
-  const mezicasy = (input || []).slice();
-  mezicasy.push({ cas });
-  sortByCas(mezicasy);
-  return mezicasy;
-};
-
-const stopkyProTypReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'STOPKY_RESET':
-      return { ...initialState, typ: state.typ };
-    case 'STOPKY_START':
-      if (!state.running) {
-        const base = new Date(
-          action.now.getTime() - moment.duration(state.delta).valueOf()
-        ).toJSON();
-        return { ...state, running: true, base, delta: zeroDuration };
-      }
-      return state;
-    case 'STOPKY_STOP': {
-      if (state.running) {
-        const delta = moment
-          .duration(action.now.getTime() - new Date(state.base).getTime())
-          .toJSON();
-        return { ...state, running: false, base: null, delta };
-      }
-      return state;
-    }
-    case 'STOPKY_CHANGE': {
-      if (state.running) {
-        return { ...state, base: new Date(new Date(state.base).getTime() - action.step).toJSON() };
-      }
-      if (action.step >= 0) {
-        return {
-          ...state,
-          delta: moment
-            .duration(state.delta)
-            .add(action.step)
-            .toJSON()
-        };
-      }
-
-      const delta = moment.duration(state.delta).subtract(-action.step);
-      if (delta >= 0) {
-        return { ...state, delta: delta.toJSON() };
-      }
-      return state;
-    }
-    case 'STOPKY_ADD_MEZICAS':
-      if (state.running) {
-        const cas = moment.duration(action.now.getTime() - new Date(state.base).getTime()).toJSON();
-        return { ...state, mezicasy: addCasAndSort(state.mezicasy, cas) };
-      }
-      return state;
-    case 'STOPKY_INSERT_MEZICAS':
-      return { ...state, mezicasy: addCasAndSort(state.mezicasy, action.cas) };
-    case 'STOPKY_REMOVE_MEZICAS':
-      return { ...state, mezicasy: state.mezicasy.filter(mezicas => mezicas.cas !== action.cas) };
-    default:
-      return state;
-  }
-};
-
-export default stopkyProTypReducer;
 
 export const getCudly = () => [
   { popisek: '+10', step: 10 * 60 * 60 * 1000 },
@@ -99,6 +20,15 @@ export const getCudly = () => [
   { popisek: '-10', step: -100 },
   { popisek: '-1', step: -10 }
 ];
+
+const zeroDuration = moment.duration(0).toJSON();
+const initialState = {
+  base: null, // a Date when running
+  delta: zeroDuration, // a duration when not running
+  mezicasy: [], // Mezicas = { cas, korekce }
+  running: false,
+  typ: null // supplied by the caller
+};
 
 export const getStopkyByTyp = ({ state, typ }) => {
   const stopky = state.entities.stopky.byTypy[typ] || initialState;
@@ -157,5 +87,5 @@ export const getMezicasy = ({ kategorie, stopky, ucasti }) => {
     mezicasy.push({ id, cas, dokonceno, startCislo });
   });
 
-  return sortByCas(mezicasy);
+  return mezicasy.sort(casSortMethod);
 };

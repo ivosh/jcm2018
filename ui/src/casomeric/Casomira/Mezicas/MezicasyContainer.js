@@ -5,7 +5,6 @@ import withResponsive from '../../../shared/withResponsive/withResponsive';
 import { getUcastiProRok } from '../../../entities/ucastnici/ucastniciReducer';
 import { getMezicasy, getStopkyByTyp } from '../../Stopky/StopkyProTyp/stopkyProTypReducer';
 import {
-  saveStopky,
   stopkyInsertMezicas,
   stopkyRemoveMezicas
 } from '../../Stopky/StopkyProTyp/StopkyProTypActions';
@@ -33,8 +32,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   const { typ } = ownProps;
-  const onStopkyRemoveMezicas = ({ cas }) =>
-    dispatch(saveStopky({ action: stopkyRemoveMezicas({ cas }), typ }));
+  const onStopkyRemoveMezicas = ({ cas }) => dispatch(stopkyRemoveMezicas({ cas, typ }));
 
   return {
     onDrop: dropResult => {
@@ -44,7 +42,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     onStopkyRemoveMezicas,
     onUcastnikRemoveCas: ({ id, cas }) => {
-      dispatch(saveStopky({ action: stopkyInsertMezicas({ cas }), typ }));
+      dispatch(stopkyInsertMezicas({ cas, typ }));
       dispatch(saveVykon({ action: startCisloNaTrase({ id }), id, typ }));
     }
   };
