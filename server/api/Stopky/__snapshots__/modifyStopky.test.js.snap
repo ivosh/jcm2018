@@ -745,7 +745,7 @@ Array [
 ]
 `;
 
-exports[`změň -delta (stopky nastartovány) 1`] = `
+exports[`změň -delta (stopky nastartovány, změna nepovolena) 1`] = `
 Object {
   "code": "ok",
   "response": Object {
@@ -761,7 +761,43 @@ Object {
 }
 `;
 
-exports[`změň -delta (stopky nastartovány) 2`] = `
+exports[`změň -delta (stopky nastartovány, změna nepovolena) 2`] = `
+Object {
+  "code": "nepovoleno",
+  "status": "stopky by se dostaly do mínusu",
+}
+`;
+
+exports[`změň -delta (stopky nastartovány, změna nepovolena) 3`] = `
+Array [
+  Object {
+    "__v": 0,
+    "base": 2018-11-05T16:02:23.010Z,
+    "delta": "P0D",
+    "mezicasy": Array [],
+    "running": true,
+    "typ": "půlmaraton",
+  },
+]
+`;
+
+exports[`změň -delta (stopky nastartovány, změna povolena) 1`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "stopky": Object {
+      "base": "2018-11-05T16:02:23.010Z",
+      "delta": "P0D",
+      "mezicasy": Array [],
+      "running": true,
+      "typ": "půlmaraton",
+    },
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`změň -delta (stopky nastartovány, změna povolena) 2`] = `
 Object {
   "code": "ok",
   "response": Object {
@@ -777,7 +813,7 @@ Object {
 }
 `;
 
-exports[`změň -delta (stopky nastartovány) 3`] = `
+exports[`změň -delta (stopky nastartovány, změna povolena) 3`] = `
 Array [
   Object {
     "__v": 0,

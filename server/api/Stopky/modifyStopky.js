@@ -4,6 +4,7 @@ const moment = require('moment');
 const {
   CODE_OK,
   CODE_NONEXISTING,
+  CODE_NOT_ALLOWED,
   CODE_UNFULFILLED_REQUEST,
   STOPKY_ADD_MEZICAS,
   STOPKY_CHANGE_TIME,
@@ -58,15 +59,22 @@ const modifications = {
     code: CODE_OK,
     changes: [{ name: 'mezicasy', value: mezicasy.filter(mezicas => mezicas.cas !== cas) }]
   }),
-  [STOPKY_CHANGE_TIME]: ({ request: { step }, stopky: { base, delta, running } }) => {
+  [STOPKY_CHANGE_TIME]: ({ request: { now, step }, stopky: { base, delta, running } }) => {
+    if (!now) {
+      return { code: CODE_UNFULFILLED_REQUEST, status: 'chybí parameter "now"' };
+    }
     if (!step) {
       return { code: CODE_UNFULFILLED_REQUEST, status: 'chybí parameter "step"' };
     }
     if (running) {
-      return {
-        code: CODE_OK,
-        changes: [{ name: 'base', value: new Date(new Date(base).getTime() - step).toJSON() }]
-      };
+      const newBase = new Date(base).getTime() - step;
+      if (newBase <= new Date(now).getTime()) {
+        return {
+          code: CODE_OK,
+          changes: [{ name: 'base', value: new Date(newBase).toJSON() }]
+        };
+      }
+      return { code: CODE_NOT_ALLOWED, status: 'stopky by se dostaly do mínusu' };
     }
     if (step >= 0) {
       const newDelta = moment.duration(delta).add(step);

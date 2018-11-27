@@ -52,5 +52,5 @@ export const stopkyStart = ({ now = new Date(), typ }) =>
 export const stopkyStop = ({ now = new Date(), typ }) =>
   modifyStopky({ modifikace: STOPKY_STOP, now: now.toJSON ? now.toJSON() : now, typ });
 // step is in milliseconds
-export const stopkyChangeTime = ({ step, typ }) =>
-  modifyStopky({ modifikace: STOPKY_CHANGE_TIME, step, typ });
+export const stopkyChangeTime = ({ now = new Date(), step, typ }) =>
+  modifyStopky({ modifikace: STOPKY_CHANGE_TIME, now, step, typ });

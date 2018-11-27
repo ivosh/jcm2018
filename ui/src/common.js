@@ -37,6 +37,7 @@ export const CODE_MAX_LOGIN_ATTEMPTS = 'max login attempts reached';
 export const CODE_MLADISTVY_UCASTNIK = 'účastník potřebuje souhlas zákonného zástupce';
 export const CODE_NONCE_MISMATCH = 'nesouhlas jednorázového přihlašovacího kódu';
 export const CODE_NONEXISTING = 'neexistuje';
+export const CODE_NOT_ALLOWED = 'nepovoleno';
 export const CODE_PASSWORD_INCORRECT = 'password incorrect';
 export const CODE_TOKEN_INVALID = 'authentication token invalid';
 export const CODE_UNFULFILLED_REQUEST = 'unfulfilled request';

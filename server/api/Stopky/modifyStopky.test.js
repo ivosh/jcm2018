@@ -293,6 +293,7 @@ it('změň +delta (stopky nastartovány)', async () => {
 
   response = await apiRequest({
     modifikace: STOPKY_CHANGE_TIME,
+    now: new Date('2018-11-05T16:04:23.01Z'),
     step: +10000,
     typ: 'půlmaraton'
   });
@@ -302,7 +303,7 @@ it('změň +delta (stopky nastartovány)', async () => {
   expect(stopky).toMatchSnapshot();
 });
 
-it('změň -delta (stopky nastartovány)', async () => {
+it('změň -delta (stopky nastartovány, změna povolena)', async () => {
   let response = await apiRequest({
     modifikace: STOPKY_START,
     now: new Date('2018-11-05T16:02:23.01Z'),
@@ -312,7 +313,28 @@ it('změň -delta (stopky nastartovány)', async () => {
 
   response = await apiRequest({
     modifikace: STOPKY_CHANGE_TIME,
+    now: new Date('2018-11-05T16:04:23.01Z'),
     step: -100,
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  const stopky = await Stopky.find({}, { _id: 0 }).lean();
+  expect(stopky).toMatchSnapshot();
+});
+
+it('změň -delta (stopky nastartovány, změna nepovolena)', async () => {
+  let response = await apiRequest({
+    modifikace: STOPKY_START,
+    now: new Date('2018-11-05T16:02:23.01Z'),
+    typ: 'půlmaraton'
+  });
+  expect(response).toMatchSnapshot();
+
+  response = await apiRequest({
+    modifikace: STOPKY_CHANGE_TIME,
+    now: new Date('2018-11-05T16:02:23.97Z'),
+    step: -1000,
     typ: 'půlmaraton'
   });
   expect(response).toMatchSnapshot();
@@ -338,6 +360,7 @@ it('změň +delta (stopky zastaveny)', async () => {
 
   response = await apiRequest({
     modifikace: STOPKY_CHANGE_TIME,
+    now: new Date('2018-11-05T16:06:35.37Z'),
     step: +3 * 60 * 1000,
     typ: 'půlmaraton'
   });
@@ -364,6 +387,7 @@ it('změň -delta (stopky zastaveny)', async () => {
 
   response = await apiRequest({
     modifikace: STOPKY_CHANGE_TIME,
+    now: new Date('2018-11-05T16:06:35.37Z'),
     step: -10 * 1000,
     typ: 'půlmaraton'
   });
@@ -390,6 +414,7 @@ it('změň -delta (stopky zastaveny) - nelze jít pod 0', async () => {
 
   response = await apiRequest({
     modifikace: STOPKY_CHANGE_TIME,
+    now: new Date('2018-11-05T16:02:35.37Z'),
     step: -20 * 1000,
     typ: 'půlmaraton'
   });
