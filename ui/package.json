@@ -1,6 +1,6 @@
 {
   "name": "ui",
-  "version": "1.0.37",
+  "version": "1.0.38",
   "private": true,
   "---on react version upgrade---": "Update the version in .eslintrc as well.",
   "dependencies": {
