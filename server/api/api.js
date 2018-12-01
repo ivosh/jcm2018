@@ -16,6 +16,7 @@ const {
   API_SAVE_VYKON,
   API_SIGN_IN,
   API_SIGN_OUT,
+  API_TIMESYNC,
   CODE_DB_DISCONNECTED,
   CODE_OK,
   CODE_TOKEN_INVALID,
@@ -40,6 +41,7 @@ const saveUdaje = require('./Ucastnik/Udaje/saveUdaje');
 const saveVykon = require('./Ucastnik/Vykon/saveVykon');
 const signIn = require('./User/signIn');
 const signOut = require('./User/signOut');
+const timesync = require('./timesync/timesync');
 
 const processAuthentication = ({ token, connection }) => {
   try {
@@ -58,36 +60,61 @@ const processAuthentication = ({ token, connection }) => {
 };
 
 const processRequest = async ({ action = '', request, requestId, token, connection }) => {
-  if (!db.isConnected()) {
-    return {
-      code: CODE_DB_DISCONNECTED,
-      status: 'Není připojeno k databázi'
-    };
-  }
-
   const actions = {
-    [API_DELETE_VYKON]: { authRequired: true, action: async req => deleteVykon(req) },
+    [API_DELETE_VYKON]: {
+      authRequired: true,
+      dbRequired: true,
+      action: async req => deleteVykon(req)
+    },
     [API_FIND_ALL_ROCNIKY]: {
       authRequired: true,
+      dbRequired: true,
       action: async req => findAllRocniky(req)
     },
-    [API_FIND_ALL_STOPKY]: { authRequired: true, action: async req => findAllStopky(req) },
+    [API_FIND_ALL_STOPKY]: {
+      authRequired: true,
+      dbRequired: true,
+      action: async req => findAllStopky(req)
+    },
     [API_FIND_ALL_UCASTNICI]: {
       authRequired: true,
+      dbRequired: true,
       action: async req => findAllUcastnici(req)
     },
-    [API_MODIFY_STOPKY]: { authRequired: true, action: async req => modifyStopky(req) },
-    [API_MODIFY_UBYTOVANI]: { authRequired: true, action: async req => modifyUbytovani(req) },
-    [API_SAVE_PLATBY]: { authRequired: true, action: async req => savePlatby(req) },
-    [API_SAVE_PRIHLASKA]: { authRequired: true, action: async req => savePrihlaska(req) },
-    [API_SAVE_UBYTOVANI]: { authRequired: true, action: async req => saveUbytovani(req) },
-    [API_SAVE_UCAST]: { authRequired: true, action: async req => saveUcast(req) },
-    [API_SAVE_UDAJE]: { authRequired: true, action: async req => saveUdaje(req) },
-    [API_SAVE_VYKON]: { authRequired: true, action: async req => saveVykon(req) },
-    [API_SIGN_IN]: { authRequired: false, action: async req => signIn(req) },
-    [API_SIGN_OUT]: { authRequired: false, action: async req => signOut(req) },
+    [API_MODIFY_STOPKY]: {
+      authRequired: true,
+      dbRequired: true,
+      action: async req => modifyStopky(req)
+    },
+    [API_MODIFY_UBYTOVANI]: {
+      authRequired: true,
+      dbRequired: true,
+      action: async req => modifyUbytovani(req)
+    },
+    [API_SAVE_PLATBY]: {
+      authRequired: true,
+      dbRequired: true,
+      action: async req => savePlatby(req)
+    },
+    [API_SAVE_PRIHLASKA]: {
+      authRequired: true,
+      dbRequired: true,
+      action: async req => savePrihlaska(req)
+    },
+    [API_SAVE_UBYTOVANI]: {
+      authRequired: true,
+      dbRequired: true,
+      action: async req => saveUbytovani(req)
+    },
+    [API_SAVE_UCAST]: { authRequired: true, dbRequired: true, action: async req => saveUcast(req) },
+    [API_SAVE_UDAJE]: { authRequired: true, dbRequired: true, action: async req => saveUdaje(req) },
+    [API_SAVE_VYKON]: { authRequired: true, dbRequired: true, action: async req => saveVykon(req) },
+    [API_SIGN_IN]: { authRequired: false, dbRequired: true, action: async req => signIn(req) },
+    [API_SIGN_OUT]: { authRequired: false, dbRequired: true, action: async req => signOut(req) },
+    [API_TIMESYNC]: { authRequired: false, dbRequired: false, action: async req => timesync(req) },
     default: {
       authRequired: false,
+      dbRequired: false,
       action: () => ({
         code: CODE_UNRECOGNIZED_ACTION,
         status: `neznámá akce: ${action}`
@@ -101,6 +128,13 @@ const processRequest = async ({ action = '', request, requestId, token, connecti
       processMessageAction.action
     }, authentication required: ${processMessageAction.authRequired}`
   );
+
+  if (processMessageAction.dbRequired && !db.isConnected()) {
+    return {
+      code: CODE_DB_DISCONNECTED,
+      status: 'Není připojeno k databázi'
+    };
+  }
 
   if (processMessageAction.authRequired) {
     const result = processAuthentication({ token, connection });

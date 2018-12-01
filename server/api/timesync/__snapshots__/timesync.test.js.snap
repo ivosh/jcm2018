@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`timesync 1`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "clientTime": "2018-12-01T10:38:08.361Z",
+    "serverTime": "2018-12-01T10:38:08:364Z",
+  },
+}
+`;

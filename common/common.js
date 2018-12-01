@@ -27,6 +27,7 @@ const API_SAVE_UDAJE = 'saveUdaje';
 const API_SAVE_VYKON = 'saveVykon';
 const API_SIGN_IN = 'signIn';
 const API_SIGN_OUT = 'signOut';
+const API_TIMESYNC = 'timesync';
 const BROADCAST_STOPKY = 'broadcastStopky';
 const BROADCAST_UCASTNIK = 'broadcastUcastnik';
 
@@ -216,6 +217,7 @@ module.exports = {
   API_SAVE_VYKON,
   API_SIGN_IN,
   API_SIGN_OUT,
+  API_TIMESYNC,
   BROADCAST_STOPKY,
   BROADCAST_UCASTNIK,
   CODE_OK,
