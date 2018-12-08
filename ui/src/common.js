@@ -39,6 +39,7 @@ export const CODE_NONCE_MISMATCH = 'nesouhlas jednorázového přihlašovacího 
 export const CODE_NONEXISTING = 'neexistuje';
 export const CODE_NOT_ALLOWED = 'nepovoleno';
 export const CODE_PASSWORD_INCORRECT = 'password incorrect';
+export const CODE_READ_ONLY = 'jen pro čtení';
 export const CODE_TOKEN_INVALID = 'authentication token invalid';
 export const CODE_UNFULFILLED_REQUEST = 'unfulfilled request';
 export const CODE_UNPARSEABLE_MESSAGE = 'unparseable message';

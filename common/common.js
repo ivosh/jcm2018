@@ -42,6 +42,7 @@ const CODE_NONCE_MISMATCH = 'nesouhlas jednorázového přihlašovacího kódu';
 const CODE_NONEXISTING = 'neexistuje';
 const CODE_NOT_ALLOWED = 'nepovoleno';
 const CODE_PASSWORD_INCORRECT = 'password incorrect';
+const CODE_READ_ONLY = 'jen pro čtení';
 const CODE_TOKEN_INVALID = 'authentication token invalid';
 const CODE_UNFULFILLED_REQUEST = 'unfulfilled request';
 const CODE_UNPARSEABLE_MESSAGE = 'unparseable message';
@@ -231,6 +232,7 @@ module.exports = {
   CODE_NONEXISTING,
   CODE_NOT_ALLOWED,
   CODE_PASSWORD_INCORRECT,
+  CODE_READ_ONLY,
   CODE_TOKEN_INVALID,
   CODE_UNFULFILLED_REQUEST,
   CODE_UNPARSEABLE_MESSAGE,

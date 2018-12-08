@@ -1,6 +1,9 @@
 const env = process.env.NODE_ENV || 'development';
 
 const config = {
+  api: {
+    readOnly: process.env.API_READ_ONLY === '1'
+  },
   auth: {
     saltRounds: 10,
     lockTime: 2 * 60 * 60 * 1000, // 2 hours

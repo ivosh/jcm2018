@@ -19,6 +19,7 @@ const {
   API_TIMESYNC,
   CODE_DB_DISCONNECTED,
   CODE_OK,
+  CODE_READ_ONLY,
   CODE_TOKEN_INVALID,
   CODE_UNFULFILLED_REQUEST,
   CODE_UNPARSEABLE_MESSAGE,
@@ -62,57 +63,97 @@ const processAuthentication = ({ token, connection }) => {
 const processRequest = async ({ action = '', request, requestId, token, connection }) => {
   const actions = {
     [API_DELETE_VYKON]: {
+      apiReadOnly: false,
       authRequired: true,
       dbRequired: true,
       action: async req => deleteVykon(req)
     },
     [API_FIND_ALL_ROCNIKY]: {
+      apiReadOnly: true,
       authRequired: true,
       dbRequired: true,
       action: async req => findAllRocniky(req)
     },
     [API_FIND_ALL_STOPKY]: {
+      apiReadOnly: true,
       authRequired: true,
       dbRequired: true,
       action: async req => findAllStopky(req)
     },
     [API_FIND_ALL_UCASTNICI]: {
+      apiReadOnly: true,
       authRequired: true,
       dbRequired: true,
       action: async req => findAllUcastnici(req)
     },
     [API_MODIFY_STOPKY]: {
+      apiReadOnly: false,
       authRequired: true,
       dbRequired: true,
       action: async req => modifyStopky(req)
     },
     [API_MODIFY_UBYTOVANI]: {
+      apiReadOnly: false,
       authRequired: true,
       dbRequired: true,
       action: async req => modifyUbytovani(req)
     },
     [API_SAVE_PLATBY]: {
+      apiReadOnly: false,
       authRequired: true,
       dbRequired: true,
       action: async req => savePlatby(req)
     },
     [API_SAVE_PRIHLASKA]: {
+      apiReadOnly: false,
       authRequired: true,
       dbRequired: true,
       action: async req => savePrihlaska(req)
     },
     [API_SAVE_UBYTOVANI]: {
+      apiReadOnly: false,
       authRequired: true,
       dbRequired: true,
       action: async req => saveUbytovani(req)
     },
-    [API_SAVE_UCAST]: { authRequired: true, dbRequired: true, action: async req => saveUcast(req) },
-    [API_SAVE_UDAJE]: { authRequired: true, dbRequired: true, action: async req => saveUdaje(req) },
-    [API_SAVE_VYKON]: { authRequired: true, dbRequired: true, action: async req => saveVykon(req) },
-    [API_SIGN_IN]: { authRequired: false, dbRequired: true, action: async req => signIn(req) },
-    [API_SIGN_OUT]: { authRequired: false, dbRequired: true, action: async req => signOut(req) },
-    [API_TIMESYNC]: { authRequired: false, dbRequired: false, action: async req => timesync(req) },
+    [API_SAVE_UCAST]: {
+      apiReadOnly: false,
+      authRequired: true,
+      dbRequired: true,
+      action: async req => saveUcast(req)
+    },
+    [API_SAVE_UDAJE]: {
+      apiReadOnly: false,
+      authRequired: true,
+      dbRequired: true,
+      action: async req => saveUdaje(req)
+    },
+    [API_SAVE_VYKON]: {
+      apiReadOnly: false,
+      authRequired: true,
+      dbRequired: true,
+      action: async req => saveVykon(req)
+    },
+    [API_SIGN_IN]: {
+      apiReadOnly: true,
+      authRequired: false,
+      dbRequired: true,
+      action: async req => signIn(req)
+    },
+    [API_SIGN_OUT]: {
+      apiReadOnly: true,
+      authRequired: false,
+      dbRequired: true,
+      action: async req => signOut(req)
+    },
+    [API_TIMESYNC]: {
+      apiReadOnly: true,
+      authRequired: false,
+      dbRequired: false,
+      action: async req => timesync(req)
+    },
     default: {
+      apiReadOnly: true,
       authRequired: false,
       dbRequired: false,
       action: () => ({
@@ -132,7 +173,13 @@ const processRequest = async ({ action = '', request, requestId, token, connecti
   if (processMessageAction.dbRequired && !db.isConnected()) {
     return {
       code: CODE_DB_DISCONNECTED,
-      status: 'Není připojeno k databázi'
+      status: 'Není připojeno k databázi.'
+    };
+  }
+  if (!processMessageAction.apiReadOnly && config.api.readOnly) {
+    return {
+      code: CODE_READ_ONLY,
+      status: 'Aplikace je v módu jen pro čtení. Zápis nepovolen.'
     };
   }
 
