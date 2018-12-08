@@ -34,7 +34,7 @@ exports[`it renders 1`] = `
           />
           <br />
           Verze: 
-          1.0.40
+          1.1.0
           <br />
           Origin: 
           http://localhost
