@@ -25,6 +25,7 @@ export const API_SAVE_UDAJE = 'saveUdaje';
 export const API_SAVE_VYKON = 'saveVykon';
 export const API_SIGN_IN = 'signIn';
 export const API_SIGN_OUT = 'signOut';
+export const API_TIMESYNC = 'timesync';
 export const BROADCAST_STOPKY = 'broadcastStopky';
 export const BROADCAST_UCASTNIK = 'broadcastUcastnik';
 

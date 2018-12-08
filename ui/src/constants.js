@@ -4,6 +4,9 @@ export const AKTUALNI_ROK = 2018;
 
 export const STOPKY_ONE_TICK = 10; // milliseconds
 
+export const TIMESYNC_DELAY = 1000; // 1 second
+export const TIMESYNC_LAST_SAMPLES = 5;
+
 export const DOHLASKY = 'DOHLASKY';
 export const PRIHLASKY = 'PRIHLASKY';
 export const PRIHLASKY_SAVE_MODAL_TIMEOUT = 2 * 1000; // 2 seconds
