@@ -23,11 +23,10 @@ const wsClient = createWsClient({ port });
 const token = generateTestToken();
 
 beforeAll(async () => {
-  wsServer.httpServer().listen(port);
+  wsServer.listen(port);
   await wsClient.open();
 
   await db.connect();
-
   await Promise.all([Kategorie.deleteMany(), Rocnik.deleteMany()]);
 
   const kategorie1 = new Kategorie({
@@ -65,8 +64,7 @@ beforeEach(async () => {
 
 afterAll(async () => {
   await wsClient.close();
-  wsServer.httpServer().close();
-
+  await wsServer.close();
   await db.disconnect();
 });
 

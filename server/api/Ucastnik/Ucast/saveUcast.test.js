@@ -20,7 +20,7 @@ let kategorie4;
 let kategorie5;
 let kategorie6;
 beforeAll(async () => {
-  wsServer.httpServer().listen(port);
+  wsServer.listen(port);
   await wsClient.open();
 
   await db.connect();
@@ -126,8 +126,7 @@ beforeEach(async () => {
 
 afterAll(async () => {
   await wsClient.close();
-  wsServer.httpServer().close();
-
+  await wsServer.close();
   await db.disconnect();
 });
 

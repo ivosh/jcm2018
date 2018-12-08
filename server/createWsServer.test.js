@@ -19,11 +19,11 @@ const requestAllowed = () => allowThisRequest;
 let wsServer;
 beforeAll(() => {
   wsServer = createWsServer({ httpServer, processMessage, requestAllowed });
-  wsServer.httpServer().listen(PORT);
+  wsServer.listen(PORT);
 });
 
-afterAll(() => {
-  wsServer.httpServer().close();
+afterAll(async () => {
+  await wsServer.close();
 });
 
 beforeEach(() => {

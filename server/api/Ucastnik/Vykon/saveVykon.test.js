@@ -15,9 +15,8 @@ const token = generateTestToken();
 
 let kategorie;
 beforeAll(async () => {
-  wsServer.httpServer().listen(port);
+  wsServer.listen(port);
   await wsClient.open();
-
   await db.connect();
 
   await Kategorie.deleteMany();
@@ -35,8 +34,7 @@ beforeEach(async () => {
 
 afterAll(async () => {
   await wsClient.close();
-  wsServer.httpServer().close();
-
+  await wsServer.close();
   await db.disconnect();
 });
 

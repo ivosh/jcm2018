@@ -24,11 +24,10 @@ const token = generateTestToken();
 
 let kategorie1;
 beforeAll(async () => {
-  wsServer.httpServer().listen(port);
+  wsServer.listen(port);
   await wsClient.open();
 
   await db.connect();
-
   await Promise.all([Kategorie.deleteMany(), Rocnik.deleteMany()]);
 
   kategorie1 = new Kategorie({
@@ -66,8 +65,7 @@ beforeEach(async () => {
 
 afterAll(async () => {
   await wsClient.close();
-  wsServer.httpServer().close();
-
+  wsServer.close();
   await db.disconnect();
 });
 

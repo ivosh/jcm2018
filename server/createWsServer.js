@@ -17,8 +17,6 @@ const createWsServer = ({ httpServer, processMessage = processMessageAPI, reques
     autoAcceptConnections: false
   });
 
-  ws.httpServer = () => wsHttpServer;
-
   ws.authConnections = [];
   ws.addAuthConnection = connection => {
     const index = ws.authConnections.indexOf(connection);
@@ -32,6 +30,7 @@ const createWsServer = ({ httpServer, processMessage = processMessageAPI, reques
       ws.authConnections.splice(index, 1);
     }
   };
+
   ws.broadcast = ({ debugMessage, excludedConnection, message }) => {
     const json = JSON.stringify(message);
     ws.authConnections
@@ -42,6 +41,12 @@ const createWsServer = ({ httpServer, processMessage = processMessageAPI, reques
       });
     logger.debug(debugMessage);
   };
+
+  // Returns a promise which resolves once all background connections have been closed, as indicated
+  // to the callback of server.close().
+  ws.close = async () => new Promise(resolve => wsHttpServer.close(() => resolve()));
+
+  ws.listen = port => wsHttpServer.listen(port);
 
   ws.on('request', wsRequest => {
     if (requestAllowed && !requestAllowed(wsRequest)) {
