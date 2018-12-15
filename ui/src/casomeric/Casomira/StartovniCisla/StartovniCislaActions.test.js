@@ -1,4 +1,5 @@
 import configureStore from 'redux-mock-store';
+import { AKTUALNI_ROK } from '../../../constants';
 import WsClient from '../../../WsClient';
 import wsAPI from '../../../store/wsAPI';
 import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
@@ -39,7 +40,7 @@ it('createDropAction() - nedokonceno should dispatch two successful actions', as
   );
   const request = {
     id: '7a09b1fd371dec1e99b7e142',
-    rok: 2018,
+    rok: AKTUALNI_ROK,
     startCislo: 11,
     typ: 'půlmaraton',
     vykon: { dokonceno: false, kategorie: expect.any(String), startCislo: 11 }
@@ -71,7 +72,7 @@ it('createDropAction() - na-trase should dispatch two successful actions', async
   );
   const request = {
     id: '7a09b1fd371dec1e99b7e142',
-    rok: 2018,
+    rok: AKTUALNI_ROK,
     startCislo: 11,
     typ: 'půlmaraton',
     vykon: { dokonceno: null, kategorie: expect.any(String), startCislo: 11 }
@@ -103,7 +104,7 @@ it('createDropAction() - dokonceno should dispatch two successful actions', asyn
   );
   const request = {
     id: '7a09b1fd371dec1e99b7e142',
-    rok: 2018,
+    rok: AKTUALNI_ROK,
     startCislo: 11,
     typ: 'půlmaraton',
     vykon: { cas: 'PT1H23M32.56S', dokonceno: true, kategorie: expect.any(String), startCislo: 11 }
@@ -135,7 +136,7 @@ it('saveVykon() should dispatch two unsuccessful actions', async () => {
   );
   const request = {
     id: '7a09b1fd371dec1e99b7e142',
-    rok: 2018,
+    rok: AKTUALNI_ROK,
     startCislo: 11,
     typ: 'půlmaraton',
     vykon: expect.any(Object)

@@ -1,7 +1,9 @@
 import deepFreeze from 'deep-freeze';
 import { DOHLASKY } from '../../../constants';
 import { fetchRocniky } from '../../../entities/rocniky/rocnikyActions';
-import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
+import ucastniciTestData, {
+  AKTUALNI_DATUM_KONANI
+} from '../../../entities/ucastnici/ucastniciTestData';
 import {
   createFailureFromAction,
   createRequestFromAction,
@@ -749,7 +751,7 @@ it('prihlaska.datum - dohlášky', () => {
   );
   expect(stateAfter.jePrihlaskou).toBe(false);
   expect(isInputEnabled({ name, form: stateAfter, rocniky })).toBe(false);
-  expect(getValue({ name, form: stateAfter })).toEqual(new Date('2018-06-09').toJSON());
+  expect(getValue({ name, form: stateAfter })).toEqual(new Date(AKTUALNI_DATUM_KONANI).toJSON());
 });
 
 it('prihlaska.datum - neúplné', () => {
@@ -1189,13 +1191,13 @@ it('loadUcastnik() - údaje i přihláška', () => {
       stat: 'Česká republika'
     },
     prihlaska: {
-      datum: '2018-06-09T00:00:00.000Z',
+      datum: AKTUALNI_DATUM_KONANI,
       kategorie: '5a587e1b051c181132cf83d7',
       typ: 'půlmaraton',
       startCislo: 17,
       kod: '10728864'
     },
-    platby: [{ castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }],
+    platby: [{ castka: 250, datum: AKTUALNI_DATUM_KONANI, typ: 'hotově' }],
     ubytovani: { pátek: { prihlaseno: true, prespano: true } }
   };
   deepFreeze(stateBefore);
@@ -1305,7 +1307,7 @@ it('loadUcastnik() - dohláška', () => {
       stat: 'Česká republika'
     },
     prihlaska: {
-      datum: '2018-06-09T00:00:00.000Z',
+      datum: AKTUALNI_DATUM_KONANI,
       kategorie: undefined,
       typ: undefined,
       startCislo: undefined,
@@ -1343,7 +1345,7 @@ it('fetchRocnikySuccess - přihláška', () => {
 
 it('fetchRocnikySuccess - dohláška', () => {
   const stateBefore = { prihlaska: { datum: undefined } };
-  const stateAfter = { prihlaska: { datum: '2018-06-09T00:00:00.000Z' } };
+  const stateAfter = { prihlaska: { datum: AKTUALNI_DATUM_KONANI } };
   deepFreeze(stateBefore);
 
   const json = { response: { rocniky: ucastniciTestData.entities.rocniky.byRoky } };
@@ -1389,7 +1391,7 @@ it('predepsaneStartovne - půlmaraton - dohláška', () => {
       prihlasky: {
         form: {
           prihlaska: {
-            datum: '2018-06-09',
+            datum: AKTUALNI_DATUM_KONANI,
             kategorie: '5a587e1b051c181132cf83d4'
           }
         }

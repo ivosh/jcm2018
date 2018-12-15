@@ -1,6 +1,7 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { CODE_OK } from '../../../common';
+import { AKTUALNI_ROK } from '../../../constants';
 import WsClient from '../../../WsClient';
 import wsAPI from '../../../store/wsAPI';
 import { CREATE_PRIHLASKY_SAVE, createSaveUcast } from './PrihlaskyFormActions';
@@ -39,7 +40,7 @@ it('saveUcast() should dispatch four successful actions (new účastník)', asyn
       [reduxName]: { form: { validate: false, udaje: { narozeni: {} }, prihlaska: {} } }
     }
   });
-  const request = { rok: 2018, udaje: { narozeni: {} }, prihlaska: {} };
+  const request = { rok: AKTUALNI_ROK, udaje: { narozeni: {} }, prihlaska: {} };
 
   await store.dispatch(saveUcast());
   const actions = store.getActions();
@@ -68,8 +69,8 @@ it('saveUcast() should dispatch four successful actions (existing účastník, e
       ucastnici: {
         byIds: {
           '===id===': {
-            roky: [2018],
-            2018: {
+            roky: [AKTUALNI_ROK],
+            [AKTUALNI_ROK]: {
               vykon: { kategorie: '===kat1===' }
             }
           }
@@ -84,7 +85,7 @@ it('saveUcast() should dispatch four successful actions (existing účastník, e
   });
   const request = {
     id: '===id===',
-    rok: 2018,
+    rok: AKTUALNI_ROK,
     udaje: { narozeni: {} },
     prihlaska: {},
     vykon: { kategorie: '===kat1===' }
@@ -131,7 +132,7 @@ it('saveUcast() should dispatch four successful actions (existing účastník, d
       }
     }
   });
-  const request = { id: '===id===', rok: 2018, udaje: { narozeni: {} }, prihlaska: {} };
+  const request = { id: '===id===', rok: AKTUALNI_ROK, udaje: { narozeni: {} }, prihlaska: {} };
 
   await store.dispatch(saveUcast());
   const actions = store.getActions();
@@ -158,7 +159,7 @@ it('saveUcast() should dispatch two unsuccessful actions 1/2', async () => {
     entities: { rocniky: { byRoky: {} } },
     registrator: { [reduxName]: { form: { udaje: { narozeni: {} }, prihlaska: {} } } }
   });
-  const request = { rok: 2018, udaje: { narozeni: {} }, prihlaska: {} };
+  const request = { rok: AKTUALNI_ROK, udaje: { narozeni: {} }, prihlaska: {} };
 
   await store.dispatch(saveUcast());
   const actions = store.getActions();
@@ -220,7 +221,7 @@ it('saveUcast() should dispatch two unsuccessful actions on error', async () => 
     entities: { rocniky: { byRoky: {} } },
     registrator: { [reduxName]: { form: { udaje: { narozeni: {} }, prihlaska: {} } } }
   });
-  const request = { rok: 2018, udaje: { narozeni: {} }, prihlaska: {} };
+  const request = { rok: AKTUALNI_ROK, udaje: { narozeni: {} }, prihlaska: {} };
 
   await store.dispatch(saveUcast());
   const actions = store.getActions();

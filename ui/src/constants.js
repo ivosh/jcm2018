@@ -1,6 +1,6 @@
 export const TYPY_KATEGORII = ['maraton', 'půlmaraton', 'cyklo', 'koloběžka', 'pěší'];
 
-export const AKTUALNI_ROK = 2018;
+export const AKTUALNI_ROK = 2019;
 
 export const STOPKY_ONE_TICK = 10; // milliseconds
 

@@ -69,7 +69,44 @@ Object {
           "startCislo": 15,
         },
       },
+      "2019": Object {
+        "platby": Array [
+          Object {
+            "castka": 250,
+            "datum": "2019-06-08T00:00:00.000Z",
+            "typ": "hotově",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2019-06-08T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d7",
+          "kod": "10728864",
+          "startCislo": 17,
+        },
+        "ubytovani": Object {
+          "pátek": Object {
+            "prespano": true,
+            "prihlaseno": true,
+          },
+        },
+        "udaje": Object {
+          "jmeno": "Roman",
+          "narozeni": Object {
+            "rok": 1956,
+          },
+          "obec": "Ostrava 2",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": false,
+          "kategorie": "5a587e1b051c181132cf83d7",
+          "startCislo": 15,
+        },
+      },
       "roky": Array [
+        2019,
         2018,
         2017,
       ],
@@ -108,12 +145,12 @@ Object {
         "platby": Array [
           Object {
             "castka": 100,
-            "datum": "2018-06-09T00:00:00.000Z",
+            "datum": "2019-06-08T00:00:00.000Z",
             "typ": "hotově",
           },
         ],
         "prihlaska": Object {
-          "datum": "2018-06-08T00:00:00.000Z",
+          "datum": "2019-06-08T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d9",
           "kod": "abc023skd204mvs345",
           "startCislo": 9,
@@ -141,7 +178,7 @@ Object {
         },
       },
       "roky": Array [
-        2018,
+        2019,
       ],
     },
     "8344bc71dec1e99b7e1d01e": Object {
@@ -166,7 +203,29 @@ Object {
           "prijmeni": "Kyselová",
         },
       },
+      "2019": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2019-06-08T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "0234jsdj0jdaklsd",
+          "startCislo": 15,
+          "startovnePoSleve": 0,
+        },
+        "udaje": Object {
+          "email": "sks@por.cz",
+          "jmeno": "Slavěna",
+          "narozeni": Object {
+            "den": 13,
+            "mesic": 8,
+            "rok": 2001,
+          },
+          "obec": "Aš",
+          "prijmeni": "Kyselová",
+        },
+      },
       "roky": Array [
+        2019,
         2018,
       ],
     },
@@ -243,7 +302,44 @@ Object {
           "startCislo": 15,
         },
       },
+      "2019": Object {
+        "platby": Array [
+          Object {
+            "castka": 250,
+            "datum": "2019-06-08T00:00:00.000Z",
+            "typ": "hotově",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2019-06-08T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d7",
+          "kod": "10728864",
+          "startCislo": 17,
+        },
+        "ubytovani": Object {
+          "pátek": Object {
+            "prespano": true,
+            "prihlaseno": true,
+          },
+        },
+        "udaje": Object {
+          "jmeno": "Roman",
+          "narozeni": Object {
+            "rok": 1956,
+          },
+          "obec": "Ostrava 2",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": false,
+          "kategorie": "5a587e1b051c181132cf83d7",
+          "startCislo": 15,
+        },
+      },
       "roky": Array [
+        2019,
         2018,
         2017,
       ],
@@ -324,7 +420,54 @@ Object {
           "startCislo": 11,
         },
       },
+      "2019": Object {
+        "platby": Array [
+          Object {
+            "castka": 100,
+            "datum": "2019-05-13T00:00:00.000Z",
+            "typ": "převodem",
+          },
+          Object {
+            "castka": 80,
+            "datum": "2019-06-08T00:00:00.000Z",
+            "typ": "hotově",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2019-05-12T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 10,
+        },
+        "ubytovani": Object {
+          "pátek": Object {
+            "prihlaseno": true,
+          },
+        },
+        "udaje": Object {
+          "email": "zrala.kl@s.cz",
+          "jmeno": "Hana",
+          "klub": "SK Nudle",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 1999,
+          },
+          "obec": "Bučovice",
+          "pohlavi": "žena",
+          "prijmeni": "Zralá",
+          "psc": "654 21",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "startCislo": 11,
+        },
+      },
       "roky": Array [
+        2019,
         2018,
       ],
     },
@@ -349,6 +492,27 @@ Object {
           "obec": "Aš",
           "prijmeni": "Kyselová",
         },
+      },
+      "2019": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2019-06-08T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "0234jsdj0jdaklsd",
+          "startCislo": 15,
+          "startovnePoSleve": 0,
+        },
+        "udaje": Object {
+          "email": "sks@por.cz",
+          "jmeno": "Slavěna",
+          "narozeni": Object {
+            "den": 13,
+            "mesic": 8,
+            "rok": 2001,
+          },
+          "obec": "Aš",
+          "prijmeni": "Kyselová",
+        },
         "vykon": Object {
           "dokonceno": null,
           "kategorie": "5a587e1b051c181132cf83d9",
@@ -356,6 +520,7 @@ Object {
         },
       },
       "roky": Array [
+        2019,
         2018,
       ],
     },
@@ -432,285 +597,23 @@ Object {
           "startCislo": 15,
         },
       },
-      "roky": Array [
-        2018,
-        2017,
-      ],
-    },
-    "6f09b1fd371dec1e99b7e1c9": Object {
-      "2016": Object {
-        "prihlaska": Object {
-          "datum": "2016-06-11T00:00:00.000Z",
-          "kategorie": "5a587e1a051c181132cf83c2",
-        },
-        "udaje": Object {
-          "jmeno": "Martina",
-          "narozeni": Object {
-            "den": 7,
-            "mesic": 12,
-            "rok": 1963,
-          },
-          "obec": "Zlín",
-          "pohlavi": "žena",
-          "prijmeni": "Sukdoláková",
-          "stat": "Česká republika",
-        },
-        "vykon": Object {
-          "cas": "PT3H42M32.6S",
-          "dokonceno": true,
-          "kategorie": "5a587e1a051c181132cf83c2",
-          "startCislo": 11,
-        },
-      },
-      "roky": Array [
-        2016,
-      ],
-    },
-    "7a09b1fd371dec1e99b7e142": Object {
-      "2018": Object {
-        "platby": Array [
-          Object {
-            "castka": 100,
-            "datum": "2018-05-13T00:00:00.000Z",
-            "typ": "převodem",
-          },
-          Object {
-            "castka": 80,
-            "datum": "2018-06-09T00:00:00.000Z",
-            "typ": "hotově",
-          },
-        ],
-        "prihlaska": Object {
-          "datum": "2018-05-12T00:00:00.000Z",
-          "kategorie": "5a587e1b051c181132cf83d9",
-          "kod": "abc023skd204mvs345",
-          "startCislo": 10,
-        },
-        "ubytovani": Object {
-          "pátek": Object {
-            "prihlaseno": true,
-          },
-        },
-        "udaje": Object {
-          "email": "zrala.kl@s.cz",
-          "jmeno": "Hana",
-          "klub": "SK Nudle",
-          "narozeni": Object {
-            "den": 25,
-            "mesic": 7,
-            "rok": 1999,
-          },
-          "obec": "Bučovice",
-          "pohlavi": "žena",
-          "prijmeni": "Zralá",
-          "psc": "654 21",
-          "stat": "Česká republika",
-        },
-      },
-      "roky": Array [
-        2018,
-      ],
-    },
-    "8344bc71dec1e99b7e1d01e": Object {
-      "2018": Object {
-        "platby": Array [],
-        "prihlaska": Object {
-          "datum": "2018-06-09T00:00:00.000Z",
-          "kategorie": "5a587e1b051c181132cf83d9",
-          "kod": "0234jsdj0jdaklsd",
-          "startCislo": 15,
-          "startovnePoSleve": 0,
-        },
-        "udaje": Object {
-          "email": "sks@por.cz",
-          "jmeno": "Slavěna",
-          "narozeni": Object {
-            "den": 13,
-            "mesic": 8,
-            "rok": 2001,
-          },
-          "obec": "Aš",
-          "prijmeni": "Kyselová",
-        },
-      },
-      "roky": Array [
-        2018,
-      ],
-    },
-  },
-}
-`;
-
-exports[`getUcastiProRok 1`] = `
-Array [
-  Object {
-    "id": "5a09b1fd371dec1e99b7e1c9",
-    "rok": 2018,
-    "ucast": Object {
-      "platby": Array [
-        Object {
-          "castka": 250,
-          "datum": "2018-06-09T00:00:00.000Z",
-          "typ": "hotově",
-        },
-      ],
-      "prihlaska": Object {
-        "datum": "2018-06-09T00:00:00.000Z",
-        "kategorie": "5a587e1b051c181132cf83d7",
-        "kod": "10728864",
-        "startCislo": 17,
-      },
-      "ubytovani": Object {
-        "pátek": Object {
-          "prespano": true,
-          "prihlaseno": true,
-        },
-      },
-      "udaje": Object {
-        "jmeno": "Roman",
-        "narozeni": Object {
-          "rok": 1956,
-        },
-        "obec": "Ostrava 2",
-        "pohlavi": "muž",
-        "prijmeni": "Balabák",
-        "stat": "Česká republika",
-      },
-      "vykon": Object {
-        "dokonceno": false,
-        "kategorie": "5a587e1b051c181132cf83d7",
-        "startCislo": 15,
-      },
-    },
-  },
-  Object {
-    "id": "7a09b1fd371dec1e99b7e142",
-    "rok": 2018,
-    "ucast": Object {
-      "platby": Array [
-        Object {
-          "castka": 100,
-          "datum": "2018-05-13T00:00:00.000Z",
-          "typ": "převodem",
-        },
-        Object {
-          "castka": 80,
-          "datum": "2018-06-09T00:00:00.000Z",
-          "typ": "hotově",
-        },
-      ],
-      "prihlaska": Object {
-        "datum": "2018-05-12T00:00:00.000Z",
-        "kategorie": "5a587e1b051c181132cf83d9",
-        "kod": "abc023skd204mvs345",
-        "startCislo": 10,
-      },
-      "ubytovani": Object {
-        "pátek": Object {
-          "prihlaseno": true,
-        },
-      },
-      "udaje": Object {
-        "email": "zrala.kl@s.cz",
-        "jmeno": "Hana",
-        "klub": "SK Nudle",
-        "narozeni": Object {
-          "den": 25,
-          "mesic": 7,
-          "rok": 1999,
-        },
-        "obec": "Bučovice",
-        "pohlavi": "žena",
-        "prijmeni": "Zralá",
-        "psc": "654 21",
-        "stat": "Česká republika",
-      },
-      "vykon": Object {
-        "cas": "PT2H06M32.6S",
-        "dokonceno": true,
-        "kategorie": "5a587e1b051c181132cf83d9",
-        "startCislo": 11,
-      },
-    },
-  },
-  Object {
-    "id": "8344bc71dec1e99b7e1d01e",
-    "rok": 2018,
-    "ucast": Object {
-      "platby": Array [],
-      "prihlaska": Object {
-        "datum": "2018-06-09T00:00:00.000Z",
-        "kategorie": "5a587e1b051c181132cf83d9",
-        "kod": "0234jsdj0jdaklsd",
-        "startCislo": 15,
-        "startovnePoSleve": 0,
-      },
-      "udaje": Object {
-        "email": "sks@por.cz",
-        "jmeno": "Slavěna",
-        "narozeni": Object {
-          "den": 13,
-          "mesic": 8,
-          "rok": 2001,
-        },
-        "obec": "Aš",
-        "prijmeni": "Kyselová",
-      },
-    },
-  },
-]
-`;
-
-exports[`modifyUbytovani - success() 1`] = `
-Object {
-  "allIds": Array [
-    "6f09b1fd371dec1e99b7e1c9",
-    "5a09b1fd371dec1e99b7e1c9",
-    "7a09b1fd371dec1e99b7e142",
-    "8344bc71dec1e99b7e1d01e",
-  ],
-  "byIds": Object {
-    "5a09b1fd371dec1e99b7e1c9": Object {
-      "2017": Object {
-        "prihlaska": Object {
-          "datum": "2017-04-01T00:00:00.000Z",
-          "kategorie": "5a587e1a051c181132cf83bc",
-          "kod": "10728863",
-        },
-        "udaje": Object {
-          "jmeno": "Roman",
-          "narozeni": Object {
-            "rok": 1958,
-          },
-          "obec": "Ostrava 1",
-          "pohlavi": "muž",
-          "prijmeni": "Balabák",
-          "stat": "Česká republika",
-        },
-        "vykon": Object {
-          "cas": "PT1H25M32.6S",
-          "dokonceno": true,
-          "kategorie": "5a587e1a051c181132cf83bc",
-          "startCislo": 34,
-        },
-      },
-      "2018": Object {
+      "2019": Object {
         "platby": Array [
           Object {
             "castka": 250,
-            "datum": "2018-06-09T00:00:00.000Z",
+            "datum": "2019-06-08T00:00:00.000Z",
             "typ": "hotově",
           },
         ],
         "prihlaska": Object {
-          "datum": "2018-06-09T00:00:00.000Z",
+          "datum": "2019-06-08T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d7",
           "kod": "10728864",
           "startCislo": 17,
         },
         "ubytovani": Object {
           "pátek": Object {
-            "prespano": false,
+            "prespano": true,
             "prihlaseno": true,
           },
         },
@@ -731,6 +634,7 @@ Object {
         },
       },
       "roky": Array [
+        2019,
         2018,
         2017,
       ],
@@ -811,7 +715,48 @@ Object {
           "startCislo": 11,
         },
       },
+      "2019": Object {
+        "platby": Array [
+          Object {
+            "castka": 100,
+            "datum": "2019-05-13T00:00:00.000Z",
+            "typ": "převodem",
+          },
+          Object {
+            "castka": 80,
+            "datum": "2019-06-08T00:00:00.000Z",
+            "typ": "hotově",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2019-05-12T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 10,
+        },
+        "ubytovani": Object {
+          "pátek": Object {
+            "prihlaseno": true,
+          },
+        },
+        "udaje": Object {
+          "email": "zrala.kl@s.cz",
+          "jmeno": "Hana",
+          "klub": "SK Nudle",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 1999,
+          },
+          "obec": "Bučovice",
+          "pohlavi": "žena",
+          "prijmeni": "Zralá",
+          "psc": "654 21",
+          "stat": "Česká republika",
+        },
+      },
       "roky": Array [
+        2019,
         2018,
       ],
     },
@@ -837,7 +782,439 @@ Object {
           "prijmeni": "Kyselová",
         },
       },
+      "2019": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2019-06-08T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "0234jsdj0jdaklsd",
+          "startCislo": 15,
+          "startovnePoSleve": 0,
+        },
+        "udaje": Object {
+          "email": "sks@por.cz",
+          "jmeno": "Slavěna",
+          "narozeni": Object {
+            "den": 13,
+            "mesic": 8,
+            "rok": 2001,
+          },
+          "obec": "Aš",
+          "prijmeni": "Kyselová",
+        },
+      },
       "roky": Array [
+        2019,
+        2018,
+      ],
+    },
+  },
+}
+`;
+
+exports[`getUcastiProRok 1`] = `
+Array [
+  Object {
+    "id": "5a09b1fd371dec1e99b7e1c9",
+    "rok": 2019,
+    "ucast": Object {
+      "platby": Array [
+        Object {
+          "castka": 250,
+          "datum": "2019-06-08T00:00:00.000Z",
+          "typ": "hotově",
+        },
+      ],
+      "prihlaska": Object {
+        "datum": "2019-06-08T00:00:00.000Z",
+        "kategorie": "5a587e1b051c181132cf83d7",
+        "kod": "10728864",
+        "startCislo": 17,
+      },
+      "ubytovani": Object {
+        "pátek": Object {
+          "prespano": true,
+          "prihlaseno": true,
+        },
+      },
+      "udaje": Object {
+        "jmeno": "Roman",
+        "narozeni": Object {
+          "rok": 1956,
+        },
+        "obec": "Ostrava 2",
+        "pohlavi": "muž",
+        "prijmeni": "Balabák",
+        "stat": "Česká republika",
+      },
+      "vykon": Object {
+        "dokonceno": false,
+        "kategorie": "5a587e1b051c181132cf83d7",
+        "startCislo": 15,
+      },
+    },
+  },
+  Object {
+    "id": "7a09b1fd371dec1e99b7e142",
+    "rok": 2019,
+    "ucast": Object {
+      "platby": Array [
+        Object {
+          "castka": 100,
+          "datum": "2019-05-13T00:00:00.000Z",
+          "typ": "převodem",
+        },
+        Object {
+          "castka": 80,
+          "datum": "2019-06-08T00:00:00.000Z",
+          "typ": "hotově",
+        },
+      ],
+      "prihlaska": Object {
+        "datum": "2019-05-12T00:00:00.000Z",
+        "kategorie": "5a587e1b051c181132cf83d9",
+        "kod": "abc023skd204mvs345",
+        "startCislo": 10,
+      },
+      "ubytovani": Object {
+        "pátek": Object {
+          "prihlaseno": true,
+        },
+      },
+      "udaje": Object {
+        "email": "zrala.kl@s.cz",
+        "jmeno": "Hana",
+        "klub": "SK Nudle",
+        "narozeni": Object {
+          "den": 25,
+          "mesic": 7,
+          "rok": 1999,
+        },
+        "obec": "Bučovice",
+        "pohlavi": "žena",
+        "prijmeni": "Zralá",
+        "psc": "654 21",
+        "stat": "Česká republika",
+      },
+      "vykon": Object {
+        "cas": "PT2H06M32.6S",
+        "dokonceno": true,
+        "kategorie": "5a587e1b051c181132cf83d9",
+        "startCislo": 11,
+      },
+    },
+  },
+  Object {
+    "id": "8344bc71dec1e99b7e1d01e",
+    "rok": 2019,
+    "ucast": Object {
+      "platby": Array [],
+      "prihlaska": Object {
+        "datum": "2019-06-08T00:00:00.000Z",
+        "kategorie": "5a587e1b051c181132cf83d9",
+        "kod": "0234jsdj0jdaklsd",
+        "startCislo": 15,
+        "startovnePoSleve": 0,
+      },
+      "udaje": Object {
+        "email": "sks@por.cz",
+        "jmeno": "Slavěna",
+        "narozeni": Object {
+          "den": 13,
+          "mesic": 8,
+          "rok": 2001,
+        },
+        "obec": "Aš",
+        "prijmeni": "Kyselová",
+      },
+    },
+  },
+]
+`;
+
+exports[`modifyUbytovani - success() 1`] = `
+Object {
+  "allIds": Array [
+    "6f09b1fd371dec1e99b7e1c9",
+    "5a09b1fd371dec1e99b7e1c9",
+    "7a09b1fd371dec1e99b7e142",
+    "8344bc71dec1e99b7e1d01e",
+  ],
+  "byIds": Object {
+    "5a09b1fd371dec1e99b7e1c9": Object {
+      "2017": Object {
+        "prihlaska": Object {
+          "datum": "2017-04-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83bc",
+          "kod": "10728863",
+        },
+        "udaje": Object {
+          "jmeno": "Roman",
+          "narozeni": Object {
+            "rok": 1958,
+          },
+          "obec": "Ostrava 1",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT1H25M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83bc",
+          "startCislo": 34,
+        },
+      },
+      "2018": Object {
+        "platby": Array [
+          Object {
+            "castka": 250,
+            "datum": "2018-06-09T00:00:00.000Z",
+            "typ": "hotově",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2018-06-09T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d7",
+          "kod": "10728864",
+          "startCislo": 17,
+        },
+        "ubytovani": Object {
+          "pátek": Object {
+            "prespano": true,
+            "prihlaseno": true,
+          },
+        },
+        "udaje": Object {
+          "jmeno": "Roman",
+          "narozeni": Object {
+            "rok": 1956,
+          },
+          "obec": "Ostrava 2",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": false,
+          "kategorie": "5a587e1b051c181132cf83d7",
+          "startCislo": 15,
+        },
+      },
+      "2019": Object {
+        "platby": Array [
+          Object {
+            "castka": 250,
+            "datum": "2019-06-08T00:00:00.000Z",
+            "typ": "hotově",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2019-06-08T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d7",
+          "kod": "10728864",
+          "startCislo": 17,
+        },
+        "ubytovani": Object {
+          "pátek": Object {
+            "prespano": false,
+            "prihlaseno": true,
+          },
+        },
+        "udaje": Object {
+          "jmeno": "Roman",
+          "narozeni": Object {
+            "rok": 1956,
+          },
+          "obec": "Ostrava 2",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": false,
+          "kategorie": "5a587e1b051c181132cf83d7",
+          "startCislo": 15,
+        },
+      },
+      "roky": Array [
+        2019,
+        2018,
+        2017,
+      ],
+    },
+    "6f09b1fd371dec1e99b7e1c9": Object {
+      "2016": Object {
+        "prihlaska": Object {
+          "datum": "2016-06-11T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83c2",
+        },
+        "udaje": Object {
+          "jmeno": "Martina",
+          "narozeni": Object {
+            "den": 7,
+            "mesic": 12,
+            "rok": 1963,
+          },
+          "obec": "Zlín",
+          "pohlavi": "žena",
+          "prijmeni": "Sukdoláková",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT3H42M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83c2",
+          "startCislo": 11,
+        },
+      },
+      "roky": Array [
+        2016,
+      ],
+    },
+    "7a09b1fd371dec1e99b7e142": Object {
+      "2018": Object {
+        "platby": Array [
+          Object {
+            "castka": 100,
+            "datum": "2018-05-13T00:00:00.000Z",
+            "typ": "převodem",
+          },
+          Object {
+            "castka": 80,
+            "datum": "2018-06-09T00:00:00.000Z",
+            "typ": "hotově",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2018-05-12T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 10,
+        },
+        "ubytovani": Object {
+          "pátek": Object {
+            "prihlaseno": true,
+          },
+        },
+        "udaje": Object {
+          "email": "zrala.kl@s.cz",
+          "jmeno": "Hana",
+          "klub": "SK Nudle",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 1999,
+          },
+          "obec": "Bučovice",
+          "pohlavi": "žena",
+          "prijmeni": "Zralá",
+          "psc": "654 21",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "startCislo": 11,
+        },
+      },
+      "2019": Object {
+        "platby": Array [
+          Object {
+            "castka": 100,
+            "datum": "2019-05-13T00:00:00.000Z",
+            "typ": "převodem",
+          },
+          Object {
+            "castka": 80,
+            "datum": "2019-06-08T00:00:00.000Z",
+            "typ": "hotově",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2019-05-12T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 10,
+        },
+        "ubytovani": Object {
+          "pátek": Object {
+            "prihlaseno": true,
+          },
+        },
+        "udaje": Object {
+          "email": "zrala.kl@s.cz",
+          "jmeno": "Hana",
+          "klub": "SK Nudle",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 1999,
+          },
+          "obec": "Bučovice",
+          "pohlavi": "žena",
+          "prijmeni": "Zralá",
+          "psc": "654 21",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "startCislo": 11,
+        },
+      },
+      "roky": Array [
+        2019,
+        2018,
+      ],
+    },
+    "8344bc71dec1e99b7e1d01e": Object {
+      "2018": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2018-06-09T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "0234jsdj0jdaklsd",
+          "startCislo": 15,
+          "startovnePoSleve": 0,
+        },
+        "udaje": Object {
+          "email": "sks@por.cz",
+          "jmeno": "Slavěna",
+          "narozeni": Object {
+            "den": 13,
+            "mesic": 8,
+            "rok": 2001,
+          },
+          "obec": "Aš",
+          "prijmeni": "Kyselová",
+        },
+      },
+      "2019": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2019-06-08T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "0234jsdj0jdaklsd",
+          "startCislo": 15,
+          "startovnePoSleve": 0,
+        },
+        "udaje": Object {
+          "email": "sks@por.cz",
+          "jmeno": "Slavěna",
+          "narozeni": Object {
+            "den": 13,
+            "mesic": 8,
+            "rok": 2001,
+          },
+          "obec": "Aš",
+          "prijmeni": "Kyselová",
+        },
+      },
+      "roky": Array [
+        2019,
         2018,
       ],
     },
@@ -915,7 +1292,44 @@ Object {
           "startCislo": 15,
         },
       },
+      "2019": Object {
+        "platby": Array [
+          Object {
+            "castka": 250,
+            "datum": "2019-06-08T00:00:00.000Z",
+            "typ": "hotově",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2019-06-08T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d7",
+          "kod": "10728864",
+          "startCislo": 17,
+        },
+        "ubytovani": Object {
+          "pátek": Object {
+            "prespano": true,
+            "prihlaseno": true,
+          },
+        },
+        "udaje": Object {
+          "jmeno": "Roman",
+          "narozeni": Object {
+            "rok": 1956,
+          },
+          "obec": "Ostrava 2",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": false,
+          "kategorie": "5a587e1b051c181132cf83d7",
+          "startCislo": 15,
+        },
+      },
       "roky": Array [
+        2019,
         2018,
         2017,
       ],
@@ -950,11 +1364,11 @@ Object {
       ],
     },
     "7a09b1fd371dec1e99b79853": Object {
-      "2018": Object {
+      "2019": Object {
         "platby": Array [
           Object {
             "castka": 200,
-            "datum": "2018-05-12T00:00:00.000Z",
+            "datum": "2019-05-12T00:00:00.000Z",
             "typ": "složenkou",
           },
         ],
@@ -986,7 +1400,7 @@ Object {
         },
       },
       "roky": Array [
-        2018,
+        2019,
       ],
     },
     "7a09b1fd371dec1e99b7e142": Object {
@@ -1036,7 +1450,54 @@ Object {
           "startCislo": 11,
         },
       },
+      "2019": Object {
+        "platby": Array [
+          Object {
+            "castka": 100,
+            "datum": "2019-05-13T00:00:00.000Z",
+            "typ": "převodem",
+          },
+          Object {
+            "castka": 80,
+            "datum": "2019-06-08T00:00:00.000Z",
+            "typ": "hotově",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2019-05-12T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 10,
+        },
+        "ubytovani": Object {
+          "pátek": Object {
+            "prihlaseno": true,
+          },
+        },
+        "udaje": Object {
+          "email": "zrala.kl@s.cz",
+          "jmeno": "Hana",
+          "klub": "SK Nudle",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 1999,
+          },
+          "obec": "Bučovice",
+          "pohlavi": "žena",
+          "prijmeni": "Zralá",
+          "psc": "654 21",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "startCislo": 11,
+        },
+      },
       "roky": Array [
+        2019,
         2018,
       ],
     },
@@ -1062,7 +1523,29 @@ Object {
           "prijmeni": "Kyselová",
         },
       },
+      "2019": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2019-06-08T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "0234jsdj0jdaklsd",
+          "startCislo": 15,
+          "startovnePoSleve": 0,
+        },
+        "udaje": Object {
+          "email": "sks@por.cz",
+          "jmeno": "Slavěna",
+          "narozeni": Object {
+            "den": 13,
+            "mesic": 8,
+            "rok": 2001,
+          },
+          "obec": "Aš",
+          "prijmeni": "Kyselová",
+        },
+      },
       "roky": Array [
+        2019,
         2018,
       ],
     },
@@ -1139,7 +1622,44 @@ Object {
           "startCislo": 15,
         },
       },
+      "2019": Object {
+        "platby": Array [
+          Object {
+            "castka": 250,
+            "datum": "2019-06-08T00:00:00.000Z",
+            "typ": "hotově",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2019-06-08T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d7",
+          "kod": "10728864",
+          "startCislo": 17,
+        },
+        "ubytovani": Object {
+          "pátek": Object {
+            "prespano": true,
+            "prihlaseno": true,
+          },
+        },
+        "udaje": Object {
+          "jmeno": "Roman",
+          "narozeni": Object {
+            "rok": 1956,
+          },
+          "obec": "Ostrava 2",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": false,
+          "kategorie": "5a587e1b051c181132cf83d7",
+          "startCislo": 15,
+        },
+      },
       "roky": Array [
+        2019,
         2018,
         2017,
       ],
@@ -1169,16 +1689,16 @@ Object {
           "startCislo": 11,
         },
       },
-      "2018": Object {
+      "2019": Object {
         "platby": Array [
           Object {
             "castka": 200,
-            "datum": "2018-05-12T00:00:00.000Z",
+            "datum": "2019-05-12T00:00:00.000Z",
             "typ": "převodem",
           },
         ],
         "prihlaska": Object {
-          "datum": "2018-05-12T00:00:00.000Z",
+          "datum": "2019-05-12T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83db",
           "kod": "===kod===",
           "mladistvyPotvrzen": undefined,
@@ -1204,7 +1724,7 @@ Object {
         },
       },
       "roky": Array [
-        2018,
+        2019,
         2016,
       ],
     },
@@ -1255,7 +1775,54 @@ Object {
           "startCislo": 11,
         },
       },
+      "2019": Object {
+        "platby": Array [
+          Object {
+            "castka": 100,
+            "datum": "2019-05-13T00:00:00.000Z",
+            "typ": "převodem",
+          },
+          Object {
+            "castka": 80,
+            "datum": "2019-06-08T00:00:00.000Z",
+            "typ": "hotově",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2019-05-12T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 10,
+        },
+        "ubytovani": Object {
+          "pátek": Object {
+            "prihlaseno": true,
+          },
+        },
+        "udaje": Object {
+          "email": "zrala.kl@s.cz",
+          "jmeno": "Hana",
+          "klub": "SK Nudle",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 1999,
+          },
+          "obec": "Bučovice",
+          "pohlavi": "žena",
+          "prijmeni": "Zralá",
+          "psc": "654 21",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "startCislo": 11,
+        },
+      },
       "roky": Array [
+        2019,
         2018,
       ],
     },
@@ -1281,7 +1848,29 @@ Object {
           "prijmeni": "Kyselová",
         },
       },
+      "2019": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2019-06-08T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "0234jsdj0jdaklsd",
+          "startCislo": 15,
+          "startovnePoSleve": 0,
+        },
+        "udaje": Object {
+          "email": "sks@por.cz",
+          "jmeno": "Slavěna",
+          "narozeni": Object {
+            "den": 13,
+            "mesic": 8,
+            "rok": 2001,
+          },
+          "obec": "Aš",
+          "prijmeni": "Kyselová",
+        },
+      },
       "roky": Array [
+        2019,
         2018,
       ],
     },
@@ -1323,8 +1912,44 @@ Object {
         },
       },
       "2018": Object {
+        "platby": Array [
+          Object {
+            "castka": 250,
+            "datum": "2018-06-09T00:00:00.000Z",
+            "typ": "hotově",
+          },
+        ],
         "prihlaska": Object {
           "datum": "2018-06-09T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d7",
+          "kod": "10728864",
+          "startCislo": 17,
+        },
+        "ubytovani": Object {
+          "pátek": Object {
+            "prespano": true,
+            "prihlaseno": true,
+          },
+        },
+        "udaje": Object {
+          "jmeno": "Roman",
+          "narozeni": Object {
+            "rok": 1956,
+          },
+          "obec": "Ostrava 2",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": false,
+          "kategorie": "5a587e1b051c181132cf83d7",
+          "startCislo": 15,
+        },
+      },
+      "2019": Object {
+        "prihlaska": Object {
+          "datum": "2019-06-08T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d7",
           "kod": "10728864",
           "startCislo": 18,
@@ -1346,6 +1971,7 @@ Object {
         },
       },
       "roky": Array [
+        2019,
         2018,
         2017,
       ],
@@ -1426,7 +2052,54 @@ Object {
           "startCislo": 11,
         },
       },
+      "2019": Object {
+        "platby": Array [
+          Object {
+            "castka": 100,
+            "datum": "2019-05-13T00:00:00.000Z",
+            "typ": "převodem",
+          },
+          Object {
+            "castka": 80,
+            "datum": "2019-06-08T00:00:00.000Z",
+            "typ": "hotově",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2019-05-12T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 10,
+        },
+        "ubytovani": Object {
+          "pátek": Object {
+            "prihlaseno": true,
+          },
+        },
+        "udaje": Object {
+          "email": "zrala.kl@s.cz",
+          "jmeno": "Hana",
+          "klub": "SK Nudle",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 1999,
+          },
+          "obec": "Bučovice",
+          "pohlavi": "žena",
+          "prijmeni": "Zralá",
+          "psc": "654 21",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "startCislo": 11,
+        },
+      },
       "roky": Array [
+        2019,
         2018,
       ],
     },
@@ -1452,7 +2125,29 @@ Object {
           "prijmeni": "Kyselová",
         },
       },
+      "2019": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2019-06-08T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "0234jsdj0jdaklsd",
+          "startCislo": 15,
+          "startovnePoSleve": 0,
+        },
+        "udaje": Object {
+          "email": "sks@por.cz",
+          "jmeno": "Slavěna",
+          "narozeni": Object {
+            "den": 13,
+            "mesic": 8,
+            "rok": 2001,
+          },
+          "obec": "Aš",
+          "prijmeni": "Kyselová",
+        },
+      },
       "roky": Array [
+        2019,
         2018,
       ],
     },

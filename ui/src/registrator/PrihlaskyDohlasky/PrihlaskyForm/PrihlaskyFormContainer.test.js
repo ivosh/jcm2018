@@ -1,7 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
-import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
+import ucastniciTestData, {
+  AKTUALNI_DATUM_KONANI
+} from '../../../entities/ucastnici/ucastniciTestData';
 import PrihlaskyFormContainer from './PrihlaskyFormContainer';
 
 const mockStore = configureStore();
@@ -60,7 +62,7 @@ it('maps onLoadId to dispatch loadUcastnik action - existující přihláška', 
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: `${actionPrefix}_UCASTNIK_LOAD`,
-    datumKonani: '2018-06-09T00:00:00.000Z',
+    datumKonani: AKTUALNI_DATUM_KONANI,
     id: '5a09b1fd371dec1e99b7e1c9',
     udaje: {
       jmeno: 'Roman',
@@ -71,13 +73,13 @@ it('maps onLoadId to dispatch loadUcastnik action - existující přihláška', 
       stat: 'Česká republika'
     },
     prihlaska: {
-      datum: '2018-06-09T00:00:00.000Z',
+      datum: AKTUALNI_DATUM_KONANI,
       kategorie: '5a587e1b051c181132cf83d7',
       typ: 'půlmaraton',
       startCislo: 17,
       kod: '10728864'
     },
-    platby: [{ castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }],
+    platby: [{ castka: 250, datum: AKTUALNI_DATUM_KONANI, typ: 'hotově' }],
     ubytovani: { pátek: { prihlaseno: true, prespano: true } }
   });
 });
@@ -97,7 +99,7 @@ it('maps onLoadId to dispatch ucastnikSelected action - starší účast', () =>
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: `${actionPrefix}_UCASTNIK_LOAD`,
-    datumKonani: '2018-06-09T00:00:00.000Z',
+    datumKonani: AKTUALNI_DATUM_KONANI,
     id: '6f09b1fd371dec1e99b7e1c9',
     udaje: {
       prijmeni: 'Sukdoláková',
@@ -115,7 +117,7 @@ it('maps onReset to dispatch reset action', () => {
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: `${actionPrefix}_RESET`,
-    datumKonani: '2018-06-09T00:00:00.000Z'
+    datumKonani: AKTUALNI_DATUM_KONANI
   });
 });
 

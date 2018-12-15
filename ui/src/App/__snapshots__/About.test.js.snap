@@ -10,7 +10,7 @@ exports[`it renders 1`] = `
     <div
       className="panel-heading"
     >
-      Jirkovský crossmarathon 2018
+      Jirkovský crossmarathon 2019
     </div>
     <div
       className="panel-body"
@@ -28,7 +28,9 @@ exports[`it renders 1`] = `
           <span
             className="glyphicon glyphicon-star"
           />
-          Jirkovský crossmarathon 2018 
+          Jirkovský crossmarathon $
+          2019
+           
           <span
             className="glyphicon glyphicon-star"
           />

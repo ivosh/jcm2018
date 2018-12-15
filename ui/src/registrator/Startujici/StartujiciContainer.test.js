@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import { API_DELETE_VYKON, API_SAVE_VYKON } from '../../common';
+import { AKTUALNI_ROK } from '../../constants';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { WS_API } from '../../store/wsAPI';
 import { STARTUJICI_CREATE_VYKON, STARTUJICI_DELETE_VYKON } from './StartujiciActions';
@@ -45,7 +46,7 @@ it('maps moveOdstartovan to dispatch deleteVykon', () => {
     [WS_API]: {
       type: STARTUJICI_DELETE_VYKON,
       endpoint: API_DELETE_VYKON,
-      request: { id: '8344bc71dec1e99b7e1d01e', rok: 2018 },
+      request: { id: '8344bc71dec1e99b7e1d01e', rok: AKTUALNI_ROK },
       title: 'rušení registrace na start'
     }
   });

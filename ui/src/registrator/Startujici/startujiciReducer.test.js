@@ -1,4 +1,5 @@
 import deepFreeze from 'deep-freeze';
+import { AKTUALNI_ROK } from '../../constants';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { getPrihlaseni, getOdstartovani } from './startujiciReducer';
 
@@ -27,7 +28,8 @@ it('getPrihlaseni() - default', () => {
 
 it('getPrihlaseni() - chybí startovní číslo', () => {
   const state = JSON.parse(JSON.stringify(ucastniciTestData)); // deep copy
-  delete state.entities.ucastnici.byIds['8344bc71dec1e99b7e1d01e'][2018].prihlaska.startCislo;
+  delete state.entities.ucastnici.byIds['8344bc71dec1e99b7e1d01e'][AKTUALNI_ROK].prihlaska
+    .startCislo;
 
   const selected = [
     {

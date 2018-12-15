@@ -149,7 +149,8 @@ it('getUcastniciDigestSorted() by default', () => {
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
       2017: { dokonceno: true, kategorie: 'maraton' },
-      2018: { dokonceno: false, kategorie: 'půlmaraton' }
+      2018: { dokonceno: false, kategorie: 'půlmaraton' },
+      2019: { dokonceno: false, kategorie: 'půlmaraton' }
     },
     {
       id: '8344bc71dec1e99b7e1d01e',
@@ -169,7 +170,8 @@ it('getUcastniciDigestSorted() by default', () => {
       prijmeni: 'Zralá',
       jmeno: 'Hana',
       narozeni: { den: 25, mesic: 7, rok: 1999 },
-      2018: { dokonceno: true, kategorie: 'půlmaraton' }
+      2018: { dokonceno: true, kategorie: 'půlmaraton' },
+      2019: { dokonceno: true, kategorie: 'půlmaraton' }
     }
   ];
   deepFreeze(state);
@@ -198,7 +200,8 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
       prijmeni: 'Zralá',
       jmeno: 'Hana',
       narozeni: { den: 25, mesic: 7, rok: 1999 },
-      2018: { dokonceno: true, kategorie: 'půlmaraton' }
+      2018: { dokonceno: true, kategorie: 'půlmaraton' },
+      2019: { dokonceno: true, kategorie: 'půlmaraton' }
     },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
@@ -219,7 +222,8 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
       2017: { dokonceno: true, kategorie: 'maraton' },
-      2018: { dokonceno: false, kategorie: 'půlmaraton' }
+      2018: { dokonceno: false, kategorie: 'půlmaraton' },
+      2019: { dokonceno: false, kategorie: 'půlmaraton' }
     }
   ];
   deepFreeze(state);
@@ -248,7 +252,8 @@ it('getUcastniciDigestSorted() podle jména vzestupně', () => {
       prijmeni: 'Zralá',
       jmeno: 'Hana',
       narozeni: { den: 25, mesic: 7, rok: 1999 },
-      2018: { dokonceno: true, kategorie: 'půlmaraton' }
+      2018: { dokonceno: true, kategorie: 'půlmaraton' },
+      2019: { dokonceno: true, kategorie: 'půlmaraton' }
     },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
@@ -263,7 +268,8 @@ it('getUcastniciDigestSorted() podle jména vzestupně', () => {
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
       2017: { dokonceno: true, kategorie: 'maraton' },
-      2018: { dokonceno: false, kategorie: 'půlmaraton' }
+      2018: { dokonceno: false, kategorie: 'půlmaraton' },
+      2019: { dokonceno: false, kategorie: 'půlmaraton' }
     },
     {
       id: '8344bc71dec1e99b7e1d01e',
@@ -304,7 +310,8 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
       prijmeni: 'Zralá',
       jmeno: 'Hana',
       narozeni: { den: 25, mesic: 7, rok: 1999 },
-      2018: { dokonceno: true, kategorie: 'půlmaraton' }
+      2018: { dokonceno: true, kategorie: 'půlmaraton' },
+      2019: { dokonceno: true, kategorie: 'půlmaraton' }
     },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
@@ -319,7 +326,8 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
       2017: { dokonceno: true, kategorie: 'maraton' },
-      2018: { dokonceno: false, kategorie: 'půlmaraton' }
+      2018: { dokonceno: false, kategorie: 'půlmaraton' },
+      2019: { dokonceno: false, kategorie: 'půlmaraton' }
     }
   ];
   deepFreeze(state);
@@ -349,7 +357,8 @@ it('getUcastniciDigestSorted() filtrováno na r', () => {
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
       2017: { dokonceno: true, kategorie: 'maraton' },
-      2018: { dokonceno: false, kategorie: 'půlmaraton' }
+      2018: { dokonceno: false, kategorie: 'půlmaraton' },
+      2019: { dokonceno: false, kategorie: 'půlmaraton' }
     }
   ];
   deepFreeze(state);
@@ -379,14 +388,16 @@ it('getUcastniciDigestSorted() filtrováno na kategorii výkonu půlmaraton', ()
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
       2017: { dokonceno: true, kategorie: 'maraton' },
-      2018: { dokonceno: false, kategorie: 'půlmaraton' }
+      2018: { dokonceno: false, kategorie: 'půlmaraton' },
+      2019: { dokonceno: false, kategorie: 'půlmaraton' }
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
       prijmeni: 'Zralá',
       jmeno: 'Hana',
       narozeni: { den: 25, mesic: 7, rok: 1999 },
-      2018: { dokonceno: true, kategorie: 'půlmaraton' }
+      2018: { dokonceno: true, kategorie: 'půlmaraton' },
+      2019: { dokonceno: true, kategorie: 'půlmaraton' }
     }
   ];
   deepFreeze(state);

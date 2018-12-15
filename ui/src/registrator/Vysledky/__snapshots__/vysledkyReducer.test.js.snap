@@ -2,8 +2,8 @@
 
 exports[`getVysledky() - test db 1`] = `
 Object {
-  "datum": "9. června 2018",
-  "subtitle": "Jirkovský crossmarathon a Jirkovský půlmarathon 2018",
+  "datum": "8. června 2019",
+  "subtitle": "Jirkovský crossmarathon a Jirkovský půlmarathon 2019",
   "summary": Object {
     "dokoncilo": 1,
     "startovalo": 2,

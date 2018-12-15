@@ -1,15 +1,16 @@
-import ucastniciTestData from '../entities/ucastnici/ucastniciTestData';
+import { AKTUALNI_ROK } from '../constants';
+import ucastniciTestData, { AKTUALNI_DATUM_KONANI } from '../entities/ucastnici/ucastniciTestData';
 import { predepsaneStartovne, provedenePlatby } from './platby';
 
 it('provedenePlatby()', () => {
   const platby = [
-    { castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' },
-    { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
+    { castka: 250, datum: AKTUALNI_DATUM_KONANI, typ: 'hotově' },
+    { castka: 20, datum: AKTUALNI_DATUM_KONANI, typ: 'hotově' }
   ];
   const selected = {
     platby: [
-      { castka: 250, datum: '9. 6. 2018', typ: 'hotově' },
-      { castka: 20, datum: '9. 6. 2018', typ: 'hotově' }
+      { castka: 250, datum: `8. 6. ${AKTUALNI_ROK}`, typ: 'hotově' },
+      { castka: 20, datum: `8. 6. ${AKTUALNI_ROK}`, typ: 'hotově' }
     ],
     suma: 270
   };
@@ -45,7 +46,7 @@ it('predepsaneStartovne() - přihláška bez data', () => {
 });
 
 it('predepsaneStartovne() - přihláška na místě', () => {
-  const prihlaska = { typ: 'maraton', datum: new Date('2018-06-09').toJSON() };
+  const prihlaska = { typ: 'maraton', datum: new Date(AKTUALNI_DATUM_KONANI).toJSON() };
   const expected = { polozky: [{ castka: 250, duvod: 'na místě' }], suma: 250 };
 
   expect(predepsaneStartovne({ ...ucastniciTestData.entities, prihlaska })).toEqual(expected);

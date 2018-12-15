@@ -1,6 +1,7 @@
 import configureStore from 'redux-mock-store';
 import WsClient from '../../WsClient';
 import wsAPI from '../../store/wsAPI';
+import { AKTUALNI_DATUM_KONANI } from '../ucastnici/ucastniciTestData';
 import { FETCH_ROCNIKY, fetchRocniky } from './rocnikyActions';
 
 const mockWsClient = new WsClient();
@@ -187,6 +188,94 @@ const successfulResponse = {
         ubytovani: {
           pátek: { poplatek: 60 }
         }
+      },
+      2019: {
+        datum: '2019-06-08T00:00:00.000Z',
+        id: '6a02c8fd371dec1e99b7e1bc',
+        kategorie: {
+          maraton: {
+            startCisla: '5-95',
+            startovne: {
+              naMiste: 250,
+              predem: 200
+            },
+            žena: [
+              {
+                id: '5a71b1fd45754c1e99b7e1bc',
+                pohlavi: 'žena',
+                typ: 'maraton',
+                vek: {
+                  max: 49,
+                  min: 40
+                },
+                zkratka: '1Ž'
+              },
+              {
+                id: '5a09b1fd371dec1e99b7e1c9',
+                pohlavi: 'žena',
+                typ: 'maraton',
+                vek: {
+                  max: 59,
+                  min: 50
+                },
+                zkratka: '2Ž'
+              }
+            ]
+          },
+          pěší: {
+            id: '5a71b1fd371dec1e99b7e1bc',
+            startovne: {
+              naMiste: 25,
+              predem: 25
+            },
+            typ: 'pěší',
+            zkratka: 'P'
+          },
+          půlmaraton: {
+            muž: [
+              {
+                id: '8799b1fd371dec1e99b7e1c9',
+                pohlavi: 'muž',
+                typ: 'půlmaraton',
+                vek: {
+                  max: 59,
+                  min: 50
+                },
+                zkratka: '1M'
+              }
+            ],
+            startCisla: '100-199',
+            startovne: {
+              naMiste: 250,
+              predem: 200
+            },
+            žena: [
+              {
+                id: '1609b1fd3748746e99b7e1c9',
+                pohlavi: 'žena',
+                typ: 'půlmaraton',
+                vek: {
+                  max: 49,
+                  min: 40
+                },
+                zkratka: '1Ž'
+              },
+              {
+                id: '3279b1fd371dec1e99b7e1c9',
+                pohlavi: 'žena',
+                typ: 'půlmaraton',
+                vek: {
+                  max: 59,
+                  min: 50
+                },
+                zkratka: '2Ž'
+              }
+            ]
+          }
+        },
+        ubytovani: {
+          pátek: { poplatek: 50 }
+        }
       }
     }
   },
@@ -220,13 +309,13 @@ it('fetchRocniky() should dispatch two successful actions if rocniky not cached'
     response: {
       code: 'ok',
       kategorie: successfulResponse.response.kategorie,
-      rocniky: { byRoky: successfulResponse.response.rocniky, roky: [2017, 2018] }
+      rocniky: { byRoky: successfulResponse.response.rocniky, roky: [2017, 2018, 2019] }
     },
     title: 'načítání ročníků',
     receivedAt: expect.any(Number)
   });
 
-  expect(actions[1].getDatumKonani()).toEqual(new Date('2018-06-08').toJSON());
+  expect(actions[1].getDatumKonani()).toEqual(new Date(AKTUALNI_DATUM_KONANI).toJSON());
 });
 
 it('fetchRocniky() should dispatch one unsuccessful action if rocniky not cached', async () => {

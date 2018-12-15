@@ -1,7 +1,8 @@
 import deepFreeze from 'deep-freeze';
-import { TYPY_KATEGORII } from '../../constants';
+import { TYPY_KATEGORII, AKTUALNI_ROK } from '../../constants';
 import { signOut } from '../../auth/SignOut/SignOutActions';
 import { createSuccessFromAction } from '../../store/wsAPI';
+import { AKTUALNI_DATUM_KONANI } from '../ucastnici/ucastniciTestData';
 import { fetchRocniky } from './rocnikyActions';
 import rocnikyReducer, { getDatumKonani, getKategorie, getKategorieProTyp } from './rocnikyReducer';
 
@@ -202,6 +203,94 @@ it('po načtení ročníků', () => {
           ubytovani: {
             pátek: { poplatek: 60 }
           }
+        },
+        2019: {
+          datum: '2019-06-08T00:00:00.000Z',
+          id: '5a71cafd371dec1e09bde1bc',
+          kategorie: {
+            maraton: {
+              startCisla: '5-95',
+              startovne: {
+                naMiste: 250,
+                predem: 200
+              },
+              žena: [
+                {
+                  id: '5a71b1fd45754c1e99b7e1bc',
+                  pohlavi: 'žena',
+                  typ: 'maraton',
+                  vek: {
+                    max: 49,
+                    min: 40
+                  },
+                  zkratka: '1Ž'
+                },
+                {
+                  id: '5a09b1fd371dec1e99b7e1c9',
+                  pohlavi: 'žena',
+                  typ: 'maraton',
+                  vek: {
+                    max: 59,
+                    min: 50
+                  },
+                  zkratka: '2Ž'
+                }
+              ]
+            },
+            pěší: {
+              id: '5a71b1fd371dec1e99b7e1bc',
+              startovne: {
+                naMiste: 25,
+                predem: 25
+              },
+              typ: 'pěší',
+              zkratka: 'P'
+            },
+            půlmaraton: {
+              muž: [
+                {
+                  id: '8799b1fd371dec1e99b7e1c9',
+                  pohlavi: 'muž',
+                  typ: 'půlmaraton',
+                  vek: {
+                    max: 59,
+                    min: 50
+                  },
+                  zkratka: '1M'
+                }
+              ],
+              startCisla: '100-199',
+              startovne: {
+                naMiste: 250,
+                predem: 200
+              },
+              žena: [
+                {
+                  id: '1609b1fd3748746e99b7e1c9',
+                  pohlavi: 'žena',
+                  typ: 'půlmaraton',
+                  vek: {
+                    max: 49,
+                    min: 40
+                  },
+                  zkratka: '1Ž'
+                },
+                {
+                  id: '3279b1fd371dec1e99b7e1c9',
+                  pohlavi: 'žena',
+                  typ: 'půlmaraton',
+                  vek: {
+                    max: 59,
+                    min: 50
+                  },
+                  zkratka: '2Ž'
+                }
+              ]
+            }
+          },
+          ubytovani: {
+            pátek: { poplatek: 50 }
+          }
         }
       }
     },
@@ -209,13 +298,13 @@ it('po načtení ročníků', () => {
   };
 
   const stateBefore = { byRoky: {}, roky: [] };
-  const stateAfter = { byRoky: { ...json.response.rocniky }, roky: [2017, 2018] };
+  const stateAfter = { byRoky: { ...json.response.rocniky }, roky: [2017, 2018, 2019] };
   deepFreeze(stateBefore);
 
   expect(
     rocnikyReducer(stateBefore, createSuccessFromAction({ action: fetchRocniky(), response: json }))
   ).toEqual(stateAfter);
-  expect(getDatumKonani({ rocniky: stateAfter })).toEqual(new Date('2018-06-09').toJSON());
+  expect(getDatumKonani({ rocniky: stateAfter })).toEqual(new Date(AKTUALNI_DATUM_KONANI).toJSON());
 });
 
 it('po odhlášení', () => {
@@ -273,9 +362,9 @@ it('po odhlášení', () => {
 
 it('getKategorie(), getKategorieProTyp()', () => {
   const rocniky = {
-    roky: [2018],
+    roky: [AKTUALNI_ROK],
     byRoky: {
-      2018: {
+      [AKTUALNI_ROK]: {
         id: '5a587e1b051c181132cf83df',
         kategorie: {
           maraton: {
@@ -502,7 +591,7 @@ it('getKategorie(), getKategorieProTyp()', () => {
             startovne: { predem: 30, naMiste: 30 }
           }
         },
-        datum: '2018-06-09T00:00:00.000Z',
+        datum: AKTUALNI_DATUM_KONANI,
         ubytovani: { pátek: { poplatek: 50 } }
       }
     }

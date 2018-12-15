@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import { UBYTOVANI_NEPRESPANO, ubytovaniModifications } from '../../common';
-import { PRIHLASKY } from '../../constants';
+import { AKTUALNI_ROK, PRIHLASKY } from '../../constants';
 import { websocketDisconnected } from '../../App/AppActions';
 import { signOut } from '../../auth/SignOut/SignOutActions';
 import { createPrihlaskySave } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
@@ -9,7 +9,7 @@ import { modifyUbytovani } from '../../registrator/Ubytovani/UbytovaniActions';
 import { createSuccessFromAction } from '../../store/wsAPI';
 import ucastniciReducer, { getUcastiProRok } from './ucastniciReducer';
 import { broadcastUcastnik, fetchUcastnici } from './ucastniciActions';
-import ucastniciTestData from './ucastniciTestData';
+import ucastniciTestData, { AKTUALNI_DATUM_KONANI } from './ucastniciTestData';
 
 const prihlaskySave = createPrihlaskySave(PRIHLASKY);
 
@@ -181,18 +181,17 @@ it('modifyUbytovani - success()', () => {
   const stateBefore = { ...ucastniciTestData.entities.ucastnici };
   deepFreeze(stateBefore);
   const id = '5a09b1fd371dec1e99b7e1c9';
-  const rok = 2018;
   const ucastnik = ucastniciTestData.entities.ucastnici.byIds[id];
   const ubytovani = ubytovaniModifications[UBYTOVANI_NEPRESPANO]({
     den: 'pátek',
-    ubytovani: ucastnik[2018].ubytovani
+    ubytovani: ucastnik[AKTUALNI_ROK].ubytovani
   });
 
   expect(
     ucastniciReducer(
       stateBefore,
       createSuccessFromAction({
-        action: modifyUbytovani({ id, modifikace: UBYTOVANI_NEPRESPANO, rok }),
+        action: modifyUbytovani({ id, modifikace: UBYTOVANI_NEPRESPANO, rok: AKTUALNI_ROK }),
         response: { response: { ubytovani } }
       })
     )
@@ -203,21 +202,20 @@ it('prihlaskySave() - success - stávající účastník - nový rok', () => {
   const stateBefore = { ...ucastniciTestData.entities.ucastnici };
   deepFreeze(stateBefore);
   const id = '6f09b1fd371dec1e99b7e1c9';
-  const rok = 2018;
   const ucastnik = ucastniciTestData.entities.ucastnici.byIds[id];
   let { udaje } = ucastnik[2016];
   udaje = { ...udaje, klub: 'SK Nudle' };
   const prihlaska = {
-    datum: '2018-05-12T00:00:00.000Z',
+    datum: '2019-05-12T00:00:00.000Z',
     kategorie: '5a587e1b051c181132cf83db',
     typ: 'půlmaraton',
     startCislo: 15,
     kod: '===kod===',
     mladistvyPotvrzen: undefined
   };
-  const platby = [{ castka: 200, datum: '2018-05-12T00:00:00.000Z', typ: 'převodem' }];
+  const platby = [{ castka: 200, datum: '2019-05-12T00:00:00.000Z', typ: 'převodem' }];
   const ubytovani = { pátek: { prihlaseno: true } };
-  const request = { rok, udaje, prihlaska, platby, ubytovani };
+  const request = { rok: AKTUALNI_ROK, udaje, prihlaska, platby, ubytovani };
 
   expect(
     ucastniciReducer(
@@ -231,12 +229,11 @@ it('prihlaskySave() - success - stávající účastník - stávající rok', ()
   const stateBefore = { ...ucastniciTestData.entities.ucastnici };
   deepFreeze(stateBefore);
   const id = '5a09b1fd371dec1e99b7e1c9';
-  const rok = 2018;
   const ucastnik = ucastniciTestData.entities.ucastnici.byIds[id];
-  const { udaje } = ucastnik[2018];
-  let { prihlaska } = ucastnik[2018];
+  const { udaje } = ucastnik[AKTUALNI_ROK];
+  let { prihlaska } = ucastnik[AKTUALNI_ROK];
   prihlaska = { ...prihlaska, startCislo: 18 };
-  const request = { id, rok, udaje, prihlaska };
+  const request = { id, rok: AKTUALNI_ROK, udaje, prihlaska };
 
   expect(
     ucastniciReducer(
@@ -250,7 +247,6 @@ it('prihlaskySave() - success - nový účastník', () => {
   const stateBefore = { ...ucastniciTestData.entities.ucastnici };
   deepFreeze(stateBefore);
   const id = '7a09b1fd371dec1e99b79853';
-  const rok = 2018;
   const udaje = {
     prijmeni: 'Malá',
     jmeno: 'Bára',
@@ -268,9 +264,9 @@ it('prihlaskySave() - success - nový účastník', () => {
     kod: '===kod===',
     mladistvyPotvrzen: undefined
   };
-  const platby = [{ castka: 200, datum: '2018-05-12T00:00:00.000Z', typ: 'složenkou' }];
+  const platby = [{ castka: 200, datum: '2019-05-12T00:00:00.000Z', typ: 'složenkou' }];
   const ubytovani = { pátek: { prihlaseno: true, prespano: true } };
-  const request = { rok, udaje, prihlaska, platby, ubytovani };
+  const request = { rok: AKTUALNI_ROK, udaje, prihlaska, platby, ubytovani };
 
   expect(
     ucastniciReducer(
@@ -285,7 +281,7 @@ it('createVykon() - success', () => {
   deepFreeze(stateBefore);
   const request = {
     id: '8344bc71dec1e99b7e1d01e',
-    rok: 2018,
+    rok: AKTUALNI_ROK,
     vykon: { dokonceno: null, kategorie: '5a587e1b051c181132cf83d9', startCislo: 15 }
   };
 
@@ -299,7 +295,7 @@ it('deleteVykon() - success', () => {
   deepFreeze(stateBefore);
   const request = {
     id: '7a09b1fd371dec1e99b7e142',
-    rok: 2018
+    rok: AKTUALNI_ROK
   };
 
   expect(
@@ -311,7 +307,7 @@ it('broadcastUcastnik - změna', () => {
   const stateBefore = { ...ucastniciTestData.entities.ucastnici };
   deepFreeze(stateBefore);
   const id = '7a09b1fd371dec1e99b7e142';
-  const roky = [2018];
+  const roky = [AKTUALNI_ROK];
   const ucasti = {
     2018: {
       udaje: {
@@ -325,9 +321,9 @@ it('broadcastUcastnik - změna', () => {
         klub: 'SK Nudle',
         email: 'zrala.kl@s.cz'
       },
-      platby: [{ castka: 100, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }],
+      platby: [{ castka: 100, datum: AKTUALNI_DATUM_KONANI, typ: 'hotově' }],
       prihlaska: {
-        datum: '2018-06-08T00:00:00.000Z',
+        datum: AKTUALNI_DATUM_KONANI,
         kategorie: '5a587e1b051c181132cf83d9', // půlmaraton
         startCislo: 9,
         kod: 'abc023skd204mvs345'

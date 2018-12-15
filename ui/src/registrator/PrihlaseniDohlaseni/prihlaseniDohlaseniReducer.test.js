@@ -1,5 +1,7 @@
 import deepFreeze from 'deep-freeze';
-import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
+import ucastniciTestData, {
+  AKTUALNI_DATUM_KONANI
+} from '../../entities/ucastnici/ucastniciTestData';
 import { SortDirTypes } from '../../sort';
 import {
   createKategorieFilterChange,
@@ -200,7 +202,7 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
       narozeni: { rok: 1956 },
       obec: 'Ostrava 2',
       email: '',
-      datum: new Date('2018-06-09T00:00:00.000Z'),
+      datum: new Date(AKTUALNI_DATUM_KONANI),
       kategorie: {
         id: '5a587e1b051c181132cf83d7',
         pohlavi: 'muž',
@@ -219,7 +221,7 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
       narozeni: { den: 13, mesic: 8, rok: 2001 },
       obec: 'Aš',
       email: 'sks@por.cz',
-      datum: new Date('2018-06-09T00:00:00.000Z'),
+      datum: new Date(AKTUALNI_DATUM_KONANI),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
@@ -238,7 +240,7 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
-      datum: new Date('2018-05-12T00:00:00.000Z'),
+      datum: new Date('2019-05-12T00:00:00.000Z'),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
@@ -282,7 +284,7 @@ it('getPrihlaseniSorted() filtrováno na z', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
-      datum: new Date('2018-05-12T00:00:00.000Z'),
+      datum: new Date('2019-05-12T00:00:00.000Z'),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
@@ -326,7 +328,7 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       narozeni: { rok: 1956 },
       obec: 'Ostrava 2',
       email: '',
-      datum: new Date('2018-06-09T00:00:00.000Z'),
+      datum: new Date(AKTUALNI_DATUM_KONANI),
       kategorie: {
         id: '5a587e1b051c181132cf83d7',
         pohlavi: 'muž',
@@ -345,7 +347,7 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       narozeni: { den: 13, mesic: 8, rok: 2001 },
       obec: 'Aš',
       email: 'sks@por.cz',
-      datum: new Date('2018-06-09T00:00:00.000Z'),
+      datum: new Date(AKTUALNI_DATUM_KONANI),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
@@ -364,7 +366,7 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
-      datum: new Date('2018-05-12T00:00:00.000Z'),
+      datum: new Date('2019-05-12T00:00:00.000Z'),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
@@ -408,7 +410,7 @@ it('getPrihlaseniSorted() by default - jen prihlášeni', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
-      datum: new Date('2018-05-12T00:00:00.000Z'),
+      datum: new Date('2019-05-12T00:00:00.000Z'),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
@@ -452,7 +454,7 @@ it('getPrihlaseniSorted() by default - jen dohlášeni', () => {
       narozeni: { rok: 1956 },
       obec: 'Ostrava 2',
       email: '',
-      datum: new Date('2018-06-09T00:00:00.000Z'),
+      datum: new Date(AKTUALNI_DATUM_KONANI),
       kategorie: {
         id: '5a587e1b051c181132cf83d7',
         pohlavi: 'muž',
@@ -471,7 +473,7 @@ it('getPrihlaseniSorted() by default - jen dohlášeni', () => {
       narozeni: { den: 13, mesic: 8, rok: 2001 },
       obec: 'Aš',
       email: 'sks@por.cz',
-      datum: new Date('2018-06-09T00:00:00.000Z'),
+      datum: new Date(AKTUALNI_DATUM_KONANI),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
@@ -490,7 +492,7 @@ it('getPrihlaseniSorted() by default - jen dohlášeni', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
-      datum: new Date('2018-05-12T00:00:00.000Z'),
+      datum: new Date('2019-05-12T00:00:00.000Z'),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
@@ -534,7 +536,7 @@ it('getPrihlaseniSorted() by default - jen přihlášeni i dohlášeni', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
-      datum: new Date('2018-05-12T00:00:00.000Z'),
+      datum: new Date('2019-05-12T00:00:00.000Z'),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',

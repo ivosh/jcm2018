@@ -1,6 +1,7 @@
 import configureStore from 'redux-mock-store';
 import WsClient from '../../WsClient';
 import { UBYTOVANI_PRIHLASIT, UBYTOVANI_ODHLASIT } from '../../common';
+import { AKTUALNI_ROK } from '../../constants';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import wsAPI from '../../store/wsAPI';
 import { MODIFY_UBYTOVANI, modifyUbytovani } from './UbytovaniActions';
@@ -43,7 +44,7 @@ it('modifyUbytovani() should dispatch two successful actions', async () => {
     den: 'pátek',
     id: '7a09b1fd371dec1e99b7e142',
     modifikace: 'přihlásit',
-    rok: 2018
+    rok: AKTUALNI_ROK
   };
 
   const actions = store.getActions();
@@ -81,7 +82,7 @@ it('modifyUbytovani() should dispatch two unsuccessful actions', async () => {
     den: 'sobota',
     id: '7a09b1fd371dec1e99b7e142',
     modifikace: 'odhlásit',
-    rok: 2018
+    rok: AKTUALNI_ROK
   };
 
   const actions = store.getActions();

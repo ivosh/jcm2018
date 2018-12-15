@@ -1,5 +1,8 @@
 import deepFreeze from 'deep-freeze';
-import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
+import { AKTUALNI_ROK } from '../../constants';
+import ucastniciTestData, {
+  AKTUALNI_DATUM_KONANI
+} from '../../entities/ucastnici/ucastniciTestData';
 import { SortDirTypes } from '../../sort';
 import { createRequestFromAction, createSuccessFromAction } from '../../store/wsAPI';
 import { createTextFilterChange } from '../Filterable/FilterableActions';
@@ -45,7 +48,7 @@ it('loading - zapnutí', () => {
     ubytovaniReducer(
       stateBefore,
       createRequestFromAction({
-        action: modifyUbytovani({ id: '5a09b1fd371dec1e99b7e1c9', rok: 2018 })
+        action: modifyUbytovani({ id: '5a09b1fd371dec1e99b7e1c9', rok: AKTUALNI_ROK })
       })
     )
   ).toEqual(stateAfter);
@@ -60,7 +63,7 @@ it('loading - vypnutí', () => {
     ubytovaniReducer(
       stateBefore,
       createSuccessFromAction({
-        action: modifyUbytovani({ id: '5a09b1fd371dec1e99b7e1c9', rok: 2018 }),
+        action: modifyUbytovani({ id: '5a09b1fd371dec1e99b7e1c9', rok: AKTUALNI_ROK }),
         response: { response: {} }
       })
     )
@@ -153,7 +156,7 @@ it('getUbytovaniSorted() by default', () => {
       narozeni: { rok: 1956 },
       obec: 'Ostrava 2',
       email: '',
-      datum: new Date('2018-06-09T00:00:00.000Z'),
+      datum: new Date(AKTUALNI_DATUM_KONANI),
       prihlaseno: true,
       prespano: true,
       akce: {
@@ -168,7 +171,7 @@ it('getUbytovaniSorted() by default', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
-      datum: new Date('2018-05-12T00:00:00.000Z'),
+      datum: new Date('2019-05-12'),
       prihlaseno: true,
       akce: {
         loading: true,
@@ -206,7 +209,7 @@ it('getUbytovaniSorted() filtrováno na z', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
-      datum: new Date('2018-05-12T00:00:00.000Z'),
+      datum: new Date(`${AKTUALNI_ROK}-05-12T00:00:00.000Z`),
       prihlaseno: true,
       akce: {
         loading: false,

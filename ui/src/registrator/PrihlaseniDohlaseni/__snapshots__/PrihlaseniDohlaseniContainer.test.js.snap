@@ -19,7 +19,7 @@ Object {
 exports[`maps state and dispatch to props 3`] = `
 Array [
   Object {
-    "datum": 2018-05-12T00:00:00.000Z,
+    "datum": 2019-05-12T00:00:00.000Z,
     "email": "zrala.kl@s.cz",
     "id": "7a09b1fd371dec1e99b7e142",
     "jmeno": "Hana",

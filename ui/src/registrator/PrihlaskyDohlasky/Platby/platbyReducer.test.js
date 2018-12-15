@@ -1,6 +1,8 @@
 import deepFreeze from 'deep-freeze';
 import { DOHLASKY } from '../../../constants';
-import ucastniciTestData from '../../../entities/ucastnici/ucastniciTestData';
+import ucastniciTestData, {
+  AKTUALNI_DATUM_KONANI
+} from '../../../entities/ucastnici/ucastniciTestData';
 import {
   createAddPlatba,
   createExpandNovaPlatba,
@@ -66,7 +68,7 @@ it('reset() - dohlášky', () => {
   };
   const stateAfter = {
     castka: undefined,
-    datum: new Date('2018-06-09').toJSON(),
+    datum: new Date(AKTUALNI_DATUM_KONANI).toJSON(),
     typ: 'hotově',
     poznamka: undefined,
     novaPlatbaMinified: true,

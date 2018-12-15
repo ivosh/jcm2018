@@ -1,4 +1,5 @@
 import configureStore from 'redux-mock-store';
+import { AKTUALNI_ROK } from '../../constants';
 import WsClient from '../../WsClient';
 import wsAPI from '../../store/wsAPI';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
@@ -32,7 +33,7 @@ it('createVykon() should dispatch two successful actions', async () => {
   const store = mockStore({ ...ucastniciTestData, auth: { token: '===token===' } });
 
   await store.dispatch(createVykon({ id: '8344bc71dec1e99b7e1d01e' }));
-  const request = { id: '8344bc71dec1e99b7e1d01e', rok: 2018, vykon: expect.any(Object) };
+  const request = { id: '8344bc71dec1e99b7e1d01e', rok: AKTUALNI_ROK, vykon: expect.any(Object) };
 
   const actions = store.getActions();
   expect(actions[0]).toEqual({
@@ -53,7 +54,7 @@ it('deleteVykon() should dispatch two successful actions', async () => {
   const store = mockStore({ ...ucastniciTestData, auth: { token: '===token===' } });
 
   await store.dispatch(deleteVykon({ id: '5a09b1fd371dec1e99b7e1c9' }));
-  const request = { id: '5a09b1fd371dec1e99b7e1c9', rok: 2018 };
+  const request = { id: '5a09b1fd371dec1e99b7e1c9', rok: AKTUALNI_ROK };
 
   const actions = store.getActions();
   expect(actions[0]).toEqual({
@@ -76,7 +77,7 @@ it('createVykon() should dispatch two unsuccessful actions', async () => {
   const store = mockStore({ ...ucastniciTestData, auth: { token: '===token===' } });
 
   await store.dispatch(createVykon({ id: '8344bc71dec1e99b7e1d01e' }));
-  const request = { id: '8344bc71dec1e99b7e1d01e', rok: 2018, vykon: expect.any(Object) };
+  const request = { id: '8344bc71dec1e99b7e1d01e', rok: AKTUALNI_ROK, vykon: expect.any(Object) };
 
   const actions = store.getActions();
   expect(actions[0]).toEqual({
@@ -102,7 +103,7 @@ it('deleteVykon() should dispatch two unsuccessful actions', async () => {
   const store = mockStore({ ...ucastniciTestData, auth: { token: '===token===' } });
 
   await store.dispatch(deleteVykon({ id: '8344bc71dec1e99b7e1d01e' }));
-  const request = { id: '8344bc71dec1e99b7e1d01e', rok: 2018 };
+  const request = { id: '8344bc71dec1e99b7e1d01e', rok: AKTUALNI_ROK };
 
   const actions = store.getActions();
   expect(actions[0]).toEqual({

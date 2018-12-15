@@ -5,7 +5,9 @@ import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import { mount } from 'enzyme';
 import { DOHLASKY } from '../../constants';
-import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
+import ucastniciTestData, {
+  AKTUALNI_DATUM_KONANI
+} from '../../entities/ucastnici/ucastniciTestData';
 import Dohlasky from './Dohlasky';
 import PrihlaskyDohlaskyMain from './PrihlaskyDohlaskyMain';
 
@@ -75,11 +77,11 @@ it('renders /dohlasky/reset route', () => {
   expect(store.dispatch).toHaveBeenCalledTimes(3); // fetchUcastnici + Form/reset + Platby/reset
   expect(store.dispatch).toHaveBeenCalledWith({
     type: `${DOHLASKY}_RESET`,
-    datumKonani: '2018-06-09T00:00:00.000Z'
+    datumKonani: AKTUALNI_DATUM_KONANI
   });
   expect(store.dispatch).toHaveBeenCalledWith({
     type: `${DOHLASKY}_NOVA_PLATBA_RESET`,
-    datumKonani: '2018-06-09T00:00:00.000Z'
+    datumKonani: AKTUALNI_DATUM_KONANI
   });
 });
 
@@ -97,7 +99,7 @@ it('renders /dohlasky/:id route', () => {
   expect(wrapper.find('Connect(PrihlaskyForm)').props()).toMatchSnapshot();
   expect(store.dispatch).toHaveBeenCalledTimes(2); // fetchUcastnici + load
   expect(store.dispatch).toHaveBeenCalledWith({
-    datumKonani: '2018-06-09T00:00:00.000Z',
+    datumKonani: AKTUALNI_DATUM_KONANI,
     id: '6f09b1fd371dec1e99b7e1c9',
     type: `${DOHLASKY}_UCASTNIK_LOAD`,
     udaje: {

@@ -1,4 +1,5 @@
 import deepFreeze from 'deep-freeze';
+import { AKTUALNI_ROK } from '../../constants';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { getPokladna } from './pokladnaReducer';
 
@@ -56,29 +57,29 @@ it('getPokladna - all cases', () => {
   const state = JSON.parse(JSON.stringify(ucastniciTestData)); // deep copy
   const { ucastnici } = state.entities;
 
-  ucastnici.byIds['6f09b1fd371dec1e99b7e1c9'].roky = [2018];
+  ucastnici.byIds['6f09b1fd371dec1e99b7e1c9'].roky = [AKTUALNI_ROK];
   const {
     byIds: {
       '6f09b1fd371dec1e99b7e1c9': { 2016: staraUcast }
     }
   } = ucastnici;
-  ucastnici.byIds['6f09b1fd371dec1e99b7e1c9'][2018] = staraUcast;
-  ucastnici.byIds['6f09b1fd371dec1e99b7e1c9'][2018].platby = [
+  ucastnici.byIds['6f09b1fd371dec1e99b7e1c9'][AKTUALNI_ROK] = staraUcast;
+  ucastnici.byIds['6f09b1fd371dec1e99b7e1c9'][AKTUALNI_ROK].platby = [
     { castka: 200, typ: 'převodem' },
     { castka: 50, typ: 'hotově' }
   ];
 
   const {
     byIds: {
-      '8344bc71dec1e99b7e1d01e': { 2018: novaPrihlaska }
+      '8344bc71dec1e99b7e1d01e': { [AKTUALNI_ROK]: novaPrihlaska }
     }
   } = ucastnici;
   novaPrihlaska.vykon = { kategorie: novaPrihlaska.prihlaska.kategorie, dokonceno: true };
 
   ucastnici.allIds.push('hohohohohohoho');
   ucastnici.byIds.hohohohohohoho = {
-    roky: [2018],
-    2018: {
+    roky: [AKTUALNI_ROK],
+    [AKTUALNI_ROK]: {
       udaje: {},
       prihlaska: {
         kategorie: '5a587e1a051c181132cf83b3'

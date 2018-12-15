@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import { API_MODIFY_UBYTOVANI, UBYTOVANI_ODHLASIT } from '../../common';
+import { AKTUALNI_ROK } from '../../constants';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { WS_API } from '../../store/wsAPI';
 import { MODIFY_UBYTOVANI } from './UbytovaniActions';
@@ -57,7 +58,12 @@ it('maps onSelect to dispatch saveUbytovani action', () => {
       type: MODIFY_UBYTOVANI,
       endpoint: API_MODIFY_UBYTOVANI,
       normalize: expect.any(Function),
-      request: { den: 'pátek', id: expect.any(String), modifikace: UBYTOVANI_ODHLASIT, rok: 2018 },
+      request: {
+        den: 'pátek',
+        id: expect.any(String),
+        modifikace: UBYTOVANI_ODHLASIT,
+        rok: AKTUALNI_ROK
+      },
       title: 'ukládání ubytování'
     }
   });
