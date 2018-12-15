@@ -7,7 +7,7 @@ const httpServer = require('./staticHttpServer');
 const createWsServer = require('./createWsServer');
 
 const PORT = Number(process.env.PORT || common.PORT_DEV_SERVER);
-process.title = 'jcm2018-server';
+process.title = 'jcm2019-server';
 
 db.connect();
 

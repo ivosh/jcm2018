@@ -5,7 +5,7 @@ const WebSocketAsPromised = require('websocket-as-promised');
 
 const createWsClient = ({ port }) =>
   new WebSocketAsPromised(`ws://localhost:${port}/`, {
-    createWebSocket: url => new W3CWebSocket(url, 'jcm2018'),
+    createWebSocket: url => new W3CWebSocket(url, 'jcm2019'),
     packMessage: data => JSON.stringify(data),
     unpackMessage: message => JSON.parse(message),
     attachRequestId: (data, requestId) => ({ ...data, requestId }),

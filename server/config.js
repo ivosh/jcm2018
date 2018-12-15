@@ -24,9 +24,9 @@ if (env === 'production') {
   config.db.uri = process.env.DB;
   config.jwt.secret = process.env.JWT_SECRET;
 } else if (env === 'test') {
-  config.db.uri = 'mongodb://localhost/jcm2018-test';
+  config.db.uri = 'mongodb://localhost/jcm2019-test';
 } else {
-  config.db.uri = 'mongodb://localhost/jcm2018-dev';
+  config.db.uri = 'mongodb://localhost/jcm2019-dev';
 }
 
 module.exports = config;

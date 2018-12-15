@@ -37,7 +37,7 @@ class WsClient {
 
   connectPrivate = async request => {
     const ws = new WebSocketAsPromised(this.url, {
-      createWebSocket: () => new WebSocket(this.url, 'jcm2018'),
+      createWebSocket: () => new WebSocket(this.url, 'jcm2019'),
       packMessage: data => JSON.stringify(data),
       unpackMessage: message => JSON.parse(message),
       attachRequestId: (data, requestId) => ({ ...data, requestId }),
