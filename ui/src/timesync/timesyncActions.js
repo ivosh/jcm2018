@@ -1,22 +1,20 @@
 import { API_TIMESYNC } from '../common';
+import {
+  TIMESYNC_LAST_SAMPLES,
+  TIMESYNC_INITIAL_BURST_DELAY,
+  TIMESYNC_OPERATIONAL_DELAY
+} from '../constants';
 import { WS_API } from '../store/wsAPI';
 
 export const timesyncStart = () => ({ type: 'TIMESYNC_START' });
 export const timesyncStop = () => ({ type: 'TIMESYNC_STOP' });
 
-export const timesyncResponse = ({ clientTime, serverTime, now = new Date() }) => ({
-  type: 'TIMESYNC_RESPONSE',
-  clientTime: clientTime.toJSON ? clientTime.toJSON() : clientTime,
-  now: now.toJSON ? now.toJSON() : now,
-  serverTime: serverTime.toJSON ? serverTime.toJSON() : serverTime
-});
-
 const normalize = ({
   request,
   response: {
-    response: { serverTime }
+    response: { now, serverTime } // now from response used only for testing
   }
-}) => ({ request, response: { serverTime } });
+}) => ({ request, response: { now: now || new Date().toJSON(), serverTime } });
 
 export const TIMESYNC = 'TIMESYNC';
 export const timesync = () => ({
@@ -29,3 +27,18 @@ export const timesync = () => ({
     title: 'synchronizace času'
   }
 });
+
+export const timesyncOperation = () => async (dispatch, getState) => {
+  const {
+    timesync: { running, samples }
+  } = getState();
+  if (running) {
+    await dispatch(timesync());
+    setTimeout(
+      () => dispatch(timesyncOperation),
+      samples.length < TIMESYNC_LAST_SAMPLES
+        ? TIMESYNC_INITIAL_BURST_DELAY
+        : TIMESYNC_OPERATIONAL_DELAY
+    );
+  }
+};

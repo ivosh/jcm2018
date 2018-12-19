@@ -4,7 +4,8 @@ export const AKTUALNI_ROK = 2019;
 
 export const STOPKY_ONE_TICK = 10; // milliseconds
 
-export const TIMESYNC_DELAY = 1000; // 1 second
+export const TIMESYNC_INITIAL_BURST_DELAY = 1000; // 1 second
+export const TIMESYNC_OPERATIONAL_DELAY = 10000; // 10 seconds
 export const TIMESYNC_LAST_SAMPLES = 5;
 
 export const DOHLASKY = 'DOHLASKY';

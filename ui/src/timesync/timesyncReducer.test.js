@@ -1,5 +1,6 @@
 import deepFreeze from 'deep-freeze';
-import { timesyncResponse, timesyncStart, timesyncStop } from './timesyncActions';
+import { createSuccessFromAction } from '../store/wsAPI';
+import { timesync, timesyncStart, timesyncStop } from './timesyncActions';
 import timesyncReducer from './timesyncReducer';
 
 it('na začátku', () => {
@@ -37,10 +38,15 @@ it('první response', () => {
   expect(
     timesyncReducer(
       stateBefore,
-      timesyncResponse({
-        clientTime: '2018-11-30T06:15:32.4Z',
-        serverTime: '2018-11-30T06:15:33.56Z',
-        now: '2018-11-30T06:15:34.29Z'
+      createSuccessFromAction({
+        action: timesync(),
+        request: { clientTime: '2018-11-30T06:15:32.4Z' },
+        response: {
+          response: {
+            now: '2018-11-30T06:15:34.29Z',
+            serverTime: '2018-11-30T06:15:33.56Z'
+          }
+        }
       })
     )
   ).toEqual(stateAfter);
@@ -67,10 +73,15 @@ it('response 5x', () => {
   expect(
     timesyncReducer(
       stateBefore,
-      timesyncResponse({
-        clientTime: '2018-11-30T06:15:32.427Z',
-        serverTime: '2018-11-30T06:15:32.512Z',
-        now: '2018-11-30T06:15:32.603Z'
+      createSuccessFromAction({
+        action: timesync(),
+        request: { clientTime: '2018-11-30T06:15:32.427Z' },
+        response: {
+          response: {
+            now: '2018-11-30T06:15:32.603Z',
+            serverTime: '2018-11-30T06:15:32.512Z'
+          }
+        }
       })
     )
   ).toEqual(stateAfter);

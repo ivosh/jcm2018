@@ -49,8 +49,12 @@ const timesyncReducer = (state = initialState, action) => {
       return { ...initialState, running: true };
     case 'TIMESYNC_STOP':
       return { ...state, running: false };
-    case 'TIMESYNC_RESPONSE': {
-      const lastSamples = [...state.samples, computeSample(action)];
+    case 'TIMESYNC_SUCCESS': {
+      const {
+        request: { clientTime },
+        response: { now, serverTime }
+      } = action;
+      const lastSamples = [...state.samples, computeSample({ clientTime, now, serverTime })];
       const samples = lastSamples.slice(-TIMESYNC_LAST_SAMPLES);
       const offset = computeOffset(samples) || state.offset;
       return { ...state, offset, samples };
