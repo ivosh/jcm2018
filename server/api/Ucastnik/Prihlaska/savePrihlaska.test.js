@@ -16,9 +16,11 @@ const token = generateTestToken();
 
 let kategorie1;
 let kategorie2;
+let kategorie3;
 let kategorie4;
 let kategorie5;
 let kategorie6;
+let kategorie7;
 beforeAll(async () => {
   wsServer.listen(port);
   await wsClient.open();
@@ -38,31 +40,37 @@ beforeAll(async () => {
     vek: { min: 50, max: 59 }
   });
   await kategorie2.save();
-  const kategorie3 = new Kategorie({
-    typ: 'půlmaraton',
-    pohlavi: 'žena',
-    vek: { min: 40, max: 49 }
+  kategorie3 = new Kategorie({
+    typ: 'maraton',
+    pohlavi: 'muž',
+    vek: { min: 50, max: 59 }
   });
   await kategorie3.save();
   kategorie4 = new Kategorie({
     typ: 'půlmaraton',
     pohlavi: 'žena',
-    vek: { min: 50, max: 59 }
+    vek: { min: 40, max: 49 }
   });
   await kategorie4.save();
   kategorie5 = new Kategorie({
     typ: 'půlmaraton',
-    pohlavi: 'muž',
+    pohlavi: 'žena',
     vek: { min: 50, max: 59 }
   });
   await kategorie5.save();
-  kategorie6 = new Kategorie({ typ: 'pěší' });
+  kategorie6 = new Kategorie({
+    typ: 'půlmaraton',
+    pohlavi: 'muž',
+    vek: { min: 50, max: 59 }
+  });
   await kategorie6.save();
+  kategorie7 = new Kategorie({ typ: 'pěší' });
+  await kategorie7.save();
 
   const rocnik1 = new Rocnik({ rok: 2015, datum: '2015-06-01' });
   rocnik1.kategorie.push({
     typ: 'maraton',
-    kategorie: [kategorie1.id, kategorie2.id],
+    kategorie: [kategorie1.id, kategorie2.id, kategorie3.id],
     startCisla: { rozsahy: ['1-100'] },
     startovne: { predem: 150, naMiste: 200 }
   });
@@ -73,7 +81,7 @@ beforeAll(async () => {
   const rocnik2 = new Rocnik({ rok: 2016, datum: '2016-06-01' });
   rocnik2.kategorie.push({
     typ: 'maraton',
-    kategorie: [kategorie1.id, kategorie2.id],
+    kategorie: [kategorie1.id, kategorie2.id, kategorie3.id],
     startCisla: { rozsahy: ['1-100'] },
     startovne: { predem: 150, naMiste: 200 }
   });
@@ -84,13 +92,13 @@ beforeAll(async () => {
   const rocnik3 = new Rocnik({ rok: 2017, datum: '2017-06-10' });
   rocnik3.kategorie.push({
     typ: 'maraton',
-    kategorie: [kategorie1.id, kategorie2.id],
+    kategorie: [kategorie1.id, kategorie2.id, kategorie3.id],
     startCisla: { rozsahy: ['1-100'] },
     startovne: { predem: 150, naMiste: 200 }
   });
   rocnik3.kategorie.push({
     typ: 'půlmaraton',
-    kategorie: [kategorie3.id, kategorie4.id, kategorie5.id],
+    kategorie: [kategorie4.id, kategorie5.id, kategorie6.id],
     startCisla: { rozsahy: ['1-100'] },
     startovne: { predem: 150, naMiste: 200 }
   });
@@ -101,23 +109,44 @@ beforeAll(async () => {
   const rocnik4 = new Rocnik({ rok: 2018, datum: '2018-06-08' });
   rocnik4.kategorie.push({
     typ: 'maraton',
-    kategorie: [kategorie1.id, kategorie2.id],
+    kategorie: [kategorie1.id, kategorie2.id, kategorie3.id],
     startCisla: { rozsahy: ['5-95'] },
     startovne: { predem: 200, naMiste: 250 }
   });
   rocnik4.kategorie.push({
     typ: 'půlmaraton',
-    kategorie: [kategorie3.id, kategorie4.id, kategorie5.id],
+    kategorie: [kategorie4.id, kategorie5.id, kategorie6.id],
     startCisla: { rozsahy: ['100-199'] },
     startovne: { predem: 200, naMiste: 250 }
   });
   rocnik4.kategorie.push({
     typ: 'pěší',
-    kategorie: [kategorie6.id],
+    kategorie: [kategorie7.id],
     startovne: { predem: 25, naMiste: 25 }
   });
   rocnik4.ubytovani.pátek = { poplatek: 60 };
   await rocnik4.save();
+
+  const rocnik5 = new Rocnik({ rok: 2019, datum: '2019-06-09' });
+  rocnik5.kategorie.push({
+    typ: 'maraton',
+    kategorie: [kategorie1.id, kategorie2.id, kategorie3.id],
+    startCisla: { rozsahy: ['5-95'] },
+    startovne: { predem: 200, naMiste: 250 }
+  });
+  rocnik5.kategorie.push({
+    typ: 'půlmaraton',
+    kategorie: [kategorie4.id, kategorie5.id, kategorie6.id],
+    startCisla: { rozsahy: ['100-199'] },
+    startovne: { predem: 200, naMiste: 250 }
+  });
+  rocnik5.kategorie.push({
+    typ: 'pěší',
+    kategorie: [kategorie7.id],
+    startovne: { predem: 25, naMiste: 25 }
+  });
+  rocnik5.ubytovani.pátek = { poplatek: 60 };
+  await rocnik5.save();
 });
 
 beforeEach(async () => {
@@ -140,7 +169,7 @@ it('vytvoř minimálního účastníka', async () => {
   };
   const prihlaska = {
     datum: new Date('2018-02-07Z'),
-    kategorie: kategorie5.id, // půlmaraton
+    kategorie: kategorie6.id, // půlmaraton
     kod: '===kod===',
     startovnePoSleve: 0
   };
@@ -182,7 +211,7 @@ it('vytvoř dvě účasti s přihláškami', async () => {
   };
   const prihlaska2 = {
     datum: new Date('2018-02-07Z'),
-    kategorie: kategorie4.id, // půlmaraton
+    kategorie: kategorie5.id, // půlmaraton
     startCislo: 15,
     kod: '===kod2==='
   };
@@ -321,7 +350,7 @@ const setup = async () => {
     },
     prihlaska: {
       datum: new Date('2018-05-03Z'),
-      kategorie: kategorie4.id, // půlmaraton
+      kategorie: kategorie5.id, // půlmaraton
       startCislo: 7,
       kod: '===kod1==='
     }
@@ -338,7 +367,7 @@ const setup = async () => {
   };
   const prihlaska2 = {
     datum: new Date('2018-02-07Z'),
-    kategorie: kategorie5.id, // půlmaraton
+    kategorie: kategorie6.id, // půlmaraton
     startCislo: 15,
     kod: '===kod2==='
   };
@@ -369,7 +398,7 @@ const setup = async () => {
   });
   await ucastnik3.save();
 
-  return [ucastnik2.id, prihlaska2];
+  return [ucastnik2.id, prihlaska2, udaje2];
 };
 
 it('ulož startovní číslo - sám sebe', async () => {
@@ -415,6 +444,48 @@ it('ulož startovní číslo - startovní číslo obsazené v jiné kategorii', 
   expect(ucastnici).toMatchSnapshot();
 });
 
+it('ulož startovní číslo - startovní číslo obsazené v jiném roce', async () => {
+  const [id2, prihlaska2, udaje2] = await setup();
+
+  let requestId;
+  let response;
+  ({ requestId, ...response } = await wsClient.sendRequest(
+    apiCall({ endpoint: API_SAVE_UDAJE, request: { id: id2, rok: 2019, udaje: udaje2 }, token })
+  ));
+  const { id } = response.response;
+  expect(id).toBeTruthy();
+  expect(requestId).not.toBeNull();
+
+  ({ requestId, ...response } = await wsClient.sendRequest(
+    apiCall({
+      endpoint: API_SAVE_PRIHLASKA,
+      request: {
+        id: id2,
+        rok: 2019,
+        prihlaska: {
+          rok: 2019,
+          datum: new Date('2018-12-25'),
+          kategorie: kategorie3.id, // maraton
+          startCislo: 8
+        }
+      },
+      token
+    })
+  ));
+  expect(response.code).toEqual('ok'); // 8 je obsazeno v roce 2018, musí projít
+  expect(response).toMatchSnapshot();
+
+  const ucastnici = await Ucastnik.find({}, { _id: 0 })
+    .populate('ucasti.prihlaska.kategorie')
+    .lean();
+  ucastnici[0].ucasti[0].prihlaska.kategorie._id = '===k1===';
+  ucastnici[1].ucasti[0].prihlaska.kategorie._id = '===k2===';
+  ucastnici[1].ucasti[1].prihlaska.kategorie._id = '===k3===';
+  ucastnici[1].ucasti[2].prihlaska.kategorie._id = '===k4===';
+  ucastnici[2].ucasti[0].prihlaska.kategorie._id = '===k5===';
+  expect(ucastnici).toMatchSnapshot();
+});
+
 it('ulož startovní číslo - duplicitní v kategorii', async () => {
   const [id2, prihlaska2] = await setup();
   const { requestId, ...response } = await wsClient.sendRequest(
@@ -447,7 +518,7 @@ it('přihláška na pěší', async () => {
   };
   const prihlaska = {
     datum: new Date('2018-02-07Z'),
-    kategorie: kategorie6.id, // pěší
+    kategorie: kategorie7.id, // pěší
     startCislo: 14, // navíc
     kod: '===kod==='
   };

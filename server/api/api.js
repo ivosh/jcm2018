@@ -219,7 +219,7 @@ const processMessage = async (connection, message) => {
       return { broadcast, debugMessage: `Message for ${requestId} broadcasted.` };
     } catch (err) {
       logger.warn(`Failed to process the API request: ${err}`);
-      logger.debug(err);
+      logger.debug(err.stack);
       sendResponse({
         connection,
         code: CODE_UNFULFILLED_REQUEST,
