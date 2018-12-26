@@ -7,10 +7,12 @@ const Ucastnik = require('../../../model/Ucastnik/Ucastnik');
 const deepPrint = obj => util.inspect(obj, { depth: null });
 
 const findUcasti = async ({ rok, startCislo, typ }) => {
-  const ucastnici = await Ucastnik.find(
-    { 'ucasti.rok': rok, 'ucasti.prihlaska.startCislo': startCislo },
-    { ucasti: { $elemMatch: { rok } } }
-  ).populate({
+  const ucastnici = await Ucastnik.find({
+    'ucasti.rok': rok,
+    ucasti: {
+      $elemMatch: { rok, prihlaska: { $exists: true }, 'prihlaska.startCislo': startCislo }
+    }
+  }).populate({
     path: 'ucasti.prihlaska.kategorie'
   });
 

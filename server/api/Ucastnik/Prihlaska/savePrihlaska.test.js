@@ -396,6 +396,22 @@ const setup = async () => {
       kod: '===kod3==='
     }
   });
+  ucastnik3.ucasti.push({
+    rok: 2019,
+    udaje: {
+      prijmeni: 'Moulová',
+      jmeno: 'Milena',
+      narozeni: { den: 6, mesic: 5, rok: 1973 },
+      pohlavi: 'žena',
+      obec: 'Nusle'
+    },
+    prihlaska: {
+      datum: new Date('2019-01-15Z'),
+      kategorie: kategorie1.id, // maraton
+      startCislo: 23,
+      kod: '===kod4==='
+    }
+  });
   await ucastnik3.save();
 
   return [ucastnik2.id, prihlaska2, udaje2];

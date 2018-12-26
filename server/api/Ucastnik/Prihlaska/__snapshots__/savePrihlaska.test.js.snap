@@ -348,6 +348,37 @@ Array [
           "stat": "Česká republika",
         },
       },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2019-01-15T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k3===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          "kod": "===kod4===",
+          "startCislo": 23,
+        },
+        "rok": 2019,
+        "udaje": Object {
+          "jmeno": "Milena",
+          "narozeni": Object {
+            "den": 6,
+            "mesic": 5,
+            "rok": 1973,
+          },
+          "obec": "Nusle",
+          "pohlavi": "žena",
+          "prijmeni": "Moulová",
+          "stat": "Česká republika",
+        },
+      },
     ],
   },
 ]
@@ -481,6 +512,37 @@ Array [
           "startCislo": 8,
         },
         "rok": 2018,
+        "udaje": Object {
+          "jmeno": "Milena",
+          "narozeni": Object {
+            "den": 6,
+            "mesic": 5,
+            "rok": 1973,
+          },
+          "obec": "Nusle",
+          "pohlavi": "žena",
+          "prijmeni": "Moulová",
+          "stat": "Česká republika",
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2019-01-15T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k3===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          "kod": "===kod4===",
+          "startCislo": 23,
+        },
+        "rok": 2019,
         "udaje": Object {
           "jmeno": "Milena",
           "narozeni": Object {
@@ -668,6 +730,37 @@ Array [
           "stat": "Česká republika",
         },
       },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2019-01-15T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k5===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          "kod": "===kod4===",
+          "startCislo": 23,
+        },
+        "rok": 2019,
+        "udaje": Object {
+          "jmeno": "Milena",
+          "narozeni": Object {
+            "den": 6,
+            "mesic": 5,
+            "rok": 1973,
+          },
+          "obec": "Nusle",
+          "pohlavi": "žena",
+          "prijmeni": "Moulová",
+          "stat": "Česká republika",
+        },
+      },
     ],
   },
 ]
@@ -801,6 +894,37 @@ Array [
           "startCislo": 8,
         },
         "rok": 2018,
+        "udaje": Object {
+          "jmeno": "Milena",
+          "narozeni": Object {
+            "den": 6,
+            "mesic": 5,
+            "rok": 1973,
+          },
+          "obec": "Nusle",
+          "pohlavi": "žena",
+          "prijmeni": "Moulová",
+          "stat": "Česká republika",
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2019-01-15T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k3===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          "kod": "===kod4===",
+          "startCislo": 23,
+        },
+        "rok": 2019,
         "udaje": Object {
           "jmeno": "Milena",
           "narozeni": Object {
