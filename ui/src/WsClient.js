@@ -120,7 +120,7 @@ class WsClient {
       return;
     }
     // WsClient se mezitím odpojil. Naplánuj znovu.
-    this.channel.dispatch(request);
+    this.channel.dispatchAsync(request);
   };
 
   sendRequest = async data => {
