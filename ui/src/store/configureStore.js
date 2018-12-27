@@ -5,6 +5,7 @@ import appReducer from '../App/appReducer';
 import { websocketConnected, websocketDisconnected } from '../App/AppActions';
 import { broadcastStopky } from '../entities/stopky/stopkyActions';
 import { broadcastUcastnik } from '../entities/ucastnici/ucastniciActions';
+import { timesyncOperation, timesyncStart } from '../Timesync/TimesyncActions';
 import wsAPI from './wsAPI';
 
 const loadState = () => {
@@ -47,7 +48,10 @@ const setupWsClient = (wsClient, store) => {
           break;
       }
     },
-    onConnect: () => store.dispatch(websocketConnected()),
+    onConnect: async () => {
+      await store.dispatch(websocketConnected());
+      store.dispatch(timesyncOperation());
+    },
     onClose: () => store.dispatch(websocketDisconnected())
   });
 
@@ -84,6 +88,9 @@ const configureStore = (wsClient, initialStateParam = loadState()) => {
       // :TODO: casomeric.mezicasy
     });
   });
+
+  // The time synchronization gets started by default.
+  store.dispatch(timesyncStart());
 
   if (wsClient) {
     setupWsClient(wsClient, store);

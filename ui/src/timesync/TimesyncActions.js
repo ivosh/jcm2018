@@ -30,9 +30,10 @@ export const timesync = () => ({
 
 export const timesyncOperation = () => async (dispatch, getState) => {
   const {
+    connected,
     timesync: { running, samples }
   } = getState();
-  if (running) {
+  if (connected && running) {
     await dispatch(timesync());
     setTimeout(
       () => dispatch(timesyncOperation()),

@@ -25,7 +25,7 @@ it('maps state to props', () => {
 });
 
 it('maps onStart to dispatch TIMESYNC_START action', async () => {
-  const state = { timesync: { offset: -1, running: true, samples: [] } };
+  const state = { connected: true, timesync: { offset: -1, running: true, samples: [] } };
   const store = mockStore(state);
 
   const wrapper = shallow(<TimesyncContainer store={store} />);
@@ -42,7 +42,7 @@ it('maps onStart to dispatch TIMESYNC_START action', async () => {
 });
 
 it('maps onStop to dispatch TIMESYNC_STOP action', async () => {
-  const state = { timesync: { offset: -1, running: true, samples: [] } };
+  const state = { connected: true, timesync: { offset: -1, running: true, samples: [] } };
   const store = mockStore(state);
 
   const wrapper = shallow(<TimesyncContainer store={store} />);

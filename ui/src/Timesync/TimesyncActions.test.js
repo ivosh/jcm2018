@@ -24,7 +24,7 @@ const mockStore = configureStore(middlewares);
 
 it('timesync() should dispatch two successful actions', async () => {
   mockWsClient.sendRequest = async () => successfulResponse;
-  const store = mockStore({});
+  const store = mockStore({ connected: true });
 
   await store.dispatch(timesync());
   const actions = store.getActions();
@@ -51,7 +51,7 @@ it('timesyncOperation should not set any timeout if not running', async () => {
 });
 
 it('timesyncOperation should set an initial timeout if running', async () => {
-  const store = mockStore({ timesync: { running: true, samples: [] } });
+  const store = mockStore({ connected: true, timesync: { running: true, samples: [] } });
 
   await store.dispatch(timesyncOperation());
   jest.runOnlyPendingTimers();
@@ -60,7 +60,10 @@ it('timesyncOperation should set an initial timeout if running', async () => {
 });
 
 it('timesyncOperation should set a longer timeout if enough samples', async () => {
-  const store = mockStore({ timesync: { running: true, samples: [{}, {}, {}, {}, {}] } });
+  const store = mockStore({
+    connected: true,
+    timesync: { running: true, samples: [{}, {}, {}, {}, {}] }
+  });
 
   await store.dispatch(timesyncOperation());
   jest.runOnlyPendingTimers();
