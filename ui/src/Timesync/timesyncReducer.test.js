@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import { createSuccessFromAction } from '../store/wsAPI';
-import { timesync, timesyncStart, timesyncStop } from './timesyncActions';
+import { timesync, timesyncStart, timesyncStop } from './TimesyncActions';
 import timesyncReducer from './timesyncReducer';
 
 it('na začátku', () => {

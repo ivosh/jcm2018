@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<div
+  className="panel panel-default"
+>
+  <div
+    className="panel-heading"
+  >
+    Synchronizace času
+  </div>
+  <div
+    className="panel-body"
+  >
+    <div>
+      Časová prodleva ze serveru: 
+      5
+       ms
+    </div>
+    <div
+      className="Timesync__buttons btn-toolbar"
+      role="toolbar"
+    >
+      <button
+        className="btn btn-success"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        Start
+      </button>
+      <button
+        className="btn btn-warning"
+        disabled={true}
+        onClick={[Function]}
+        type="button"
+      >
+        Stop
+      </button>
+    </div>
+  </div>
+</div>
+`;

@@ -21,10 +21,7 @@ const variance = array => {
 
 const standardDeviation = array => Math.sqrt(variance(array));
 
-const computeOffset = samples => {
-  if (samples.length === 0) {
-    return null;
-  }
+const computeOffset = (samples = []) => {
   if (samples.length === 1) {
     return Math.round(samples[0].offset);
   }

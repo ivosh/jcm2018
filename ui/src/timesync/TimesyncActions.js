@@ -12,7 +12,7 @@ export const timesyncStop = () => ({ type: 'TIMESYNC_STOP' });
 const normalize = ({
   request,
   response: {
-    response: { now, serverTime } // now from response used only for testing
+    response: { now, serverTime } // 'now' from response used only for testing
   }
 }) => ({ request, response: { now: now || new Date().toJSON(), serverTime } });
 
