@@ -11,7 +11,7 @@
     "url": "https://github.com/ivosh/jcm2018.git"
   },
   "engines": {
-    "node": "10.x"
+    "node": "11.x"
   },
   "cacheDirectories": [
     "node_modules",
@@ -41,10 +41,10 @@
     "async-file": "^2.0.2",
     "bcrypt": "^3.0.2",
     "jsonwebtoken": "^8.4.0",
-    "moment": "^2.22.2",
-    "mongoose": "^5.3.12",
+    "moment": "^2.23.0",
+    "mongoose": "^5.4.1",
     "mongoose-unique-array": "^0.2.0",
-    "node": "^10.13.0",
+    "node": "^11.5.0",
     "websocket": "^1.0.28",
     "websocket-as-promised": "^0.9.0",
     "winston": "^3.1.0",
@@ -61,7 +61,7 @@
     "eslint-plugin-react": "^7.11.1",
     "jest": "^23.6.0",
     "jsonfile-updater": "^3.1.0",
-    "prettier": "^1.15.2",
+    "prettier": "^1.15.3",
     "supertest": "^3.3.0"
   },
   "jest": {
