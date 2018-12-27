@@ -1,10 +1,10 @@
 language: node_js
 node_js:
   - "node"
-  - "10"
+  - "11"
 services: mongodb
 install:
   - npm install
-  - cd ui/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build && cd ..
+  - cd ui/ && npm install && npm run build && cd ..
 after_success:
   - npm run coverage:report

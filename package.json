@@ -35,7 +35,7 @@
     "clean": "rm -rf coverage && cd ui/ && npm run clean && cd ..",
     "clobber": "rm -rf coverage node_modules && cd ui/ && npm run clobber && cd ..",
     "deploy": "git push && git push --tags",
-    "heroku-postbuild": "cd ui/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build && cd .."
+    "heroku-postbuild": "cd ui/ && npm install && npm run build && cd .."
   },
   "dependencies": {
     "async-file": "^2.0.2",
