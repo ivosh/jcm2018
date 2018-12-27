@@ -35,7 +35,7 @@ export const timesyncOperation = () => async (dispatch, getState) => {
   if (running) {
     await dispatch(timesync());
     setTimeout(
-      () => dispatch(timesyncOperation),
+      () => dispatch(timesyncOperation()),
       samples.length < TIMESYNC_LAST_SAMPLES
         ? TIMESYNC_INITIAL_BURST_DELAY
         : TIMESYNC_OPERATIONAL_DELAY

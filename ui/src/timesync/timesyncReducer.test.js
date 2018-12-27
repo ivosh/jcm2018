@@ -65,7 +65,7 @@ it('response 5x', () => {
   };
   const stateAfter = {
     ...stateBefore,
-    offset: 22.25,
+    offset: 22,
     samples: [...stateBefore.samples, { latency: 176, offset: -3 }]
   };
   deepFreeze(stateBefore);

@@ -26,7 +26,7 @@ const computeOffset = samples => {
     return null;
   }
   if (samples.length === 1) {
-    return samples[0].offset;
+    return Math.round(samples[0].offset);
   }
 
   const latencies = samples.map(sample => sample.latency);
@@ -34,7 +34,7 @@ const computeOffset = samples => {
 
   const filtered = samples.filter(sample => sample.latency < limit);
   const offsets = filtered.map(sample => sample.offset);
-  return offsets.length > 0 ? mean(offsets) : null;
+  return offsets.length > 0 ? Math.round(mean(offsets)) : null;
 };
 
 const initialState = {

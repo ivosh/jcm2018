@@ -64,7 +64,8 @@ it('timesyncOperation should set a longer timeout if enough samples', async () =
 
   await store.dispatch(timesyncOperation());
   jest.runOnlyPendingTimers();
-  expect(setTimeout).toHaveBeenCalledTimes(2);
-  expect(setTimeout).toHaveBeenCalledWith(expect.any(Function), TIMESYNC_OPERATIONAL_DELAY);
-  expect(setTimeout).toHaveBeenCalledWith(expect.any(Function), TIMESYNC_OPERATIONAL_DELAY);
+  expect(setTimeout).toHaveBeenCalledTimes(3);
+  expect(setTimeout).toHaveBeenNthCalledWith(1, expect.any(Function), TIMESYNC_INITIAL_BURST_DELAY);
+  expect(setTimeout).toHaveBeenNthCalledWith(2, expect.any(Function), TIMESYNC_INITIAL_BURST_DELAY);
+  expect(setTimeout).toHaveBeenNthCalledWith(3, expect.any(Function), TIMESYNC_OPERATIONAL_DELAY);
 });
