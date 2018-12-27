@@ -1,10 +1,10 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "JCM 2019",
+  "name": "Jirkovský crossmarathon 2019",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "192x192",
+      "src": "logo.png",
+      "sizes": "128x128",
       "type": "image/png"
     }
   ],

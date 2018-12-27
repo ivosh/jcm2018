@@ -19,6 +19,7 @@ const pickContentType = extension => {
     '.js': 'text/javascript',
     '.json': 'application/json',
     '.map': 'application/json',
+    '.png': 'image/png',
     '.svg': 'image/svg+xml',
     '.ttf': 'application/font-ttf',
     '.woff': 'application/font-woff',
