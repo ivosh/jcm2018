@@ -1,56 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`it renders 1`] = `
-<div
-  className="well"
+<Well
+  bsClass="well"
 >
-  <div
-    className="panel panel-info"
+  <Panel
+    bsClass="panel"
+    bsStyle="info"
+    defaultExpanded={false}
+    header="Jirkovský crossmarathon 2019"
   >
     <div
-      className="panel-heading"
+      className="About_row"
     >
-      Jirkovský crossmarathon 2019
-    </div>
-    <div
-      className="panel-body"
-    >
+      <img
+        alt="logo"
+        className="App-logo-animated"
+        src="/logo.png"
+      />
       <div
-        className="About_row"
+        className="About_app"
       >
-        <img
-          alt="logo"
-          className="App-logo-animated"
-          src="logo.svg"
+        Aplikace 
+        <Glyphicon
+          bsClass="glyphicon"
+          glyph="star"
         />
-        <div>
-          Aplikace 
-          <span
-            className="glyphicon glyphicon-star"
-          />
-          Jirkovský crossmarathon 
-          2019
-           
-          <span
-            className="glyphicon glyphicon-star"
-          />
-          <br />
-          Verze: 
-          1.2.4
-          <br />
-          Origin: 
-          http://localhost
-          <br />
-          <span>
-            Přihlášen jako: 
-          </span>
-          <br />
-          Časová prodleva ze serveru: 
-          0
-           ms
-        </div>
+        Jirkovský crossmarathon 
+        2019
+         
+        <Glyphicon
+          bsClass="glyphicon"
+          glyph="star"
+        />
+        <br />
+        Verze: 
+        1.2.4
+        <br />
+        Origin: 
+        http://localhost
+        <br />
+        <span>
+          Přihlášen jako: 
+        </span>
       </div>
     </div>
-  </div>
-</div>
+    <div
+      className="About_timesync"
+    >
+      <Connect(Timesync) />
+    </div>
+  </Panel>
+</Well>
 `;

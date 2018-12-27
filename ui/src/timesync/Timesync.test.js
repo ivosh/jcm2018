@@ -44,8 +44,8 @@ it('maps button Stop to dispatch onStop action', () => {
       onStop={onStop}
     />
   );
-  expect(wrapper.find('button.btn-warning')).toHaveLength(1);
-  wrapper.find('button.btn-warning').simulate('click');
+  expect(wrapper.find('button.btn-danger')).toHaveLength(1);
+  wrapper.find('button.btn-danger').simulate('click');
 
   expect(onStop).toHaveBeenCalledWith();
 });

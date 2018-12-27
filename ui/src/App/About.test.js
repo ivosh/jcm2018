@@ -1,8 +1,9 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
+import toJSON from 'enzyme-to-json';
 import About from './About';
 
 it('it renders', () => {
-  const component = renderer.create(<About />);
-  expect(component.toJSON()).toMatchSnapshot();
+  const wrapper = shallow(<About />);
+  expect(toJSON(wrapper)).toMatchSnapshot();
 });

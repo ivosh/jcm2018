@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import { Glyphicon, Panel, Well } from 'react-bootstrap';
 import { version } from '../../package.json';
 import { AKTUALNI_ROK } from '../constants';
-import logo from './logo.svg';
+import TimesyncContainer from '../Timesync/TimesyncContainer';
 import './About.css';
 
-const About = ({ timeOffset = 0, username }) => (
+const About = ({ username }) => (
   <Well>
     <Panel header={`Jirkovský crossmarathon ${AKTUALNI_ROK}`} bsStyle="info">
       <div className="About_row">
-        <img src={logo} className="App-logo-animated" alt="logo" />
-        <div>
+        <img src={process.env.PUBLIC_URL + '/logo.png'} className="App-logo-animated" alt="logo" />
+        <div className="About_app">
           Aplikace <Glyphicon glyph="star" />
           Jirkovský crossmarathon {AKTUALNI_ROK} <Glyphicon glyph="star" />
           <br />
@@ -20,16 +20,16 @@ const About = ({ timeOffset = 0, username }) => (
           Origin: {window.location.origin}
           <br />
           {username === null ? <span>Nepřihlášen</span> : <span>Přihlášen jako: {username}</span>}
-          <br />
-          Časová prodleva ze serveru: {timeOffset} ms
         </div>
+      </div>
+      <div className="About_timesync">
+        <TimesyncContainer />
       </div>
     </Panel>
   </Well>
 );
 
 About.propTypes = {
-  timeOffset: PropTypes.number,
   username: PropTypes.string
 };
 

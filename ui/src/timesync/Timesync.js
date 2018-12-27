@@ -10,7 +10,7 @@ const Timesync = ({ startEnabled, stopEnabled, timeOffset, onStart, onStop }) =>
       <Button bsStyle="success" disabled={!startEnabled} onClick={() => onStart()}>
         Start
       </Button>
-      <Button bsStyle="warning" disabled={!stopEnabled} onClick={() => onStop()}>
+      <Button bsStyle="danger" disabled={!stopEnabled} onClick={() => onStop()}>
         Stop
       </Button>
     </ButtonToolbar>

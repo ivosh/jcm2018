@@ -2,3 +2,13 @@
   display: flex;
   flex-direction: row;
 }
+
+.About_app {
+  margin-left: 2em;
+}
+
+.About_timesync {
+  display: flex;
+  flex-grow: auto;
+  margin-top: 2ex;
+}

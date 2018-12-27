@@ -4,7 +4,7 @@ import casomericReducer from '../casomeric/casomericReducer';
 import entitiesReducer from '../entities/entitiesReducer';
 import errorInModalReducer from '../shared/ErrorInModal/errorInModalReducer';
 import registratorReducer from '../registrator/registratorReducer';
-import timesyncReducer from '../timesync/timesyncReducer';
+import timesyncReducer from '../Timesync/timesyncReducer';
 
 const connected = (state = false, action) => {
   switch (action.type) {

@@ -30,7 +30,7 @@ exports[`renders 1`] = `
         Start
       </button>
       <button
-        className="btn btn-warning"
+        className="btn btn-danger"
         disabled={true}
         onClick={[Function]}
         type="button"

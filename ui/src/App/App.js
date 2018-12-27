@@ -80,7 +80,7 @@ const NavsAuthenticated = () =>
 
 class App extends PureComponent {
   render = () => {
-    const { authenticated, connected, location, timeOffset, username } = this.props;
+    const { authenticated, connected, location, username } = this.props;
 
     return (
       <div className="App__div">
@@ -126,10 +126,7 @@ class App extends PureComponent {
         <main>
           <Switch>
             <Route exact path="/" component={Main} />
-            <Route
-              path="/about"
-              component={() => <About timeOffset={timeOffset} username={username} />}
-            />
+            <Route path="/about" component={() => <About username={username} />} />
             <AuthorizedRoute
               path="/casomira"
               component={withFetchUcastnici(withFetchStopky(CasomiryContainer))}
@@ -172,7 +169,6 @@ App.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired
   }),
-  timeOffset: PropTypes.number,
   username: PropTypes.string
 };
 App.defaultProps = {
