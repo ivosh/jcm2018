@@ -28,7 +28,7 @@ exports[`it renders 1`] = `
           <span
             className="glyphicon glyphicon-star"
           />
-          Jirkovský crossmarathon $
+          Jirkovský crossmarathon 
           2019
            
           <span
@@ -44,6 +44,10 @@ exports[`it renders 1`] = `
           <span>
             Přihlášen jako: 
           </span>
+          <br />
+          Časová prodleva ze serveru: 
+          0
+           ms
         </div>
       </div>
     </div>

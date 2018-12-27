@@ -199,6 +199,11 @@ Object {
       "textFilter": "",
     },
   },
+  "timesync": Object {
+    "offset": 0,
+    "running": false,
+    "samples": Array [],
+  },
 }
 `;
 
@@ -401,6 +406,11 @@ Object {
       "textFilter": "",
     },
   },
+  "timesync": Object {
+    "offset": 0,
+    "running": false,
+    "samples": Array [],
+  },
 }
 `;
 
@@ -602,6 +612,11 @@ Object {
       "sortDir": "none",
       "textFilter": "",
     },
+  },
+  "timesync": Object {
+    "offset": 0,
+    "running": false,
+    "samples": Array [],
   },
 }
 `;

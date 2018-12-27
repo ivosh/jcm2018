@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 import authReducer from '../auth/authReducer';
 import casomericReducer from '../casomeric/casomericReducer';
+import entitiesReducer from '../entities/entitiesReducer';
 import errorInModalReducer from '../shared/ErrorInModal/errorInModalReducer';
 import registratorReducer from '../registrator/registratorReducer';
-import entitiesReducer from '../entities/entitiesReducer';
+import timesyncReducer from '../timesync/timesyncReducer';
 
 const connected = (state = false, action) => {
   switch (action.type) {
@@ -34,6 +35,7 @@ const appReducer = combineReducers({
   casomeric: casomericReducer,
   registrator: registratorReducer,
   entities: entitiesReducer,
+  timesync: timesyncReducer,
   connected,
   fetchingStopky: fetchingReducer('STOPKY'),
   fetchingUcastnici: fetchingReducer('UCASTNICI')

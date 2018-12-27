@@ -39,7 +39,8 @@ const store = mockStore({
       textFilter: ''
     }
   },
-  startujici: []
+  startujici: [],
+  timesync: { offset: 5 }
 });
 
 test('navigates to / by default', () => {

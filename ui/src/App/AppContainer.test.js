@@ -10,7 +10,8 @@ let wrapper;
 beforeEach(() => {
   const state = {
     connected: true,
-    auth: { authenticated: true, decodedToken: { username: 'tomáš' } }
+    auth: { authenticated: true, decodedToken: { username: 'tomáš' } },
+    timesync: { offset: 250 }
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
@@ -20,5 +21,6 @@ beforeEach(() => {
 it('maps state to props', () => {
   expect(wrapper.props().authenticated).toBe(true);
   expect(wrapper.props().connected).toBe(true);
+  expect(wrapper.props().timeOffset).toEqual(250);
   expect(wrapper.props().username).toEqual('tomáš');
 });

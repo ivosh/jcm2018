@@ -6,20 +6,22 @@ import { AKTUALNI_ROK } from '../constants';
 import logo from './logo.svg';
 import './About.css';
 
-const About = ({ username }) => (
+const About = ({ timeOffset = 0, username }) => (
   <Well>
     <Panel header={`Jirkovský crossmarathon ${AKTUALNI_ROK}`} bsStyle="info">
       <div className="About_row">
         <img src={logo} className="App-logo-animated" alt="logo" />
         <div>
           Aplikace <Glyphicon glyph="star" />
-          Jirkovský crossmarathon ${AKTUALNI_ROK} <Glyphicon glyph="star" />
+          Jirkovský crossmarathon {AKTUALNI_ROK} <Glyphicon glyph="star" />
           <br />
           Verze: {version}
           <br />
           Origin: {window.location.origin}
           <br />
           {username === null ? <span>Nepřihlášen</span> : <span>Přihlášen jako: {username}</span>}
+          <br />
+          Časová prodleva ze serveru: {timeOffset} ms
         </div>
       </div>
     </Panel>
@@ -27,6 +29,7 @@ const About = ({ username }) => (
 );
 
 About.propTypes = {
+  timeOffset: PropTypes.number,
   username: PropTypes.string
 };
 
