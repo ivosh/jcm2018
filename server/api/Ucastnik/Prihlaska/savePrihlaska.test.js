@@ -461,7 +461,7 @@ it('ulož startovní číslo - startovní číslo obsazené v jiné kategorii', 
 });
 
 it('ulož startovní číslo - startovní číslo obsazené v jiném roce', async () => {
-  const [id2, prihlaska2, udaje2] = await setup();
+  const [id2, , udaje2] = await setup();
 
   let requestId;
   let response;
