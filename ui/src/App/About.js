@@ -10,7 +10,7 @@ const About = ({ username }) => (
   <Well>
     <Panel header={`Jirkovský crossmarathon ${AKTUALNI_ROK}`} bsStyle="info">
       <div className="About_row">
-        <img src={process.env.PUBLIC_URL + '/logo.png'} className="App-logo-animated" alt="logo" />
+        <img src={`${process.env.PUBLIC_URL}/logo.png`} className="App-logo-animated" alt="logo" />
         <div className="About_app">
           Aplikace <Glyphicon glyph="star" />
           Jirkovský crossmarathon {AKTUALNI_ROK} <Glyphicon glyph="star" />
