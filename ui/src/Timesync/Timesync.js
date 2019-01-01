@@ -5,7 +5,7 @@ import './Timesync.css';
 
 const Timesync = ({ startEnabled, stopEnabled, timeOffset, onStart, onStop }) => (
   <Panel header="Synchronizace času">
-    <div>Časová prodleva ze serveru: {timeOffset} ms</div>
+    <div>Rozdíl času oproti serveru: {timeOffset} ms</div>
     <ButtonToolbar className="Timesync__buttons">
       <Button bsStyle="success" disabled={!startEnabled} onClick={() => onStart()}>
         Start

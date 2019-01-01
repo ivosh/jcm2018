@@ -13,7 +13,7 @@ exports[`renders 1`] = `
     className="panel-body"
   >
     <div>
-      Časová prodleva ze serveru: 
+      Rozdíl času oproti serveru: 
       5
        ms
     </div>
