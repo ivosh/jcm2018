@@ -22,15 +22,16 @@
     "_comment_1": "'node' binary must be granted 'cap_net_bind_service' capability:",
     "_comment_2": "  $ sudo apt-get install libcap2-bin",
     "_comment_3": "  $ sudo setcap cap_net_bind_service=+ep ./node_modules/node/bin/node",
-    "start:80": "PORT=80 npm start",
-    "test:server": "NODE_ENV=test LOG_LEVEL=error jest --env=node --runInBand common/ server/",
+    "start:80": "cross-env PORT=80 npm start",
+    "test:server": "cross-env NODE_ENV=test LOG_LEVEL=error jest --env=node --runInBand",
+    "test:server:bash": "winpty npm.cmd run test:server",
     "test": "npm run test:server -- && cd ui/ && npm test && cd ..",
     "prettier:server": "prettier --write \"{common,server}/**/*.js\" && prettier --parser babylon --write \"setversion\"",
     "prettier": "npm run prettier:server && cd ui/ && npm run prettier && cd ..",
     "lint:server": "eslint common server setversion",
     "lint-cache:server": "eslint --cache common server setversion",
     "lint": "npm run lint:server; cd ui/ && npm run lint",
-    "coverage": "NODE_ENV=test LOG_LEVEL=error jest --env=node --runInBand --coverage common/ server/ && cd ui/ && npm run coverage && cd ..",
+    "coverage": "cross-env NODE_ENV=test LOG_LEVEL=error jest --env=node --runInBand --coverage common/ server/ && cd ui/ && npm run coverage && cd ..",
     "coverage:report": "npm run coverage && codecov",
     "clean": "rm -rf coverage && cd ui/ && npm run clean && cd ..",
     "clobber": "rm -rf coverage node_modules && cd ui/ && npm run clobber && cd ..",
@@ -53,6 +54,7 @@
   "devDependencies": {
     "babel-eslint": "9.0.0",
     "codecov": "^3.1.0",
+    "cross-env": "^5.2.0",
     "eslint": "5.6.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
@@ -66,6 +68,10 @@
   },
   "jest": {
     "coverageDirectory": "./coverage/",
-    "setupTestFrameworkScriptFile": "./server/setupTestFramework.js"
+    "setupTestFrameworkScriptFile": "./server/setupTestFramework.js",
+    "testPathIgnorePatterns": [
+      "node_modules",
+      "ui"
+    ]
   }
 }
