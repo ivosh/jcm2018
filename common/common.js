@@ -12,6 +12,7 @@ const moment = require('moment');
 const PORT_DEV_CLIENT = 3000;
 const PORT_DEV_SERVER = 4000;
 const PLATBA_TYPY = ['hotově', 'převodem', 'složenkou'];
+const UCASTI_NA_POHAR = 5;
 
 const API_DELETE_VYKON = 'deleteVykon';
 const API_FIND_ALL_ROCNIKY = 'findAllRocniky';
@@ -19,6 +20,7 @@ const API_FIND_ALL_STOPKY = 'findAllStopky';
 const API_FIND_ALL_UCASTNICI = 'findAllUcastnici';
 const API_MODIFY_STOPKY = 'modifyStopky';
 const API_MODIFY_UBYTOVANI = 'modifyUbytovani';
+const API_POHAR_PREDAN = 'poharPredan';
 const API_SAVE_PLATBY = 'savePlatby';
 const API_SAVE_PRIHLASKA = 'savePrihlaska';
 const API_SAVE_UBYTOVANI = 'saveUbytovani';
@@ -204,12 +206,14 @@ module.exports = {
   PORT_DEV_CLIENT,
   PORT_DEV_SERVER,
   PLATBA_TYPY,
+  UCASTI_NA_POHAR,
   API_DELETE_VYKON,
   API_FIND_ALL_ROCNIKY,
   API_FIND_ALL_STOPKY,
   API_FIND_ALL_UCASTNICI,
   API_MODIFY_STOPKY,
   API_MODIFY_UBYTOVANI,
+  API_POHAR_PREDAN,
   API_SAVE_PLATBY,
   API_SAVE_PRIHLASKA,
   API_SAVE_UBYTOVANI,

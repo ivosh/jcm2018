@@ -1,0 +1,757 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`4x dokončil a přihlášen na pátý ročník 1`] = `
+Object {
+  "code": "nepovoleno",
+  "status": "Účastník má celkem 4 dokončených účastí v kategorii maraton (tedy nárok 0) a už 0 pohárů předaných.",
+}
+`;
+
+exports[`4x dokončil a přihlášen na pátý ročník 2`] = `
+Array [
+  Object {
+    "__v": 0,
+    "ucasti": Array [
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2009-09-09T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+        "rok": 2011,
+        "udaje": Object {
+          "jmeno": "Y",
+          "narozeni": Object {
+            "den": 1,
+            "mesic": 1,
+            "rok": 2000,
+          },
+          "obec": "Z",
+          "pohlavi": "muž",
+          "prijmeni": "X",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2009-09-09T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+        "rok": 2012,
+        "udaje": Object {
+          "jmeno": "Y",
+          "narozeni": Object {
+            "den": 1,
+            "mesic": 1,
+            "rok": 2000,
+          },
+          "obec": "Z",
+          "pohlavi": "muž",
+          "prijmeni": "X",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2009-09-09T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+        "rok": 2014,
+        "udaje": Object {
+          "jmeno": "Y",
+          "narozeni": Object {
+            "den": 1,
+            "mesic": 1,
+            "rok": 2000,
+          },
+          "obec": "Z",
+          "pohlavi": "muž",
+          "prijmeni": "X",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2009-09-09T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+        "rok": 2017,
+        "udaje": Object {
+          "jmeno": "Y",
+          "narozeni": Object {
+            "den": 1,
+            "mesic": 1,
+            "rok": 2000,
+          },
+          "obec": "Z",
+          "pohlavi": "muž",
+          "prijmeni": "X",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2009-09-09T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+        "rok": 2018,
+        "udaje": Object {
+          "jmeno": "Y",
+          "narozeni": Object {
+            "den": 1,
+            "mesic": 1,
+            "rok": 2000,
+          },
+          "obec": "Z",
+          "pohlavi": "muž",
+          "prijmeni": "X",
+          "stat": "Česká republika",
+        },
+      },
+    ],
+  },
+]
+`;
+
+exports[`5x dokončil a přihlášen na šestý ročník 1`] = `
+Object {
+  "code": "ok",
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`5x dokončil a přihlášen na šestý ročník 2`] = `
+Array [
+  Object {
+    "__v": 0,
+    "pohar": Object {
+      "predano": 1,
+    },
+    "ucasti": Array [
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2009-09-09T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+        "rok": 2011,
+        "udaje": Object {
+          "jmeno": "Y",
+          "narozeni": Object {
+            "den": 1,
+            "mesic": 1,
+            "rok": 2000,
+          },
+          "obec": "Z",
+          "pohlavi": "muž",
+          "prijmeni": "X",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2009-09-09T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+        "rok": 2012,
+        "udaje": Object {
+          "jmeno": "Y",
+          "narozeni": Object {
+            "den": 1,
+            "mesic": 1,
+            "rok": 2000,
+          },
+          "obec": "Z",
+          "pohlavi": "muž",
+          "prijmeni": "X",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2009-09-09T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+        "rok": 2013,
+        "udaje": Object {
+          "jmeno": "Y",
+          "narozeni": Object {
+            "den": 1,
+            "mesic": 1,
+            "rok": 2000,
+          },
+          "obec": "Z",
+          "pohlavi": "muž",
+          "prijmeni": "X",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2009-09-09T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+        "rok": 2014,
+        "udaje": Object {
+          "jmeno": "Y",
+          "narozeni": Object {
+            "den": 1,
+            "mesic": 1,
+            "rok": 2000,
+          },
+          "obec": "Z",
+          "pohlavi": "muž",
+          "prijmeni": "X",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2009-09-09T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+        "rok": 2017,
+        "udaje": Object {
+          "jmeno": "Y",
+          "narozeni": Object {
+            "den": 1,
+            "mesic": 1,
+            "rok": 2000,
+          },
+          "obec": "Z",
+          "pohlavi": "muž",
+          "prijmeni": "X",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2009-09-09T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+        "rok": 2018,
+        "udaje": Object {
+          "jmeno": "Y",
+          "narozeni": Object {
+            "den": 1,
+            "mesic": 1,
+            "rok": 2000,
+          },
+          "obec": "Z",
+          "pohlavi": "muž",
+          "prijmeni": "X",
+          "stat": "Česká republika",
+        },
+      },
+    ],
+  },
+]
+`;
+
+exports[`6x dokončil ale z toho jen 3x maraton 1`] = `
+Object {
+  "code": "nepovoleno",
+  "status": "Účastník má celkem 3 dokončených účastí v kategorii maraton (tedy nárok 0) a už 0 pohárů předaných.",
+}
+`;
+
+exports[`6x dokončil ale z toho jen 3x maraton 2`] = `
+Array [
+  Object {
+    "__v": 0,
+    "ucasti": Array [
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2009-09-09T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+        "rok": 2011,
+        "udaje": Object {
+          "jmeno": "Y",
+          "narozeni": Object {
+            "den": 1,
+            "mesic": 1,
+            "rok": 2000,
+          },
+          "obec": "Z",
+          "pohlavi": "muž",
+          "prijmeni": "X",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2009-09-09T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k2===",
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+        "rok": 2013,
+        "udaje": Object {
+          "jmeno": "Y",
+          "narozeni": Object {
+            "den": 1,
+            "mesic": 1,
+            "rok": 2000,
+          },
+          "obec": "Z",
+          "pohlavi": "muž",
+          "prijmeni": "X",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k2===",
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2009-09-09T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+        "rok": 2014,
+        "udaje": Object {
+          "jmeno": "Y",
+          "narozeni": Object {
+            "den": 1,
+            "mesic": 1,
+            "rok": 2000,
+          },
+          "obec": "Z",
+          "pohlavi": "muž",
+          "prijmeni": "X",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2009-09-09T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k2===",
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+        "rok": 2015,
+        "udaje": Object {
+          "jmeno": "Y",
+          "narozeni": Object {
+            "den": 1,
+            "mesic": 1,
+            "rok": 2000,
+          },
+          "obec": "Z",
+          "pohlavi": "muž",
+          "prijmeni": "X",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k2===",
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2009-09-09T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k2===",
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+        "rok": 2017,
+        "udaje": Object {
+          "jmeno": "Y",
+          "narozeni": Object {
+            "den": 1,
+            "mesic": 1,
+            "rok": 2000,
+          },
+          "obec": "Z",
+          "pohlavi": "muž",
+          "prijmeni": "X",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k2===",
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+      },
+      Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": 2009-09-09T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+        "rok": 2018,
+        "udaje": Object {
+          "jmeno": "Y",
+          "narozeni": Object {
+            "den": 1,
+            "mesic": 1,
+            "rok": 2000,
+          },
+          "obec": "Z",
+          "pohlavi": "muž",
+          "prijmeni": "X",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "dokonceno": true,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+        },
+      },
+    ],
+  },
+]
+`;
+
+exports[`poharPredan [not authenticated] 1`] = `
+Object {
+  "code": "authentication token invalid",
+  "status": "Špatný ověřovací token. Zkus se přihlásit znovu. Detaily: JsonWebTokenError: jwt must be provided",
+}
+`;
+
+exports[`účastník neexistuje 1`] = `
+Object {
+  "code": "neexistuje",
+  "status": "Účastník s id 41224d776a326fb40f000001 neexistuje.",
+}
+`;
