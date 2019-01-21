@@ -152,7 +152,7 @@ it('vypnout filtrování podle kategorie výkonu', () => {
   );
 });
 
-it('přeppnout filtrování podle kategorie výkonu', () => {
+it('přepnout filtrování podle kategorie výkonu', () => {
   const stateBefore = {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
