@@ -163,6 +163,11 @@ it('getUcastniciDigestSorted() by default', () => {
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
       narozeni: { den: 7, mesic: 12, rok: 1963 },
+      2010: { dokonceno: true, kategorie: 'maraton' },
+      2011: { dokonceno: true, kategorie: 'maraton' },
+      2012: { dokonceno: true, kategorie: 'maraton' },
+      2013: { dokonceno: true, kategorie: 'maraton' },
+      2014: { dokonceno: false, kategorie: 'maraton' },
       2016: { dokonceno: true, kategorie: 'maraton' }
     },
     {
@@ -208,6 +213,11 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
       narozeni: { den: 7, mesic: 12, rok: 1963 },
+      2010: { dokonceno: true, kategorie: 'maraton' },
+      2011: { dokonceno: true, kategorie: 'maraton' },
+      2012: { dokonceno: true, kategorie: 'maraton' },
+      2013: { dokonceno: true, kategorie: 'maraton' },
+      2014: { dokonceno: false, kategorie: 'maraton' },
       2016: { dokonceno: true, kategorie: 'maraton' }
     },
     {
@@ -260,6 +270,11 @@ it('getUcastniciDigestSorted() podle jména vzestupně', () => {
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
       narozeni: { den: 7, mesic: 12, rok: 1963 },
+      2010: { dokonceno: true, kategorie: 'maraton' },
+      2011: { dokonceno: true, kategorie: 'maraton' },
+      2012: { dokonceno: true, kategorie: 'maraton' },
+      2013: { dokonceno: true, kategorie: 'maraton' },
+      2014: { dokonceno: false, kategorie: 'maraton' },
       2016: { dokonceno: true, kategorie: 'maraton' }
     },
     {
@@ -318,6 +333,11 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
       narozeni: { den: 7, mesic: 12, rok: 1963 },
+      2010: { dokonceno: true, kategorie: 'maraton' },
+      2011: { dokonceno: true, kategorie: 'maraton' },
+      2012: { dokonceno: true, kategorie: 'maraton' },
+      2013: { dokonceno: true, kategorie: 'maraton' },
+      2014: { dokonceno: false, kategorie: 'maraton' },
       2016: { dokonceno: true, kategorie: 'maraton' }
     },
     {

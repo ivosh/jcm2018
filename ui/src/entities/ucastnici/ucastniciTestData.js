@@ -2679,7 +2679,7 @@ const state = {
       ],
       byIds: {
         '6f09b1fd371dec1e99b7e1c9': {
-          roky: [2016],
+          roky: [2016, 2014, 2013, 2012, 2011, 2010],
           2016: {
             udaje: {
               prijmeni: 'Sukdoláková',
@@ -2691,6 +2691,105 @@ const state = {
             },
             prihlaska: {
               datum: '2016-06-11T00:00:00.000Z',
+              kategorie: '5a587e1a051c181132cf83c2' // maraton
+            },
+            vykon: {
+              kategorie: '5a587e1a051c181132cf83c2', // maraton
+              startCislo: 11,
+              dokonceno: true,
+              cas: 'PT3H42M32.6S'
+            }
+          },
+          2014: {
+            udaje: {
+              prijmeni: 'Sukdoláková',
+              jmeno: 'Martina',
+              narozeni: { rok: 1963, mesic: 12, den: 7 },
+              pohlavi: 'žena',
+              obec: 'Zlín',
+              stat: 'Česká republika'
+            },
+            prihlaska: {
+              datum: '2014-06-01T00:00:00.000Z',
+              kategorie: '5a587e1a051c181132cf83c2' // maraton
+            },
+            vykon: {
+              kategorie: '5a587e1a051c181132cf83c2', // maraton
+              startCislo: 11,
+              dokonceno: false
+            }
+          },
+          2013: {
+            udaje: {
+              prijmeni: 'Sukdoláková',
+              jmeno: 'Martina',
+              narozeni: { rok: 1963, mesic: 12, den: 7 },
+              pohlavi: 'žena',
+              obec: 'Zlín',
+              stat: 'Česká republika'
+            },
+            prihlaska: {
+              datum: '2013-06-01T00:00:00.000Z',
+              kategorie: '5a587e1a051c181132cf83c2' // maraton
+            },
+            vykon: {
+              kategorie: '5a587e1a051c181132cf83c2', // maraton
+              startCislo: 11,
+              dokonceno: true,
+              cas: 'PT3H42M32.6S'
+            }
+          },
+          2012: {
+            udaje: {
+              prijmeni: 'Sukdoláková',
+              jmeno: 'Martina',
+              narozeni: { rok: 1963, mesic: 12, den: 7 },
+              pohlavi: 'žena',
+              obec: 'Zlín',
+              stat: 'Česká republika'
+            },
+            prihlaska: {
+              datum: '2012-06-01T00:00:00.000Z',
+              kategorie: '5a587e1a051c181132cf83c2' // maraton
+            },
+            vykon: {
+              kategorie: '5a587e1a051c181132cf83c2', // maraton
+              startCislo: 11,
+              dokonceno: true,
+              cas: 'PT3H42M32.6S'
+            }
+          },
+          2011: {
+            udaje: {
+              prijmeni: 'Sukdoláková',
+              jmeno: 'Martina',
+              narozeni: { rok: 1963, mesic: 12, den: 7 },
+              pohlavi: 'žena',
+              obec: 'Zlín',
+              stat: 'Česká republika'
+            },
+            prihlaska: {
+              datum: '2011-06-11T00:00:00.000Z',
+              kategorie: '5a587e1a051c181132cf83c2' // maraton
+            },
+            vykon: {
+              kategorie: '5a587e1a051c181132cf83c2', // maraton
+              startCislo: 11,
+              dokonceno: true,
+              cas: 'PT3H42M32.6S'
+            }
+          },
+          2010: {
+            udaje: {
+              prijmeni: 'Sukdoláková',
+              jmeno: 'Martina',
+              narozeni: { rok: 1963, mesic: 12, den: 7 },
+              pohlavi: 'žena',
+              obec: 'Zlín',
+              stat: 'Česká republika'
+            },
+            prihlaska: {
+              datum: '2010-06-11T00:00:00.000Z',
               kategorie: '5a587e1a051c181132cf83c2' // maraton
             },
             vykon: {
@@ -2760,11 +2859,11 @@ const state = {
             },
             prihlaska: {
               datum: '2017-04-01T00:00:00.000Z',
-              kategorie: '5a587e1a051c181132cf83bc',
+              kategorie: '5a587e1a051c181132cf83bc', // maraton
               kod: '10728863'
             },
             vykon: {
-              kategorie: '5a587e1a051c181132cf83bc',
+              kategorie: '5a587e1a051c181132cf83bc', // maraton
               startCislo: 34,
               dokonceno: true,
               cas: 'PT1H25M32.6S'

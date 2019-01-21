@@ -33,6 +33,26 @@ Array [
     "prijmeni": "Kyselová",
   },
   Object {
+    "2010": Object {
+      "dokonceno": true,
+      "kategorie": "maraton",
+    },
+    "2011": Object {
+      "dokonceno": true,
+      "kategorie": "maraton",
+    },
+    "2012": Object {
+      "dokonceno": true,
+      "kategorie": "maraton",
+    },
+    "2013": Object {
+      "dokonceno": true,
+      "kategorie": "maraton",
+    },
+    "2014": Object {
+      "dokonceno": false,
+      "kategorie": "maraton",
+    },
     "2016": Object {
       "dokonceno": true,
       "kategorie": "maraton",
