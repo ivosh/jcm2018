@@ -10,6 +10,7 @@ import moment from 'moment';
 export const PORT_DEV_CLIENT = 3000;
 export const PORT_DEV_SERVER = 4000;
 export const PLATBA_TYPY = ['hotově', 'převodem', 'složenkou'];
+export const UCASTI_NA_POHAR = 5;
 
 export const API_DELETE_VYKON = 'deleteVykon';
 export const API_FIND_ALL_ROCNIKY = 'findAllRocniky';
