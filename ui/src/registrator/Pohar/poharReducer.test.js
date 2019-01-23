@@ -77,6 +77,19 @@ it('řadit dle příjmení zase vzestupně', () => {
   expect(poharReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
 });
 
+it('filtrovat na dvě písmena', () => {
+  const stateBefore = {
+    sortColumn: 'prijmeni',
+    sortDir: SortDirTypes.ASC,
+    kategorieFilter: '',
+    textFilter: ''
+  };
+  const stateAfter = { ...stateBefore, textFilter: 'kl' };
+  deepFreeze(stateBefore);
+
+  expect(poharReducer(stateBefore, textFilterChange('Kl'))).toEqual(stateAfter);
+});
+
 it('getPoharySorted() by default - nárokované i nepřevzaté', () => {
   const state = {
     ...ucastniciTestData,
@@ -117,10 +130,68 @@ it('getPoharySorted() by default - nárokované i nepřevzaté', () => {
   expect(getPoharySorted({ ...entities, ...pohar })).toEqual(selected);
 });
 
-it('getPoharySorted() filtrováno na z', () => {});
+it('getPoharySorted() filtrováno na s', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      pohar: {
+        narokovaneFilter: false,
+        neprevzateFilter: false,
+        sortColumn: undefined,
+        sortDir: undefined,
+        textFilter: 's'
+      }
+    }
+  };
+  const selected = [
+    {
+      id: '6f09b1fd371dec1e99b7e1c9',
+      prijmeni: 'Sukdoláková',
+      jmeno: 'Martina',
+      narozeni: { den: 7, mesic: 12, rok: 1963 },
+      pohary: { narok: false, neprevzato: 1, predano: 0 },
+      ucasti: { dokoncene: [2016, 2013, 2012, 2011, 2010], prihlaseno: false }
+    }
+  ];
+  deepFreeze(state);
+
+  const {
+    entities,
+    registrator: { pohar }
+  } = state;
+  expect(getPoharySorted({ ...entities, ...pohar })).toEqual(selected);
+});
 
 it('getPoharySorted() by default - jen s nárokem', () => {});
 
-it('getPoharySorted() by default - jen s nepřevzatým pohárem', () => {});
+it('getPoharySorted() by default - jen s nepřevzatým pohárem', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      pohar: {
+        narokovaneFilter: false,
+        neprevzateFilter: true,
+        sortColumn: undefined,
+        sortDir: undefined,
+        textFilter: ''
+      }
+    }
+  };
+  const selected = [
+    {
+      id: '6f09b1fd371dec1e99b7e1c9',
+      prijmeni: 'Sukdoláková',
+      jmeno: 'Martina',
+      narozeni: { den: 7, mesic: 12, rok: 1963 },
+      pohary: { narok: false, neprevzato: 1, predano: 0 },
+      ucasti: { dokoncene: [2016, 2013, 2012, 2011, 2010], prihlaseno: false }
+    }
+  ];
+  deepFreeze(state);
 
-it('getPoharySorted() by default - jen s nárokem a nepřevzatým pohárem', () => {});
+  const {
+    entities,
+    registrator: { pohar }
+  } = state;
+  expect(getPoharySorted({ ...entities, ...pohar })).toEqual(selected);
+});
