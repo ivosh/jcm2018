@@ -9,8 +9,8 @@ it('getPokladna() - ucastniciTestData', () => {
   const pokladna = getPokladna({ ...state.entities });
   const expected = {
     total: {
-      suma: 430,
-      ucastniku: 2,
+      suma: 630,
+      ucastniku: 3,
       typy: {
         hotově: {
           counts: {
@@ -21,13 +21,26 @@ it('getPokladna() - ucastniciTestData', () => {
         },
         převodem: {
           counts: {
-            100: 1
+            100: 1,
+            200: 1
           },
-          suma: 100
+          suma: 300
         }
       }
     },
     typy: {
+      maraton: {
+        suma: 200,
+        ucastniku: 1,
+        typy: {
+          převodem: {
+            counts: {
+              200: 1
+            },
+            suma: 200
+          }
+        }
+      },
       půlmaraton: {
         suma: 430,
         ucastniku: 2,
@@ -92,8 +105,8 @@ it('getPokladna - all cases', () => {
   const pokladna = getPokladna({ ...state.entities });
   const expected = {
     total: {
-      suma: 950,
-      ucastniku: 5,
+      suma: 1150,
+      ucastniku: 6,
       zaloha: {
         counts: {
           20: 1
@@ -114,9 +127,9 @@ it('getPokladna - all cases', () => {
         převodem: {
           counts: {
             100: 1,
-            200: 1
+            200: 2
           },
-          suma: 300
+          suma: 500
         }
       }
     },
@@ -140,8 +153,8 @@ it('getPokladna - all cases', () => {
         }
       },
       maraton: {
-        suma: 250,
-        ucastniku: 1,
+        suma: 450,
+        ucastniku: 2,
         typy: {
           hotově: {
             counts: {
@@ -151,9 +164,9 @@ it('getPokladna - all cases', () => {
           },
           převodem: {
             counts: {
-              200: 1
+              200: 2
             },
-            suma: 200
+            suma: 400
           }
         }
       },

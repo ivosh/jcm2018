@@ -7,6 +7,7 @@ Object {
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
     "8344bc71dec1e99b7e1d01e",
+    "f5c88400190a4bed88c76736",
   ],
   "byIds": Object {
     "5a09b1fd371dec1e99b7e1c9": Object {
@@ -353,6 +354,175 @@ Object {
         2018,
       ],
     },
+    "f5c88400190a4bed88c76736": Object {
+      "2014": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2014-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2014-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 4,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 4,
+        },
+      },
+      "2015": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2015-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2015-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 21,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 21,
+        },
+      },
+      "2017": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2017-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2017-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 13,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 13,
+        },
+      },
+      "2018": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2018-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2018-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 7,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 7,
+        },
+      },
+      "2019": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2019-05-13T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2019-05-17T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "kod": "rcc023skd204mvs345",
+          "startCislo": 15,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+      },
+      "roky": Array [
+        2019,
+        2018,
+        2017,
+        2015,
+        2014,
+      ],
+    },
   },
 }
 `;
@@ -364,6 +534,7 @@ Object {
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
     "8344bc71dec1e99b7e1d01e",
+    "f5c88400190a4bed88c76736",
   ],
   "byIds": Object {
     "5a09b1fd371dec1e99b7e1c9": Object {
@@ -772,6 +943,175 @@ Object {
         2018,
       ],
     },
+    "f5c88400190a4bed88c76736": Object {
+      "2014": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2014-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2014-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 4,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 4,
+        },
+      },
+      "2015": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2015-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2015-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 21,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 21,
+        },
+      },
+      "2017": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2017-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2017-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 13,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 13,
+        },
+      },
+      "2018": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2018-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2018-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 7,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 7,
+        },
+      },
+      "2019": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2019-05-13T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2019-05-17T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "kod": "rcc023skd204mvs345",
+          "startCislo": 15,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+      },
+      "roky": Array [
+        2019,
+        2018,
+        2017,
+        2015,
+        2014,
+      ],
+    },
   },
 }
 `;
@@ -783,6 +1123,7 @@ Object {
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
     "8344bc71dec1e99b7e1d01e",
+    "f5c88400190a4bed88c76736",
   ],
   "byIds": Object {
     "5a09b1fd371dec1e99b7e1c9": Object {
@@ -1180,6 +1521,175 @@ Object {
         2018,
       ],
     },
+    "f5c88400190a4bed88c76736": Object {
+      "2014": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2014-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2014-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 4,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 4,
+        },
+      },
+      "2015": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2015-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2015-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 21,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 21,
+        },
+      },
+      "2017": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2017-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2017-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 13,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 13,
+        },
+      },
+      "2018": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2018-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2018-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 7,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 7,
+        },
+      },
+      "2019": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2019-05-13T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2019-05-17T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "kod": "rcc023skd204mvs345",
+          "startCislo": 15,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+      },
+      "roky": Array [
+        2019,
+        2018,
+        2017,
+        2015,
+        2014,
+      ],
+    },
   },
 }
 `;
@@ -1301,6 +1811,38 @@ Array [
       },
     },
   },
+  Object {
+    "id": "f5c88400190a4bed88c76736",
+    "rok": 2019,
+    "ucast": Object {
+      "platby": Array [
+        Object {
+          "castka": 200,
+          "datum": "2019-05-13T00:00:00.000Z",
+          "typ": "převodem",
+        },
+      ],
+      "prihlaska": Object {
+        "datum": "2019-05-17T00:00:00.000Z",
+        "kategorie": "5a587e1a051c181132cf83b8",
+        "kod": "rcc023skd204mvs345",
+        "startCislo": 15,
+      },
+      "udaje": Object {
+        "jmeno": "Josef",
+        "narozeni": Object {
+          "den": 25,
+          "mesic": 7,
+          "rok": 2001,
+        },
+        "obec": "Králův Dvůr",
+        "pohlavi": "muž",
+        "prijmeni": "Smalt",
+        "psc": "735 97",
+        "stat": "Česká republika",
+      },
+    },
+  },
 ]
 `;
 
@@ -1311,6 +1853,7 @@ Object {
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
     "8344bc71dec1e99b7e1d01e",
+    "f5c88400190a4bed88c76736",
   ],
   "byIds": Object {
     "5a09b1fd371dec1e99b7e1c9": Object {
@@ -1714,6 +2257,175 @@ Object {
         2018,
       ],
     },
+    "f5c88400190a4bed88c76736": Object {
+      "2014": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2014-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2014-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 4,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 4,
+        },
+      },
+      "2015": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2015-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2015-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 21,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 21,
+        },
+      },
+      "2017": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2017-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2017-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 13,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 13,
+        },
+      },
+      "2018": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2018-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2018-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 7,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 7,
+        },
+      },
+      "2019": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2019-05-13T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2019-05-17T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "kod": "rcc023skd204mvs345",
+          "startCislo": 15,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+      },
+      "roky": Array [
+        2019,
+        2018,
+        2017,
+        2015,
+        2014,
+      ],
+    },
   },
 }
 `;
@@ -1725,6 +2437,7 @@ Object {
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
     "8344bc71dec1e99b7e1d01e",
+    "f5c88400190a4bed88c76736",
     "7a09b1fd371dec1e99b79853",
   ],
   "byIds": Object {
@@ -2169,6 +2882,175 @@ Object {
         2018,
       ],
     },
+    "f5c88400190a4bed88c76736": Object {
+      "2014": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2014-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2014-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 4,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 4,
+        },
+      },
+      "2015": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2015-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2015-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 21,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 21,
+        },
+      },
+      "2017": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2017-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2017-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 13,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 13,
+        },
+      },
+      "2018": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2018-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2018-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 7,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 7,
+        },
+      },
+      "2019": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2019-05-13T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2019-05-17T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "kod": "rcc023skd204mvs345",
+          "startCislo": 15,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+      },
+      "roky": Array [
+        2019,
+        2018,
+        2017,
+        2015,
+        2014,
+      ],
+    },
   },
 }
 `;
@@ -2180,6 +3062,7 @@ Object {
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
     "8344bc71dec1e99b7e1d01e",
+    "f5c88400190a4bed88c76736",
   ],
   "byIds": Object {
     "5a09b1fd371dec1e99b7e1c9": Object {
@@ -2618,6 +3501,175 @@ Object {
         2018,
       ],
     },
+    "f5c88400190a4bed88c76736": Object {
+      "2014": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2014-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2014-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 4,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 4,
+        },
+      },
+      "2015": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2015-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2015-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 21,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 21,
+        },
+      },
+      "2017": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2017-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2017-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 13,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 13,
+        },
+      },
+      "2018": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2018-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2018-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 7,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 7,
+        },
+      },
+      "2019": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2019-05-13T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2019-05-17T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "kod": "rcc023skd204mvs345",
+          "startCislo": 15,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+      },
+      "roky": Array [
+        2019,
+        2018,
+        2017,
+        2015,
+        2014,
+      ],
+    },
   },
 }
 `;
@@ -2629,6 +3681,7 @@ Object {
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
     "8344bc71dec1e99b7e1d01e",
+    "f5c88400190a4bed88c76736",
   ],
   "byIds": Object {
     "5a09b1fd371dec1e99b7e1c9": Object {
@@ -3017,6 +4070,175 @@ Object {
       "roky": Array [
         2019,
         2018,
+      ],
+    },
+    "f5c88400190a4bed88c76736": Object {
+      "2014": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2014-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2014-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 4,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 4,
+        },
+      },
+      "2015": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2015-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2015-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 21,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 21,
+        },
+      },
+      "2017": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2017-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2017-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 13,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 13,
+        },
+      },
+      "2018": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2018-05-01T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2018-05-01T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 7,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT2H06M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "startCislo": 7,
+        },
+      },
+      "2019": Object {
+        "platby": Array [
+          Object {
+            "castka": 200,
+            "datum": "2019-05-13T00:00:00.000Z",
+            "typ": "převodem",
+          },
+        ],
+        "prihlaska": Object {
+          "datum": "2019-05-17T00:00:00.000Z",
+          "kategorie": "5a587e1a051c181132cf83b8",
+          "kod": "rcc023skd204mvs345",
+          "startCislo": 15,
+        },
+        "udaje": Object {
+          "jmeno": "Josef",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Králův Dvůr",
+          "pohlavi": "muž",
+          "prijmeni": "Smalt",
+          "psc": "735 97",
+          "stat": "Česká republika",
+        },
+      },
+      "roky": Array [
+        2019,
+        2018,
+        2017,
+        2015,
+        2014,
       ],
     },
   },

@@ -2675,7 +2675,8 @@ const state = {
         '6f09b1fd371dec1e99b7e1c9',
         '5a09b1fd371dec1e99b7e1c9',
         '7a09b1fd371dec1e99b7e142',
-        '8344bc71dec1e99b7e1d01e'
+        '8344bc71dec1e99b7e1d01e',
+        'f5c88400190a4bed88c76736'
       ],
       byIds: {
         '6f09b1fd371dec1e99b7e1c9': {
@@ -2967,6 +2968,119 @@ const state = {
               startCislo: 15,
               kod: '0234jsdj0jdaklsd',
               startovnePoSleve: 0
+            }
+          }
+        },
+        f5c88400190a4bed88c76736: {
+          roky: [2019, 2018, 2017, 2015, 2014],
+          2019: {
+            udaje: {
+              prijmeni: 'Smalt',
+              jmeno: 'Josef',
+              narozeni: { rok: 2001, mesic: 7, den: 25 },
+              pohlavi: 'muž',
+              obec: 'Králův Dvůr',
+              psc: '735 97',
+              stat: 'Česká republika'
+            },
+            platby: [{ castka: 200, datum: '2019-05-13T00:00:00.000Z', typ: 'převodem' }],
+            prihlaska: {
+              datum: '2019-05-17T00:00:00.000Z',
+              kategorie: '5a587e1a051c181132cf83b8', // maraton
+              startCislo: 15,
+              kod: 'rcc023skd204mvs345'
+            }
+          },
+          2018: {
+            udaje: {
+              prijmeni: 'Smalt',
+              jmeno: 'Josef',
+              narozeni: { rok: 2001, mesic: 7, den: 25 },
+              pohlavi: 'muž',
+              obec: 'Králův Dvůr',
+              psc: '735 97',
+              stat: 'Česká republika'
+            },
+            platby: [{ castka: 200, datum: '2018-05-01T00:00:00.000Z', typ: 'převodem' }],
+            prihlaska: {
+              datum: '2018-05-01T00:00:00.000Z',
+              kategorie: '5a587e1a051c181132cf83b8', // maraton
+              startCislo: 7
+            },
+            vykon: {
+              kategorie: '5a587e1a051c181132cf83b8', // maraton
+              startCislo: 7,
+              dokonceno: true,
+              cas: 'PT2H06M32.6S'
+            }
+          },
+          2017: {
+            udaje: {
+              prijmeni: 'Smalt',
+              jmeno: 'Josef',
+              narozeni: { rok: 2001, mesic: 7, den: 25 },
+              pohlavi: 'muž',
+              obec: 'Králův Dvůr',
+              psc: '735 97',
+              stat: 'Česká republika'
+            },
+            platby: [{ castka: 200, datum: '2017-05-01T00:00:00.000Z', typ: 'převodem' }],
+            prihlaska: {
+              datum: '2017-05-01T00:00:00.000Z',
+              kategorie: '5a587e1a051c181132cf83b8', // maraton
+              startCislo: 13
+            },
+            vykon: {
+              kategorie: '5a587e1a051c181132cf83b8', // maraton
+              startCislo: 13,
+              dokonceno: true,
+              cas: 'PT2H06M32.6S'
+            }
+          },
+          2015: {
+            udaje: {
+              prijmeni: 'Smalt',
+              jmeno: 'Josef',
+              narozeni: { rok: 2001, mesic: 7, den: 25 },
+              pohlavi: 'muž',
+              obec: 'Králův Dvůr',
+              psc: '735 97',
+              stat: 'Česká republika'
+            },
+            platby: [{ castka: 200, datum: '2015-05-01T00:00:00.000Z', typ: 'převodem' }],
+            prihlaska: {
+              datum: '2015-05-01T00:00:00.000Z',
+              kategorie: '5a587e1a051c181132cf83b8', // maraton
+              startCislo: 21
+            },
+            vykon: {
+              kategorie: '5a587e1a051c181132cf83b8', // maraton
+              startCislo: 21,
+              dokonceno: true,
+              cas: 'PT2H06M32.6S'
+            }
+          },
+          2014: {
+            udaje: {
+              prijmeni: 'Smalt',
+              jmeno: 'Josef',
+              narozeni: { rok: 2001, mesic: 7, den: 25 },
+              pohlavi: 'muž',
+              obec: 'Králův Dvůr',
+              psc: '735 97',
+              stat: 'Česká republika'
+            },
+            platby: [{ castka: 200, datum: '2014-05-01T00:00:00.000Z', typ: 'převodem' }],
+            prihlaska: {
+              datum: '2014-05-01T00:00:00.000Z',
+              kategorie: '5a587e1a051c181132cf83b8', // maraton
+              startCislo: 4
+            },
+            vykon: {
+              kategorie: '5a587e1a051c181132cf83b8', // maraton
+              startCislo: 4,
+              dokonceno: true,
+              cas: 'PT2H06M32.6S'
             }
           }
         }

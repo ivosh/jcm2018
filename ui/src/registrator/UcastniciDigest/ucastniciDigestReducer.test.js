@@ -159,6 +159,16 @@ it('getUcastniciDigestSorted() by default', () => {
       narozeni: { den: 13, mesic: 8, rok: 2001 }
     },
     {
+      id: 'f5c88400190a4bed88c76736',
+      prijmeni: 'Smalt',
+      jmeno: 'Josef',
+      narozeni: { rok: 2001, mesic: 7, den: 25 },
+      2018: { dokonceno: true, kategorie: 'maraton' },
+      2017: { dokonceno: true, kategorie: 'maraton' },
+      2015: { dokonceno: true, kategorie: 'maraton' },
+      2014: { dokonceno: true, kategorie: 'maraton' }
+    },
+    {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
@@ -221,6 +231,16 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
       2016: { dokonceno: true, kategorie: 'maraton' }
     },
     {
+      id: 'f5c88400190a4bed88c76736',
+      prijmeni: 'Smalt',
+      jmeno: 'Josef',
+      narozeni: { rok: 2001, mesic: 7, den: 25 },
+      2018: { dokonceno: true, kategorie: 'maraton' },
+      2017: { dokonceno: true, kategorie: 'maraton' },
+      2015: { dokonceno: true, kategorie: 'maraton' },
+      2014: { dokonceno: true, kategorie: 'maraton' }
+    },
+    {
       id: '8344bc71dec1e99b7e1d01e',
       prijmeni: 'Kyselová',
       jmeno: 'Slavěna',
@@ -264,6 +284,16 @@ it('getUcastniciDigestSorted() podle jména vzestupně', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       2018: { dokonceno: true, kategorie: 'půlmaraton' },
       2019: { dokonceno: true, kategorie: 'půlmaraton' }
+    },
+    {
+      id: 'f5c88400190a4bed88c76736',
+      prijmeni: 'Smalt',
+      jmeno: 'Josef',
+      narozeni: { rok: 2001, mesic: 7, den: 25 },
+      2018: { dokonceno: true, kategorie: 'maraton' },
+      2017: { dokonceno: true, kategorie: 'maraton' },
+      2015: { dokonceno: true, kategorie: 'maraton' },
+      2014: { dokonceno: true, kategorie: 'maraton' }
     },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
@@ -319,6 +349,16 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
       prijmeni: 'Kyselová',
       jmeno: 'Slavěna',
       narozeni: { den: 13, mesic: 8, rok: 2001 }
+    },
+    {
+      id: 'f5c88400190a4bed88c76736',
+      prijmeni: 'Smalt',
+      jmeno: 'Josef',
+      narozeni: { rok: 2001, mesic: 7, den: 25 },
+      2018: { dokonceno: true, kategorie: 'maraton' },
+      2017: { dokonceno: true, kategorie: 'maraton' },
+      2015: { dokonceno: true, kategorie: 'maraton' },
+      2014: { dokonceno: true, kategorie: 'maraton' }
     },
     {
       id: '7a09b1fd371dec1e99b7e142',

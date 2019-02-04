@@ -113,6 +113,14 @@ it('getPoharySorted() by default - nárokované i nepřevzaté', () => {
       ucasti: { dokoncene: [2017], prihlaseno: false }
     },
     {
+      id: 'f5c88400190a4bed88c76736',
+      prijmeni: 'Smalt',
+      jmeno: 'Josef',
+      narozeni: { den: 25, mesic: 7, rok: 2001 },
+      pohary: { narok: true, neprevzato: 0, predano: 0 },
+      ucasti: { dokoncene: [2018, 2017, 2015, 2014], prihlaseno: true }
+    },
+    {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
@@ -144,6 +152,14 @@ it('getPoharySorted() filtrováno na s', () => {
     }
   };
   const selected = [
+    {
+      id: 'f5c88400190a4bed88c76736',
+      prijmeni: 'Smalt',
+      jmeno: 'Josef',
+      narozeni: { den: 25, mesic: 7, rok: 2001 },
+      pohary: { narok: true, neprevzato: 0, predano: 0 },
+      ucasti: { dokoncene: [2018, 2017, 2015, 2014], prihlaseno: true }
+    },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',

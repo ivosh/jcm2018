@@ -234,6 +234,25 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
       predepsano: 0
     },
     {
+      id: 'f5c88400190a4bed88c76736',
+      prijmeni: 'Smalt',
+      jmeno: 'Josef',
+      narozeni: { den: 25, mesic: 7, rok: 2001 },
+      obec: 'Králův Dvůr',
+      email: '',
+      datum: new Date('2019-05-17T00:00:00.000Z'),
+      kategorie: {
+        id: '5a587e1a051c181132cf83b8',
+        typ: 'maraton',
+        pohlavi: 'muž',
+        vek: { min: 18, max: 39 }
+      },
+      startCislo: 15,
+      kod: 'rcc023skd204mvs345',
+      zaplaceno: 200,
+      predepsano: 200
+    },
+    {
       id: '7a09b1fd371dec1e99b7e142',
       prijmeni: 'Zralá',
       jmeno: 'Hana',
@@ -403,6 +422,25 @@ it('getPrihlaseniSorted() by default - jen prihlášeni', () => {
     }
   };
   const selected = [
+    {
+      id: 'f5c88400190a4bed88c76736',
+      prijmeni: 'Smalt',
+      jmeno: 'Josef',
+      narozeni: { den: 25, mesic: 7, rok: 2001 },
+      obec: 'Králův Dvůr',
+      email: '',
+      datum: new Date('2019-05-17T00:00:00.000Z'),
+      kategorie: {
+        id: '5a587e1a051c181132cf83b8',
+        typ: 'maraton',
+        pohlavi: 'muž',
+        vek: { min: 18, max: 39 }
+      },
+      startCislo: 15,
+      kod: 'rcc023skd204mvs345',
+      zaplaceno: 200,
+      predepsano: 200
+    },
     {
       id: '7a09b1fd371dec1e99b7e142',
       prijmeni: 'Zralá',

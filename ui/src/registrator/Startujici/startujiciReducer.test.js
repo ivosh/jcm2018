@@ -19,6 +19,20 @@ it('getPrihlaseni() - default', () => {
       },
       startCislo: 15,
       startCisloRequired: true
+    },
+    {
+      id: 'f5c88400190a4bed88c76736',
+      prijmeni: 'Smalt',
+      jmeno: 'Josef',
+      narozeni: { den: 25, mesic: 7, rok: 2001 },
+      kategorie: {
+        id: '5a587e1a051c181132cf83b8',
+        typ: 'maraton',
+        pohlavi: 'muž',
+        vek: { min: 18, max: 39 }
+      },
+      startCislo: 15,
+      startCisloRequired: true
     }
   ];
   deepFreeze(state);
@@ -43,6 +57,20 @@ it('getPrihlaseni() - chybí startovní číslo', () => {
         pohlavi: 'žena',
         vek: { min: 18, max: 39 }
       },
+      startCisloRequired: true
+    },
+    {
+      id: 'f5c88400190a4bed88c76736',
+      prijmeni: 'Smalt',
+      jmeno: 'Josef',
+      narozeni: { den: 25, mesic: 7, rok: 2001 },
+      kategorie: {
+        id: '5a587e1a051c181132cf83b8',
+        typ: 'maraton',
+        pohlavi: 'muž',
+        vek: { min: 18, max: 39 }
+      },
+      startCislo: 15,
       startCisloRequired: true
     }
   ];
