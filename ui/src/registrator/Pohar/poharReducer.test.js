@@ -178,7 +178,37 @@ it('getPoharySorted() filtrováno na s', () => {
   expect(getPoharySorted({ ...entities, ...pohar })).toEqual(selected);
 });
 
-it('getPoharySorted() by default - jen s nárokem', () => {});
+it('getPoharySorted() by default - jen s nárokem', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      pohar: {
+        narokovaneFilter: true,
+        neprevzateFilter: false,
+        sortColumn: undefined,
+        sortDir: undefined,
+        textFilter: ''
+      }
+    }
+  };
+  const selected = [
+    {
+      id: 'f5c88400190a4bed88c76736',
+      prijmeni: 'Smalt',
+      jmeno: 'Josef',
+      narozeni: { den: 25, mesic: 7, rok: 2001 },
+      pohary: { narok: true, neprevzato: 0, predano: 0 },
+      ucasti: { dokoncene: [2018, 2017, 2015, 2014], prihlaseno: true }
+    }
+  ];
+  deepFreeze(state);
+
+  const {
+    entities,
+    registrator: { pohar }
+  } = state;
+  expect(getPoharySorted({ ...entities, ...pohar })).toEqual(selected);
+});
 
 it('getPoharySorted() by default - jen s nepřevzatým pohárem', () => {
   const state = {
