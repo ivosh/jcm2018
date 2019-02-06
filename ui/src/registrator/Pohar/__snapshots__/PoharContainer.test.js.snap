@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`maps state and dispatch to props 1`] = `
+Array [
+  Object {
+    "id": "f5c88400190a4bed88c76736",
+    "jmeno": "Josef",
+    "narozeni": Object {
+      "den": 25,
+      "mesic": 7,
+      "rok": 2001,
+    },
+    "pohary": Object {
+      "narok": true,
+      "neprevzato": 0,
+      "predano": 0,
+    },
+    "prijmeni": "Smalt",
+    "ucasti": Object {
+      "dokoncene": Array [
+        2018,
+        2017,
+        2015,
+        2014,
+      ],
+      "prihlaseno": true,
+    },
+  },
+]
+`;

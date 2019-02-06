@@ -83,6 +83,21 @@ exports[`it renders 1`] = `
             Ubytovaní
           </a>
         </li>
+        <li
+          className="Main__menu-item"
+        >
+          <a
+            className="Main__menu-link"
+            href="/pohary"
+            onClick={[Function]}
+          >
+            <span
+              className="glyphicon glyphicon-king"
+            />
+             
+            Poháry
+          </a>
+        </li>
       </ul>
     </div>
     <div

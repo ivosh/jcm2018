@@ -119,6 +119,14 @@ Object {
         "showing": false,
       },
     },
+    "pohar": Object {
+      "kategorieFilter": "",
+      "narokovaneFilter": false,
+      "neprevzateFilter": false,
+      "sortColumn": undefined,
+      "sortDir": "none",
+      "textFilter": "",
+    },
     "poradi": Object {
       "kategorieFilter": "",
       "kategorieSubFilter": "",
@@ -326,6 +334,14 @@ Object {
         "showing": false,
       },
     },
+    "pohar": Object {
+      "kategorieFilter": "",
+      "narokovaneFilter": false,
+      "neprevzateFilter": false,
+      "sortColumn": undefined,
+      "sortDir": "none",
+      "textFilter": "",
+    },
     "poradi": Object {
       "kategorieFilter": "",
       "kategorieSubFilter": "",
@@ -532,6 +548,14 @@ Object {
       "startCislo": Object {
         "showing": false,
       },
+    },
+    "pohar": Object {
+      "kategorieFilter": "",
+      "narokovaneFilter": false,
+      "neprevzateFilter": false,
+      "sortColumn": undefined,
+      "sortDir": "none",
+      "textFilter": "",
     },
     "poradi": Object {
       "kategorieFilter": "",

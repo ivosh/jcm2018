@@ -6,10 +6,12 @@ import { createPrihlaskyDohlaskyReducer } from './PrihlaskyDohlasky/prihlaskyDoh
 import startovniCislaReducer from './StartovniCisla/startovniCislaReducer';
 import ubytovaniReducer from './Ubytovani/ubytovaniReducer';
 import ucastniciDigestReducer from './UcastniciDigest/ucastniciDigestReducer';
+import poharReducer from './Pohar/poharReducer';
 
 const registratorReducer = combineReducers({
   dohlaseni: createPrihlaseniDohlaseniReducer('DOHLASENI'),
   dohlasky: createPrihlaskyDohlaskyReducer(DOHLASKY),
+  pohar: poharReducer,
   poradi: poradiReducer,
   prihlaseni: createPrihlaseniDohlaseniReducer('PRIHLASENI'),
   prihlasky: createPrihlaskyDohlaskyReducer(PRIHLASKY),

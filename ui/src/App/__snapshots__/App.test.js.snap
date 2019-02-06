@@ -107,6 +107,10 @@ exports[`with websocket connected, authenticated 1`] = `
       />
       <Connect(AuthorizedRoute)
         component={[Function]}
+        path="/pohary"
+      />
+      <Connect(AuthorizedRoute)
+        component={[Function]}
         path="/pokladna"
       />
       <Connect(AuthorizedRoute)
@@ -255,6 +259,10 @@ exports[`with websocket connected, not authenticated 1`] = `
       <Connect(AuthorizedRoute)
         component={[Function]}
         path="/dohlasky"
+      />
+      <Connect(AuthorizedRoute)
+        component={[Function]}
+        path="/pohary"
       />
       <Connect(AuthorizedRoute)
         component={[Function]}
@@ -420,6 +428,10 @@ exports[`with websocket disconnected, authenticated 1`] = `
       <Connect(AuthorizedRoute)
         component={[Function]}
         path="/dohlasky"
+      />
+      <Connect(AuthorizedRoute)
+        component={[Function]}
+        path="/pohary"
       />
       <Connect(AuthorizedRoute)
         component={[Function]}

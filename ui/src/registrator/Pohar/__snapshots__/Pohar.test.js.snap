@@ -1,0 +1,699 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dva pohároví 1`] = `
+<div
+  className="Pohar__div UcastniciTable_container"
+>
+  <div>
+    <input
+      className="TextFilter__input"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder="Filtr na příjmení a jméno"
+      type="text"
+      value=""
+    />
+    <span
+      className="Pohar__buttons Bootstrap-buttons--active"
+    >
+      <button
+        className="Pohar__button btn btn-success"
+        disabled={false}
+        onClick={[MockFunction]}
+        type="button"
+      >
+        <span
+          className="glyphicon glyphicon-download"
+        />
+         Nárok na pohár
+      </button>
+      <button
+        className="Pohar__button btn btn-info"
+        disabled={false}
+        onClick={[MockFunction]}
+        type="button"
+      >
+        <span
+          className="glyphicon glyphicon-upload"
+        />
+         Nepřevzatý pohár
+      </button>
+    </span>
+    <span
+      className="Zobrazeno"
+    >
+      zobrazeno: 
+      <span
+        className="badge"
+      >
+        3
+      </span>
+    </span>
+  </div>
+  <div
+    className="withResponsive"
+  >
+    <div
+      className="UcastniciTable_GridRow"
+    >
+      <div
+        className="UcastniciTable_LeftSideGridContainer"
+        style={
+          Object {
+            "flexBasis": "290px",
+            "top": 0,
+          }
+        }
+      >
+        <div
+          aria-label="grid"
+          aria-readonly={true}
+          className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
+          onScroll={[Function]}
+          role="grid"
+          style={
+            Object {
+              "WebkitOverflowScrolling": "touch",
+              "boxSizing": "border-box",
+              "direction": "ltr",
+              "height": 35,
+              "overflowX": "hidden",
+              "overflowY": "hidden",
+              "position": "relative",
+              "width": 290,
+              "willChange": "transform",
+            }
+          }
+          tabIndex={0}
+        >
+          <div
+            className="ReactVirtualized__Grid__innerScrollContainer"
+            role="rowgroup"
+            style={
+              Object {
+                "height": 35,
+                "maxHeight": 35,
+                "maxWidth": 290,
+                "overflow": "hidden",
+                "pointerEvents": "",
+                "position": "relative",
+                "width": 290,
+              }
+            }
+          >
+            <div
+              className="UcastniciTable_headerCell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": 100,
+                }
+              }
+            >
+              <button
+                className="SortHeader"
+                onClick={[Function]}
+              >
+                příjmení
+                 
+                
+              </button>
+            </div>
+            <div
+              className="UcastniciTable_headerCell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 100,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": 90,
+                }
+              }
+            >
+              <button
+                className="SortHeader"
+                onClick={[Function]}
+              >
+                jméno
+                 
+                
+              </button>
+            </div>
+            <div
+              className="UcastniciTable_headerCell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 190,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": 100,
+                }
+              }
+            >
+              <button
+                className="SortHeader"
+                onClick={[Function]}
+              >
+                narození
+                 
+                
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="UcastniciTable_LeftSideGridContainer"
+        style={
+          Object {
+            "flexBasis": "290px",
+            "top": 35,
+          }
+        }
+      >
+        <div
+          aria-label="grid"
+          aria-readonly={true}
+          className="ReactVirtualized__Grid UcastniciTable_LeftSideGrid"
+          onScroll={[Function]}
+          role="grid"
+          style={
+            Object {
+              "WebkitOverflowScrolling": "touch",
+              "boxSizing": "border-box",
+              "direction": "ltr",
+              "height": 105,
+              "overflowX": "hidden",
+              "overflowY": "hidden",
+              "position": "relative",
+              "width": 290,
+              "willChange": "transform",
+            }
+          }
+          tabIndex={0}
+        >
+          <div
+            className="ReactVirtualized__Grid__innerScrollContainer"
+            role="rowgroup"
+            style={
+              Object {
+                "height": 105,
+                "maxHeight": 105,
+                "maxWidth": 290,
+                "overflow": "hidden",
+                "pointerEvents": "",
+                "position": "relative",
+                "width": 290,
+              }
+            }
+          >
+            <div
+              className="align-left UcastniciTable_oddRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": 100,
+                }
+              }
+            >
+              <a
+                href="/prihlasky/5a09b1fd371dec1e99b7e1c9"
+                onClick={[Function]}
+              >
+                Balabák
+              </a>
+            </div>
+            <div
+              className="align-left UcastniciTable_oddRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 100,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": 90,
+                }
+              }
+            >
+              Roman
+            </div>
+            <div
+              className="align-right UcastniciTable_oddRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 190,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": 100,
+                }
+              }
+            >
+              1956
+            </div>
+            <div
+              className="align-left UcastniciTable_evenRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 35,
+                  "width": 100,
+                }
+              }
+            >
+              <a
+                href="/prihlasky/6f09b1fd371dec1e99b7e1c9"
+                onClick={[Function]}
+              >
+                Sukdoláková
+              </a>
+            </div>
+            <div
+              className="align-left UcastniciTable_evenRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 100,
+                  "position": "absolute",
+                  "top": 35,
+                  "width": 90,
+                }
+              }
+            >
+              Martina
+            </div>
+            <div
+              className="align-right UcastniciTable_evenRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 190,
+                  "position": "absolute",
+                  "top": 35,
+                  "width": 100,
+                }
+              }
+            >
+              7. 12. 1963
+            </div>
+            <div
+              className="align-left UcastniciTable_oddRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 70,
+                  "width": 100,
+                }
+              }
+            >
+              <a
+                href="/prihlasky/7a09b1fd371dec1e99b7e142"
+                onClick={[Function]}
+              >
+                Zralá
+              </a>
+            </div>
+            <div
+              className="align-left UcastniciTable_oddRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 100,
+                  "position": "absolute",
+                  "top": 70,
+                  "width": 90,
+                }
+              }
+            >
+              Hana
+            </div>
+            <div
+              className="align-right UcastniciTable_oddRow UcastniciTable_cell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 190,
+                  "position": "absolute",
+                  "top": 70,
+                  "width": 100,
+                }
+              }
+            >
+              25. 7. 1999
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="UcastniciTable_GridColumn"
+      >
+        <div>
+          <div
+            style={
+              Object {
+                "height": 35,
+                "width": 0,
+              }
+            }
+          >
+            <div
+              aria-label="grid"
+              aria-readonly={true}
+              className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
+              onScroll={[Function]}
+              role="grid"
+              style={
+                Object {
+                  "WebkitOverflowScrolling": "touch",
+                  "boxSizing": "border-box",
+                  "direction": "ltr",
+                  "height": 35,
+                  "overflowX": "hidden",
+                  "overflowY": "hidden",
+                  "position": "relative",
+                  "width": 290,
+                  "willChange": "transform",
+                }
+              }
+              tabIndex={0}
+            />
+          </div>
+          <div
+            style={
+              Object {
+                "height": 105,
+                "width": 290,
+              }
+            }
+          >
+            <div
+              aria-label="grid"
+              aria-readonly={true}
+              className="ReactVirtualized__Grid UcastniciTable_BodyGrid"
+              onScroll={[Function]}
+              role="grid"
+              style={
+                Object {
+                  "WebkitOverflowScrolling": "touch",
+                  "boxSizing": "border-box",
+                  "direction": "ltr",
+                  "height": 105,
+                  "overflowX": "hidden",
+                  "overflowY": "hidden",
+                  "position": "relative",
+                  "width": 290,
+                  "willChange": "transform",
+                }
+              }
+              tabIndex={0}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`žádný pohár 1`] = `
+<div
+  className="Pohar__div UcastniciTable_container"
+>
+  <div>
+    <input
+      className="TextFilter__input"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      placeholder="Filtr na příjmení a jméno"
+      type="text"
+      value=""
+    />
+    <span
+      className="Pohar__buttons Bootstrap-buttons--active"
+    >
+      <button
+        className="Pohar__button btn btn-success"
+        disabled={false}
+        onClick={[MockFunction]}
+        type="button"
+      >
+        <span
+          className="glyphicon glyphicon-download"
+        />
+         Nárok na pohár
+      </button>
+      <button
+        className="Pohar__button btn btn-info"
+        disabled={false}
+        onClick={[MockFunction]}
+        type="button"
+      >
+        <span
+          className="glyphicon glyphicon-upload"
+        />
+         Nepřevzatý pohár
+      </button>
+    </span>
+    <span
+      className="Zobrazeno"
+    >
+      zobrazeno: 
+      <span
+        className="badge"
+      >
+        0
+      </span>
+    </span>
+  </div>
+  <div
+    className="withResponsive"
+  >
+    <div
+      className="UcastniciTable_GridRow"
+    >
+      <div
+        className="UcastniciTable_LeftSideGridContainer"
+        style={
+          Object {
+            "flexBasis": "290px",
+            "top": 0,
+          }
+        }
+      >
+        <div
+          aria-label="grid"
+          aria-readonly={true}
+          className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
+          onScroll={[Function]}
+          role="grid"
+          style={
+            Object {
+              "WebkitOverflowScrolling": "touch",
+              "boxSizing": "border-box",
+              "direction": "ltr",
+              "height": 35,
+              "overflowX": "hidden",
+              "overflowY": "hidden",
+              "position": "relative",
+              "width": 290,
+              "willChange": "transform",
+            }
+          }
+          tabIndex={0}
+        >
+          <div
+            className="ReactVirtualized__Grid__innerScrollContainer"
+            role="rowgroup"
+            style={
+              Object {
+                "height": 35,
+                "maxHeight": 35,
+                "maxWidth": 290,
+                "overflow": "hidden",
+                "pointerEvents": "",
+                "position": "relative",
+                "width": 290,
+              }
+            }
+          >
+            <div
+              className="UcastniciTable_headerCell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": 100,
+                }
+              }
+            >
+              <button
+                className="SortHeader"
+                onClick={[Function]}
+              >
+                příjmení
+                 
+                
+              </button>
+            </div>
+            <div
+              className="UcastniciTable_headerCell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 100,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": 90,
+                }
+              }
+            >
+              <button
+                className="SortHeader"
+                onClick={[Function]}
+              >
+                jméno
+                 
+                
+              </button>
+            </div>
+            <div
+              className="UcastniciTable_headerCell"
+              style={
+                Object {
+                  "height": 35,
+                  "left": 190,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": 100,
+                }
+              }
+            >
+              <button
+                className="SortHeader"
+                onClick={[Function]}
+              >
+                narození
+                 
+                
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="UcastniciTable_LeftSideGridContainer"
+        style={
+          Object {
+            "flexBasis": "290px",
+            "top": 35,
+          }
+        }
+      >
+        <div
+          aria-label="grid"
+          aria-readonly={true}
+          className="ReactVirtualized__Grid UcastniciTable_LeftSideGrid"
+          onScroll={[Function]}
+          role="grid"
+          style={
+            Object {
+              "WebkitOverflowScrolling": "touch",
+              "boxSizing": "border-box",
+              "direction": "ltr",
+              "height": 0,
+              "overflowX": "auto",
+              "overflowY": "hidden",
+              "position": "relative",
+              "width": 290,
+              "willChange": "transform",
+            }
+          }
+          tabIndex={0}
+        />
+      </div>
+      <div
+        className="UcastniciTable_GridColumn"
+      >
+        <div>
+          <div
+            style={
+              Object {
+                "height": 35,
+                "width": 0,
+              }
+            }
+          >
+            <div
+              aria-label="grid"
+              aria-readonly={true}
+              className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
+              onScroll={[Function]}
+              role="grid"
+              style={
+                Object {
+                  "WebkitOverflowScrolling": "touch",
+                  "boxSizing": "border-box",
+                  "direction": "ltr",
+                  "height": 35,
+                  "overflowX": "hidden",
+                  "overflowY": "hidden",
+                  "position": "relative",
+                  "width": 290,
+                  "willChange": "transform",
+                }
+              }
+              tabIndex={0}
+            />
+          </div>
+          <div
+            style={
+              Object {
+                "height": 0,
+                "width": 290,
+              }
+            }
+          >
+            <div
+              aria-label="grid"
+              aria-readonly={true}
+              className="ReactVirtualized__Grid UcastniciTable_BodyGrid"
+              onScroll={[Function]}
+              role="grid"
+              style={
+                Object {
+                  "WebkitOverflowScrolling": "touch",
+                  "boxSizing": "border-box",
+                  "direction": "ltr",
+                  "height": 0,
+                  "overflowX": "auto",
+                  "overflowY": "hidden",
+                  "position": "relative",
+                  "width": 290,
+                  "willChange": "transform",
+                }
+              }
+              tabIndex={0}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

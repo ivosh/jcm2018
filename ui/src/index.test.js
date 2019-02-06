@@ -26,6 +26,11 @@ const store = mockStore({
   fetchingStopky: 'done',
   fetchingUcastnici: 'done',
   registrator: {
+    pohar: {
+      narokovaneFilter: false,
+      neprevzateFilter: false,
+      textFilter: ''
+    },
     prihlaseni: {
       kategorieFilter: '',
       sortColumn: undefined,

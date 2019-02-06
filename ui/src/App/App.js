@@ -13,6 +13,7 @@ import Dohlaseni from '../registrator/PrihlaseniDohlaseni/Dohlaseni';
 import Dohlasky from '../registrator/PrihlaskyDohlasky/Dohlasky';
 import ErrorInModalContainer from '../shared/ErrorInModal/ErrorInModalContainer';
 import Main from './Main';
+import PoharContainer from '../registrator/Pohar/PoharContainer';
 import PokladnaContainer from '../registrator/Pokladna/PokladnaContainer';
 import PoradiContainer from '../registrator/Poradi/PoradiContainer';
 import Prihlaseni from '../registrator/PrihlaseniDohlaseni/Prihlaseni';
@@ -133,6 +134,7 @@ class App extends PureComponent {
             />
             <AuthorizedRoute path="/dohlaseni" component={withFetchUcastnici(Dohlaseni)} />
             <AuthorizedRoute path="/dohlasky" component={withFetchUcastnici(Dohlasky)} />
+            <AuthorizedRoute path="/pohary" component={withFetchUcastnici(PoharContainer)} />
             <AuthorizedRoute path="/pokladna" component={withFetchUcastnici(PokladnaContainer)} />
             <AuthorizedRoute path="/poradi" component={withFetchUcastnici(PoradiContainer)} />
             <AuthorizedRoute path="/prihlaseni" component={withFetchUcastnici(Prihlaseni)} />
