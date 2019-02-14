@@ -17,23 +17,23 @@ export const initialState = {
   ...ucastniciTableInitialState
 };
 
-const filterableReducer = createFilterableReducer('POHAR');
-const ucastniciTableReducer = createUcastniciTableReducer('POHAR');
-const poharReducer = (state = initialState, action) => {
+const filterableReducer = createFilterableReducer('POHARY');
+const ucastniciTableReducer = createUcastniciTableReducer('POHARY');
+const poharyReducer = (state = initialState, action) => {
   state = filterableReducer(state, action); // eslint-disable-line no-param-reassign
   state = ucastniciTableReducer(state, action); // eslint-disable-line no-param-reassign
 
   switch (action.type) {
-    case 'POHAR_NAROKOVANE_FILTER_CHANGE':
+    case 'POHARY_NAROKOVANE_FILTER_CHANGE':
       return { ...state, narokovaneFilter: !state.narokovaneFilter };
-    case 'POHAR_NEPREVZATE_FILTER_CHANGE':
+    case 'POHARY_NEPREVZATE_FILTER_CHANGE':
       return { ...state, neprevzateFilter: !state.neprevzateFilter };
     default:
       return state;
   }
 };
 
-export default poharReducer;
+export default poharyReducer;
 
 export const getPoharySorted = ({
   narokovaneFilter,

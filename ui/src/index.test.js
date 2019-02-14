@@ -26,7 +26,7 @@ const store = mockStore({
   fetchingStopky: 'done',
   fetchingUcastnici: 'done',
   registrator: {
-    pohar: {
+    pohary: {
       narokovaneFilter: false,
       neprevzateFilter: false,
       textFilter: ''

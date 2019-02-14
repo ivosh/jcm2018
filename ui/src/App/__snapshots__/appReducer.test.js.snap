@@ -119,7 +119,7 @@ Object {
         "showing": false,
       },
     },
-    "pohar": Object {
+    "pohary": Object {
       "kategorieFilter": "",
       "narokovaneFilter": false,
       "neprevzateFilter": false,
@@ -334,7 +334,7 @@ Object {
         "showing": false,
       },
     },
-    "pohar": Object {
+    "pohary": Object {
       "kategorieFilter": "",
       "narokovaneFilter": false,
       "neprevzateFilter": false,
@@ -549,7 +549,7 @@ Object {
         "showing": false,
       },
     },
-    "pohar": Object {
+    "pohary": Object {
       "kategorieFilter": "",
       "narokovaneFilter": false,
       "neprevzateFilter": false,

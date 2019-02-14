@@ -3,17 +3,17 @@ import { SortDirTypes } from '../../sort';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { createTextFilterChange } from '../Filterable/FilterableActions';
 import { createSortDirChange } from '../UcastniciTable/UcastniciTableActions';
-import { narokovaneFilterChange, neprevzateFilterChange } from './PoharActions';
-import poharReducer, { getPoharySorted } from './poharReducer';
+import { narokovaneFilterChange, neprevzateFilterChange } from './PoharyActions';
+import poharyReducer, { getPoharySorted } from './poharyReducer';
 
-const actionPrefix = 'POHAR';
+const actionPrefix = 'POHARY';
 const sortDirChange = createSortDirChange(actionPrefix);
 const textFilterChange = createTextFilterChange(actionPrefix);
 
 it('na začátku', () => {
   const stateBefore = undefined;
 
-  const stateAfter = poharReducer(stateBefore, {});
+  const stateAfter = poharyReducer(stateBefore, {});
   expect(stateAfter.narokovaneFilter).toBe(false);
   expect(stateAfter.neprevzateFilter).toBe(false);
   expect(stateAfter.textFilter).toEqual('');
@@ -26,7 +26,7 @@ it('přepínání narokovaneFilter - tam', () => {
   const stateAfter = { narokovaneFilter: true };
   deepFreeze(stateBefore);
 
-  expect(poharReducer(stateBefore, narokovaneFilterChange())).toEqual(stateAfter);
+  expect(poharyReducer(stateBefore, narokovaneFilterChange())).toEqual(stateAfter);
 });
 
 it('přepínání narokovaneFilter - a zase zpět', () => {
@@ -34,7 +34,7 @@ it('přepínání narokovaneFilter - a zase zpět', () => {
   const stateAfter = { narokovaneFilter: false };
   deepFreeze(stateBefore);
 
-  expect(poharReducer(stateBefore, narokovaneFilterChange())).toEqual(stateAfter);
+  expect(poharyReducer(stateBefore, narokovaneFilterChange())).toEqual(stateAfter);
 });
 
 it('přepínání neprevzateFilter - tam', () => {
@@ -42,7 +42,7 @@ it('přepínání neprevzateFilter - tam', () => {
   const stateAfter = { neprevzateFilter: false };
   deepFreeze(stateBefore);
 
-  expect(poharReducer(stateBefore, neprevzateFilterChange())).toEqual(stateAfter);
+  expect(poharyReducer(stateBefore, neprevzateFilterChange())).toEqual(stateAfter);
 });
 
 it('přepínání neprevzateFilter - a zase zpět', () => {
@@ -50,7 +50,7 @@ it('přepínání neprevzateFilter - a zase zpět', () => {
   const stateAfter = { neprevzateFilter: true };
   deepFreeze(stateBefore);
 
-  expect(poharReducer(stateBefore, neprevzateFilterChange())).toEqual(stateAfter);
+  expect(poharyReducer(stateBefore, neprevzateFilterChange())).toEqual(stateAfter);
 });
 
 it('řadit dle příjmení vzestupně', () => {
@@ -58,7 +58,7 @@ it('řadit dle příjmení vzestupně', () => {
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC };
   deepFreeze(stateBefore);
 
-  expect(poharReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
+  expect(poharyReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
 });
 
 it('řadit dle příjmení sestupně', () => {
@@ -66,7 +66,7 @@ it('řadit dle příjmení sestupně', () => {
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.DESC };
   deepFreeze(stateBefore);
 
-  expect(poharReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
+  expect(poharyReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
 });
 
 it('řadit dle příjmení zase vzestupně', () => {
@@ -74,7 +74,7 @@ it('řadit dle příjmení zase vzestupně', () => {
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC };
   deepFreeze(stateBefore);
 
-  expect(poharReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
+  expect(poharyReducer(stateBefore, sortDirChange('prijmeni'))).toEqual(stateAfter);
 });
 
 it('filtrovat na dvě písmena', () => {
@@ -87,14 +87,14 @@ it('filtrovat na dvě písmena', () => {
   const stateAfter = { ...stateBefore, textFilter: 'kl' };
   deepFreeze(stateBefore);
 
-  expect(poharReducer(stateBefore, textFilterChange('Kl'))).toEqual(stateAfter);
+  expect(poharyReducer(stateBefore, textFilterChange('Kl'))).toEqual(stateAfter);
 });
 
 it('getPoharySorted() by default - nárokované i nepřevzaté', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      pohar: {
+      pohary: {
         narokovaneFilter: false,
         neprevzateFilter: false,
         sortColumn: undefined,
@@ -133,16 +133,16 @@ it('getPoharySorted() by default - nárokované i nepřevzaté', () => {
 
   const {
     entities,
-    registrator: { pohar }
+    registrator: { pohary }
   } = state;
-  expect(getPoharySorted({ ...entities, ...pohar })).toEqual(selected);
+  expect(getPoharySorted({ ...entities, ...pohary })).toEqual(selected);
 });
 
 it('getPoharySorted() filtrováno na s', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      pohar: {
+      pohary: {
         narokovaneFilter: false,
         neprevzateFilter: false,
         sortColumn: undefined,
@@ -173,16 +173,16 @@ it('getPoharySorted() filtrováno na s', () => {
 
   const {
     entities,
-    registrator: { pohar }
+    registrator: { pohary }
   } = state;
-  expect(getPoharySorted({ ...entities, ...pohar })).toEqual(selected);
+  expect(getPoharySorted({ ...entities, ...pohary })).toEqual(selected);
 });
 
 it('getPoharySorted() by default - jen s nárokem', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      pohar: {
+      pohary: {
         narokovaneFilter: true,
         neprevzateFilter: false,
         sortColumn: undefined,
@@ -205,16 +205,16 @@ it('getPoharySorted() by default - jen s nárokem', () => {
 
   const {
     entities,
-    registrator: { pohar }
+    registrator: { pohary }
   } = state;
-  expect(getPoharySorted({ ...entities, ...pohar })).toEqual(selected);
+  expect(getPoharySorted({ ...entities, ...pohary })).toEqual(selected);
 });
 
 it('getPoharySorted() by default - jen s nepřevzatým pohárem', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      pohar: {
+      pohary: {
         narokovaneFilter: false,
         neprevzateFilter: true,
         sortColumn: undefined,
@@ -237,7 +237,7 @@ it('getPoharySorted() by default - jen s nepřevzatým pohárem', () => {
 
   const {
     entities,
-    registrator: { pohar }
+    registrator: { pohary }
   } = state;
-  expect(getPoharySorted({ ...entities, ...pohar })).toEqual(selected);
+  expect(getPoharySorted({ ...entities, ...pohary })).toEqual(selected);
 });

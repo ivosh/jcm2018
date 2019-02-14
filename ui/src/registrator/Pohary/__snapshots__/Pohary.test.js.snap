@@ -2,8 +2,11 @@
 
 exports[`dva pohároví 1`] = `
 <div
-  className="Pohar__div UcastniciTable_container"
+  className="Pohary__div UcastniciTable_container"
 >
+  <p>
+    Jsou zobrazeni pouze účastníci, kteří buďto maraton alespoň jednou dokončili anebo se na něj přihlásili. To je dále ještě možné poštelovat filtry.
+  </p>
   <div>
     <input
       className="TextFilter__input"
@@ -15,10 +18,10 @@ exports[`dva pohároví 1`] = `
       value=""
     />
     <span
-      className="Pohar__buttons Bootstrap-buttons--active"
+      className="Pohary__buttons Bootstrap-buttons--active"
     >
       <button
-        className="Pohar__button btn btn-success"
+        className="Pohary__button btn btn-success"
         disabled={false}
         onClick={[MockFunction]}
         type="button"
@@ -29,7 +32,7 @@ exports[`dva pohároví 1`] = `
          Nárok na pohár
       </button>
       <button
-        className="Pohar__button btn btn-info"
+        className="Pohary__button btn btn-info"
         disabled={false}
         onClick={[MockFunction]}
         type="button"
@@ -365,7 +368,7 @@ exports[`dva pohároví 1`] = `
             style={
               Object {
                 "height": 35,
-                "width": 0,
+                "width": 400,
               }
             }
           >
@@ -384,18 +387,119 @@ exports[`dva pohároví 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 290,
+                  "width": 690,
                   "willChange": "transform",
                 }
               }
               tabIndex={0}
-            />
+            >
+              <div
+                className="ReactVirtualized__Grid__innerScrollContainer"
+                role="rowgroup"
+                style={
+                  Object {
+                    "height": 35,
+                    "maxHeight": 35,
+                    "maxWidth": 690,
+                    "overflow": "hidden",
+                    "pointerEvents": "",
+                    "position": "relative",
+                    "width": 690,
+                  }
+                }
+              >
+                <div
+                  className="UcastniciTable_headerCell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 290,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 100,
+                    }
+                  }
+                >
+                  <button
+                    className="SortHeader"
+                    onClick={[Function]}
+                  >
+                    účastí
+                     
+                    
+                  </button>
+                </div>
+                <div
+                  className="UcastniciTable_headerCell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 390,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 100,
+                    }
+                  }
+                >
+                  <button
+                    className="SortHeader"
+                    onClick={[Function]}
+                  >
+                    předáno
+                     
+                    
+                  </button>
+                </div>
+                <div
+                  className="UcastniciTable_headerCell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 490,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 100,
+                    }
+                  }
+                >
+                  <button
+                    className="SortHeader"
+                    onClick={[Function]}
+                  >
+                    nepřevzato
+                     
+                    
+                  </button>
+                </div>
+                <div
+                  className="UcastniciTable_headerCell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 590,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 100,
+                    }
+                  }
+                >
+                  <button
+                    className="SortHeader"
+                    onClick={[Function]}
+                  >
+                    nárok?
+                     
+                    
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
           <div
             style={
               Object {
                 "height": 105,
-                "width": 290,
+                "width": 690,
               }
             }
           >
@@ -414,12 +518,206 @@ exports[`dva pohároví 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 290,
+                  "width": 690,
                   "willChange": "transform",
                 }
               }
               tabIndex={0}
-            />
+            >
+              <div
+                className="ReactVirtualized__Grid__innerScrollContainer"
+                role="rowgroup"
+                style={
+                  Object {
+                    "height": 105,
+                    "maxHeight": 105,
+                    "maxWidth": 690,
+                    "overflow": "hidden",
+                    "pointerEvents": "",
+                    "position": "relative",
+                    "width": 690,
+                  }
+                }
+              >
+                <div
+                  className="align-right UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 290,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 100,
+                    }
+                  }
+                >
+                  1
+                </div>
+                <div
+                  className="align-right UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 390,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 100,
+                    }
+                  }
+                >
+                  <div />
+                </div>
+                <div
+                  className="align-right UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 490,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 100,
+                    }
+                  }
+                >
+                  <div />
+                </div>
+                <div
+                  className="align-right UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 590,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 100,
+                    }
+                  }
+                >
+                  <div />
+                </div>
+                <div
+                  className="align-right UcastniciTable_evenRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 290,
+                      "position": "absolute",
+                      "top": 35,
+                      "width": 100,
+                    }
+                  }
+                >
+                  5
+                </div>
+                <div
+                  className="align-right UcastniciTable_evenRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 390,
+                      "position": "absolute",
+                      "top": 35,
+                      "width": 100,
+                    }
+                  }
+                >
+                  <div />
+                </div>
+                <div
+                  className="align-right UcastniciTable_evenRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 490,
+                      "position": "absolute",
+                      "top": 35,
+                      "width": 100,
+                    }
+                  }
+                >
+                  <div>
+                    <img
+                      alt="pohár"
+                      className="Pohar"
+                      height={25.72}
+                      src="pohar.svg"
+                      title="pohár"
+                      width={20.68}
+                    />
+                  </div>
+                </div>
+                <div
+                  className="align-right UcastniciTable_evenRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 590,
+                      "position": "absolute",
+                      "top": 35,
+                      "width": 100,
+                    }
+                  }
+                >
+                  <div />
+                </div>
+                <div
+                  className="align-right UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 290,
+                      "position": "absolute",
+                      "top": 70,
+                      "width": 100,
+                    }
+                  }
+                >
+                  0
+                </div>
+                <div
+                  className="align-right UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 390,
+                      "position": "absolute",
+                      "top": 70,
+                      "width": 100,
+                    }
+                  }
+                >
+                  <div />
+                </div>
+                <div
+                  className="align-right UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 490,
+                      "position": "absolute",
+                      "top": 70,
+                      "width": 100,
+                    }
+                  }
+                >
+                  <div />
+                </div>
+                <div
+                  className="align-right UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 590,
+                      "position": "absolute",
+                      "top": 70,
+                      "width": 100,
+                    }
+                  }
+                >
+                  <div />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -430,8 +728,11 @@ exports[`dva pohároví 1`] = `
 
 exports[`žádný pohár 1`] = `
 <div
-  className="Pohar__div UcastniciTable_container"
+  className="Pohary__div UcastniciTable_container"
 >
+  <p>
+    Jsou zobrazeni pouze účastníci, kteří buďto maraton alespoň jednou dokončili anebo se na něj přihlásili. To je dále ještě možné poštelovat filtry.
+  </p>
   <div>
     <input
       className="TextFilter__input"
@@ -443,10 +744,10 @@ exports[`žádný pohár 1`] = `
       value=""
     />
     <span
-      className="Pohar__buttons Bootstrap-buttons--active"
+      className="Pohary__buttons Bootstrap-buttons--active"
     >
       <button
-        className="Pohar__button btn btn-success"
+        className="Pohary__button btn btn-success"
         disabled={false}
         onClick={[MockFunction]}
         type="button"
@@ -457,7 +758,7 @@ exports[`žádný pohár 1`] = `
          Nárok na pohár
       </button>
       <button
-        className="Pohar__button btn btn-info"
+        className="Pohary__button btn btn-info"
         disabled={false}
         onClick={[MockFunction]}
         type="button"
@@ -635,7 +936,7 @@ exports[`žádný pohár 1`] = `
             style={
               Object {
                 "height": 35,
-                "width": 0,
+                "width": 400,
               }
             }
           >
@@ -654,18 +955,119 @@ exports[`žádný pohár 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 290,
+                  "width": 690,
                   "willChange": "transform",
                 }
               }
               tabIndex={0}
-            />
+            >
+              <div
+                className="ReactVirtualized__Grid__innerScrollContainer"
+                role="rowgroup"
+                style={
+                  Object {
+                    "height": 35,
+                    "maxHeight": 35,
+                    "maxWidth": 690,
+                    "overflow": "hidden",
+                    "pointerEvents": "",
+                    "position": "relative",
+                    "width": 690,
+                  }
+                }
+              >
+                <div
+                  className="UcastniciTable_headerCell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 290,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 100,
+                    }
+                  }
+                >
+                  <button
+                    className="SortHeader"
+                    onClick={[Function]}
+                  >
+                    účastí
+                     
+                    
+                  </button>
+                </div>
+                <div
+                  className="UcastniciTable_headerCell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 390,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 100,
+                    }
+                  }
+                >
+                  <button
+                    className="SortHeader"
+                    onClick={[Function]}
+                  >
+                    předáno
+                     
+                    
+                  </button>
+                </div>
+                <div
+                  className="UcastniciTable_headerCell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 490,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 100,
+                    }
+                  }
+                >
+                  <button
+                    className="SortHeader"
+                    onClick={[Function]}
+                  >
+                    nepřevzato
+                     
+                    
+                  </button>
+                </div>
+                <div
+                  className="UcastniciTable_headerCell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 590,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 100,
+                    }
+                  }
+                >
+                  <button
+                    className="SortHeader"
+                    onClick={[Function]}
+                  >
+                    nárok?
+                     
+                    
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
           <div
             style={
               Object {
                 "height": 0,
-                "width": 290,
+                "width": 690,
               }
             }
           >
@@ -684,7 +1086,7 @@ exports[`žádný pohár 1`] = `
                   "overflowX": "auto",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 290,
+                  "width": 690,
                   "willChange": "transform",
                 }
               }
