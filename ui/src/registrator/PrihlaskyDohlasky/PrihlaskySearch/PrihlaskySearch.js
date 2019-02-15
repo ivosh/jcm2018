@@ -5,7 +5,7 @@ import './PrihlaskySearch.css';
 
 const stripDiactrics = string => string.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-const isMatch = (option, text) => {
+const isMatch = (option, { text }) => {
   const { prijmeni, kod } = option;
 
   const prijmeniLower = stripDiactrics(prijmeni.toLowerCase());

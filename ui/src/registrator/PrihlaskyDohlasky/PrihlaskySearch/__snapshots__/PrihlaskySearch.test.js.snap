@@ -1,120 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders 1`] = `
-<div
-  className="rbt open clearfix PrihlaskySearch"
-  style={
-    Object {
-      "position": "relative",
-    }
+<TypeaheadContainer(WrappedTypeahead)
+  a11yNumResults={[Function]}
+  a11yNumSelected={[Function]}
+  align="justify"
+  allowNew={false}
+  autoComplete={false}
+  autoFocus={false}
+  bodyContainer={false}
+  caseSensitive={false}
+  className="PrihlaskySearch"
+  clearButton={false}
+  defaultInputValue=""
+  defaultOpen={false}
+  defaultSelected={Array []}
+  disabled={false}
+  dropup={false}
+  emptyLabel="Nic nenalezeno."
+  filterBy={[Function]}
+  flip={false}
+  highlightOnlyResult={true}
+  ignoreDiacritics={true}
+  inputProps={Object {}}
+  isInvalid={false}
+  isLoading={false}
+  isValid={false}
+  labelKey="prijmeni"
+  maxResults={100}
+  minLength={1}
+  multiple={false}
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onInputChange={[Function]}
+  onKeyDown={[Function]}
+  onPaginate={[Function]}
+  options={
+    Array [
+      Object {
+        "id": "===id1===",
+        "jmeno": "Jiří",
+        "kod": "===kod1===",
+        "narozeni": Object {
+          "rok": 1956,
+        },
+        "prijmeni": "Hudec",
+      },
+      Object {
+        "id": "===id2===",
+        "jmeno": "Jana",
+        "kod": "===kod2===",
+        "narozeni": Object {
+          "rok": 1967,
+        },
+        "prijmeni": "Suchá",
+      },
+      Object {
+        "id": "===id3===",
+        "jmeno": "Jan",
+        "narozeni": Object {
+          "rok": 2001,
+        },
+        "prijmeni": "Kryl",
+      },
+    ]
   }
-  tabIndex={-1}
->
-  <div
-    className="rbt-input form-control"
-    disabled={false}
-    onClick={[Function]}
-    onFocus={[Function]}
-    tabIndex={-1}
-  >
-    <div
-      className="rbt-input-wrapper"
-    >
-      <div
-        style={
-          Object {
-            "display": "block",
-            "position": "relative",
-          }
-        }
-      >
-        <input
-          aria-activedescendant=""
-          aria-autocomplete="both"
-          aria-expanded={false}
-          aria-haspopup="listbox"
-          aria-owns="rbt-menu-*"
-          autoComplete="off"
-          className="rbt-input-main"
-          disabled={false}
-          onBlur={[Function]}
-          onChange={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          placeholder="Začni psát příjmení nebo vlož kód přihlášky."
-          role="combobox"
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "border": 0,
-              "boxShadow": "none",
-              "cursor": "inherit",
-              "outline": "none",
-              "padding": 0,
-              "width": "100%",
-            }
-          }
-          type="text"
-          value=""
-        />
-        <div
-          style={
-            Object {
-              "bottom": 0,
-              "display": "block",
-              "pointerEvents": "none",
-              "position": "absolute",
-              "top": 0,
-              "zIndex": 0,
-            }
-          }
-        >
-          <input
-            aria-hidden={true}
-            className="rbt-input-hint"
-            style={
-              Object {
-                "backgroundColor": "transparent",
-                "border": 0,
-                "boxShadow": "none",
-                "boxSizing": "content-box",
-                "color": "rgba(0, 0, 0, 0.35)",
-                "cursor": "inherit",
-                "outline": "none",
-                "padding": 0,
-                "width": "1px",
-              }
-            }
-            tabIndex={-1}
-            value=""
-          />
-          <div
-            style={
-              Object {
-                "height": 0,
-                "left": 0,
-                "overflow": "scroll",
-                "position": "absolute",
-                "top": 0,
-                "visibility": "hidden",
-                "whiteSpace": "pre",
-              }
-            }
-          >
-            
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    aria-atomic={true}
-    aria-live="polite"
-    className="sr-only rbt-sr-status"
-    role="status"
-  >
-    0 selections
-  </div>
-</div>
+  paginate={true}
+  paginationText="Display additional results..."
+  placeholder="Začni psát příjmení nebo vlož kód přihlášky."
+  renderMenuItemChildren={[Function]}
+  selectHintOnEnter={true}
+/>
 `;

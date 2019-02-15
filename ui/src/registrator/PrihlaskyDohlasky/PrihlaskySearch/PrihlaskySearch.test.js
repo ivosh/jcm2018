@@ -1,6 +1,6 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
+import toJSON from 'enzyme-to-json';
 import PrihlaskySearch from './PrihlaskySearch';
 
 const options = [
@@ -10,17 +10,10 @@ const options = [
 ];
 
 it('renders', () => {
-  const component = renderer.create(
+  const wrapper = shallow(
     <PrihlaskySearch options={options} onChange={jest.fn()} onSelect={jest.fn()} />
   );
-
-  // Typeahead component contains dynamic 'aria-owns' prop. This destroys snapshot testing.
-  const json = component.toJSON();
-  const input = json.children[0].children[0].children[0].children[0];
-  expect(input.type).toEqual('input');
-  expect(input.props['aria-owns']).toEqual(expect.stringContaining('rbt-menu-'));
-  input.props['aria-owns'] = 'rbt-menu-*';
-  expect(json).toMatchSnapshot();
+  expect(toJSON(wrapper)).toMatchSnapshot();
 });
 
 it('handle select', () => {
