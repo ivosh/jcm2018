@@ -70,8 +70,8 @@
     "coverageDirectory": "./coverage/",
     "setupTestFrameworkScriptFile": "./server/setupTestFramework.js",
     "testPathIgnorePatterns": [
-      "node_modules",
-      "ui"
+      "node_modules/",
+      "ui/"
     ]
   }
 }
