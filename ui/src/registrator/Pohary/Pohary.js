@@ -9,20 +9,24 @@ import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
 import Pohar from './Pohar';
 import './Pohary.css';
 
-const poharyFormat = pocet => (
+const poharyFormat = ({ pocet, style }) => (
   <div>
     {Array(pocet)
       .fill(1)
       .map((val, index) => (
-        <Pohar key={index} sizePercentage={4} />
+        <Pohar key={index} sizePercentage={4} style={style} />
       ))}
   </div>
 );
 
-const narokFormat = args => (args.data[args.rowIndex].pohary.narok ? poharyFormat(1) : <div />);
+const narokFormat = args =>
+  args.data[args.rowIndex].pohary.narok ? poharyFormat({ pocet: 1, style: 'nárok' }) : <div />;
 
-const poharFormat = ({ columnKey, data, rowIndex }) =>
-  poharyFormat(data[rowIndex].pohary[columnKey]);
+const neprevzatoFormat = ({ columnKey, data, rowIndex }) =>
+  poharyFormat({ pocet: data[rowIndex].pohary[columnKey], style: 'nepřevzato' });
+
+const predanoFormat = ({ columnKey, data, rowIndex }) =>
+  poharyFormat({ pocet: data[rowIndex].pohary[columnKey], style: 'předáno' });
 
 const narozeniFormat = ({ cellData }) => narozeniToStr(cellData);
 
@@ -77,7 +81,7 @@ const Pohary = ({
     },
     {
       cellClassNames: () => ['align-right'],
-      cellDataFormatter: poharFormat,
+      cellDataFormatter: predanoFormat,
       key: 'predano',
       label: 'předáno',
       sortable: true,
@@ -85,7 +89,7 @@ const Pohary = ({
     },
     {
       cellClassNames: () => ['align-right'],
-      cellDataFormatter: poharFormat,
+      cellDataFormatter: neprevzatoFormat,
       key: 'neprevzato',
       label: 'nepřevzato',
       sortable: true,

@@ -637,11 +637,11 @@ exports[`dva pohároví 1`] = `
                 >
                   <div>
                     <img
-                      alt="pohár"
+                      alt="pohár - nepřevzato"
                       className="Pohar"
                       height={25.72}
-                      src="pohar.svg"
-                      title="pohár"
+                      src="pohar_neprevzato.svg"
+                      title="pohár - nepřevzato"
                       width={20.68}
                     />
                   </div>
