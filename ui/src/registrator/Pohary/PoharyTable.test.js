@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
-import Pohary from './Pohary';
+import PoharyTable from './PoharyTable';
 
 const mockStore = configureStore();
 
@@ -54,7 +54,7 @@ it('žádný pohár', () => {
   const component = renderer.create(
     <Provider store={store}>
       <MemoryRouter>
-        <Pohary pohary={[]} {...commonProps} />
+        <PoharyTable pohary={[]} {...commonProps} />
       </MemoryRouter>
     </Provider>
   );
@@ -65,7 +65,7 @@ it('dva pohároví', () => {
   const component = renderer.create(
     <Provider store={store}>
       <MemoryRouter>
-        <Pohary pohary={pohary} {...commonProps} />
+        <PoharyTable pohary={pohary} {...commonProps} />
       </MemoryRouter>
     </Provider>
   );

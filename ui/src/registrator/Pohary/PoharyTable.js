@@ -7,7 +7,7 @@ import TextFilter from '../Filterable/TextFilter';
 import Zobrazeno from '../Filterable/Zobrazeno';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
 import Pohar from './Pohar';
-import './Pohary.css';
+import './PoharyTable.css';
 
 const poharyFormat = ({ pocet, style }) => (
   <div>
@@ -36,7 +36,7 @@ const prijmeniFormat = args => (
 
 const ucastiFormat = ({ cellData }) => cellData.dokoncene.length;
 
-const Pohary = ({
+const PoharyTable = ({
   actionPrefix,
   narokovaneFilter,
   neprevzateFilter,
@@ -106,7 +106,7 @@ const Pohary = ({
   ];
 
   return (
-    <div className="Pohary__div UcastniciTable_container">
+    <div className="PoharyTable__div UcastniciTable_container">
       <p>
         Jsou zobrazeni pouze účastníci, kteří buďto maraton alespoň jednou dokončili anebo se na něj
         přihlásili. To je dále ještě možné poštelovat filtry.
@@ -114,11 +114,11 @@ const Pohary = ({
       <div>
         <TextFilter filter={textFilter} onChange={onTextFilterChange} />
 
-        <span className="Pohary__buttons Bootstrap-buttons--active">
+        <span className="PoharyTable__buttons Bootstrap-buttons--active">
           <Button
             active={narokovaneFilter}
             bsStyle="success"
-            className="Pohary__button"
+            className="PoharyTable__button"
             onClick={onNarokovaneFilterChange}
           >
             <Glyphicon glyph="download" /> Nárok na pohár
@@ -126,7 +126,7 @@ const Pohary = ({
           <Button
             active={neprevzateFilter}
             bsStyle="info"
-            className="Pohary__button"
+            className="PoharyTable__button"
             onClick={onNeprevzateFilterChange}
           >
             <Glyphicon glyph="upload" /> Nepřevzatý pohár
@@ -148,7 +148,7 @@ const Pohary = ({
   );
 };
 
-Pohary.propTypes = {
+PoharyTable.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
   narokovaneFilter: PropTypes.bool.isRequired,
   neprevzateFilter: PropTypes.bool.isRequired,
@@ -175,4 +175,4 @@ Pohary.propTypes = {
   onTextFilterChange: PropTypes.func.isRequired
 };
 
-export default Pohary;
+export default PoharyTable;

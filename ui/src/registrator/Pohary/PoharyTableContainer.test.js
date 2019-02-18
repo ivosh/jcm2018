@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
-import PoharyContainer from './PoharyContainer';
+import PoharyTableContainer from './PoharyTableContainer';
 
 const mockStore = configureStore();
 
@@ -21,7 +21,7 @@ beforeEach(() => {
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
-  wrapper = shallow(<PoharyContainer store={store} />);
+  wrapper = shallow(<PoharyTableContainer store={store} />);
 });
 
 it('maps state and dispatch to props', () => {

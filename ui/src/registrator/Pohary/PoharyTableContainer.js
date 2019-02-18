@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { createTextFilterChange } from '../Filterable/FilterableActions';
 import { narokovaneFilterChange, neprevzateFilterChange } from './PoharyActions';
 import { getPoharySorted } from './poharyReducer';
-import Pohary from './Pohary';
+import PoharyTable from './PoharyTable';
 
 // Don't forget to update areStatesEqual!
 const mapStateToProps = ({ entities, registrator: { pohary } }) => {
@@ -27,13 +27,13 @@ const mapDispatchToProps = dispatch => ({
 const areStatesEqual = (next, prev) =>
   prev.entities === next.entities && prev.registrator.pohary === next.registrator.pohary;
 
-const PoharyContainer = connect(
+const PoharyTableContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
   null,
   {
     areStatesEqual
   }
-)(Pohary);
+)(PoharyTable);
 
-export default PoharyContainer;
+export default PoharyTableContainer;

@@ -2,7 +2,7 @@
 
 exports[`dva pohároví 1`] = `
 <div
-  className="Pohary__div UcastniciTable_container"
+  className="PoharyTable__div UcastniciTable_container"
 >
   <p>
     Jsou zobrazeni pouze účastníci, kteří buďto maraton alespoň jednou dokončili anebo se na něj přihlásili. To je dále ještě možné poštelovat filtry.
@@ -18,10 +18,10 @@ exports[`dva pohároví 1`] = `
       value=""
     />
     <span
-      className="Pohary__buttons Bootstrap-buttons--active"
+      className="PoharyTable__buttons Bootstrap-buttons--active"
     >
       <button
-        className="Pohary__button btn btn-success"
+        className="PoharyTable__button btn btn-success"
         disabled={false}
         onClick={[MockFunction]}
         type="button"
@@ -32,7 +32,7 @@ exports[`dva pohároví 1`] = `
          Nárok na pohár
       </button>
       <button
-        className="Pohary__button btn btn-info"
+        className="PoharyTable__button btn btn-info"
         disabled={false}
         onClick={[MockFunction]}
         type="button"
@@ -728,7 +728,7 @@ exports[`dva pohároví 1`] = `
 
 exports[`žádný pohár 1`] = `
 <div
-  className="Pohary__div UcastniciTable_container"
+  className="PoharyTable__div UcastniciTable_container"
 >
   <p>
     Jsou zobrazeni pouze účastníci, kteří buďto maraton alespoň jednou dokončili anebo se na něj přihlásili. To je dále ještě možné poštelovat filtry.
@@ -744,10 +744,10 @@ exports[`žádný pohár 1`] = `
       value=""
     />
     <span
-      className="Pohary__buttons Bootstrap-buttons--active"
+      className="PoharyTable__buttons Bootstrap-buttons--active"
     >
       <button
-        className="Pohary__button btn btn-success"
+        className="PoharyTable__button btn btn-success"
         disabled={false}
         onClick={[MockFunction]}
         type="button"
@@ -758,7 +758,7 @@ exports[`žádný pohár 1`] = `
          Nárok na pohár
       </button>
       <button
-        className="Pohary__button btn btn-info"
+        className="PoharyTable__button btn btn-info"
         disabled={false}
         onClick={[MockFunction]}
         type="button"
