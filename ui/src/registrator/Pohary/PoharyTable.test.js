@@ -28,8 +28,8 @@ const pohary = [
     prijmeni: 'Balabák',
     jmeno: 'Roman',
     narozeni: { rok: 1956 },
-    pohary: { narok: false, neprevzato: 0, predano: 0 },
-    ucasti: { dokoncene: [2017], prihlaseno: false }
+    pohary: { narok: true, neprevzato: 0, predano: 0 },
+    ucasti: { dokoncene: [2017, 2015, 2014, 2013], prihlaseno: true }
   },
   {
     id: '6f09b1fd371dec1e99b7e1c9',

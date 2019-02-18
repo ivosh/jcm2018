@@ -6,27 +6,19 @@ import { narozeniToStr } from '../../Util';
 import TextFilter from '../Filterable/TextFilter';
 import Zobrazeno from '../Filterable/Zobrazeno';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
-import Pohar from './Pohar';
+import Pohary from './Pohary';
 import './PoharyTable.css';
 
-const poharyFormat = ({ pocet, style }) => (
-  <div>
-    {Array(pocet)
-      .fill(1)
-      .map((val, index) => (
-        <Pohar key={index} sizePercentage={4} style={style} />
-      ))}
-  </div>
+const narokFormat = args =>
+  args.data[args.rowIndex].pohary.narok ? <Pohary count={1} poharStyle="nárok" /> : <div />;
+
+const neprevzatoFormat = args => (
+  <Pohary count={args.data[args.rowIndex].pohary[args.columnKey]} poharStyle="nepřevzato" />
 );
 
-const narokFormat = args =>
-  args.data[args.rowIndex].pohary.narok ? poharyFormat({ pocet: 1, style: 'nárok' }) : <div />;
-
-const neprevzatoFormat = ({ columnKey, data, rowIndex }) =>
-  poharyFormat({ pocet: data[rowIndex].pohary[columnKey], style: 'nepřevzato' });
-
-const predanoFormat = ({ columnKey, data, rowIndex }) =>
-  poharyFormat({ pocet: data[rowIndex].pohary[columnKey], style: 'předáno' });
+const predanoFormat = args => (
+  <Pohary count={args.data[args.rowIndex].pohary[args.columnKey]} poharStyle="předáno" />
+);
 
 const narozeniFormat = ({ cellData }) => narozeniToStr(cellData);
 
@@ -80,7 +72,6 @@ const PoharyTable = ({
       width: 100
     },
     {
-      cellClassNames: () => ['align-right'],
       cellDataFormatter: predanoFormat,
       key: 'predano',
       label: 'předáno',
@@ -88,7 +79,6 @@ const PoharyTable = ({
       width: 100
     },
     {
-      cellClassNames: () => ['align-right'],
       cellDataFormatter: neprevzatoFormat,
       key: 'neprevzato',
       label: 'nepřevzato',
@@ -96,7 +86,6 @@ const PoharyTable = ({
       width: 100
     },
     {
-      cellClassNames: () => ['align-right'],
       cellDataFormatter: narokFormat,
       key: 'narok',
       label: 'nárok?',
