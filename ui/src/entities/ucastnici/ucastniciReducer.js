@@ -1,6 +1,7 @@
 import { AKTUALNI_ROK } from '../../constants';
 import { SIGN_OUT } from '../../auth/SignOut/SignOutActions';
 import { CASOMIRA_SAVE_VYKON } from '../../casomeric/Casomira/StartovniCisla/StartovniCislaActions';
+import { POHAR_PREDAN } from '../../registrator/Pohary/PoharyActions';
 import {
   DOHLASKY_SAVE,
   PRIHLASKY_SAVE
@@ -57,6 +58,16 @@ const ucastniciReducer = (state = initialState, action) => {
     case `${FETCH_UCASTNICI}_SUCCESS`: {
       const { allIds, byIds } = action.response;
       return { allIds, byIds, invalidated: false };
+    }
+    case `${POHAR_PREDAN}_SUCCESS`: {
+      const { id } = action.request;
+      const ucastnik = state.byIds[id];
+      const { pohar } = ucastnik;
+      const predano = ((pohar && pohar.predano) || 0) + 1;
+      return {
+        ...state,
+        byIds: { ...state.byIds, [id]: { ...ucastnik, pohar: { ...pohar, predano } } }
+      };
     }
     case `${DOHLASKY_SAVE}_SUCCESS`:
     case `${PRIHLASKY_SAVE}_SUCCESS`: {

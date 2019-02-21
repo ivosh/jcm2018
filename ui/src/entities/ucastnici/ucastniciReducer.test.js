@@ -10,6 +10,7 @@ import { createSuccessFromAction } from '../../store/wsAPI';
 import ucastniciReducer, { getUcastiProRok } from './ucastniciReducer';
 import { broadcastUcastnik, fetchUcastnici } from './ucastniciActions';
 import ucastniciTestData, { AKTUALNI_DATUM_KONANI } from './ucastniciTestData';
+import { poharPredan } from '../../registrator/Pohary/PoharyActions';
 
 const prihlaskySave = createPrihlaskySave(PRIHLASKY);
 
@@ -194,6 +195,18 @@ it('modifyUbytovani - success()', () => {
         action: modifyUbytovani({ id, modifikace: UBYTOVANI_NEPRESPANO, rok: AKTUALNI_ROK }),
         response: { response: { ubytovani } }
       })
+    )
+  ).toMatchSnapshot();
+});
+
+it('poharPredan()', () => {
+  const stateBefore = { ...ucastniciTestData.entities.ucastnici };
+  deepFreeze(stateBefore);
+
+  expect(
+    ucastniciReducer(
+      stateBefore,
+      createSuccessFromAction({ action: poharPredan({ id: '6f09b1fd371dec1e99b7e1c9' }) })
     )
   ).toMatchSnapshot();
 });
