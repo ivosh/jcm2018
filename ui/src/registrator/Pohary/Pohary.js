@@ -5,7 +5,7 @@ import DraggablePohar from './DraggablePohar';
 import './Pohary.css';
 
 const Pohary = ({ className, count, id, key, isDragOver, style, type, connectDropTarget }) => {
-  const classNames = className.split(' ').filter(className => className); // filter empty strings
+  const classNames = className.split(' ').filter(str => str); // filter empty strings
   classNames.push('Pohary');
   if (isDragOver) {
     classNames.push('Pohary--isDragOver');

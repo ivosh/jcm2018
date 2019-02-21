@@ -7,6 +7,7 @@ import { saveVykon } from '../../casomeric/Casomira/StartovniCisla/StartovniCisl
 import { fetchRocniky } from '../../entities/rocniky/rocnikyActions';
 import { fetchStopky } from '../../entities/stopky/stopkyActions';
 import { fetchUcastnici } from '../../entities/ucastnici/ucastniciActions';
+import { poharPredan } from '../../registrator/Pohary/PoharyActions';
 import {
   createPrihlaskySave,
   createValidationError
@@ -119,6 +120,12 @@ it('FETCH_UCASTNICI_ERROR', () =>
   testUnsuccessfulResponse({
     action: fetchUcastnici(),
     title: 'načítání účastníků'
+  }));
+
+it('POHAR_PREDAN_ERROR', () =>
+  testUnsuccessfulResponse({
+    action: poharPredan({ id: '===id===' }),
+    title: 'předávání poháru'
   }));
 
 it('PRIHLASKY_FORM_INVALID', () => {
