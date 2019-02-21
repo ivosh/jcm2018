@@ -7,7 +7,7 @@ import Pohary from './Pohary';
 
 const collect = (connect, monitor) => ({
   connectDropTarget: connect.dropTarget(),
-  isDropOver: monitor.isOver() && monitor.canDrop()
+  isDragOver: monitor.isOver() && monitor.canDrop()
 });
 
 class DroppablePohary extends PureComponent {

@@ -4,11 +4,15 @@ import { TYPY_POHARU } from './PoharyActions';
 import DraggablePohar from './DraggablePohar';
 import './Pohary.css';
 
-const Pohary = ({ className, count, id, key, style, type, connectDropTarget }) => {
-  const classNames = className ? `Pohary ${className}` : 'Pohary';
+const Pohary = ({ className, count, id, key, isDragOver, style, type, connectDropTarget }) => {
+  const classNames = className.split(' ').filter(className => className); // filter empty strings
+  classNames.push('Pohary');
+  if (isDragOver) {
+    classNames.push('Pohary--isDragOver');
+  }
 
   return connectDropTarget(
-    <div className={classNames} key={key} style={style}>
+    <div className={classNames.join(' ')} key={key} style={style}>
       {Array(count)
         .fill(1)
         .map((val, index) => (
@@ -23,6 +27,7 @@ Pohary.propTypes = {
   count: PropTypes.number.isRequired,
   id: PropTypes.string.isRequired,
   key: PropTypes.string,
+  isDragOver: PropTypes.bool,
   style: PropTypes.object,
   type: PropTypes.oneOf(TYPY_POHARU).isRequired,
   connectDropTarget: PropTypes.func
