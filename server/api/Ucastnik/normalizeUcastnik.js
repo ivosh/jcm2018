@@ -15,7 +15,7 @@ const normalizeUcastnik = ucastnik => {
   // První element je vždycky nejvyšší rok.
   roky.sort((a, b) => b - a);
 
-  return { roky, ucasti };
+  return { pohar: ucastnik.pohar, roky, ucasti };
 };
 
 module.exports = normalizeUcastnik;

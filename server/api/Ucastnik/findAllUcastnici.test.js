@@ -71,7 +71,7 @@ it('findAllUcastnici', async () => {
     }
   ];
 
-  const ucastnik1 = new Ucastnik({ ucasti: ucasti1 });
+  const ucastnik1 = new Ucastnik({ ucasti: ucasti1, pohar: { predano: 1 } });
   await ucastnik1.save();
 
   const ucasti2 = [

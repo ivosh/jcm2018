@@ -8,8 +8,8 @@ const normalizeUcastnici = ucastnici => {
   const normalized = {};
 
   ucastnici.forEach(ucastnik => {
-    const { roky, ucasti } = normalizeUcastnik(ucastnik);
-    normalized[ucastnik._id] = { roky, ...ucasti };
+    const { ucasti, ...rest } = normalizeUcastnik(ucastnik);
+    normalized[ucastnik._id] = { ...rest, ...ucasti };
   });
 
   return normalized;

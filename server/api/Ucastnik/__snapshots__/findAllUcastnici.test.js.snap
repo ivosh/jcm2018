@@ -49,6 +49,9 @@ Object {
           "startCislo": 15,
         },
       },
+      "pohar": Object {
+        "predano": 1,
+      },
       "roky": Array [
         2018,
         2017,
