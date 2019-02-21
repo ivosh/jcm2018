@@ -39,6 +39,12 @@ const calculateWidth = ({
   return width;
 };
 
+const defaultCellRenderer = args => (
+  <div className={args.className} key={args.key} style={args.style}>
+    {args.formattedCellData}
+  </div>
+);
+
 class UcastniciTable extends PureComponent {
   columnWidth = ({ index }) => this.props.columns[index].width;
 
@@ -104,13 +110,15 @@ class UcastniciTable extends PureComponent {
 
     const { columns, data } = this.props;
     const customProps = this.customProps();
-    const { cellClassNames, cellDataFormatter, cellStyler, key: columnKey } = columns[columnIndex];
+    const { cellClassNames, cellDataFormatter, cellRenderer, cellStyler, key: columnKey } = columns[
+      columnIndex
+    ];
     const cellData = data[rowIndex][columnKey];
     const classNames = cellClassNames
       ? cellClassNames({ cellData, data, rowIndex, columnKey, ...customProps })
       : [];
     classNames.push(rowClass, 'UcastniciTable_cell');
-    const formattedData = cellDataFormatter
+    const formattedCellData = cellDataFormatter
       ? cellDataFormatter({ cellData, data, rowIndex, columnKey, ...customProps })
       : cellData;
     const cellStyle = cellStyler
@@ -118,11 +126,18 @@ class UcastniciTable extends PureComponent {
       : {};
     const mergedStyle = { ...style, ...cellStyle };
 
-    return (
-      <div className={classNames.join(' ')} key={key} style={mergedStyle}>
-        {formattedData}
-      </div>
-    );
+    const renderer = cellRenderer || defaultCellRenderer;
+    return renderer({
+      cellData,
+      className: classNames.join(' '),
+      columnKey,
+      data,
+      formattedCellData,
+      key,
+      rowIndex,
+      style: mergedStyle,
+      ...customProps
+    });
   };
 
   render() {
@@ -267,6 +282,12 @@ UcastniciTable.propTypes = {
       cellClassNames: PropTypes.func,
       // cellDataFormatter = ({ cellData, columnKey, data, rowIndex }) => formattedData
       cellDataFormatter: PropTypes.func,
+      // cellRenderer = ({ cellData, className, columnKey, data, formattedCellData,
+      //                    key, rowIndex, style }) => React element
+      // Note that cellClassNames, cellDataFormatter and cellStyler are still called but the actual
+      // rendering is left to cellRenderer. Properties 'key', 'className' and 'style' must be set
+      // on the rendered element.
+      cellRenderer: PropTypes.func,
       cellStyler: PropTypes.func, // ({ cellData, columnKey, data, rowIndex }) => style
       key: PropTypes.string.isRequired,
       label: PropTypes.node,
@@ -282,7 +303,8 @@ UcastniciTable.propTypes = {
   sortColumn: PropTypes.string,
   sortDir: PropTypes.string,
   onSortDirChange: PropTypes.func
-  // and any other custom props you want to pass to cellClassNames, cellDataFormatter, cellStyler
+  // + any other custom props you want to pass to cellClassNames, cellDataFormatter, cellRenderer,
+  // and cellStyler
 };
 
 export default UcastniciTable;
