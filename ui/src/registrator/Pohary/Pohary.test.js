@@ -1,8 +1,9 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
+import toJSON from 'enzyme-to-json';
 import Pohary from './Pohary';
 
 it('dva nepřevzaté poháry', () => {
-  const component = renderer.create(<Pohary count={2} poharStyle="nepřevzato" />);
-  expect(component.toJSON()).toMatchSnapshot();
+  const wrapper = shallow(<Pohary count={2} id="98abc09823e484af4c" type="nepřevzato" />);
+  expect(toJSON(wrapper)).toMatchSnapshot();
 });

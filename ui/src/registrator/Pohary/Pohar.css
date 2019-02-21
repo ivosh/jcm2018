@@ -1,3 +1,7 @@
 .Pohar {
   margin-left: 5px;
 }
+
+.Pohar--dragAllowed:hover {
+  cursor: pointer;
+}

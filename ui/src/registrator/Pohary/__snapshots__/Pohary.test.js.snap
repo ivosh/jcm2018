@@ -1,22 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`dva nepřevzaté poháry 1`] = `
-<div>
-  <img
-    alt="pohár - nepřevzato"
-    className="Pohar"
-    height={25.72}
-    src="pohar_neprevzato.svg"
-    title="pohár - nepřevzato"
-    width={20.68}
+<div
+  className="Pohary"
+>
+  <DraggablePohar
+    id="98abc09823e484af4c"
+    key="0"
+    sizePercentage={4}
+    type="nepřevzato"
   />
-  <img
-    alt="pohár - nepřevzato"
-    className="Pohar"
-    height={25.72}
-    src="pohar_neprevzato.svg"
-    title="pohár - nepřevzato"
-    width={20.68}
+  <DraggablePohar
+    id="98abc09823e484af4c"
+    key="1"
+    sizePercentage={4}
+    type="nepřevzato"
   />
 </div>
 `;

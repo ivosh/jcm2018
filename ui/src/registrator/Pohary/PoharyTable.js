@@ -6,19 +6,43 @@ import { narozeniToStr } from '../../Util';
 import TextFilter from '../Filterable/TextFilter';
 import Zobrazeno from '../Filterable/Zobrazeno';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
-import Pohary from './Pohary';
+import { POHAR_NAROK, POHAR_NEPREVZATO, POHAR_PREDANO } from './PoharyActions';
+import DroppablePohary from './DroppablePohary';
 import './PoharyTable.css';
 
-const narokFormat = args =>
-  args.data[args.rowIndex].pohary.narok ? <Pohary count={1} poharStyle="nárok" /> : <div />;
-
-const neprevzatoFormat = args => (
-  <Pohary count={args.data[args.rowIndex].pohary[args.columnKey]} poharStyle="nepřevzato" />
+const poharyRenderer = args => (
+  <DroppablePohary
+    className={args.className}
+    count={args.count}
+    id={args.data[args.rowIndex].id}
+    key={args.key}
+    style={args.style}
+    type={args.type}
+    canDrop={args.canDrop}
+    onDrop={args.onDrop}
+  />
 );
 
-const predanoFormat = args => (
-  <Pohary count={args.data[args.rowIndex].pohary[args.columnKey]} poharStyle="předáno" />
-);
+const narokRenderer = args =>
+  poharyRenderer({
+    count: args.data[args.rowIndex].pohary.narok ? 1 : 0,
+    type: POHAR_NAROK,
+    ...args
+  });
+
+const neprevzatoRenderer = args =>
+  poharyRenderer({
+    count: args.data[args.rowIndex].pohary[args.columnKey],
+    type: POHAR_NEPREVZATO,
+    ...args
+  });
+
+const predanoRenderer = args =>
+  poharyRenderer({
+    count: args.data[args.rowIndex].pohary[args.columnKey],
+    type: POHAR_PREDANO,
+    ...args
+  });
 
 const narozeniFormat = ({ cellData }) => narozeniToStr(cellData);
 
@@ -35,6 +59,8 @@ const PoharyTable = ({
   pohary,
   reduxName,
   textFilter,
+  canDrop,
+  onDrop,
   onNarokovaneFilterChange,
   onNeprevzateFilterChange,
   onTextFilterChange
@@ -72,21 +98,21 @@ const PoharyTable = ({
       width: 100
     },
     {
-      cellDataFormatter: predanoFormat,
+      cellRenderer: predanoRenderer,
       key: 'predano',
       label: 'předáno',
       sortable: true,
       width: 100
     },
     {
-      cellDataFormatter: neprevzatoFormat,
+      cellRenderer: neprevzatoRenderer,
       key: 'neprevzato',
       label: 'nepřevzato',
       sortable: true,
       width: 100
     },
     {
-      cellDataFormatter: narokFormat,
+      cellRenderer: narokRenderer,
       key: 'narok',
       label: 'nárok?',
       sortable: true,
@@ -132,6 +158,8 @@ const PoharyTable = ({
         fixedColumnCount={3}
         reduxName={reduxName}
         rowHeight={35}
+        canDrop={canDrop}
+        onDrop={onDrop}
       />
     </div>
   );
@@ -159,6 +187,8 @@ PoharyTable.propTypes = {
   ).isRequired,
   reduxName: PropTypes.string.isRequired,
   textFilter: PropTypes.string.isRequired,
+  canDrop: PropTypes.func.isRequired,
+  onDrop: PropTypes.func.isRequired,
   onNarokovaneFilterChange: PropTypes.func.isRequired,
   onNeprevzateFilterChange: PropTypes.func.isRequired,
   onTextFilterChange: PropTypes.func.isRequired

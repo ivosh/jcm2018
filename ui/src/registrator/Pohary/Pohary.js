@@ -1,20 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Pohar from './Pohar';
+import { TYPY_POHARU } from './PoharyActions';
+import DraggablePohar from './DraggablePohar';
+import './Pohary.css';
 
-const Pohary = ({ count, poharStyle }) => (
-  <div>
-    {Array(count)
-      .fill(1)
-      .map((val, index) => (
-        <Pohar key={index} poharStyle={poharStyle} sizePercentage={4} />
-      ))}
-  </div>
-);
+const Pohary = ({ className, count, id, key, style, type, connectDropTarget }) => {
+  const classNames = className ? `Pohary ${className}` : 'Pohary';
+
+  return connectDropTarget(
+    <div className={classNames} key={key} style={style}>
+      {Array(count)
+        .fill(1)
+        .map((val, index) => (
+          <DraggablePohar key={index} id={id} sizePercentage={4} type={type} />
+        ))}
+    </div>
+  );
+};
 
 Pohary.propTypes = {
+  className: PropTypes.string,
   count: PropTypes.number.isRequired,
-  poharStyle: PropTypes.oneOf(['nárok', 'nepřevzato', 'předáno']).isRequired
+  id: PropTypes.string.isRequired,
+  key: PropTypes.string,
+  style: PropTypes.object,
+  type: PropTypes.oneOf(TYPY_POHARU).isRequired,
+  connectDropTarget: PropTypes.func
+};
+
+Pohary.defaultProps = {
+  className: '',
+  connectDropTarget: el => el
 };
 
 export default Pohary;

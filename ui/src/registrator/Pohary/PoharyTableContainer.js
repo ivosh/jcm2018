@@ -1,6 +1,11 @@
 import { connect } from 'react-redux';
 import { createTextFilterChange } from '../Filterable/FilterableActions';
-import { narokovaneFilterChange, neprevzateFilterChange } from './PoharyActions';
+import {
+  canDrop,
+  narokovaneFilterChange,
+  neprevzateFilterChange,
+  createOnDrop
+} from './PoharyActions';
 import { getPoharySorted } from './poharyReducer';
 import PoharyTable from './PoharyTable';
 
@@ -19,6 +24,8 @@ const mapStateToProps = ({ entities, registrator: { pohary } }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
+  canDrop,
+  onDrop: createOnDrop(dispatch),
   onNarokovaneFilterChange: () => dispatch(narokovaneFilterChange()),
   onNeprevzateFilterChange: () => dispatch(neprevzateFilterChange()),
   onTextFilterChange: text => dispatch(createTextFilterChange('POHARY')(text))

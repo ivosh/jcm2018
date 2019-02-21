@@ -1,1110 +1,3613 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`dva pohároví 1`] = `
-<div
-  className="PoharyTable__div UcastniciTable_container"
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [MockFunction],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
 >
-  <p>
-    Jsou zobrazeni pouze účastníci, kteří buďto maraton alespoň jednou dokončili anebo se na něj přihlásili. To je dále ještě možné poštelovat filtry.
-  </p>
-  <div>
-    <input
-      className="TextFilter__input"
-      onBlur={[Function]}
-      onChange={[Function]}
-      onKeyDown={[Function]}
-      placeholder="Filtr na příjmení a jméno"
-      type="text"
-      value=""
-    />
-    <span
-      className="PoharyTable__buttons Bootstrap-buttons--active"
-    >
-      <button
-        className="PoharyTable__button btn btn-success"
-        disabled={false}
-        onClick={[MockFunction]}
-        type="button"
-      >
-        <span
-          className="glyphicon glyphicon-download"
-        />
-         Nárok na pohár
-      </button>
-      <button
-        className="PoharyTable__button btn btn-info"
-        disabled={false}
-        onClick={[MockFunction]}
-        type="button"
-      >
-        <span
-          className="glyphicon glyphicon-upload"
-        />
-         Nepřevzatý pohár
-      </button>
-    </span>
-    <span
-      className="Zobrazeno"
-    >
-      zobrazeno: 
-      <span
-        className="badge"
-      >
-        3
-      </span>
-    </span>
-  </div>
-  <div
-    className="withResponsive"
+  <MemoryRouter
+    keyLength={0}
   >
-    <div
-      className="UcastniciTable_GridRow"
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
     >
-      <div
-        className="UcastniciTable_LeftSideGridContainer"
-        style={
-          Object {
-            "flexBasis": "290px",
-            "top": 0,
-          }
+      <PoharyTable
+        actionPrefix="POHARY"
+        canDrop={[MockFunction]}
+        narokovaneFilter={false}
+        neprevzateFilter={false}
+        onDrop={[MockFunction]}
+        onNarokovaneFilterChange={[MockFunction]}
+        onNeprevzateFilterChange={[MockFunction]}
+        onTextFilterChange={[MockFunction]}
+        pohary={
+          Array [
+            Object {
+              "id": "5a09b1fd371dec1e99b7e1c9",
+              "jmeno": "Roman",
+              "narozeni": Object {
+                "rok": 1956,
+              },
+              "pohary": Object {
+                "narok": true,
+                "neprevzato": 0,
+                "predano": 0,
+              },
+              "prijmeni": "Balabák",
+              "ucasti": Object {
+                "dokoncene": Array [
+                  2017,
+                  2015,
+                  2014,
+                  2013,
+                ],
+                "prihlaseno": true,
+              },
+            },
+            Object {
+              "id": "6f09b1fd371dec1e99b7e1c9",
+              "jmeno": "Martina",
+              "narozeni": Object {
+                "den": 7,
+                "mesic": 12,
+                "rok": 1963,
+              },
+              "obec": "Zlín",
+              "pohary": Object {
+                "narok": false,
+                "neprevzato": 1,
+                "predano": 0,
+              },
+              "prijmeni": "Sukdoláková",
+              "ucasti": Object {
+                "dokoncene": Array [
+                  2016,
+                  2013,
+                  2012,
+                  2011,
+                  2010,
+                ],
+                "prihlaseno": false,
+              },
+            },
+            Object {
+              "id": "7a09b1fd371dec1e99b7e142",
+              "jmeno": "Hana",
+              "narozeni": Object {
+                "den": 25,
+                "mesic": 7,
+                "rok": 1999,
+              },
+              "pohary": Object {
+                "narok": false,
+                "neprevzato": 0,
+                "predano": 0,
+              },
+              "prijmeni": "Zralá",
+              "ucasti": Object {
+                "dokoncene": Array [],
+                "prihlaseno": false,
+              },
+            },
+          ]
         }
+        reduxName="pohary"
+        textFilter=""
       >
         <div
-          aria-label="grid"
-          aria-readonly={true}
-          className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
-          onScroll={[Function]}
-          role="grid"
-          style={
-            Object {
-              "WebkitOverflowScrolling": "touch",
-              "boxSizing": "border-box",
-              "direction": "ltr",
-              "height": 35,
-              "overflowX": "hidden",
-              "overflowY": "hidden",
-              "position": "relative",
-              "width": 290,
-              "willChange": "transform",
-            }
-          }
-          tabIndex={0}
+          className="PoharyTable__div UcastniciTable_container"
         >
-          <div
-            className="ReactVirtualized__Grid__innerScrollContainer"
-            role="rowgroup"
-            style={
-              Object {
-                "height": 35,
-                "maxHeight": 35,
-                "maxWidth": 290,
-                "overflow": "hidden",
-                "pointerEvents": "",
-                "position": "relative",
-                "width": 290,
-              }
-            }
-          >
-            <div
-              className="UcastniciTable_headerCell"
-              style={
-                Object {
-                  "height": 35,
-                  "left": 0,
-                  "position": "absolute",
-                  "top": 0,
-                  "width": 100,
-                }
-              }
+          <p>
+            Jsou zobrazeni pouze účastníci, kteří buďto maraton alespoň jednou dokončili anebo se na něj přihlásili. To je dále ještě možné poštelovat filtry.
+          </p>
+          <div>
+            <TextFilter
+              filter=""
+              onChange={[MockFunction]}
             >
-              <button
-                className="SortHeader"
-                onClick={[Function]}
-              >
-                příjmení
-                 
-                
-              </button>
-            </div>
-            <div
-              className="UcastniciTable_headerCell"
-              style={
-                Object {
-                  "height": 35,
-                  "left": 100,
-                  "position": "absolute",
-                  "top": 0,
-                  "width": 90,
+              <DebounceInput
+                className="TextFilter__input"
+                debounceTimeout={500}
+                element="input"
+                forceNotifyByEnter={true}
+                forceNotifyOnBlur={true}
+                inputRef={
+                  Object {
+                    "current": <input
+                      class="TextFilter__input"
+                      placeholder="Filtr na příjmení a jméno"
+                      type="text"
+                      value=""
+                    />,
+                  }
                 }
-              }
-            >
-              <button
-                className="SortHeader"
-                onClick={[Function]}
+                minLength={0}
+                onChange={[Function]}
+                placeholder="Filtr na příjmení a jméno"
+                type="text"
+                value=""
               >
-                jméno
-                 
-                
-              </button>
-            </div>
-            <div
-              className="UcastniciTable_headerCell"
-              style={
-                Object {
-                  "height": 35,
-                  "left": 190,
-                  "position": "absolute",
-                  "top": 0,
-                  "width": 100,
-                }
-              }
+                <input
+                  className="TextFilter__input"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder="Filtr na příjmení a jméno"
+                  type="text"
+                  value=""
+                />
+              </DebounceInput>
+            </TextFilter>
+            <span
+              className="PoharyTable__buttons Bootstrap-buttons--active"
             >
-              <button
-                className="SortHeader"
-                onClick={[Function]}
+              <Button
+                active={false}
+                block={false}
+                bsClass="btn"
+                bsStyle="success"
+                className="PoharyTable__button"
+                disabled={false}
+                onClick={[MockFunction]}
               >
-                narození
-                 
-                
-              </button>
-            </div>
+                <button
+                  className="PoharyTable__button btn btn-success"
+                  disabled={false}
+                  onClick={[MockFunction]}
+                  type="button"
+                >
+                  <Glyphicon
+                    bsClass="glyphicon"
+                    glyph="download"
+                  >
+                    <span
+                      className="glyphicon glyphicon-download"
+                    />
+                  </Glyphicon>
+                   Nárok na pohár
+                </button>
+              </Button>
+              <Button
+                active={false}
+                block={false}
+                bsClass="btn"
+                bsStyle="info"
+                className="PoharyTable__button"
+                disabled={false}
+                onClick={[MockFunction]}
+              >
+                <button
+                  className="PoharyTable__button btn btn-info"
+                  disabled={false}
+                  onClick={[MockFunction]}
+                  type="button"
+                >
+                  <Glyphicon
+                    bsClass="glyphicon"
+                    glyph="upload"
+                  >
+                    <span
+                      className="glyphicon glyphicon-upload"
+                    />
+                  </Glyphicon>
+                   Nepřevzatý pohár
+                </button>
+              </Button>
+            </span>
+            <Zobrazeno
+              numberOfItems={3}
+            >
+              <span
+                className="Zobrazeno"
+              >
+                zobrazeno: 
+                <Badge
+                  bsClass="badge"
+                  pullRight={false}
+                >
+                  <span
+                    className="badge"
+                  >
+                    3
+                  </span>
+                </Badge>
+              </span>
+            </Zobrazeno>
           </div>
-        </div>
-      </div>
-      <div
-        className="UcastniciTable_LeftSideGridContainer"
-        style={
-          Object {
-            "flexBasis": "290px",
-            "top": 35,
-          }
-        }
-      >
-        <div
-          aria-label="grid"
-          aria-readonly={true}
-          className="ReactVirtualized__Grid UcastniciTable_LeftSideGrid"
-          onScroll={[Function]}
-          role="grid"
-          style={
-            Object {
-              "WebkitOverflowScrolling": "touch",
-              "boxSizing": "border-box",
-              "direction": "ltr",
-              "height": 105,
-              "overflowX": "hidden",
-              "overflowY": "hidden",
-              "position": "relative",
-              "width": 290,
-              "willChange": "transform",
+          <Connect(WithResponsiveComponent)
+            actionPrefix="POHARY"
+            canDrop={[MockFunction]}
+            columns={
+              Array [
+                Object {
+                  "cellClassNames": [Function],
+                  "cellDataFormatter": [Function],
+                  "key": "prijmeni",
+                  "label": "příjmení",
+                  "sortable": true,
+                  "width": 100,
+                },
+                Object {
+                  "cellClassNames": [Function],
+                  "key": "jmeno",
+                  "label": "jméno",
+                  "sortable": true,
+                  "width": 90,
+                },
+                Object {
+                  "cellClassNames": [Function],
+                  "cellDataFormatter": [Function],
+                  "key": "narozeni",
+                  "label": "narození",
+                  "sortable": true,
+                  "width": 100,
+                },
+                Object {
+                  "cellClassNames": [Function],
+                  "cellDataFormatter": [Function],
+                  "key": "ucasti",
+                  "label": "účastí",
+                  "sortable": true,
+                  "width": 100,
+                },
+                Object {
+                  "cellRenderer": [Function],
+                  "key": "predano",
+                  "label": "předáno",
+                  "sortable": true,
+                  "width": 100,
+                },
+                Object {
+                  "cellRenderer": [Function],
+                  "key": "neprevzato",
+                  "label": "nepřevzato",
+                  "sortable": true,
+                  "width": 100,
+                },
+                Object {
+                  "cellRenderer": [Function],
+                  "key": "narok",
+                  "label": "nárok?",
+                  "sortable": true,
+                  "width": 100,
+                },
+              ]
             }
-          }
-          tabIndex={0}
-        >
-          <div
-            className="ReactVirtualized__Grid__innerScrollContainer"
-            role="rowgroup"
-            style={
-              Object {
-                "height": 105,
-                "maxHeight": 105,
-                "maxWidth": 290,
-                "overflow": "hidden",
-                "pointerEvents": "",
-                "position": "relative",
-                "width": 290,
-              }
+            data={
+              Array [
+                Object {
+                  "id": "5a09b1fd371dec1e99b7e1c9",
+                  "jmeno": "Roman",
+                  "narozeni": Object {
+                    "rok": 1956,
+                  },
+                  "pohary": Object {
+                    "narok": true,
+                    "neprevzato": 0,
+                    "predano": 0,
+                  },
+                  "prijmeni": "Balabák",
+                  "ucasti": Object {
+                    "dokoncene": Array [
+                      2017,
+                      2015,
+                      2014,
+                      2013,
+                    ],
+                    "prihlaseno": true,
+                  },
+                },
+                Object {
+                  "id": "6f09b1fd371dec1e99b7e1c9",
+                  "jmeno": "Martina",
+                  "narozeni": Object {
+                    "den": 7,
+                    "mesic": 12,
+                    "rok": 1963,
+                  },
+                  "obec": "Zlín",
+                  "pohary": Object {
+                    "narok": false,
+                    "neprevzato": 1,
+                    "predano": 0,
+                  },
+                  "prijmeni": "Sukdoláková",
+                  "ucasti": Object {
+                    "dokoncene": Array [
+                      2016,
+                      2013,
+                      2012,
+                      2011,
+                      2010,
+                    ],
+                    "prihlaseno": false,
+                  },
+                },
+                Object {
+                  "id": "7a09b1fd371dec1e99b7e142",
+                  "jmeno": "Hana",
+                  "narozeni": Object {
+                    "den": 25,
+                    "mesic": 7,
+                    "rok": 1999,
+                  },
+                  "pohary": Object {
+                    "narok": false,
+                    "neprevzato": 0,
+                    "predano": 0,
+                  },
+                  "prijmeni": "Zralá",
+                  "ucasti": Object {
+                    "dokoncene": Array [],
+                    "prihlaseno": false,
+                  },
+                },
+              ]
             }
+            fixedColumnCount={3}
+            onDrop={[MockFunction]}
+            reduxName="pohary"
+            rowHeight={35}
           >
-            <div
-              className="align-left UcastniciTable_oddRow UcastniciTable_cell"
-              style={
-                Object {
-                  "height": 35,
-                  "left": 0,
-                  "position": "absolute",
-                  "top": 0,
-                  "width": 100,
-                }
+            <WithResponsiveComponent
+              actionPrefix="POHARY"
+              canDrop={[MockFunction]}
+              columns={
+                Array [
+                  Object {
+                    "cellClassNames": [Function],
+                    "cellDataFormatter": [Function],
+                    "key": "prijmeni",
+                    "label": "příjmení",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "cellClassNames": [Function],
+                    "key": "jmeno",
+                    "label": "jméno",
+                    "sortable": true,
+                    "width": 90,
+                  },
+                  Object {
+                    "cellClassNames": [Function],
+                    "cellDataFormatter": [Function],
+                    "key": "narozeni",
+                    "label": "narození",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "cellClassNames": [Function],
+                    "cellDataFormatter": [Function],
+                    "key": "ucasti",
+                    "label": "účastí",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "cellRenderer": [Function],
+                    "key": "predano",
+                    "label": "předáno",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "cellRenderer": [Function],
+                    "key": "neprevzato",
+                    "label": "nepřevzato",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "cellRenderer": [Function],
+                    "key": "narok",
+                    "label": "nárok?",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                ]
               }
-            >
-              <a
-                href="/prihlasky/5a09b1fd371dec1e99b7e1c9"
-                onClick={[Function]}
-              >
-                Balabák
-              </a>
-            </div>
-            <div
-              className="align-left UcastniciTable_oddRow UcastniciTable_cell"
-              style={
-                Object {
-                  "height": 35,
-                  "left": 100,
-                  "position": "absolute",
-                  "top": 0,
-                  "width": 90,
-                }
+              data={
+                Array [
+                  Object {
+                    "id": "5a09b1fd371dec1e99b7e1c9",
+                    "jmeno": "Roman",
+                    "narozeni": Object {
+                      "rok": 1956,
+                    },
+                    "pohary": Object {
+                      "narok": true,
+                      "neprevzato": 0,
+                      "predano": 0,
+                    },
+                    "prijmeni": "Balabák",
+                    "ucasti": Object {
+                      "dokoncene": Array [
+                        2017,
+                        2015,
+                        2014,
+                        2013,
+                      ],
+                      "prihlaseno": true,
+                    },
+                  },
+                  Object {
+                    "id": "6f09b1fd371dec1e99b7e1c9",
+                    "jmeno": "Martina",
+                    "narozeni": Object {
+                      "den": 7,
+                      "mesic": 12,
+                      "rok": 1963,
+                    },
+                    "obec": "Zlín",
+                    "pohary": Object {
+                      "narok": false,
+                      "neprevzato": 1,
+                      "predano": 0,
+                    },
+                    "prijmeni": "Sukdoláková",
+                    "ucasti": Object {
+                      "dokoncene": Array [
+                        2016,
+                        2013,
+                        2012,
+                        2011,
+                        2010,
+                      ],
+                      "prihlaseno": false,
+                    },
+                  },
+                  Object {
+                    "id": "7a09b1fd371dec1e99b7e142",
+                    "jmeno": "Hana",
+                    "narozeni": Object {
+                      "den": 25,
+                      "mesic": 7,
+                      "rok": 1999,
+                    },
+                    "pohary": Object {
+                      "narok": false,
+                      "neprevzato": 0,
+                      "predano": 0,
+                    },
+                    "prijmeni": "Zralá",
+                    "ucasti": Object {
+                      "dokoncene": Array [],
+                      "prihlaseno": false,
+                    },
+                  },
+                ]
               }
-            >
-              Roman
-            </div>
-            <div
-              className="align-right UcastniciTable_oddRow UcastniciTable_cell"
-              style={
-                Object {
-                  "height": 35,
-                  "left": 190,
-                  "position": "absolute",
-                  "top": 0,
-                  "width": 100,
-                }
-              }
-            >
-              1956
-            </div>
-            <div
-              className="align-left UcastniciTable_evenRow UcastniciTable_cell"
-              style={
-                Object {
-                  "height": 35,
-                  "left": 0,
-                  "position": "absolute",
-                  "top": 35,
-                  "width": 100,
-                }
-              }
-            >
-              <a
-                href="/prihlasky/6f09b1fd371dec1e99b7e1c9"
-                onClick={[Function]}
-              >
-                Sukdoláková
-              </a>
-            </div>
-            <div
-              className="align-left UcastniciTable_evenRow UcastniciTable_cell"
-              style={
-                Object {
-                  "height": 35,
-                  "left": 100,
-                  "position": "absolute",
-                  "top": 35,
-                  "width": 90,
-                }
-              }
-            >
-              Martina
-            </div>
-            <div
-              className="align-right UcastniciTable_evenRow UcastniciTable_cell"
-              style={
-                Object {
-                  "height": 35,
-                  "left": 190,
-                  "position": "absolute",
-                  "top": 35,
-                  "width": 100,
-                }
-              }
-            >
-              7. 12. 1963
-            </div>
-            <div
-              className="align-left UcastniciTable_oddRow UcastniciTable_cell"
-              style={
-                Object {
-                  "height": 35,
-                  "left": 0,
-                  "position": "absolute",
-                  "top": 70,
-                  "width": 100,
-                }
-              }
-            >
-              <a
-                href="/prihlasky/7a09b1fd371dec1e99b7e142"
-                onClick={[Function]}
-              >
-                Zralá
-              </a>
-            </div>
-            <div
-              className="align-left UcastniciTable_oddRow UcastniciTable_cell"
-              style={
-                Object {
-                  "height": 35,
-                  "left": 100,
-                  "position": "absolute",
-                  "top": 70,
-                  "width": 90,
-                }
-              }
-            >
-              Hana
-            </div>
-            <div
-              className="align-right UcastniciTable_oddRow UcastniciTable_cell"
-              style={
-                Object {
-                  "height": 35,
-                  "left": 190,
-                  "position": "absolute",
-                  "top": 70,
-                  "width": 100,
-                }
-              }
-            >
-              25. 7. 1999
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        className="UcastniciTable_GridColumn"
-      >
-        <div>
-          <div
-            style={
-              Object {
-                "height": 35,
-                "width": 400,
-              }
-            }
-          >
-            <div
-              aria-label="grid"
-              aria-readonly={true}
-              className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
-              onScroll={[Function]}
-              role="grid"
-              style={
-                Object {
-                  "WebkitOverflowScrolling": "touch",
-                  "boxSizing": "border-box",
-                  "direction": "ltr",
-                  "height": 35,
-                  "overflowX": "hidden",
-                  "overflowY": "hidden",
-                  "position": "relative",
-                  "width": 690,
-                  "willChange": "transform",
-                }
-              }
-              tabIndex={0}
+              fixedColumnCount={3}
+              onDrop={[MockFunction]}
+              onSortDirChange={[Function]}
+              reduxName="pohary"
+              rowHeight={35}
             >
               <div
-                className="ReactVirtualized__Grid__innerScrollContainer"
-                role="rowgroup"
-                style={
-                  Object {
-                    "height": 35,
-                    "maxHeight": 35,
-                    "maxWidth": 690,
-                    "overflow": "hidden",
-                    "pointerEvents": "",
-                    "position": "relative",
-                    "width": 690,
-                  }
-                }
+                className="withResponsive"
               >
-                <div
-                  className="UcastniciTable_headerCell"
-                  style={
-                    Object {
-                      "height": 35,
-                      "left": 290,
-                      "position": "absolute",
-                      "top": 0,
-                      "width": 100,
-                    }
+                <UcastniciTable
+                  actionPrefix="POHARY"
+                  canDrop={[MockFunction]}
+                  columns={
+                    Array [
+                      Object {
+                        "cellClassNames": [Function],
+                        "cellDataFormatter": [Function],
+                        "key": "prijmeni",
+                        "label": "příjmení",
+                        "sortable": true,
+                        "width": 100,
+                      },
+                      Object {
+                        "cellClassNames": [Function],
+                        "key": "jmeno",
+                        "label": "jméno",
+                        "sortable": true,
+                        "width": 90,
+                      },
+                      Object {
+                        "cellClassNames": [Function],
+                        "cellDataFormatter": [Function],
+                        "key": "narozeni",
+                        "label": "narození",
+                        "sortable": true,
+                        "width": 100,
+                      },
+                      Object {
+                        "cellClassNames": [Function],
+                        "cellDataFormatter": [Function],
+                        "key": "ucasti",
+                        "label": "účastí",
+                        "sortable": true,
+                        "width": 100,
+                      },
+                      Object {
+                        "cellRenderer": [Function],
+                        "key": "predano",
+                        "label": "předáno",
+                        "sortable": true,
+                        "width": 100,
+                      },
+                      Object {
+                        "cellRenderer": [Function],
+                        "key": "neprevzato",
+                        "label": "nepřevzato",
+                        "sortable": true,
+                        "width": 100,
+                      },
+                      Object {
+                        "cellRenderer": [Function],
+                        "key": "narok",
+                        "label": "nárok?",
+                        "sortable": true,
+                        "width": 100,
+                      },
+                    ]
                   }
-                >
-                  <button
-                    className="SortHeader"
-                    onClick={[Function]}
-                  >
-                    účastí
-                     
-                    
-                  </button>
-                </div>
-                <div
-                  className="UcastniciTable_headerCell"
-                  style={
-                    Object {
-                      "height": 35,
-                      "left": 390,
-                      "position": "absolute",
-                      "top": 0,
-                      "width": 100,
-                    }
+                  containerHeight={600}
+                  containerWidth={1500}
+                  data={
+                    Array [
+                      Object {
+                        "id": "5a09b1fd371dec1e99b7e1c9",
+                        "jmeno": "Roman",
+                        "narozeni": Object {
+                          "rok": 1956,
+                        },
+                        "pohary": Object {
+                          "narok": true,
+                          "neprevzato": 0,
+                          "predano": 0,
+                        },
+                        "prijmeni": "Balabák",
+                        "ucasti": Object {
+                          "dokoncene": Array [
+                            2017,
+                            2015,
+                            2014,
+                            2013,
+                          ],
+                          "prihlaseno": true,
+                        },
+                      },
+                      Object {
+                        "id": "6f09b1fd371dec1e99b7e1c9",
+                        "jmeno": "Martina",
+                        "narozeni": Object {
+                          "den": 7,
+                          "mesic": 12,
+                          "rok": 1963,
+                        },
+                        "obec": "Zlín",
+                        "pohary": Object {
+                          "narok": false,
+                          "neprevzato": 1,
+                          "predano": 0,
+                        },
+                        "prijmeni": "Sukdoláková",
+                        "ucasti": Object {
+                          "dokoncene": Array [
+                            2016,
+                            2013,
+                            2012,
+                            2011,
+                            2010,
+                          ],
+                          "prihlaseno": false,
+                        },
+                      },
+                      Object {
+                        "id": "7a09b1fd371dec1e99b7e142",
+                        "jmeno": "Hana",
+                        "narozeni": Object {
+                          "den": 25,
+                          "mesic": 7,
+                          "rok": 1999,
+                        },
+                        "pohary": Object {
+                          "narok": false,
+                          "neprevzato": 0,
+                          "predano": 0,
+                        },
+                        "prijmeni": "Zralá",
+                        "ucasti": Object {
+                          "dokoncene": Array [],
+                          "prihlaseno": false,
+                        },
+                      },
+                    ]
                   }
+                  fixedColumnCount={3}
+                  onDrop={[MockFunction]}
+                  onSortDirChange={[Function]}
+                  reduxName="pohary"
+                  rowHeight={35}
                 >
-                  <button
-                    className="SortHeader"
-                    onClick={[Function]}
-                  >
-                    předáno
-                     
-                    
-                  </button>
-                </div>
-                <div
-                  className="UcastniciTable_headerCell"
-                  style={
-                    Object {
-                      "height": 35,
-                      "left": 490,
-                      "position": "absolute",
-                      "top": 0,
-                      "width": 100,
+                  <ScrollSync
+                    actionPrefix="POHARY"
+                    canDrop={[MockFunction]}
+                    columns={
+                      Array [
+                        Object {
+                          "cellClassNames": [Function],
+                          "cellDataFormatter": [Function],
+                          "key": "prijmeni",
+                          "label": "příjmení",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "cellClassNames": [Function],
+                          "key": "jmeno",
+                          "label": "jméno",
+                          "sortable": true,
+                          "width": 90,
+                        },
+                        Object {
+                          "cellClassNames": [Function],
+                          "cellDataFormatter": [Function],
+                          "key": "narozeni",
+                          "label": "narození",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "cellClassNames": [Function],
+                          "cellDataFormatter": [Function],
+                          "key": "ucasti",
+                          "label": "účastí",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "cellRenderer": [Function],
+                          "key": "predano",
+                          "label": "předáno",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "cellRenderer": [Function],
+                          "key": "neprevzato",
+                          "label": "nepřevzato",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "cellRenderer": [Function],
+                          "key": "narok",
+                          "label": "nárok?",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                      ]
                     }
-                  }
-                >
-                  <button
-                    className="SortHeader"
-                    onClick={[Function]}
-                  >
-                    nepřevzato
-                     
-                    
-                  </button>
-                </div>
-                <div
-                  className="UcastniciTable_headerCell"
-                  style={
-                    Object {
-                      "height": 35,
-                      "left": 590,
-                      "position": "absolute",
-                      "top": 0,
-                      "width": 100,
+                    containerHeight={600}
+                    containerWidth={1500}
+                    data={
+                      Array [
+                        Object {
+                          "id": "5a09b1fd371dec1e99b7e1c9",
+                          "jmeno": "Roman",
+                          "narozeni": Object {
+                            "rok": 1956,
+                          },
+                          "pohary": Object {
+                            "narok": true,
+                            "neprevzato": 0,
+                            "predano": 0,
+                          },
+                          "prijmeni": "Balabák",
+                          "ucasti": Object {
+                            "dokoncene": Array [
+                              2017,
+                              2015,
+                              2014,
+                              2013,
+                            ],
+                            "prihlaseno": true,
+                          },
+                        },
+                        Object {
+                          "id": "6f09b1fd371dec1e99b7e1c9",
+                          "jmeno": "Martina",
+                          "narozeni": Object {
+                            "den": 7,
+                            "mesic": 12,
+                            "rok": 1963,
+                          },
+                          "obec": "Zlín",
+                          "pohary": Object {
+                            "narok": false,
+                            "neprevzato": 1,
+                            "predano": 0,
+                          },
+                          "prijmeni": "Sukdoláková",
+                          "ucasti": Object {
+                            "dokoncene": Array [
+                              2016,
+                              2013,
+                              2012,
+                              2011,
+                              2010,
+                            ],
+                            "prihlaseno": false,
+                          },
+                        },
+                        Object {
+                          "id": "7a09b1fd371dec1e99b7e142",
+                          "jmeno": "Hana",
+                          "narozeni": Object {
+                            "den": 25,
+                            "mesic": 7,
+                            "rok": 1999,
+                          },
+                          "pohary": Object {
+                            "narok": false,
+                            "neprevzato": 0,
+                            "predano": 0,
+                          },
+                          "prijmeni": "Zralá",
+                          "ucasti": Object {
+                            "dokoncene": Array [],
+                            "prihlaseno": false,
+                          },
+                        },
+                      ]
                     }
-                  }
-                >
-                  <button
-                    className="SortHeader"
-                    onClick={[Function]}
+                    fixedColumnCount={3}
+                    onDrop={[MockFunction]}
+                    reduxName="pohary"
+                    rowHeight={35}
                   >
-                    nárok?
-                     
-                    
-                  </button>
-                </div>
+                    <div
+                      className="UcastniciTable_GridRow"
+                    >
+                      <div
+                        className="UcastniciTable_LeftSideGridContainer"
+                        style={
+                          Object {
+                            "flexBasis": "290px",
+                            "top": 0,
+                          }
+                        }
+                      >
+                        <Grid
+                          actionPrefix="POHARY"
+                          aria-label="grid"
+                          aria-readonly={true}
+                          autoContainerWidth={false}
+                          autoHeight={false}
+                          autoWidth={false}
+                          canDrop={[MockFunction]}
+                          cellRangeRenderer={[Function]}
+                          cellRenderer={[Function]}
+                          className="UcastniciTable_HeaderGrid"
+                          columnCount={3}
+                          columnWidth={[Function]}
+                          columns={
+                            Array [
+                              Object {
+                                "cellClassNames": [Function],
+                                "cellDataFormatter": [Function],
+                                "key": "prijmeni",
+                                "label": "příjmení",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                              Object {
+                                "cellClassNames": [Function],
+                                "key": "jmeno",
+                                "label": "jméno",
+                                "sortable": true,
+                                "width": 90,
+                              },
+                              Object {
+                                "cellClassNames": [Function],
+                                "cellDataFormatter": [Function],
+                                "key": "narozeni",
+                                "label": "narození",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                              Object {
+                                "cellClassNames": [Function],
+                                "cellDataFormatter": [Function],
+                                "key": "ucasti",
+                                "label": "účastí",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                              Object {
+                                "cellRenderer": [Function],
+                                "key": "predano",
+                                "label": "předáno",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                              Object {
+                                "cellRenderer": [Function],
+                                "key": "neprevzato",
+                                "label": "nepřevzato",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                              Object {
+                                "cellRenderer": [Function],
+                                "key": "narok",
+                                "label": "nárok?",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                            ]
+                          }
+                          containerHeight={600}
+                          containerRole="rowgroup"
+                          containerStyle={Object {}}
+                          containerWidth={1500}
+                          data={
+                            Array [
+                              Object {
+                                "id": "5a09b1fd371dec1e99b7e1c9",
+                                "jmeno": "Roman",
+                                "narozeni": Object {
+                                  "rok": 1956,
+                                },
+                                "pohary": Object {
+                                  "narok": true,
+                                  "neprevzato": 0,
+                                  "predano": 0,
+                                },
+                                "prijmeni": "Balabák",
+                                "ucasti": Object {
+                                  "dokoncene": Array [
+                                    2017,
+                                    2015,
+                                    2014,
+                                    2013,
+                                  ],
+                                  "prihlaseno": true,
+                                },
+                              },
+                              Object {
+                                "id": "6f09b1fd371dec1e99b7e1c9",
+                                "jmeno": "Martina",
+                                "narozeni": Object {
+                                  "den": 7,
+                                  "mesic": 12,
+                                  "rok": 1963,
+                                },
+                                "obec": "Zlín",
+                                "pohary": Object {
+                                  "narok": false,
+                                  "neprevzato": 1,
+                                  "predano": 0,
+                                },
+                                "prijmeni": "Sukdoláková",
+                                "ucasti": Object {
+                                  "dokoncene": Array [
+                                    2016,
+                                    2013,
+                                    2012,
+                                    2011,
+                                    2010,
+                                  ],
+                                  "prihlaseno": false,
+                                },
+                              },
+                              Object {
+                                "id": "7a09b1fd371dec1e99b7e142",
+                                "jmeno": "Hana",
+                                "narozeni": Object {
+                                  "den": 25,
+                                  "mesic": 7,
+                                  "rok": 1999,
+                                },
+                                "pohary": Object {
+                                  "narok": false,
+                                  "neprevzato": 0,
+                                  "predano": 0,
+                                },
+                                "prijmeni": "Zralá",
+                                "ucasti": Object {
+                                  "dokoncene": Array [],
+                                  "prihlaseno": false,
+                                },
+                              },
+                            ]
+                          }
+                          estimatedColumnSize={100}
+                          estimatedRowSize={30}
+                          fixedColumnCount={3}
+                          getScrollbarSize={[Function]}
+                          height={35}
+                          isScrollingOptOut={false}
+                          noContentRenderer={[Function]}
+                          onDrop={[MockFunction]}
+                          onScroll={[Function]}
+                          onScrollbarPresenceChange={[Function]}
+                          onSectionRendered={[Function]}
+                          overscanColumnCount={0}
+                          overscanIndicesGetter={[Function]}
+                          overscanRowCount={10}
+                          reduxName="pohary"
+                          role="grid"
+                          rowCount={1}
+                          rowHeight={35}
+                          scrollToAlignment="auto"
+                          scrollToColumn={-1}
+                          scrollToRow={-1}
+                          scrollingResetTimeInterval={150}
+                          style={Object {}}
+                          tabIndex={0}
+                          width={290}
+                        >
+                          <div
+                            aria-label="grid"
+                            aria-readonly={true}
+                            className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
+                            onScroll={[Function]}
+                            role="grid"
+                            style={
+                              Object {
+                                "WebkitOverflowScrolling": "touch",
+                                "boxSizing": "border-box",
+                                "direction": "ltr",
+                                "height": 35,
+                                "overflowX": "hidden",
+                                "overflowY": "hidden",
+                                "position": "relative",
+                                "width": 290,
+                                "willChange": "transform",
+                              }
+                            }
+                            tabIndex={0}
+                          >
+                            <div
+                              className="ReactVirtualized__Grid__innerScrollContainer"
+                              role="rowgroup"
+                              style={
+                                Object {
+                                  "height": 35,
+                                  "maxHeight": 35,
+                                  "maxWidth": 290,
+                                  "overflow": "hidden",
+                                  "pointerEvents": "",
+                                  "position": "relative",
+                                  "width": 290,
+                                }
+                              }
+                            >
+                              <div
+                                className="UcastniciTable_headerCell"
+                                key="0-0"
+                                style={
+                                  Object {
+                                    "height": 35,
+                                    "left": 0,
+                                    "position": "absolute",
+                                    "top": 0,
+                                    "width": 100,
+                                  }
+                                }
+                              >
+                                <SortHeader
+                                  onClick={[Function]}
+                                  sortDir="none"
+                                >
+                                  <button
+                                    className="SortHeader"
+                                    onClick={[Function]}
+                                  >
+                                    příjmení
+                                     
+                                  </button>
+                                </SortHeader>
+                              </div>
+                              <div
+                                className="UcastniciTable_headerCell"
+                                key="0-1"
+                                style={
+                                  Object {
+                                    "height": 35,
+                                    "left": 100,
+                                    "position": "absolute",
+                                    "top": 0,
+                                    "width": 90,
+                                  }
+                                }
+                              >
+                                <SortHeader
+                                  onClick={[Function]}
+                                  sortDir="none"
+                                >
+                                  <button
+                                    className="SortHeader"
+                                    onClick={[Function]}
+                                  >
+                                    jméno
+                                     
+                                  </button>
+                                </SortHeader>
+                              </div>
+                              <div
+                                className="UcastniciTable_headerCell"
+                                key="0-2"
+                                style={
+                                  Object {
+                                    "height": 35,
+                                    "left": 190,
+                                    "position": "absolute",
+                                    "top": 0,
+                                    "width": 100,
+                                  }
+                                }
+                              >
+                                <SortHeader
+                                  onClick={[Function]}
+                                  sortDir="none"
+                                >
+                                  <button
+                                    className="SortHeader"
+                                    onClick={[Function]}
+                                  >
+                                    narození
+                                     
+                                  </button>
+                                </SortHeader>
+                              </div>
+                            </div>
+                          </div>
+                        </Grid>
+                      </div>
+                      <div
+                        className="UcastniciTable_LeftSideGridContainer"
+                        style={
+                          Object {
+                            "flexBasis": "290px",
+                            "top": 35,
+                          }
+                        }
+                      >
+                        <Grid
+                          actionPrefix="POHARY"
+                          aria-label="grid"
+                          aria-readonly={true}
+                          autoContainerWidth={false}
+                          autoHeight={false}
+                          autoWidth={false}
+                          canDrop={[MockFunction]}
+                          cellRangeRenderer={[Function]}
+                          cellRenderer={[Function]}
+                          className="UcastniciTable_LeftSideGrid"
+                          columnCount={3}
+                          columnWidth={[Function]}
+                          columns={
+                            Array [
+                              Object {
+                                "cellClassNames": [Function],
+                                "cellDataFormatter": [Function],
+                                "key": "prijmeni",
+                                "label": "příjmení",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                              Object {
+                                "cellClassNames": [Function],
+                                "key": "jmeno",
+                                "label": "jméno",
+                                "sortable": true,
+                                "width": 90,
+                              },
+                              Object {
+                                "cellClassNames": [Function],
+                                "cellDataFormatter": [Function],
+                                "key": "narozeni",
+                                "label": "narození",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                              Object {
+                                "cellClassNames": [Function],
+                                "cellDataFormatter": [Function],
+                                "key": "ucasti",
+                                "label": "účastí",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                              Object {
+                                "cellRenderer": [Function],
+                                "key": "predano",
+                                "label": "předáno",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                              Object {
+                                "cellRenderer": [Function],
+                                "key": "neprevzato",
+                                "label": "nepřevzato",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                              Object {
+                                "cellRenderer": [Function],
+                                "key": "narok",
+                                "label": "nárok?",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                            ]
+                          }
+                          containerHeight={600}
+                          containerRole="rowgroup"
+                          containerStyle={Object {}}
+                          containerWidth={1500}
+                          data={
+                            Array [
+                              Object {
+                                "id": "5a09b1fd371dec1e99b7e1c9",
+                                "jmeno": "Roman",
+                                "narozeni": Object {
+                                  "rok": 1956,
+                                },
+                                "pohary": Object {
+                                  "narok": true,
+                                  "neprevzato": 0,
+                                  "predano": 0,
+                                },
+                                "prijmeni": "Balabák",
+                                "ucasti": Object {
+                                  "dokoncene": Array [
+                                    2017,
+                                    2015,
+                                    2014,
+                                    2013,
+                                  ],
+                                  "prihlaseno": true,
+                                },
+                              },
+                              Object {
+                                "id": "6f09b1fd371dec1e99b7e1c9",
+                                "jmeno": "Martina",
+                                "narozeni": Object {
+                                  "den": 7,
+                                  "mesic": 12,
+                                  "rok": 1963,
+                                },
+                                "obec": "Zlín",
+                                "pohary": Object {
+                                  "narok": false,
+                                  "neprevzato": 1,
+                                  "predano": 0,
+                                },
+                                "prijmeni": "Sukdoláková",
+                                "ucasti": Object {
+                                  "dokoncene": Array [
+                                    2016,
+                                    2013,
+                                    2012,
+                                    2011,
+                                    2010,
+                                  ],
+                                  "prihlaseno": false,
+                                },
+                              },
+                              Object {
+                                "id": "7a09b1fd371dec1e99b7e142",
+                                "jmeno": "Hana",
+                                "narozeni": Object {
+                                  "den": 25,
+                                  "mesic": 7,
+                                  "rok": 1999,
+                                },
+                                "pohary": Object {
+                                  "narok": false,
+                                  "neprevzato": 0,
+                                  "predano": 0,
+                                },
+                                "prijmeni": "Zralá",
+                                "ucasti": Object {
+                                  "dokoncene": Array [],
+                                  "prihlaseno": false,
+                                },
+                              },
+                            ]
+                          }
+                          estimatedColumnSize={100}
+                          estimatedRowSize={30}
+                          fixedColumnCount={3}
+                          getScrollbarSize={[Function]}
+                          height={105}
+                          isScrollingOptOut={false}
+                          noContentRenderer={[Function]}
+                          onDrop={[MockFunction]}
+                          onScroll={[Function]}
+                          onScrollbarPresenceChange={[Function]}
+                          onSectionRendered={[Function]}
+                          overscanColumnCount={0}
+                          overscanIndicesGetter={[Function]}
+                          overscanRowCount={5}
+                          reduxName="pohary"
+                          role="grid"
+                          rowCount={3}
+                          rowHeight={35}
+                          scrollToAlignment="auto"
+                          scrollToColumn={-1}
+                          scrollToRow={-1}
+                          scrollTop={0}
+                          scrollingResetTimeInterval={150}
+                          style={Object {}}
+                          tabIndex={0}
+                          width={290}
+                        >
+                          <div
+                            aria-label="grid"
+                            aria-readonly={true}
+                            className="ReactVirtualized__Grid UcastniciTable_LeftSideGrid"
+                            onScroll={[Function]}
+                            role="grid"
+                            style={
+                              Object {
+                                "WebkitOverflowScrolling": "touch",
+                                "boxSizing": "border-box",
+                                "direction": "ltr",
+                                "height": 105,
+                                "overflowX": "hidden",
+                                "overflowY": "hidden",
+                                "position": "relative",
+                                "width": 290,
+                                "willChange": "transform",
+                              }
+                            }
+                            tabIndex={0}
+                          >
+                            <div
+                              className="ReactVirtualized__Grid__innerScrollContainer"
+                              role="rowgroup"
+                              style={
+                                Object {
+                                  "height": 105,
+                                  "maxHeight": 105,
+                                  "maxWidth": 290,
+                                  "overflow": "hidden",
+                                  "pointerEvents": "",
+                                  "position": "relative",
+                                  "width": 290,
+                                }
+                              }
+                            >
+                              <div
+                                className="align-left UcastniciTable_oddRow UcastniciTable_cell"
+                                key="0-0"
+                                style={
+                                  Object {
+                                    "height": 35,
+                                    "left": 0,
+                                    "position": "absolute",
+                                    "top": 0,
+                                    "width": 100,
+                                  }
+                                }
+                              >
+                                <Link
+                                  replace={false}
+                                  to="/prihlasky/5a09b1fd371dec1e99b7e1c9"
+                                >
+                                  <a
+                                    href="/prihlasky/5a09b1fd371dec1e99b7e1c9"
+                                    onClick={[Function]}
+                                  >
+                                    Balabák
+                                  </a>
+                                </Link>
+                              </div>
+                              <div
+                                className="align-left UcastniciTable_oddRow UcastniciTable_cell"
+                                key="0-1"
+                                style={
+                                  Object {
+                                    "height": 35,
+                                    "left": 100,
+                                    "position": "absolute",
+                                    "top": 0,
+                                    "width": 90,
+                                  }
+                                }
+                              >
+                                Roman
+                              </div>
+                              <div
+                                className="align-right UcastniciTable_oddRow UcastniciTable_cell"
+                                key="0-2"
+                                style={
+                                  Object {
+                                    "height": 35,
+                                    "left": 190,
+                                    "position": "absolute",
+                                    "top": 0,
+                                    "width": 100,
+                                  }
+                                }
+                              >
+                                1956
+                              </div>
+                              <div
+                                className="align-left UcastniciTable_evenRow UcastniciTable_cell"
+                                key="1-0"
+                                style={
+                                  Object {
+                                    "height": 35,
+                                    "left": 0,
+                                    "position": "absolute",
+                                    "top": 35,
+                                    "width": 100,
+                                  }
+                                }
+                              >
+                                <Link
+                                  replace={false}
+                                  to="/prihlasky/6f09b1fd371dec1e99b7e1c9"
+                                >
+                                  <a
+                                    href="/prihlasky/6f09b1fd371dec1e99b7e1c9"
+                                    onClick={[Function]}
+                                  >
+                                    Sukdoláková
+                                  </a>
+                                </Link>
+                              </div>
+                              <div
+                                className="align-left UcastniciTable_evenRow UcastniciTable_cell"
+                                key="1-1"
+                                style={
+                                  Object {
+                                    "height": 35,
+                                    "left": 100,
+                                    "position": "absolute",
+                                    "top": 35,
+                                    "width": 90,
+                                  }
+                                }
+                              >
+                                Martina
+                              </div>
+                              <div
+                                className="align-right UcastniciTable_evenRow UcastniciTable_cell"
+                                key="1-2"
+                                style={
+                                  Object {
+                                    "height": 35,
+                                    "left": 190,
+                                    "position": "absolute",
+                                    "top": 35,
+                                    "width": 100,
+                                  }
+                                }
+                              >
+                                7. 12. 1963
+                              </div>
+                              <div
+                                className="align-left UcastniciTable_oddRow UcastniciTable_cell"
+                                key="2-0"
+                                style={
+                                  Object {
+                                    "height": 35,
+                                    "left": 0,
+                                    "position": "absolute",
+                                    "top": 70,
+                                    "width": 100,
+                                  }
+                                }
+                              >
+                                <Link
+                                  replace={false}
+                                  to="/prihlasky/7a09b1fd371dec1e99b7e142"
+                                >
+                                  <a
+                                    href="/prihlasky/7a09b1fd371dec1e99b7e142"
+                                    onClick={[Function]}
+                                  >
+                                    Zralá
+                                  </a>
+                                </Link>
+                              </div>
+                              <div
+                                className="align-left UcastniciTable_oddRow UcastniciTable_cell"
+                                key="2-1"
+                                style={
+                                  Object {
+                                    "height": 35,
+                                    "left": 100,
+                                    "position": "absolute",
+                                    "top": 70,
+                                    "width": 90,
+                                  }
+                                }
+                              >
+                                Hana
+                              </div>
+                              <div
+                                className="align-right UcastniciTable_oddRow UcastniciTable_cell"
+                                key="2-2"
+                                style={
+                                  Object {
+                                    "height": 35,
+                                    "left": 190,
+                                    "position": "absolute",
+                                    "top": 70,
+                                    "width": 100,
+                                  }
+                                }
+                              >
+                                25. 7. 1999
+                              </div>
+                            </div>
+                          </div>
+                        </Grid>
+                      </div>
+                      <div
+                        className="UcastniciTable_GridColumn"
+                      >
+                        <div>
+                          <div
+                            style={
+                              Object {
+                                "height": 35,
+                                "width": 400,
+                              }
+                            }
+                          >
+                            <Grid
+                              actionPrefix="POHARY"
+                              aria-label="grid"
+                              aria-readonly={true}
+                              autoContainerWidth={false}
+                              autoHeight={false}
+                              autoWidth={false}
+                              canDrop={[MockFunction]}
+                              cellRangeRenderer={[Function]}
+                              cellRenderer={[Function]}
+                              className="UcastniciTable_HeaderGrid"
+                              columnCount={7}
+                              columnWidth={[Function]}
+                              columns={
+                                Array [
+                                  Object {
+                                    "cellClassNames": [Function],
+                                    "cellDataFormatter": [Function],
+                                    "key": "prijmeni",
+                                    "label": "příjmení",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                  Object {
+                                    "cellClassNames": [Function],
+                                    "key": "jmeno",
+                                    "label": "jméno",
+                                    "sortable": true,
+                                    "width": 90,
+                                  },
+                                  Object {
+                                    "cellClassNames": [Function],
+                                    "cellDataFormatter": [Function],
+                                    "key": "narozeni",
+                                    "label": "narození",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                  Object {
+                                    "cellClassNames": [Function],
+                                    "cellDataFormatter": [Function],
+                                    "key": "ucasti",
+                                    "label": "účastí",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                  Object {
+                                    "cellRenderer": [Function],
+                                    "key": "predano",
+                                    "label": "předáno",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                  Object {
+                                    "cellRenderer": [Function],
+                                    "key": "neprevzato",
+                                    "label": "nepřevzato",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                  Object {
+                                    "cellRenderer": [Function],
+                                    "key": "narok",
+                                    "label": "nárok?",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                ]
+                              }
+                              containerHeight={600}
+                              containerRole="rowgroup"
+                              containerStyle={Object {}}
+                              containerWidth={1500}
+                              data={
+                                Array [
+                                  Object {
+                                    "id": "5a09b1fd371dec1e99b7e1c9",
+                                    "jmeno": "Roman",
+                                    "narozeni": Object {
+                                      "rok": 1956,
+                                    },
+                                    "pohary": Object {
+                                      "narok": true,
+                                      "neprevzato": 0,
+                                      "predano": 0,
+                                    },
+                                    "prijmeni": "Balabák",
+                                    "ucasti": Object {
+                                      "dokoncene": Array [
+                                        2017,
+                                        2015,
+                                        2014,
+                                        2013,
+                                      ],
+                                      "prihlaseno": true,
+                                    },
+                                  },
+                                  Object {
+                                    "id": "6f09b1fd371dec1e99b7e1c9",
+                                    "jmeno": "Martina",
+                                    "narozeni": Object {
+                                      "den": 7,
+                                      "mesic": 12,
+                                      "rok": 1963,
+                                    },
+                                    "obec": "Zlín",
+                                    "pohary": Object {
+                                      "narok": false,
+                                      "neprevzato": 1,
+                                      "predano": 0,
+                                    },
+                                    "prijmeni": "Sukdoláková",
+                                    "ucasti": Object {
+                                      "dokoncene": Array [
+                                        2016,
+                                        2013,
+                                        2012,
+                                        2011,
+                                        2010,
+                                      ],
+                                      "prihlaseno": false,
+                                    },
+                                  },
+                                  Object {
+                                    "id": "7a09b1fd371dec1e99b7e142",
+                                    "jmeno": "Hana",
+                                    "narozeni": Object {
+                                      "den": 25,
+                                      "mesic": 7,
+                                      "rok": 1999,
+                                    },
+                                    "pohary": Object {
+                                      "narok": false,
+                                      "neprevzato": 0,
+                                      "predano": 0,
+                                    },
+                                    "prijmeni": "Zralá",
+                                    "ucasti": Object {
+                                      "dokoncene": Array [],
+                                      "prihlaseno": false,
+                                    },
+                                  },
+                                ]
+                              }
+                              estimatedColumnSize={100}
+                              estimatedRowSize={30}
+                              fixedColumnCount={3}
+                              getScrollbarSize={[Function]}
+                              height={35}
+                              isScrollingOptOut={false}
+                              noContentRenderer={[Function]}
+                              onDrop={[MockFunction]}
+                              onScroll={[Function]}
+                              onScrollbarPresenceChange={[Function]}
+                              onSectionRendered={[Function]}
+                              overscanColumnCount={0}
+                              overscanIndicesGetter={[Function]}
+                              overscanRowCount={10}
+                              reduxName="pohary"
+                              role="grid"
+                              rowCount={1}
+                              rowHeight={35}
+                              scrollLeft={0}
+                              scrollToAlignment="auto"
+                              scrollToColumn={-1}
+                              scrollToRow={-1}
+                              scrollingResetTimeInterval={150}
+                              style={Object {}}
+                              tabIndex={0}
+                              width={690}
+                            >
+                              <div
+                                aria-label="grid"
+                                aria-readonly={true}
+                                className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
+                                onScroll={[Function]}
+                                role="grid"
+                                style={
+                                  Object {
+                                    "WebkitOverflowScrolling": "touch",
+                                    "boxSizing": "border-box",
+                                    "direction": "ltr",
+                                    "height": 35,
+                                    "overflowX": "hidden",
+                                    "overflowY": "hidden",
+                                    "position": "relative",
+                                    "width": 690,
+                                    "willChange": "transform",
+                                  }
+                                }
+                                tabIndex={0}
+                              >
+                                <div
+                                  className="ReactVirtualized__Grid__innerScrollContainer"
+                                  role="rowgroup"
+                                  style={
+                                    Object {
+                                      "height": 35,
+                                      "maxHeight": 35,
+                                      "maxWidth": 690,
+                                      "overflow": "hidden",
+                                      "pointerEvents": "",
+                                      "position": "relative",
+                                      "width": 690,
+                                    }
+                                  }
+                                >
+                                  <div
+                                    className="UcastniciTable_headerCell"
+                                    key="0-3"
+                                    style={
+                                      Object {
+                                        "height": 35,
+                                        "left": 290,
+                                        "position": "absolute",
+                                        "top": 0,
+                                        "width": 100,
+                                      }
+                                    }
+                                  >
+                                    <SortHeader
+                                      onClick={[Function]}
+                                      sortDir="none"
+                                    >
+                                      <button
+                                        className="SortHeader"
+                                        onClick={[Function]}
+                                      >
+                                        účastí
+                                         
+                                      </button>
+                                    </SortHeader>
+                                  </div>
+                                  <div
+                                    className="UcastniciTable_headerCell"
+                                    key="0-4"
+                                    style={
+                                      Object {
+                                        "height": 35,
+                                        "left": 390,
+                                        "position": "absolute",
+                                        "top": 0,
+                                        "width": 100,
+                                      }
+                                    }
+                                  >
+                                    <SortHeader
+                                      onClick={[Function]}
+                                      sortDir="none"
+                                    >
+                                      <button
+                                        className="SortHeader"
+                                        onClick={[Function]}
+                                      >
+                                        předáno
+                                         
+                                      </button>
+                                    </SortHeader>
+                                  </div>
+                                  <div
+                                    className="UcastniciTable_headerCell"
+                                    key="0-5"
+                                    style={
+                                      Object {
+                                        "height": 35,
+                                        "left": 490,
+                                        "position": "absolute",
+                                        "top": 0,
+                                        "width": 100,
+                                      }
+                                    }
+                                  >
+                                    <SortHeader
+                                      onClick={[Function]}
+                                      sortDir="none"
+                                    >
+                                      <button
+                                        className="SortHeader"
+                                        onClick={[Function]}
+                                      >
+                                        nepřevzato
+                                         
+                                      </button>
+                                    </SortHeader>
+                                  </div>
+                                  <div
+                                    className="UcastniciTable_headerCell"
+                                    key="0-6"
+                                    style={
+                                      Object {
+                                        "height": 35,
+                                        "left": 590,
+                                        "position": "absolute",
+                                        "top": 0,
+                                        "width": 100,
+                                      }
+                                    }
+                                  >
+                                    <SortHeader
+                                      onClick={[Function]}
+                                      sortDir="none"
+                                    >
+                                      <button
+                                        className="SortHeader"
+                                        onClick={[Function]}
+                                      >
+                                        nárok?
+                                         
+                                      </button>
+                                    </SortHeader>
+                                  </div>
+                                </div>
+                              </div>
+                            </Grid>
+                          </div>
+                          <div
+                            style={
+                              Object {
+                                "height": 105,
+                                "width": 690,
+                              }
+                            }
+                          >
+                            <Grid
+                              actionPrefix="POHARY"
+                              aria-label="grid"
+                              aria-readonly={true}
+                              autoContainerWidth={false}
+                              autoHeight={false}
+                              autoWidth={false}
+                              canDrop={[MockFunction]}
+                              cellRangeRenderer={[Function]}
+                              cellRenderer={[Function]}
+                              className="UcastniciTable_BodyGrid"
+                              columnCount={7}
+                              columnWidth={[Function]}
+                              columns={
+                                Array [
+                                  Object {
+                                    "cellClassNames": [Function],
+                                    "cellDataFormatter": [Function],
+                                    "key": "prijmeni",
+                                    "label": "příjmení",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                  Object {
+                                    "cellClassNames": [Function],
+                                    "key": "jmeno",
+                                    "label": "jméno",
+                                    "sortable": true,
+                                    "width": 90,
+                                  },
+                                  Object {
+                                    "cellClassNames": [Function],
+                                    "cellDataFormatter": [Function],
+                                    "key": "narozeni",
+                                    "label": "narození",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                  Object {
+                                    "cellClassNames": [Function],
+                                    "cellDataFormatter": [Function],
+                                    "key": "ucasti",
+                                    "label": "účastí",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                  Object {
+                                    "cellRenderer": [Function],
+                                    "key": "predano",
+                                    "label": "předáno",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                  Object {
+                                    "cellRenderer": [Function],
+                                    "key": "neprevzato",
+                                    "label": "nepřevzato",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                  Object {
+                                    "cellRenderer": [Function],
+                                    "key": "narok",
+                                    "label": "nárok?",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                ]
+                              }
+                              containerHeight={600}
+                              containerRole="rowgroup"
+                              containerStyle={Object {}}
+                              containerWidth={1500}
+                              data={
+                                Array [
+                                  Object {
+                                    "id": "5a09b1fd371dec1e99b7e1c9",
+                                    "jmeno": "Roman",
+                                    "narozeni": Object {
+                                      "rok": 1956,
+                                    },
+                                    "pohary": Object {
+                                      "narok": true,
+                                      "neprevzato": 0,
+                                      "predano": 0,
+                                    },
+                                    "prijmeni": "Balabák",
+                                    "ucasti": Object {
+                                      "dokoncene": Array [
+                                        2017,
+                                        2015,
+                                        2014,
+                                        2013,
+                                      ],
+                                      "prihlaseno": true,
+                                    },
+                                  },
+                                  Object {
+                                    "id": "6f09b1fd371dec1e99b7e1c9",
+                                    "jmeno": "Martina",
+                                    "narozeni": Object {
+                                      "den": 7,
+                                      "mesic": 12,
+                                      "rok": 1963,
+                                    },
+                                    "obec": "Zlín",
+                                    "pohary": Object {
+                                      "narok": false,
+                                      "neprevzato": 1,
+                                      "predano": 0,
+                                    },
+                                    "prijmeni": "Sukdoláková",
+                                    "ucasti": Object {
+                                      "dokoncene": Array [
+                                        2016,
+                                        2013,
+                                        2012,
+                                        2011,
+                                        2010,
+                                      ],
+                                      "prihlaseno": false,
+                                    },
+                                  },
+                                  Object {
+                                    "id": "7a09b1fd371dec1e99b7e142",
+                                    "jmeno": "Hana",
+                                    "narozeni": Object {
+                                      "den": 25,
+                                      "mesic": 7,
+                                      "rok": 1999,
+                                    },
+                                    "pohary": Object {
+                                      "narok": false,
+                                      "neprevzato": 0,
+                                      "predano": 0,
+                                    },
+                                    "prijmeni": "Zralá",
+                                    "ucasti": Object {
+                                      "dokoncene": Array [],
+                                      "prihlaseno": false,
+                                    },
+                                  },
+                                ]
+                              }
+                              estimatedColumnSize={100}
+                              estimatedRowSize={30}
+                              fixedColumnCount={3}
+                              getScrollbarSize={[Function]}
+                              height={105}
+                              isScrollingOptOut={false}
+                              noContentRenderer={[Function]}
+                              onDrop={[MockFunction]}
+                              onScroll={[Function]}
+                              onScrollbarPresenceChange={[Function]}
+                              onSectionRendered={[Function]}
+                              overscanColumnCount={0}
+                              overscanIndicesGetter={[Function]}
+                              overscanRowCount={5}
+                              reduxName="pohary"
+                              role="grid"
+                              rowCount={3}
+                              rowHeight={35}
+                              scrollToAlignment="auto"
+                              scrollToColumn={-1}
+                              scrollToRow={-1}
+                              scrollingResetTimeInterval={150}
+                              style={Object {}}
+                              tabIndex={0}
+                              width={690}
+                            >
+                              <div
+                                aria-label="grid"
+                                aria-readonly={true}
+                                className="ReactVirtualized__Grid UcastniciTable_BodyGrid"
+                                onScroll={[Function]}
+                                role="grid"
+                                style={
+                                  Object {
+                                    "WebkitOverflowScrolling": "touch",
+                                    "boxSizing": "border-box",
+                                    "direction": "ltr",
+                                    "height": 105,
+                                    "overflowX": "hidden",
+                                    "overflowY": "hidden",
+                                    "position": "relative",
+                                    "width": 690,
+                                    "willChange": "transform",
+                                  }
+                                }
+                                tabIndex={0}
+                              >
+                                <div
+                                  className="ReactVirtualized__Grid__innerScrollContainer"
+                                  role="rowgroup"
+                                  style={
+                                    Object {
+                                      "height": 105,
+                                      "maxHeight": 105,
+                                      "maxWidth": 690,
+                                      "overflow": "hidden",
+                                      "pointerEvents": "",
+                                      "position": "relative",
+                                      "width": 690,
+                                    }
+                                  }
+                                >
+                                  <div
+                                    className="align-right UcastniciTable_oddRow UcastniciTable_cell"
+                                    key="0-3"
+                                    style={
+                                      Object {
+                                        "height": 35,
+                                        "left": 290,
+                                        "position": "absolute",
+                                        "top": 0,
+                                        "width": 100,
+                                      }
+                                    }
+                                  >
+                                    4
+                                  </div>
+                                  <DroppablePohary
+                                    canDrop={[MockFunction]}
+                                    className="UcastniciTable_oddRow UcastniciTable_cell"
+                                    count={0}
+                                    id="5a09b1fd371dec1e99b7e1c9"
+                                    key="0-4"
+                                    onDrop={[MockFunction]}
+                                    style={
+                                      Object {
+                                        "height": 35,
+                                        "left": 390,
+                                        "position": "absolute",
+                                        "top": 0,
+                                        "width": 100,
+                                      }
+                                    }
+                                    type="předáno"
+                                  >
+                                    <DropTarget(Pohary)
+                                      className="UcastniciTable_oddRow UcastniciTable_cell"
+                                      count={0}
+                                      id="5a09b1fd371dec1e99b7e1c9"
+                                      style={
+                                        Object {
+                                          "height": 35,
+                                          "left": 390,
+                                          "position": "absolute",
+                                          "top": 0,
+                                          "width": 100,
+                                        }
+                                      }
+                                      type="předáno"
+                                    />
+                                  </DroppablePohary>
+                                  <DroppablePohary
+                                    canDrop={[MockFunction]}
+                                    className="UcastniciTable_oddRow UcastniciTable_cell"
+                                    count={0}
+                                    id="5a09b1fd371dec1e99b7e1c9"
+                                    key="0-5"
+                                    onDrop={[MockFunction]}
+                                    style={
+                                      Object {
+                                        "height": 35,
+                                        "left": 490,
+                                        "position": "absolute",
+                                        "top": 0,
+                                        "width": 100,
+                                      }
+                                    }
+                                    type="nepřevzato"
+                                  >
+                                    <DropTarget(Pohary)
+                                      className="UcastniciTable_oddRow UcastniciTable_cell"
+                                      count={0}
+                                      id="5a09b1fd371dec1e99b7e1c9"
+                                      style={
+                                        Object {
+                                          "height": 35,
+                                          "left": 490,
+                                          "position": "absolute",
+                                          "top": 0,
+                                          "width": 100,
+                                        }
+                                      }
+                                      type="nepřevzato"
+                                    />
+                                  </DroppablePohary>
+                                  <DroppablePohary
+                                    canDrop={[MockFunction]}
+                                    className="UcastniciTable_oddRow UcastniciTable_cell"
+                                    count={1}
+                                    id="5a09b1fd371dec1e99b7e1c9"
+                                    key="0-6"
+                                    onDrop={[MockFunction]}
+                                    style={
+                                      Object {
+                                        "height": 35,
+                                        "left": 590,
+                                        "position": "absolute",
+                                        "top": 0,
+                                        "width": 100,
+                                      }
+                                    }
+                                    type="nárok"
+                                  >
+                                    <DropTarget(Pohary)
+                                      className="UcastniciTable_oddRow UcastniciTable_cell"
+                                      count={1}
+                                      id="5a09b1fd371dec1e99b7e1c9"
+                                      style={
+                                        Object {
+                                          "height": 35,
+                                          "left": 590,
+                                          "position": "absolute",
+                                          "top": 0,
+                                          "width": 100,
+                                        }
+                                      }
+                                      type="nárok"
+                                    />
+                                  </DroppablePohary>
+                                  <div
+                                    className="align-right UcastniciTable_evenRow UcastniciTable_cell"
+                                    key="1-3"
+                                    style={
+                                      Object {
+                                        "height": 35,
+                                        "left": 290,
+                                        "position": "absolute",
+                                        "top": 35,
+                                        "width": 100,
+                                      }
+                                    }
+                                  >
+                                    5
+                                  </div>
+                                  <DroppablePohary
+                                    canDrop={[MockFunction]}
+                                    className="UcastniciTable_evenRow UcastniciTable_cell"
+                                    count={0}
+                                    id="6f09b1fd371dec1e99b7e1c9"
+                                    key="1-4"
+                                    onDrop={[MockFunction]}
+                                    style={
+                                      Object {
+                                        "height": 35,
+                                        "left": 390,
+                                        "position": "absolute",
+                                        "top": 35,
+                                        "width": 100,
+                                      }
+                                    }
+                                    type="předáno"
+                                  >
+                                    <DropTarget(Pohary)
+                                      className="UcastniciTable_evenRow UcastniciTable_cell"
+                                      count={0}
+                                      id="6f09b1fd371dec1e99b7e1c9"
+                                      style={
+                                        Object {
+                                          "height": 35,
+                                          "left": 390,
+                                          "position": "absolute",
+                                          "top": 35,
+                                          "width": 100,
+                                        }
+                                      }
+                                      type="předáno"
+                                    />
+                                  </DroppablePohary>
+                                  <DroppablePohary
+                                    canDrop={[MockFunction]}
+                                    className="UcastniciTable_evenRow UcastniciTable_cell"
+                                    count={1}
+                                    id="6f09b1fd371dec1e99b7e1c9"
+                                    key="1-5"
+                                    onDrop={[MockFunction]}
+                                    style={
+                                      Object {
+                                        "height": 35,
+                                        "left": 490,
+                                        "position": "absolute",
+                                        "top": 35,
+                                        "width": 100,
+                                      }
+                                    }
+                                    type="nepřevzato"
+                                  >
+                                    <DropTarget(Pohary)
+                                      className="UcastniciTable_evenRow UcastniciTable_cell"
+                                      count={1}
+                                      id="6f09b1fd371dec1e99b7e1c9"
+                                      style={
+                                        Object {
+                                          "height": 35,
+                                          "left": 490,
+                                          "position": "absolute",
+                                          "top": 35,
+                                          "width": 100,
+                                        }
+                                      }
+                                      type="nepřevzato"
+                                    />
+                                  </DroppablePohary>
+                                  <DroppablePohary
+                                    canDrop={[MockFunction]}
+                                    className="UcastniciTable_evenRow UcastniciTable_cell"
+                                    count={0}
+                                    id="6f09b1fd371dec1e99b7e1c9"
+                                    key="1-6"
+                                    onDrop={[MockFunction]}
+                                    style={
+                                      Object {
+                                        "height": 35,
+                                        "left": 590,
+                                        "position": "absolute",
+                                        "top": 35,
+                                        "width": 100,
+                                      }
+                                    }
+                                    type="nárok"
+                                  >
+                                    <DropTarget(Pohary)
+                                      className="UcastniciTable_evenRow UcastniciTable_cell"
+                                      count={0}
+                                      id="6f09b1fd371dec1e99b7e1c9"
+                                      style={
+                                        Object {
+                                          "height": 35,
+                                          "left": 590,
+                                          "position": "absolute",
+                                          "top": 35,
+                                          "width": 100,
+                                        }
+                                      }
+                                      type="nárok"
+                                    />
+                                  </DroppablePohary>
+                                  <div
+                                    className="align-right UcastniciTable_oddRow UcastniciTable_cell"
+                                    key="2-3"
+                                    style={
+                                      Object {
+                                        "height": 35,
+                                        "left": 290,
+                                        "position": "absolute",
+                                        "top": 70,
+                                        "width": 100,
+                                      }
+                                    }
+                                  >
+                                    0
+                                  </div>
+                                  <DroppablePohary
+                                    canDrop={[MockFunction]}
+                                    className="UcastniciTable_oddRow UcastniciTable_cell"
+                                    count={0}
+                                    id="7a09b1fd371dec1e99b7e142"
+                                    key="2-4"
+                                    onDrop={[MockFunction]}
+                                    style={
+                                      Object {
+                                        "height": 35,
+                                        "left": 390,
+                                        "position": "absolute",
+                                        "top": 70,
+                                        "width": 100,
+                                      }
+                                    }
+                                    type="předáno"
+                                  >
+                                    <DropTarget(Pohary)
+                                      className="UcastniciTable_oddRow UcastniciTable_cell"
+                                      count={0}
+                                      id="7a09b1fd371dec1e99b7e142"
+                                      style={
+                                        Object {
+                                          "height": 35,
+                                          "left": 390,
+                                          "position": "absolute",
+                                          "top": 70,
+                                          "width": 100,
+                                        }
+                                      }
+                                      type="předáno"
+                                    />
+                                  </DroppablePohary>
+                                  <DroppablePohary
+                                    canDrop={[MockFunction]}
+                                    className="UcastniciTable_oddRow UcastniciTable_cell"
+                                    count={0}
+                                    id="7a09b1fd371dec1e99b7e142"
+                                    key="2-5"
+                                    onDrop={[MockFunction]}
+                                    style={
+                                      Object {
+                                        "height": 35,
+                                        "left": 490,
+                                        "position": "absolute",
+                                        "top": 70,
+                                        "width": 100,
+                                      }
+                                    }
+                                    type="nepřevzato"
+                                  >
+                                    <DropTarget(Pohary)
+                                      className="UcastniciTable_oddRow UcastniciTable_cell"
+                                      count={0}
+                                      id="7a09b1fd371dec1e99b7e142"
+                                      style={
+                                        Object {
+                                          "height": 35,
+                                          "left": 490,
+                                          "position": "absolute",
+                                          "top": 70,
+                                          "width": 100,
+                                        }
+                                      }
+                                      type="nepřevzato"
+                                    />
+                                  </DroppablePohary>
+                                  <DroppablePohary
+                                    canDrop={[MockFunction]}
+                                    className="UcastniciTable_oddRow UcastniciTable_cell"
+                                    count={0}
+                                    id="7a09b1fd371dec1e99b7e142"
+                                    key="2-6"
+                                    onDrop={[MockFunction]}
+                                    style={
+                                      Object {
+                                        "height": 35,
+                                        "left": 590,
+                                        "position": "absolute",
+                                        "top": 70,
+                                        "width": 100,
+                                      }
+                                    }
+                                    type="nárok"
+                                  >
+                                    <DropTarget(Pohary)
+                                      className="UcastniciTable_oddRow UcastniciTable_cell"
+                                      count={0}
+                                      id="7a09b1fd371dec1e99b7e142"
+                                      style={
+                                        Object {
+                                          "height": 35,
+                                          "left": 590,
+                                          "position": "absolute",
+                                          "top": 70,
+                                          "width": 100,
+                                        }
+                                      }
+                                      type="nárok"
+                                    />
+                                  </DroppablePohary>
+                                </div>
+                              </div>
+                            </Grid>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ScrollSync>
+                </UcastniciTable>
               </div>
-            </div>
-          </div>
-          <div
-            style={
-              Object {
-                "height": 105,
-                "width": 690,
-              }
-            }
-          >
-            <div
-              aria-label="grid"
-              aria-readonly={true}
-              className="ReactVirtualized__Grid UcastniciTable_BodyGrid"
-              onScroll={[Function]}
-              role="grid"
-              style={
-                Object {
-                  "WebkitOverflowScrolling": "touch",
-                  "boxSizing": "border-box",
-                  "direction": "ltr",
-                  "height": 105,
-                  "overflowX": "hidden",
-                  "overflowY": "hidden",
-                  "position": "relative",
-                  "width": 690,
-                  "willChange": "transform",
-                }
-              }
-              tabIndex={0}
-            >
-              <div
-                className="ReactVirtualized__Grid__innerScrollContainer"
-                role="rowgroup"
-                style={
-                  Object {
-                    "height": 105,
-                    "maxHeight": 105,
-                    "maxWidth": 690,
-                    "overflow": "hidden",
-                    "pointerEvents": "",
-                    "position": "relative",
-                    "width": 690,
-                  }
-                }
-              >
-                <div
-                  className="align-right UcastniciTable_oddRow UcastniciTable_cell"
-                  style={
-                    Object {
-                      "height": 35,
-                      "left": 290,
-                      "position": "absolute",
-                      "top": 0,
-                      "width": 100,
-                    }
-                  }
-                >
-                  4
-                </div>
-                <div
-                  className="UcastniciTable_oddRow UcastniciTable_cell"
-                  style={
-                    Object {
-                      "height": 35,
-                      "left": 390,
-                      "position": "absolute",
-                      "top": 0,
-                      "width": 100,
-                    }
-                  }
-                >
-                  <div />
-                </div>
-                <div
-                  className="UcastniciTable_oddRow UcastniciTable_cell"
-                  style={
-                    Object {
-                      "height": 35,
-                      "left": 490,
-                      "position": "absolute",
-                      "top": 0,
-                      "width": 100,
-                    }
-                  }
-                >
-                  <div />
-                </div>
-                <div
-                  className="UcastniciTable_oddRow UcastniciTable_cell"
-                  style={
-                    Object {
-                      "height": 35,
-                      "left": 590,
-                      "position": "absolute",
-                      "top": 0,
-                      "width": 100,
-                    }
-                  }
-                >
-                  <div>
-                    <img
-                      alt="pohár - nárok"
-                      className="Pohar"
-                      height={25.72}
-                      src="pohar_narok.svg"
-                      title="pohár - nárok"
-                      width={20.68}
-                    />
-                  </div>
-                </div>
-                <div
-                  className="align-right UcastniciTable_evenRow UcastniciTable_cell"
-                  style={
-                    Object {
-                      "height": 35,
-                      "left": 290,
-                      "position": "absolute",
-                      "top": 35,
-                      "width": 100,
-                    }
-                  }
-                >
-                  5
-                </div>
-                <div
-                  className="UcastniciTable_evenRow UcastniciTable_cell"
-                  style={
-                    Object {
-                      "height": 35,
-                      "left": 390,
-                      "position": "absolute",
-                      "top": 35,
-                      "width": 100,
-                    }
-                  }
-                >
-                  <div />
-                </div>
-                <div
-                  className="UcastniciTable_evenRow UcastniciTable_cell"
-                  style={
-                    Object {
-                      "height": 35,
-                      "left": 490,
-                      "position": "absolute",
-                      "top": 35,
-                      "width": 100,
-                    }
-                  }
-                >
-                  <div>
-                    <img
-                      alt="pohár - nepřevzato"
-                      className="Pohar"
-                      height={25.72}
-                      src="pohar_neprevzato.svg"
-                      title="pohár - nepřevzato"
-                      width={20.68}
-                    />
-                  </div>
-                </div>
-                <div
-                  className="UcastniciTable_evenRow UcastniciTable_cell"
-                  style={
-                    Object {
-                      "height": 35,
-                      "left": 590,
-                      "position": "absolute",
-                      "top": 35,
-                      "width": 100,
-                    }
-                  }
-                >
-                  <div />
-                </div>
-                <div
-                  className="align-right UcastniciTable_oddRow UcastniciTable_cell"
-                  style={
-                    Object {
-                      "height": 35,
-                      "left": 290,
-                      "position": "absolute",
-                      "top": 70,
-                      "width": 100,
-                    }
-                  }
-                >
-                  0
-                </div>
-                <div
-                  className="UcastniciTable_oddRow UcastniciTable_cell"
-                  style={
-                    Object {
-                      "height": 35,
-                      "left": 390,
-                      "position": "absolute",
-                      "top": 70,
-                      "width": 100,
-                    }
-                  }
-                >
-                  <div />
-                </div>
-                <div
-                  className="UcastniciTable_oddRow UcastniciTable_cell"
-                  style={
-                    Object {
-                      "height": 35,
-                      "left": 490,
-                      "position": "absolute",
-                      "top": 70,
-                      "width": 100,
-                    }
-                  }
-                >
-                  <div />
-                </div>
-                <div
-                  className="UcastniciTable_oddRow UcastniciTable_cell"
-                  style={
-                    Object {
-                      "height": 35,
-                      "left": 590,
-                      "position": "absolute",
-                      "top": 70,
-                      "width": 100,
-                    }
-                  }
-                >
-                  <div />
-                </div>
-              </div>
-            </div>
-          </div>
+            </WithResponsiveComponent>
+          </Connect(WithResponsiveComponent)>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+      </PoharyTable>
+    </Router>
+  </MemoryRouter>
+</Provider>
 `;
 
 exports[`žádný pohár 1`] = `
-<div
-  className="PoharyTable__div UcastniciTable_container"
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [MockFunction],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
 >
-  <p>
-    Jsou zobrazeni pouze účastníci, kteří buďto maraton alespoň jednou dokončili anebo se na něj přihlásili. To je dále ještě možné poštelovat filtry.
-  </p>
-  <div>
-    <input
-      className="TextFilter__input"
-      onBlur={[Function]}
-      onChange={[Function]}
-      onKeyDown={[Function]}
-      placeholder="Filtr na příjmení a jméno"
-      type="text"
-      value=""
-    />
-    <span
-      className="PoharyTable__buttons Bootstrap-buttons--active"
-    >
-      <button
-        className="PoharyTable__button btn btn-success"
-        disabled={false}
-        onClick={[MockFunction]}
-        type="button"
-      >
-        <span
-          className="glyphicon glyphicon-download"
-        />
-         Nárok na pohár
-      </button>
-      <button
-        className="PoharyTable__button btn btn-info"
-        disabled={false}
-        onClick={[MockFunction]}
-        type="button"
-      >
-        <span
-          className="glyphicon glyphicon-upload"
-        />
-         Nepřevzatý pohár
-      </button>
-    </span>
-    <span
-      className="Zobrazeno"
-    >
-      zobrazeno: 
-      <span
-        className="badge"
-      >
-        0
-      </span>
-    </span>
-  </div>
-  <div
-    className="withResponsive"
+  <MemoryRouter
+    keyLength={0}
   >
-    <div
-      className="UcastniciTable_GridRow"
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
     >
-      <div
-        className="UcastniciTable_LeftSideGridContainer"
-        style={
-          Object {
-            "flexBasis": "290px",
-            "top": 0,
-          }
-        }
+      <PoharyTable
+        actionPrefix="POHARY"
+        canDrop={[MockFunction]}
+        narokovaneFilter={false}
+        neprevzateFilter={false}
+        onDrop={[MockFunction]}
+        onNarokovaneFilterChange={[MockFunction]}
+        onNeprevzateFilterChange={[MockFunction]}
+        onTextFilterChange={[MockFunction]}
+        pohary={Array []}
+        reduxName="pohary"
+        textFilter=""
       >
         <div
-          aria-label="grid"
-          aria-readonly={true}
-          className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
-          onScroll={[Function]}
-          role="grid"
-          style={
-            Object {
-              "WebkitOverflowScrolling": "touch",
-              "boxSizing": "border-box",
-              "direction": "ltr",
-              "height": 35,
-              "overflowX": "hidden",
-              "overflowY": "hidden",
-              "position": "relative",
-              "width": 290,
-              "willChange": "transform",
-            }
-          }
-          tabIndex={0}
+          className="PoharyTable__div UcastniciTable_container"
         >
-          <div
-            className="ReactVirtualized__Grid__innerScrollContainer"
-            role="rowgroup"
-            style={
-              Object {
-                "height": 35,
-                "maxHeight": 35,
-                "maxWidth": 290,
-                "overflow": "hidden",
-                "pointerEvents": "",
-                "position": "relative",
-                "width": 290,
-              }
-            }
-          >
-            <div
-              className="UcastniciTable_headerCell"
-              style={
-                Object {
-                  "height": 35,
-                  "left": 0,
-                  "position": "absolute",
-                  "top": 0,
-                  "width": 100,
-                }
-              }
+          <p>
+            Jsou zobrazeni pouze účastníci, kteří buďto maraton alespoň jednou dokončili anebo se na něj přihlásili. To je dále ještě možné poštelovat filtry.
+          </p>
+          <div>
+            <TextFilter
+              filter=""
+              onChange={[MockFunction]}
             >
-              <button
-                className="SortHeader"
-                onClick={[Function]}
-              >
-                příjmení
-                 
-                
-              </button>
-            </div>
-            <div
-              className="UcastniciTable_headerCell"
-              style={
-                Object {
-                  "height": 35,
-                  "left": 100,
-                  "position": "absolute",
-                  "top": 0,
-                  "width": 90,
+              <DebounceInput
+                className="TextFilter__input"
+                debounceTimeout={500}
+                element="input"
+                forceNotifyByEnter={true}
+                forceNotifyOnBlur={true}
+                inputRef={
+                  Object {
+                    "current": <input
+                      class="TextFilter__input"
+                      placeholder="Filtr na příjmení a jméno"
+                      type="text"
+                      value=""
+                    />,
+                  }
                 }
-              }
-            >
-              <button
-                className="SortHeader"
-                onClick={[Function]}
+                minLength={0}
+                onChange={[Function]}
+                placeholder="Filtr na příjmení a jméno"
+                type="text"
+                value=""
               >
-                jméno
-                 
-                
-              </button>
-            </div>
-            <div
-              className="UcastniciTable_headerCell"
-              style={
-                Object {
-                  "height": 35,
-                  "left": 190,
-                  "position": "absolute",
-                  "top": 0,
-                  "width": 100,
-                }
-              }
+                <input
+                  className="TextFilter__input"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder="Filtr na příjmení a jméno"
+                  type="text"
+                  value=""
+                />
+              </DebounceInput>
+            </TextFilter>
+            <span
+              className="PoharyTable__buttons Bootstrap-buttons--active"
             >
-              <button
-                className="SortHeader"
-                onClick={[Function]}
+              <Button
+                active={false}
+                block={false}
+                bsClass="btn"
+                bsStyle="success"
+                className="PoharyTable__button"
+                disabled={false}
+                onClick={[MockFunction]}
               >
-                narození
-                 
-                
-              </button>
-            </div>
+                <button
+                  className="PoharyTable__button btn btn-success"
+                  disabled={false}
+                  onClick={[MockFunction]}
+                  type="button"
+                >
+                  <Glyphicon
+                    bsClass="glyphicon"
+                    glyph="download"
+                  >
+                    <span
+                      className="glyphicon glyphicon-download"
+                    />
+                  </Glyphicon>
+                   Nárok na pohár
+                </button>
+              </Button>
+              <Button
+                active={false}
+                block={false}
+                bsClass="btn"
+                bsStyle="info"
+                className="PoharyTable__button"
+                disabled={false}
+                onClick={[MockFunction]}
+              >
+                <button
+                  className="PoharyTable__button btn btn-info"
+                  disabled={false}
+                  onClick={[MockFunction]}
+                  type="button"
+                >
+                  <Glyphicon
+                    bsClass="glyphicon"
+                    glyph="upload"
+                  >
+                    <span
+                      className="glyphicon glyphicon-upload"
+                    />
+                  </Glyphicon>
+                   Nepřevzatý pohár
+                </button>
+              </Button>
+            </span>
+            <Zobrazeno
+              numberOfItems={0}
+            >
+              <span
+                className="Zobrazeno"
+              >
+                zobrazeno: 
+                <Badge
+                  bsClass="badge"
+                  pullRight={false}
+                >
+                  <span
+                    className="badge"
+                  >
+                    0
+                  </span>
+                </Badge>
+              </span>
+            </Zobrazeno>
           </div>
-        </div>
-      </div>
-      <div
-        className="UcastniciTable_LeftSideGridContainer"
-        style={
-          Object {
-            "flexBasis": "290px",
-            "top": 35,
-          }
-        }
-      >
-        <div
-          aria-label="grid"
-          aria-readonly={true}
-          className="ReactVirtualized__Grid UcastniciTable_LeftSideGrid"
-          onScroll={[Function]}
-          role="grid"
-          style={
-            Object {
-              "WebkitOverflowScrolling": "touch",
-              "boxSizing": "border-box",
-              "direction": "ltr",
-              "height": 0,
-              "overflowX": "auto",
-              "overflowY": "hidden",
-              "position": "relative",
-              "width": 290,
-              "willChange": "transform",
-            }
-          }
-          tabIndex={0}
-        />
-      </div>
-      <div
-        className="UcastniciTable_GridColumn"
-      >
-        <div>
-          <div
-            style={
-              Object {
-                "height": 35,
-                "width": 400,
-              }
-            }
-          >
-            <div
-              aria-label="grid"
-              aria-readonly={true}
-              className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
-              onScroll={[Function]}
-              role="grid"
-              style={
+          <Connect(WithResponsiveComponent)
+            actionPrefix="POHARY"
+            canDrop={[MockFunction]}
+            columns={
+              Array [
                 Object {
-                  "WebkitOverflowScrolling": "touch",
-                  "boxSizing": "border-box",
-                  "direction": "ltr",
-                  "height": 35,
-                  "overflowX": "hidden",
-                  "overflowY": "hidden",
-                  "position": "relative",
-                  "width": 690,
-                  "willChange": "transform",
-                }
+                  "cellClassNames": [Function],
+                  "cellDataFormatter": [Function],
+                  "key": "prijmeni",
+                  "label": "příjmení",
+                  "sortable": true,
+                  "width": 100,
+                },
+                Object {
+                  "cellClassNames": [Function],
+                  "key": "jmeno",
+                  "label": "jméno",
+                  "sortable": true,
+                  "width": 90,
+                },
+                Object {
+                  "cellClassNames": [Function],
+                  "cellDataFormatter": [Function],
+                  "key": "narozeni",
+                  "label": "narození",
+                  "sortable": true,
+                  "width": 100,
+                },
+                Object {
+                  "cellClassNames": [Function],
+                  "cellDataFormatter": [Function],
+                  "key": "ucasti",
+                  "label": "účastí",
+                  "sortable": true,
+                  "width": 100,
+                },
+                Object {
+                  "cellRenderer": [Function],
+                  "key": "predano",
+                  "label": "předáno",
+                  "sortable": true,
+                  "width": 100,
+                },
+                Object {
+                  "cellRenderer": [Function],
+                  "key": "neprevzato",
+                  "label": "nepřevzato",
+                  "sortable": true,
+                  "width": 100,
+                },
+                Object {
+                  "cellRenderer": [Function],
+                  "key": "narok",
+                  "label": "nárok?",
+                  "sortable": true,
+                  "width": 100,
+                },
+              ]
+            }
+            data={Array []}
+            fixedColumnCount={3}
+            onDrop={[MockFunction]}
+            reduxName="pohary"
+            rowHeight={35}
+          >
+            <WithResponsiveComponent
+              actionPrefix="POHARY"
+              canDrop={[MockFunction]}
+              columns={
+                Array [
+                  Object {
+                    "cellClassNames": [Function],
+                    "cellDataFormatter": [Function],
+                    "key": "prijmeni",
+                    "label": "příjmení",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "cellClassNames": [Function],
+                    "key": "jmeno",
+                    "label": "jméno",
+                    "sortable": true,
+                    "width": 90,
+                  },
+                  Object {
+                    "cellClassNames": [Function],
+                    "cellDataFormatter": [Function],
+                    "key": "narozeni",
+                    "label": "narození",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "cellClassNames": [Function],
+                    "cellDataFormatter": [Function],
+                    "key": "ucasti",
+                    "label": "účastí",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "cellRenderer": [Function],
+                    "key": "predano",
+                    "label": "předáno",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "cellRenderer": [Function],
+                    "key": "neprevzato",
+                    "label": "nepřevzato",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                  Object {
+                    "cellRenderer": [Function],
+                    "key": "narok",
+                    "label": "nárok?",
+                    "sortable": true,
+                    "width": 100,
+                  },
+                ]
               }
-              tabIndex={0}
+              data={Array []}
+              fixedColumnCount={3}
+              onDrop={[MockFunction]}
+              onSortDirChange={[Function]}
+              reduxName="pohary"
+              rowHeight={35}
             >
               <div
-                className="ReactVirtualized__Grid__innerScrollContainer"
-                role="rowgroup"
-                style={
-                  Object {
-                    "height": 35,
-                    "maxHeight": 35,
-                    "maxWidth": 690,
-                    "overflow": "hidden",
-                    "pointerEvents": "",
-                    "position": "relative",
-                    "width": 690,
-                  }
-                }
+                className="withResponsive"
               >
-                <div
-                  className="UcastniciTable_headerCell"
-                  style={
-                    Object {
-                      "height": 35,
-                      "left": 290,
-                      "position": "absolute",
-                      "top": 0,
-                      "width": 100,
-                    }
+                <UcastniciTable
+                  actionPrefix="POHARY"
+                  canDrop={[MockFunction]}
+                  columns={
+                    Array [
+                      Object {
+                        "cellClassNames": [Function],
+                        "cellDataFormatter": [Function],
+                        "key": "prijmeni",
+                        "label": "příjmení",
+                        "sortable": true,
+                        "width": 100,
+                      },
+                      Object {
+                        "cellClassNames": [Function],
+                        "key": "jmeno",
+                        "label": "jméno",
+                        "sortable": true,
+                        "width": 90,
+                      },
+                      Object {
+                        "cellClassNames": [Function],
+                        "cellDataFormatter": [Function],
+                        "key": "narozeni",
+                        "label": "narození",
+                        "sortable": true,
+                        "width": 100,
+                      },
+                      Object {
+                        "cellClassNames": [Function],
+                        "cellDataFormatter": [Function],
+                        "key": "ucasti",
+                        "label": "účastí",
+                        "sortable": true,
+                        "width": 100,
+                      },
+                      Object {
+                        "cellRenderer": [Function],
+                        "key": "predano",
+                        "label": "předáno",
+                        "sortable": true,
+                        "width": 100,
+                      },
+                      Object {
+                        "cellRenderer": [Function],
+                        "key": "neprevzato",
+                        "label": "nepřevzato",
+                        "sortable": true,
+                        "width": 100,
+                      },
+                      Object {
+                        "cellRenderer": [Function],
+                        "key": "narok",
+                        "label": "nárok?",
+                        "sortable": true,
+                        "width": 100,
+                      },
+                    ]
                   }
+                  containerHeight={600}
+                  containerWidth={1500}
+                  data={Array []}
+                  fixedColumnCount={3}
+                  onDrop={[MockFunction]}
+                  onSortDirChange={[Function]}
+                  reduxName="pohary"
+                  rowHeight={35}
                 >
-                  <button
-                    className="SortHeader"
-                    onClick={[Function]}
-                  >
-                    účastí
-                     
-                    
-                  </button>
-                </div>
-                <div
-                  className="UcastniciTable_headerCell"
-                  style={
-                    Object {
-                      "height": 35,
-                      "left": 390,
-                      "position": "absolute",
-                      "top": 0,
-                      "width": 100,
+                  <ScrollSync
+                    actionPrefix="POHARY"
+                    canDrop={[MockFunction]}
+                    columns={
+                      Array [
+                        Object {
+                          "cellClassNames": [Function],
+                          "cellDataFormatter": [Function],
+                          "key": "prijmeni",
+                          "label": "příjmení",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "cellClassNames": [Function],
+                          "key": "jmeno",
+                          "label": "jméno",
+                          "sortable": true,
+                          "width": 90,
+                        },
+                        Object {
+                          "cellClassNames": [Function],
+                          "cellDataFormatter": [Function],
+                          "key": "narozeni",
+                          "label": "narození",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "cellClassNames": [Function],
+                          "cellDataFormatter": [Function],
+                          "key": "ucasti",
+                          "label": "účastí",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "cellRenderer": [Function],
+                          "key": "predano",
+                          "label": "předáno",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "cellRenderer": [Function],
+                          "key": "neprevzato",
+                          "label": "nepřevzato",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                        Object {
+                          "cellRenderer": [Function],
+                          "key": "narok",
+                          "label": "nárok?",
+                          "sortable": true,
+                          "width": 100,
+                        },
+                      ]
                     }
-                  }
-                >
-                  <button
-                    className="SortHeader"
-                    onClick={[Function]}
+                    containerHeight={600}
+                    containerWidth={1500}
+                    data={Array []}
+                    fixedColumnCount={3}
+                    onDrop={[MockFunction]}
+                    reduxName="pohary"
+                    rowHeight={35}
                   >
-                    předáno
-                     
-                    
-                  </button>
-                </div>
-                <div
-                  className="UcastniciTable_headerCell"
-                  style={
-                    Object {
-                      "height": 35,
-                      "left": 490,
-                      "position": "absolute",
-                      "top": 0,
-                      "width": 100,
-                    }
-                  }
-                >
-                  <button
-                    className="SortHeader"
-                    onClick={[Function]}
-                  >
-                    nepřevzato
-                     
-                    
-                  </button>
-                </div>
-                <div
-                  className="UcastniciTable_headerCell"
-                  style={
-                    Object {
-                      "height": 35,
-                      "left": 590,
-                      "position": "absolute",
-                      "top": 0,
-                      "width": 100,
-                    }
-                  }
-                >
-                  <button
-                    className="SortHeader"
-                    onClick={[Function]}
-                  >
-                    nárok?
-                     
-                    
-                  </button>
-                </div>
+                    <div
+                      className="UcastniciTable_GridRow"
+                    >
+                      <div
+                        className="UcastniciTable_LeftSideGridContainer"
+                        style={
+                          Object {
+                            "flexBasis": "290px",
+                            "top": 0,
+                          }
+                        }
+                      >
+                        <Grid
+                          actionPrefix="POHARY"
+                          aria-label="grid"
+                          aria-readonly={true}
+                          autoContainerWidth={false}
+                          autoHeight={false}
+                          autoWidth={false}
+                          canDrop={[MockFunction]}
+                          cellRangeRenderer={[Function]}
+                          cellRenderer={[Function]}
+                          className="UcastniciTable_HeaderGrid"
+                          columnCount={3}
+                          columnWidth={[Function]}
+                          columns={
+                            Array [
+                              Object {
+                                "cellClassNames": [Function],
+                                "cellDataFormatter": [Function],
+                                "key": "prijmeni",
+                                "label": "příjmení",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                              Object {
+                                "cellClassNames": [Function],
+                                "key": "jmeno",
+                                "label": "jméno",
+                                "sortable": true,
+                                "width": 90,
+                              },
+                              Object {
+                                "cellClassNames": [Function],
+                                "cellDataFormatter": [Function],
+                                "key": "narozeni",
+                                "label": "narození",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                              Object {
+                                "cellClassNames": [Function],
+                                "cellDataFormatter": [Function],
+                                "key": "ucasti",
+                                "label": "účastí",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                              Object {
+                                "cellRenderer": [Function],
+                                "key": "predano",
+                                "label": "předáno",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                              Object {
+                                "cellRenderer": [Function],
+                                "key": "neprevzato",
+                                "label": "nepřevzato",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                              Object {
+                                "cellRenderer": [Function],
+                                "key": "narok",
+                                "label": "nárok?",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                            ]
+                          }
+                          containerHeight={600}
+                          containerRole="rowgroup"
+                          containerStyle={Object {}}
+                          containerWidth={1500}
+                          data={Array []}
+                          estimatedColumnSize={100}
+                          estimatedRowSize={30}
+                          fixedColumnCount={3}
+                          getScrollbarSize={[Function]}
+                          height={35}
+                          isScrollingOptOut={false}
+                          noContentRenderer={[Function]}
+                          onDrop={[MockFunction]}
+                          onScroll={[Function]}
+                          onScrollbarPresenceChange={[Function]}
+                          onSectionRendered={[Function]}
+                          overscanColumnCount={0}
+                          overscanIndicesGetter={[Function]}
+                          overscanRowCount={10}
+                          reduxName="pohary"
+                          role="grid"
+                          rowCount={1}
+                          rowHeight={35}
+                          scrollToAlignment="auto"
+                          scrollToColumn={-1}
+                          scrollToRow={-1}
+                          scrollingResetTimeInterval={150}
+                          style={Object {}}
+                          tabIndex={0}
+                          width={290}
+                        >
+                          <div
+                            aria-label="grid"
+                            aria-readonly={true}
+                            className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
+                            onScroll={[Function]}
+                            role="grid"
+                            style={
+                              Object {
+                                "WebkitOverflowScrolling": "touch",
+                                "boxSizing": "border-box",
+                                "direction": "ltr",
+                                "height": 35,
+                                "overflowX": "hidden",
+                                "overflowY": "hidden",
+                                "position": "relative",
+                                "width": 290,
+                                "willChange": "transform",
+                              }
+                            }
+                            tabIndex={0}
+                          >
+                            <div
+                              className="ReactVirtualized__Grid__innerScrollContainer"
+                              role="rowgroup"
+                              style={
+                                Object {
+                                  "height": 35,
+                                  "maxHeight": 35,
+                                  "maxWidth": 290,
+                                  "overflow": "hidden",
+                                  "pointerEvents": "",
+                                  "position": "relative",
+                                  "width": 290,
+                                }
+                              }
+                            >
+                              <div
+                                className="UcastniciTable_headerCell"
+                                key="0-0"
+                                style={
+                                  Object {
+                                    "height": 35,
+                                    "left": 0,
+                                    "position": "absolute",
+                                    "top": 0,
+                                    "width": 100,
+                                  }
+                                }
+                              >
+                                <SortHeader
+                                  onClick={[Function]}
+                                  sortDir="none"
+                                >
+                                  <button
+                                    className="SortHeader"
+                                    onClick={[Function]}
+                                  >
+                                    příjmení
+                                     
+                                  </button>
+                                </SortHeader>
+                              </div>
+                              <div
+                                className="UcastniciTable_headerCell"
+                                key="0-1"
+                                style={
+                                  Object {
+                                    "height": 35,
+                                    "left": 100,
+                                    "position": "absolute",
+                                    "top": 0,
+                                    "width": 90,
+                                  }
+                                }
+                              >
+                                <SortHeader
+                                  onClick={[Function]}
+                                  sortDir="none"
+                                >
+                                  <button
+                                    className="SortHeader"
+                                    onClick={[Function]}
+                                  >
+                                    jméno
+                                     
+                                  </button>
+                                </SortHeader>
+                              </div>
+                              <div
+                                className="UcastniciTable_headerCell"
+                                key="0-2"
+                                style={
+                                  Object {
+                                    "height": 35,
+                                    "left": 190,
+                                    "position": "absolute",
+                                    "top": 0,
+                                    "width": 100,
+                                  }
+                                }
+                              >
+                                <SortHeader
+                                  onClick={[Function]}
+                                  sortDir="none"
+                                >
+                                  <button
+                                    className="SortHeader"
+                                    onClick={[Function]}
+                                  >
+                                    narození
+                                     
+                                  </button>
+                                </SortHeader>
+                              </div>
+                            </div>
+                          </div>
+                        </Grid>
+                      </div>
+                      <div
+                        className="UcastniciTable_LeftSideGridContainer"
+                        style={
+                          Object {
+                            "flexBasis": "290px",
+                            "top": 35,
+                          }
+                        }
+                      >
+                        <Grid
+                          actionPrefix="POHARY"
+                          aria-label="grid"
+                          aria-readonly={true}
+                          autoContainerWidth={false}
+                          autoHeight={false}
+                          autoWidth={false}
+                          canDrop={[MockFunction]}
+                          cellRangeRenderer={[Function]}
+                          cellRenderer={[Function]}
+                          className="UcastniciTable_LeftSideGrid"
+                          columnCount={3}
+                          columnWidth={[Function]}
+                          columns={
+                            Array [
+                              Object {
+                                "cellClassNames": [Function],
+                                "cellDataFormatter": [Function],
+                                "key": "prijmeni",
+                                "label": "příjmení",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                              Object {
+                                "cellClassNames": [Function],
+                                "key": "jmeno",
+                                "label": "jméno",
+                                "sortable": true,
+                                "width": 90,
+                              },
+                              Object {
+                                "cellClassNames": [Function],
+                                "cellDataFormatter": [Function],
+                                "key": "narozeni",
+                                "label": "narození",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                              Object {
+                                "cellClassNames": [Function],
+                                "cellDataFormatter": [Function],
+                                "key": "ucasti",
+                                "label": "účastí",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                              Object {
+                                "cellRenderer": [Function],
+                                "key": "predano",
+                                "label": "předáno",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                              Object {
+                                "cellRenderer": [Function],
+                                "key": "neprevzato",
+                                "label": "nepřevzato",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                              Object {
+                                "cellRenderer": [Function],
+                                "key": "narok",
+                                "label": "nárok?",
+                                "sortable": true,
+                                "width": 100,
+                              },
+                            ]
+                          }
+                          containerHeight={600}
+                          containerRole="rowgroup"
+                          containerStyle={Object {}}
+                          containerWidth={1500}
+                          data={Array []}
+                          estimatedColumnSize={100}
+                          estimatedRowSize={30}
+                          fixedColumnCount={3}
+                          getScrollbarSize={[Function]}
+                          height={0}
+                          isScrollingOptOut={false}
+                          noContentRenderer={[Function]}
+                          onDrop={[MockFunction]}
+                          onScroll={[Function]}
+                          onScrollbarPresenceChange={[Function]}
+                          onSectionRendered={[Function]}
+                          overscanColumnCount={0}
+                          overscanIndicesGetter={[Function]}
+                          overscanRowCount={5}
+                          reduxName="pohary"
+                          role="grid"
+                          rowCount={0}
+                          rowHeight={35}
+                          scrollToAlignment="auto"
+                          scrollToColumn={-1}
+                          scrollToRow={-1}
+                          scrollTop={0}
+                          scrollingResetTimeInterval={150}
+                          style={Object {}}
+                          tabIndex={0}
+                          width={290}
+                        >
+                          <div
+                            aria-label="grid"
+                            aria-readonly={true}
+                            className="ReactVirtualized__Grid UcastniciTable_LeftSideGrid"
+                            onScroll={[Function]}
+                            role="grid"
+                            style={
+                              Object {
+                                "WebkitOverflowScrolling": "touch",
+                                "boxSizing": "border-box",
+                                "direction": "ltr",
+                                "height": 0,
+                                "overflowX": "auto",
+                                "overflowY": "hidden",
+                                "position": "relative",
+                                "width": 290,
+                                "willChange": "transform",
+                              }
+                            }
+                            tabIndex={0}
+                          />
+                        </Grid>
+                      </div>
+                      <div
+                        className="UcastniciTable_GridColumn"
+                      >
+                        <div>
+                          <div
+                            style={
+                              Object {
+                                "height": 35,
+                                "width": 400,
+                              }
+                            }
+                          >
+                            <Grid
+                              actionPrefix="POHARY"
+                              aria-label="grid"
+                              aria-readonly={true}
+                              autoContainerWidth={false}
+                              autoHeight={false}
+                              autoWidth={false}
+                              canDrop={[MockFunction]}
+                              cellRangeRenderer={[Function]}
+                              cellRenderer={[Function]}
+                              className="UcastniciTable_HeaderGrid"
+                              columnCount={7}
+                              columnWidth={[Function]}
+                              columns={
+                                Array [
+                                  Object {
+                                    "cellClassNames": [Function],
+                                    "cellDataFormatter": [Function],
+                                    "key": "prijmeni",
+                                    "label": "příjmení",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                  Object {
+                                    "cellClassNames": [Function],
+                                    "key": "jmeno",
+                                    "label": "jméno",
+                                    "sortable": true,
+                                    "width": 90,
+                                  },
+                                  Object {
+                                    "cellClassNames": [Function],
+                                    "cellDataFormatter": [Function],
+                                    "key": "narozeni",
+                                    "label": "narození",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                  Object {
+                                    "cellClassNames": [Function],
+                                    "cellDataFormatter": [Function],
+                                    "key": "ucasti",
+                                    "label": "účastí",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                  Object {
+                                    "cellRenderer": [Function],
+                                    "key": "predano",
+                                    "label": "předáno",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                  Object {
+                                    "cellRenderer": [Function],
+                                    "key": "neprevzato",
+                                    "label": "nepřevzato",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                  Object {
+                                    "cellRenderer": [Function],
+                                    "key": "narok",
+                                    "label": "nárok?",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                ]
+                              }
+                              containerHeight={600}
+                              containerRole="rowgroup"
+                              containerStyle={Object {}}
+                              containerWidth={1500}
+                              data={Array []}
+                              estimatedColumnSize={100}
+                              estimatedRowSize={30}
+                              fixedColumnCount={3}
+                              getScrollbarSize={[Function]}
+                              height={35}
+                              isScrollingOptOut={false}
+                              noContentRenderer={[Function]}
+                              onDrop={[MockFunction]}
+                              onScroll={[Function]}
+                              onScrollbarPresenceChange={[Function]}
+                              onSectionRendered={[Function]}
+                              overscanColumnCount={0}
+                              overscanIndicesGetter={[Function]}
+                              overscanRowCount={10}
+                              reduxName="pohary"
+                              role="grid"
+                              rowCount={1}
+                              rowHeight={35}
+                              scrollLeft={0}
+                              scrollToAlignment="auto"
+                              scrollToColumn={-1}
+                              scrollToRow={-1}
+                              scrollingResetTimeInterval={150}
+                              style={Object {}}
+                              tabIndex={0}
+                              width={690}
+                            >
+                              <div
+                                aria-label="grid"
+                                aria-readonly={true}
+                                className="ReactVirtualized__Grid UcastniciTable_HeaderGrid"
+                                onScroll={[Function]}
+                                role="grid"
+                                style={
+                                  Object {
+                                    "WebkitOverflowScrolling": "touch",
+                                    "boxSizing": "border-box",
+                                    "direction": "ltr",
+                                    "height": 35,
+                                    "overflowX": "hidden",
+                                    "overflowY": "hidden",
+                                    "position": "relative",
+                                    "width": 690,
+                                    "willChange": "transform",
+                                  }
+                                }
+                                tabIndex={0}
+                              >
+                                <div
+                                  className="ReactVirtualized__Grid__innerScrollContainer"
+                                  role="rowgroup"
+                                  style={
+                                    Object {
+                                      "height": 35,
+                                      "maxHeight": 35,
+                                      "maxWidth": 690,
+                                      "overflow": "hidden",
+                                      "pointerEvents": "",
+                                      "position": "relative",
+                                      "width": 690,
+                                    }
+                                  }
+                                >
+                                  <div
+                                    className="UcastniciTable_headerCell"
+                                    key="0-3"
+                                    style={
+                                      Object {
+                                        "height": 35,
+                                        "left": 290,
+                                        "position": "absolute",
+                                        "top": 0,
+                                        "width": 100,
+                                      }
+                                    }
+                                  >
+                                    <SortHeader
+                                      onClick={[Function]}
+                                      sortDir="none"
+                                    >
+                                      <button
+                                        className="SortHeader"
+                                        onClick={[Function]}
+                                      >
+                                        účastí
+                                         
+                                      </button>
+                                    </SortHeader>
+                                  </div>
+                                  <div
+                                    className="UcastniciTable_headerCell"
+                                    key="0-4"
+                                    style={
+                                      Object {
+                                        "height": 35,
+                                        "left": 390,
+                                        "position": "absolute",
+                                        "top": 0,
+                                        "width": 100,
+                                      }
+                                    }
+                                  >
+                                    <SortHeader
+                                      onClick={[Function]}
+                                      sortDir="none"
+                                    >
+                                      <button
+                                        className="SortHeader"
+                                        onClick={[Function]}
+                                      >
+                                        předáno
+                                         
+                                      </button>
+                                    </SortHeader>
+                                  </div>
+                                  <div
+                                    className="UcastniciTable_headerCell"
+                                    key="0-5"
+                                    style={
+                                      Object {
+                                        "height": 35,
+                                        "left": 490,
+                                        "position": "absolute",
+                                        "top": 0,
+                                        "width": 100,
+                                      }
+                                    }
+                                  >
+                                    <SortHeader
+                                      onClick={[Function]}
+                                      sortDir="none"
+                                    >
+                                      <button
+                                        className="SortHeader"
+                                        onClick={[Function]}
+                                      >
+                                        nepřevzato
+                                         
+                                      </button>
+                                    </SortHeader>
+                                  </div>
+                                  <div
+                                    className="UcastniciTable_headerCell"
+                                    key="0-6"
+                                    style={
+                                      Object {
+                                        "height": 35,
+                                        "left": 590,
+                                        "position": "absolute",
+                                        "top": 0,
+                                        "width": 100,
+                                      }
+                                    }
+                                  >
+                                    <SortHeader
+                                      onClick={[Function]}
+                                      sortDir="none"
+                                    >
+                                      <button
+                                        className="SortHeader"
+                                        onClick={[Function]}
+                                      >
+                                        nárok?
+                                         
+                                      </button>
+                                    </SortHeader>
+                                  </div>
+                                </div>
+                              </div>
+                            </Grid>
+                          </div>
+                          <div
+                            style={
+                              Object {
+                                "height": 0,
+                                "width": 690,
+                              }
+                            }
+                          >
+                            <Grid
+                              actionPrefix="POHARY"
+                              aria-label="grid"
+                              aria-readonly={true}
+                              autoContainerWidth={false}
+                              autoHeight={false}
+                              autoWidth={false}
+                              canDrop={[MockFunction]}
+                              cellRangeRenderer={[Function]}
+                              cellRenderer={[Function]}
+                              className="UcastniciTable_BodyGrid"
+                              columnCount={7}
+                              columnWidth={[Function]}
+                              columns={
+                                Array [
+                                  Object {
+                                    "cellClassNames": [Function],
+                                    "cellDataFormatter": [Function],
+                                    "key": "prijmeni",
+                                    "label": "příjmení",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                  Object {
+                                    "cellClassNames": [Function],
+                                    "key": "jmeno",
+                                    "label": "jméno",
+                                    "sortable": true,
+                                    "width": 90,
+                                  },
+                                  Object {
+                                    "cellClassNames": [Function],
+                                    "cellDataFormatter": [Function],
+                                    "key": "narozeni",
+                                    "label": "narození",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                  Object {
+                                    "cellClassNames": [Function],
+                                    "cellDataFormatter": [Function],
+                                    "key": "ucasti",
+                                    "label": "účastí",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                  Object {
+                                    "cellRenderer": [Function],
+                                    "key": "predano",
+                                    "label": "předáno",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                  Object {
+                                    "cellRenderer": [Function],
+                                    "key": "neprevzato",
+                                    "label": "nepřevzato",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                  Object {
+                                    "cellRenderer": [Function],
+                                    "key": "narok",
+                                    "label": "nárok?",
+                                    "sortable": true,
+                                    "width": 100,
+                                  },
+                                ]
+                              }
+                              containerHeight={600}
+                              containerRole="rowgroup"
+                              containerStyle={Object {}}
+                              containerWidth={1500}
+                              data={Array []}
+                              estimatedColumnSize={100}
+                              estimatedRowSize={30}
+                              fixedColumnCount={3}
+                              getScrollbarSize={[Function]}
+                              height={0}
+                              isScrollingOptOut={false}
+                              noContentRenderer={[Function]}
+                              onDrop={[MockFunction]}
+                              onScroll={[Function]}
+                              onScrollbarPresenceChange={[Function]}
+                              onSectionRendered={[Function]}
+                              overscanColumnCount={0}
+                              overscanIndicesGetter={[Function]}
+                              overscanRowCount={5}
+                              reduxName="pohary"
+                              role="grid"
+                              rowCount={0}
+                              rowHeight={35}
+                              scrollToAlignment="auto"
+                              scrollToColumn={-1}
+                              scrollToRow={-1}
+                              scrollingResetTimeInterval={150}
+                              style={Object {}}
+                              tabIndex={0}
+                              width={690}
+                            >
+                              <div
+                                aria-label="grid"
+                                aria-readonly={true}
+                                className="ReactVirtualized__Grid UcastniciTable_BodyGrid"
+                                onScroll={[Function]}
+                                role="grid"
+                                style={
+                                  Object {
+                                    "WebkitOverflowScrolling": "touch",
+                                    "boxSizing": "border-box",
+                                    "direction": "ltr",
+                                    "height": 0,
+                                    "overflowX": "auto",
+                                    "overflowY": "hidden",
+                                    "position": "relative",
+                                    "width": 690,
+                                    "willChange": "transform",
+                                  }
+                                }
+                                tabIndex={0}
+                              />
+                            </Grid>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ScrollSync>
+                </UcastniciTable>
               </div>
-            </div>
-          </div>
-          <div
-            style={
-              Object {
-                "height": 0,
-                "width": 690,
-              }
-            }
-          >
-            <div
-              aria-label="grid"
-              aria-readonly={true}
-              className="ReactVirtualized__Grid UcastniciTable_BodyGrid"
-              onScroll={[Function]}
-              role="grid"
-              style={
-                Object {
-                  "WebkitOverflowScrolling": "touch",
-                  "boxSizing": "border-box",
-                  "direction": "ltr",
-                  "height": 0,
-                  "overflowX": "auto",
-                  "overflowY": "hidden",
-                  "position": "relative",
-                  "width": 690,
-                  "willChange": "transform",
-                }
-              }
-              tabIndex={0}
-            />
-          </div>
+            </WithResponsiveComponent>
+          </Connect(WithResponsiveComponent)>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+      </PoharyTable>
+    </Router>
+  </MemoryRouter>
+</Provider>
 `;

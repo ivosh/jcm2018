@@ -1,7 +1,8 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import renderer from 'react-test-renderer';
+import { mount } from 'enzyme';
+import toJSON from 'enzyme-to-json';
 import configureStore from 'redux-mock-store';
 import PoharyTable from './PoharyTable';
 
@@ -17,6 +18,8 @@ const commonProps = {
   neprevzateFilter: false,
   reduxName: 'pohary',
   textFilter: '',
+  canDrop: jest.fn(),
+  onDrop: jest.fn(),
   onNarokovaneFilterChange: jest.fn(),
   onNeprevzateFilterChange: jest.fn(),
   onTextFilterChange: jest.fn()
@@ -51,23 +54,23 @@ const pohary = [
 ];
 
 it('žádný pohár', () => {
-  const component = renderer.create(
+  const wrapper = mount(
     <Provider store={store}>
-      <MemoryRouter>
+      <MemoryRouter keyLength={0}>
         <PoharyTable pohary={[]} {...commonProps} />
       </MemoryRouter>
     </Provider>
   );
-  expect(component.toJSON()).toMatchSnapshot();
+  expect(toJSON(wrapper)).toMatchSnapshot();
 });
 
 it('dva pohároví', () => {
-  const component = renderer.create(
+  const wrapper = mount(
     <Provider store={store}>
-      <MemoryRouter>
+      <MemoryRouter keyLength={0}>
         <PoharyTable pohary={pohary} {...commonProps} />
       </MemoryRouter>
     </Provider>
   );
-  expect(component.toJSON()).toMatchSnapshot();
+  expect(toJSON(wrapper)).toMatchSnapshot();
 });
