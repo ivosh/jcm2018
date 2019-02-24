@@ -9,6 +9,7 @@ import registerServiceWorker from './registerServiceWorker';
 import WsClient from './WsClient';
 import AppContainer from './App/AppContainer';
 import configureStore from './store/configureStore';
+import './AnimatedTooltip.css';
 import './index.css';
 
 const store = configureStore(new WsClient());

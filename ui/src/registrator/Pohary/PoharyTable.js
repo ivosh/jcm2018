@@ -50,6 +50,26 @@ const prijmeniFormat = args => (
   <Link to={`/prihlasky/${args.data[args.rowIndex].id}`}>{args.cellData}</Link>
 );
 
+const ROKU_NA_RADKU = 5;
+const ucastiRenderer = args => {
+  const dokoncene = args.cellData.dokoncene.slice().sort();
+  const className = dokoncene.length > 0 ? `${args.className} AnimatedTooltip` : args.className;
+
+  let roky = '';
+  while (dokoncene.length > 0) {
+    roky += dokoncene.splice(0, ROKU_NA_RADKU).join(' | ');
+    if (dokoncene.length > 0) {
+      roky += '\n';
+    }
+  }
+
+  return (
+    <div className={className} key={args.key} style={args.style} tooltip-text={roky}>
+      {args.formattedCellData}
+    </div>
+  );
+};
+
 const ucastiFormat = ({ cellData }) => cellData.dokoncene.length;
 
 const PoharyTable = ({
@@ -92,6 +112,7 @@ const PoharyTable = ({
     {
       cellClassNames: () => ['align-right'],
       cellDataFormatter: ucastiFormat,
+      cellRenderer: ucastiRenderer,
       key: 'ucasti',
       label: 'účastí',
       sortable: true,
