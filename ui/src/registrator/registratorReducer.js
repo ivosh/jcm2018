@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { DOHLASKY, PRIHLASKY } from '../constants';
+import { ActionPrefixes, ReduxNames } from '../constants';
 import poharyReducer from './Pohary/poharyReducer';
 import poradiReducer from './Poradi/poradiReducer';
 import { createPrihlaseniDohlaseniReducer } from './PrihlaseniDohlaseni/prihlaseniDohlaseniReducer';
@@ -9,12 +9,12 @@ import ubytovaniReducer from './Ubytovani/ubytovaniReducer';
 import ucastniciDigestReducer from './UcastniciDigest/ucastniciDigestReducer';
 
 const registratorReducer = combineReducers({
-  dohlaseni: createPrihlaseniDohlaseniReducer('DOHLASENI'),
-  dohlasky: createPrihlaskyDohlaskyReducer(DOHLASKY),
-  pohary: poharyReducer,
-  poradi: poradiReducer,
-  prihlaseni: createPrihlaseniDohlaseniReducer('PRIHLASENI'),
-  prihlasky: createPrihlaskyDohlaskyReducer(PRIHLASKY),
+  dohlaseni: createPrihlaseniDohlaseniReducer(ActionPrefixes.DOHLASENI),
+  dohlasky: createPrihlaskyDohlaskyReducer(ActionPrefixes.DOHLASKY),
+  [ReduxNames.pohary]: poharyReducer,
+  [ReduxNames.poradi]: poradiReducer,
+  prihlaseni: createPrihlaseniDohlaseniReducer(ActionPrefixes.PRIHLASENI),
+  prihlasky: createPrihlaskyDohlaskyReducer(ActionPrefixes.PRIHLASKY),
   startovniCisla: startovniCislaReducer,
   ubytovani: ubytovaniReducer,
   ucastniciDigest: ucastniciDigestReducer

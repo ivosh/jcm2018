@@ -1,10 +1,5 @@
 import { API_SAVE_UCAST, CODE_OK } from '../../../common';
-import {
-  AKTUALNI_ROK,
-  DOHLASKY,
-  PRIHLASKY,
-  PRIHLASKY_SAVE_MODAL_TIMEOUT
-} from '../../../constants';
+import { AKTUALNI_ROK, PRIHLASKY_SAVE_MODAL_TIMEOUT, ActionPrefixes } from '../../../constants';
 import { getDatumKonani } from '../../../entities/rocniky/rocnikyReducer';
 import { WS_API } from '../../../store/wsAPI';
 import { createInputChanged as genericCreateInputChanged } from '../Input/InputActions';
@@ -21,7 +16,7 @@ export const createInputChanged = ({ actionPrefix, rocniky }) => (name, event) =
 
 export const createReset = ({
   actionPrefix,
-  jePrihlaskou = actionPrefix === PRIHLASKY,
+  jePrihlaskou = actionPrefix === ActionPrefixes.PRIHLASKY,
   now = new Date()
 }) => ({ rocniky }) => {
   now.setUTCHours(0, 0, 0, 0);
@@ -32,7 +27,7 @@ export const createReset = ({
 
 export const createLoadUcastnik = ({
   actionPrefix,
-  jePrihlaskou = actionPrefix === PRIHLASKY
+  jePrihlaskou = actionPrefix === ActionPrefixes.PRIHLASKY
 }) => ({ id, kategorie, rocniky, ucastnici }) => {
   const ucastnik = ucastnici.byIds[id];
   const posledniRok = ucastnik.roky[0];
@@ -97,8 +92,8 @@ const normalize = ({
 };
 
 export const CREATE_PRIHLASKY_SAVE = actionPrefix => `${actionPrefix}_SAVE`;
-export const DOHLASKY_SAVE = CREATE_PRIHLASKY_SAVE(DOHLASKY);
-export const PRIHLASKY_SAVE = CREATE_PRIHLASKY_SAVE(PRIHLASKY);
+export const DOHLASKY_SAVE = CREATE_PRIHLASKY_SAVE(ActionPrefixes.DOHLASKY);
+export const PRIHLASKY_SAVE = CREATE_PRIHLASKY_SAVE(ActionPrefixes.PRIHLASKY);
 
 export const createPrihlaskySave = (actionPrefix, reduxName) => () => ({
   [WS_API]: {

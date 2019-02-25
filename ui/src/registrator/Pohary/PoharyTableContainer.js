@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { ActionPrefixes, ReduxNames } from '../../constants';
 import { createTextFilterChange } from '../Filterable/FilterableActions';
 import {
   canDrop,
@@ -14,11 +15,11 @@ const mapStateToProps = ({ entities, registrator: { pohary } }) => {
   const { narokovaneFilter, neprevzateFilter, textFilter } = pohary;
 
   return {
-    actionPrefix: 'POHARY',
+    actionPrefix: ActionPrefixes.POHARY,
     narokovaneFilter,
     neprevzateFilter,
     pohary: getPoharySorted({ ...entities, ...pohary }),
-    reduxName: 'pohary',
+    reduxName: ReduxNames.pohary,
     textFilter
   };
 };
@@ -28,19 +29,12 @@ const mapDispatchToProps = dispatch => ({
   onDrop: createOnDrop(dispatch),
   onNarokovaneFilterChange: () => dispatch(narokovaneFilterChange()),
   onNeprevzateFilterChange: () => dispatch(neprevzateFilterChange()),
-  onTextFilterChange: text => dispatch(createTextFilterChange('POHARY')(text))
+  onTextFilterChange: text => dispatch(createTextFilterChange(ActionPrefixes.POHARY)(text))
 });
-
-const areStatesEqual = (next, prev) =>
-  prev.entities === next.entities && prev.registrator.pohary === next.registrator.pohary;
 
 const PoharyTableContainer = connect(
   mapStateToProps,
-  mapDispatchToProps,
-  null,
-  {
-    areStatesEqual
-  }
+  mapDispatchToProps
 )(PoharyTable);
 
 export default PoharyTableContainer;

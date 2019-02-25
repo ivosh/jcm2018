@@ -8,16 +8,30 @@ export const TIMESYNC_INITIAL_BURST_DELAY = 1000; // 1 second
 export const TIMESYNC_OPERATIONAL_DELAY = 10000; // 10 seconds
 export const TIMESYNC_LAST_SAMPLES = 5;
 
-export const DOHLASKY = 'DOHLASKY';
-export const PRIHLASKY = 'PRIHLASKY';
 export const PRIHLASKY_SAVE_MODAL_TIMEOUT = 2 * 1000; // 2 seconds
 
 export const WEBSOCKET_RECONNECT_INTERVAL = 2 * 1000; // 2 seconds
 export const WEBSOCKET_REQUEST_TIMEOUT = 20 * 1000; // 20 seconds
+
+export const ActionPrefixes = {
+  DOHLASENI: 'DOHLASENI',
+  DOHLASKY: 'DOHLASKY',
+  POHARY: 'POHARY',
+  PORADI: 'PORADI',
+  PRIHLASENI: 'PRIHLASENI',
+  PRIHLASKY: 'PRIHLASKY'
+};
 
 export const DragTypes = {
   POHAR: 'pohár',
   STARTOVNI_CISLO: 'startovniCislo',
   STARTUJICI_PRIHLASEN: 'startujiciPrihlasen',
   STARTUJICI_ODSTARTOVAN: 'startujiciOdstartovan'
+};
+
+export const ReduxNames = {
+  dohlasky: 'dohlasky',
+  pohary: 'pohary',
+  poradi: 'poradi',
+  prihlasky: 'prihlasky'
 };

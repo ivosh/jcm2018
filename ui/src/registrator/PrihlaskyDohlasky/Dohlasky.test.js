@@ -4,21 +4,23 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import { mount } from 'enzyme';
-import { DOHLASKY } from '../../constants';
+import { ActionPrefixes, ReduxNames } from '../../constants';
 import ucastniciTestData, {
   AKTUALNI_DATUM_KONANI
 } from '../../entities/ucastnici/ucastniciTestData';
 import Dohlasky from './Dohlasky';
 import PrihlaskyDohlaskyMain from './PrihlaskyDohlaskyMain';
 
+const actionPrefix = ActionPrefixes.DOHLASKY;
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
+const reduxName = ReduxNames.dohlasky;
 
 const store = mockStore({
   ...ucastniciTestData,
   fetchingUcastnici: 'done',
   registrator: {
-    dohlasky: {
+    [reduxName]: {
       form: {
         saved: false,
         saving: false,
@@ -76,11 +78,11 @@ it('renders /dohlasky/reset route', () => {
   expect(wrapper.find('Connect(PrihlaskyForm)').props()).toMatchSnapshot();
   expect(store.dispatch).toHaveBeenCalledTimes(3); // fetchUcastnici + Form/reset + Platby/reset
   expect(store.dispatch).toHaveBeenCalledWith({
-    type: `${DOHLASKY}_RESET`,
+    type: `${actionPrefix}_RESET`,
     datumKonani: AKTUALNI_DATUM_KONANI
   });
   expect(store.dispatch).toHaveBeenCalledWith({
-    type: `${DOHLASKY}_NOVA_PLATBA_RESET`,
+    type: `${actionPrefix}_NOVA_PLATBA_RESET`,
     datumKonani: AKTUALNI_DATUM_KONANI
   });
 });
@@ -101,7 +103,7 @@ it('renders /dohlasky/:id route', () => {
   expect(store.dispatch).toHaveBeenCalledWith({
     datumKonani: AKTUALNI_DATUM_KONANI,
     id: '6f09b1fd371dec1e99b7e1c9',
-    type: `${DOHLASKY}_UCASTNIK_LOAD`,
+    type: `${actionPrefix}_UCASTNIK_LOAD`,
     udaje: {
       jmeno: 'Martina',
       narozeni: { den: 7, mesic: 12, rok: 1963 },

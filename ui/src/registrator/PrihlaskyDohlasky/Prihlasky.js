@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { PRIHLASKY } from '../../constants';
+import { ActionPrefixes, ReduxNames } from '../../constants';
 import PrihlaskyDohlasky from './PrihlaskyDohlasky';
 
 const Prihlasky = ({ match }) => (
   <PrihlaskyDohlasky
-    actionPrefix={PRIHLASKY}
+    actionPrefix={ActionPrefixes.PRIHLASKY}
     match={match}
     name="Přihlášky"
-    reduxName="prihlasky"
+    reduxName={ReduxNames.prihlasky}
   />
 );
 

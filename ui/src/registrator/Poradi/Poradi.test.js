@@ -2,10 +2,13 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import renderer from 'react-test-renderer';
+import { ActionPrefixes, ReduxNames } from '../../constants';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import Poradi from './Poradi';
 
-const actionPrefix = 'PORADI';
+const actionPrefix = ActionPrefixes.PORADI;
+const reduxName = ReduxNames.poradi;
+
 const kategorieFilters = [
   { active: true, typ: 'maraton', onClick: jest.fn() },
   { typ: 'cyklo', onClick: jest.fn() }
@@ -60,12 +63,11 @@ const poradi = [
     dokonceno: undefined
   }
 ];
-const reduxName = 'poradi';
 
 const state = {
   ...ucastniciTestData,
   registrator: {
-    poradi: {
+    [reduxName]: {
       kategorieFilter: '',
       kategorieSubFilter: '',
       textFilter: ''

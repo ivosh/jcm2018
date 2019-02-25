@@ -1,4 +1,4 @@
-import { PRIHLASKY } from '../../../constants';
+import { ActionPrefixes } from '../../../constants';
 import { getDatumKonani } from '../../../entities/rocniky/rocnikyReducer';
 import { createInputChanged as genericCreateInputChanged } from '../Input/InputActions';
 import { formErrors } from './platbyReducer';
@@ -16,9 +16,10 @@ export const createAddPlatba = actionPrefix => ({ castka, datum, typ, poznamka }
   }
 });
 
-export const createReset = ({ actionPrefix, jePrihlaskou = actionPrefix === PRIHLASKY }) => ({
-  rocniky
-}) => {
+export const createReset = ({
+  actionPrefix,
+  jePrihlaskou = actionPrefix === ActionPrefixes.PRIHLASKY
+}) => ({ rocniky }) => {
   if (jePrihlaskou) {
     return { type: `${actionPrefix}_NOVA_PLATBA_RESET` };
   }

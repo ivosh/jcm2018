@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { TYPY_KATEGORII } from '../../constants';
+import { TYPY_KATEGORII, ActionPrefixes, ReduxNames } from '../../constants';
 import { getKategorieProTyp } from '../../entities/rocniky/rocnikyReducer';
 import {
   createKategorieFilterChange,
@@ -9,8 +9,8 @@ import { getPoradiSorted } from './poradiReducer';
 import { kategorieSubFilterChange } from './PoradiActions';
 import Poradi from './Poradi';
 
-const actionPrefix = 'PORADI';
-const reduxName = 'poradi';
+const actionPrefix = ActionPrefixes.PORADI;
+const reduxName = ReduxNames.poradi;
 
 const mapStateToProps = ({ entities, registrator: { poradi } }) => {
   const { kategorieFilter, kategorieSubFilter, textFilter } = poradi;

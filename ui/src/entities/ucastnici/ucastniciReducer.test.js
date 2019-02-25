@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import { UBYTOVANI_NEPRESPANO, ubytovaniModifications } from '../../common';
-import { AKTUALNI_ROK, PRIHLASKY } from '../../constants';
+import { AKTUALNI_ROK, ActionPrefixes } from '../../constants';
 import { websocketDisconnected } from '../../App/AppActions';
 import { signOut } from '../../auth/SignOut/SignOutActions';
 import { createPrihlaskySave } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
@@ -12,7 +12,7 @@ import { broadcastUcastnik, fetchUcastnici } from './ucastniciActions';
 import ucastniciTestData, { AKTUALNI_DATUM_KONANI } from './ucastniciTestData';
 import { poharPredan } from '../../registrator/Pohary/PoharyActions';
 
-const prihlaskySave = createPrihlaskySave(PRIHLASKY);
+const prihlaskySave = createPrihlaskySave(ActionPrefixes.PRIHLASKY);
 
 it('nic se nestalo 1', () => {
   const stateBefore = undefined;

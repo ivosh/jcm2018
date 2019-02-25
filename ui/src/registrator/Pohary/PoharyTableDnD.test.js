@@ -3,6 +3,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
+import { ActionPrefixes, ReduxNames } from '../../constants';
 import { wrapInDnDTestContext } from '../../testing';
 import PoharyTable from './PoharyTable';
 
@@ -39,11 +40,11 @@ it('can simulate a full drag and drop interaction', () => {
     <Provider store={store}>
       <MemoryRouter>
         <PoharyTableDnD
-          actionPrefix="POHARY"
+          actionPrefix={ActionPrefixes.POHARY}
           narokovaneFilter={false}
           neprevzateFilter={false}
           pohary={pohary}
-          reduxName="pohary"
+          reduxName={ReduxNames.pohary}
           textFilter=""
           canDrop={jest.fn()}
           onDrop={jest.fn()}

@@ -1,5 +1,5 @@
 import deepFreeze from 'deep-freeze';
-import { DOHLASKY } from '../../../constants';
+import { ActionPrefixes } from '../../../constants';
 import ucastniciTestData, {
   AKTUALNI_DATUM_KONANI
 } from '../../../entities/ucastnici/ucastniciTestData';
@@ -77,9 +77,12 @@ it('reset() - dohlášky', () => {
   deepFreeze(stateBefore);
   const { rocniky } = ucastniciTestData.entities;
 
-  const dohlaskyPlatbyReducer = createPlatbyReducer(DOHLASKY);
+  const dohlaskyPlatbyReducer = createPlatbyReducer(ActionPrefixes.DOHLASKY);
   expect(
-    dohlaskyPlatbyReducer(stateBefore, createReset({ actionPrefix: DOHLASKY })({ rocniky }))
+    dohlaskyPlatbyReducer(
+      stateBefore,
+      createReset({ actionPrefix: ActionPrefixes.DOHLASKY })({ rocniky })
+    )
   ).toEqual(stateAfter);
 });
 

@@ -1,4 +1,4 @@
-import { DOHLASKY, PRIHLASKY } from '../../constants';
+import { ActionPrefixes } from '../../constants';
 import { SIGN_IN } from '../../auth/SignIn/SignInActions';
 import { SIGN_OUT } from '../../auth/SignOut/SignOutActions';
 import { CASOMIRA_SAVE_VYKON } from '../../casomeric/Casomira/StartovniCisla/StartovniCislaActions';
@@ -27,7 +27,7 @@ const initialState = {
 const errorInModalReducer = (state = initialState, action) => {
   switch (action.type) {
     case `${CASOMIRA_SAVE_VYKON}_ERROR`:
-    case `${DOHLASKY}_FORM_INVALID`:
+    case `${ActionPrefixes.DOHLASKY}_FORM_INVALID`:
     case `${DOHLASKY_SAVE}_ERROR`:
     case `${FETCH_ROCNIKY}_ERROR`:
     case `${FETCH_STOPKY}_ERROR`:
@@ -35,7 +35,7 @@ const errorInModalReducer = (state = initialState, action) => {
     case `${MODIFY_STOPKY}_ERROR`:
     case `${MODIFY_UBYTOVANI}_ERROR`:
     case `${POHAR_PREDAN}_ERROR`:
-    case `${PRIHLASKY}_FORM_INVALID`:
+    case `${ActionPrefixes.PRIHLASKY}_FORM_INVALID`:
     case `${PRIHLASKY_SAVE}_ERROR`:
     case `${SIGN_IN}_ERROR`:
     case `${SIGN_OUT}_ERROR`:

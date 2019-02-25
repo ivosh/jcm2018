@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import { UBYTOVANI_NEPRESPANO } from '../../common';
-import { DOHLASKY, PRIHLASKY } from '../../constants';
+import { ActionPrefixes } from '../../constants';
 import { signIn } from '../../auth/SignIn/SignInActions';
 import { signOut } from '../../auth/SignOut/SignOutActions';
 import { saveVykon } from '../../casomeric/Casomira/StartovniCisla/StartovniCislaActions';
@@ -18,8 +18,8 @@ import { createFailureFromAction } from '../../store/wsAPI';
 import { hideError } from './ErrorInModalActions';
 import errorInModalReducer from './errorInModalReducer';
 
-const dohlaskySave = createPrihlaskySave(DOHLASKY);
-const prihlaskySave = createPrihlaskySave(PRIHLASKY);
+const dohlaskySave = createPrihlaskySave(ActionPrefixes.DOHLASKY);
+const prihlaskySave = createPrihlaskySave(ActionPrefixes.PRIHLASKY);
 
 const genericUnsuccessfulResponse = {
   code: 'unfulfilled request',
@@ -91,7 +91,9 @@ it('DOHLASKY_FORM_INVALID', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(errorInModalReducer(stateBefore, createValidationError(DOHLASKY)())).toEqual(stateAfter);
+  expect(
+    errorInModalReducer(stateBefore, createValidationError(ActionPrefixes.DOHLASKY)())
+  ).toEqual(stateAfter);
 });
 
 it('DOHLASKY_SAVE_ERROR', () =>
@@ -139,7 +141,9 @@ it('PRIHLASKY_FORM_INVALID', () => {
   };
   deepFreeze(stateBefore);
 
-  expect(errorInModalReducer(stateBefore, createValidationError(PRIHLASKY)())).toEqual(stateAfter);
+  expect(
+    errorInModalReducer(stateBefore, createValidationError(ActionPrefixes.PRIHLASKY)())
+  ).toEqual(stateAfter);
 });
 
 it('PRIHLASKY_SAVE_ERROR', () =>

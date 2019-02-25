@@ -4,19 +4,21 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import { mount } from 'enzyme';
-import { PRIHLASKY } from '../../constants';
+import { ActionPrefixes, ReduxNames } from '../../constants';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import Prihlasky from './Prihlasky';
 import PrihlaskyDohlaskyMain from './PrihlaskyDohlaskyMain';
 
+const actionPrefix = ActionPrefixes.PRIHLASKY;
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
+const reduxName = ReduxNames.prihlasky;
 
 const store = mockStore({
   ...ucastniciTestData,
   fetchingUcastnici: 'done',
   registrator: {
-    prihlasky: {
+    [reduxName]: {
       form: {
         saved: false,
         saving: false,
@@ -74,10 +76,10 @@ it('renders /prihlasky/reset route', () => {
   expect(wrapper.find('Connect(PrihlaskyForm)').props()).toMatchSnapshot();
   expect(store.dispatch).toHaveBeenCalledTimes(3); // fetchUcastnici + Form/reset + Platby/reset
   expect(store.dispatch).toHaveBeenCalledWith({
-    type: `${PRIHLASKY}_RESET`,
+    type: `${actionPrefix}_RESET`,
     datumKonani: expect.any(String)
   });
-  expect(store.dispatch).toHaveBeenCalledWith({ type: `${PRIHLASKY}_NOVA_PLATBA_RESET` });
+  expect(store.dispatch).toHaveBeenCalledWith({ type: `${actionPrefix}_NOVA_PLATBA_RESET` });
 });
 
 it('renders /prihlasky/:id route', () => {
@@ -95,7 +97,7 @@ it('renders /prihlasky/:id route', () => {
   expect(store.dispatch).toHaveBeenCalledTimes(2); // fetchUcastnici + load
   expect(store.dispatch).toHaveBeenCalledWith({
     id: '6f09b1fd371dec1e99b7e1c9',
-    type: `${PRIHLASKY}_UCASTNIK_LOAD`,
+    type: `${actionPrefix}_UCASTNIK_LOAD`,
     udaje: {
       jmeno: 'Martina',
       narozeni: { den: 7, mesic: 12, rok: 1963 },

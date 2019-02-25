@@ -7,7 +7,7 @@ import {
   findKategorie,
   ubytovaniModifications
 } from '../../../common';
-import { AKTUALNI_ROK, PRIHLASKY, TYPY_KATEGORII } from '../../../constants';
+import { AKTUALNI_ROK, TYPY_KATEGORII, ActionPrefixes } from '../../../constants';
 import {
   datumValid,
   narozeniToStr,
@@ -81,7 +81,7 @@ const reduceUbytovani = ({ den, value, ubytovani }) => {
 
 export const createPrihlaskyFormReducer = (
   actionPrefix,
-  jePrihlaskou = actionPrefix === PRIHLASKY
+  jePrihlaskou = actionPrefix === ActionPrefixes.PRIHLASKY
 ) => (state = { ...initialState, jePrihlaskou }, action) => {
   switch (action.type) {
     case `${actionPrefix}_INPUT_CHANGED`: {

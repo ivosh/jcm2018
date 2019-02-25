@@ -4,16 +4,19 @@ import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import configureStore from 'redux-mock-store';
+import { ActionPrefixes, ReduxNames } from '../../constants';
 import PoharyTable from './PoharyTable';
 
+const actionPrefix = ActionPrefixes.POHARY;
 const mockStore = configureStore();
+const reduxName = ReduxNames.pohary;
 
-const state = { registrator: { pohary: {} } };
+const state = { registrator: { [reduxName]: {} } };
 const store = mockStore(state);
 store.dispatch = jest.fn();
 
 const commonProps = {
-  actionPrefix: 'POHARY',
+  actionPrefix,
   narokovaneFilter: false,
   neprevzateFilter: false,
   reduxName: 'pohary',

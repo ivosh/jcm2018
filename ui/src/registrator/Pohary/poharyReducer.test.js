@@ -1,4 +1,5 @@
 import deepFreeze from 'deep-freeze';
+import { ActionPrefixes, ReduxNames } from '../../constants';
 import { SortDirTypes } from '../../sort';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { createTextFilterChange } from '../Filterable/FilterableActions';
@@ -6,7 +7,8 @@ import { createSortDirChange } from '../UcastniciTable/UcastniciTableActions';
 import { narokovaneFilterChange, neprevzateFilterChange } from './PoharyActions';
 import poharyReducer, { getPoharySorted } from './poharyReducer';
 
-const actionPrefix = 'POHARY';
+const actionPrefix = ActionPrefixes.POHARY;
+const reduxName = ReduxNames.pohary;
 const sortDirChange = createSortDirChange(actionPrefix);
 const textFilterChange = createTextFilterChange(actionPrefix);
 
@@ -94,7 +96,7 @@ it('getPoharySorted() by default - nárokované i nepřevzaté', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      pohary: {
+      [reduxName]: {
         narokovaneFilter: false,
         neprevzateFilter: false,
         sortColumn: undefined,
@@ -133,7 +135,7 @@ it('getPoharySorted() by default - nárokované i nepřevzaté', () => {
 
   const {
     entities,
-    registrator: { pohary }
+    registrator: { [reduxName]: pohary }
   } = state;
   expect(getPoharySorted({ ...entities, ...pohary })).toEqual(selected);
 });
@@ -142,7 +144,7 @@ it('getPoharySorted() filtrováno na s', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      pohary: {
+      [reduxName]: {
         narokovaneFilter: false,
         neprevzateFilter: false,
         sortColumn: undefined,
@@ -173,7 +175,7 @@ it('getPoharySorted() filtrováno na s', () => {
 
   const {
     entities,
-    registrator: { pohary }
+    registrator: { [reduxName]: pohary }
   } = state;
   expect(getPoharySorted({ ...entities, ...pohary })).toEqual(selected);
 });
@@ -182,7 +184,7 @@ it('getPoharySorted() by default - jen s nárokem', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      pohary: {
+      [reduxName]: {
         narokovaneFilter: true,
         neprevzateFilter: false,
         sortColumn: undefined,
@@ -205,7 +207,7 @@ it('getPoharySorted() by default - jen s nárokem', () => {
 
   const {
     entities,
-    registrator: { pohary }
+    registrator: { [reduxName]: pohary }
   } = state;
   expect(getPoharySorted({ ...entities, ...pohary })).toEqual(selected);
 });
@@ -214,7 +216,7 @@ it('getPoharySorted() by default - jen s nepřevzatým pohárem', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      pohary: {
+      [reduxName]: {
         narokovaneFilter: false,
         neprevzateFilter: true,
         sortColumn: undefined,
@@ -237,7 +239,7 @@ it('getPoharySorted() by default - jen s nepřevzatým pohárem', () => {
 
   const {
     entities,
-    registrator: { pohary }
+    registrator: { [reduxName]: pohary }
   } = state;
   expect(getPoharySorted({ ...entities, ...pohary })).toEqual(selected);
 });
