@@ -1,4 +1,5 @@
 import deepFreeze from 'deep-freeze';
+import { ActionPrefixes, ReduxNames } from '../../constants';
 import { getKategorie } from '../../entities/rocniky/rocnikyReducer';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { SortDirTypes } from '../../sort';
@@ -10,8 +11,9 @@ import { createSortDirChange } from '../UcastniciTable/UcastniciTableActions';
 import { kategorieSubFilterChange } from './PoradiActions';
 import poradiReducer, { computePoradiOverall, getPoradiSorted } from './poradiReducer';
 
-const actionPrefix = 'PORADI';
+const actionPrefix = ActionPrefixes.PORADI;
 const kategorieFilterChange = createKategorieFilterChange(actionPrefix);
+const reduxName = ReduxNames.poradi;
 const sortDirChange = createSortDirChange(actionPrefix);
 const textFilterChange = createTextFilterChange(actionPrefix);
 
@@ -148,7 +150,7 @@ it('getPoradiSorted() by default', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      poradi: {
+      [reduxName]: {
         sortColumn: undefined,
         sortDir: undefined,
         kategorieFilter: '',
@@ -201,7 +203,7 @@ it('getPoradiSorted() by default', () => {
 
   const {
     entities,
-    registrator: { poradi: props }
+    registrator: { [reduxName]: props }
   } = state;
   expect(getPoradiSorted({ ...entities, ...props })).toEqual(selected);
 });
@@ -210,7 +212,7 @@ it('getPoradiSorted() - filter for startovní číslo 11', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      poradi: {
+      [reduxName]: {
         sortColumn: undefined,
         sortDir: undefined,
         kategorieFilter: '',
@@ -246,7 +248,7 @@ it('getPoradiSorted() - filter for startovní číslo 11', () => {
 
   const {
     entities,
-    registrator: { poradi: props }
+    registrator: { [reduxName]: props }
   } = state;
   expect(getPoradiSorted({ ...entities, ...props })).toEqual(selected);
 });
@@ -255,7 +257,7 @@ it('getPoradiSorted() - filter for kategorie půlmaraton/žena/18-39', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
-      poradi: {
+      [reduxName]: {
         sortColumn: undefined,
         sortDir: undefined,
         kategorieFilter: 'půlmaraton',
@@ -291,7 +293,7 @@ it('getPoradiSorted() - filter for kategorie půlmaraton/žena/18-39', () => {
 
   const {
     entities,
-    registrator: { poradi: props }
+    registrator: { [reduxName]: props }
   } = state;
   expect(getPoradiSorted({ ...entities, ...props })).toEqual(selected);
 });

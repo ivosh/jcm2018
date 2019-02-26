@@ -9,12 +9,12 @@ import ubytovaniReducer from './Ubytovani/ubytovaniReducer';
 import ucastniciDigestReducer from './UcastniciDigest/ucastniciDigestReducer';
 
 const registratorReducer = combineReducers({
-  dohlaseni: createPrihlaseniDohlaseniReducer(ActionPrefixes.DOHLASENI),
-  dohlasky: createPrihlaskyDohlaskyReducer(ActionPrefixes.DOHLASKY),
+  [ReduxNames.dohlaseni]: createPrihlaseniDohlaseniReducer(ActionPrefixes.DOHLASENI),
+  [ReduxNames.dohlasky]: createPrihlaskyDohlaskyReducer(ActionPrefixes.DOHLASKY),
   [ReduxNames.pohary]: poharyReducer,
   [ReduxNames.poradi]: poradiReducer,
-  prihlaseni: createPrihlaseniDohlaseniReducer(ActionPrefixes.PRIHLASENI),
-  prihlasky: createPrihlaskyDohlaskyReducer(ActionPrefixes.PRIHLASKY),
+  [ReduxNames.prihlaseni]: createPrihlaseniDohlaseniReducer(ActionPrefixes.PRIHLASENI),
+  [ReduxNames.prihlasky]: createPrihlaskyDohlaskyReducer(ActionPrefixes.PRIHLASKY),
   startovniCisla: startovniCislaReducer,
   ubytovani: ubytovaniReducer,
   ucastniciDigest: ucastniciDigestReducer

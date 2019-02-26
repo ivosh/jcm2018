@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 import { MemoryRouter, Route } from 'react-router-dom';
 import { mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
+import { ReduxNames } from './constants';
 import AppContainer from './App/AppContainer';
 
 const middlewares = [thunk];
@@ -31,7 +32,7 @@ const store = mockStore({
       neprevzateFilter: false,
       textFilter: ''
     },
-    prihlaseni: {
+    [ReduxNames.prihlaseni]: {
       kategorieFilter: '',
       sortColumn: undefined,
       sortDir: 'none',

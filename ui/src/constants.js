@@ -30,8 +30,10 @@ export const DragTypes = {
 };
 
 export const ReduxNames = {
+  dohlaseni: 'dohlaseni',
   dohlasky: 'dohlasky',
   pohary: 'pohary',
   poradi: 'poradi',
+  prihlaseni: 'prihlaseni',
   prihlasky: 'prihlasky'
 };

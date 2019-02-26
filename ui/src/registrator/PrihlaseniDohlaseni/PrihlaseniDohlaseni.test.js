@@ -3,11 +3,12 @@ import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
+import { ActionPrefixes, ReduxNames } from '../../constants';
 import PrihlaseniDohlaseni from './PrihlaseniDohlaseni';
 
 const mockStore = configureStore();
-const actionPrefix = 'PRIHLASENI';
-const reduxName = 'prihlaseni';
+const actionPrefix = ActionPrefixes.PRIHLASENI;
+const reduxName = ReduxNames.prihlaseni;
 const route = 'prihlasky';
 const dohlaseniFilter = { active: false, name: 'Dohlášeni', onClick: jest.fn() };
 const prihlaseniFilter = { active: true, name: 'Přihlášeni', onClick: jest.fn() };

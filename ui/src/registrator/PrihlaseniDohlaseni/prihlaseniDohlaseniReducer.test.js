@@ -1,4 +1,5 @@
 import deepFreeze from 'deep-freeze';
+import { ActionPrefixes, ReduxNames } from '../../constants';
 import ucastniciTestData, {
   AKTUALNI_DATUM_KONANI
 } from '../../entities/ucastnici/ucastniciTestData';
@@ -17,8 +18,8 @@ import {
   getPrihlaseniDohlaseniSorted
 } from './prihlaseniDohlaseniReducer';
 
-const actionPrefix = 'PRIHLASENI';
-const reduxName = 'prihlaseni';
+const actionPrefix = ActionPrefixes.PRIHLASENI;
+const reduxName = ReduxNames.prihlaseni;
 const dohlaseniFilterChange = createDohlaseniFilterChange(actionPrefix);
 const kategorieFilterChange = createKategorieFilterChange(actionPrefix);
 const prihlaseniFilterChange = createPrihlaseniFilterChange(actionPrefix);

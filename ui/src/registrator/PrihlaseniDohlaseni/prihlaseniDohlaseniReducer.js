@@ -1,4 +1,4 @@
-import { AKTUALNI_ROK } from '../../constants';
+import { AKTUALNI_ROK, ActionPrefixes } from '../../constants';
 import { sortForColumn } from '../../sort';
 import { getDatumKonani } from '../../entities/rocniky/rocnikyReducer';
 import { getUcastiProRok } from '../../entities/ucastnici/ucastniciReducer';
@@ -23,8 +23,8 @@ export const createPrihlaseniDohlaseniReducer = actionPrefix => {
   const filterableReducer = createFilterableReducer(actionPrefix);
   const ucastniciTableReducer = createUcastniciTableReducer(actionPrefix);
 
-  const dohlaseniFilter = actionPrefix === 'DOHLASENI';
-  const prihlaseniFilter = actionPrefix === 'PRIHLASENI';
+  const dohlaseniFilter = actionPrefix === ActionPrefixes.DOHLASENI;
+  const prihlaseniFilter = actionPrefix === ActionPrefixes.PRIHLASENI;
 
   return (state = { ...initialState, dohlaseniFilter, prihlaseniFilter }, action) => {
     state = filterableReducer(state, action); // eslint-disable-line no-param-reassign

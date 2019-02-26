@@ -1,12 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
+import { ActionPrefixes, ReduxNames } from '../../constants';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import PrihlaseniDohlaseniContainer from './PrihlaseniDohlaseniContainer';
 
 const mockStore = configureStore();
-const actionPrefix = 'PRIHLASENI';
-const reduxName = 'prihlaseni';
+const actionPrefix = ActionPrefixes.PRIHLASENI;
+const reduxName = ReduxNames.prihlaseni;
 const route = 'prihlasky';
 
 let store;
@@ -48,11 +49,11 @@ it('maps state and dispatch to props', () => {
 it('maps dohlaseniFilter.onClick to dispatch dohlaseniFilterChange', () => {
   wrapper.props().dohlaseniFilter.onClick();
 
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASENI_DOHLASENI_FILTER_CHANGE' });
+  expect(store.dispatch).toHaveBeenCalledWith({ type: `${actionPrefix}_DOHLASENI_FILTER_CHANGE` });
 });
 
 it('maps prihlaseniFilter.onClick to dispatch prihlaseniFilterChange', () => {
   wrapper.props().prihlaseniFilter.onClick();
 
-  expect(store.dispatch).toHaveBeenCalledWith({ type: 'PRIHLASENI_PRIHLASENI_FILTER_CHANGE' });
+  expect(store.dispatch).toHaveBeenCalledWith({ type: `${actionPrefix}_PRIHLASENI_FILTER_CHANGE` });
 });

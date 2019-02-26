@@ -11,7 +11,9 @@ import { getPoharySorted } from './poharyReducer';
 import PoharyTable from './PoharyTable';
 
 // Don't forget to update areStatesEqual!
-const mapStateToProps = ({ entities, registrator: { pohary } }) => {
+const mapStateToProps = ({ entities, registrator }) => {
+  const reduxName = ReduxNames.pohary;
+  const pohary = registrator[reduxName];
   const { narokovaneFilter, neprevzateFilter, textFilter } = pohary;
 
   return {
@@ -19,7 +21,7 @@ const mapStateToProps = ({ entities, registrator: { pohary } }) => {
     narokovaneFilter,
     neprevzateFilter,
     pohary: getPoharySorted({ ...entities, ...pohary }),
-    reduxName: ReduxNames.pohary,
+    reduxName,
     textFilter
   };
 };
@@ -32,9 +34,18 @@ const mapDispatchToProps = dispatch => ({
   onTextFilterChange: text => dispatch(createTextFilterChange(ActionPrefixes.POHARY)(text))
 });
 
+/* :TODO: Ideally we would say here registrator[reduxName] but this is currently not
+   possible with areStatesEqual. Refer to: https://github.com/reduxjs/react-redux/issues/781 */
+const areStatesEqual = (next, prev) =>
+  prev.entities === next.entities && prev.registrator === next.registrator;
+
 const PoharyTableContainer = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
+  null,
+  {
+    areStatesEqual
+  }
 )(PoharyTable);
 
 export default PoharyTableContainer;
