@@ -77,6 +77,7 @@ const PoharyTable = ({
   narokovaneFilter,
   neprevzateFilter,
   pohary,
+  popisek,
   reduxName,
   textFilter,
   canDrop,
@@ -144,27 +145,18 @@ const PoharyTable = ({
   return (
     <div className="PoharyTable__div UcastniciTable_container">
       <p>
-        Jsou zobrazeni pouze účastníci, kteří buďto maraton alespoň jednou dokončili anebo se na něj
-        přihlásili. To je dále ještě možné poštelovat filtry.
+        Jsou zobrazeni pouze účastníci, kteří buďto maraton alespoň jednou dokončili anebo {popisek}
+        . To je dále ještě možné poštelovat filtry.
       </p>
       <div>
         <TextFilter filter={textFilter} onChange={onTextFilterChange} />
 
         <span className="PoharyTable__buttons Bootstrap-buttons--active">
-          <Button
-            active={narokovaneFilter}
-            bsStyle="success"
-            className="PoharyTable__button"
-            onClick={onNarokovaneFilterChange}
-          >
+          <Button active={narokovaneFilter} bsStyle="success" onClick={onNarokovaneFilterChange}>
             <Glyphicon glyph="download" /> Nárok na pohár
           </Button>
-          <Button
-            active={neprevzateFilter}
-            bsStyle="info"
-            className="PoharyTable__button"
-            onClick={onNeprevzateFilterChange}
-          >
+          <span>+</span>
+          <Button active={neprevzateFilter} bsStyle="info" onClick={onNeprevzateFilterChange}>
             <Glyphicon glyph="upload" /> Nepřevzatý pohár
           </Button>
         </span>
@@ -200,12 +192,19 @@ PoharyTable.propTypes = {
         mesic: PropTypes.number,
         rok: PropTypes.number.isRequired
       }).isRequired,
+      pohary: PropTypes.shape({
+        narok: PropTypes.bool.isRequired,
+        predano: PropTypes.number.isRequired,
+        neprevzato: PropTypes.number.isRequired
+      }),
       ucasti: PropTypes.shape({
         dokoncene: PropTypes.arrayOf(PropTypes.number).isRequired,
-        prihlaseno: PropTypes.bool.isRequired
+        prihlaseno: PropTypes.bool.isRequired,
+        odstartovano: PropTypes.bool.isRequired
       }).isRequired
     }).isRequired
   ).isRequired,
+  popisek: PropTypes.string.isRequired,
   reduxName: PropTypes.string.isRequired,
   textFilter: PropTypes.string.isRequired,
   canDrop: PropTypes.func.isRequired,

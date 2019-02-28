@@ -1,5 +1,5 @@
 import { UCASTI_NA_POHAR } from '../../common';
-import { AKTUALNI_ROK } from '../../constants';
+import { AKTUALNI_ROK, ActionPrefixes } from '../../constants';
 import { sortForColumn } from '../../sort';
 import {
   createFilterableReducer,
@@ -10,23 +10,30 @@ import {
   initialState as ucastniciTableInitialState
 } from '../UcastniciTable/ucastniciTableReducer';
 
+/* Note: První tři filtry fungují inkluzivně; z vybraných účastníků se udělá union.
+   Pokud není ani jeden filtr zapnutý, vezmou se všichni maratonci s alespoň jednou
+   dokončenou účastí, aktuální přihláškou nebo startem. */
 export const initialState = {
-  narokovaneFilter: false, // jen potenciální nárok z přihlášky
+  narokovanePrihlaskouFilter: false, // potenciální nárok z přihlášky
+  narokovaneStartemFilter: false, // nárok z toho, že přišel na start
   neprevzateFilter: false, // jen nepřevzaté
   ...filterableInitialState,
   ...ucastniciTableInitialState
 };
 
-const filterableReducer = createFilterableReducer('POHARY');
-const ucastniciTableReducer = createUcastniciTableReducer('POHARY');
+const actionPrefix = ActionPrefixes.POHARY;
+const filterableReducer = createFilterableReducer(actionPrefix);
+const ucastniciTableReducer = createUcastniciTableReducer(actionPrefix);
 const poharyReducer = (state = initialState, action) => {
   state = filterableReducer(state, action); // eslint-disable-line no-param-reassign
   state = ucastniciTableReducer(state, action); // eslint-disable-line no-param-reassign
 
   switch (action.type) {
-    case 'POHARY_NAROKOVANE_FILTER_CHANGE':
-      return { ...state, narokovaneFilter: !state.narokovaneFilter };
-    case 'POHARY_NEPREVZATE_FILTER_CHANGE':
+    case `${actionPrefix}_NAROKOVANE_PRIHLASKOU_FILTER_CHANGE`:
+      return { ...state, narokovanePrihlaskouFilter: !state.narokovanePrihlaskouFilter };
+    case `${actionPrefix}_NAROKOVANE_STARTEM_FILTER_CHANGE`:
+      return { ...state, narokovaneStartemFilter: !state.narokovaneStartemFilter };
+    case `${actionPrefix}_NEPREVZATE_FILTER_CHANGE`:
       return { ...state, neprevzateFilter: !state.neprevzateFilter };
     default:
       return state;
@@ -35,8 +42,24 @@ const poharyReducer = (state = initialState, action) => {
 
 export default poharyReducer;
 
+function ucastnikUnion(arr1, arr2) {
+  const union = arr1.concat(arr2);
+
+  for (let i = 0; i < union.length; i += 1) {
+    for (let j = i + 1; j < union.length; j += 1) {
+      if (union[i].id === union[j].id) {
+        union.splice(j, 1);
+        j -= 1;
+      }
+    }
+  }
+
+  return union;
+}
+
 export const getPoharySorted = ({
-  narokovaneFilter,
+  narokovanePrihlaskouFilter,
+  narokovaneStartemFilter,
   neprevzateFilter,
   textFilter,
   sortColumn,
@@ -57,39 +80,61 @@ export const getPoharySorted = ({
         })
         .filter(rok => rok !== undefined);
 
-      const prihlaseno = ucastnik.roky.reduce((result, rok) => {
-        const { prihlaska } = ucastnik[rok];
-        const { kategorie: kategorieId } = prihlaska;
-        return result || (kategorie[kategorieId].typ === 'maraton' && rok === AKTUALNI_ROK);
-      }, false);
+      let prihlaseno = false;
+      let odstartovano = false;
+      const ucast = ucastnik[AKTUALNI_ROK];
+      if (ucast) {
+        const { prihlaska, vykon } = ucast;
+        if (kategorie[prihlaska.kategorie].typ === 'maraton') {
+          prihlaseno = true;
+        }
+        if (vykon && kategorie[vykon.kategorie].typ === 'maraton') {
+          odstartovano = true;
+        }
+      }
 
       const { prijmeni, jmeno, narozeni } = ucastnik[ucastnik.roky[0]].udaje;
       const predano = (ucastnik.pohar && ucastnik.pohar.predano) || 0;
       const neprevzato = Math.floor(dokoncene.length / UCASTI_NA_POHAR || 0) - predano;
-      const narok = prihlaseno && (dokoncene.length + 1) % UCASTI_NA_POHAR === 0;
+      const narokPrihlaskou = prihlaseno && (dokoncene.length + 1) % UCASTI_NA_POHAR === 0;
+      const narokStartem = odstartovano && (dokoncene.length + 1) % UCASTI_NA_POHAR === 0;
       return {
         id,
         prijmeni,
         jmeno,
         narozeni,
-        pohary: { narok, predano, neprevzato },
-        ucasti: { dokoncene, prihlaseno }
+        pohary: { narokPrihlaskou, narokStartem, predano, neprevzato },
+        ucasti: { dokoncene, prihlaseno, odstartovano }
       };
     })
-    .filter(({ ucasti: { dokoncene, prihlaseno } }) => dokoncene.length > 0 || prihlaseno);
+    .filter(
+      ({ ucasti: { dokoncene, prihlaseno, odstartovano } }) =>
+        dokoncene.length > 0 || prihlaseno || odstartovano
+    );
 
   const afterTextFilter = maratonci.filter(
     ({ jmeno, prijmeni }) =>
       prijmeni.toLowerCase().startsWith(textFilter) || jmeno.toLowerCase().startsWith(textFilter)
   );
 
-  const afterNarokovaneFilter = narokovaneFilter
-    ? afterTextFilter.filter(({ pohary: { narok } }) => narok > 0)
-    : afterTextFilter;
+  // Následující filtry jsou inkluzivní, čili pak uděláme union.
+  let filteredData = afterTextFilter;
+  if (narokovanePrihlaskouFilter || narokovaneStartemFilter || neprevzateFilter) {
+    const narokovaniPrihlaskou = narokovanePrihlaskouFilter
+      ? afterTextFilter.filter(({ pohary: { narokPrihlaskou } }) => narokPrihlaskou)
+      : [];
+    const narokovaniStartem = narokovaneStartemFilter
+      ? afterTextFilter.filter(({ pohary: { narokStartem } }) => narokStartem)
+      : [];
+    const neprevzati = neprevzateFilter
+      ? afterTextFilter.filter(({ pohary: { neprevzato } }) => neprevzato)
+      : [];
 
-  const afterNeprevzateFilter = neprevzateFilter
-    ? afterNarokovaneFilter.filter(({ pohary: { neprevzato } }) => neprevzato > 0)
-    : afterNarokovaneFilter;
+    filteredData = ucastnikUnion(
+      ucastnikUnion(narokovaniPrihlaskou, narokovaniStartem),
+      neprevzati
+    );
+  }
 
-  return sortForColumn({ data: afterNeprevzateFilter, sortColumn, sortDir });
+  return sortForColumn({ data: filteredData, sortColumn, sortDir });
 };

@@ -78,6 +78,7 @@ exports[`dva pohároví 1`] = `
                   2014,
                   2013,
                 ],
+                "odstartovano": false,
                 "prihlaseno": true,
               },
             },
@@ -104,6 +105,7 @@ exports[`dva pohároví 1`] = `
                   2011,
                   2010,
                 ],
+                "odstartovano": false,
                 "prihlaseno": false,
               },
             },
@@ -123,11 +125,13 @@ exports[`dva pohároví 1`] = `
               "prijmeni": "Zralá",
               "ucasti": Object {
                 "dokoncene": Array [],
+                "odstartovano": false,
                 "prihlaseno": false,
               },
             },
           ]
         }
+        popisek="se na něj přihlásili"
         reduxName="pohary"
         textFilter=""
       >
@@ -135,7 +139,9 @@ exports[`dva pohároví 1`] = `
           className="PoharyTable__div UcastniciTable_container"
         >
           <p>
-            Jsou zobrazeni pouze účastníci, kteří buďto maraton alespoň jednou dokončili anebo se na něj přihlásili. To je dále ještě možné poštelovat filtry.
+            Jsou zobrazeni pouze účastníci, kteří buďto maraton alespoň jednou dokončili anebo 
+            se na něj přihlásili
+            . To je dále ještě možné poštelovat filtry.
           </p>
           <div>
             <TextFilter
@@ -183,12 +189,11 @@ exports[`dva pohároví 1`] = `
                 block={false}
                 bsClass="btn"
                 bsStyle="success"
-                className="PoharyTable__button"
                 disabled={false}
                 onClick={[MockFunction]}
               >
                 <button
-                  className="PoharyTable__button btn btn-success"
+                  className="btn btn-success"
                   disabled={false}
                   onClick={[MockFunction]}
                   type="button"
@@ -204,17 +209,19 @@ exports[`dva pohároví 1`] = `
                    Nárok na pohár
                 </button>
               </Button>
+              <span>
+                +
+              </span>
               <Button
                 active={false}
                 block={false}
                 bsClass="btn"
                 bsStyle="info"
-                className="PoharyTable__button"
                 disabled={false}
                 onClick={[MockFunction]}
               >
                 <button
-                  className="PoharyTable__button btn btn-info"
+                  className="btn btn-info"
                   disabled={false}
                   onClick={[MockFunction]}
                   type="button"
@@ -332,6 +339,7 @@ exports[`dva pohároví 1`] = `
                       2014,
                       2013,
                     ],
+                    "odstartovano": false,
                     "prihlaseno": true,
                   },
                 },
@@ -358,6 +366,7 @@ exports[`dva pohároví 1`] = `
                       2011,
                       2010,
                     ],
+                    "odstartovano": false,
                     "prihlaseno": false,
                   },
                 },
@@ -377,6 +386,7 @@ exports[`dva pohároví 1`] = `
                   "prijmeni": "Zralá",
                   "ucasti": Object {
                     "dokoncene": Array [],
+                    "odstartovano": false,
                     "prihlaseno": false,
                   },
                 },
@@ -468,6 +478,7 @@ exports[`dva pohároví 1`] = `
                         2014,
                         2013,
                       ],
+                      "odstartovano": false,
                       "prihlaseno": true,
                     },
                   },
@@ -494,6 +505,7 @@ exports[`dva pohároví 1`] = `
                         2011,
                         2010,
                       ],
+                      "odstartovano": false,
                       "prihlaseno": false,
                     },
                   },
@@ -513,6 +525,7 @@ exports[`dva pohároví 1`] = `
                     "prijmeni": "Zralá",
                     "ucasti": Object {
                       "dokoncene": Array [],
+                      "odstartovano": false,
                       "prihlaseno": false,
                     },
                   },
@@ -610,6 +623,7 @@ exports[`dva pohároví 1`] = `
                             2014,
                             2013,
                           ],
+                          "odstartovano": false,
                           "prihlaseno": true,
                         },
                       },
@@ -636,6 +650,7 @@ exports[`dva pohároví 1`] = `
                             2011,
                             2010,
                           ],
+                          "odstartovano": false,
                           "prihlaseno": false,
                         },
                       },
@@ -655,6 +670,7 @@ exports[`dva pohároví 1`] = `
                         "prijmeni": "Zralá",
                         "ucasti": Object {
                           "dokoncene": Array [],
+                          "odstartovano": false,
                           "prihlaseno": false,
                         },
                       },
@@ -749,6 +765,7 @@ exports[`dva pohároví 1`] = `
                               2014,
                               2013,
                             ],
+                            "odstartovano": false,
                             "prihlaseno": true,
                           },
                         },
@@ -775,6 +792,7 @@ exports[`dva pohároví 1`] = `
                               2011,
                               2010,
                             ],
+                            "odstartovano": false,
                             "prihlaseno": false,
                           },
                         },
@@ -794,6 +812,7 @@ exports[`dva pohároví 1`] = `
                           "prijmeni": "Zralá",
                           "ucasti": Object {
                             "dokoncene": Array [],
+                            "odstartovano": false,
                             "prihlaseno": false,
                           },
                         },
@@ -911,6 +930,7 @@ exports[`dva pohároví 1`] = `
                                     2014,
                                     2013,
                                   ],
+                                  "odstartovano": false,
                                   "prihlaseno": true,
                                 },
                               },
@@ -937,6 +957,7 @@ exports[`dva pohároví 1`] = `
                                     2011,
                                     2010,
                                   ],
+                                  "odstartovano": false,
                                   "prihlaseno": false,
                                 },
                               },
@@ -956,6 +977,7 @@ exports[`dva pohároví 1`] = `
                                 "prijmeni": "Zralá",
                                 "ucasti": Object {
                                   "dokoncene": Array [],
+                                  "odstartovano": false,
                                   "prihlaseno": false,
                                 },
                               },
@@ -1209,6 +1231,7 @@ exports[`dva pohároví 1`] = `
                                     2014,
                                     2013,
                                   ],
+                                  "odstartovano": false,
                                   "prihlaseno": true,
                                 },
                               },
@@ -1235,6 +1258,7 @@ exports[`dva pohároví 1`] = `
                                     2011,
                                     2010,
                                   ],
+                                  "odstartovano": false,
                                   "prihlaseno": false,
                                 },
                               },
@@ -1254,6 +1278,7 @@ exports[`dva pohároví 1`] = `
                                 "prijmeni": "Zralá",
                                 "ucasti": Object {
                                   "dokoncene": Array [],
+                                  "odstartovano": false,
                                   "prihlaseno": false,
                                 },
                               },
@@ -1598,6 +1623,7 @@ exports[`dva pohároví 1`] = `
                                         2014,
                                         2013,
                                       ],
+                                      "odstartovano": false,
                                       "prihlaseno": true,
                                     },
                                   },
@@ -1624,6 +1650,7 @@ exports[`dva pohároví 1`] = `
                                         2011,
                                         2010,
                                       ],
+                                      "odstartovano": false,
                                       "prihlaseno": false,
                                     },
                                   },
@@ -1643,6 +1670,7 @@ exports[`dva pohároví 1`] = `
                                     "prijmeni": "Zralá",
                                     "ucasti": Object {
                                       "dokoncene": Array [],
+                                      "odstartovano": false,
                                       "prihlaseno": false,
                                     },
                                   },
@@ -1922,6 +1950,7 @@ exports[`dva pohároví 1`] = `
                                         2014,
                                         2013,
                                       ],
+                                      "odstartovano": false,
                                       "prihlaseno": true,
                                     },
                                   },
@@ -1948,6 +1977,7 @@ exports[`dva pohároví 1`] = `
                                         2011,
                                         2010,
                                       ],
+                                      "odstartovano": false,
                                       "prihlaseno": false,
                                     },
                                   },
@@ -1967,6 +1997,7 @@ exports[`dva pohároví 1`] = `
                                     "prijmeni": "Zralá",
                                     "ucasti": Object {
                                       "dokoncene": Array [],
+                                      "odstartovano": false,
                                       "prihlaseno": false,
                                     },
                                   },
@@ -2465,6 +2496,7 @@ exports[`žádný pohár 1`] = `
         onNeprevzateFilterChange={[MockFunction]}
         onTextFilterChange={[MockFunction]}
         pohary={Array []}
+        popisek="se na něj přihlásili"
         reduxName="pohary"
         textFilter=""
       >
@@ -2472,7 +2504,9 @@ exports[`žádný pohár 1`] = `
           className="PoharyTable__div UcastniciTable_container"
         >
           <p>
-            Jsou zobrazeni pouze účastníci, kteří buďto maraton alespoň jednou dokončili anebo se na něj přihlásili. To je dále ještě možné poštelovat filtry.
+            Jsou zobrazeni pouze účastníci, kteří buďto maraton alespoň jednou dokončili anebo 
+            se na něj přihlásili
+            . To je dále ještě možné poštelovat filtry.
           </p>
           <div>
             <TextFilter
@@ -2520,12 +2554,11 @@ exports[`žádný pohár 1`] = `
                 block={false}
                 bsClass="btn"
                 bsStyle="success"
-                className="PoharyTable__button"
                 disabled={false}
                 onClick={[MockFunction]}
               >
                 <button
-                  className="PoharyTable__button btn btn-success"
+                  className="btn btn-success"
                   disabled={false}
                   onClick={[MockFunction]}
                   type="button"
@@ -2541,17 +2574,19 @@ exports[`žádný pohár 1`] = `
                    Nárok na pohár
                 </button>
               </Button>
+              <span>
+                +
+              </span>
               <Button
                 active={false}
                 block={false}
                 bsClass="btn"
                 bsStyle="info"
-                className="PoharyTable__button"
                 disabled={false}
                 onClick={[MockFunction]}
               >
                 <button
-                  className="PoharyTable__button btn btn-info"
+                  className="btn btn-info"
                   disabled={false}
                   onClick={[MockFunction]}
                   type="button"

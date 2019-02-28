@@ -20,7 +20,7 @@ const pohary = [
     narozeni: { rok: 1963, mesic: 12, den: 7 },
     obec: 'Zlín',
     pohary: { narok: false, neprevzato: 1, predano: 0 },
-    ucasti: { dokoncene: [2016, 2013, 2012, 2011, 2010], prihlaseno: false }
+    ucasti: { dokoncene: [2016, 2013, 2012, 2011, 2010], prihlaseno: false, odstartovano: false }
   },
   {
     id: '7a09b1fd371dec1e99b7e142',
@@ -28,7 +28,7 @@ const pohary = [
     jmeno: 'Hana',
     narozeni: { den: 25, mesic: 7, rok: 1999 },
     pohary: { narok: false, neprevzato: 0, predano: 0 },
-    ucasti: { dokoncene: [], prihlaseno: false }
+    ucasti: { dokoncene: [], prihlaseno: false, odstartovano: false }
   }
 ];
 
@@ -44,6 +44,7 @@ it('can simulate a full drag and drop interaction', () => {
           narokovaneFilter={false}
           neprevzateFilter={false}
           pohary={pohary}
+          popisek="se na něj přihlásili"
           reduxName={ReduxNames.pohary}
           textFilter=""
           canDrop={jest.fn()}

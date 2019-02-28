@@ -121,7 +121,8 @@ Object {
     },
     "pohary": Object {
       "kategorieFilter": "",
-      "narokovaneFilter": false,
+      "narokovanePrihlaskouFilter": false,
+      "narokovaneStartemFilter": false,
       "neprevzateFilter": false,
       "sortColumn": undefined,
       "sortDir": "none",
@@ -336,7 +337,8 @@ Object {
     },
     "pohary": Object {
       "kategorieFilter": "",
-      "narokovaneFilter": false,
+      "narokovanePrihlaskouFilter": false,
+      "narokovaneStartemFilter": false,
       "neprevzateFilter": false,
       "sortColumn": undefined,
       "sortDir": "none",
@@ -551,7 +553,8 @@ Object {
     },
     "pohary": Object {
       "kategorieFilter": "",
-      "narokovaneFilter": false,
+      "narokovanePrihlaskouFilter": false,
+      "narokovaneStartemFilter": false,
       "neprevzateFilter": false,
       "sortColumn": undefined,
       "sortDir": "none",

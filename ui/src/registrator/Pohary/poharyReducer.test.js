@@ -4,7 +4,11 @@ import { SortDirTypes } from '../../sort';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { createTextFilterChange } from '../Filterable/FilterableActions';
 import { createSortDirChange } from '../UcastniciTable/UcastniciTableActions';
-import { narokovaneFilterChange, neprevzateFilterChange } from './PoharyActions';
+import {
+  narokovanePrihlaskouFilterChange,
+  narokovaneStartemFilterChange,
+  neprevzateFilterChange
+} from './PoharyActions';
 import poharyReducer, { getPoharySorted } from './poharyReducer';
 
 const actionPrefix = ActionPrefixes.POHARY;
@@ -16,27 +20,44 @@ it('na začátku', () => {
   const stateBefore = undefined;
 
   const stateAfter = poharyReducer(stateBefore, {});
-  expect(stateAfter.narokovaneFilter).toBe(false);
+  expect(stateAfter.narokovanePrihlaskouFilter).toBe(false);
+  expect(stateAfter.narokovaneStartemFilter).toBe(false);
   expect(stateAfter.neprevzateFilter).toBe(false);
   expect(stateAfter.textFilter).toEqual('');
   expect(stateAfter.sortColumn).toBe(undefined);
   expect(stateAfter.sortDir).toEqual(SortDirTypes.NONE);
 });
 
-it('přepínání narokovaneFilter - tam', () => {
-  const stateBefore = { narokovaneFilter: false };
-  const stateAfter = { narokovaneFilter: true };
+it('přepínání narokovanePrihlaskouFilter - tam', () => {
+  const stateBefore = { narokovanePrihlaskouFilter: false };
+  const stateAfter = { narokovanePrihlaskouFilter: true };
   deepFreeze(stateBefore);
 
-  expect(poharyReducer(stateBefore, narokovaneFilterChange())).toEqual(stateAfter);
+  expect(poharyReducer(stateBefore, narokovanePrihlaskouFilterChange())).toEqual(stateAfter);
 });
 
-it('přepínání narokovaneFilter - a zase zpět', () => {
-  const stateBefore = { narokovaneFilter: true };
-  const stateAfter = { narokovaneFilter: false };
+it('přepínání narokovanePrihlaskouFilter - a zase zpět', () => {
+  const stateBefore = { narokovanePrihlaskouFilter: true };
+  const stateAfter = { narokovanePrihlaskouFilter: false };
   deepFreeze(stateBefore);
 
-  expect(poharyReducer(stateBefore, narokovaneFilterChange())).toEqual(stateAfter);
+  expect(poharyReducer(stateBefore, narokovanePrihlaskouFilterChange())).toEqual(stateAfter);
+});
+
+it('přepínání narokovaneStartemFilter - tam', () => {
+  const stateBefore = { narokovaneStartemFilter: false };
+  const stateAfter = { narokovaneStartemFilter: true };
+  deepFreeze(stateBefore);
+
+  expect(poharyReducer(stateBefore, narokovaneStartemFilterChange())).toEqual(stateAfter);
+});
+
+it('přepínání narokovaneStartemFilter - a zase zpět', () => {
+  const stateBefore = { narokovaneStartemFilter: true };
+  const stateAfter = { narokovaneStartemFilter: false };
+  deepFreeze(stateBefore);
+
+  expect(poharyReducer(stateBefore, narokovaneStartemFilterChange())).toEqual(stateAfter);
 });
 
 it('přepínání neprevzateFilter - tam', () => {
@@ -92,12 +113,13 @@ it('filtrovat na dvě písmena', () => {
   expect(poharyReducer(stateBefore, textFilterChange('Kl'))).toEqual(stateAfter);
 });
 
-it('getPoharySorted() by default - nárokované i nepřevzaté', () => {
+it('getPoharySorted() by default - všichni', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
       [reduxName]: {
-        narokovaneFilter: false,
+        narokovanePrihlaskouFilter: false,
+        narokovaneStartemFilter: false,
         neprevzateFilter: false,
         sortColumn: undefined,
         sortDir: undefined,
@@ -111,24 +133,24 @@ it('getPoharySorted() by default - nárokované i nepřevzaté', () => {
       prijmeni: 'Balabák',
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
-      pohary: { narok: false, neprevzato: 0, predano: 0 },
-      ucasti: { dokoncene: [2017], prihlaseno: false }
+      pohary: { narokPrihlaskou: false, narokStartem: false, neprevzato: 0, predano: 0 },
+      ucasti: { dokoncene: [2017], prihlaseno: false, odstartovano: false }
     },
     {
       id: 'f5c88400190a4bed88c76736',
       prijmeni: 'Smalt',
       jmeno: 'Josef',
       narozeni: { den: 25, mesic: 7, rok: 2001 },
-      pohary: { narok: true, neprevzato: 0, predano: 0 },
-      ucasti: { dokoncene: [2018, 2017, 2015, 2014], prihlaseno: true }
+      pohary: { narokPrihlaskou: true, narokStartem: false, neprevzato: 0, predano: 0 },
+      ucasti: { dokoncene: [2018, 2017, 2015, 2014], prihlaseno: true, odstartovano: false }
     },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
       narozeni: { den: 7, mesic: 12, rok: 1963 },
-      pohary: { narok: false, neprevzato: 1, predano: 0 },
-      ucasti: { dokoncene: [2016, 2013, 2012, 2011, 2010], prihlaseno: false }
+      pohary: { narokPrihlaskou: false, narokStartem: false, neprevzato: 1, predano: 0 },
+      ucasti: { dokoncene: [2016, 2013, 2012, 2011, 2010], prihlaseno: false, odstartovano: false }
     }
   ];
   deepFreeze(state);
@@ -145,7 +167,8 @@ it('getPoharySorted() filtrováno na s', () => {
     ...ucastniciTestData,
     registrator: {
       [reduxName]: {
-        narokovaneFilter: false,
+        narokovanePrihlaskouFilter: false,
+        narokovaneStartemFilter: false,
         neprevzateFilter: false,
         sortColumn: undefined,
         sortDir: undefined,
@@ -159,16 +182,16 @@ it('getPoharySorted() filtrováno na s', () => {
       prijmeni: 'Smalt',
       jmeno: 'Josef',
       narozeni: { den: 25, mesic: 7, rok: 2001 },
-      pohary: { narok: true, neprevzato: 0, predano: 0 },
-      ucasti: { dokoncene: [2018, 2017, 2015, 2014], prihlaseno: true }
+      pohary: { narokPrihlaskou: true, narokStartem: false, neprevzato: 0, predano: 0 },
+      ucasti: { dokoncene: [2018, 2017, 2015, 2014], prihlaseno: true, odstartovano: false }
     },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
       narozeni: { den: 7, mesic: 12, rok: 1963 },
-      pohary: { narok: false, neprevzato: 1, predano: 0 },
-      ucasti: { dokoncene: [2016, 2013, 2012, 2011, 2010], prihlaseno: false }
+      pohary: { narokPrihlaskou: false, narokStartem: false, neprevzato: 1, predano: 0 },
+      ucasti: { dokoncene: [2016, 2013, 2012, 2011, 2010], prihlaseno: false, odstartovano: false }
     }
   ];
   deepFreeze(state);
@@ -180,12 +203,13 @@ it('getPoharySorted() filtrováno na s', () => {
   expect(getPoharySorted({ ...entities, ...pohary })).toEqual(selected);
 });
 
-it('getPoharySorted() by default - jen s nárokem', () => {
+it('getPoharySorted() by default - jen s nárokem z přihlášky', () => {
   const state = {
     ...ucastniciTestData,
     registrator: {
       [reduxName]: {
-        narokovaneFilter: true,
+        narokovanePrihlaskouFilter: true,
+        narokovaneStartemFilter: false,
         neprevzateFilter: false,
         sortColumn: undefined,
         sortDir: undefined,
@@ -199,8 +223,8 @@ it('getPoharySorted() by default - jen s nárokem', () => {
       prijmeni: 'Smalt',
       jmeno: 'Josef',
       narozeni: { den: 25, mesic: 7, rok: 2001 },
-      pohary: { narok: true, neprevzato: 0, predano: 0 },
-      ucasti: { dokoncene: [2018, 2017, 2015, 2014], prihlaseno: true }
+      pohary: { narokPrihlaskou: true, narokStartem: false, neprevzato: 0, predano: 0 },
+      ucasti: { dokoncene: [2018, 2017, 2015, 2014], prihlaseno: true, odstartovano: false }
     }
   ];
   deepFreeze(state);
@@ -217,7 +241,8 @@ it('getPoharySorted() by default - jen s nepřevzatým pohárem', () => {
     ...ucastniciTestData,
     registrator: {
       [reduxName]: {
-        narokovaneFilter: false,
+        narokovanePrihlaskouFilter: false,
+        narokovaneStartemFilter: false,
         neprevzateFilter: true,
         sortColumn: undefined,
         sortDir: undefined,
@@ -231,8 +256,49 @@ it('getPoharySorted() by default - jen s nepřevzatým pohárem', () => {
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
       narozeni: { den: 7, mesic: 12, rok: 1963 },
-      pohary: { narok: false, neprevzato: 1, predano: 0 },
-      ucasti: { dokoncene: [2016, 2013, 2012, 2011, 2010], prihlaseno: false }
+      pohary: { narokPrihlaskou: false, narokStartem: false, neprevzato: 1, predano: 0 },
+      ucasti: { dokoncene: [2016, 2013, 2012, 2011, 2010], prihlaseno: false, odstartovano: false }
+    }
+  ];
+  deepFreeze(state);
+
+  const {
+    entities,
+    registrator: { [reduxName]: pohary }
+  } = state;
+  expect(getPoharySorted({ ...entities, ...pohary })).toEqual(selected);
+});
+
+it('getPoharySorted() by default - s nárokem z přihlášky + nepřevzatým pohárem', () => {
+  const state = {
+    ...ucastniciTestData,
+    registrator: {
+      [reduxName]: {
+        narokovanePrihlaskouFilter: true,
+        narokovaneStartemFilter: false,
+        neprevzateFilter: true,
+        sortColumn: undefined,
+        sortDir: undefined,
+        textFilter: ''
+      }
+    }
+  };
+  const selected = [
+    {
+      id: 'f5c88400190a4bed88c76736',
+      prijmeni: 'Smalt',
+      jmeno: 'Josef',
+      narozeni: { den: 25, mesic: 7, rok: 2001 },
+      pohary: { narokPrihlaskou: true, narokStartem: false, neprevzato: 0, predano: 0 },
+      ucasti: { dokoncene: [2018, 2017, 2015, 2014], prihlaseno: true, odstartovano: false }
+    },
+    {
+      id: '6f09b1fd371dec1e99b7e1c9',
+      prijmeni: 'Sukdoláková',
+      jmeno: 'Martina',
+      narozeni: { den: 7, mesic: 12, rok: 1963 },
+      pohary: { narokPrihlaskou: false, narokStartem: false, neprevzato: 1, predano: 0 },
+      ucasti: { dokoncene: [2016, 2013, 2012, 2011, 2010], prihlaseno: false, odstartovano: false }
     }
   ];
   deepFreeze(state);

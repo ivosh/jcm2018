@@ -7,6 +7,6 @@
   margin-left: 1em;
 }
 
-.PoharyTable__button {
+.PoharyTable__buttons > * {
   margin-left: 5px;
 }
