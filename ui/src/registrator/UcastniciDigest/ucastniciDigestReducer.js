@@ -33,7 +33,8 @@ export const getVykony = (kategorie, ucastnik) => {
       const typKategorie = kategorie[vykon.kategorie].typ;
       vykony[rok] = {
         kategorie: typKategorie,
-        dokonceno: vykon.dokonceno
+        dokonceno: vykon.dokonceno,
+        cas: vykon.cas
       };
       // Mark this particular typKategorie in typyKategorie dictionary.
       typyKategorie[typKategorie] = typKategorie;

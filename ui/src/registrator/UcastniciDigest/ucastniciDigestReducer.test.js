@@ -148,7 +148,7 @@ it('getUcastniciDigestSorted() by default', () => {
       prijmeni: 'Balabák',
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
-      2017: { dokonceno: true, kategorie: 'maraton' },
+      2017: { dokonceno: true, cas: 'PT1H25M32.6S', kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' },
       2019: { dokonceno: false, kategorie: 'půlmaraton' }
     },
@@ -163,30 +163,30 @@ it('getUcastniciDigestSorted() by default', () => {
       prijmeni: 'Smalt',
       jmeno: 'Josef',
       narozeni: { rok: 2001, mesic: 7, den: 25 },
-      2018: { dokonceno: true, kategorie: 'maraton' },
-      2017: { dokonceno: true, kategorie: 'maraton' },
-      2015: { dokonceno: true, kategorie: 'maraton' },
-      2014: { dokonceno: true, kategorie: 'maraton' }
+      2018: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
+      2017: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
+      2015: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
+      2014: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' }
     },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
       narozeni: { den: 7, mesic: 12, rok: 1963 },
-      2010: { dokonceno: true, kategorie: 'maraton' },
-      2011: { dokonceno: true, kategorie: 'maraton' },
-      2012: { dokonceno: true, kategorie: 'maraton' },
-      2013: { dokonceno: true, kategorie: 'maraton' },
+      2010: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
+      2011: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
+      2012: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
+      2013: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
       2014: { dokonceno: false, kategorie: 'maraton' },
-      2016: { dokonceno: true, kategorie: 'maraton' }
+      2016: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' }
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
       prijmeni: 'Zralá',
       jmeno: 'Hana',
       narozeni: { den: 25, mesic: 7, rok: 1999 },
-      2018: { dokonceno: true, kategorie: 'půlmaraton' },
-      2019: { dokonceno: true, kategorie: 'půlmaraton' }
+      2018: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' },
+      2019: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' }
     }
   ];
   deepFreeze(state);
@@ -215,30 +215,30 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
       prijmeni: 'Zralá',
       jmeno: 'Hana',
       narozeni: { den: 25, mesic: 7, rok: 1999 },
-      2018: { dokonceno: true, kategorie: 'půlmaraton' },
-      2019: { dokonceno: true, kategorie: 'půlmaraton' }
+      2018: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' },
+      2019: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' }
     },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
       narozeni: { den: 7, mesic: 12, rok: 1963 },
-      2010: { dokonceno: true, kategorie: 'maraton' },
-      2011: { dokonceno: true, kategorie: 'maraton' },
-      2012: { dokonceno: true, kategorie: 'maraton' },
-      2013: { dokonceno: true, kategorie: 'maraton' },
+      2010: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
+      2011: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
+      2012: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
+      2013: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
       2014: { dokonceno: false, kategorie: 'maraton' },
-      2016: { dokonceno: true, kategorie: 'maraton' }
+      2016: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' }
     },
     {
       id: 'f5c88400190a4bed88c76736',
       prijmeni: 'Smalt',
       jmeno: 'Josef',
       narozeni: { rok: 2001, mesic: 7, den: 25 },
-      2018: { dokonceno: true, kategorie: 'maraton' },
-      2017: { dokonceno: true, kategorie: 'maraton' },
-      2015: { dokonceno: true, kategorie: 'maraton' },
-      2014: { dokonceno: true, kategorie: 'maraton' }
+      2018: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
+      2017: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
+      2015: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
+      2014: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' }
     },
     {
       id: '8344bc71dec1e99b7e1d01e',
@@ -251,7 +251,7 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
       prijmeni: 'Balabák',
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
-      2017: { dokonceno: true, kategorie: 'maraton' },
+      2017: { dokonceno: true, cas: 'PT1H25M32.6S', kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' },
       2019: { dokonceno: false, kategorie: 'půlmaraton' }
     }
@@ -282,37 +282,37 @@ it('getUcastniciDigestSorted() podle jména vzestupně', () => {
       prijmeni: 'Zralá',
       jmeno: 'Hana',
       narozeni: { den: 25, mesic: 7, rok: 1999 },
-      2018: { dokonceno: true, kategorie: 'půlmaraton' },
-      2019: { dokonceno: true, kategorie: 'půlmaraton' }
+      2018: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' },
+      2019: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' }
     },
     {
       id: 'f5c88400190a4bed88c76736',
       prijmeni: 'Smalt',
       jmeno: 'Josef',
       narozeni: { rok: 2001, mesic: 7, den: 25 },
-      2018: { dokonceno: true, kategorie: 'maraton' },
-      2017: { dokonceno: true, kategorie: 'maraton' },
-      2015: { dokonceno: true, kategorie: 'maraton' },
-      2014: { dokonceno: true, kategorie: 'maraton' }
+      2018: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
+      2017: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
+      2015: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
+      2014: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' }
     },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
       narozeni: { den: 7, mesic: 12, rok: 1963 },
-      2010: { dokonceno: true, kategorie: 'maraton' },
-      2011: { dokonceno: true, kategorie: 'maraton' },
-      2012: { dokonceno: true, kategorie: 'maraton' },
-      2013: { dokonceno: true, kategorie: 'maraton' },
+      2010: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
+      2011: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
+      2012: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
+      2013: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
       2014: { dokonceno: false, kategorie: 'maraton' },
-      2016: { dokonceno: true, kategorie: 'maraton' }
+      2016: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' }
     },
     {
       id: '5a09b1fd371dec1e99b7e1c9',
       prijmeni: 'Balabák',
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
-      2017: { dokonceno: true, kategorie: 'maraton' },
+      2017: { dokonceno: true, cas: 'PT1H25M32.6S', kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' },
       2019: { dokonceno: false, kategorie: 'půlmaraton' }
     },
@@ -355,37 +355,37 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
       prijmeni: 'Smalt',
       jmeno: 'Josef',
       narozeni: { rok: 2001, mesic: 7, den: 25 },
-      2018: { dokonceno: true, kategorie: 'maraton' },
-      2017: { dokonceno: true, kategorie: 'maraton' },
-      2015: { dokonceno: true, kategorie: 'maraton' },
-      2014: { dokonceno: true, kategorie: 'maraton' }
+      2018: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
+      2017: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
+      2015: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
+      2014: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' }
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
       prijmeni: 'Zralá',
       jmeno: 'Hana',
       narozeni: { den: 25, mesic: 7, rok: 1999 },
-      2018: { dokonceno: true, kategorie: 'půlmaraton' },
-      2019: { dokonceno: true, kategorie: 'půlmaraton' }
+      2018: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' },
+      2019: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' }
     },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
       prijmeni: 'Sukdoláková',
       jmeno: 'Martina',
       narozeni: { den: 7, mesic: 12, rok: 1963 },
-      2010: { dokonceno: true, kategorie: 'maraton' },
-      2011: { dokonceno: true, kategorie: 'maraton' },
-      2012: { dokonceno: true, kategorie: 'maraton' },
-      2013: { dokonceno: true, kategorie: 'maraton' },
+      2010: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
+      2011: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
+      2012: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
+      2013: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
       2014: { dokonceno: false, kategorie: 'maraton' },
-      2016: { dokonceno: true, kategorie: 'maraton' }
+      2016: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' }
     },
     {
       id: '5a09b1fd371dec1e99b7e1c9',
       prijmeni: 'Balabák',
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
-      2017: { dokonceno: true, kategorie: 'maraton' },
+      2017: { dokonceno: true, cas: 'PT1H25M32.6S', kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' },
       2019: { dokonceno: false, kategorie: 'půlmaraton' }
     }
@@ -416,7 +416,7 @@ it('getUcastniciDigestSorted() filtrováno na r', () => {
       prijmeni: 'Balabák',
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
-      2017: { dokonceno: true, kategorie: 'maraton' },
+      2017: { dokonceno: true, cas: 'PT1H25M32.6S', kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' },
       2019: { dokonceno: false, kategorie: 'půlmaraton' }
     }
@@ -447,7 +447,7 @@ it('getUcastniciDigestSorted() filtrováno na kategorii výkonu půlmaraton', ()
       prijmeni: 'Balabák',
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
-      2017: { dokonceno: true, kategorie: 'maraton' },
+      2017: { dokonceno: true, cas: 'PT1H25M32.6S', kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' },
       2019: { dokonceno: false, kategorie: 'půlmaraton' }
     },
@@ -456,8 +456,8 @@ it('getUcastniciDigestSorted() filtrováno na kategorii výkonu půlmaraton', ()
       prijmeni: 'Zralá',
       jmeno: 'Hana',
       narozeni: { den: 25, mesic: 7, rok: 1999 },
-      2018: { dokonceno: true, kategorie: 'půlmaraton' },
-      2019: { dokonceno: true, kategorie: 'půlmaraton' }
+      2018: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' },
+      2019: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' }
     }
   ];
   deepFreeze(state);

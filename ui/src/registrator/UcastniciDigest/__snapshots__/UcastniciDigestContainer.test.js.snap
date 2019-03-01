@@ -4,14 +4,17 @@ exports[`maps state and dispatch to props 1`] = `
 Array [
   Object {
     "2017": Object {
+      "cas": "PT1H25M32.6S",
       "dokonceno": true,
       "kategorie": "maraton",
     },
     "2018": Object {
+      "cas": undefined,
       "dokonceno": false,
       "kategorie": "půlmaraton",
     },
     "2019": Object {
+      "cas": undefined,
       "dokonceno": false,
       "kategorie": "půlmaraton",
     },
@@ -34,18 +37,22 @@ Array [
   },
   Object {
     "2014": Object {
+      "cas": "PT2H06M32.6S",
       "dokonceno": true,
       "kategorie": "maraton",
     },
     "2015": Object {
+      "cas": "PT2H06M32.6S",
       "dokonceno": true,
       "kategorie": "maraton",
     },
     "2017": Object {
+      "cas": "PT2H06M32.6S",
       "dokonceno": true,
       "kategorie": "maraton",
     },
     "2018": Object {
+      "cas": "PT2H06M32.6S",
       "dokonceno": true,
       "kategorie": "maraton",
     },
@@ -60,26 +67,32 @@ Array [
   },
   Object {
     "2010": Object {
+      "cas": "PT3H42M32.6S",
       "dokonceno": true,
       "kategorie": "maraton",
     },
     "2011": Object {
+      "cas": "PT3H42M32.6S",
       "dokonceno": true,
       "kategorie": "maraton",
     },
     "2012": Object {
+      "cas": "PT3H42M32.6S",
       "dokonceno": true,
       "kategorie": "maraton",
     },
     "2013": Object {
+      "cas": "PT3H42M32.6S",
       "dokonceno": true,
       "kategorie": "maraton",
     },
     "2014": Object {
+      "cas": undefined,
       "dokonceno": false,
       "kategorie": "maraton",
     },
     "2016": Object {
+      "cas": "PT3H42M32.6S",
       "dokonceno": true,
       "kategorie": "maraton",
     },
@@ -94,10 +107,12 @@ Array [
   },
   Object {
     "2018": Object {
+      "cas": "PT2H06M32.6S",
       "dokonceno": true,
       "kategorie": "půlmaraton",
     },
     "2019": Object {
+      "cas": "PT2H06M32.6S",
       "dokonceno": true,
       "kategorie": "půlmaraton",
     },

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { narozeniToStr } from '../../Util';
+import moment from 'moment';
+import { convertDuration, narozeniToStr } from '../../Util';
 import FilterableContainer from '../Filterable/FilterableContainer';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
 import './UcastniciDigest.css';
@@ -18,6 +19,25 @@ const vykonCellDataFormatter = ({ cellData }) => {
     return '?';
   }
   return '';
+};
+
+const casFormat = cas => {
+  if (cas) {
+    const { hours, mins, secs, subsecs } = convertDuration(moment.duration(cas));
+    return `${hours}:${mins}:${secs},${subsecs}`;
+  }
+  return undefined;
+};
+
+const vykonRenderer = args => {
+  const cas = casFormat(args.cellData && args.cellData.cas);
+  const className = cas ? `${args.className} AnimatedTooltip` : args.className;
+
+  return (
+    <div className={className} key={args.key} style={args.style} tooltip-text={cas}>
+      {args.formattedCellData}
+    </div>
+  );
 };
 
 const UcastniciDigest = ({ actionPrefix, reduxName, roky, ucastniciDigest }) => {
@@ -48,6 +68,7 @@ const UcastniciDigest = ({ actionPrefix, reduxName, roky, ucastniciDigest }) => 
       cellClassNames: ({ cellData }) =>
         cellData ? [`UcastniciDigest--${cellData.kategorie}`] : [],
       cellDataFormatter: vykonCellDataFormatter,
+      cellRenderer: vykonRenderer,
       key: `${rok}`,
       label: rok,
       sortable: false,
@@ -88,7 +109,11 @@ UcastniciDigest.propTypes = {
         den: PropTypes.number,
         mesic: PropTypes.number,
         rok: PropTypes.number.isRequired
-      }).isRequired
+      }).isRequired,
+      vykon: PropTypes.shape({
+        cas: PropTypes.string,
+        dokonceno: PropTypes.bool
+      })
     }).isRequired
   ).isRequired
 };
