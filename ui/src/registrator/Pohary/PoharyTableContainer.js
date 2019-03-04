@@ -1,33 +1,31 @@
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { ActionPrefixes, ReduxNames } from '../../constants';
+import { ActionPrefixes } from '../../constants';
 import { createTextFilterChange } from '../Filterable/FilterableActions';
 import {
   canDrop,
-  narokovanePrihlaskouFilterChange,
-  narokovaneStartemFilterChange,
-  neprevzateFilterChange,
+  createNarokovanePrihlaskouFilterChange,
+  createNarokovaneStartemFilterChange,
+  createNeprevzateFilterChange,
   createOnDrop
 } from './PoharyActions';
 import { getPoharySorted } from './poharyReducer';
 import PoharyTable from './PoharyTable';
 
-const actionPrefix = ActionPrefixes.POHARY;
+const jePrihlaskou = actionPrefix => actionPrefix === ActionPrefixes.POHARY_PRED_STARTEM;
 
-const remapNarok = (ucastnici, jePrihlaskou) =>
+const remapNarok = (ucastnici, jePrihlaska) =>
   ucastnici.map(ucastnik => {
     const { pohary } = ucastnik;
     const { narokPrihlaskou, narokStartem, ...rest } = pohary;
     return {
       ...ucastnik,
-      pohary: { ...rest, narok: jePrihlaskou ? narokPrihlaskou : narokStartem }
+      pohary: { ...rest, narok: jePrihlaska ? narokPrihlaskou : narokStartem }
     };
   });
 
-const jePrihlaskou = arg => arg === ActionPrefixes.POHARY;
-
 // Don't forget to update areStatesEqual!
-const mapStateToProps = ({ entities, registrator }) => {
-  const reduxName = ReduxNames.pohary;
+const mapStateToProps = ({ entities, registrator }, { actionPrefix, reduxName }) => {
   const pohary = registrator[reduxName];
   const {
     narokovanePrihlaskouFilter,
@@ -55,16 +53,16 @@ const mapStateToProps = ({ entities, registrator }) => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, { actionPrefix }) => ({
   canDrop,
   onDrop: createOnDrop(dispatch),
   onNarokovaneFilterChange: () =>
     dispatch(
       jePrihlaskou(actionPrefix)
-        ? narokovanePrihlaskouFilterChange()
-        : narokovaneStartemFilterChange()
+        ? createNarokovanePrihlaskouFilterChange(actionPrefix)()
+        : createNarokovaneStartemFilterChange(actionPrefix)()
     ),
-  onNeprevzateFilterChange: () => dispatch(neprevzateFilterChange()),
+  onNeprevzateFilterChange: () => dispatch(createNeprevzateFilterChange(actionPrefix)()),
   onTextFilterChange: text => dispatch(createTextFilterChange(actionPrefix)(text))
 });
 
@@ -81,5 +79,10 @@ const PoharyTableContainer = connect(
     areStatesEqual
   }
 )(PoharyTable);
+
+PoharyTable.propTypes = {
+  actionPrefix: PropTypes.string.isRequired,
+  reduxName: PropTypes.string.isRequired
+};
 
 export default PoharyTableContainer;

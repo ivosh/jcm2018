@@ -49,7 +49,7 @@ exports[`dva pohároví 1`] = `
       }
     >
       <PoharyTable
-        actionPrefix="POHARY"
+        actionPrefix="POHARY_PO_STARTU"
         canDrop={[MockFunction]}
         narokovaneFilter={false}
         neprevzateFilter={false}
@@ -132,7 +132,7 @@ exports[`dva pohároví 1`] = `
           ]
         }
         popisek="se na něj přihlásili"
-        reduxName="pohary"
+        reduxName="poharyPoStartu"
         textFilter=""
       >
         <div
@@ -259,7 +259,7 @@ exports[`dva pohároví 1`] = `
             </Zobrazeno>
           </div>
           <Connect(WithResponsiveComponent)
-            actionPrefix="POHARY"
+            actionPrefix="POHARY_PO_STARTU"
             canDrop={[MockFunction]}
             columns={
               Array [
@@ -394,11 +394,11 @@ exports[`dva pohároví 1`] = `
             }
             fixedColumnCount={3}
             onDrop={[MockFunction]}
-            reduxName="pohary"
+            reduxName="poharyPoStartu"
             rowHeight={35}
           >
             <WithResponsiveComponent
-              actionPrefix="POHARY"
+              actionPrefix="POHARY_PO_STARTU"
               canDrop={[MockFunction]}
               columns={
                 Array [
@@ -534,14 +534,14 @@ exports[`dva pohároví 1`] = `
               fixedColumnCount={3}
               onDrop={[MockFunction]}
               onSortDirChange={[Function]}
-              reduxName="pohary"
+              reduxName="poharyPoStartu"
               rowHeight={35}
             >
               <div
                 className="withResponsive"
               >
                 <UcastniciTable
-                  actionPrefix="POHARY"
+                  actionPrefix="POHARY_PO_STARTU"
                   canDrop={[MockFunction]}
                   columns={
                     Array [
@@ -679,11 +679,11 @@ exports[`dva pohároví 1`] = `
                   fixedColumnCount={3}
                   onDrop={[MockFunction]}
                   onSortDirChange={[Function]}
-                  reduxName="pohary"
+                  reduxName="poharyPoStartu"
                   rowHeight={35}
                 >
                   <ScrollSync
-                    actionPrefix="POHARY"
+                    actionPrefix="POHARY_PO_STARTU"
                     canDrop={[MockFunction]}
                     columns={
                       Array [
@@ -820,7 +820,7 @@ exports[`dva pohároví 1`] = `
                     }
                     fixedColumnCount={3}
                     onDrop={[MockFunction]}
-                    reduxName="pohary"
+                    reduxName="poharyPoStartu"
                     rowHeight={35}
                   >
                     <div
@@ -836,7 +836,7 @@ exports[`dva pohároví 1`] = `
                         }
                       >
                         <Grid
-                          actionPrefix="POHARY"
+                          actionPrefix="POHARY_PO_STARTU"
                           aria-label="grid"
                           aria-readonly={true}
                           autoContainerWidth={false}
@@ -997,7 +997,7 @@ exports[`dva pohároví 1`] = `
                           overscanColumnCount={0}
                           overscanIndicesGetter={[Function]}
                           overscanRowCount={10}
-                          reduxName="pohary"
+                          reduxName="poharyPoStartu"
                           role="grid"
                           rowCount={1}
                           rowHeight={35}
@@ -1137,7 +1137,7 @@ exports[`dva pohároví 1`] = `
                         }
                       >
                         <Grid
-                          actionPrefix="POHARY"
+                          actionPrefix="POHARY_PO_STARTU"
                           aria-label="grid"
                           aria-readonly={true}
                           autoContainerWidth={false}
@@ -1298,7 +1298,7 @@ exports[`dva pohároví 1`] = `
                           overscanColumnCount={0}
                           overscanIndicesGetter={[Function]}
                           overscanRowCount={5}
-                          reduxName="pohary"
+                          reduxName="poharyPoStartu"
                           role="grid"
                           rowCount={3}
                           rowHeight={35}
@@ -1529,7 +1529,7 @@ exports[`dva pohároví 1`] = `
                             }
                           >
                             <Grid
-                              actionPrefix="POHARY"
+                              actionPrefix="POHARY_PO_STARTU"
                               aria-label="grid"
                               aria-readonly={true}
                               autoContainerWidth={false}
@@ -1690,7 +1690,7 @@ exports[`dva pohároví 1`] = `
                               overscanColumnCount={0}
                               overscanIndicesGetter={[Function]}
                               overscanRowCount={10}
-                              reduxName="pohary"
+                              reduxName="poharyPoStartu"
                               role="grid"
                               rowCount={1}
                               rowHeight={35}
@@ -1856,7 +1856,7 @@ exports[`dva pohároví 1`] = `
                             }
                           >
                             <Grid
-                              actionPrefix="POHARY"
+                              actionPrefix="POHARY_PO_STARTU"
                               aria-label="grid"
                               aria-readonly={true}
                               autoContainerWidth={false}
@@ -2017,7 +2017,7 @@ exports[`dva pohároví 1`] = `
                               overscanColumnCount={0}
                               overscanIndicesGetter={[Function]}
                               overscanRowCount={5}
-                              reduxName="pohary"
+                              reduxName="poharyPoStartu"
                               role="grid"
                               rowCount={3}
                               rowHeight={35}
@@ -2487,7 +2487,7 @@ exports[`žádný pohár 1`] = `
       }
     >
       <PoharyTable
-        actionPrefix="POHARY"
+        actionPrefix="POHARY_PO_STARTU"
         canDrop={[MockFunction]}
         narokovaneFilter={false}
         neprevzateFilter={false}
@@ -2497,7 +2497,7 @@ exports[`žádný pohár 1`] = `
         onTextFilterChange={[MockFunction]}
         pohary={Array []}
         popisek="se na něj přihlásili"
-        reduxName="pohary"
+        reduxName="poharyPoStartu"
         textFilter=""
       >
         <div
@@ -2624,7 +2624,7 @@ exports[`žádný pohár 1`] = `
             </Zobrazeno>
           </div>
           <Connect(WithResponsiveComponent)
-            actionPrefix="POHARY"
+            actionPrefix="POHARY_PO_STARTU"
             canDrop={[MockFunction]}
             columns={
               Array [
@@ -2686,11 +2686,11 @@ exports[`žádný pohár 1`] = `
             data={Array []}
             fixedColumnCount={3}
             onDrop={[MockFunction]}
-            reduxName="pohary"
+            reduxName="poharyPoStartu"
             rowHeight={35}
           >
             <WithResponsiveComponent
-              actionPrefix="POHARY"
+              actionPrefix="POHARY_PO_STARTU"
               canDrop={[MockFunction]}
               columns={
                 Array [
@@ -2753,14 +2753,14 @@ exports[`žádný pohár 1`] = `
               fixedColumnCount={3}
               onDrop={[MockFunction]}
               onSortDirChange={[Function]}
-              reduxName="pohary"
+              reduxName="poharyPoStartu"
               rowHeight={35}
             >
               <div
                 className="withResponsive"
               >
                 <UcastniciTable
-                  actionPrefix="POHARY"
+                  actionPrefix="POHARY_PO_STARTU"
                   canDrop={[MockFunction]}
                   columns={
                     Array [
@@ -2825,11 +2825,11 @@ exports[`žádný pohár 1`] = `
                   fixedColumnCount={3}
                   onDrop={[MockFunction]}
                   onSortDirChange={[Function]}
-                  reduxName="pohary"
+                  reduxName="poharyPoStartu"
                   rowHeight={35}
                 >
                   <ScrollSync
-                    actionPrefix="POHARY"
+                    actionPrefix="POHARY_PO_STARTU"
                     canDrop={[MockFunction]}
                     columns={
                       Array [
@@ -2893,7 +2893,7 @@ exports[`žádný pohár 1`] = `
                     data={Array []}
                     fixedColumnCount={3}
                     onDrop={[MockFunction]}
-                    reduxName="pohary"
+                    reduxName="poharyPoStartu"
                     rowHeight={35}
                   >
                     <div
@@ -2909,7 +2909,7 @@ exports[`žádný pohár 1`] = `
                         }
                       >
                         <Grid
-                          actionPrefix="POHARY"
+                          actionPrefix="POHARY_PO_STARTU"
                           aria-label="grid"
                           aria-readonly={true}
                           autoContainerWidth={false}
@@ -2997,7 +2997,7 @@ exports[`žádný pohár 1`] = `
                           overscanColumnCount={0}
                           overscanIndicesGetter={[Function]}
                           overscanRowCount={10}
-                          reduxName="pohary"
+                          reduxName="poharyPoStartu"
                           role="grid"
                           rowCount={1}
                           rowHeight={35}
@@ -3137,7 +3137,7 @@ exports[`žádný pohár 1`] = `
                         }
                       >
                         <Grid
-                          actionPrefix="POHARY"
+                          actionPrefix="POHARY_PO_STARTU"
                           aria-label="grid"
                           aria-readonly={true}
                           autoContainerWidth={false}
@@ -3225,7 +3225,7 @@ exports[`žádný pohár 1`] = `
                           overscanColumnCount={0}
                           overscanIndicesGetter={[Function]}
                           overscanRowCount={5}
-                          reduxName="pohary"
+                          reduxName="poharyPoStartu"
                           role="grid"
                           rowCount={0}
                           rowHeight={35}
@@ -3274,7 +3274,7 @@ exports[`žádný pohár 1`] = `
                             }
                           >
                             <Grid
-                              actionPrefix="POHARY"
+                              actionPrefix="POHARY_PO_STARTU"
                               aria-label="grid"
                               aria-readonly={true}
                               autoContainerWidth={false}
@@ -3362,7 +3362,7 @@ exports[`žádný pohár 1`] = `
                               overscanColumnCount={0}
                               overscanIndicesGetter={[Function]}
                               overscanRowCount={10}
-                              reduxName="pohary"
+                              reduxName="poharyPoStartu"
                               role="grid"
                               rowCount={1}
                               rowHeight={35}
@@ -3528,7 +3528,7 @@ exports[`žádný pohár 1`] = `
                             }
                           >
                             <Grid
-                              actionPrefix="POHARY"
+                              actionPrefix="POHARY_PO_STARTU"
                               aria-label="grid"
                               aria-readonly={true}
                               autoContainerWidth={false}
@@ -3616,7 +3616,7 @@ exports[`žádný pohár 1`] = `
                               overscanColumnCount={0}
                               overscanIndicesGetter={[Function]}
                               overscanRowCount={5}
-                              reduxName="pohary"
+                              reduxName="poharyPoStartu"
                               role="grid"
                               rowCount={0}
                               rowHeight={35}

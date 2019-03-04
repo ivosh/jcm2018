@@ -1,99 +1,110 @@
+const PRED_STARTEM = 'před startem';
+const NA_STARTU = 'na startu';
+const PO_STARTU = 'po startu';
+
 const navs = {
   ucastnici: {
     key: '2.1',
     glyph: 'list',
-    menu: 'před startem',
+    menu: PRED_STARTEM,
     name: 'Účastníci',
     path: '/ucastnici'
   },
   prihlasky: {
     key: '2.2',
     glyph: 'edit',
-    menu: 'před startem',
+    menu: PRED_STARTEM,
     name: 'Přihlášky',
     path: '/prihlasky'
   },
   prihlaseni: {
     key: '2.3',
     glyph: 'list-alt',
-    menu: 'před startem',
+    menu: PRED_STARTEM,
     name: 'Přihlášeni',
     path: '/prihlaseni'
   },
   ubytovani: {
     key: '2.4',
     glyph: 'bed',
-    menu: 'před startem',
+    menu: PRED_STARTEM,
     name: 'Ubytovaní',
     path: '/ubytovani'
   },
-  pohar: {
+  poharyPredStartem: {
     key: '2.5',
     glyph: 'king',
-    menu: 'před startem',
+    menu: PRED_STARTEM,
     name: 'Poháry',
-    path: '/pohary'
+    path: '/pohary-pred-startem'
   },
   dohlasky: {
     key: '3.1',
     glyph: 'edit',
-    menu: 'na startu',
+    menu: NA_STARTU,
     name: 'Dohlášky',
     path: '/dohlasky'
   },
   dohlaseni: {
     key: '3.2',
     glyph: 'list-alt',
-    menu: 'na startu',
+    menu: NA_STARTU,
     name: 'Dohlášeni',
     path: '/dohlaseni'
   },
   startujici: {
     key: '3.3',
     glyph: 'road',
-    menu: 'na startu',
+    menu: NA_STARTU,
     name: 'Startující',
     path: '/startujici'
   },
   'startovni-cisla': {
     key: '4.1',
     glyph: 'sound-5-1',
-    menu: 'po startu',
+    menu: PO_STARTU,
     name: 'Startovní čísla',
     path: '/startovni-cisla'
   },
   stopky: {
     key: '4.2',
     glyph: 'random',
-    menu: 'po startu',
+    menu: PO_STARTU,
     name: 'Stopky',
     path: '/stopky'
   },
   casomira: {
     key: '4.3',
     glyph: 'time',
-    menu: 'po startu',
+    menu: PO_STARTU,
     name: 'Časomíra',
     path: '/casomira'
   },
   poradi: {
     key: '4.4',
     glyph: 'star',
-    menu: 'po startu',
+    menu: PO_STARTU,
     name: 'Pořadí',
     path: '/poradi'
   },
-  pokladna: {
+  poharyPoStartu: {
     key: '4.5',
+    glyph: 'king',
+    menu: PO_STARTU,
+    name: 'Poháry',
+    path: '/pohary-po-startu'
+  },
+  pokladna: {
+    key: '4.6',
     glyph: 'piggy-bank',
-    menu: 'po startu',
+    menu: PO_STARTU,
     name: 'Pokladna',
     path: '/pokladna'
   },
   vysledky: {
-    key: '4.6',
+    key: '4.7',
     glyph: 'flag',
-    menu: 'po startu',
+    menu: PO_STARTU,
     name: 'Výsledky',
     path: '/vysledky'
   },
@@ -115,7 +126,7 @@ export const navForRoute = ({ route }) =>
   Object.values(navs).find(nav => route.startsWith(nav.path));
 
 export const navMenus = [
-  { key: 1, glyph: 'edit', name: 'před startem' },
-  { key: 2, glyph: 'road', name: 'na startu' },
-  { key: 3, glyph: 'time', name: 'po startu' }
+  { key: 1, glyph: 'edit', name: PRED_STARTEM },
+  { key: 2, glyph: 'road', name: NA_STARTU },
+  { key: 3, glyph: 'time', name: PO_STARTU }
 ];

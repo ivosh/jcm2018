@@ -5,9 +5,9 @@ import { ActionPrefixes, ReduxNames } from '../../constants';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import PoharyTableContainer from './PoharyTableContainer';
 
-const actionPrefix = ActionPrefixes.POHARY;
+const actionPrefix = ActionPrefixes.POHARY_PRED_STARTEM;
 const mockStore = configureStore();
-const reduxName = ReduxNames.pohary;
+const reduxName = ReduxNames.poharyPredStartem;
 
 let store;
 let wrapper;
@@ -25,12 +25,15 @@ beforeEach(() => {
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
-  wrapper = shallow(<PoharyTableContainer store={store} />);
+  wrapper = shallow(
+    <PoharyTableContainer actionPrefix={actionPrefix} reduxName={reduxName} store={store} />
+  );
 });
 
 it('maps state and dispatch to props', () => {
   expect(wrapper.props().narokovaneFilter).toBe(true);
   expect(wrapper.props().neprevzateFilter).toBe(false);
+  expect(wrapper.props().popisek).toBeTruthy();
   expect(wrapper.props().textFilter).toEqual('');
   expect(wrapper.props().pohary).toBeTruthy();
   expect(wrapper.props().pohary).toMatchSnapshot();

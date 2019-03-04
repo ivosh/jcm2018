@@ -16,7 +16,8 @@ export const WEBSOCKET_REQUEST_TIMEOUT = 20 * 1000; // 20 seconds
 export const ActionPrefixes = {
   DOHLASENI: 'DOHLASENI',
   DOHLASKY: 'DOHLASKY',
-  POHARY: 'POHARY',
+  POHARY_PO_STARTU: 'POHARY_PO_STARTU',
+  POHARY_PRED_STARTEM: 'POHARY_PRED_STARTEM',
   PORADI: 'PORADI',
   PRIHLASENI: 'PRIHLASENI',
   PRIHLASKY: 'PRIHLASKY'
@@ -32,7 +33,8 @@ export const DragTypes = {
 export const ReduxNames = {
   dohlaseni: 'dohlaseni',
   dohlasky: 'dohlasky',
-  pohary: 'pohary',
+  poharyPoStartu: 'poharyPoStartu',
+  poharyPredStartem: 'poharyPredStartem',
   poradi: 'poradi',
   prihlaseni: 'prihlaseni',
   prihlasky: 'prihlasky'

@@ -13,7 +13,8 @@ import Dohlaseni from '../registrator/PrihlaseniDohlaseni/Dohlaseni';
 import Dohlasky from '../registrator/PrihlaskyDohlasky/Dohlasky';
 import ErrorInModalContainer from '../shared/ErrorInModal/ErrorInModalContainer';
 import Main from './Main';
-import PoharyTableContainer from '../registrator/Pohary/PoharyTableContainer';
+import PoharyPoStartu from '../registrator/Pohary/PoharyPoStartu';
+import PoharyPredStartem from '../registrator/Pohary/PoharyPredStartem';
 import PokladnaContainer from '../registrator/Pokladna/PokladnaContainer';
 import PoradiContainer from '../registrator/Poradi/PoradiContainer';
 import Prihlaseni from '../registrator/PrihlaseniDohlaseni/Prihlaseni';
@@ -134,7 +135,14 @@ class App extends PureComponent {
             />
             <AuthorizedRoute path="/dohlaseni" component={withFetchUcastnici(Dohlaseni)} />
             <AuthorizedRoute path="/dohlasky" component={withFetchUcastnici(Dohlasky)} />
-            <AuthorizedRoute path="/pohary" component={withFetchUcastnici(PoharyTableContainer)} />
+            <AuthorizedRoute
+              path="/pohary-po-startu"
+              component={withFetchUcastnici(PoharyPoStartu)}
+            />
+            <AuthorizedRoute
+              path="/pohary-pred-startem"
+              component={withFetchUcastnici(PoharyPredStartem)}
+            />
             <AuthorizedRoute path="/pokladna" component={withFetchUcastnici(PokladnaContainer)} />
             <AuthorizedRoute path="/poradi" component={withFetchUcastnici(PoradiContainer)} />
             <AuthorizedRoute path="/prihlaseni" component={withFetchUcastnici(Prihlaseni)} />

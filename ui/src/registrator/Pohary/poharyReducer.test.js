@@ -5,13 +5,17 @@ import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { createTextFilterChange } from '../Filterable/FilterableActions';
 import { createSortDirChange } from '../UcastniciTable/UcastniciTableActions';
 import {
-  narokovanePrihlaskouFilterChange,
-  narokovaneStartemFilterChange,
-  neprevzateFilterChange
+  createNarokovanePrihlaskouFilterChange,
+  createNarokovaneStartemFilterChange,
+  createNeprevzateFilterChange
 } from './PoharyActions';
-import poharyReducer, { getPoharySorted } from './poharyReducer';
+import { createPoharyReducer, getPoharySorted } from './poharyReducer';
 
 const actionPrefix = ActionPrefixes.POHARY;
+const narokovanePrihlaskouFilterChange = createNarokovanePrihlaskouFilterChange(actionPrefix);
+const narokovaneStartemFilterChange = createNarokovaneStartemFilterChange(actionPrefix);
+const neprevzateFilterChange = createNeprevzateFilterChange(actionPrefix);
+const poharyReducer = createPoharyReducer(actionPrefix);
 const reduxName = ReduxNames.pohary;
 const sortDirChange = createSortDirChange(actionPrefix);
 const textFilterChange = createTextFilterChange(actionPrefix);

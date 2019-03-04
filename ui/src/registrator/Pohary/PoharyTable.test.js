@@ -7,9 +7,9 @@ import configureStore from 'redux-mock-store';
 import { ActionPrefixes, ReduxNames } from '../../constants';
 import PoharyTable from './PoharyTable';
 
-const actionPrefix = ActionPrefixes.POHARY;
+const actionPrefix = ActionPrefixes.POHARY_PO_STARTU;
 const mockStore = configureStore();
-const reduxName = ReduxNames.pohary;
+const reduxName = ReduxNames.poharyPoStartu;
 
 const state = { registrator: { [reduxName]: {} } };
 const store = mockStore(state);

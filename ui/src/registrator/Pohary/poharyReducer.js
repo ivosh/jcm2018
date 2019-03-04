@@ -1,5 +1,5 @@
 import { UCASTI_NA_POHAR } from '../../common';
-import { AKTUALNI_ROK, ActionPrefixes } from '../../constants';
+import { AKTUALNI_ROK } from '../../constants';
 import { sortForColumn } from '../../sort';
 import {
   createFilterableReducer,
@@ -21,26 +21,26 @@ export const initialState = {
   ...ucastniciTableInitialState
 };
 
-const actionPrefix = ActionPrefixes.POHARY;
-const filterableReducer = createFilterableReducer(actionPrefix);
-const ucastniciTableReducer = createUcastniciTableReducer(actionPrefix);
-const poharyReducer = (state = initialState, action) => {
-  state = filterableReducer(state, action); // eslint-disable-line no-param-reassign
-  state = ucastniciTableReducer(state, action); // eslint-disable-line no-param-reassign
+export const createPoharyReducer = actionPrefix => {
+  const filterableReducer = createFilterableReducer(actionPrefix);
+  const ucastniciTableReducer = createUcastniciTableReducer(actionPrefix);
 
-  switch (action.type) {
-    case `${actionPrefix}_NAROKOVANE_PRIHLASKOU_FILTER_CHANGE`:
-      return { ...state, narokovanePrihlaskouFilter: !state.narokovanePrihlaskouFilter };
-    case `${actionPrefix}_NAROKOVANE_STARTEM_FILTER_CHANGE`:
-      return { ...state, narokovaneStartemFilter: !state.narokovaneStartemFilter };
-    case `${actionPrefix}_NEPREVZATE_FILTER_CHANGE`:
-      return { ...state, neprevzateFilter: !state.neprevzateFilter };
-    default:
-      return state;
-  }
+  return (state = initialState, action) => {
+    state = filterableReducer(state, action); // eslint-disable-line no-param-reassign
+    state = ucastniciTableReducer(state, action); // eslint-disable-line no-param-reassign
+
+    switch (action.type) {
+      case `${actionPrefix}_NAROKOVANE_PRIHLASKOU_FILTER_CHANGE`:
+        return { ...state, narokovanePrihlaskouFilter: !state.narokovanePrihlaskouFilter };
+      case `${actionPrefix}_NAROKOVANE_STARTEM_FILTER_CHANGE`:
+        return { ...state, narokovaneStartemFilter: !state.narokovaneStartemFilter };
+      case `${actionPrefix}_NEPREVZATE_FILTER_CHANGE`:
+        return { ...state, neprevzateFilter: !state.neprevzateFilter };
+      default:
+        return state;
+    }
+  };
 };
-
-export default poharyReducer;
 
 function ucastnikUnion(arr1, arr2) {
   const union = arr1.concat(arr2);

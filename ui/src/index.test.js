@@ -27,8 +27,9 @@ const store = mockStore({
   fetchingStopky: 'done',
   fetchingUcastnici: 'done',
   registrator: {
-    pohary: {
-      narokovaneFilter: false,
+    [ReduxNames.poharyPredStartem]: {
+      narokovanePrihlaskouFilter: false,
+      narokovaneStartemFilter: false,
       neprevzateFilter: false,
       textFilter: ''
     },

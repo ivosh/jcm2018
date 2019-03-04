@@ -1,5 +1,4 @@
 import { API_POHAR_PREDAN } from '../../common';
-import { ActionPrefixes } from '../../constants';
 import { WS_API } from '../../store/wsAPI';
 
 export const POHAR_NAROK = 'nárok';
@@ -7,14 +6,15 @@ export const POHAR_NEPREVZATO = 'nepřevzato';
 export const POHAR_PREDANO = 'předáno';
 export const TYPY_POHARU = [POHAR_NAROK, POHAR_NEPREVZATO, POHAR_PREDANO];
 
-const actionPrefix = ActionPrefixes.POHARY;
-export const narokovanePrihlaskouFilterChange = () => ({
+export const createNarokovanePrihlaskouFilterChange = actionPrefix => () => ({
   type: `${actionPrefix}_NAROKOVANE_PRIHLASKOU_FILTER_CHANGE`
 });
-export const narokovaneStartemFilterChange = () => ({
+export const createNarokovaneStartemFilterChange = actionPrefix => () => ({
   type: `${actionPrefix}_NAROKOVANE_STARTEM_FILTER_CHANGE`
 });
-export const neprevzateFilterChange = () => ({ type: `${actionPrefix}_NEPREVZATE_FILTER_CHANGE` });
+export const createNeprevzateFilterChange = actionPrefix => () => ({
+  type: `${actionPrefix}_NEPREVZATE_FILTER_CHANGE`
+});
 
 // :TODO: API podporuje jen nepřevzato -> předáno. Je třeba dodělat i předáno -> nepřevzato.
 export const isTypeDraggable = type => type === POHAR_NEPREVZATO;

@@ -7,8 +7,10 @@ import { ActionPrefixes, ReduxNames } from '../../constants';
 import { wrapInDnDTestContext } from '../../testing';
 import PoharyTable from './PoharyTable';
 
+const actionPrefix = ActionPrefixes.POHARY_PO_STARTU;
 const mockStore = configureStore();
-const state = { registrator: { pohary: {} } };
+const reduxName = ReduxNames.poharyPoStartu;
+const state = { registrator: { [reduxName]: {} } };
 const store = mockStore(state);
 store.dispatch = jest.fn();
 
@@ -40,12 +42,12 @@ it('can simulate a full drag and drop interaction', () => {
     <Provider store={store}>
       <MemoryRouter>
         <PoharyTableDnD
-          actionPrefix={ActionPrefixes.POHARY}
+          actionPrefix={actionPrefix}
           narokovaneFilter={false}
           neprevzateFilter={false}
           pohary={pohary}
           popisek="se na něj přihlásili"
-          reduxName={ReduxNames.pohary}
+          reduxName={reduxName}
           textFilter=""
           canDrop={jest.fn()}
           onDrop={jest.fn()}
