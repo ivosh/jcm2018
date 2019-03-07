@@ -33,11 +33,14 @@ export const canDrop = ({ source, destination }) => {
   return source.type !== destination.type;
 };
 
+const normalize = ({ request }) => ({ request, response: {} });
+
 export const POHAR_PREDAN = 'POHAR_PREDAN';
 export const poharPredan = ({ id }) => ({
   [WS_API]: {
     type: POHAR_PREDAN,
     endpoint: API_POHAR_PREDAN,
+    normalize,
     request: { id },
     title: 'předávání poháru'
   }
