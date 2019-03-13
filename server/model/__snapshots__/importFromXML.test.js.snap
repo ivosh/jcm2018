@@ -568,6 +568,7 @@ Array [
             "typ": "hotově",
           },
         ],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2015-06-13T00:00:00.000Z,
           "kategorie": Object {
@@ -612,7 +613,12 @@ Array [
             "typ": "hotově",
           },
         ],
-        "poznamka": "pravděpodobně poslední běh",
+        "poznamky": Array [
+          Object {
+            "datum": 2015-06-13T00:00:00.000Z,
+            "text": "pravděpodobně poslední běh",
+          },
+        ],
         "prihlaska": Object {
           "datum": 2015-03-02T00:00:00.000Z,
           "kategorie": Object {
@@ -3853,6 +3859,7 @@ Array [
             "typ": "hotově",
           },
         ],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2003-06-07T00:00:00.000Z,
           "kategorie": Object {
@@ -3897,6 +3904,7 @@ Array [
             "typ": "hotově",
           },
         ],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2004-06-05T00:00:00.000Z,
           "kategorie": Object {
@@ -3949,6 +3957,7 @@ Array [
             "typ": "hotově",
           },
         ],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2005-06-04T00:00:00.000Z,
           "kategorie": Object {
@@ -4010,6 +4019,7 @@ Array [
             "typ": "hotově",
           },
         ],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2008-04-01T00:00:00.000Z,
           "kategorie": Object {
@@ -4071,6 +4081,7 @@ Array [
             "typ": "hotově",
           },
         ],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2013-06-04T00:00:00.000Z,
           "kategorie": Object {
@@ -4117,6 +4128,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2014-06-09T00:00:00.000Z,
           "kategorie": Object {
@@ -4155,7 +4167,12 @@ Array [
             "typ": "hotově",
           },
         ],
-        "poznamka": "pravděpodobně poslední běh",
+        "poznamky": Array [
+          Object {
+            "datum": 2015-06-13T00:00:00.000Z,
+            "text": "pravděpodobně poslední běh",
+          },
+        ],
         "prihlaska": Object {
           "datum": 2015-03-02T00:00:00.000Z,
           "kategorie": Object {

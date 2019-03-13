@@ -21,6 +21,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "rok": 2018,
         "ubytovani": Object {},
         "udaje": Object {
@@ -53,6 +54,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "rok": 2016,
         "udaje": Object {
           "jmeno": "František",
@@ -91,6 +93,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "rok": 2018,
         "udaje": Object {
           "jmeno": "František",
@@ -122,6 +125,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "rok": 2017,
         "ubytovani": Object {
           "pátek": Object {
@@ -163,6 +167,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "rok": 2018,
         "ubytovani": Object {
           "pátek": Object {

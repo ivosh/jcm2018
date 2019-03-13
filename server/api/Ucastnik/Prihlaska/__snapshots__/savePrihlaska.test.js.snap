@@ -35,6 +35,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2018-05-03T00:00:00.000Z,
           "kategorie": Object {
@@ -63,6 +64,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2017-04-01T00:00:00.000Z,
           "kategorie": Object {
@@ -91,6 +93,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2016-05-03T00:00:00.000Z,
           "kategorie": Object {
@@ -119,6 +122,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2015-05-03T00:00:00.000Z,
           "kategorie": Object {
@@ -171,6 +175,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2018-02-07T00:00:00.000Z,
           "kategorie": Object {
@@ -221,6 +226,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2018-05-03T00:00:00.000Z,
           "kategorie": Object {
@@ -256,6 +262,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2018-02-07T00:00:00.000Z,
           "kategorie": Object {
@@ -285,6 +292,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2017-04-02T00:00:00.000Z,
           "kategorie": Object {
@@ -319,6 +327,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2018-02-07T00:00:00.000Z,
           "kategorie": Object {
@@ -350,6 +359,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2019-01-15T00:00:00.000Z,
           "kategorie": Object {
@@ -398,6 +408,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2018-05-03T00:00:00.000Z,
           "kategorie": Object {
@@ -433,6 +444,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2018-02-07T00:00:00.000Z,
           "kategorie": Object {
@@ -462,6 +474,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2017-04-02T00:00:00.000Z,
           "kategorie": Object {
@@ -496,6 +509,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2018-02-07T00:00:00.000Z,
           "kategorie": Object {
@@ -527,6 +541,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2019-01-15T00:00:00.000Z,
           "kategorie": Object {
@@ -575,6 +590,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2018-05-03T00:00:00.000Z,
           "kategorie": Object {
@@ -610,6 +626,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2018-02-07T00:00:00.000Z,
           "kategorie": Object {
@@ -639,6 +656,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2017-04-02T00:00:00.000Z,
           "kategorie": Object {
@@ -668,6 +686,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2018-12-25T00:00:00.000Z,
           "kategorie": Object {
@@ -701,6 +720,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2018-02-07T00:00:00.000Z,
           "kategorie": Object {
@@ -732,6 +752,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2019-01-15T00:00:00.000Z,
           "kategorie": Object {
@@ -780,6 +801,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2018-05-03T00:00:00.000Z,
           "kategorie": Object {
@@ -815,6 +837,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2018-02-07T00:00:00.000Z,
           "kategorie": Object {
@@ -844,6 +867,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2017-04-02T00:00:00.000Z,
           "kategorie": Object {
@@ -878,6 +902,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2018-02-07T00:00:00.000Z,
           "kategorie": Object {
@@ -909,6 +934,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2019-01-15T00:00:00.000Z,
           "kategorie": Object {
@@ -984,6 +1010,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2017-05-03T00:00:00.000Z,
           "kategorie": Object {
@@ -1015,6 +1042,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2018-02-07T00:00:00.000Z,
           "kategorie": Object {
@@ -1062,6 +1090,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2018-02-07T00:00:00.000Z,
           "kategorie": Object {

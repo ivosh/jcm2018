@@ -28,6 +28,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "rok": 2018,
         "udaje": Object {
           "jmeno": "Božena",

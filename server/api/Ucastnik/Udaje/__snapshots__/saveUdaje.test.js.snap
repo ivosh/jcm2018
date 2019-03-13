@@ -16,6 +16,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "rok": 2018,
         "udaje": Object {
           "jmeno": "Božena",
@@ -31,6 +32,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "rok": 2017,
         "udaje": Object {
           "jmeno": "Božena",
@@ -46,6 +48,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "rok": 2016,
         "udaje": Object {
           "jmeno": "Božena",
@@ -61,6 +64,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "rok": 2015,
         "udaje": Object {
           "jmeno": "Božena",
@@ -102,6 +106,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "rok": 2017,
         "udaje": Object {
           "jmeno": "Božena",
@@ -117,6 +122,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "rok": 2018,
         "udaje": Object {
           "jmeno": "Božena",
@@ -151,6 +157,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "rok": 2018,
         "udaje": Object {
           "jmeno": "František",

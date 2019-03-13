@@ -69,7 +69,7 @@ it('přihlaš účastníka', async () => {
       kategorie: kategorie.id,
       startCislo: 44
     },
-    poznamka: 'první přihlášená'
+    poznamky: [{ datum: '2017-11-19', text: 'první přihlášená' }]
   };
 
   const ucastnik = new Ucastnik();

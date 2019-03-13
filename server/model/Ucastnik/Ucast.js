@@ -5,6 +5,7 @@ const UdajeSchema = require('./Udaje');
 const PrihlaskaSchema = require('./Prihlaska');
 const VykonSchema = require('./Vykon');
 const PlatbaSchema = require('./Platba');
+const PoznamkaSchema = require('./Poznamka');
 const UbytovaniSchema = require('./Ubytovani');
 
 const UcastSchema = new mongoose.Schema(
@@ -18,7 +19,7 @@ const UcastSchema = new mongoose.Schema(
       pátek: { type: UbytovaniSchema },
       sobota: { type: UbytovaniSchema }
     },
-    poznamka: { type: String }
+    poznamky: { type: [PoznamkaSchema], default: null }
   },
   { _id: false, bufferCommands: false }
 );

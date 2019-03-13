@@ -22,6 +22,7 @@ const API_MODIFY_STOPKY = 'modifyStopky';
 const API_MODIFY_UBYTOVANI = 'modifyUbytovani';
 const API_POHAR_PREDAN = 'poharPredan';
 const API_SAVE_PLATBY = 'savePlatby';
+const API_SAVE_POZNAMKY = 'savePoznamky';
 const API_SAVE_PRIHLASKA = 'savePrihlaska';
 const API_SAVE_UBYTOVANI = 'saveUbytovani';
 const API_SAVE_UCAST = 'saveUcast';
@@ -216,6 +217,7 @@ module.exports = {
   API_POHAR_PREDAN,
   API_SAVE_PLATBY,
   API_SAVE_PRIHLASKA,
+  API_SAVE_POZNAMKY,
   API_SAVE_UBYTOVANI,
   API_SAVE_UCAST,
   API_SAVE_UDAJE,

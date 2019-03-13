@@ -343,7 +343,7 @@ const processZajem = async (rocniky, zajem, udaje) => {
 
   if (zajem.poznamka) {
     const [poznamka] = zajem.poznamka;
-    ucast.poznamka = poznamka;
+    ucast.poznamky = [{ datum: rocniky[rok].datum, text: poznamka }];
   }
 
   return ucast;

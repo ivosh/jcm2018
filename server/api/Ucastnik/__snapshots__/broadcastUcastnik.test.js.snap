@@ -6,6 +6,7 @@ Object {
   "data": Object {
     "2017": Object {
       "platby": Array [],
+      "poznamky": Array [],
       "udaje": Object {
         "jmeno": "Roman",
         "narozeni": Object {
@@ -25,6 +26,7 @@ Object {
     },
     "2018": Object {
       "platby": Array [],
+      "poznamky": Array [],
       "udaje": Object {
         "jmeno": "Roman",
         "narozeni": Object {

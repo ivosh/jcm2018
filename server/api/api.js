@@ -10,6 +10,7 @@ const {
   API_MODIFY_UBYTOVANI,
   API_POHAR_PREDAN,
   API_SAVE_PLATBY,
+  API_SAVE_POZNAMKY,
   API_SAVE_PRIHLASKA,
   API_SAVE_UBYTOVANI,
   API_SAVE_UCAST,
@@ -37,6 +38,7 @@ const modifyStopky = require('./Stopky/modifyStopky');
 const modifyUbytovani = require('./Ucastnik/Ubytovani/modifyUbytovani');
 const poharPredan = require('./Ucastnik/Pohar/poharPredan');
 const savePlatby = require('./Ucastnik/Platby/savePlatby');
+const savePoznamky = require('./Ucastnik/Poznamky/savePoznamky');
 const savePrihlaska = require('./Ucastnik/Prihlaska/savePrihlaska');
 const saveUbytovani = require('./Ucastnik/Ubytovani/saveUbytovani');
 const saveUcast = require('./Ucastnik/Ucast/saveUcast');
@@ -111,6 +113,12 @@ const processRequest = async ({ action = '', request, requestId, token, connecti
       authRequired: true,
       dbRequired: true,
       action: async req => savePlatby(req)
+    },
+    [API_SAVE_POZNAMKY]: {
+      apiReadOnly: false,
+      authRequired: true,
+      dbRequired: true,
+      action: async req => savePoznamky(req)
     },
     [API_SAVE_PRIHLASKA]: {
       apiReadOnly: false,

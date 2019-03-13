@@ -42,6 +42,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2018-05-03T00:00:00.000Z,
           "kategorie": Object {
@@ -77,6 +78,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2018-02-07T00:00:00.000Z,
           "kategorie": Object {

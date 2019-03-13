@@ -5,25 +5,35 @@ const logger = require('../../../logger');
 const findAllRocniky = require('../../Rocnik/findAllRocniky');
 const createUcast = require('../Ucast/createUcast');
 const broadcastUcastnik = require('../broadcastUcastnik');
-const updateUdaje = require('../Udaje/updateUdaje');
-const updatePrihlaska = require('../Prihlaska/updatePrihlaska');
-const updateVykon = require('../Vykon/updateVykon');
 const updatePlatby = require('../Platby/updatePlatby');
+const updatePoznamky = require('../Poznamky/updatePoznamky');
+const updatePrihlaska = require('../Prihlaska/updatePrihlaska');
 const updateUbytovani = require('../Ubytovani/updateUbytovani');
-const validateUdaje = require('../Udaje/validateUdaje');
-const validatePrihlaska = require('../Prihlaska/validatePrihlaska');
-const validateVykon = require('../Vykon/validateVykon');
+const updateUdaje = require('../Udaje/updateUdaje');
+const updateVykon = require('../Vykon/updateVykon');
 const validatePlatby = require('../Platby/validatePlatby');
+const validatePoznamky = require('../Poznamky/validatePoznamky');
+const validatePrihlaska = require('../Prihlaska/validatePrihlaska');
 const validateUbytovani = require('../Ubytovani/validateUbytovani');
+const validateUdaje = require('../Udaje/validateUdaje');
+const validateVykon = require('../Vykon/validateVykon');
 
 const validates = [
   validateUdaje,
   validatePrihlaska,
   validateVykon,
   validatePlatby,
-  validateUbytovani
+  validateUbytovani,
+  validatePoznamky
 ];
-const updates = [updateUdaje, updatePrihlaska, updateVykon, updatePlatby, updateUbytovani];
+const updates = [
+  updateUdaje,
+  updatePrihlaska,
+  updateVykon,
+  updatePlatby,
+  updateUbytovani,
+  updatePoznamky
+];
 
 const saveUcast = async ({ request }) => {
   const { id, rok } = request;

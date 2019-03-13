@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`saveVykon [not authenticated] 1`] = `
+exports[`savePoznamky [not authenticated] 1`] = `
 Object {
   "code": "authentication token invalid",
   "status": "Špatný ověřovací token. Zkus se přihlásit znovu. Detaily: JsonWebTokenError: jwt must be provided",
@@ -17,27 +17,30 @@ Object {
 exports[`vytvoř minimálního účastníka 2`] = `
 Array [
   Object {
-    "__v": 0,
+    "__v": 1,
     "ucasti": Array [
       Object {
         "platby": Array [],
-        "poznamky": Array [],
+        "poznamky": Array [
+          Object {
+            "datum": 2018-02-07T00:00:00.000Z,
+            "text": "první přihlášený",
+          },
+          Object {
+            "datum": 2018-06-08T00:00:00.000Z,
+            "text": "možná se odhlásí",
+          },
+        ],
         "rok": 2018,
         "udaje": Object {
-          "jmeno": "Božena",
+          "jmeno": "František",
           "narozeni": Object {
-            "rok": 1973,
+            "rok": 1953,
           },
-          "obec": "Kladno",
-          "pohlavi": "žena",
-          "prijmeni": "Sukdoláková",
+          "obec": "Ostrava 1",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
           "stat": "Česká republika",
-        },
-        "vykon": Object {
-          "cas": "T3:24:15.048S",
-          "dokonceno": true,
-          "kategorie": "===id===",
-          "startCislo": 15,
         },
       },
     ],
@@ -45,11 +48,9 @@ Array [
 ]
 `;
 
-exports[`výkon bez účastníka 1`] = `
+exports[`účastník neexistuje 1`] = `
 Object {
   "code": "neexistuje",
-  "status": "Účastník s id ==bogus== neexistuje. Detaily: CastError: Cast to ObjectId failed for value \\"==bogus==\\" at path \\"_id\\" for model \\"Ucastnik\\"",
+  "status": "Účastník s id 41224d776a326fb40f000001 neexistuje.",
 }
 `;
-
-exports[`výkon bez účastníka 2`] = `Array []`;

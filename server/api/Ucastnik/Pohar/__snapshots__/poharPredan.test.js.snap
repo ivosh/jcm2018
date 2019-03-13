@@ -14,6 +14,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2009-09-09T00:00:00.000Z,
           "kategorie": Object {
@@ -56,6 +57,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2009-09-09T00:00:00.000Z,
           "kategorie": Object {
@@ -98,6 +100,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2009-09-09T00:00:00.000Z,
           "kategorie": Object {
@@ -140,6 +143,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2009-09-09T00:00:00.000Z,
           "kategorie": Object {
@@ -182,6 +186,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2009-09-09T00:00:00.000Z,
           "kategorie": Object {
@@ -231,6 +236,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2009-09-09T00:00:00.000Z,
           "kategorie": Object {
@@ -273,6 +279,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2009-09-09T00:00:00.000Z,
           "kategorie": Object {
@@ -315,6 +322,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2009-09-09T00:00:00.000Z,
           "kategorie": Object {
@@ -357,6 +365,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2009-09-09T00:00:00.000Z,
           "kategorie": Object {
@@ -399,6 +408,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2009-09-09T00:00:00.000Z,
           "kategorie": Object {
@@ -441,6 +451,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2009-09-09T00:00:00.000Z,
           "kategorie": Object {
@@ -487,6 +498,7 @@ Array [
     "ucasti": Array [
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2009-09-09T00:00:00.000Z,
           "kategorie": Object {
@@ -529,6 +541,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2009-09-09T00:00:00.000Z,
           "kategorie": Object {
@@ -571,6 +584,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2009-09-09T00:00:00.000Z,
           "kategorie": Object {
@@ -613,6 +627,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2009-09-09T00:00:00.000Z,
           "kategorie": Object {
@@ -655,6 +670,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2009-09-09T00:00:00.000Z,
           "kategorie": Object {
@@ -697,6 +713,7 @@ Array [
       },
       Object {
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": 2009-09-09T00:00:00.000Z,
           "kategorie": Object {
