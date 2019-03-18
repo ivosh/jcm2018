@@ -100,7 +100,7 @@ const PrihlaseniDohlaseni = ({
       cellDataFormatter: zaplacenoFormat,
       key: 'zaplaceno',
       sortable: true,
-      width: 100
+      width: 120
     }
   ];
 

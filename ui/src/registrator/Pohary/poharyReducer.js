@@ -1,6 +1,6 @@
 import { UCASTI_NA_POHAR } from '../../common';
 import { AKTUALNI_ROK } from '../../constants';
-import { sortForColumn } from '../../sort';
+import { numberAndUndefinedSortMethod, SortDirTypes, sortForColumn } from '../../sort';
 import {
   createFilterableReducer,
   initialState as filterableInitialState
@@ -136,5 +136,19 @@ export const getPoharySorted = ({
     );
   }
 
-  return sortForColumn({ data: filteredData, sortColumn, sortDir });
+  const desc = sortDir === SortDirTypes.DESC;
+  const extraSortMethods = {
+    narok: (a, b) =>
+      numberAndUndefinedSortMethod(
+        a.pohary.narokPrihlaskou || a.pohary.narokStartem ? 1 : 0,
+        b.pohary.narokPrihlaskou || b.pohary.narokStartem ? 1 : 0
+      ),
+    neprevzato: (a, b) =>
+      numberAndUndefinedSortMethod(a.pohary.neprevzato, b.pohary.neprevzato, desc),
+    predano: (a, b) => numberAndUndefinedSortMethod(a.pohary.predano, b.pohary.predano, desc),
+    ucasti: (a, b) =>
+      numberAndUndefinedSortMethod(a.ucasti.dokoncene.length, b.ucasti.dokoncene.length, desc)
+  };
+
+  return sortForColumn({ data: filteredData, sortColumn, sortDir, extraSortMethods });
 };

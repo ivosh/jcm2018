@@ -145,23 +145,24 @@ export const dokoncenoCasSortMethod = (a, b, desc = false) => {
   return casSortMethod(a.cas, b.cas, desc);
 };
 
-export const sortForColumn = ({ data, sortColumn, sortDir }) => {
+export const sortForColumn = ({ data, sortColumn, sortDir, extraSortMethods = {} }) => {
   const desc = sortDir === SortDirTypes.DESC;
 
   const sortMethods = {
-    prijmeni: (a, b) => csStringSortMethod(a.prijmeni, b.prijmeni),
+    absPoradi: (a, b) => numberAndUndefinedSortMethod(a.absPoradi, b.absPoradi, desc),
+    cas: (a, b) => casSortMethod(a.cas, b.cas, desc),
+    datum: (a, b) => datumSortMethod(a.datum, b.datum),
+    dokonceno: (a, b) => dokoncenoSortMethod(a.dokonceno, b.dokonceno),
+    email: (a, b) => csStringSortMethod(a.email, b.email),
     jmeno: (a, b) => csStringSortMethod(a.jmeno, b.jmeno),
+    kategorie: (a, b) => kategorieSortMethod(a.kategorie, b.kategorie),
     narozeni: (a, b) => narozeniSortMethod(a.narozeni, b.narozeni, desc),
     obec: (a, b) => csStringSortMethod(a.obec, b.obec),
-    email: (a, b) => csStringSortMethod(a.email, b.email),
-    datum: (a, b) => datumSortMethod(a.datum, b.datum),
-    kategorie: (a, b) => kategorieSortMethod(a.kategorie, b.kategorie),
+    prijmeni: (a, b) => csStringSortMethod(a.prijmeni, b.prijmeni),
+    relPoradi: (a, b) => numberAndUndefinedSortMethod(a.relPoradi, b.relPoradi, desc),
     startCislo: (a, b) => numberAndUndefinedSortMethod(a.startCislo, b.startCislo, desc),
     zaplaceno: (a, b) => a.zaplaceno - b.zaplaceno,
-    dokonceno: (a, b) => dokoncenoSortMethod(a.dokonceno, b.dokonceno),
-    cas: (a, b) => casSortMethod(a.cas, b.cas, desc),
-    absPoradi: (a, b) => numberAndUndefinedSortMethod(a.absPoradi, b.absPoradi, desc),
-    relPoradi: (a, b) => numberAndUndefinedSortMethod(a.relPoradi, b.relPoradi, desc)
+    ...extraSortMethods
   };
 
   const sortMethod = sortMethods[sortColumn] || prijmeniJmenoNarozeniSortMethod;

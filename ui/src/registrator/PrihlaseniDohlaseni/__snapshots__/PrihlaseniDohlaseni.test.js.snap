@@ -461,7 +461,7 @@ exports[`dva přihlášení 1`] = `
             style={
               Object {
                 "height": 35,
-                "width": 910,
+                "width": 930,
               }
             }
           >
@@ -480,7 +480,7 @@ exports[`dva přihlášení 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 1200,
+                  "width": 1220,
                   "willChange": "transform",
                 }
               }
@@ -493,11 +493,11 @@ exports[`dva přihlášení 1`] = `
                   Object {
                     "height": 35,
                     "maxHeight": 35,
-                    "maxWidth": 1200,
+                    "maxWidth": 1220,
                     "overflow": "hidden",
                     "pointerEvents": "",
                     "position": "relative",
-                    "width": 1200,
+                    "width": 1220,
                   }
                 }
               >
@@ -628,7 +628,7 @@ exports[`dva přihlášení 1`] = `
                       "left": 1100,
                       "position": "absolute",
                       "top": 0,
-                      "width": 100,
+                      "width": 120,
                     }
                   }
                 >
@@ -648,7 +648,7 @@ exports[`dva přihlášení 1`] = `
             style={
               Object {
                 "height": 70,
-                "width": 1200,
+                "width": 1220,
               }
             }
           >
@@ -667,7 +667,7 @@ exports[`dva přihlášení 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 1200,
+                  "width": 1220,
                   "willChange": "transform",
                 }
               }
@@ -680,11 +680,11 @@ exports[`dva přihlášení 1`] = `
                   Object {
                     "height": 70,
                     "maxHeight": 70,
-                    "maxWidth": 1200,
+                    "maxWidth": 1220,
                     "overflow": "hidden",
                     "pointerEvents": "",
                     "position": "relative",
-                    "width": 1200,
+                    "width": 1220,
                   }
                 }
               >
@@ -799,7 +799,7 @@ exports[`dva přihlášení 1`] = `
                       "left": 1100,
                       "position": "absolute",
                       "top": 0,
-                      "width": 100,
+                      "width": 120,
                     }
                   }
                 >
@@ -916,7 +916,7 @@ exports[`dva přihlášení 1`] = `
                       "left": 1100,
                       "position": "absolute",
                       "top": 35,
-                      "width": 100,
+                      "width": 120,
                     }
                   }
                 >
@@ -1282,7 +1282,7 @@ exports[`žádný přihlášený 1`] = `
             style={
               Object {
                 "height": 35,
-                "width": 910,
+                "width": 930,
               }
             }
           >
@@ -1301,7 +1301,7 @@ exports[`žádný přihlášený 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 1200,
+                  "width": 1220,
                   "willChange": "transform",
                 }
               }
@@ -1314,11 +1314,11 @@ exports[`žádný přihlášený 1`] = `
                   Object {
                     "height": 35,
                     "maxHeight": 35,
-                    "maxWidth": 1200,
+                    "maxWidth": 1220,
                     "overflow": "hidden",
                     "pointerEvents": "",
                     "position": "relative",
-                    "width": 1200,
+                    "width": 1220,
                   }
                 }
               >
@@ -1449,7 +1449,7 @@ exports[`žádný přihlášený 1`] = `
                       "left": 1100,
                       "position": "absolute",
                       "top": 0,
-                      "width": 100,
+                      "width": 120,
                     }
                   }
                 >
@@ -1469,7 +1469,7 @@ exports[`žádný přihlášený 1`] = `
             style={
               Object {
                 "height": 0,
-                "width": 1200,
+                "width": 1220,
               }
             }
           >
@@ -1488,7 +1488,7 @@ exports[`žádný přihlášený 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 1200,
+                  "width": 1220,
                   "willChange": "transform",
                 }
               }

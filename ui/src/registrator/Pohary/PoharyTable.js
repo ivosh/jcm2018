@@ -56,10 +56,13 @@ const ucastiRenderer = args => {
   const className = dokoncene.length > 0 ? `${args.className} AnimatedTooltip` : args.className;
 
   let roky = '';
-  while (dokoncene.length > 0) {
-    roky += dokoncene.splice(0, ROKU_NA_RADKU).join(' | ');
-    if (dokoncene.length > 0) {
-      roky += '\n';
+  if (dokoncene.length > 0) {
+    roky = 'dokončené maratonské účasti:\n';
+    while (dokoncene.length > 0) {
+      roky += dokoncene.splice(0, ROKU_NA_RADKU).join(' | ');
+      if (dokoncene.length > 0) {
+        roky += '\n';
+      }
     }
   }
 
@@ -131,7 +134,7 @@ const PoharyTable = ({
       key: 'neprevzato',
       label: 'nepřevzato',
       sortable: true,
-      width: 100
+      width: 120
     },
     {
       cellRenderer: narokRenderer,
