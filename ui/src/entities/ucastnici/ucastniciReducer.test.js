@@ -68,7 +68,8 @@ it('po načtení účastníků', () => {
             startCislo: 34,
             dokonceno: true,
             cas: 'PT1H25M32.6S'
-          }
+          },
+          poznamky: [{ datum: '2017-06-10T00:00:00.000Z', text: 'přihlášen zraněný' }]
         },
         2018: {
           udaje: {
@@ -144,7 +145,8 @@ it('po načtení účastníků', () => {
             startCislo: 34,
             dokonceno: true,
             cas: 'PT1H25M32.6S'
-          }
+          },
+          poznamky: [{ datum: '2017-06-10T00:00:00.000Z', text: 'přihlášen zraněný' }]
         }
       }
     },
@@ -279,7 +281,8 @@ it('prihlaskySave() - success - nový účastník', () => {
   };
   const platby = [{ castka: 200, datum: '2019-05-12T00:00:00.000Z', typ: 'složenkou' }];
   const ubytovani = { pátek: { prihlaseno: true, prespano: true } };
-  const request = { rok: AKTUALNI_ROK, udaje, prihlaska, platby, ubytovani };
+  const poznamky = [{ datum: new Date('2019-05-12T00:00:00.000Z'), text: 'přihlášena zraněná' }];
+  const request = { rok: AKTUALNI_ROK, udaje, prihlaska, platby, ubytovani, poznamky };
 
   expect(
     ucastniciReducer(

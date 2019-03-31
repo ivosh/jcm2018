@@ -46,7 +46,8 @@ const initialState = {
     startovnePoSleve: undefined
   },
   platby: [],
-  ubytovani: {}
+  ubytovani: {},
+  poznamky: []
 };
 
 const parseNarozeni = value => {
@@ -155,7 +156,8 @@ export const createPrihlaskyFormReducer = (
         udaje: action.udaje,
         prihlaska: action.prihlaska || initialState.prihlaska,
         platby: action.platby || initialState.platby,
-        ubytovani: action.ubytovani || initialState.ubytovani
+        ubytovani: action.ubytovani || initialState.ubytovani,
+        poznamky: action.poznamky || initialState.poznamky
       };
       if (action.datumKonani && !newState.prihlaska.datum) {
         return { ...newState, prihlaska: { ...newState.prihlaska, datum: action.datumKonani } };

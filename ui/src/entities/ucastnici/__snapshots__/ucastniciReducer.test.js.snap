@@ -330,6 +330,16 @@ Object {
       },
       "2019": Object {
         "platby": Array [],
+        "poznamky": Array [
+          Object {
+            "datum": "2019-06-08T00:00:00.000Z",
+            "text": "přihlášena na startu",
+          },
+          Object {
+            "datum": "2019-06-08T00:00:00.000Z",
+            "text": "poběží s vodičem",
+          },
+        ],
         "prihlaska": Object {
           "datum": "2019-06-08T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d9",
@@ -852,6 +862,12 @@ Object {
             "typ": "hotově",
           },
         ],
+        "poznamky": Array [
+          Object {
+            "datum": "2019-05-12T00:00:00.000Z",
+            "text": "přihlášena zraněná",
+          },
+        ],
         "prihlaska": Object {
           "datum": "2019-05-12T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d9",
@@ -914,6 +930,16 @@ Object {
       },
       "2019": Object {
         "platby": Array [],
+        "poznamky": Array [
+          Object {
+            "datum": "2019-06-08T00:00:00.000Z",
+            "text": "přihlášena na startu",
+          },
+          Object {
+            "datum": "2019-06-08T00:00:00.000Z",
+            "text": "poběží s vodičem",
+          },
+        ],
         "prihlaska": Object {
           "datum": "2019-06-08T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d9",
@@ -1441,6 +1467,12 @@ Object {
             "typ": "hotově",
           },
         ],
+        "poznamky": Array [
+          Object {
+            "datum": "2019-05-12T00:00:00.000Z",
+            "text": "přihlášena zraněná",
+          },
+        ],
         "prihlaska": Object {
           "datum": "2019-05-12T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d9",
@@ -1497,6 +1529,16 @@ Object {
       },
       "2019": Object {
         "platby": Array [],
+        "poznamky": Array [
+          Object {
+            "datum": "2019-06-08T00:00:00.000Z",
+            "text": "přihlášena na startu",
+          },
+          Object {
+            "datum": "2019-06-08T00:00:00.000Z",
+            "text": "poběží s vodičem",
+          },
+        ],
         "prihlaska": Object {
           "datum": "2019-06-08T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d9",
@@ -1752,6 +1794,12 @@ Array [
           "typ": "hotově",
         },
       ],
+      "poznamky": Array [
+        Object {
+          "datum": "2019-05-12T00:00:00.000Z",
+          "text": "přihlášena zraněná",
+        },
+      ],
       "prihlaska": Object {
         "datum": "2019-05-12T00:00:00.000Z",
         "kategorie": "5a587e1b051c181132cf83d9",
@@ -1791,6 +1839,16 @@ Array [
     "rok": 2019,
     "ucast": Object {
       "platby": Array [],
+      "poznamky": Array [
+        Object {
+          "datum": "2019-06-08T00:00:00.000Z",
+          "text": "přihlášena na startu",
+        },
+        Object {
+          "datum": "2019-06-08T00:00:00.000Z",
+          "text": "poběží s vodičem",
+        },
+      ],
       "prihlaska": Object {
         "datum": "2019-06-08T00:00:00.000Z",
         "kategorie": "5a587e1b051c181132cf83d9",
@@ -2171,6 +2229,12 @@ Object {
             "typ": "hotově",
           },
         ],
+        "poznamky": Array [
+          Object {
+            "datum": "2019-05-12T00:00:00.000Z",
+            "text": "přihlášena zraněná",
+          },
+        ],
         "prihlaska": Object {
           "datum": "2019-05-12T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d9",
@@ -2233,6 +2297,16 @@ Object {
       },
       "2019": Object {
         "platby": Array [],
+        "poznamky": Array [
+          Object {
+            "datum": "2019-06-08T00:00:00.000Z",
+            "text": "přihlášena na startu",
+          },
+          Object {
+            "datum": "2019-06-08T00:00:00.000Z",
+            "text": "poběží s vodičem",
+          },
+        ],
         "prihlaska": Object {
           "datum": "2019-06-08T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d9",
@@ -2758,6 +2832,12 @@ Object {
             "typ": "hotově",
           },
         ],
+        "poznamky": Array [
+          Object {
+            "datum": "2019-05-12T00:00:00.000Z",
+            "text": "přihlášena zraněná",
+          },
+        ],
         "prihlaska": Object {
           "datum": "2019-05-12T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d9",
@@ -2820,6 +2900,16 @@ Object {
       },
       "2019": Object {
         "platby": Array [],
+        "poznamky": Array [
+          Object {
+            "datum": "2019-06-08T00:00:00.000Z",
+            "text": "přihlášena na startu",
+          },
+          Object {
+            "datum": "2019-06-08T00:00:00.000Z",
+            "text": "poběží s vodičem",
+          },
+        ],
         "prihlaska": Object {
           "datum": "2019-06-08T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d9",
@@ -3383,6 +3473,12 @@ Object {
             "typ": "hotově",
           },
         ],
+        "poznamky": Array [
+          Object {
+            "datum": "2019-05-12T00:00:00.000Z",
+            "text": "přihlášena zraněná",
+          },
+        ],
         "prihlaska": Object {
           "datum": "2019-05-12T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d9",
@@ -3445,6 +3541,16 @@ Object {
       },
       "2019": Object {
         "platby": Array [],
+        "poznamky": Array [
+          Object {
+            "datum": "2019-06-08T00:00:00.000Z",
+            "text": "přihlášena na startu",
+          },
+          Object {
+            "datum": "2019-06-08T00:00:00.000Z",
+            "text": "poběží s vodičem",
+          },
+        ],
         "prihlaska": Object {
           "datum": "2019-06-08T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d9",
@@ -4002,6 +4108,12 @@ Object {
             "typ": "hotově",
           },
         ],
+        "poznamky": Array [
+          Object {
+            "datum": "2019-05-12T00:00:00.000Z",
+            "text": "přihlášena zraněná",
+          },
+        ],
         "prihlaska": Object {
           "datum": "2019-05-12T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d9",
@@ -4064,6 +4176,16 @@ Object {
       },
       "2019": Object {
         "platby": Array [],
+        "poznamky": Array [
+          Object {
+            "datum": "2019-06-08T00:00:00.000Z",
+            "text": "přihlášena na startu",
+          },
+          Object {
+            "datum": "2019-06-08T00:00:00.000Z",
+            "text": "poběží s vodičem",
+          },
+        ],
         "prihlaska": Object {
           "datum": "2019-06-08T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d9",
@@ -4573,6 +4695,12 @@ Object {
             "typ": "hotově",
           },
         ],
+        "poznamky": Array [
+          Object {
+            "datum": "2019-05-12T00:00:00.000Z",
+            "text": "přihlášena zraněná",
+          },
+        ],
         "prihlaska": Object {
           "datum": "2019-05-12T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d9",
@@ -4635,6 +4763,16 @@ Object {
       },
       "2019": Object {
         "platby": Array [],
+        "poznamky": Array [
+          Object {
+            "datum": "2019-06-08T00:00:00.000Z",
+            "text": "přihlášena na startu",
+          },
+          Object {
+            "datum": "2019-06-08T00:00:00.000Z",
+            "text": "poběží s vodičem",
+          },
+        ],
         "prihlaska": Object {
           "datum": "2019-06-08T00:00:00.000Z",
           "kategorie": "5a587e1b051c181132cf83d9",

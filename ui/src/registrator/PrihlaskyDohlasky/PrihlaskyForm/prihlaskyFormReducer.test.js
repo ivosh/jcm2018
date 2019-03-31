@@ -120,7 +120,8 @@ it('reset()', () => {
       mladistvyPotvrzen: false
     },
     platby: [{ castka: 200, datum: new Date(), typ: 'převodem' }],
-    ubytovani: { pátek: { prihlaseno: true } }
+    ubytovani: { pátek: { prihlaseno: true } },
+    poznamky: [{ datum: '2019-06-10T00:00:00.000Z', text: 'přihlášen zraněný' }]
   };
   const stateAfter = {
     jePrihlaskou: true,
@@ -150,7 +151,8 @@ it('reset()', () => {
       mladistvyPotvrzen: undefined
     },
     platby: [],
-    ubytovani: {}
+    ubytovani: {},
+    poznamky: []
   };
   deepFreeze(stateBefore);
   const { rocniky } = ucastniciTestData.entities;
@@ -182,7 +184,14 @@ it('prihlaskySave() - request', () => {
   const stateBefore = { saving: false };
   const stateAfter = { ...stateBefore, saving: true };
   deepFreeze(stateBefore);
-  const request = { id: '===id===', udaje: {}, prihlaska: {}, platby: [], ubytovani: {} };
+  const request = {
+    id: '===id===',
+    udaje: {},
+    prihlaska: {},
+    platby: [],
+    ubytovani: {},
+    poznamky: []
+  };
 
   expect(
     prihlaskyFormReducer(stateBefore, createRequestFromAction({ action: prihlaskySave(), request }))
@@ -193,7 +202,14 @@ it('prihlaskySave() - success', () => {
   const stateBefore = { saving: true };
   const stateAfter = { ...stateBefore, ucastnikId: '===id===', saving: false };
   deepFreeze(stateBefore);
-  const request = { id: '===id===', udaje: {}, prihlaska: {}, platby: [], ubytovani: {} };
+  const request = {
+    id: '===id===',
+    udaje: {},
+    prihlaska: {},
+    platby: [],
+    ubytovani: {},
+    poznamky: []
+  };
   const response = { response: { id: '===id===' } };
 
   expect(
@@ -208,7 +224,14 @@ it('prihlaskySave() - error', () => {
   const stateBefore = { saving: true };
   const stateAfter = { ...stateBefore, saving: false };
   deepFreeze(stateBefore);
-  const request = { id: '===id===', udaje: {}, prihlaska: {}, platby: [], ubytovani: {} };
+  const request = {
+    id: '===id===',
+    udaje: {},
+    prihlaska: {},
+    platby: [],
+    ubytovani: {},
+    poznamky: []
+  };
 
   expect(
     prihlaskyFormReducer(
@@ -243,7 +266,8 @@ it('validation of the initial state [validate === false]', () => {
       mladistvyPotvrzen: undefined
     },
     platby: [],
-    ubytovani: {}
+    ubytovani: {},
+    poznamky: []
   };
   deepFreeze(form);
   const { rocniky } = ucastniciTestData.entities;
@@ -309,7 +333,8 @@ it('validation of the initial state [validate === true]', () => {
       mladistvyPotvrzen: undefined
     },
     platby: [],
-    ubytovani: {}
+    ubytovani: {},
+    poznamky: []
   };
   deepFreeze(form);
   const { rocniky } = ucastniciTestData.entities;
@@ -384,7 +409,8 @@ it('validation of some invalid state [validate === false]', () => {
       mladistvyPotvrzen: false
     },
     platby: [{ castka: 220, datum: new Date(), typ: 'převodem' }],
-    ubytovani: { pátek: { prihlaseno: false, prespano: true } }
+    ubytovani: { pátek: { prihlaseno: false, prespano: true } },
+    poznamky: [{ datum: '2017-06-10T00:00:00.000Z', text: 'přihlášen zraněný' }]
   };
   deepFreeze(form);
   const { rocniky } = ucastniciTestData.entities;
@@ -455,7 +481,8 @@ it('validation of some invalid state [validate === true]', () => {
       mladistvyPotvrzen: true
     },
     platby: [{ castka: 200, datum: '3. 1. 2015', typ: 'převodem' }],
-    ubytovani: { pátek: { prihlaseno: true } }
+    ubytovani: { pátek: { prihlaseno: true } },
+    poznamky: [{ datum: '2017-06-10T00:00:00.000Z', text: 'přihlášen zraněný' }]
   };
   deepFreeze(form);
   const { rocniky } = ucastniciTestData.entities;
@@ -1198,7 +1225,8 @@ it('loadUcastnik() - údaje i přihláška', () => {
       kod: '10728864'
     },
     platby: [{ castka: 250, datum: AKTUALNI_DATUM_KONANI, typ: 'hotově' }],
-    ubytovani: { pátek: { prihlaseno: true, prespano: true } }
+    ubytovani: { pátek: { prihlaseno: true, prespano: true } },
+    poznamky: []
   };
   deepFreeze(stateBefore);
 
@@ -1256,7 +1284,8 @@ it('loadUcastnik() - jen údaje', () => {
       kod: undefined
     },
     platby: [],
-    ubytovani: {}
+    ubytovani: {},
+    poznamky: []
   };
   deepFreeze(stateBefore);
 
@@ -1314,7 +1343,8 @@ it('loadUcastnik() - dohláška', () => {
       kod: undefined
     },
     platby: [],
-    ubytovani: {}
+    ubytovani: {},
+    poznamky: []
   };
   deepFreeze(stateBefore);
 

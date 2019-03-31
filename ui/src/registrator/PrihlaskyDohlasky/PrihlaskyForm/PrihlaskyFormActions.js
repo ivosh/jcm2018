@@ -46,6 +46,7 @@ export const createLoadUcastnik = ({
     action.prihlaska = { ...letosniUcast.prihlaska, typ };
     action.platby = letosniUcast.platby;
     action.ubytovani = letosniUcast.ubytovani;
+    action.poznamky = letosniUcast.poznamky;
   }
   return action;
 };
@@ -76,9 +77,18 @@ const createRequest = ({ reduxName, state }) => {
     }
   } = state;
   const existingUcast = form.ucastnikId ? ucastnici.byIds[form.ucastnikId][rok] || {} : {};
-  const { udaje, prihlaska, platby, ubytovani } = form;
+  const { udaje, prihlaska, platby, ubytovani, poznamky } = form;
 
-  return { id: form.ucastnikId, rok, ...existingUcast, udaje, prihlaska, platby, ubytovani };
+  return {
+    id: form.ucastnikId,
+    rok,
+    ...existingUcast,
+    udaje,
+    prihlaska,
+    platby,
+    ubytovani,
+    poznamky
+  };
 };
 
 const normalize = ({

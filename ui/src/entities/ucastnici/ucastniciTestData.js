@@ -2901,7 +2901,8 @@ const state = {
               dokonceno: true,
               cas: 'PT2H06M32.6S'
             },
-            ubytovani: { pátek: { prihlaseno: true } }
+            ubytovani: { pátek: { prihlaseno: true } },
+            poznamky: [{ datum: '2019-05-12T00:00:00.000Z', text: 'přihlášena zraněná' }]
           },
           2018: {
             udaje: {
@@ -2951,7 +2952,11 @@ const state = {
               startCislo: 15,
               kod: '0234jsdj0jdaklsd',
               startovnePoSleve: 0
-            }
+            },
+            poznamky: [
+              { datum: AKTUALNI_DATUM_KONANI, text: 'přihlášena na startu' },
+              { datum: AKTUALNI_DATUM_KONANI, text: 'poběží s vodičem' }
+            ]
           },
           2018: {
             udaje: {

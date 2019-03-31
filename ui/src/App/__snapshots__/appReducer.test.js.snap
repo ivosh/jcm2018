@@ -75,6 +75,7 @@ Object {
       "form": Object {
         "jePrihlaskou": false,
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": undefined,
           "kategorie": undefined,
@@ -156,6 +157,7 @@ Object {
       "form": Object {
         "jePrihlaskou": true,
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": undefined,
           "kategorie": undefined,
@@ -300,6 +302,7 @@ Object {
       "form": Object {
         "jePrihlaskou": false,
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": undefined,
           "kategorie": undefined,
@@ -381,6 +384,7 @@ Object {
       "form": Object {
         "jePrihlaskou": true,
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": undefined,
           "kategorie": undefined,
@@ -525,6 +529,7 @@ Object {
       "form": Object {
         "jePrihlaskou": false,
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": undefined,
           "kategorie": undefined,
@@ -606,6 +611,7 @@ Object {
       "form": Object {
         "jePrihlaskou": true,
         "platby": Array [],
+        "poznamky": Array [],
         "prihlaska": Object {
           "datum": undefined,
           "kategorie": undefined,
