@@ -31,7 +31,11 @@ const casFormat = cas => {
 
 const vykonRenderer = args => {
   const cas = casFormat(args.cellData && args.cellData.cas);
-  const className = cas ? `${args.className} AnimatedTooltip` : args.className;
+  const className = cas
+    ? args.rowIndex === 0
+      ? `${args.className} AnimatedTooltip--bottom`
+      : `${args.className} AnimatedTooltip--top`
+    : args.className;
 
   return (
     <div className={className} key={args.key} style={args.style} tooltip-text={cas}>

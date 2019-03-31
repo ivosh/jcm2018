@@ -1,71 +1,79 @@
 {
-  env: {
-    es6: true,
-    jasmine: true,
-    jest: true,
-    node: true,
+  "env": {
+    "es6": true,
+    "jasmine": true,
+    "jest": true,
+    "node": true
   },
 
-  plugins: [ 'jasmine', 'react' ],
+  "plugins": ["jasmine", "react"],
 
-  parser: 'babel-eslint',
+  "parser": "babel-eslint",
 
-  parserOptions: {
-    ecmaVersion: 2018,
-    ecmaFeatures: {
-      impliedStrict: true,
-      jsx: true
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "ecmaFeatures": {
+      "impliedStrict": true,
+      "jsx": true
     }
   },
 
-  extends: [ 'eslint:recommended', 'airbnb-base', 'plugin:jasmine/recommended',
-             'plugin:react/recommended' ],
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base",
+    "plugin:jasmine/recommended",
+    "plugin:react/recommended"
+  ],
 
-  settings: {
-    react: {
-      version: "16.4",
+  "settings": {
+    "react": {
+      "version": "16.8"
     }
   },
 
-  globals: {
-    document: true,
-    fetch: true,
-    localStorage: true,
-    URL: true,
-    WebSocket: true,
-    window: true
+  "globals": {
+    "document": true,
+    "fetch": true,
+    "localStorage": true,
+    "URL": true,
+    "WebSocket": true,
+    "window": true
   },
 
-  rules: {
+  "rules": {
     // Integrate with prettier.
-    'arrow-parens': ['error', 'as-needed'],
-    'comma-dangle': ['error', 'never'],
-    'function-paren-newline': 0,
-    'implicit-arrow-linebreak': 0,
-    'indent': ['error', 2, { 'SwitchCase': 1 }],
-    'no-confusing-arrow': 0,
-    'object-curly-newline': ['error', { 'consistent': true }],
-    'operator-linebreak': 0,
+    "arrow-parens": ["error", "as-needed"],
+    "comma-dangle": ["error", "never"],
+    "function-paren-newline": 0,
+    "implicit-arrow-linebreak": 0,
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "no-confusing-arrow": 0,
+    "no-nested-ternary": 0,
+    "object-curly-newline": ["error", { "consistent": true }],
+    "operator-linebreak": 0,
 
     // Do not warn about mixed arithmetic operators; do warn about the rest.
-    'no-mixed-operators': ['error', {
-      groups: [
-        ['&', '|', '^', '~', '<<', '>>', '>>>'],
-        ['==', '!=', '===', '!==', '>', '>=', '<', '<='],
-        ['&&', '||'],
-        ['in', 'instanceof']
-      ],
-      allowSamePrecedence: false
-    }],
+    "no-mixed-operators": [
+      "error",
+      {
+        "groups": [
+          ["&", "|", "^", "~", "<<", ">>", ">>>"],
+          ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
+          ["&&", "||"],
+          ["in", "instanceof"]
+        ],
+        "allowSamePrecedence": false
+      }
+    ],
 
     // Do not warn about: 'use strict' is unnecessary inside of modules.
     // NodeJS does not support ES6 modules with import/export, yet.
-    'strict': 0,
+    "strict": 0,
 
     // Allow mongoose's _id.
-    'no-underscore-dangle': [2, { 'allow': ['_id'] }],
+    "no-underscore-dangle": [2, { "allow": ["_id"] }],
 
     // Do not force new lines before expect. Does not work correctly with 'await'.
-    'jasmine/new-line-before-expect': 0
+    "jasmine/new-line-before-expect": 0
   }
 }

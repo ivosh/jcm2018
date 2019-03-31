@@ -2066,7 +2066,7 @@ exports[`dva pohároví 1`] = `
                                   }
                                 >
                                   <div
-                                    className="align-right UcastniciTable_oddRow UcastniciTable_cell AnimatedTooltip"
+                                    className="align-right UcastniciTable_oddRow UcastniciTable_cell AnimatedTooltip--bottom"
                                     key="0-3"
                                     style={
                                       Object {
@@ -2185,7 +2185,7 @@ exports[`dva pohároví 1`] = `
                                     />
                                   </DroppablePohary>
                                   <div
-                                    className="align-right UcastniciTable_evenRow UcastniciTable_cell AnimatedTooltip"
+                                    className="align-right UcastniciTable_evenRow UcastniciTable_cell AnimatedTooltip--bottom"
                                     key="1-3"
                                     style={
                                       Object {

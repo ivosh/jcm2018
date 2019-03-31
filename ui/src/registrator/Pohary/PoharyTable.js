@@ -53,7 +53,12 @@ const prijmeniFormat = args => (
 const ROKU_NA_RADKU = 5;
 const ucastiRenderer = args => {
   const dokoncene = args.cellData.dokoncene.slice().sort();
-  const className = dokoncene.length > 0 ? `${args.className} AnimatedTooltip` : args.className;
+  const className =
+    dokoncene.length > 0
+      ? args.rowIndex <= 2
+        ? `${args.className} AnimatedTooltip--bottom`
+        : `${args.className} AnimatedTooltip--top`
+      : args.className;
 
   let roky = '';
   if (dokoncene.length > 0) {
