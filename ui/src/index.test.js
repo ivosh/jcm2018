@@ -34,7 +34,10 @@ const store = mockStore({
       textFilter: ''
     },
     [ReduxNames.prihlaseni]: {
+      dohlaseniFilter: false,
       kategorieFilter: '',
+      prihlaseniFilter: false,
+      showPoznamky: false,
       sortColumn: undefined,
       sortDir: 'none',
       textFilter: ''

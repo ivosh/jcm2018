@@ -11,7 +11,9 @@ import {
 import { createSortDirChange } from '../UcastniciTable/UcastniciTableActions';
 import {
   createDohlaseniFilterChange,
-  createPrihlaseniFilterChange
+  createHidePoznamky,
+  createPrihlaseniFilterChange,
+  createShowPoznamky
 } from './PrihlaseniDohlaseniActions';
 import {
   createPrihlaseniDohlaseniReducer,
@@ -21,9 +23,11 @@ import {
 const actionPrefix = ActionPrefixes.PRIHLASENI;
 const reduxName = ReduxNames.prihlaseni;
 const dohlaseniFilterChange = createDohlaseniFilterChange(actionPrefix);
+const hidePoznamky = createHidePoznamky(actionPrefix);
 const kategorieFilterChange = createKategorieFilterChange(actionPrefix);
 const prihlaseniFilterChange = createPrihlaseniFilterChange(actionPrefix);
 const prihlaseniDohlaseniReducer = createPrihlaseniDohlaseniReducer(actionPrefix);
+const showPoznamky = createShowPoznamky(actionPrefix);
 const sortDirChange = createSortDirChange(actionPrefix);
 const textFilterChange = createTextFilterChange(actionPrefix);
 
@@ -69,6 +73,22 @@ it('přepínání prihlaseniFilter - a zase zpět', () => {
   deepFreeze(stateBefore);
 
   expect(prihlaseniDohlaseniReducer(stateBefore, prihlaseniFilterChange())).toEqual(stateAfter);
+});
+
+it('přepínání hidePoznamky', () => {
+  const stateBefore = { showPoznamky: true };
+  const stateAfter = { showPoznamky: false };
+  deepFreeze(stateBefore);
+
+  expect(prihlaseniDohlaseniReducer(stateBefore, hidePoznamky())).toEqual(stateAfter);
+});
+
+it('přepínání showPoznamky', () => {
+  const stateBefore = { showPoznamky: false };
+  const stateAfter = { showPoznamky: true };
+  deepFreeze(stateBefore);
+
+  expect(prihlaseniDohlaseniReducer(stateBefore, showPoznamky())).toEqual(stateAfter);
 });
 
 it('řadit dle příjmení vzestupně', () => {
