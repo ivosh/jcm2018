@@ -17,7 +17,7 @@ const poharPredan = async ({ request }) => {
 
   let ucastnik;
   try {
-    ucastnik = await Ucastnik.findById(id).populate('ucasti.prihlaska.kategorie');
+    ucastnik = await Ucastnik.findById(id).populate('ucasti.vykon.kategorie');
   } catch (err) {
     logger.debug(`Účastník id ${id} not found.`);
     return { code: CODE_NONEXISTING, status: `Účastník s id ${id} neexistuje. Detaily: ${err}` };
@@ -31,7 +31,7 @@ const poharPredan = async ({ request }) => {
 
   const ucasti = ucastnik.ucasti.filter(
     ucast =>
-      ucast.prihlaska.kategorie.typ === 'maraton' && ucast.vykon && ucast.vykon.dokonceno === true
+      ucast.vykon && ucast.vykon.kategorie.typ === 'maraton' && ucast.vykon.dokonceno === true
   );
   logger.silly(`Nalezeny dokončené účasti v typu kategorie maraton: ${ucasti}.`);
 

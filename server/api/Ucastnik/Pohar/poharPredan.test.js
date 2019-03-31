@@ -187,7 +187,7 @@ afterAll(async () => {
   await db.disconnect();
 });
 
-it('4x dokončil a přihlášen na pátý ročník', async () => {
+it('4x dokončila a přihlášena na pátý ročník', async () => {
   const ucastnik = await setupUcastnik({
     2011: { kategorie: 'maraton', dokonceno: true },
     2012: { kategorie: 'maraton', dokonceno: true },
@@ -210,7 +210,7 @@ it('4x dokončil a přihlášen na pátý ročník', async () => {
   expect(ucastnici).toMatchSnapshot();
 });
 
-it('5x dokončil a přihlášen na šestý ročník', async () => {
+it('5x dokončila a přihlášena na šestý ročník', async () => {
   const ucastnik = await setupUcastnik({
     2011: { kategorie: 'maraton', dokonceno: true },
     2012: { kategorie: 'maraton', dokonceno: true },
@@ -234,7 +234,7 @@ it('5x dokončil a přihlášen na šestý ročník', async () => {
   expect(ucastnici).toMatchSnapshot();
 });
 
-it('6x dokončil ale z toho jen 3x maraton', async () => {
+it('6x dokončila ale z toho jen 3x maraton', async () => {
   const ucastnik = await setupUcastnik({
     2011: { kategorie: 'maraton', dokonceno: true },
     2013: { kategorie: 'půlmaraton', dokonceno: true },
@@ -257,6 +257,34 @@ it('6x dokončil ale z toho jen 3x maraton', async () => {
   ucastnici[0].ucasti[0].vykon.kategorie._id = '===k1===';
   ucastnici[0].ucasti[1].prihlaska.kategorie._id = '===k2===';
   ucastnici[0].ucasti[1].vykon.kategorie._id = '===k2===';
+  expect(ucastnici).toMatchSnapshot();
+});
+
+it('5x dokončila maraton, ale jednou byla přihlášena na půlku a přepsala se na maraton', async () => {
+  const ucastnik = await setupUcastnik({
+    2011: { kategorie: 'maraton', dokonceno: true },
+    2012: { kategorie: 'maraton', dokonceno: true },
+    2013: { kategorie: 'maraton', dokonceno: true },
+    2014: { kategorie: 'maraton', dokonceno: true },
+    2017: { kategorie: 'maraton', dokonceno: true }
+  });
+
+  // přihláška byla ale na půlmaraton
+  ucastnik.ucasti[0].prihlaska.kategorie = kategorie3.id;
+  await ucastnik.save();
+
+  const { requestId, ...response } = await wsClient.sendRequest(
+    apiCall({ endpoint: API_POHAR_PREDAN, request: { id: ucastnik.id }, token })
+  );
+  expect(response).toMatchSnapshot();
+
+  const ucastnici = await Ucastnik.find({}, { _id: 0 })
+    .populate('ucasti.prihlaska.kategorie')
+    .populate('ucasti.vykon.kategorie')
+    .lean();
+  ucastnici[0].ucasti[0].prihlaska.kategorie._id = '===k1===';
+  ucastnici[0].ucasti[0].vykon.kategorie._id = '===k2===';
+  ucastnici[0].ucasti[1].prihlaska.kategorie._id = '===k3===';
   expect(ucastnici).toMatchSnapshot();
 });
 

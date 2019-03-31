@@ -72,9 +72,8 @@ export const getPoharySorted = ({
       const ucastnik = ucastnici.byIds[id];
       const dokoncene = ucastnik.roky
         .map(rok => {
-          const { prihlaska, vykon } = ucastnik[rok];
-          const { kategorie: kategorieId } = prihlaska;
-          return kategorie[kategorieId].typ === 'maraton' && vykon && vykon.dokonceno === true
+          const { vykon } = ucastnik[rok];
+          return vykon && kategorie[vykon.kategorie].typ === 'maraton' && vykon.dokonceno === true
             ? rok
             : undefined;
         })
