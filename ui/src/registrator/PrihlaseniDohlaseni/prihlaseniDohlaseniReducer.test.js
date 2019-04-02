@@ -75,20 +75,20 @@ it('přepínání prihlaseniFilter - a zase zpět', () => {
   expect(prihlaseniDohlaseniReducer(stateBefore, prihlaseniFilterChange())).toEqual(stateAfter);
 });
 
-it('přepínání hidePoznamky', () => {
-  const stateBefore = { showPoznamky: true };
-  const stateAfter = { showPoznamky: false };
+it('hidePoznamky()', () => {
+  const stateBefore = { showingPoznamkyFor: '===id1===' };
+  const stateAfter = { showingPoznamkyFor: undefined };
   deepFreeze(stateBefore);
 
   expect(prihlaseniDohlaseniReducer(stateBefore, hidePoznamky())).toEqual(stateAfter);
 });
 
 it('přepínání showPoznamky', () => {
-  const stateBefore = { showPoznamky: false };
-  const stateAfter = { showPoznamky: true };
+  const stateBefore = { showingPoznamkyFor: undefined };
+  const stateAfter = { showingPoznamkyFor: '===id2===' };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniDohlaseniReducer(stateBefore, showPoznamky())).toEqual(stateAfter);
+  expect(prihlaseniDohlaseniReducer(stateBefore, showPoznamky('===id2==='))).toEqual(stateAfter);
 });
 
 it('řadit dle příjmení vzestupně', () => {

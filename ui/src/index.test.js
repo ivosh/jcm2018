@@ -37,7 +37,7 @@ const store = mockStore({
       dohlaseniFilter: false,
       kategorieFilter: '',
       prihlaseniFilter: false,
-      showPoznamky: false,
+      showingPoznamkyFor: undefined,
       sortColumn: undefined,
       sortDir: 'none',
       textFilter: ''

@@ -461,7 +461,7 @@ exports[`dva přihlášení 1`] = `
             style={
               Object {
                 "height": 35,
-                "width": 930,
+                "width": 950,
               }
             }
           >
@@ -480,7 +480,7 @@ exports[`dva přihlášení 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 1220,
+                  "width": 1240,
                   "willChange": "transform",
                 }
               }
@@ -493,11 +493,11 @@ exports[`dva přihlášení 1`] = `
                   Object {
                     "height": 35,
                     "maxHeight": 35,
-                    "maxWidth": 1220,
+                    "maxWidth": 1240,
                     "overflow": "hidden",
                     "pointerEvents": "",
                     "position": "relative",
-                    "width": 1220,
+                    "width": 1240,
                   }
                 }
               >
@@ -572,7 +572,7 @@ exports[`dva přihlášení 1`] = `
                       "left": 690,
                       "position": "absolute",
                       "top": 0,
-                      "width": 200,
+                      "width": 180,
                     }
                   }
                 >
@@ -590,10 +590,10 @@ exports[`dva přihlášení 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 890,
+                      "left": 870,
                       "position": "absolute",
                       "top": 0,
-                      "width": 60,
+                      "width": 70,
                     }
                   }
                 >
@@ -611,10 +611,10 @@ exports[`dva přihlášení 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 950,
+                      "left": 940,
                       "position": "absolute",
                       "top": 0,
-                      "width": 150,
+                      "width": 90,
                     }
                   }
                 >
@@ -625,10 +625,10 @@ exports[`dva přihlášení 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 1100,
+                      "left": 1030,
                       "position": "absolute",
                       "top": 0,
-                      "width": 120,
+                      "width": 110,
                     }
                   }
                 >
@@ -641,6 +641,20 @@ exports[`dva přihlášení 1`] = `
                     
                   </button>
                 </div>
+                <div
+                  className="UcastniciTable_headerCell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 1140,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 100,
+                    }
+                  }
+                >
+                  poznámky
+                </div>
               </div>
             </div>
           </div>
@@ -648,7 +662,7 @@ exports[`dva přihlášení 1`] = `
             style={
               Object {
                 "height": 70,
-                "width": 1220,
+                "width": 1240,
               }
             }
           >
@@ -667,7 +681,7 @@ exports[`dva přihlášení 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 1220,
+                  "width": 1240,
                   "willChange": "transform",
                 }
               }
@@ -680,11 +694,11 @@ exports[`dva přihlášení 1`] = `
                   Object {
                     "height": 70,
                     "maxHeight": 70,
-                    "maxWidth": 1220,
+                    "maxWidth": 1240,
                     "overflow": "hidden",
                     "pointerEvents": "",
                     "position": "relative",
-                    "width": 1220,
+                    "width": 1240,
                   }
                 }
               >
@@ -736,7 +750,7 @@ exports[`dva přihlášení 1`] = `
                       "left": 690,
                       "position": "absolute",
                       "top": 0,
-                      "width": 200,
+                      "width": 180,
                     }
                   }
                 >
@@ -768,10 +782,10 @@ exports[`dva přihlášení 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 890,
+                      "left": 870,
                       "position": "absolute",
                       "top": 0,
-                      "width": 60,
+                      "width": 70,
                     }
                   }
                 >
@@ -782,10 +796,10 @@ exports[`dva přihlášení 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 950,
+                      "left": 940,
                       "position": "absolute",
                       "top": 0,
-                      "width": 150,
+                      "width": 90,
                     }
                   }
                 >
@@ -796,14 +810,37 @@ exports[`dva přihlášení 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 1100,
+                      "left": 1030,
                       "position": "absolute",
                       "top": 0,
-                      "width": 120,
+                      "width": 110,
                     }
                   }
                 >
                   250 Kč
+                </div>
+                <div
+                  className="PrihlaseniDohlaseni__poznamky UcastniciTable_oddRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 1140,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 100,
+                    }
+                  }
+                >
+                  <button
+                    className="btn btn-sm btn-default"
+                    disabled={false}
+                    onClick={[MockFunction]}
+                    type="button"
+                  >
+                    <span
+                      className="glyphicon glyphicon-edit"
+                    />
+                  </button>
                 </div>
                 <div
                   className="align-left UcastniciTable_evenRow UcastniciTable_cell"
@@ -853,7 +890,7 @@ exports[`dva přihlášení 1`] = `
                       "left": 690,
                       "position": "absolute",
                       "top": 35,
-                      "width": 200,
+                      "width": 180,
                     }
                   }
                 >
@@ -885,10 +922,10 @@ exports[`dva přihlášení 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 890,
+                      "left": 870,
                       "position": "absolute",
                       "top": 35,
-                      "width": 60,
+                      "width": 70,
                     }
                   }
                 >
@@ -899,10 +936,10 @@ exports[`dva přihlášení 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 950,
+                      "left": 940,
                       "position": "absolute",
                       "top": 35,
-                      "width": 150,
+                      "width": 90,
                     }
                   }
                 >
@@ -913,14 +950,37 @@ exports[`dva přihlášení 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 1100,
+                      "left": 1030,
                       "position": "absolute",
                       "top": 35,
-                      "width": 120,
+                      "width": 110,
                     }
                   }
                 >
                   100 Kč
+                </div>
+                <div
+                  className="PrihlaseniDohlaseni__poznamky UcastniciTable_evenRow UcastniciTable_cell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 1140,
+                      "position": "absolute",
+                      "top": 35,
+                      "width": 100,
+                    }
+                  }
+                >
+                  <button
+                    className="btn btn-sm btn-default"
+                    disabled={false}
+                    onClick={[MockFunction]}
+                    type="button"
+                  >
+                    <span
+                      className="glyphicon glyphicon-edit"
+                    />
+                  </button>
                 </div>
               </div>
             </div>
@@ -1282,7 +1342,7 @@ exports[`žádný přihlášený 1`] = `
             style={
               Object {
                 "height": 35,
-                "width": 930,
+                "width": 950,
               }
             }
           >
@@ -1301,7 +1361,7 @@ exports[`žádný přihlášený 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 1220,
+                  "width": 1240,
                   "willChange": "transform",
                 }
               }
@@ -1314,11 +1374,11 @@ exports[`žádný přihlášený 1`] = `
                   Object {
                     "height": 35,
                     "maxHeight": 35,
-                    "maxWidth": 1220,
+                    "maxWidth": 1240,
                     "overflow": "hidden",
                     "pointerEvents": "",
                     "position": "relative",
-                    "width": 1220,
+                    "width": 1240,
                   }
                 }
               >
@@ -1393,7 +1453,7 @@ exports[`žádný přihlášený 1`] = `
                       "left": 690,
                       "position": "absolute",
                       "top": 0,
-                      "width": 200,
+                      "width": 180,
                     }
                   }
                 >
@@ -1411,10 +1471,10 @@ exports[`žádný přihlášený 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 890,
+                      "left": 870,
                       "position": "absolute",
                       "top": 0,
-                      "width": 60,
+                      "width": 70,
                     }
                   }
                 >
@@ -1432,10 +1492,10 @@ exports[`žádný přihlášený 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 950,
+                      "left": 940,
                       "position": "absolute",
                       "top": 0,
-                      "width": 150,
+                      "width": 90,
                     }
                   }
                 >
@@ -1446,10 +1506,10 @@ exports[`žádný přihlášený 1`] = `
                   style={
                     Object {
                       "height": 35,
-                      "left": 1100,
+                      "left": 1030,
                       "position": "absolute",
                       "top": 0,
-                      "width": 120,
+                      "width": 110,
                     }
                   }
                 >
@@ -1462,6 +1522,20 @@ exports[`žádný přihlášený 1`] = `
                     
                   </button>
                 </div>
+                <div
+                  className="UcastniciTable_headerCell"
+                  style={
+                    Object {
+                      "height": 35,
+                      "left": 1140,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": 100,
+                    }
+                  }
+                >
+                  poznámky
+                </div>
               </div>
             </div>
           </div>
@@ -1469,7 +1543,7 @@ exports[`žádný přihlášený 1`] = `
             style={
               Object {
                 "height": 0,
-                "width": 1220,
+                "width": 1240,
               }
             }
           >
@@ -1488,7 +1562,7 @@ exports[`žádný přihlášený 1`] = `
                   "overflowX": "hidden",
                   "overflowY": "hidden",
                   "position": "relative",
-                  "width": 1220,
+                  "width": 1240,
                   "willChange": "transform",
                 }
               }

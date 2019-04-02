@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Button, Glyphicon } from 'react-bootstrap';
 import moment from 'moment';
 import { narozeniToStr } from '../../Util';
 import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import FilterableContainer from '../Filterable/FilterableContainer';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
+import PoznamkyModal from '../Poznamky/PoznamkyModal';
 import PrihlaseniDohlaseniFilter from './PrihlaseniDohlaseniFilter';
 import './PrihlaseniDohlaseni.css';
 
@@ -17,6 +19,26 @@ kategorieFormat.propTypes = {
 };
 
 const narozeniFormat = ({ cellData }) => narozeniToStr(cellData);
+
+// :TODO: indikace jsouPoznamky? --existing
+const PoznamkyFormat = ({ cellData: { id, showing, onHide, onShow } }) => (
+  <React.Fragment>
+    {!showing && (
+      <Button bsSize="small" onClick={onShow}>
+        <Glyphicon glyph="edit" />
+      </Button>
+    )}
+    {showing && <PoznamkyModal id={id} show={showing} onClose={onHide} />}
+  </React.Fragment>
+);
+PoznamkyFormat.propTypes = {
+  cellData: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    showing: PropTypes.bool.isRequired,
+    onHide: PropTypes.func.isRequired,
+    onShow: PropTypes.func.isRequired
+  })
+};
 
 const prijmeniFormat = ({ cellData, data, route, rowIndex }) => (
   <Link to={`/${route}/${data[rowIndex].id}`}>{cellData}</Link>
@@ -77,16 +99,16 @@ const PrihlaseniDohlaseni = ({
       cellDataFormatter: kategorieFormat,
       key: 'kategorie',
       sortable: true,
-      width: 200
+      width: 180
     },
     {
       cellClassNames: () => ['align-right'],
       key: 'startCislo',
       label: 'číslo',
       sortable: true,
-      width: 60
+      width: 70
     },
-    { cellClassNames: () => ['align-left', 'monospace'], key: 'kod', label: 'kód', width: 150 },
+    { cellClassNames: () => ['align-left', 'monospace'], key: 'kod', label: 'kód', width: 90 },
     {
       cellClassNames: ({ cellData, data, rowIndex }) => {
         if (cellData >= data[rowIndex].predepsano) {
@@ -100,7 +122,14 @@ const PrihlaseniDohlaseni = ({
       cellDataFormatter: zaplacenoFormat,
       key: 'zaplaceno',
       sortable: true,
-      width: 120
+      width: 110
+    },
+    {
+      cellClassNames: () => ['PrihlaseniDohlaseni__poznamky'],
+      cellDataFormatter: PoznamkyFormat,
+      key: 'poznamky',
+      label: 'poznámky',
+      width: 100
     }
   ];
 
@@ -162,7 +191,13 @@ PrihlaseniDohlaseni.propTypes = {
       startCislo: PropTypes.number,
       kod: PropTypes.string,
       predepsano: PropTypes.number.isRequired,
-      zaplaceno: PropTypes.number.isRequired
+      zaplaceno: PropTypes.number.isRequired,
+      poznamky: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        showing: PropTypes.bool.isRequired,
+        onHide: PropTypes.func.isRequired,
+        onShow: PropTypes.func.isRequired
+      }).isRequired
     }).isRequired
   ).isRequired
 };

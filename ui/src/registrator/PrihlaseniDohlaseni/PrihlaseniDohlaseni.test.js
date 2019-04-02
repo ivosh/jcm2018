@@ -36,7 +36,13 @@ const prihlaseniDohlaseni = [
     startCislo: 17,
     kod: '10728864',
     zaplaceno: 250,
-    predepsano: 200
+    predepsano: 200,
+    poznamky: {
+      id: '5a09b1fd371dec1e99b7e1c9',
+      showing: false,
+      onHide: jest.fn(),
+      onShow: jest.fn()
+    }
   },
   {
     id: '7a09b1fd371dec1e99b7e142',
@@ -54,7 +60,13 @@ const prihlaseniDohlaseni = [
     startCislo: 10,
     kod: 'abc023skd204mvs345',
     zaplaceno: 100,
-    predepsano: 200
+    predepsano: 200,
+    poznamky: {
+      id: '7a09b1fd371dec1e99b7e142',
+      showing: false,
+      onHide: jest.fn(),
+      onShow: jest.fn()
+    }
   }
 ];
 

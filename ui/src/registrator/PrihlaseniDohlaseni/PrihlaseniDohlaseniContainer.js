@@ -3,18 +3,21 @@ import { connect } from 'react-redux';
 import { getPrihlaseniDohlaseniSorted } from './prihlaseniDohlaseniReducer';
 import {
   createDohlaseniFilterChange,
-  createPrihlaseniFilterChange
+  createPrihlaseniFilterChange,
+  createHidePoznamky,
+  createShowPoznamky
 } from './PrihlaseniDohlaseniActions';
 import PrihlaseniDohlaseni from './PrihlaseniDohlaseni';
 
 const mapStateToProps = ({ entities, registrator }, { actionPrefix, reduxName, route }) => {
   const props = registrator[reduxName];
-  const { dohlaseniFilter, prihlaseniFilter } = props;
+  const { dohlaseniFilter, prihlaseniFilter, showingPoznamkyFor } = props;
 
   return {
     dohlaseniFilter,
     prihlaseniFilter,
     prihlaseniDohlaseni: getPrihlaseniDohlaseniSorted({ ...entities, ...props }),
+    showingPoznamkyFor,
     actionPrefix,
     reduxName,
     route
@@ -23,12 +26,37 @@ const mapStateToProps = ({ entities, registrator }, { actionPrefix, reduxName, r
 
 const mapDispatchToProps = (dispatch, { actionPrefix }) => ({
   onDohlaseniFilterChange: () => dispatch(createDohlaseniFilterChange(actionPrefix)()),
-  onPrihlaseniFilterChange: () => dispatch(createPrihlaseniFilterChange(actionPrefix)())
+  onPrihlaseniFilterChange: () => dispatch(createPrihlaseniFilterChange(actionPrefix)()),
+  hidePoznamky: () => dispatch(createHidePoznamky(actionPrefix)()),
+  showPoznamky: id => dispatch(createShowPoznamky(actionPrefix)(id))
 });
 
 const mergeProps = (stateProps, dispatchProps) => {
-  const { dohlaseniFilter, prihlaseniFilter, ...rest } = stateProps;
-  const { onDohlaseniFilterChange, onPrihlaseniFilterChange } = dispatchProps;
+  const {
+    dohlaseniFilter,
+    prihlaseniFilter,
+    prihlaseniDohlaseni,
+    showingPoznamkyFor,
+    ...restState
+  } = stateProps;
+  const {
+    onDohlaseniFilterChange,
+    onPrihlaseniFilterChange,
+    hidePoznamky,
+    showPoznamky,
+    ...restDispatch
+  } = dispatchProps;
+
+  const prihlaseniDohlaseniWithActions = prihlaseniDohlaseni.map(({ id, ...rest }) => ({
+    id,
+    poznamky: {
+      id,
+      showing: showingPoznamkyFor === id,
+      onHide: hidePoznamky,
+      onShow: () => showPoznamky(id)
+    },
+    ...rest
+  }));
 
   return {
     dohlaseniFilter: {
@@ -41,7 +69,9 @@ const mergeProps = (stateProps, dispatchProps) => {
       name: 'Přihlášeni',
       onClick: onPrihlaseniFilterChange
     },
-    ...rest
+    prihlaseniDohlaseni: prihlaseniDohlaseniWithActions,
+    ...restState,
+    ...restDispatch
   };
 };
 

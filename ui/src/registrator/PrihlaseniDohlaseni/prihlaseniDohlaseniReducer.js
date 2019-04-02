@@ -15,7 +15,7 @@ import {
 export const initialState = {
   dohlaseniFilter: false,
   prihlaseniFilter: false,
-  showPoznamky: false,
+  showingPoznamkyFor: undefined /* id účastníka */,
   ...filterableInitialState,
   ...ucastniciTableInitialState
 };
@@ -37,9 +37,9 @@ export const createPrihlaseniDohlaseniReducer = actionPrefix => {
       case `${actionPrefix}_PRIHLASENI_FILTER_CHANGE`:
         return { ...state, prihlaseniFilter: !state.prihlaseniFilter };
       case `${actionPrefix}_SHOW_POZNAMKY`:
-        return { ...state, showPoznamky: true };
+        return { ...state, showingPoznamkyFor: action.id };
       case `${actionPrefix}_HIDE_POZNAMKY`:
-        return { ...state, showPoznamky: false };
+        return { ...state, showingPoznamkyFor: undefined };
       default:
         return state;
     }

@@ -39,3 +39,12 @@
 .PrihlaseniDohlaseni--nezaplaceno {
   background-color: rgba(226, 57, 73, 1);
 }
+
+.PrihlaseniDohlaseni__poznamky {
+  display: flex;
+  align-items: center; /* So it does not stretch to the whole cell. */
+}
+
+.PrihlaseniDohlaseni__poznamky_button--existujici {
+  background-color: crimson;
+}
