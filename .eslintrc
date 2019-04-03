@@ -52,6 +52,9 @@
     "object-curly-newline": ["error", { "consistent": true }],
     "operator-linebreak": 0,
 
+    // It is perfectly ok to explicitly export only one thing from a module.
+    "import/prefer-default-export": 0,
+
     // Do not warn about mixed arithmetic operators; do warn about the rest.
     "no-mixed-operators": [
       "error",

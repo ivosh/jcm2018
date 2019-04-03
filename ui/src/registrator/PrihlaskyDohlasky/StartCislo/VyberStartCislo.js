@@ -7,7 +7,6 @@ export const Renderer = ({ id, startCislo, vybraneId, vybraneStartCislo, onSelec
   const vybrane = startCislo === vybraneStartCislo && (!vybraneId || vybraneId === id);
   const zabrane = !!id;
 
-  // eslint-disable-next-line no-nested-ternary
   const className = vybrane ? 'vybrane' : zabrane ? 'zabrane' : 'volne';
   const onClick = vybrane || !zabrane ? () => onSelect(startCislo) : undefined;
   return (

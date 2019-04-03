@@ -42,7 +42,6 @@ const popisekTypu = {
   pěší: 'turisté'
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export const getVysledky = ({ rocniky, ucastnici, rok = AKTUALNI_ROK }) => {
   const rocnik = rocniky.byRoky[rok];
   const date = new Date(rocnik.datum);

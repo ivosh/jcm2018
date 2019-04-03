@@ -1,7 +1,6 @@
 import { AKTUALNI_ROK } from '../../../constants';
 import { prijmeniJmenoNarozeniSortMethod } from '../../../sort';
 
-// eslint-disable-next-line import/prefer-default-export
 export const getSearchOptions = ({ ucastnici }) => {
   const selected = ucastnici.allIds.map(id => {
     const ucastnik = ucastnici.byIds[id];

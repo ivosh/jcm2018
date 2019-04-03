@@ -1,6 +1,5 @@
 const initialState = { showing: false };
 
-// eslint-disable-next-line import/prefer-default-export
 export const createStartCisloReducer = actionPrefix => (state = initialState, action) => {
   switch (action.type) {
     case `${actionPrefix}_RESET`:

@@ -3,7 +3,6 @@ import { AKTUALNI_ROK } from '../../constants';
 import { getTypKategorie } from '../../entities/rocniky/rocnikyReducer';
 import { getUcastiProRok } from '../../entities/ucastnici/ucastniciReducer';
 
-// eslint-disable-next-line import/prefer-default-export
 export const getPokladna = ({ kategorie, rocniky, ucastnici, rok = AKTUALNI_ROK }) => {
   const ucasti = getUcastiProRok({ rok, ucastnici });
 

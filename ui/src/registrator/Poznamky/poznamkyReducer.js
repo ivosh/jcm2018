@@ -1,6 +1,5 @@
 import { AKTUALNI_ROK } from '../../constants';
 
-// eslint-disable-next-line import/prefer-default-export
 export const getPoznamky = ({ id, rok = AKTUALNI_ROK, ucastnici }) => {
   const ucastnik = ucastnici.byIds[id];
 
