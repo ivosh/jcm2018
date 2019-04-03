@@ -1,0 +1,21 @@
+.Poznamka__datum,
+.Poznamka__text {
+  border: 1px solid #1a1aff;
+  padding: 5px;
+}
+
+.Poznamka__datum {
+  background-color: #b3c6ff;
+  border-bottom: 1px solid #7777ff;
+  border-radius: 5px 5px 0 0;
+}
+
+.Poznamka__text {
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+}
+
+.Poznamka__textarea {
+  width: 100%;
+  min-width: 30em;
+}

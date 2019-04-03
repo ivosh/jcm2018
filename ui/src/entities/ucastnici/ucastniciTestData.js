@@ -2955,7 +2955,12 @@ const state = {
             },
             poznamky: [
               { datum: AKTUALNI_DATUM_KONANI, text: 'přihlášena na startu' },
-              { datum: AKTUALNI_DATUM_KONANI, text: 'poběží s vodičem' }
+              { datum: AKTUALNI_DATUM_KONANI, text: 'poběží s vodičem' },
+              {
+                datum: '2019-05-21T08:53:49.154Z',
+                text:
+                  'jedna moc super dlouhá poznámka\r\nkterá pokračuje na dalších a dalších\r\nřádcích dle libosti\r\naž do nekonečna'
+              }
             ]
           },
           2018: {
