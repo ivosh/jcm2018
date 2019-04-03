@@ -233,7 +233,8 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
       startCislo: 17,
       kod: '10728864',
       zaplaceno: 250,
-      predepsano: 250
+      predepsano: 250,
+      nejakaPoznamka: false
     },
     {
       id: '8344bc71dec1e99b7e1d01e',
@@ -252,7 +253,8 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
       startCislo: 15,
       kod: '0234jsdj0jdaklsd',
       zaplaceno: 0,
-      predepsano: 0
+      predepsano: 0,
+      nejakaPoznamka: true
     },
     {
       id: 'f5c88400190a4bed88c76736',
@@ -271,7 +273,8 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
       startCislo: 15,
       kod: 'rcc023skd204mvs345',
       zaplaceno: 200,
-      predepsano: 200
+      predepsano: 200,
+      nejakaPoznamka: false
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
@@ -290,7 +293,8 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
-      predepsano: 200
+      predepsano: 200,
+      nejakaPoznamka: true
     }
   ];
   deepFreeze(state);
@@ -334,7 +338,8 @@ it('getPrihlaseniSorted() filtrováno na z', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
-      predepsano: 200
+      predepsano: 200,
+      nejakaPoznamka: true
     }
   ];
   deepFreeze(state);
@@ -378,7 +383,8 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       startCislo: 17,
       kod: '10728864',
       zaplaceno: 250,
-      predepsano: 250
+      predepsano: 250,
+      nejakaPoznamka: false
     },
     {
       id: '8344bc71dec1e99b7e1d01e',
@@ -397,7 +403,8 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       startCislo: 15,
       kod: '0234jsdj0jdaklsd',
       zaplaceno: 0,
-      predepsano: 0
+      predepsano: 0,
+      nejakaPoznamka: true
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
@@ -416,7 +423,8 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
-      predepsano: 200
+      predepsano: 200,
+      nejakaPoznamka: true
     }
   ];
   deepFreeze(state);
@@ -460,7 +468,8 @@ it('getPrihlaseniSorted() by default - jen prihlášeni', () => {
       startCislo: 15,
       kod: 'rcc023skd204mvs345',
       zaplaceno: 200,
-      predepsano: 200
+      predepsano: 200,
+      nejakaPoznamka: false
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
@@ -479,7 +488,8 @@ it('getPrihlaseniSorted() by default - jen prihlášeni', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
-      predepsano: 200
+      predepsano: 200,
+      nejakaPoznamka: true
     }
   ];
   deepFreeze(state);
@@ -523,7 +533,8 @@ it('getPrihlaseniSorted() by default - jen dohlášeni', () => {
       startCislo: 17,
       kod: '10728864',
       zaplaceno: 250,
-      predepsano: 250
+      predepsano: 250,
+      nejakaPoznamka: false
     },
     {
       id: '8344bc71dec1e99b7e1d01e',
@@ -542,7 +553,8 @@ it('getPrihlaseniSorted() by default - jen dohlášeni', () => {
       startCislo: 15,
       kod: '0234jsdj0jdaklsd',
       zaplaceno: 0,
-      predepsano: 0
+      predepsano: 0,
+      nejakaPoznamka: true
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
@@ -561,7 +573,8 @@ it('getPrihlaseniSorted() by default - jen dohlášeni', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
-      predepsano: 200
+      predepsano: 200,
+      nejakaPoznamka: true
     }
   ];
   deepFreeze(state);
@@ -605,7 +618,8 @@ it('getPrihlaseniSorted() by default - jen přihlášeni i dohlášeni', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
-      predepsano: 200
+      predepsano: 200,
+      nejakaPoznamka: true
     }
   ];
   deepFreeze(state);

@@ -972,7 +972,7 @@ exports[`dva přihlášení 1`] = `
                   }
                 >
                   <button
-                    className="btn btn-sm btn-default"
+                    className="btn btn-sm btn-info"
                     disabled={false}
                     onClick={[MockFunction]}
                     type="button"

@@ -66,7 +66,8 @@ export const getPrihlaseniDohlaseniSorted = ({
     const {
       udaje: { prijmeni, jmeno, narozeni, obec, email },
       prihlaska,
-      platby
+      platby,
+      poznamky
     } = ucast;
     const { datum, kategorie: kategorieId, startCislo, kod } = prihlaska;
     const jednaKategorie = kategorie[kategorieId];
@@ -86,7 +87,8 @@ export const getPrihlaseniDohlaseniSorted = ({
       startCislo,
       kod,
       predepsano,
-      zaplaceno
+      zaplaceno,
+      nejakaPoznamka: (poznamky && poznamky.length > 0) || false
     };
   });
 

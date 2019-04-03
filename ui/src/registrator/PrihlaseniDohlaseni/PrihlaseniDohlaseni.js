@@ -20,11 +20,10 @@ kategorieFormat.propTypes = {
 
 const narozeniFormat = ({ cellData }) => narozeniToStr(cellData);
 
-// :TODO: indikace jsouPoznamky? --existing
-const PoznamkyFormat = ({ cellData: { id, showing, onHide, onShow } }) => (
+const PoznamkyFormat = ({ cellData: { id, nejakaPoznamka, showing, onHide, onShow } }) => (
   <React.Fragment>
     {!showing && (
-      <Button bsSize="small" onClick={onShow}>
+      <Button bsSize="small" bsStyle={nejakaPoznamka ? 'info' : undefined} onClick={onShow}>
         <Glyphicon glyph="edit" />
       </Button>
     )}
@@ -34,6 +33,7 @@ const PoznamkyFormat = ({ cellData: { id, showing, onHide, onShow } }) => (
 PoznamkyFormat.propTypes = {
   cellData: PropTypes.shape({
     id: PropTypes.string.isRequired,
+    nejakaPoznamka: PropTypes.bool.isRequired,
     showing: PropTypes.bool.isRequired,
     onHide: PropTypes.func.isRequired,
     onShow: PropTypes.func.isRequired
@@ -194,6 +194,7 @@ PrihlaseniDohlaseni.propTypes = {
       zaplaceno: PropTypes.number.isRequired,
       poznamky: PropTypes.shape({
         id: PropTypes.string.isRequired,
+        nejakaPoznamka: PropTypes.bool.isRequired,
         showing: PropTypes.bool.isRequired,
         onHide: PropTypes.func.isRequired,
         onShow: PropTypes.func.isRequired

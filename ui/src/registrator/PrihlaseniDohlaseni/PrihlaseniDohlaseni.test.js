@@ -39,6 +39,7 @@ const prihlaseniDohlaseni = [
     predepsano: 200,
     poznamky: {
       id: '5a09b1fd371dec1e99b7e1c9',
+      nejakaPoznamka: false,
       showing: false,
       onHide: jest.fn(),
       onShow: jest.fn()
@@ -63,6 +64,7 @@ const prihlaseniDohlaseni = [
     predepsano: 200,
     poznamky: {
       id: '7a09b1fd371dec1e99b7e142',
+      nejakaPoznamka: true,
       showing: false,
       onHide: jest.fn(),
       onShow: jest.fn()

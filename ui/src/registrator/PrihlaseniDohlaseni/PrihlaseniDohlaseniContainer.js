@@ -47,16 +47,19 @@ const mergeProps = (stateProps, dispatchProps) => {
     ...restDispatch
   } = dispatchProps;
 
-  const prihlaseniDohlaseniWithActions = prihlaseniDohlaseni.map(({ id, ...rest }) => ({
-    id,
-    poznamky: {
+  const prihlaseniDohlaseniWithActions = prihlaseniDohlaseni.map(
+    ({ id, nejakaPoznamka, ...rest }) => ({
       id,
-      showing: showingPoznamkyFor === id,
-      onHide: hidePoznamky,
-      onShow: () => showPoznamky(id)
-    },
-    ...rest
-  }));
+      poznamky: {
+        id,
+        nejakaPoznamka,
+        showing: showingPoznamkyFor === id,
+        onHide: hidePoznamky,
+        onShow: () => showPoznamky(id)
+      },
+      ...rest
+    })
+  );
 
   return {
     dohlaseniFilter: {

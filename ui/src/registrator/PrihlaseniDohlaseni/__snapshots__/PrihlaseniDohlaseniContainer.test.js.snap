@@ -41,6 +41,7 @@ Array [
     "obec": "Králův Dvůr",
     "poznamky": Object {
       "id": "f5c88400190a4bed88c76736",
+      "nejakaPoznamka": false,
       "onHide": [Function],
       "onShow": [Function],
       "showing": false,
@@ -73,6 +74,7 @@ Array [
     "obec": "Bučovice",
     "poznamky": Object {
       "id": "7a09b1fd371dec1e99b7e142",
+      "nejakaPoznamka": true,
       "onHide": [Function],
       "onShow": [Function],
       "showing": false,
