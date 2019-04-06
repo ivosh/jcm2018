@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`deletePoznamka [not authenticated] 1`] = `
+Object {
+  "code": "authentication token invalid",
+  "status": "Špatný ověřovací token. Zkus se přihlásit znovu. Detaily: JsonWebTokenError: jwt must be provided",
+}
+`;
+
+exports[`deletePoznamka 1`] = `
+Object {
+  "code": "ok",
+  "response": Object {
+    "poznamky": Array [
+      Object {
+        "datum": "2018-06-08T00:00:00.000Z",
+        "text": "možná se odhlásí",
+      },
+    ],
+  },
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`deletePoznamka 2`] = `
+Array [
+  Object {
+    "__v": 1,
+    "ucasti": Array [
+      Object {
+        "platby": Array [],
+        "poznamky": Array [
+          Object {
+            "datum": 2018-06-08T00:00:00.000Z,
+            "text": "možná se odhlásí",
+          },
+        ],
+        "rok": 2018,
+        "udaje": Object {
+          "jmeno": "František",
+          "narozeni": Object {
+            "rok": 1953,
+          },
+          "obec": "Ostrava 1",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+      },
+    ],
+  },
+]
+`;
+
+exports[`účastník neexistuje 1`] = `
+Object {
+  "code": "neexistuje",
+  "status": "Účastník s id 41224d776a326fb40f000001 neexistuje.",
+}
+`;

@@ -2,10 +2,13 @@
 
 const jwt = require('jsonwebtoken');
 const {
+  API_ADD_POZNAMKA,
+  API_DELETE_POZNAMKA,
   API_DELETE_VYKON,
   API_FIND_ALL_ROCNIKY,
   API_FIND_ALL_STOPKY,
   API_FIND_ALL_UCASTNICI,
+  API_MODIFY_POZNAMKA,
   API_MODIFY_STOPKY,
   API_MODIFY_UBYTOVANI,
   API_POHAR_PREDAN,
@@ -30,10 +33,13 @@ const {
 const config = require('../config');
 const db = require('../db');
 const logger = require('../logger');
+const addPoznamka = require('./Ucastnik/Poznamky/addPoznamka');
+const deletePoznamka = require('./Ucastnik/Poznamky/deletePoznamka');
 const deleteVykon = require('./Ucastnik/Vykon/deleteVykon');
 const findAllRocniky = require('./Rocnik/findAllRocniky');
 const findAllStopky = require('./Stopky/findAllStopky');
 const findAllUcastnici = require('./Ucastnik/findAllUcastnici');
+const modifyPoznamka = require('./Ucastnik/Poznamky/modifyPoznamka');
 const modifyStopky = require('./Stopky/modifyStopky');
 const modifyUbytovani = require('./Ucastnik/Ubytovani/modifyUbytovani');
 const poharPredan = require('./Ucastnik/Pohar/poharPredan');
@@ -66,6 +72,18 @@ const processAuthentication = ({ token, connection }) => {
 
 const processRequest = async ({ action = '', request, requestId, token, connection }) => {
   const actions = {
+    [API_ADD_POZNAMKA]: {
+      apiReadOnly: false,
+      authRequired: true,
+      dbRequired: true,
+      action: async req => addPoznamka(req)
+    },
+    [API_DELETE_POZNAMKA]: {
+      apiReadOnly: false,
+      authRequired: true,
+      dbRequired: true,
+      action: async req => deletePoznamka(req)
+    },
     [API_DELETE_VYKON]: {
       apiReadOnly: false,
       authRequired: true,
@@ -89,6 +107,12 @@ const processRequest = async ({ action = '', request, requestId, token, connecti
       authRequired: true,
       dbRequired: true,
       action: async req => findAllUcastnici(req)
+    },
+    [API_MODIFY_POZNAMKA]: {
+      apiReadOnly: false,
+      authRequired: true,
+      dbRequired: true,
+      action: async req => modifyPoznamka(req)
     },
     [API_MODIFY_STOPKY]: {
       apiReadOnly: false,

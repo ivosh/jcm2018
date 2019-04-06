@@ -14,10 +14,13 @@ const PORT_DEV_SERVER = 4000;
 const PLATBA_TYPY = ['hotově', 'převodem', 'složenkou'];
 const UCASTI_NA_POHAR = 5;
 
+const API_ADD_POZNAMKA = 'addPoznamka';
+const API_DELETE_POZNAMKA = 'deletePoznamka';
 const API_DELETE_VYKON = 'deleteVykon';
 const API_FIND_ALL_ROCNIKY = 'findAllRocniky';
 const API_FIND_ALL_STOPKY = 'findAllStopky';
 const API_FIND_ALL_UCASTNICI = 'findAllUcastnici';
+const API_MODIFY_POZNAMKA = 'modifyPoznamka';
 const API_MODIFY_STOPKY = 'modifyStopky';
 const API_MODIFY_UBYTOVANI = 'modifyUbytovani';
 const API_POHAR_PREDAN = 'poharPredan';
@@ -208,10 +211,13 @@ module.exports = {
   PORT_DEV_SERVER,
   PLATBA_TYPY,
   UCASTI_NA_POHAR,
+  API_ADD_POZNAMKA,
+  API_DELETE_POZNAMKA,
   API_DELETE_VYKON,
   API_FIND_ALL_ROCNIKY,
   API_FIND_ALL_STOPKY,
   API_FIND_ALL_UCASTNICI,
+  API_MODIFY_POZNAMKA,
   API_MODIFY_STOPKY,
   API_MODIFY_UBYTOVANI,
   API_POHAR_PREDAN,

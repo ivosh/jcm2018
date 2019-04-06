@@ -7,8 +7,8 @@ const broadcastUcastnik = require('../broadcastUcastnik');
 const updatePoznamky = require('./updatePoznamky');
 const validatePoznamky = require('./validatePoznamky');
 
-const savePoznamky = async ({ request }) => {
-  const { id, rok } = request;
+const addPoznamka = async ({ request }) => {
+  const { id, rok, poznamka } = request;
 
   const createdUcast = await createUcast({ id, rok });
   let { code, status } = createdUcast;
@@ -20,16 +20,20 @@ const savePoznamky = async ({ request }) => {
     return { code, status };
   }
 
-  ({ code, status } = await validatePoznamky({ poznamky: ucast.poznamky }));
+  const poznamky = ucast.poznamky.toObject(); // convert to POJO from MongoDB sub-document
+  poznamky.push(poznamka);
+  poznamky.sort((a, b) => new Date(a.datum).getTime() - new Date(b.datum).getTime());
+
+  ({ code, status } = await validatePoznamky({ poznamky }));
   if (code !== CODE_OK) {
     return { code, status };
   }
 
-  updatePoznamky({ ...request, ucast });
+  updatePoznamky({ ucast, poznamky });
 
   await ucastnik.save();
   const broadcast = await broadcastUcastnik(id); // :TODO: could broadcast only Poznamky in future.
-  return { broadcast, code: CODE_OK, status: 'uloženo v pořádku' };
+  return { broadcast, code: CODE_OK, status: 'uloženo v pořádku', response: { poznamky } };
 };
 
-module.exports = savePoznamky;
+module.exports = addPoznamka;
