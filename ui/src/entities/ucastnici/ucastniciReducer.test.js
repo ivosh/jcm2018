@@ -3,6 +3,11 @@ import { UBYTOVANI_NEPRESPANO, ubytovaniModifications } from '../../common';
 import { AKTUALNI_ROK, ActionPrefixes } from '../../constants';
 import { websocketDisconnected } from '../../App/AppActions';
 import { signOut } from '../../auth/SignOut/SignOutActions';
+import {
+  addPoznamka,
+  deletePoznamka,
+  modifyPoznamka
+} from '../../registrator/Poznamky/PoznamkyActions';
 import { createPrihlaskySave } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
 import { createVykon, deleteVykon } from '../../registrator/Startujici/StartujiciActions';
 import { modifyUbytovani } from '../../registrator/Ubytovani/UbytovaniActions';
@@ -178,6 +183,63 @@ it('after disconnect', () => {
   deepFreeze(stateBefore);
 
   expect(ucastniciReducer(stateBefore, websocketDisconnected())).toEqual(stateAfter);
+});
+
+it('addPoznamka - success()', () => {
+  const stateBefore = { ...ucastniciTestData.entities.ucastnici };
+  deepFreeze(stateBefore);
+  const id = '8344bc71dec1e99b7e1d01e';
+  const poznamky = [
+    { datum: '2019-05-21T08:53:49.154Z', text: 'jedna poznámka' },
+    { datum: '2019-06-01T15:35:43.543Z', text: 'druhá poznámka' }
+  ];
+
+  expect(
+    ucastniciReducer(
+      stateBefore,
+      createSuccessFromAction({
+        action: addPoznamka({ id, poznamka: poznamky[1], rok: AKTUALNI_ROK }),
+        response: { response: { poznamky } }
+      })
+    )
+  ).toMatchSnapshot();
+});
+
+it('deletePoznamka - success()', () => {
+  const stateBefore = { ...ucastniciTestData.entities.ucastnici };
+  deepFreeze(stateBefore);
+  const id = '8344bc71dec1e99b7e1d01e';
+  const poznamky = [{ datum: '2019-06-01T15:35:43.543Z', text: 'druhá poznámka' }];
+
+  expect(
+    ucastniciReducer(
+      stateBefore,
+      createSuccessFromAction({
+        action: deletePoznamka({ id, index: 0, rok: AKTUALNI_ROK }),
+        response: { response: { poznamky } }
+      })
+    )
+  ).toMatchSnapshot();
+});
+
+it('modifyPoznamka - success()', () => {
+  const stateBefore = { ...ucastniciTestData.entities.ucastnici };
+  deepFreeze(stateBefore);
+  const id = '8344bc71dec1e99b7e1d01e';
+  const poznamky = [
+    { datum: '2019-05-21T08:53:49.154Z', text: 'první poznámka' },
+    { datum: '2019-06-01T15:35:43.543Z', text: 'druhá poznámka' }
+  ];
+
+  expect(
+    ucastniciReducer(
+      stateBefore,
+      createSuccessFromAction({
+        action: modifyPoznamka({ id, index: 0, poznamka: poznamky[0], rok: AKTUALNI_ROK }),
+        response: { response: { poznamky } }
+      })
+    )
+  ).toMatchSnapshot();
 });
 
 it('modifyUbytovani - success()', () => {

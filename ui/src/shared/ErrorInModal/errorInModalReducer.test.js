@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import { UBYTOVANI_NEPRESPANO } from '../../common';
-import { ActionPrefixes } from '../../constants';
+import { ActionPrefixes, AKTUALNI_ROK } from '../../constants';
 import { signIn } from '../../auth/SignIn/SignInActions';
 import { signOut } from '../../auth/SignOut/SignOutActions';
 import { saveVykon } from '../../casomeric/Casomira/StartovniCisla/StartovniCislaActions';
@@ -8,6 +8,11 @@ import { fetchRocniky } from '../../entities/rocniky/rocnikyActions';
 import { fetchStopky } from '../../entities/stopky/stopkyActions';
 import { fetchUcastnici } from '../../entities/ucastnici/ucastniciActions';
 import { poharPredan } from '../../registrator/Pohary/PoharyActions';
+import {
+  addPoznamka,
+  deletePoznamka,
+  modifyPoznamka
+} from '../../registrator/Poznamky/PoznamkyActions';
 import {
   createPrihlaskySave,
   createValidationError
@@ -128,6 +133,29 @@ it('POHAR_PREDAN_ERROR', () =>
   testUnsuccessfulResponse({
     action: poharPredan({ id: '===id===' }),
     title: 'předávání poháru'
+  }));
+
+it('POZNAMKA_ADD_ERROR', () =>
+  testUnsuccessfulResponse({
+    action: addPoznamka({ id: '===id===', poznamka: { text: 'text' }, rok: AKTUALNI_ROK }),
+    title: 'přidávání poznámky'
+  }));
+
+it('POZNAMKA_DELETE_ERROR', () =>
+  testUnsuccessfulResponse({
+    action: deletePoznamka({ id: '===id===', index: 0, rok: AKTUALNI_ROK }),
+    title: 'mazání poznámky'
+  }));
+
+it('POZNAMKA_MODIFY_ERROR', () =>
+  testUnsuccessfulResponse({
+    action: modifyPoznamka({
+      id: '===id===',
+      index: 1,
+      poznamka: { datum: new Date(), text: 'text' },
+      rok: AKTUALNI_ROK
+    }),
+    title: 'ukládání poznámky'
   }));
 
 it('PRIHLASKY_FORM_INVALID', () => {

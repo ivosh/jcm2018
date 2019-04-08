@@ -8,6 +8,11 @@ import { FETCH_STOPKY } from '../../entities/stopky/stopkyActions';
 import { FETCH_UCASTNICI } from '../../entities/ucastnici/ucastniciActions';
 import { POHAR_PREDAN } from '../../registrator/Pohary/PoharyActions';
 import {
+  POZNAMKA_ADD,
+  POZNAMKA_DELETE,
+  POZNAMKA_MODIFY
+} from '../../registrator/Poznamky/PoznamkyActions';
+import {
   DOHLASKY_SAVE,
   PRIHLASKY_SAVE
 } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
@@ -35,6 +40,9 @@ const errorInModalReducer = (state = initialState, action) => {
     case `${MODIFY_STOPKY}_ERROR`:
     case `${MODIFY_UBYTOVANI}_ERROR`:
     case `${POHAR_PREDAN}_ERROR`:
+    case `${POZNAMKA_ADD}_ERROR`:
+    case `${POZNAMKA_DELETE}_ERROR`:
+    case `${POZNAMKA_MODIFY}_ERROR`:
     case `${ActionPrefixes.PRIHLASKY}_FORM_INVALID`:
     case `${PRIHLASKY_SAVE}_ERROR`:
     case `${SIGN_IN}_ERROR`:

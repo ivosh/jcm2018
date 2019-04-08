@@ -3,6 +3,11 @@ import { SIGN_OUT } from '../../auth/SignOut/SignOutActions';
 import { CASOMIRA_SAVE_VYKON } from '../../casomeric/Casomira/StartovniCisla/StartovniCislaActions';
 import { POHAR_PREDAN } from '../../registrator/Pohary/PoharyActions';
 import {
+  POZNAMKA_ADD,
+  POZNAMKA_DELETE,
+  POZNAMKA_MODIFY
+} from '../../registrator/Poznamky/PoznamkyActions';
+import {
   DOHLASKY_SAVE,
   PRIHLASKY_SAVE
 } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
@@ -78,6 +83,22 @@ const ucastniciReducer = (state = initialState, action) => {
       const state3 = updateUcast(state2, id, rok, 'platby', platby);
       return updateUcast(state3, id, rok, 'ubytovani', ubytovani);
     }
+    case `${POZNAMKA_ADD}_SUCCESS`:
+    case `${POZNAMKA_DELETE}_SUCCESS`:
+    case `${POZNAMKA_MODIFY}_SUCCESS`: {
+      const {
+        request: { id, rok },
+        response: { poznamky }
+      } = action;
+      return updateUcast(state, id, rok, 'poznamky', poznamky);
+    }
+    case `${MODIFY_UBYTOVANI}_SUCCESS`: {
+      const {
+        request: { id, rok },
+        response: { ubytovani }
+      } = action;
+      return updateUcast(state, id, rok, 'ubytovani', ubytovani);
+    }
     case `${SIGN_OUT}_SUCCESS`:
       return initialState;
     case `${STARTUJICI_CREATE_VYKON}_SUCCESS`: {
@@ -87,13 +108,6 @@ const ucastniciReducer = (state = initialState, action) => {
     case `${STARTUJICI_DELETE_VYKON}_SUCCESS`: {
       const { id, rok } = action.request;
       return updateUcast(state, id, rok, 'vykon', undefined);
-    }
-    case `${MODIFY_UBYTOVANI}_SUCCESS`: {
-      const {
-        request: { id, rok },
-        response: { ubytovani }
-      } = action;
-      return updateUcast(state, id, rok, 'ubytovani', ubytovani);
     }
     case 'WEBSOCKET_DISCONNECTED':
       return { ...state, invalidated: true };
