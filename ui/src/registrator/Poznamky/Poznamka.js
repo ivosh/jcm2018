@@ -4,26 +4,24 @@ import moment from 'moment';
 import { Glyphicon } from 'react-bootstrap';
 import './Poznamka.css';
 
-const Poznamka = ({ datum, text: initialText, deletePoznamka, modifyPoznamka }) => {
-  const [text, setText] = useState(initialText); // :TODO: use memoized handlers via useCallback
+const Poznamka = ({ datum, lines, text: initialText, deletePoznamka, modifyPoznamka }) => {
+  const [text, setText] = useState(initialText);
   const [modified, setModified] = useState(false);
   const [saved, setSaved] = useState(false);
+
+  const save = () => {
+    if (modified) modifyPoznamka(text);
+    setSaved(true); // :TODO: this should be ideally driven by POZNAMKA_MODIFY_SUCCESS
+    setModified(false);
+  };
 
   return (
     <div>
       <div className="Poznamka__header">
-        <div className="Poznamka__datum">{moment.utc(datum).format('D. M. YYYY')}</div>
+        <div className="Poznamka__datum">{moment.utc(datum).format('D. M. YYYY v H:MM:ss')}</div>
         <div className="Poznamka__header_icons">
           {modified && (
-            <div
-              className="Poznamka__save"
-              onClick={() => {
-                modifyPoznamka(text);
-                setSaved(true);
-                setModified(false);
-              }}
-              title="uloží poznámku"
-            >
+            <div className="Poznamka__save" onClick={save} title="uloží poznámku">
               <Glyphicon glyph="save" />
             </div>
           )}
@@ -41,12 +39,8 @@ const Poznamka = ({ datum, text: initialText, deletePoznamka, modifyPoznamka }) 
         <textarea
           className="Poznamka__textarea"
           value={text}
-          rows={5}
-          onBlur={() => {
-            if (modified) modifyPoznamka(text);
-            setSaved(true);
-            setModified(false);
-          }}
+          rows={lines + 1}
+          onBlur={save}
           onChange={event => {
             setText(event.target.value);
             setSaved(false);
@@ -60,6 +54,7 @@ const Poznamka = ({ datum, text: initialText, deletePoznamka, modifyPoznamka }) 
 
 Poznamka.propTypes = {
   datum: PropTypes.instanceOf(Date).isRequired,
+  lines: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired,
   deletePoznamka: PropTypes.func.isRequired,
   modifyPoznamka: PropTypes.func.isRequired

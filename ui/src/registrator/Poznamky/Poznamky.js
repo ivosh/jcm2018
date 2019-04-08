@@ -18,10 +18,7 @@ const Poznamky = ({ poznamky }) =>
 Poznamky.propTypes = {
   poznamky: PropTypes.arrayOf(
     PropTypes.shape({
-      datum: PropTypes.instanceOf(Date).isRequired,
-      text: PropTypes.string.isRequired,
-      deletePoznamka: PropTypes.func.isRequired,
-      modifyPoznamka: PropTypes.func.isRequired
+      datum: PropTypes.instanceOf(Date).isRequired
     }).isRequired
   ).isRequired,
   addPoznamka: PropTypes.func.isRequired
