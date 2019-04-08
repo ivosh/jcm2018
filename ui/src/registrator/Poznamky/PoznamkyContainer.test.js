@@ -64,7 +64,7 @@ it('maps deletePoznamka to dispatch POZNAMKA_DELETE action', () => {
 });
 
 it('maps modifyPoznamka to dispatch POZNAMKA_MODIFY action', () => {
-  wrapper.props().poznamky[1].modifyPoznamka({ target: { value: 'text nějaké poznámky' } });
+  wrapper.props().poznamky[1].modifyPoznamka('text nějaké poznámky');
 
   expect(store.dispatch).toHaveBeenCalledWith({
     [WS_API]: {

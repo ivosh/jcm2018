@@ -1,10 +1,42 @@
-.Poznamka__datum,
+.Poznamka__header {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: space-between;
+}
+
+.Poznamka__header_icons {
+  display: flex;
+  justify-self: flex-end;
+}
+
+.Poznamka__datum {
+  margin-left: 0.5em;
+}
+
+.Poznamka__save {
+  color: #333399;
+  cursor: pointer;
+  margin-right: 0.5em;
+}
+
+.Poznamka__saved {
+  color: #339933;
+  margin-right: 0.5em;
+}
+
+.Poznamka__delete {
+  color: #b30000;
+  cursor: pointer;
+  margin-right: 0.5em;
+}
+
+.Poznamka__header,
 .Poznamka__text {
   border: 1px solid #1a1aff;
   padding: 5px;
 }
 
-.Poznamka__datum {
+.Poznamka__header {
   background-color: #b3c6ff;
   border-bottom: 1px solid #7777ff;
   border-radius: 5px 5px 0 0;

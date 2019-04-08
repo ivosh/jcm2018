@@ -26,8 +26,7 @@ const mergeProps = (
   poznamky: poznamky.map((poznamka, index) => ({
     ...poznamka,
     deletePoznamka: () => deletePoznamka(index),
-    modifyPoznamka: event =>
-      modifyPoznamka(index)({ datum: poznamka.datum, text: event.target.value })
+    modifyPoznamka: text => modifyPoznamka(index)({ datum: poznamka.datum, text })
   })),
   ...stateProps,
   ...dispatchProps

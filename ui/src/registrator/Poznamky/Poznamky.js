@@ -5,9 +5,9 @@ import './Poznamky.css';
 
 const Poznamky = ({ poznamky }) =>
   poznamky.length > 0 ? (
-    poznamky.map(({ datum, text }, index, array) => (
-      <React.Fragment key={datum.toString()}>
-        <Poznamka datum={datum} text={text} />
+    poznamky.map((poznamka, index, array) => (
+      <React.Fragment key={poznamka.datum.toString()}>
+        <Poznamka {...poznamka} />
         {index < array.length - 1 && <hr className="Poznamky__hr" />}
       </React.Fragment>
     ))
@@ -19,9 +19,12 @@ Poznamky.propTypes = {
   poznamky: PropTypes.arrayOf(
     PropTypes.shape({
       datum: PropTypes.instanceOf(Date).isRequired,
-      text: PropTypes.string.isRequired
+      text: PropTypes.string.isRequired,
+      deletePoznamka: PropTypes.func.isRequired,
+      modifyPoznamka: PropTypes.func.isRequired
     }).isRequired
-  ).isRequired
+  ).isRequired,
+  addPoznamka: PropTypes.func.isRequired
 };
 
 export default Poznamky;
