@@ -72,7 +72,8 @@ const streamFile = async ({ filename, host, response }) => {
     : `wss://${host}`;
   const workboxSrc = 'https://storage.googleapis.com/workbox-cdn/';
   const inlineRuntimeScript = 'sha256-5As4+3YpY62+l38PsxCEkjB1R4YtyktBtRScTJ3fyLU=';
-  const inlineStyles = 'sha256-deDIoPlRijnpfbTDYsK+8JmDfUBmpwpnb0L/SUV8NeU=';
+  const inlineStyles =
+    "'sha256-deDIoPlRijnpfbTDYsK+8JmDfUBmpwpnb0L/SUV8NeU=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-ZpFbe7/wL6gm8wStJGBSiZtV+YtYPX9TPuKTKd0LsBE=' 'sha256-9BwlLwITKjx2jBxNdzYPS3dJ+e7H6daMMj43vmqpCjw='";
   response.writeHead(200, {
     'Content-Type': contentType,
     'Content-Length': stats.size,
