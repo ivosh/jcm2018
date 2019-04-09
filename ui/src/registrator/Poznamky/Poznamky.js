@@ -7,10 +7,9 @@ import './Poznamky.css';
 const Poznamky = ({ poznamky, addPoznamka }) => (
   <React.Fragment>
     {poznamky.length > 0 ? (
-      poznamky.map((poznamka, index, array) => (
+      poznamky.map((poznamka, index) => (
         <React.Fragment key={poznamka.datum.toString()}>
           <Poznamka {...poznamka} focus={index === 0} />
-          {index < array.length - 1 && <hr className="Poznamky__hr" />}
         </React.Fragment>
       ))
     ) : (

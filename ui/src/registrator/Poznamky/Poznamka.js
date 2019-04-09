@@ -18,7 +18,7 @@ const Poznamka = ({ focus, datum, lines, text: initialText, deletePoznamka, modi
   };
 
   return (
-    <div>
+    <div className="Poznamka">
       <div className="Poznamka__header">
         <div className="Poznamka__datum">{moment(datum).format('D. M. YYYY v H:MM:ss')}</div>
         <div className="Poznamka__header_icons">

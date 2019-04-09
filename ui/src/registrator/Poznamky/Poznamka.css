@@ -1,33 +1,51 @@
+.Poznamka {
+  margin-bottom: 1ex;
+}
+
 .Poznamka__header {
+  align-items: center;
   display: flex;
   flex: 1 0 auto;
   justify-content: space-between;
-}
-
-.Poznamka__header_icons {
-  display: flex;
-  justify-self: flex-end;
 }
 
 .Poznamka__datum {
   margin-left: 0.5em;
 }
 
+.Poznamka__header_icons {
+  align-items: center;
+  display: flex;
+  justify-self: flex-end;
+}
+
+.Poznamka__delete,
+.Poznamka__save,
+.Poznamka__saved {
+  margin-right: 0.5em;
+  padding: 2px 5px;
+}
+
+.Poznamka__delete,
+.Poznamka__save {
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.Poznamka__delete:hover,
+.Poznamka__save:hover {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
 .Poznamka__save {
   color: #333399;
-  cursor: pointer;
-  margin-right: 0.5em;
 }
-
 .Poznamka__saved {
   color: #339933;
-  margin-right: 0.5em;
 }
-
 .Poznamka__delete {
   color: #b30000;
-  cursor: pointer;
-  margin-right: 0.5em;
 }
 
 .Poznamka__header,

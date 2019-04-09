@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dvě poznámky 1`] = `
+Array [
+  <div
+    className="Poznamka"
+  >
+    <div
+      className="Poznamka__header"
+    >
+      <div
+        className="Poznamka__datum"
+      >
+        23. 5. 2019 v 22:05:53
+      </div>
+      <div
+        className="Poznamka__header_icons"
+      >
+        <div
+          className="Poznamka__delete"
+          onClick={[MockFunction]}
+          title="vymaže poznámku"
+        >
+          <span
+            className="glyphicon glyphicon-remove"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="Poznamka__text"
+    >
+      <textarea
+        autoFocus={true}
+        className="Poznamka__textarea"
+        onBlur={[Function]}
+        onChange={[Function]}
+        rows={2}
+        value="text poznámky"
+      />
+    </div>
+  </div>,
+  <div
+    className="Poznamka"
+  >
+    <div
+      className="Poznamka__header"
+    >
+      <div
+        className="Poznamka__datum"
+      >
+        8. 6. 2019 v 0:06:15
+      </div>
+      <div
+        className="Poznamka__header_icons"
+      >
+        <div
+          className="Poznamka__delete"
+          onClick={[MockFunction]}
+          title="vymaže poznámku"
+        >
+          <span
+            className="glyphicon glyphicon-remove"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="Poznamka__text"
+    >
+      <textarea
+        autoFocus={false}
+        className="Poznamka__textarea"
+        onBlur={[Function]}
+        onChange={[Function]}
+        rows={4}
+        value="jedna
+trochu delší
+poznámka"
+      />
+    </div>
+  </div>,
+  <button
+    className="btn btn-info"
+    disabled={false}
+    onClick={[MockFunction]}
+    type="button"
+  >
+    <span
+      className="glyphicon glyphicon-plus"
+    />
+     Přidej poznámku
+  </button>,
+]
+`;
+
+exports[`žádná poznámka 1`] = `
+Array [
+  <div>
+    Doposud žádné poznámky.
+  </div>,
+  <button
+    className="btn btn-info"
+    disabled={false}
+    onClick={[MockFunction]}
+    type="button"
+  >
+    <span
+      className="glyphicon glyphicon-plus"
+    />
+     Přidej poznámku
+  </button>,
+]
+`;

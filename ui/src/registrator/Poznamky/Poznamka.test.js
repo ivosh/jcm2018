@@ -13,7 +13,7 @@ it('prázdná poznámka', () => {
       modifyPoznamka={jest.fn()}
     />
   );
-  expect(component.toJSON).toMatchSnapshot();
+  expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('handle delete', () => {
