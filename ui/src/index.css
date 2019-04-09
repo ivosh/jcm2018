@@ -49,3 +49,15 @@ html {
   --nedokonceno: 11, 48, 86;
   --na-trase: 104, 49, 2;
 }
+
+@keyframes fadeInOpacityAndHide {
+  0% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

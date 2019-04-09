@@ -41,11 +41,17 @@
 .Poznamka__save {
   color: #333399;
 }
-.Poznamka__saved {
-  color: #339933;
-}
 .Poznamka__delete {
   color: #b30000;
+}
+
+.Poznamka__saved {
+  animation-name: fadeInOpacityAndHide;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 1.5s;
+  color: #339933;
+  opacity: 0;
 }
 
 .Poznamka__header,
