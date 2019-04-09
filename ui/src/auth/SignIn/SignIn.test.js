@@ -5,7 +5,7 @@ import SignIn from './SignIn';
 
 it('prázdný formulář', () => {
   const component = renderer.create(<SignIn signingIn={false} onSubmit={jest.fn()} />);
-  expect(component.toJSON).toMatchSnapshot();
+  expect(component.toJSON()).toMatchSnapshot();
 });
 
 it('formulář při načítání', () => {

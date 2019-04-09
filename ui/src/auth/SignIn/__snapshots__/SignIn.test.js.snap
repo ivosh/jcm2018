@@ -87,4 +87,83 @@ exports[`formulář při načítání 1`] = `
 </div>
 `;
 
-exports[`prázdný formulář 1`] = `[Function]`;
+exports[`prázdný formulář 1`] = `
+<div
+  className="SignIn_div"
+>
+  <div
+    className="SignIn_panel panel panel-primary"
+  >
+    <div
+      className="panel-heading"
+    >
+      Přihlášení do aplikace JCM
+    </div>
+    <div
+      className="panel-body"
+    >
+      <form
+        autoComplete="off"
+        className="SignIn_form form-inline"
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-group"
+        >
+          <label
+            className="control-label"
+            htmlFor="username"
+          >
+            Jméno
+          </label>
+           
+          <input
+            className="form-control"
+            id="username"
+            onChange={[Function]}
+            placeholder="uživatelské jméno"
+            type="text"
+            value=""
+          />
+        </div>
+        <span
+          className="SignIn_spacing"
+        />
+        <div
+          className="form-group"
+        >
+          <label
+            className="control-label"
+            htmlFor="password"
+          >
+            Heslo
+          </label>
+           
+          <input
+            className="form-control"
+            id="password"
+            onChange={[Function]}
+            placeholder="heslo"
+            type="password"
+            value=""
+          />
+        </div>
+        <span
+          className="SignIn_spacing"
+        />
+        <div
+          className="form-group"
+        >
+          <button
+            className="btn btn-success"
+            disabled={false}
+            type="submit"
+          >
+            Přihlásit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
