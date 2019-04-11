@@ -1,6 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
+import renderer, { act } from 'react-test-renderer';
 import Poznamky from './Poznamky';
 
 const poznamky = [
@@ -30,12 +29,16 @@ it('dvě poznámky', () => {
   expect(component.toJSON()).toMatchSnapshot();
 });
 
-it('handle add', () => {
+it('handle add', async () => {
   const addPoznamka = jest.fn();
-  const wrapper = mount(<Poznamky poznamky={poznamky} addPoznamka={addPoznamka} />);
+  let component;
+  act(() => {
+    component = renderer.create(<Poznamky poznamky={poznamky} addPoznamka={addPoznamka} />);
+  });
 
-  expect(wrapper.find('button')).toHaveLength(1);
-  wrapper.find('button').simulate('click');
+  await act(async () => {
+    await component.root.findByType('button').props.onClick();
+  });
 
   expect(addPoznamka).toHaveBeenCalledTimes(1);
 });

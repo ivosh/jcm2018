@@ -11,7 +11,7 @@ const Poznamka = ({ focus, datum, lines, text: initialText, deletePoznamka, modi
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const save = async () => {
+  const handleSave = async () => {
     if (modified) {
       setSaving(true);
       await modifyPoznamka(text);
@@ -19,6 +19,12 @@ const Poznamka = ({ focus, datum, lines, text: initialText, deletePoznamka, modi
       setSaved(true); // :TODO: this should be ideally driven by POZNAMKA_MODIFY_SUCCESS
       setModified(false);
     }
+  };
+
+  const handleDelete = async () => {
+    setSaving(true);
+    await deletePoznamka();
+    setSaving(false);
   };
 
   return (
@@ -30,7 +36,7 @@ const Poznamka = ({ focus, datum, lines, text: initialText, deletePoznamka, modi
           {modified && (
             <div
               className="Poznamka__save"
-              onClick={saving ? undefined : save} // disable "save" if already saving
+              onClick={saving ? undefined : handleSave} // disable "save" if already saving
               title="uloží poznámku"
             >
               <Glyphicon glyph="save" />
@@ -41,7 +47,11 @@ const Poznamka = ({ focus, datum, lines, text: initialText, deletePoznamka, modi
               <Glyphicon glyph="saved" />
             </div>
           )}
-          <div className="Poznamka__delete" onClick={deletePoznamka} title="vymaže poznámku">
+          <div
+            className="Poznamka__delete"
+            onClick={saving ? undefined : handleDelete}
+            title="vymaže poznámku"
+          >
             <Glyphicon glyph="remove" />
           </div>
         </div>
@@ -52,7 +62,7 @@ const Poznamka = ({ focus, datum, lines, text: initialText, deletePoznamka, modi
           className="Poznamka__textarea"
           value={text}
           rows={lines + 1}
-          onBlur={save}
+          onBlur={handleSave}
           onChange={event => {
             setText(event.target.value);
             setSaved(false);

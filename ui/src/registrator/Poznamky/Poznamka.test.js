@@ -15,7 +15,7 @@ it('prázdná poznámka', () => {
   expect(component.toJSON()).toMatchSnapshot();
 });
 
-it('handle delete', () => {
+it('handle delete', async () => {
   const deletePoznamka = jest.fn();
   let component;
   act(() => {
@@ -30,8 +30,8 @@ it('handle delete', () => {
     );
   });
 
-  act(() => {
-    component.root.findByProps({ className: 'Poznamka__delete' }).props.onClick();
+  await act(async () => {
+    await component.root.findByProps({ className: 'Poznamka__delete' }).props.onClick();
   });
 
   expect(deletePoznamka).toHaveBeenCalledTimes(1);

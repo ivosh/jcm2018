@@ -1,25 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Glyphicon } from 'react-bootstrap';
+import { Glyphicon } from 'react-bootstrap';
+import LoadingButton from '../../shared/LoadingButton';
 import Poznamka from './Poznamka';
 import './Poznamky.css';
 
-const Poznamky = ({ poznamky, addPoznamka }) => (
-  <React.Fragment>
-    {poznamky.length > 0 ? (
-      poznamky.map((poznamka, index) => (
-        <React.Fragment key={poznamka.datum.toString()}>
-          <Poznamka {...poznamka} focus={index === 0} />
-        </React.Fragment>
-      ))
-    ) : (
-      <div>Doposud žádné poznámky.</div>
-    )}
-    <Button bsStyle="info" onClick={addPoznamka}>
-      <Glyphicon glyph="plus" /> Přidej poznámku
-    </Button>
-  </React.Fragment>
-);
+const Poznamky = ({ poznamky, addPoznamka }) => {
+  const [saving, setSaving] = useState(false);
+
+  const handleAdd = async event => {
+    setSaving(true);
+    await addPoznamka(event);
+    setSaving(false);
+  };
+
+  return (
+    <React.Fragment>
+      {poznamky.length > 0 ? (
+        poznamky.map((poznamka, index) => (
+          <React.Fragment key={poznamka.datum.toString()}>
+            <Poznamka {...poznamka} focus={index === 0} />
+          </React.Fragment>
+        ))
+      ) : (
+        <div>Doposud žádné poznámky.</div>
+      )}
+      <LoadingButton
+        bsStyle="info"
+        disabled={saving}
+        loading={saving}
+        loadingText="Přidávám poznámku..."
+        onClick={handleAdd}
+      >
+        <Glyphicon glyph="plus" /> Přidej poznámku
+      </LoadingButton>
+    </React.Fragment>
+  );
+};
 
 Poznamky.propTypes = {
   poznamky: PropTypes.arrayOf(

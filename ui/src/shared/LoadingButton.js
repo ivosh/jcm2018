@@ -3,8 +3,15 @@ import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 import LoadingIndicator from './LoadingIndicator';
 
-const LoadingButton = ({ bsStyle = 'success', children, type, loading = false, loadingText }) => (
-  <Button type={type} bsStyle={bsStyle} disabled={loading}>
+const LoadingButton = ({
+  bsStyle = 'success',
+  children,
+  type,
+  loading = false,
+  loadingText,
+  onClick
+}) => (
+  <Button type={type} bsStyle={bsStyle} disabled={loading} onClick={onClick}>
     {loading ? (
       <span>
         <LoadingIndicator /> {loadingText}
@@ -20,7 +27,8 @@ LoadingButton.propTypes = {
   children: PropTypes.node.isRequired,
   type: PropTypes.string,
   loading: PropTypes.bool,
-  loadingText: PropTypes.string
+  loadingText: PropTypes.string,
+  onClick: PropTypes.func
 };
 
 export default LoadingButton;

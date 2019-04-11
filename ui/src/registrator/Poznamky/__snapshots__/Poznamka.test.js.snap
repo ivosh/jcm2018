@@ -17,7 +17,7 @@ exports[`prázdná poznámka 1`] = `
     >
       <div
         className="Poznamka__delete"
-        onClick={[MockFunction]}
+        onClick={[Function]}
         title="vymaže poznámku"
       >
         <span
