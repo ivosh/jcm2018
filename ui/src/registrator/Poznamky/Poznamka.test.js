@@ -1,6 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
+import renderer, { act } from 'react-test-renderer';
 import Poznamka from './Poznamka';
 
 it('prázdná poznámka', () => {
@@ -18,38 +17,49 @@ it('prázdná poznámka', () => {
 
 it('handle delete', () => {
   const deletePoznamka = jest.fn();
-  const wrapper = mount(
-    <Poznamka
-      datum={new Date('2019-05-24T06:13:53.000Z')}
-      lines={1}
-      text="text poznámky"
-      deletePoznamka={deletePoznamka}
-      modifyPoznamka={jest.fn()}
-    />
-  );
+  let component;
+  act(() => {
+    component = renderer.create(
+      <Poznamka
+        datum={new Date('2019-05-24T06:13:53.000Z')}
+        lines={1}
+        text="text poznámky"
+        deletePoznamka={deletePoznamka}
+        modifyPoznamka={jest.fn()}
+      />
+    );
+  });
 
-  expect(wrapper.find('.Poznamka__delete')).toHaveLength(1);
-  wrapper.find('.Poznamka__delete').simulate('click');
+  act(() => {
+    component.root.findByProps({ className: 'Poznamka__delete' }).props.onClick();
+  });
 
   expect(deletePoznamka).toHaveBeenCalledTimes(1);
 });
 
-it('handle modify and click save icon', () => {
+it('handle modify and click save icon', async () => {
   const modifyPoznamka = jest.fn();
-  const wrapper = mount(
-    <Poznamka
-      datum={new Date('2019-05-24T06:13:53.000Z')}
-      lines={1}
-      text="text poznámky"
-      deletePoznamka={jest.fn()}
-      modifyPoznamka={modifyPoznamka}
-    />
-  );
+  let component;
+  act(() => {
+    component = renderer.create(
+      <Poznamka
+        datum={new Date('2019-05-24T06:13:53.000Z')}
+        lines={1}
+        text="text poznámky"
+        deletePoznamka={jest.fn()}
+        modifyPoznamka={modifyPoznamka}
+      />
+    );
+  });
 
-  expect(wrapper.find('textarea')).toHaveLength(1);
-  wrapper.find('textarea').simulate('change', { target: { value: 'text poznámky změněný' } });
-  expect(wrapper.find('.Poznamka__save')).toHaveLength(1);
-  wrapper.find('.Poznamka__save').simulate('click');
+  await act(async () => {
+    await component.root
+      .findByType('textarea')
+      .props.onChange({ target: { value: 'text poznámky změněný' } });
+  });
+  await act(async () => {
+    await component.root.findByProps({ className: 'Poznamka__save' }).props.onClick();
+  });
 
   expect(modifyPoznamka).toHaveBeenCalledTimes(1);
   expect(modifyPoznamka).toHaveBeenCalledWith('text poznámky změněný');

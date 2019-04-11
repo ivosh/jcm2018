@@ -2,16 +2,20 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { Glyphicon } from 'react-bootstrap';
+import LoadingIndicator from '../../shared/LoadingIndicator';
 import './Poznamka.css';
 
 const Poznamka = ({ focus, datum, lines, text: initialText, deletePoznamka, modifyPoznamka }) => {
   const [text, setText] = useState(initialText);
   const [modified, setModified] = useState(false);
+  const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const save = () => {
+  const save = async () => {
     if (modified) {
-      modifyPoznamka(text);
+      setSaving(true);
+      await modifyPoznamka(text);
+      setSaving(false);
       setSaved(true); // :TODO: this should be ideally driven by POZNAMKA_MODIFY_SUCCESS
       setModified(false);
     }
@@ -22,8 +26,13 @@ const Poznamka = ({ focus, datum, lines, text: initialText, deletePoznamka, modi
       <div className="Poznamka__header">
         <div className="Poznamka__datum">{moment(datum).format('D. M. YYYY v H:MM:ss')}</div>
         <div className="Poznamka__header_icons">
+          {saving && <LoadingIndicator />}
           {modified && (
-            <div className="Poznamka__save" onClick={save} title="uloží poznámku">
+            <div
+              className="Poznamka__save"
+              onClick={saving ? undefined : save} // disable "save" if already saving
+              title="uloží poznámku"
+            >
               <Glyphicon glyph="save" />
             </div>
           )}
