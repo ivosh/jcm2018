@@ -21,7 +21,12 @@ const replaceInFile = (filename, regexp, replacement) => {
   fs.writeFileSync(filename, result, 'utf8');
 };
 
-const jsonFiles = ['package.json', 'package-lock.json', 'ui/package.json', 'ui/package-lock.json'];
+const jsonFiles = [
+  'package.json',
+  'package-lock.json',
+  'ui/web/package.json',
+  'ui/web/package-lock.json'
+];
 const snapFiles = ['ui/src/App/__snapshots__/About.test.js.snap'];
 
 const main = async () => {

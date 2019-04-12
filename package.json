@@ -15,7 +15,7 @@
   },
   "cacheDirectories": [
     "node_modules",
-    "ui/node_modules"
+    "ui/web/node_modules"
   ],
   "scripts": {
     "start": "node server/server.js",
@@ -25,18 +25,18 @@
     "start:80": "cross-env PORT=80 npm start",
     "test:server": "cross-env NODE_ENV=test LOG_LEVEL=error jest --env=node --runInBand",
     "test:server:bash": "winpty npm.cmd run test:server",
-    "test": "npm run test:server -- && cd ui/ && npm test && cd ..",
+    "test": "npm run test:server -- && cd ui/web/ && npm test",
     "prettier:server": "prettier --write \"{common,server}/**/*.js\" && prettier --parser=babel --write \"setversion\"",
-    "prettier": "npm run prettier:server && cd ui/ && npm run prettier && cd ..",
+    "prettier": "npm run prettier:server && cd ui/web/ && npm run prettier",
     "lint:server": "eslint common server setversion",
     "lint-cache:server": "eslint --cache common server setversion",
-    "lint": "npm run lint:server && cd ui/ && npm run lint",
-    "coverage": "cross-env NODE_ENV=test LOG_LEVEL=error jest --env=node --runInBand --coverage common/ server/ && cd ui/ && npm run coverage && cd ..",
+    "lint": "npm run lint:server && cd ui/web/ && npm run lint",
+    "coverage": "cross-env NODE_ENV=test LOG_LEVEL=error jest --env=node --runInBand --coverage common/ server/ && cd ui/web/ && npm run coverage",
     "coverage:report": "npm run coverage && codecov",
-    "clean": "rm -rf coverage && cd ui/ && npm run clean && cd ..",
-    "clobber": "rm -rf coverage node_modules && cd ui/ && npm run clobber && cd ..",
+    "clean": "rm -rf coverage && cd ui/web/ && npm run clean",
+    "clobber": "rm -rf coverage node_modules && cd ui/web/ && npm run clobber",
     "deploy": "git push && git push --tags",
-    "heroku-postbuild": "cd ui/ && npm install && npm run build && cd .."
+    "heroku-postbuild": "cd ui/web/ && npm install && npm run build"
   },
   "dependencies": {
     "async-file": "^2.0.2",

@@ -7,7 +7,7 @@ const url = require('url');
 const common = require('../common/common');
 const logger = require('./logger');
 
-const STATIC_ASSETS_PATH = '../ui/build';
+const STATIC_ASSETS_PATH = '../ui/web/build';
 const INITIAL_FILE = 'index.html';
 
 const pickContentType = extension => {

@@ -1,10 +1,10 @@
 language: node_js
 node_js:
-  - "node"
-  - "11"
+  - 'node'
+  - '11'
 services: mongodb
 install:
   - npm install
-  - cd ui/ && npm install && npm run build && cd ..
+  - cd ui/web/ && npm install && npm run build && cd ../..
 after_success:
   - npm run coverage:report

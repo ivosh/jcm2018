@@ -37,8 +37,8 @@
     "coverage": "react-scripts test --env=jsdom --coverage",
     "coverage:bash": "winpty npm.cmd run coverage",
     "prettier": "prettier --write \"src/**/*.{js,jsx,json,css}\"",
-    "lint": "eslint --config ../.eslintrc src",
-    "lint-cache": "eslint --config ../.eslintrc --cache src",
+    "lint": "eslint --config ../../.eslintrc src",
+    "lint-cache": "eslint --config ../../.eslintrc --cache src",
     "clean": "rm -rf coverage",
     "clobber": "rm -rf coverage node_modules",
     "source-map-explorer": "npm run build && node ./node_modules/source-map-explorer/index.js build/static/js/*"
