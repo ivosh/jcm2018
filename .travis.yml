@@ -4,7 +4,7 @@ node_js:
   - '11'
 services: mongodb
 install:
-  - npm install
-  - cd ui/web/ && npm install && npm run build && cd ../..
+  - npm ci
+  - cd ui/web/ && npm ci && npm run build && cd ../..
 after_success:
   - npm run coverage:report
