@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "jcm2018",
+    "description": "Jirkovský crossmarathon 2019",
+    "slug": "jcm2019",
+    "privacy": "public",
+    "sdkVersion": "32.0.0",
+    "version": "1.5.4",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "githubUrl": "https://github.com/ivosh/jcm2018",
+    "orientation": "landscape",
+    "icon": "./assets/images/icon.png",
+    "splash": {
+      "backgroundColor": "#ffffff",
+      "resizeMode": "contain",
+      "image": "./assets/images/splash.png"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 30000
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+      "package": "net.ivosh.jcm2018",
+      "permissions": []
+    },
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}
