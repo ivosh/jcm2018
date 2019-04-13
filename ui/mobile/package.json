@@ -5,8 +5,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "prettier": "prettier --write \"App.js\" \"src/**/*.{js,jsx,json,css}\"",
-    "lint": "eslint --config ../../.eslintrc App.js src",
-    "lint-cache": "eslint --config ../../.eslintrc --cache App.js src",
+    "lint": "eslint --config ../../.eslintrc App.js \"src/**/*.{js,jsx}\"",
+    "lint-cache": "eslint --config ../../.eslintrc --cache App.js \"src/**/*.{js,jsx}\"",
     "test": "jest --watchAll",
     "test:bash": "winpty npm.cmd run test"
   },

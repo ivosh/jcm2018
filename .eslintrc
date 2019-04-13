@@ -11,7 +11,7 @@
   "parser": "babel-eslint",
 
   "parserOptions": {
-    "ecmaVersion": 2018,
+    "ecmaVersion": 2019,
     "ecmaFeatures": {
       "impliedStrict": true,
       "jsx": true
@@ -51,6 +51,7 @@
     "no-nested-ternary": 0,
     "object-curly-newline": ["error", { "consistent": true }],
     "operator-linebreak": 0,
+    "react/jsx-one-expression-per-line": 0,
 
     // It is perfectly ok to explicitly export only one thing from a module.
     "import/prefer-default-export": 0,
@@ -77,6 +78,8 @@
     "no-underscore-dangle": [2, { "allow": ["_id"] }],
 
     // Do not force new lines before expect. Does not work correctly with 'await'.
-    "jasmine/new-line-before-expect": 0
+    "jasmine/new-line-before-expect": 0,
+
+    "react/jsx-boolean-value": [2, "always"]
   }
 }
