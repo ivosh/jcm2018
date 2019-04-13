@@ -4,16 +4,11 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "prettier": "prettier --write \"App*\" \"__tests__\" \"{components,constants,navigation,screens}/**/*.{js,jsx,json,css}\"",
-    "lint": "eslint --config ../../.eslintrc App* __tests__ components constants navigation screens",
-    "lint-cache": "eslint --config ../../.eslintrc --cache src",
-    "test": "jest --watchAll"
-  },
-  "jest": {
-    "preset": "jest-expo",
-    "transformIgnorePatterns": [
-      "node_modules/(?!((jest-)?react-native|react-clone-referenced-element|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|sentry-expo|native-base))"
-    ]
+    "prettier": "prettier --write \"App.js\" \"src/**/*.{js,jsx,json,css}\"",
+    "lint": "eslint --config ../../.eslintrc App.js src",
+    "lint-cache": "eslint --config ../../.eslintrc --cache App.js src",
+    "test": "jest --watchAll",
+    "test:bash": "winpty npm.cmd run test"
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
@@ -35,5 +30,12 @@
     "prettier": "^1.17.0",
     "react-test-renderer": "^16.8.6"
   },
-  "private": true
+  "private": true,
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "preset": "jest-expo",
+    "testPathIgnorePatterns": [
+      "node_modules/"
+    ]
+  }
 }

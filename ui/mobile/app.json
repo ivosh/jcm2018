@@ -6,24 +6,19 @@
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "version": "1.5.6",
-    "platforms": [
-      "ios",
-      "android"
-    ],
+    "platforms": ["ios", "android"],
     "githubUrl": "https://github.com/ivosh/jcm2018",
     "orientation": "landscape",
-    "icon": "./assets/images/icon.png",
+    "icon": "./src/assets/images/icon.png",
     "splash": {
       "backgroundColor": "#ffffff",
       "resizeMode": "contain",
-      "image": "./assets/images/splash.png"
+      "image": "./src/assets/images/splash.png"
     },
     "updates": {
       "fallbackToCacheTimeout": 30000
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "android": {
       "package": "net.ivosh.jcm2018",
       "permissions": []
