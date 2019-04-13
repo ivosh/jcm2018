@@ -40,9 +40,9 @@ const main = async () => {
   );
 
   execSync(
-    `git commit -m "Bump version number to ${version}." -- ${jsonFiles.join(' ')} ${snapFiles.join(
+    `git commit -m "Bump version number to ${version}." -- ${appFiles.join(' ')} ${jsonFiles.join(
       ' '
-    )}`
+    )} ${snapFiles.join(' ')}`
   );
   execSync(`git tag ${version}`);
 };
