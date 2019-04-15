@@ -12,7 +12,13 @@ it('prázdná poznámka', () => {
       modifyPoznamka={jest.fn()}
     />
   );
-  expect(component.toJSON()).toMatchSnapshot();
+  const json = component.toJSON();
+
+  // Fix datum.
+  expect(json.children[0].children[0].children).toHaveLength(1);
+  json.children[0].children[0].children = ['datum 1'];
+
+  expect(json).toMatchSnapshot();
 });
 
 it('handle delete', async () => {

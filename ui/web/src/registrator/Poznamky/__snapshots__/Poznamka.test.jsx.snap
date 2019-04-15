@@ -10,7 +10,7 @@ exports[`prázdná poznámka 1`] = `
     <div
       className="Poznamka__datum"
     >
-      24. 5. 2019 v 7:05:53
+      datum 1
     </div>
     <div
       className="Poznamka__header_icons"

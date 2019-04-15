@@ -26,7 +26,15 @@ it('žádná poznámka', () => {
 
 it('dvě poznámky', () => {
   const component = renderer.create(<Poznamky poznamky={poznamky} addPoznamka={jest.fn()} />);
-  expect(component.toJSON()).toMatchSnapshot();
+  const json = component.toJSON();
+
+  // Fix datum.
+  expect(json[0].children[0].children[0].children).toHaveLength(1);
+  expect(json[1].children[0].children[0].children).toHaveLength(1);
+  json[0].children[0].children[0].children = ['datum 1'];
+  json[1].children[0].children[0].children = ['datum 2'];
+
+  expect(json).toMatchSnapshot();
 });
 
 it('handle add', async () => {
