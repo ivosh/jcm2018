@@ -28,7 +28,7 @@ const jsonFiles = [
   'ui/web/package.json',
   'ui/web/package-lock.json'
 ];
-const snapFiles = ['ui/web/src/App/__snapshots__/About.test.js.snap'];
+const snapFiles = ['ui/web/src/App/__snapshots__/About.test.jsx.snap'];
 
 const main = async () => {
   logger.info(`Setting version to ${version}.`);
