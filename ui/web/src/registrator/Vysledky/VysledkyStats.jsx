@@ -19,7 +19,7 @@ VysledkyStats.propTypes = {
     startovalo: PropTypes.number.isRequired,
     dokoncilo: PropTypes.number.isRequired
   }).isRequired,
-  typy: PropTypes.object.isRequired
+  typy: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
 export default VysledkyStats;

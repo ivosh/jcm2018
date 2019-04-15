@@ -26,9 +26,9 @@ const VysledkyTypu = ({ popisek, startCisla, stats, typ, ucastnici, zkratky }) =
 VysledkyTypu.propTypes = {
   popisek: PropTypes.string.isRequired,
   startCisla: PropTypes.bool.isRequired,
-  stats: PropTypes.object.isRequired,
+  stats: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   typ: PropTypes.string.isRequired,
-  ucastnici: PropTypes.array.isRequired,
+  ucastnici: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
   zkratky: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 

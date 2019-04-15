@@ -1068,6 +1068,7 @@ exports[`dva pohároví 1`] = `
                                   <button
                                     className="SortHeader"
                                     onClick={[Function]}
+                                    type="button"
                                   >
                                     příjmení
                                      
@@ -1094,6 +1095,7 @@ exports[`dva pohároví 1`] = `
                                   <button
                                     className="SortHeader"
                                     onClick={[Function]}
+                                    type="button"
                                   >
                                     jméno
                                      
@@ -1120,6 +1122,7 @@ exports[`dva pohároví 1`] = `
                                   <button
                                     className="SortHeader"
                                     onClick={[Function]}
+                                    type="button"
                                   >
                                     narození
                                      
@@ -1764,6 +1767,7 @@ exports[`dva pohároví 1`] = `
                                       <button
                                         className="SortHeader"
                                         onClick={[Function]}
+                                        type="button"
                                       >
                                         účastí
                                          
@@ -1790,6 +1794,7 @@ exports[`dva pohároví 1`] = `
                                       <button
                                         className="SortHeader"
                                         onClick={[Function]}
+                                        type="button"
                                       >
                                         předáno
                                          
@@ -1816,6 +1821,7 @@ exports[`dva pohároví 1`] = `
                                       <button
                                         className="SortHeader"
                                         onClick={[Function]}
+                                        type="button"
                                       >
                                         nepřevzato
                                          
@@ -1842,6 +1848,7 @@ exports[`dva pohároví 1`] = `
                                       <button
                                         className="SortHeader"
                                         onClick={[Function]}
+                                        type="button"
                                       >
                                         nárok?
                                          
@@ -3076,6 +3083,7 @@ exports[`žádný pohár 1`] = `
                                   <button
                                     className="SortHeader"
                                     onClick={[Function]}
+                                    type="button"
                                   >
                                     příjmení
                                      
@@ -3102,6 +3110,7 @@ exports[`žádný pohár 1`] = `
                                   <button
                                     className="SortHeader"
                                     onClick={[Function]}
+                                    type="button"
                                   >
                                     jméno
                                      
@@ -3128,6 +3137,7 @@ exports[`žádný pohár 1`] = `
                                   <button
                                     className="SortHeader"
                                     onClick={[Function]}
+                                    type="button"
                                   >
                                     narození
                                      
@@ -3444,6 +3454,7 @@ exports[`žádný pohár 1`] = `
                                       <button
                                         className="SortHeader"
                                         onClick={[Function]}
+                                        type="button"
                                       >
                                         účastí
                                          
@@ -3470,6 +3481,7 @@ exports[`žádný pohár 1`] = `
                                       <button
                                         className="SortHeader"
                                         onClick={[Function]}
+                                        type="button"
                                       >
                                         předáno
                                          
@@ -3496,6 +3508,7 @@ exports[`žádný pohár 1`] = `
                                       <button
                                         className="SortHeader"
                                         onClick={[Function]}
+                                        type="button"
                                       >
                                         nepřevzato
                                          
@@ -3522,6 +3535,7 @@ exports[`žádný pohár 1`] = `
                                       <button
                                         className="SortHeader"
                                         onClick={[Function]}
+                                        type="button"
                                       >
                                         nárok?
                                          

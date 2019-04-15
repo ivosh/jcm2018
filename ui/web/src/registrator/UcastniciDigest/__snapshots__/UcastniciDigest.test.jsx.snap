@@ -230,6 +230,7 @@ exports[`dva účastníci 1`] = `
               <button
                 className="SortHeader"
                 onClick={[Function]}
+                type="button"
               >
                 příjmení
                  
@@ -251,6 +252,7 @@ exports[`dva účastníci 1`] = `
               <button
                 className="SortHeader"
                 onClick={[Function]}
+                type="button"
               >
                 jméno
                  
@@ -272,6 +274,7 @@ exports[`dva účastníci 1`] = `
               <button
                 className="SortHeader"
                 onClick={[Function]}
+                type="button"
               >
                 narození
                  
@@ -1504,6 +1507,7 @@ exports[`žádný účastník 1`] = `
               <button
                 className="SortHeader"
                 onClick={[Function]}
+                type="button"
               >
                 příjmení
                  
@@ -1525,6 +1529,7 @@ exports[`žádný účastník 1`] = `
               <button
                 className="SortHeader"
                 onClick={[Function]}
+                type="button"
               >
                 jméno
                  
@@ -1546,6 +1551,7 @@ exports[`žádný účastník 1`] = `
               <button
                 className="SortHeader"
                 onClick={[Function]}
+                type="button"
               >
                 narození
                  

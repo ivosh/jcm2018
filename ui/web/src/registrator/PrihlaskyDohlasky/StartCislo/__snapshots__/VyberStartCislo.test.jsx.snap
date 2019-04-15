@@ -6,12 +6,17 @@ exports[`Renderer - nevybrané; někdo jiný 1`] = `
 >
   <div
     className="StartovniCislaProTyp__item VyberStartCislo-zabrane"
+    role="button"
+    tabIndex="-1"
   >
     7
   </div>
   <div
     className="StartovniCislaProTyp__item VyberStartCislo-volne"
     onClick={[Function]}
+    onKeyPress={[Function]}
+    role="button"
+    tabIndex="-1"
   >
     10
   </div>
@@ -25,12 +30,18 @@ exports[`Renderer - vybrané 1`] = `
   <div
     className="StartovniCislaProTyp__item VyberStartCislo-vybrane"
     onClick={[Function]}
+    onKeyPress={[Function]}
+    role="button"
+    tabIndex="-1"
   >
     7
   </div>
   <div
     className="StartovniCislaProTyp__item VyberStartCislo-volne"
     onClick={[Function]}
+    onKeyPress={[Function]}
+    role="button"
+    tabIndex="-1"
   >
     10
   </div>
@@ -43,12 +54,17 @@ exports[`Renderer 1`] = `
 >
   <div
     className="StartovniCislaProTyp__item VyberStartCislo-zabrane"
+    role="button"
+    tabIndex="-1"
   >
     7
   </div>
   <div
     className="StartovniCislaProTyp__item VyberStartCislo-volne"
     onClick={[Function]}
+    onKeyPress={[Function]}
+    role="button"
+    tabIndex="-1"
   >
     10
   </div>

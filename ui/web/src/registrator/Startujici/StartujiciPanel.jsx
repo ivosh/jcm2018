@@ -33,7 +33,7 @@ StartujiciPanel.propTypes = {
   dragType: PropTypes.oneOf([DragTypes.STARTUJICI_PRIHLASEN, DragTypes.STARTUJICI_ODSTARTOVAN])
     .isRequired,
   isOver: PropTypes.bool.isRequired,
-  popisek: PropTypes.any.isRequired,
+  popisek: PropTypes.node.isRequired,
   seznam: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,

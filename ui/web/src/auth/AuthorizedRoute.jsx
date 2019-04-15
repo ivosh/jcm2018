@@ -20,7 +20,7 @@ class AuthorizedRoute extends PureComponent {
 
 AuthorizedRoute.propTypes = {
   authenticated: PropTypes.bool,
-  component: PropTypes.any.isRequired
+  component: PropTypes.any.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
 AuthorizedRoute.defaultProps = {

@@ -58,4 +58,9 @@ RunningDisplej.propTypes = {
   running: PropTypes.bool.isRequired
 };
 
+RunningDisplej.defaultProps = {
+  base: undefined,
+  delta: undefined
+};
+
 export default RunningDisplej;

@@ -46,7 +46,7 @@
     "comma-dangle": ["error", "never"],
     "function-paren-newline": 0,
     "implicit-arrow-linebreak": 0,
-    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "indent": ["error", 2, { "ignoredNodes": ["ConditionalExpression > *"], "SwitchCase": 1 }],
     "no-confusing-arrow": 0,
     "no-nested-ternary": 0,
     "object-curly-newline": ["error", { "consistent": true }],
@@ -82,6 +82,7 @@
     "jasmine/new-line-before-expect": 0,
 
     // These rules are too strict or do not work with my setup.
+    "jsx-a11y/no-autofocus": 0,
     "react/jsx-boolean-value": [2, "always"],
     "react/destructuring-assignment": 0
   }

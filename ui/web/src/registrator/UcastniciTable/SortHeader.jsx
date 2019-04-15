@@ -16,7 +16,7 @@ class SortHeader extends PureComponent {
   };
 
   render = () => (
-    <button className="SortHeader" onClick={this.handleClick}>
+    <button className="SortHeader" type="button" onClick={this.handleClick}>
       {this.props.children} {sortDirs[this.props.sortDir]}
     </button>
   );

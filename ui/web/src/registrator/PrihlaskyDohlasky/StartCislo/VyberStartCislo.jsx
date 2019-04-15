@@ -13,7 +13,10 @@ export const Renderer = ({ id, startCislo, vybraneId, vybraneStartCislo, onSelec
     <div
       className={`StartovniCislaProTyp__item VyberStartCislo-${className}`}
       key={startCislo}
+      role="button"
+      tabIndex="-1" // :TODO: enable keyboard navigation
       onClick={onClick}
+      onKeyPress={onClick}
     >
       {startCislo}
     </div>
@@ -26,6 +29,11 @@ Renderer.propTypes = {
   vybraneId: PropTypes.string,
   vybraneStartCislo: PropTypes.number,
   onSelect: PropTypes.func.isRequired
+};
+Renderer.defaultProps = {
+  id: undefined,
+  vybraneId: undefined,
+  vybraneStartCislo: undefined
 };
 
 const VyberStartCislo = ({ typ, vybraneId, vybraneStartCislo, onSelect }) => (
@@ -45,6 +53,10 @@ VyberStartCislo.propTypes = {
   vybraneId: PropTypes.string,
   vybraneStartCislo: PropTypes.number,
   onSelect: PropTypes.func.isRequired
+};
+VyberStartCislo.defaultProps = {
+  vybraneId: undefined,
+  vybraneStartCislo: undefined
 };
 
 export default VyberStartCislo;

@@ -26,7 +26,8 @@ LoadingButton.propTypes = {
 
 LoadingButton.defaultProps = {
   bsStyle: 'success',
-  loading: false
+  loading: false,
+  type: 'button'
 };
 
 export default LoadingButton;

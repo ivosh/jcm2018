@@ -151,6 +151,7 @@ exports[`renders 1`] = `
               <button
                 className="SortHeader"
                 onClick={[Function]}
+                type="button"
               >
                 příjmení
                  
@@ -172,6 +173,7 @@ exports[`renders 1`] = `
               <button
                 className="SortHeader"
                 onClick={[Function]}
+                type="button"
               >
                 jméno
                  
@@ -193,6 +195,7 @@ exports[`renders 1`] = `
               <button
                 className="SortHeader"
                 onClick={[Function]}
+                type="button"
               >
                 narození
                  
@@ -439,6 +442,7 @@ exports[`renders 1`] = `
                   <button
                     className="SortHeader"
                     onClick={[Function]}
+                    type="button"
                   >
                     kategorie
                      
@@ -460,6 +464,7 @@ exports[`renders 1`] = `
                   <button
                     className="SortHeader"
                     onClick={[Function]}
+                    type="button"
                   >
                     číslo
                      
@@ -481,6 +486,7 @@ exports[`renders 1`] = `
                   <button
                     className="SortHeader"
                     onClick={[Function]}
+                    type="button"
                   >
                     dokončeno
                      
@@ -502,6 +508,7 @@ exports[`renders 1`] = `
                   <button
                     className="SortHeader"
                     onClick={[Function]}
+                    type="button"
                   >
                     čas
                      
@@ -523,6 +530,7 @@ exports[`renders 1`] = `
                   <button
                     className="SortHeader"
                     onClick={[Function]}
+                    type="button"
                   >
                     abs.
                      
@@ -544,6 +552,7 @@ exports[`renders 1`] = `
                   <button
                     className="SortHeader"
                     onClick={[Function]}
+                    type="button"
                   >
                     rel.
                      

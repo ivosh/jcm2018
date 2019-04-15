@@ -4,6 +4,7 @@ exports[`renders jméno sestupně 1`] = `
 <button
   className="SortHeader"
   onClick={[Function]}
+  type="button"
 >
   jméno
    
@@ -15,6 +16,7 @@ exports[`renders the default 1`] = `
 <button
   className="SortHeader"
   onClick={[Function]}
+  type="button"
 >
   příjmení
    

@@ -23,4 +23,8 @@ Displej.propTypes = {
   duration: momentPropTypes.momentDurationObj
 };
 
+Displej.defaultProps = {
+  duration: null
+};
+
 export default Displej;

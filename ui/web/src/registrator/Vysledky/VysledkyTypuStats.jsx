@@ -47,7 +47,7 @@ const VysledkyTypuStats = ({ anchorHref, popisek, stats, typ, zkratky }) => (
 VysledkyTypuStats.propTypes = {
   anchorHref: PropTypes.bool.isRequired,
   popisek: PropTypes.string.isRequired,
-  stats: PropTypes.object.isRequired,
+  stats: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   typ: PropTypes.string.isRequired,
   zkratky: PropTypes.arrayOf(PropTypes.string).isRequired
 };

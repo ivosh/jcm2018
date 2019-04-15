@@ -28,6 +28,10 @@ Renderer.propTypes = {
   dokonceno: PropTypes.bool,
   odstartovani: PropTypes.bool.isRequired
 };
+Renderer.defaultProps = {
+  id: undefined,
+  dokonceno: undefined
+};
 
 const legendaOdstartovani = () => Object.values(dokoncene);
 

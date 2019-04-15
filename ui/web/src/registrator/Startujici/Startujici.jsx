@@ -49,8 +49,8 @@ class Startujici extends PureComponent {
 }
 
 Startujici.propTypes = {
-  prihlaseni: PropTypes.array.isRequired,
-  odstartovani: PropTypes.array.isRequired,
+  prihlaseni: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+  odstartovani: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
   moveOdstartovan: PropTypes.func.isRequired,
   movePrihlasen: PropTypes.func.isRequired
 };
