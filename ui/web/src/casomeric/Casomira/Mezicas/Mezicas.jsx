@@ -58,4 +58,10 @@ Mezicas.propTypes = {
   onRemove: PropTypes.func.isRequired
 };
 
+Mezicas.defaultProps = {
+  cas: undefined,
+  dokonceno: undefined,
+  startCislo: undefined
+};
+
 export default Mezicas;

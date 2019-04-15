@@ -25,7 +25,12 @@ class SignIn extends PureComponent {
     return (
       <div className="SignIn_div">
         <Panel bsStyle="primary" header="Přihlášení do aplikace JCM" className="SignIn_panel">
-          <Form inline onSubmit={this.handleSubmit} autoComplete="off" className="SignIn_form">
+          <Form
+            inline={true}
+            onSubmit={this.handleSubmit}
+            autoComplete="off"
+            className="SignIn_form"
+          >
             <FormGroup controlId="username">
               <ControlLabel>Jméno</ControlLabel>{' '}
               <FormControl

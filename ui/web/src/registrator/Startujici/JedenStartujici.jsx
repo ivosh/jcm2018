@@ -70,8 +70,8 @@ JedenStartujici.propTypes = {
   kategorie: PropTypes.shape({
     typ: PropTypes.string.isRequired
   }).isRequired,
-  startCislo: PropTypes.number,
-  startCisloRequired: PropTypes.bool
+  startCislo: PropTypes.number.isRequired,
+  startCisloRequired: PropTypes.bool.isRequired
 };
 
 export default JedenStartujici;

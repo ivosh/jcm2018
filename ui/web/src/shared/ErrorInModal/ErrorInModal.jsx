@@ -4,7 +4,7 @@ import { Alert, Button, Modal } from 'react-bootstrap';
 
 const ErrorInModal = ({ code, message, show, title, onHide }) => (
   <Modal show={show} onHide={onHide} bsSize="large">
-    <Modal.Header closeButton>
+    <Modal.Header closeButton={true}>
       <Modal.Title>Chybka se vloudila...</Modal.Title>
     </Modal.Header>
     <Modal.Body>
@@ -21,11 +21,15 @@ const ErrorInModal = ({ code, message, show, title, onHide }) => (
 );
 
 ErrorInModal.propTypes = {
-  code: PropTypes.string,
+  code: PropTypes.string.isRequired,
   message: PropTypes.string,
   show: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
   onHide: PropTypes.func.isRequired
+};
+
+ErrorInModal.defaultProps = {
+  message: ''
 };
 
 export default ErrorInModal;

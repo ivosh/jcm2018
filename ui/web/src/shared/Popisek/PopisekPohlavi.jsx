@@ -18,8 +18,8 @@ const PopisekPohlavi = ({ heightPercentage, pohlavi }) => (
 );
 
 PopisekPohlavi.propTypes = {
-  heightPercentage: PropTypes.number.isRequired,
-  pohlavi: PropTypes.oneOf(['muž', 'žena'])
+  heightPercentage: PropTypes.number,
+  pohlavi: PropTypes.oneOf(['muž', 'žena']).isRequired
 };
 
 PopisekPohlavi.defaultProps = {

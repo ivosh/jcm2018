@@ -19,7 +19,7 @@ const About = ({ username }) => (
           <br />
           Origin: {window.location.origin}
           <br />
-          {username === null ? <span>Nepřihlášen</span> : <span>Přihlášen jako: {username}</span>}
+          {username ? <span>Přihlášen jako: {username}</span> : <span>Nepřihlášen</span>}
         </div>
       </div>
       <div className="About_timesync">
@@ -31,6 +31,10 @@ const About = ({ username }) => (
 
 About.propTypes = {
   username: PropTypes.string
+};
+
+About.defaultProps = {
+  username: null
 };
 
 export default About;

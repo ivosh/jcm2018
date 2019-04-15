@@ -11,7 +11,7 @@ const Mezicasy = ({ containerHeight, mezicasy, typ }) => (
     <div className="Mezicasy__middleHeader">číslo</div>
     <div className="Mezicasy__header" />
     {mezicasy.map((mezicas, index) => (
-      <Mezicas key={index} poradi={index + 1} {...mezicas} typ={typ} />
+      <Mezicas key={index} poradi={index + 1} {...mezicas} typ={typ} /> // eslint-ignore-line react/no-array-index-key
     ))}
   </div>
 );

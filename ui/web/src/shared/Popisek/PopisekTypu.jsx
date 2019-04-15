@@ -24,15 +24,20 @@ const PopisekTypu = ({ heightPercentage, pohlavi, typ, typAsText, vek }) => (
 );
 
 PopisekTypu.propTypes = {
-  heightPercentage: PropTypes.number.isRequired,
-  pohlavi: PropTypes.oneOf(['muž', 'žena']),
+  heightPercentage: PropTypes.number,
+  pohlavi: PropTypes.oneOf(['muž', 'žena']), // eslint-disable-line react/require-default-props
   typ: PropTypes.oneOf(['cyklo', 'koloběžka', 'maraton', 'pěší', 'půlmaraton']).isRequired,
   typAsText: PropTypes.bool,
-  vek: PropTypes.object
+  // eslint-disable-next-line react/require-default-props
+  vek: PropTypes.shape({
+    min: PropTypes.number,
+    max: PropTypes.number
+  })
 };
 
 PopisekTypu.defaultProps = {
-  heightPercentage: 100
+  heightPercentage: 100,
+  typAsText: false
 };
 
 export default PopisekTypu;

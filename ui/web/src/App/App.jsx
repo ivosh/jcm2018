@@ -86,7 +86,7 @@ class App extends PureComponent {
 
     return (
       <div className="App__div">
-        <Navbar inverse>
+        <Navbar inverse={true}>
           <Navbar.Header>
             <Link to="/">
               <img
@@ -102,7 +102,7 @@ class App extends PureComponent {
               <CurrentItem route={location.pathname} />
             </Nav>
           )}
-          <Nav className="App__Nav" pullRight>
+          <Nav className="App__Nav" pullRight={true}>
             {!authenticated && (
               <LinkContainer to="/signin">
                 <NavItem eventKey={5}>
@@ -127,7 +127,7 @@ class App extends PureComponent {
 
         <main>
           <Switch>
-            <Route exact path="/" component={Main} />
+            <Route exact={true} path="/" component={Main} />
             <Route path="/about" component={() => <About username={username} />} />
             <AuthorizedRoute
               path="/casomira"
@@ -182,7 +182,8 @@ App.propTypes = {
   username: PropTypes.string
 };
 App.defaultProps = {
-  location: { pathname: '/' }
+  location: { pathname: '/' },
+  username: null
 };
 
 export default App;

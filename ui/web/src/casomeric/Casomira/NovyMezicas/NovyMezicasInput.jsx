@@ -25,7 +25,7 @@ class NovyMezicasInput extends PureComponent {
     const { cas, validationState, onInputChange } = this.props;
 
     return (
-      <Form inline onSubmit={this.handleSubmit} autoComplete="off">
+      <Form inline={true} onSubmit={this.handleSubmit} autoComplete="off">
         <FormGroup controlId="validatedCas" validationState={validationState}>
           <FormControl
             type="text"
@@ -46,6 +46,10 @@ NovyMezicasInput.propTypes = {
   validationState: PropTypes.string,
   onInputChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
+};
+
+NovyMezicasInput.defaultProps = {
+  validationState: undefined
 };
 
 export default NovyMezicasInput;

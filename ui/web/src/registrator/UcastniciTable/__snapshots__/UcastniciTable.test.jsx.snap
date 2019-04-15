@@ -49,6 +49,7 @@ exports[`dva účastníci 1`] = `
   }
   fixedColumnCount={2}
   rowHeight={35}
+  sortDir="none"
 >
   <ScrollSync
     columns={
@@ -98,6 +99,7 @@ exports[`dva účastníci 1`] = `
     }
     fixedColumnCount={2}
     rowHeight={35}
+    sortDir="none"
   >
     <div
       className="UcastniciTable_GridRow"
@@ -189,6 +191,7 @@ exports[`dva účastníci 1`] = `
           scrollToColumn={-1}
           scrollToRow={-1}
           scrollingResetTimeInterval={150}
+          sortDir="none"
           style={Object {}}
           tabIndex={0}
           width={200}
@@ -373,6 +376,7 @@ exports[`dva účastníci 1`] = `
           scrollToRow={-1}
           scrollTop={0}
           scrollingResetTimeInterval={150}
+          sortDir="none"
           style={Object {}}
           tabIndex={0}
           width={200}
@@ -568,6 +572,7 @@ exports[`dva účastníci 1`] = `
               scrollToColumn={-1}
               scrollToRow={-1}
               scrollingResetTimeInterval={150}
+              sortDir="none"
               style={Object {}}
               tabIndex={0}
               width={250}
@@ -713,6 +718,7 @@ exports[`dva účastníci 1`] = `
               scrollToColumn={-1}
               scrollToRow={-1}
               scrollingResetTimeInterval={150}
+              sortDir="none"
               style={Object {}}
               tabIndex={0}
               width={250}
@@ -1550,6 +1556,7 @@ exports[`žádná data 1`] = `
   data={Array []}
   fixedColumnCount={2}
   rowHeight={35}
+  sortDir="none"
 >
   <ScrollSync
     columns={
@@ -1579,6 +1586,7 @@ exports[`žádná data 1`] = `
     data={Array []}
     fixedColumnCount={2}
     rowHeight={35}
+    sortDir="none"
   >
     <div
       className="UcastniciTable_GridRow"
@@ -1650,6 +1658,7 @@ exports[`žádná data 1`] = `
           scrollToColumn={-1}
           scrollToRow={-1}
           scrollingResetTimeInterval={150}
+          sortDir="none"
           style={Object {}}
           tabIndex={0}
           width={200}
@@ -1814,6 +1823,7 @@ exports[`žádná data 1`] = `
           scrollToRow={-1}
           scrollTop={0}
           scrollingResetTimeInterval={150}
+          sortDir="none"
           style={Object {}}
           tabIndex={0}
           width={200}
@@ -1912,6 +1922,7 @@ exports[`žádná data 1`] = `
               scrollToColumn={-1}
               scrollToRow={-1}
               scrollingResetTimeInterval={150}
+              sortDir="none"
               style={Object {}}
               tabIndex={0}
               width={250}
@@ -2037,6 +2048,7 @@ exports[`žádná data 1`] = `
               scrollToColumn={-1}
               scrollToRow={-1}
               scrollingResetTimeInterval={150}
+              sortDir="none"
               style={Object {}}
               tabIndex={0}
               width={250}

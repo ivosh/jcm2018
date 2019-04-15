@@ -52,6 +52,7 @@
     "object-curly-newline": ["error", { "consistent": true }],
     "operator-linebreak": 0,
     "react/jsx-one-expression-per-line": 0,
+    "react/jsx-wrap-multilines": ["error", { "declaration": false, "assignment": false }],
 
     // It is perfectly ok to explicitly export only one thing from a module.
     "import/prefer-default-export": 0,
@@ -80,6 +81,8 @@
     // Do not force new lines before expect. Does not work correctly with 'await'.
     "jasmine/new-line-before-expect": 0,
 
-    "react/jsx-boolean-value": [2, "always"]
+    // These rules are too strict or do not work with my setup.
+    "react/jsx-boolean-value": [2, "always"],
+    "react/destructuring-assignment": 0
   }
 }

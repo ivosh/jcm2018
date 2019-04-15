@@ -27,7 +27,7 @@ akceFormat.propTypes = {
     loading: PropTypes.bool.isRequired,
     options: PropTypes.arrayOf(PropTypes.string).isRequired,
     onSelect: PropTypes.func.isRequired
-  })
+  }).isRequired
 };
 
 const datumFormat = ({ cellData }) => moment.utc(cellData).format('D. M. YYYY');

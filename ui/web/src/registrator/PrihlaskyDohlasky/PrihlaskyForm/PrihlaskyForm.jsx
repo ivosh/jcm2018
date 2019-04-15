@@ -75,7 +75,7 @@ class PrihlaskyForm extends PureComponent {
     return (
       <div className="PrihlaskyForm__div">
         <Modal show={saved} onHide={onHideModal} bsSize="small">
-          <Modal.Header closeButton>
+          <Modal.Header closeButton={true}>
             <Modal.Title>V pořádku</Modal.Title>
           </Modal.Header>
           <Modal.Body>V pořádku uloženo</Modal.Body>
@@ -86,7 +86,7 @@ class PrihlaskyForm extends PureComponent {
           </Modal.Footer>
         </Modal>
         <Form
-          horizontal
+          horizontal={true}
           onSubmit={this.handleSubmit}
           autoComplete="off"
           className="PrihlaskyForm__form"

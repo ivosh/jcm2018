@@ -15,7 +15,8 @@ const prihlaseni = [
       typ: 'půlmaraton',
       vek: { min: 60, max: 150 }
     },
-    startCislo: 17
+    startCislo: 17,
+    startCisloRequired: true
   }
 ];
 

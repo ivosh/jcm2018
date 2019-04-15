@@ -67,4 +67,9 @@ Casomira.propTypes = {
   onStopkyAddMezicas: PropTypes.func.isRequired
 };
 
+Casomira.defaultProps = {
+  base: undefined,
+  delta: undefined
+};
+
 export default Casomira;

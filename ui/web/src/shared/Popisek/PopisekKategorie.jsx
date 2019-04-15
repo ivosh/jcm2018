@@ -31,22 +31,24 @@ const PopisekKategorie = ({
 
 PopisekKategorie.propTypes = {
   heightPercentage: PropTypes.number,
-  pohlavi: PropTypes.oneOf(['muž', 'žena']),
+  pohlavi: PropTypes.oneOf(['muž', 'žena']), // eslint-disable-line react/require-default-props
   showTyp: PropTypes.bool,
   showZkratka: PropTypes.bool,
   typ: PropTypes.oneOf(['cyklo', 'koloběžka', 'maraton', 'pěší', 'půlmaraton']).isRequired,
   typAsText: PropTypes.bool,
+  // eslint-disable-next-line react/require-default-props
   vek: PropTypes.shape({
     min: PropTypes.number,
     max: PropTypes.number
   }),
-  zkratka: PropTypes.string
+  zkratka: PropTypes.string // eslint-disable-line react/require-default-props
 };
 
 PopisekKategorie.defaultProps = {
   heightPercentage: 100,
   showTyp: true,
-  showZkratka: false
+  showZkratka: false,
+  typAsText: false
 };
 
 export default PopisekKategorie;

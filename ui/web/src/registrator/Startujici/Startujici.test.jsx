@@ -15,7 +15,8 @@ const prihlaseni = [
       typ: 'půlmaraton',
       vek: { min: 60, max: 150 }
     },
-    startCislo: 17
+    startCislo: 17,
+    startCisloRequired: true
   },
   {
     id: '7a09b1fd371dec1e99b7e142',
@@ -28,7 +29,8 @@ const prihlaseni = [
       pohlavi: 'žena',
       vek: { min: 18, max: 39 }
     },
-    startCislo: 10
+    startCislo: 10,
+    startCisloRequired: true
   }
 ];
 
@@ -44,7 +46,8 @@ const odstartovani = [
       typ: 'půlmaraton',
       vek: { min: 60, max: 150 }
     },
-    startCislo: 15
+    startCislo: 15,
+    startCisloRequired: true
   },
   {
     id: '7a09b1fd371dec1e99b7e142',
@@ -57,7 +60,8 @@ const odstartovani = [
       pohlavi: 'žena',
       vek: { min: 18, max: 39 }
     },
-    startCislo: 11
+    startCislo: 11,
+    startCisloRequired: true
   }
 ];
 

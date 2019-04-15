@@ -307,4 +307,10 @@ UcastniciTable.propTypes = {
   // and cellStyler
 };
 
+UcastniciTable.defaultProps = {
+  sortColumn: undefined,
+  sortDir: SortDirTypes.NONE,
+  onSortDirChange: undefined
+};
+
 export default UcastniciTable;

@@ -41,7 +41,7 @@ exports[`it renders 1`] = `
         http://localhost
         <br />
         <span>
-          Přihlášen jako: 
+          Nepřihlášen
         </span>
       </div>
     </div>

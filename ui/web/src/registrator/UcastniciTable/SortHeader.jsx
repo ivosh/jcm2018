@@ -28,4 +28,9 @@ SortHeader.propTypes = {
   onClick: PropTypes.func.isRequired
 };
 
+SortHeader.defaultProps = {
+  children: undefined,
+  sortDir: SortDirTypes.NONE
+};
+
 export default SortHeader;

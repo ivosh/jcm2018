@@ -27,7 +27,7 @@ const StartCisloInput = ({
       onChange={onChange}
     />
     <Modal keyboard={true} show={showing} onHide={onHide} bsSize="large">
-      <Modal.Header closeButton>
+      <Modal.Header closeButton={true}>
         <Modal.Title>Výběr startovního čísla</Modal.Title>
       </Modal.Header>
       <Modal.Body>

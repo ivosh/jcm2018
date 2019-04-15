@@ -14,7 +14,7 @@ const NovyMezicas = ({
 }) => (
   <React.Fragment>
     <Modal keyboard={true} show={showing} onHide={onHide} bsSize="small">
-      <Modal.Header closeButton>
+      <Modal.Header closeButton={true}>
         <Modal.Title>Nový mezičas</Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -49,6 +49,10 @@ NovyMezicas.propTypes = {
   onInputChange: PropTypes.func.isRequired,
   onShow: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
+};
+
+NovyMezicas.defaultProps = {
+  validationState: undefined
 };
 
 export default NovyMezicas;

@@ -23,6 +23,10 @@ AuthorizedRoute.propTypes = {
   component: PropTypes.any.isRequired
 };
 
+AuthorizedRoute.defaultProps = {
+  authenticated: false
+};
+
 const mapStateToProps = state => ({ authenticated: state.auth.authenticated });
 
 export default connect(
