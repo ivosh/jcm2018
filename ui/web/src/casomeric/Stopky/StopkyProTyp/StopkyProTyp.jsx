@@ -67,7 +67,17 @@ StopkyProTyp.propTypes = {
     }).isRequired
   ).isRequired,
   delta: momentPropTypes.momentDurationObj,
-  rozdily: PropTypes.array.isRequired,
+  rozdily: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      rozdil: PropTypes.shape({
+        hours: PropTypes.string.isRequired,
+        mins: PropTypes.string.isRequired,
+        secs: PropTypes.string.isRequired,
+        subsecs: PropTypes.string.isRequired
+      }).isRequired
+    }).isRequired
+  ).isRequired,
   running: PropTypes.bool.isRequired,
   startEnabled: PropTypes.bool.isRequired,
   stopEnabled: PropTypes.bool.isRequired,
@@ -75,6 +85,11 @@ StopkyProTyp.propTypes = {
   onReset: PropTypes.func.isRequired,
   onStart: PropTypes.func.isRequired,
   onStop: PropTypes.func.isRequired
+};
+
+StopkyProTyp.defaultProps = {
+  base: undefined,
+  delta: undefined
 };
 
 export default StopkyProTyp;

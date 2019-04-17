@@ -15,7 +15,7 @@ const datumFormat = ({ cellData }) => moment.utc(cellData).format('D. M. YYYY');
 
 const kategorieFormat = ({ cellData }) => <PopisekKategorie {...cellData} />;
 kategorieFormat.propTypes = {
-  cellData: PropTypes.object.isRequired
+  cellData: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
 const narozeniFormat = ({ cellData }) => narozeniToStr(cellData);
@@ -37,15 +37,15 @@ PoznamkyFormat.propTypes = {
     showing: PropTypes.bool.isRequired,
     onHide: PropTypes.func.isRequired,
     onShow: PropTypes.func.isRequired
-  })
+  }).isRequired
 };
 
 const prijmeniFormat = ({ cellData, data, route, rowIndex }) => (
   <Link to={`/${route}/${data[rowIndex].id}`}>{cellData}</Link>
 );
 prijmeniFormat.propTypes = {
-  cellData: PropTypes.object.isRequired,
-  data: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string.isRequired })),
+  cellData: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  data: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string.isRequired })).isRequired,
   route: PropTypes.string.isRequired,
   rowIndex: PropTypes.number.isRequired
 };
@@ -166,12 +166,12 @@ PrihlaseniDohlaseni.propTypes = {
     active: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired
-  }),
+  }).isRequired,
   prihlaseniFilter: PropTypes.shape({
     active: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired
-  }),
+  }).isRequired,
   prihlaseniDohlaseni: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,

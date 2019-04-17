@@ -38,4 +38,8 @@ TextFilter.propTypes = {
   onChange: PropTypes.func.isRequired
 };
 
+TextFilter.defaultProps = {
+  filter: undefined
+};
+
 export default TextFilter;

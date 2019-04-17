@@ -49,10 +49,10 @@ const InputContainer = connect(
 )(Input);
 
 InputContainer.propTypes = {
-  form: PropTypes.object.isRequired,
+  form: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   index: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
-  rawValue: PropTypes.any,
+  rawValue: PropTypes.any, // eslint-disable-line react/forbid-prop-types
   formatValue: PropTypes.func.isRequired,
   inputChanged: PropTypes.func.isRequired,
   inputRef: PropTypes.func.isRequired,

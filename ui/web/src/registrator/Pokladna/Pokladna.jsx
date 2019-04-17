@@ -42,7 +42,7 @@ Pokladna.propTypes = {
       typy: PropTypes.object
     }).isRequired,
     typy: PropTypes.object
-  })
+  }).isRequired
 };
 
 export default Pokladna;

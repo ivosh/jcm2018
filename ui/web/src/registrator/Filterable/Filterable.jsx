@@ -40,4 +40,9 @@ Filterable.propTypes = {
   onTextFilterChange: PropTypes.func.isRequired
 };
 
+Filterable.defaultProps = {
+  kategorieFilter: undefined,
+  textFilter: undefined
+};
+
 export default Filterable;

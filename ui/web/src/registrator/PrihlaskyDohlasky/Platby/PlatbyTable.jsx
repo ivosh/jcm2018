@@ -4,7 +4,7 @@ import { Table } from 'react-bootstrap';
 import Platba from './Platba';
 
 const PlatbyTable = ({ platby }) => (
-  <Table condensed>
+  <Table condensed={true}>
     <thead>
       <tr>
         <th>částka</th>
@@ -16,6 +16,7 @@ const PlatbyTable = ({ platby }) => (
     </thead>
     <tbody>
       {platby.map((platba, index) => (
+        // eslint-disable-next-line react/no-array-index-key
         <Platba key={index} platba={platba} onClick={platba.onRemove} />
       ))}
     </tbody>

@@ -92,4 +92,8 @@ PoradiFilters.propTypes = {
   onTextFilterChange: PropTypes.func.isRequired
 };
 
+PoradiFilters.defaultProps = {
+  textFilter: undefined
+};
+
 export default PoradiFilters;

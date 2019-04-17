@@ -16,4 +16,8 @@ CheckboxInput.propTypes = {
   onChange: PropTypes.func.isRequired
 };
 
+CheckboxInput.defaultProps = {
+  value: undefined
+};
+
 export default CheckboxInput;

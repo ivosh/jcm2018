@@ -5,12 +5,12 @@ import './Input.css';
 
 const Input = ({
   enabled,
-  inputWidth = 9,
+  inputWidth,
   name,
   popisek,
-  popisekWidth = 3,
+  popisekWidth,
   options,
-  showFeedback = true,
+  showFeedback,
   validationState,
   value,
   visible,
@@ -59,6 +59,15 @@ Input.propTypes = {
   Type: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]).isRequired,
   inputRef: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired
+};
+
+Input.defaultProps = {
+  inputWidth: 9,
+  options: undefined,
+  popisekWidth: 3,
+  showFeedback: true,
+  validationState: undefined,
+  value: undefined
 };
 
 export default Input;

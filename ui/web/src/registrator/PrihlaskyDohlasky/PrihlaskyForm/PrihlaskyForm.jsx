@@ -309,4 +309,9 @@ PrihlaskyForm.propTypes = {
   onSubmit: PropTypes.func.isRequired
 };
 
+PrihlaskyForm.defaultProps = {
+  reset: undefined,
+  onLoadId: undefined
+};
+
 export default PrihlaskyForm;

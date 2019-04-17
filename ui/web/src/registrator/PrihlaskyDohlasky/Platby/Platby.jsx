@@ -46,6 +46,7 @@ const Platby = ({
       <div className="Platby__paragraph">
         <div>Předepsané startovné:</div>
         {predepsano.polozky.map((platba, idx) => (
+          // eslint-disable-next-line react/no-array-index-key
           <div key={idx}>
             <b>{platba.castka}</b> Kč {platba.duvod}
           </div>

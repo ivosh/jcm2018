@@ -21,4 +21,9 @@ TextInput.propTypes = {
   onChange: PropTypes.func.isRequired
 };
 
+TextInput.defaultProps = {
+  className: undefined,
+  value: undefined
+};
+
 export default TextInput;

@@ -27,7 +27,7 @@ Renderer.propTypes = {
   id: PropTypes.string,
   startCislo: PropTypes.number.isRequired,
   vybraneId: PropTypes.string,
-  vybraneStartCislo: PropTypes.number,
+  vybraneStartCislo: PropTypes.oneOfType([PropTypes.number, PropTypes.string]), // +invalid input
   onSelect: PropTypes.func.isRequired
 };
 Renderer.defaultProps = {
@@ -51,7 +51,7 @@ const VyberStartCislo = ({ typ, vybraneId, vybraneStartCislo, onSelect }) => (
 VyberStartCislo.propTypes = {
   typ: PropTypes.string.isRequired,
   vybraneId: PropTypes.string,
-  vybraneStartCislo: PropTypes.number,
+  vybraneStartCislo: PropTypes.oneOfType([PropTypes.number, PropTypes.string]), // +invalid input
   onSelect: PropTypes.func.isRequired
 };
 VyberStartCislo.defaultProps = {

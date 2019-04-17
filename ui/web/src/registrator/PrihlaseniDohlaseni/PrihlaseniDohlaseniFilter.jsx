@@ -18,4 +18,8 @@ PrihlaseniDohlaseniFilter.propTypes = {
   onClick: PropTypes.func.isRequired
 };
 
+PrihlaseniDohlaseniFilter.defaultProps = {
+  active: false
+};
+
 export default PrihlaseniDohlaseniFilter;

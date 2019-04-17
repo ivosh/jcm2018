@@ -17,7 +17,7 @@ MainWithRoute.propTypes = {
   }).isRequired,
   match: PropTypes.shape({
     path: PropTypes.string.isRequired
-  }),
+  }).isRequired,
   name: PropTypes.string.isRequired
 };
 
@@ -35,7 +35,7 @@ FormWithFetchUcastniciWithId.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
   match: PropTypes.shape({
     params: PropTypes.object.isRequired
-  }),
+  }).isRequired,
   reduxName: PropTypes.string.isRequired
 };
 
@@ -61,7 +61,7 @@ const PrihlaskyDohlasky = ({ actionPrefix, match, name, reduxName }) => (
   <Switch>
     <Route
       path={`${match.path}/`}
-      exact
+      exact={true}
       component={matchProps => <MainWithRoute name={name} {...matchProps} />}
     />
     <Route
@@ -93,7 +93,7 @@ PrihlaskyDohlasky.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
   match: PropTypes.shape({
     path: PropTypes.string.isRequired
-  }),
+  }).isRequired,
   name: PropTypes.string.isRequired,
   reduxName: PropTypes.string.isRequired
 };

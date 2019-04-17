@@ -27,9 +27,13 @@ SelectInput.propTypes = {
       id: PropTypes.string,
       value: PropTypes.string.isRequired
     })
-  ),
+  ).isRequired,
   inputRef: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired
+};
+
+SelectInput.defaultProps = {
+  value: undefined
 };
 
 export default SelectInput;

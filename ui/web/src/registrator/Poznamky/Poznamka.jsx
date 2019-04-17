@@ -36,8 +36,9 @@ const Poznamka = ({ focus, datum, lines, text: initialText, deletePoznamka, modi
           {modified && (
             <div
               className="Poznamka__save"
-              onClick={saving ? undefined : handleSave} // disable "save" if already saving
               title="uloží poznámku"
+              onClick={saving ? undefined : handleSave} // disable "save" if already saving
+              onKeyPress={saving ? undefined : handleSave}
             >
               <Glyphicon glyph="save" />
             </div>
@@ -49,8 +50,9 @@ const Poznamka = ({ focus, datum, lines, text: initialText, deletePoznamka, modi
           )}
           <div
             className="Poznamka__delete"
-            onClick={saving ? undefined : handleDelete}
             title="vymaže poznámku"
+            onClick={saving ? undefined : handleDelete}
+            onKeyPress={saving ? undefined : handleDelete}
           >
             <Glyphicon glyph="remove" />
           </div>
@@ -81,6 +83,10 @@ Poznamka.propTypes = {
   text: PropTypes.string.isRequired,
   deletePoznamka: PropTypes.func.isRequired,
   modifyPoznamka: PropTypes.func.isRequired
+};
+
+Poznamka.defaultProps = {
+  focus: false
 };
 
 export default Poznamka;

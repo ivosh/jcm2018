@@ -5,7 +5,7 @@ import PoznamkyContainer from './PoznamkyContainer';
 import './PoznamkyModal.css';
 
 const PoznamkyModal = ({ id, show, onClose }) => (
-  <Modal open={show} onClose={onClose} center classNames={{ modal: 'PoznamkyModal__modal' }}>
+  <Modal open={show} onClose={onClose} center={true} classNames={{ modal: 'PoznamkyModal__modal' }}>
     <h4 className="PoznamkyModal__header">Poznámky</h4>
     <div className="PoznamkyModal__content">
       <PoznamkyContainer id={id} />

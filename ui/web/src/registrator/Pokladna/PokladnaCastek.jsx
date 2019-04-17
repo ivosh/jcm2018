@@ -27,7 +27,7 @@ const PokladnaCastek = ({ counts, name }) => (
 );
 
 PokladnaCastek.propTypes = {
-  counts: PropTypes.object,
+  counts: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   name: PropTypes.string.isRequired
 };
 

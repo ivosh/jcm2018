@@ -38,7 +38,11 @@ PokladnaTypu.propTypes = {
   zaloha: PropTypes.shape({
     suma: PropTypes.number.isRequired
   }),
-  typy: PropTypes.object
+  typy: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
+};
+
+PokladnaTypu.defaultProps = {
+  zaloha: undefined
 };
 
 export default PokladnaTypu;

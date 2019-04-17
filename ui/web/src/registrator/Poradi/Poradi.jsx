@@ -19,7 +19,7 @@ const dokoncenoFormat = ({ cellData }) => findDokonceno(cellData).popisek;
 
 const kategorieFormat = ({ cellData }) => <PopisekKategorie {...cellData} showZkratka={true} />;
 kategorieFormat.propTypes = {
-  cellData: PropTypes.object.isRequired
+  cellData: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
 const narozeniFormat = ({ cellData }) => narozeniToStr(cellData);

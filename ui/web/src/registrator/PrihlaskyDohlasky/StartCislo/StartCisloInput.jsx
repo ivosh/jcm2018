@@ -63,12 +63,18 @@ StartCisloInput.propTypes = {
   typ: PropTypes.string.isRequired,
   value: PropTypes.string,
   vybraneId: PropTypes.string,
-  vybraneStartCislo: PropTypes.number,
+  vybraneStartCislo: PropTypes.oneOfType([PropTypes.number, PropTypes.string]), // +invalid input
   inputRef: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   onHide: PropTypes.func.isRequired,
   onSelect: PropTypes.func.isRequired,
   onShow: PropTypes.func.isRequired
+};
+
+StartCisloInput.defaultProps = {
+  value: undefined,
+  vybraneId: undefined,
+  vybraneStartCislo: undefined
 };
 
 export default StartCisloInput;

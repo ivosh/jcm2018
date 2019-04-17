@@ -18,6 +18,7 @@ exports[`prázdná poznámka 1`] = `
       <div
         className="Poznamka__delete"
         onClick={[Function]}
+        onKeyPress={[Function]}
         title="vymaže poznámku"
       >
         <span
@@ -30,6 +31,7 @@ exports[`prázdná poznámka 1`] = `
     className="Poznamka__text"
   >
     <textarea
+      autoFocus={false}
       className="Poznamka__textarea"
       onBlur={[Function]}
       onChange={[Function]}

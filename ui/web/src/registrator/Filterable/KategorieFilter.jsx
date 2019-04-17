@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import './KategorieFilter.css';
 
-const KategorieFilter = ({ typKategorie, active, onClick }) => (
+const KategorieFilter = ({ active, typKategorie, onClick }) => (
   <span className="KategorieFilter Bootstrap-buttons--active">
     <Button
       onClick={onClick}
@@ -17,9 +17,13 @@ const KategorieFilter = ({ typKategorie, active, onClick }) => (
 );
 
 KategorieFilter.propTypes = {
-  typKategorie: PropTypes.string.isRequired,
   active: PropTypes.bool,
+  typKategorie: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired
+};
+
+KategorieFilter.defaultProps = {
+  active: false
 };
 
 export default KategorieFilter;

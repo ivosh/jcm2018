@@ -83,4 +83,8 @@ NovaPlatba.propTypes = {
   onExpand: PropTypes.func.isRequired
 };
 
+NovaPlatba.defaultProps = {
+  showMinified: true
+};
+
 export default NovaPlatba;

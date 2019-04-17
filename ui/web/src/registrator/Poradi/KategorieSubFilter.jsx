@@ -36,4 +36,10 @@ KategorieSubFilter.propTypes = {
   onClick: PropTypes.func.isRequired
 };
 
+KategorieSubFilter.defaultProps = {
+  active: false,
+  pohlavi: undefined,
+  vek: undefined
+};
+
 export default KategorieSubFilter;
