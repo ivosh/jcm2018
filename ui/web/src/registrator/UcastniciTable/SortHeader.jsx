@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { SortDirTypes } from '../../sort';
 import './SortHeader.css';
@@ -9,18 +9,11 @@ const sortDirs = {
   [SortDirTypes.DESC]: '↓'
 };
 
-class SortHeader extends PureComponent {
-  handleClick = event => {
-    event.preventDefault();
-    this.props.onClick();
-  };
-
-  render = () => (
-    <button className="SortHeader" type="button" onClick={this.handleClick}>
-      {this.props.children} {sortDirs[this.props.sortDir]}
-    </button>
-  );
-}
+const SortHeader = ({ children, sortDir, onClick }) => (
+  <button className="SortHeader" type="button" onClick={onClick}>
+    {children} {sortDirs[sortDir]}
+  </button>
+);
 
 SortHeader.propTypes = {
   children: PropTypes.node,

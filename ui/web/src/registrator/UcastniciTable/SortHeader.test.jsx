@@ -32,5 +32,5 @@ it('maps onClick to dispatch onClick action', () => {
   expect(wrapper.find('button')).toHaveLength(1);
   wrapper.find('button').simulate('click');
 
-  expect(onClick).toHaveBeenCalledWith();
+  expect(onClick).toHaveBeenCalledTimes(1);
 });

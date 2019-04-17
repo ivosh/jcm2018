@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Typeahead } from 'react-bootstrap-typeahead';
 import './PrihlaskySearch.css';
@@ -14,47 +14,41 @@ const isMatch = (option, { text }) => {
   return prijmeniLower.startsWith(textLower) || kod === text;
 };
 
-class PrihlaskySearch extends PureComponent {
-  componentDidMount = () => {
+const PrihlaskySearch = ({ options, onSelect }) => {
+  const typeaheadRef = useRef();
+
+  useEffect(() => {
     if (process.env.NODE_ENV !== 'test') {
-      this.typeahead.focus();
+      typeaheadRef.current.focus();
     }
-  };
+  });
 
-  render = () => {
-    const { options, onSelect } = this.props;
-
-    return (
-      <Typeahead
-        autoComplete={false}
-        className="PrihlaskySearch"
-        emptyLabel="Nic nenalezeno."
-        filterBy={isMatch}
-        highlightOnlyResult={true}
-        labelKey="prijmeni"
-        minLength={1}
-        options={options}
-        placeholder="Začni psát příjmení nebo vlož kód přihlášky."
-        ref={ref => {
-          if (ref) {
-            this.typeahead = ref.getInstance();
-          }
-        }}
-        selectHintOnEnter={true}
-        onChange={results => {
-          if (results.length >= 1) {
-            // Typeahead provides an array so take the first result.
-            onSelect(results[0]);
-          }
-        }}
-        renderMenuItemChildren={option => {
-          const { prijmeni, jmeno, narozeni } = option;
-          return `${prijmeni} ${jmeno}, ${narozeni.rok}`;
-        }}
-      />
-    );
-  };
-}
+  return (
+    <Typeahead
+      autoComplete={false}
+      className="PrihlaskySearch"
+      emptyLabel="Nic nenalezeno."
+      filterBy={isMatch}
+      highlightOnlyResult={true}
+      labelKey="prijmeni"
+      minLength={1}
+      options={options}
+      placeholder="Začni psát příjmení nebo vlož kód přihlášky."
+      ref={typeaheadRef}
+      selectHintOnEnter={true}
+      onChange={results => {
+        if (results.length >= 1) {
+          // Typeahead provides an array so take the first result.
+          onSelect(results[0]);
+        }
+      }}
+      renderMenuItemChildren={option => {
+        const { prijmeni, jmeno, narozeni } = option;
+        return `${prijmeni} ${jmeno}, ${narozeni.rok}`;
+      }}
+    />
+  );
+};
 
 PrihlaskySearch.propTypes = {
   options: PropTypes.arrayOf(

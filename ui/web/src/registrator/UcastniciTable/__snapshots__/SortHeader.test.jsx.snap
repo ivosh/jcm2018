@@ -3,7 +3,7 @@
 exports[`renders jméno sestupně 1`] = `
 <button
   className="SortHeader"
-  onClick={[Function]}
+  onClick={[MockFunction]}
   type="button"
 >
   jméno
@@ -15,7 +15,7 @@ exports[`renders jméno sestupně 1`] = `
 exports[`renders the default 1`] = `
 <button
   className="SortHeader"
-  onClick={[Function]}
+  onClick={[MockFunction]}
   type="button"
 >
   příjmení
