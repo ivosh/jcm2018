@@ -98,7 +98,7 @@ it('maps button Start to dispatch onStart action', () => {
   expect(wrapper.find('button.btn-success')).toHaveLength(1);
   wrapper.find('button.btn-success').simulate('click');
 
-  expect(onStart).toHaveBeenCalledWith();
+  expect(onStart).toHaveBeenCalledTimes(1);
 });
 
 it('maps button Stop to dispatch onStop action', () => {
@@ -121,7 +121,7 @@ it('maps button Stop to dispatch onStop action', () => {
   expect(wrapper.find('button.btn-warning')).toHaveLength(1);
   wrapper.find('button.btn-warning').simulate('click');
 
-  expect(onStop).toHaveBeenCalledWith();
+  expect(onStop).toHaveBeenCalledTimes(1);
 });
 
 it('maps button Reset to dispatch onReset action', () => {
@@ -144,5 +144,5 @@ it('maps button Reset to dispatch onReset action', () => {
   expect(wrapper.find('button.btn-danger')).toHaveLength(1);
   wrapper.find('button.btn-danger').simulate('click');
 
-  expect(onReset).toHaveBeenCalledWith();
+  expect(onReset).toHaveBeenCalledTimes(1);
 });

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import momentPropTypes from 'react-moment-proptypes';
 import { Button, ButtonToolbar, Panel } from 'react-bootstrap';
@@ -8,54 +8,42 @@ import Cudly from '../Cudl/Cudly';
 import Rozdily from '../Rozdil/Rozdily';
 import './StopkyProTyp.css';
 
-class StopkyProTyp extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.displej = React.createRef();
-  }
-
-  reset = () => this.props.onReset();
-
-  start = () => {
-    this.displej.current.startTimer();
-    this.props.onStart();
-  };
-
-  stop = () => {
-    this.displej.current.stopTimer();
-    this.props.onStop();
-  };
-
-  render = () => {
-    const { base, cudly, delta, rozdily, running, startEnabled, stopEnabled, typ } = this.props;
-
-    return (
-      <Panel className={`StopkyProTyp__panel--${typ}`} header={<PopisekKategorie typ={typ} />}>
-        <div className="StopkyProTyp__div">
-          <Cudly cudly={cudly.slice(0, 8)} />
-          <RunningDisplej base={base} delta={delta} running={running} ref={this.displej} />
-          <Cudly cudly={cudly.slice(8, 16)} />
-        </div>
-        <ButtonToolbar className="StopkyProTyp__buttons">
-          <Button bsStyle="success" disabled={!startEnabled} onClick={this.start}>
-            Start
-          </Button>
-          <Button bsStyle="warning" disabled={!stopEnabled} onClick={this.stop}>
-            Stop
-          </Button>
-          <Button bsStyle="danger" className="StopkyProTyp__reset-button" onClick={this.reset}>
-            Reset
-          </Button>
-        </ButtonToolbar>
-        <div className="StopkyProTyp__rozdily">
-          <div className="StopkyProTyp__rozdily--nadpis">Rozdíly:</div>
-          <Rozdily rozdily={rozdily} />
-        </div>
-      </Panel>
-    );
-  };
-}
+const StopkyProTyp = ({
+  base,
+  cudly,
+  delta,
+  rozdily,
+  running,
+  startEnabled,
+  stopEnabled,
+  typ,
+  onReset,
+  onStart,
+  onStop
+}) => (
+  <Panel className={`StopkyProTyp__panel--${typ}`} header={<PopisekKategorie typ={typ} />}>
+    <div className="StopkyProTyp__div">
+      <Cudly cudly={cudly.slice(0, 8)} />
+      <RunningDisplej base={base} delta={delta} running={running} />
+      <Cudly cudly={cudly.slice(8, 16)} />
+    </div>
+    <ButtonToolbar className="StopkyProTyp__buttons">
+      <Button bsStyle="success" disabled={!startEnabled} onClick={onStart}>
+        Start
+      </Button>
+      <Button bsStyle="warning" disabled={!stopEnabled} onClick={onStop}>
+        Stop
+      </Button>
+      <Button bsStyle="danger" className="StopkyProTyp__reset-button" onClick={onReset}>
+        Reset
+      </Button>
+    </ButtonToolbar>
+    <div className="StopkyProTyp__rozdily">
+      <div className="StopkyProTyp__rozdily--nadpis">Rozdíly:</div>
+      <Rozdily rozdily={rozdily} />
+    </div>
+  </Panel>
+);
 
 StopkyProTyp.propTypes = {
   base: PropTypes.instanceOf(Date),

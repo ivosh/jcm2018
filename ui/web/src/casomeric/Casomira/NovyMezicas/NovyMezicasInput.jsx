@@ -1,45 +1,39 @@
-import React, { PureComponent } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Form, FormGroup, FormControl } from 'react-bootstrap';
 
-class NovyMezicasInput extends PureComponent {
-  /* FormControl's inputRef uses old-style callback refs. */
-  setInputRef = ref => {
-    this.inputRef = ref;
-  };
+const NovyMezicasInput = ({ cas, validationState, onInputChange, onSubmit }) => {
+  const inputRef = useRef();
 
-  componentDidMount = () => {
-    if (this.inputRef) {
-      this.inputRef.focus();
-    }
-  };
+  useEffect(() => {
+    inputRef.current.focus();
+  });
 
-  handleSubmit = event => {
-    event.preventDefault();
-    if (this.props.validationState === 'success') {
-      this.props.onSubmit(this.props.cas);
-    }
-  };
+  const handleSubmit = useCallback(
+    event => {
+      event.preventDefault();
+      if (validationState === 'success') {
+        onSubmit(cas);
+      }
+    },
+    [cas, validationState, onSubmit]
+  );
 
-  render = () => {
-    const { cas, validationState, onInputChange } = this.props;
-
-    return (
-      <Form inline={true} onSubmit={this.handleSubmit} autoComplete="off">
-        <FormGroup controlId="validatedCas" validationState={validationState}>
-          <FormControl
-            type="text"
-            value={cas}
-            placeholder="H:MM:SS,sss"
-            inputRef={ref => this.setInputRef(ref)}
-            onChange={onInputChange}
-          />
-          <FormControl.Feedback />
-        </FormGroup>
-      </Form>
-    );
-  };
-}
+  return (
+    <Form inline={true} onSubmit={handleSubmit} autoComplete="off">
+      <FormGroup controlId="validatedCas" validationState={validationState}>
+        <FormControl
+          type="text"
+          value={cas}
+          placeholder="H:MM:SS,sss"
+          inputRef={inputRef}
+          onChange={onInputChange}
+        />
+        <FormControl.Feedback />
+      </FormGroup>
+    </Form>
+  );
+};
 
 NovyMezicasInput.propTypes = {
   cas: PropTypes.string.isRequired,

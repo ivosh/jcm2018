@@ -223,7 +223,7 @@ exports[`snapshort po startu 1`] = `
       <button
         className="btn btn-success"
         disabled={true}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         Start
@@ -231,7 +231,7 @@ exports[`snapshort po startu 1`] = `
       <button
         className="btn btn-warning"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         Stop
@@ -239,7 +239,7 @@ exports[`snapshort po startu 1`] = `
       <button
         className="StopkyProTyp__reset-button btn btn-danger"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         Reset
@@ -521,7 +521,7 @@ exports[`snapshot před startem 1`] = `
       <button
         className="btn btn-success"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         Start
@@ -529,7 +529,7 @@ exports[`snapshot před startem 1`] = `
       <button
         className="btn btn-warning"
         disabled={true}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         Stop
@@ -537,7 +537,7 @@ exports[`snapshot před startem 1`] = `
       <button
         className="StopkyProTyp__reset-button btn btn-danger"
         disabled={false}
-        onClick={[Function]}
+        onClick={[MockFunction]}
         type="button"
       >
         Reset
