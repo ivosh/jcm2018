@@ -7,7 +7,7 @@ const normalize = ({ request, response: { response: byTypy } }) => ({
 });
 
 // Use cached value if: not connected or not invalidated.
-const useCached = ({ connected, entities: { stopky } }) =>
+const takeFromCache = ({ connected, entities: { stopky } }) =>
   stopky && stopky.typy && stopky.typy.length > 0 && (!connected || !stopky.invalidated);
 
 export const FETCH_STOPKY = 'FETCH_STOPKY';
@@ -16,8 +16,8 @@ export const fetchStopky = () => ({
     type: FETCH_STOPKY,
     endpoint: API_FIND_ALL_STOPKY,
     normalize,
-    title: 'načítání stopek',
-    useCached
+    takeFromCache,
+    title: 'načítání stopek'
   }
 });
 

@@ -19,7 +19,8 @@ const normalize = ({
   }
 });
 
-const useCached = ({ entities: { rocniky } }) => rocniky && rocniky.roky && rocniky.roky.length > 0;
+const takeFromCache = ({ entities: { rocniky } }) =>
+  rocniky && rocniky.roky && rocniky.roky.length > 0;
 
 export const FETCH_ROCNIKY = 'FETCH_ROCNIKY';
 export const fetchRocniky = () => ({
@@ -28,7 +29,7 @@ export const fetchRocniky = () => ({
     decorate,
     endpoint: API_FIND_ALL_ROCNIKY,
     normalize,
-    title: 'načítání ročníků',
-    useCached
+    takeFromCache,
+    title: 'načítání ročníků'
   }
 });

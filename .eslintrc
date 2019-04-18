@@ -6,7 +6,7 @@
     "node": true
   },
 
-  "plugins": ["jasmine", "react"],
+  "plugins": ["jasmine", "react", "react-hooks"],
 
   "parser": "babel-eslint",
 
@@ -84,6 +84,10 @@
     // These rules are too strict or do not work with my setup.
     "jsx-a11y/no-autofocus": 0,
     "react/jsx-boolean-value": [2, "always"],
-    "react/destructuring-assignment": 0
+    "react/destructuring-assignment": 0,
+
+    // Enable these rules from react-hooks.
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }

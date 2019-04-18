@@ -8,7 +8,7 @@ const normalize = ({ request, response: { response: byIds } }) => ({
 });
 
 // Use cached value if: not connected or not invalidated.
-const useCached = ({ connected, entities: { ucastnici } }) =>
+const takeFromCache = ({ connected, entities: { ucastnici } }) =>
   ucastnici &&
   ucastnici.allIds &&
   ucastnici.allIds.length > 0 &&
@@ -22,8 +22,8 @@ export const fetchUcastnici = () => ({
       type: FETCH_UCASTNICI,
       endpoint: API_FIND_ALL_UCASTNICI,
       normalize,
-      title: 'načítání účastníků',
-      useCached
+      takeFromCache,
+      title: 'načítání účastníků'
     }
   ]
 });

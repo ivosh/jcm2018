@@ -114,11 +114,11 @@ const doOneAction = async ({ action, next, store, wsClient }) => {
     type,
     checkResponse,
     decorate,
+    dontUseToken,
     endpoint,
     normalize,
-    title,
-    useCached,
-    dontUseToken
+    takeFromCache,
+    title
   } = action;
   const request = getRequest(action.request, state);
   if (!endpoint) {
@@ -128,7 +128,7 @@ const doOneAction = async ({ action, next, store, wsClient }) => {
     throw new Error('Specify a redux name for API endpoint.');
   }
 
-  if (useCached && useCached(state)) {
+  if (takeFromCache && takeFromCache(state)) {
     return { code: CODE_OK };
   }
 
