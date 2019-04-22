@@ -19,25 +19,6 @@ exports[`renders cyklo 1`] = `
 </span>
 `;
 
-exports[`renders cyklo and text 1`] = `
-<span
-  style={
-    Object {
-      "fontSize": "100%",
-    }
-  }
->
-  <img
-    alt="cyklo"
-    height={30}
-    src="cyklo.png"
-    title="cyklo"
-  />
-   
-  cyklo
-</span>
-`;
-
 exports[`renders cyklo with pohlaví and věk; do not show typ 1`] = `
 <span
   style={

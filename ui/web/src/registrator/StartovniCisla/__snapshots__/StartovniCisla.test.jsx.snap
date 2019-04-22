@@ -90,7 +90,6 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
         showTyp={true}
         showZkratka={false}
         typ="maraton"
-        typAsText={false}
       />
     </div>
     <Connect(StartovniCislaProTyp)
@@ -112,7 +111,6 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
         showTyp={true}
         showZkratka={false}
         typ="půlmaraton"
-        typAsText={false}
       />
     </div>
     <Connect(StartovniCislaProTyp)
@@ -134,7 +132,6 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
         showTyp={true}
         showZkratka={false}
         typ="cyklo"
-        typAsText={false}
       />
     </div>
     <Connect(StartovniCislaProTyp)
@@ -156,7 +153,6 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
         showTyp={true}
         showZkratka={false}
         typ="koloběžka"
-        typAsText={false}
       />
     </div>
     <Connect(StartovniCislaProTyp)
@@ -248,7 +244,6 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
         showTyp={true}
         showZkratka={false}
         typ="maraton"
-        typAsText={false}
       />
     </div>
     <Connect(StartovniCislaProTyp)
@@ -270,7 +265,6 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
         showTyp={true}
         showZkratka={false}
         typ="půlmaraton"
-        typAsText={false}
       />
     </div>
     <Connect(StartovniCislaProTyp)
@@ -292,7 +286,6 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
         showTyp={true}
         showZkratka={false}
         typ="cyklo"
-        typAsText={false}
       />
     </div>
     <Connect(StartovniCislaProTyp)
@@ -314,7 +307,6 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
         showTyp={true}
         showZkratka={false}
         typ="koloběžka"
-        typAsText={false}
       />
     </div>
     <Connect(StartovniCislaProTyp)

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ObrazekPohlavi from './ObrazekPohlavi';
 import ObrazekTypu from './ObrazekTypu';
 
-const renderTyp = ({ pohlavi, typAsText, vek }) => (!pohlavi && !vek) || typAsText;
+const renderTyp = ({ pohlavi, vek }) => !pohlavi && !vek;
 
 const PopisekKategorie = ({
   heightPercentage,
@@ -11,7 +11,6 @@ const PopisekKategorie = ({
   showTyp,
   showZkratka,
   typ,
-  typAsText,
   vek,
   zkratka
 }) => (
@@ -19,7 +18,7 @@ const PopisekKategorie = ({
     {showTyp && (
       <React.Fragment>
         <ObrazekTypu heightPercentage={heightPercentage} typ={typ} />{' '}
-        {renderTyp({ pohlavi, typAsText, vek }) && typ}
+        {renderTyp({ pohlavi, vek }) && typ}
       </React.Fragment>
     )}
     {pohlavi && <ObrazekPohlavi heightPercentage={heightPercentage} pohlavi={pohlavi} />}
@@ -30,24 +29,24 @@ const PopisekKategorie = ({
 
 PopisekKategorie.propTypes = {
   heightPercentage: PropTypes.number,
-  pohlavi: PropTypes.oneOf(['muž', 'žena']), // eslint-disable-line react/require-default-props
+  pohlavi: PropTypes.oneOf(['muž', 'žena']),
   showTyp: PropTypes.bool,
   showZkratka: PropTypes.bool,
   typ: PropTypes.oneOf(['cyklo', 'koloběžka', 'maraton', 'pěší', 'půlmaraton']).isRequired,
-  typAsText: PropTypes.bool,
-  // eslint-disable-next-line react/require-default-props
   vek: PropTypes.shape({
     min: PropTypes.number,
     max: PropTypes.number
   }),
-  zkratka: PropTypes.string // eslint-disable-line react/require-default-props
+  zkratka: PropTypes.string
 };
 
 PopisekKategorie.defaultProps = {
   heightPercentage: 100,
+  pohlavi: undefined,
   showTyp: true,
   showZkratka: false,
-  typAsText: false
+  vek: undefined,
+  zkratka: undefined
 };
 
 export default PopisekKategorie;

@@ -18,7 +18,6 @@ exports[`renders active 1`] = `
       showTyp={true}
       showZkratka={false}
       typ="pěší"
-      typAsText={false}
     />
   </Button>
 </span>
@@ -42,7 +41,6 @@ exports[`renders nonactive 1`] = `
       showTyp={true}
       showZkratka={false}
       typ="koloběžka"
-      typAsText={false}
     />
   </Button>
 </span>

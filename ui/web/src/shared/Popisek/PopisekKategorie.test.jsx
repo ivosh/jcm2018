@@ -7,11 +7,6 @@ it('renders cyklo', () => {
   expect(component.toJSON()).toMatchSnapshot();
 });
 
-it('renders cyklo and text', () => {
-  const component = renderer.create(<PopisekKategorie typ="cyklo" typAsText={true} />);
-  expect(component.toJSON()).toMatchSnapshot();
-});
-
 it('renders koloběžka with pohlaví', () => {
   const component = renderer.create(<PopisekKategorie typ="koloběžka" pohlavi="žena" />);
   expect(component.toJSON()).toMatchSnapshot();
