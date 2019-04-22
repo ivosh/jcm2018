@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ObrazekPohlavi from './ObrazekPohlavi';
 import ObrazekTypu from './ObrazekTypu';
+import PopisekVeku from './PopisekVeku';
 
 const renderTyp = ({ pohlavi, vek }) => !pohlavi && !vek;
 
@@ -22,7 +23,7 @@ const PopisekKategorie = ({
       </React.Fragment>
     )}
     {pohlavi && <ObrazekPohlavi heightPercentage={heightPercentage} pohlavi={pohlavi} />}
-    {vek && `${vek.min} ${vek.max === 150 ? 'let a více' : `- ${vek.max} let`}`}
+    {vek && <PopisekVeku vek={vek} />}
     {showZkratka && ` (${zkratka})`}
   </span>
 );
