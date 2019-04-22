@@ -30,12 +30,12 @@
     "websocket-as-promised": "^0.9.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom",
     "---run test under Windows bash---": "npm run test:bash",
     "test:bash": "winpty npm.cmd run test",
-    "coverage": "react-scripts test --env=jsdom --coverage",
+    "coverage": "react-app-rewired test --env=jsdom --coverage",
     "coverage:bash": "winpty npm.cmd run coverage",
     "prettier": "prettier --write \"src/**/*.{js,jsx,json,css}\"",
     "lint": "eslint --config ../../.eslintrc \"src/**/*.{js,jsx}\"",
@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "babel-eslint": "9.0.0",
+    "customize-cra": "^0.2.12",
     "deep-freeze": "0.0.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.9.1",
@@ -60,6 +61,7 @@
     "jsonwebtoken": "^8.4.0",
     "mock-socket": "^8.0.5",
     "prettier": "^1.16.4",
+    "react-app-rewired": "^2.1.1",
     "react-dnd-test-backend": "^7.0.2",
     "react-mock-router": "^1.0.15",
     "react-test-renderer": "^16.9.0-alpha.0",
