@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PopisekPohlavi from './PopisekPohlavi';
-import PopisekTypu from './PopisekTypu';
+import ObrazekPohlavi from './ObrazekPohlavi';
+import ObrazekTypu from './ObrazekTypu';
+
+const renderTyp = ({ pohlavi, typAsText, vek }) => (!pohlavi && !vek) || typAsText;
 
 const PopisekKategorie = ({
   heightPercentage,
@@ -15,15 +17,12 @@ const PopisekKategorie = ({
 }) => (
   <span style={{ fontSize: `${heightPercentage}%` }}>
     {showTyp && (
-      <PopisekTypu
-        heightPercentage={heightPercentage}
-        pohlavi={pohlavi}
-        typ={typ}
-        typAsText={typAsText}
-        vek={vek}
-      />
+      <React.Fragment>
+        <ObrazekTypu heightPercentage={heightPercentage} typ={typ} />{' '}
+        {renderTyp({ pohlavi, typAsText, vek }) && typ}
+      </React.Fragment>
     )}
-    {pohlavi && <PopisekPohlavi heightPercentage={heightPercentage} pohlavi={pohlavi} />}
+    {pohlavi && <ObrazekPohlavi heightPercentage={heightPercentage} pohlavi={pohlavi} />}
     {vek && `${vek.min} ${vek.max === 150 ? 'let a více' : `- ${vek.max} let`}`}
     {showZkratka && ` (${zkratka})`}
   </span>

@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Form, Glyphicon, Modal, Panel } from 'react-bootstrap';
 import LoadingButton from '../../../shared/LoadingButton';
+import ObrazekPohlavi from '../../../shared/Popisek/ObrazekPohlavi';
 import PopisekKategorie from '../../../shared/Popisek/PopisekKategorie';
-import PopisekPohlavi from '../../../shared/Popisek/PopisekPohlavi';
 import CheckboxInput from '../Input/CheckboxInput';
 import RadioInput from '../Input/RadioInput';
 import StartCisloInputContainer from '../StartCislo/StartCisloInputContainer';
@@ -128,7 +128,7 @@ class PrihlaskyForm extends PureComponent {
               popisek="pohlaví"
               reduxName={reduxName}
               Type={RadioInput}
-              Formatter={PopisekPohlavi}
+              Formatter={ObrazekPohlavi}
             />
             <PrihlaskyFormInputContainer
               actionPrefix={actionPrefix}

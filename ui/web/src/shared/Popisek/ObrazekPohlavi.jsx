@@ -8,7 +8,7 @@ const pohlaviToImg = {
   žena: zena
 };
 
-const PopisekPohlavi = ({ heightPercentage, pohlavi }) => (
+const ObrazekPohlavi = ({ heightPercentage, pohlavi }) => (
   <img
     src={pohlaviToImg[pohlavi]}
     alt={pohlavi}
@@ -17,13 +17,13 @@ const PopisekPohlavi = ({ heightPercentage, pohlavi }) => (
   />
 );
 
-PopisekPohlavi.propTypes = {
+ObrazekPohlavi.propTypes = {
   heightPercentage: PropTypes.number,
   pohlavi: PropTypes.oneOf(['muž', 'žena']).isRequired
 };
 
-PopisekPohlavi.defaultProps = {
+ObrazekPohlavi.defaultProps = {
   heightPercentage: 100
 };
 
-export default PopisekPohlavi;
+export default ObrazekPohlavi;
