@@ -1,24 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import usePopisek from '../../../../common/Popisek/usePopisek';
 import ObrazekPohlavi from './ObrazekPohlavi';
 import ObrazekTypu from './ObrazekTypu';
 import PopisekVeku from './PopisekVeku';
 
-const renderTyp = ({ pohlavi, vek }) => !pohlavi && !vek;
+const PopisekKategorie = ({ heightPercentage, pohlavi, showTyp, typ, vek, zkratka }) => {
+  const {
+    renderObrazekTypu,
+    renderMezera,
+    renderTextTypu,
+    renderPohlavi,
+    renderVek,
+    renderZkratka
+  } = usePopisek({ pohlavi, showTyp, vek, zkratka });
 
-const PopisekKategorie = ({ heightPercentage, pohlavi, showTyp, typ, vek, zkratka }) => (
-  <span style={{ fontSize: `${heightPercentage}%` }}>
-    {showTyp && (
-      <React.Fragment>
-        <ObrazekTypu heightPercentage={heightPercentage} typ={typ} />{' '}
-        {renderTyp({ pohlavi, vek }) && typ}
-      </React.Fragment>
-    )}
-    {pohlavi && <ObrazekPohlavi heightPercentage={heightPercentage} pohlavi={pohlavi} />}
-    {vek && <PopisekVeku vek={vek} />}
-    {zkratka && ` (${zkratka})`}
-  </span>
-);
+  return (
+    <span style={{ fontSize: `${heightPercentage}%` }}>
+      {renderObrazekTypu && <ObrazekTypu heightPercentage={heightPercentage} typ={typ} />}
+      {renderMezera && ' '}
+      {renderTextTypu && typ}
+      {renderPohlavi && <ObrazekPohlavi heightPercentage={heightPercentage} pohlavi={pohlavi} />}
+      {renderVek && <PopisekVeku vek={vek} />}
+      {renderZkratka && ` (${zkratka})`}
+    </span>
+  );
+};
 
 PopisekKategorie.propTypes = {
   heightPercentage: PropTypes.number,
