@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cyklo from '../../../../common/Popisek/cyklo.png';
-import kolobezka from './kolobezka.png';
-import maraton from './maraton.png';
-import pesi from './pesi.png';
-import pulmaraton from './pulmaraton.png';
+import kolobezka from '../../../../common/Popisek/kolobezka.png';
+import maraton from '../../../../common/Popisek/maraton.png';
+import pesi from '../../../../common/Popisek/pesi.png';
+import pulmaraton from '../../../../common/Popisek/pulmaraton.png';
 
 const typToImg = {
   cyklo,

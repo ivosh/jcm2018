@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import muz from './muz.png';
-import zena from './zena.png';
+import muz from '../../../../common/Popisek/muz.png';
+import zena from '../../../../common/Popisek/zena.png';
 
 const pohlaviToImg = {
   muž: muz,
