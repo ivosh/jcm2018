@@ -88,7 +88,6 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
       <PopisekKategorie
         heightPercentage={100}
         showTyp={true}
-        showZkratka={false}
         typ="maraton"
       />
     </div>
@@ -109,7 +108,6 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
       <PopisekKategorie
         heightPercentage={100}
         showTyp={true}
-        showZkratka={false}
         typ="půlmaraton"
       />
     </div>
@@ -130,7 +128,6 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
       <PopisekKategorie
         heightPercentage={100}
         showTyp={true}
-        showZkratka={false}
         typ="cyklo"
       />
     </div>
@@ -151,7 +148,6 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
       <PopisekKategorie
         heightPercentage={100}
         showTyp={true}
-        showZkratka={false}
         typ="koloběžka"
       />
     </div>
@@ -242,7 +238,6 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
       <PopisekKategorie
         heightPercentage={100}
         showTyp={true}
-        showZkratka={false}
         typ="maraton"
       />
     </div>
@@ -263,7 +258,6 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
       <PopisekKategorie
         heightPercentage={100}
         showTyp={true}
-        showZkratka={false}
         typ="půlmaraton"
       />
     </div>
@@ -284,7 +278,6 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
       <PopisekKategorie
         heightPercentage={100}
         showTyp={true}
-        showZkratka={false}
         typ="cyklo"
       />
     </div>
@@ -305,7 +298,6 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
       <PopisekKategorie
         heightPercentage={100}
         showTyp={true}
-        showZkratka={false}
         typ="koloběžka"
       />
     </div>

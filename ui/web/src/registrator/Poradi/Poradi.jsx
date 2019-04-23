@@ -17,7 +17,7 @@ const casFormat = ({ cellData }) => {
 
 const dokoncenoFormat = ({ cellData }) => findDokonceno(cellData).popisek;
 
-const kategorieFormat = ({ cellData }) => <PopisekKategorie {...cellData} showZkratka={true} />;
+const kategorieFormat = ({ cellData }) => <PopisekKategorie {...cellData} />; // uses 'zkratka'
 kategorieFormat.propTypes = {
   cellData: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
@@ -165,7 +165,8 @@ Poradi.propTypes = {
         rok: PropTypes.number.isRequired
       }).isRequired,
       kategorie: PropTypes.shape({
-        typ: PropTypes.string.isRequired
+        typ: PropTypes.string.isRequired,
+        zkratka: PropTypes.string.isRequired
       }).isRequired,
       startCislo: PropTypes.number,
       dokonceno: PropTypes.bool,

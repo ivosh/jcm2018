@@ -15,7 +15,6 @@ const KategorieSubFilter = ({ active, pohlavi, typ, vek, zkratka, onClick }) => 
         heightPercentage={85}
         pohlavi={pohlavi}
         showTyp={false}
-        showZkratka={true}
         typ={typ}
         vek={vek}
         zkratka={zkratka}

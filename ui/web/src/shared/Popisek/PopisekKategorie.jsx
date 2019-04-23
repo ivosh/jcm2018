@@ -6,15 +6,7 @@ import PopisekVeku from './PopisekVeku';
 
 const renderTyp = ({ pohlavi, vek }) => !pohlavi && !vek;
 
-const PopisekKategorie = ({
-  heightPercentage,
-  pohlavi,
-  showTyp,
-  showZkratka,
-  typ,
-  vek,
-  zkratka
-}) => (
+const PopisekKategorie = ({ heightPercentage, pohlavi, showTyp, typ, vek, zkratka }) => (
   <span style={{ fontSize: `${heightPercentage}%` }}>
     {showTyp && (
       <React.Fragment>
@@ -24,7 +16,7 @@ const PopisekKategorie = ({
     )}
     {pohlavi && <ObrazekPohlavi heightPercentage={heightPercentage} pohlavi={pohlavi} />}
     {vek && <PopisekVeku vek={vek} />}
-    {showZkratka && ` (${zkratka})`}
+    {zkratka && ` (${zkratka})`}
   </span>
 );
 
@@ -32,7 +24,6 @@ PopisekKategorie.propTypes = {
   heightPercentage: PropTypes.number,
   pohlavi: PropTypes.oneOf(['muž', 'žena']),
   showTyp: PropTypes.bool,
-  showZkratka: PropTypes.bool,
   typ: PropTypes.oneOf(['cyklo', 'koloběžka', 'maraton', 'pěší', 'půlmaraton']).isRequired,
   vek: PropTypes.shape({
     min: PropTypes.number,
@@ -45,7 +36,6 @@ PopisekKategorie.defaultProps = {
   heightPercentage: 100,
   pohlavi: undefined,
   showTyp: true,
-  showZkratka: false,
   vek: undefined,
   zkratka: undefined
 };
