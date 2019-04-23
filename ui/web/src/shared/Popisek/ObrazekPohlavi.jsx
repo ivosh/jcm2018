@@ -1,29 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import muz from '../../../../common/Popisek/muz.png';
-import zena from '../../../../common/Popisek/zena.png';
+import { useObrazekPohlavi } from '../../../../common/Popisek/useObrazekPopisku';
 
-const pohlaviToImg = {
-  muž: muz,
-  žena: zena
+const ObrazekPohlavi = ({ pohlavi, sizePercentage }) => {
+  const { source, width, height } = useObrazekPohlavi({ pohlavi, sizePercentage });
+  return <img src={source} alt={pohlavi} title={pohlavi} width={width} height={height} />;
 };
 
-const ObrazekPohlavi = ({ heightPercentage, pohlavi }) => (
-  <img
-    src={pohlaviToImg[pohlavi]}
-    alt={pohlavi}
-    title={pohlavi}
-    height={(heightPercentage * 28) / 100}
-  />
-);
-
 ObrazekPohlavi.propTypes = {
-  heightPercentage: PropTypes.number,
-  pohlavi: PropTypes.oneOf(['muž', 'žena']).isRequired
+  pohlavi: PropTypes.oneOf(['muž', 'žena']).isRequired,
+  sizePercentage: PropTypes.number
 };
 
 ObrazekPohlavi.defaultProps = {
-  heightPercentage: 100
+  sizePercentage: 100
 };
 
 export default ObrazekPohlavi;

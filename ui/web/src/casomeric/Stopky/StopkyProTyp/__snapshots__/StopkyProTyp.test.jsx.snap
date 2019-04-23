@@ -19,6 +19,7 @@ exports[`snapshort po startu 1`] = `
         height={30}
         src="maraton.png"
         title="maraton"
+        width={30}
       />
        
       maraton
@@ -317,6 +318,7 @@ exports[`snapshot před startem 1`] = `
         height={30}
         src="pulmaraton.png"
         title="půlmaraton"
+        width={42}
       />
        
       půlmaraton

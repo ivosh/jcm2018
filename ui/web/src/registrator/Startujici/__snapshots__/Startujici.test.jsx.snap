@@ -81,6 +81,7 @@ exports[`dva odstartovaní 1`] = `
                 height={30}
                 src="pulmaraton.png"
                 title="půlmaraton"
+                width={42}
               />
                
               <img
@@ -88,6 +89,7 @@ exports[`dva odstartovaní 1`] = `
                 height={28}
                 src="muz.png"
                 title="muž"
+                width={28}
               />
               60 let a více
             </span>
@@ -131,6 +133,7 @@ exports[`dva odstartovaní 1`] = `
                 height={30}
                 src="pulmaraton.png"
                 title="půlmaraton"
+                width={42}
               />
                
               <img
@@ -138,6 +141,7 @@ exports[`dva odstartovaní 1`] = `
                 height={28}
                 src="zena.png"
                 title="žena"
+                width={28}
               />
               18 - 39 let
             </span>
@@ -246,6 +250,7 @@ exports[`dva odstartovaní 1`] = `
                 height={30}
                 src="pulmaraton.png"
                 title="půlmaraton"
+                width={42}
               />
                
               <img
@@ -253,6 +258,7 @@ exports[`dva odstartovaní 1`] = `
                 height={28}
                 src="muz.png"
                 title="muž"
+                width={28}
               />
               60 let a více
             </span>
@@ -296,6 +302,7 @@ exports[`dva odstartovaní 1`] = `
                 height={30}
                 src="pulmaraton.png"
                 title="půlmaraton"
+                width={42}
               />
                
               <img
@@ -303,6 +310,7 @@ exports[`dva odstartovaní 1`] = `
                 height={28}
                 src="zena.png"
                 title="žena"
+                width={28}
               />
               18 - 39 let
             </span>
@@ -400,6 +408,7 @@ exports[`žádný odstartovaný 1`] = `
                 height={30}
                 src="pulmaraton.png"
                 title="půlmaraton"
+                width={42}
               />
                
               <img
@@ -407,6 +416,7 @@ exports[`žádný odstartovaný 1`] = `
                 height={28}
                 src="muz.png"
                 title="muž"
+                width={28}
               />
               60 let a více
             </span>
@@ -450,6 +460,7 @@ exports[`žádný odstartovaný 1`] = `
                 height={30}
                 src="pulmaraton.png"
                 title="půlmaraton"
+                width={42}
               />
                
               <img
@@ -457,6 +468,7 @@ exports[`žádný odstartovaný 1`] = `
                 height={28}
                 src="zena.png"
                 title="žena"
+                width={28}
               />
               18 - 39 let
             </span>

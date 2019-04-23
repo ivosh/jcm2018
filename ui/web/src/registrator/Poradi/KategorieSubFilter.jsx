@@ -12,9 +12,9 @@ const KategorieSubFilter = ({ active, pohlavi, typ, vek, zkratka, onClick }) => 
       onClick={onClick}
     >
       <PopisekKategorie
-        heightPercentage={85}
         pohlavi={pohlavi}
         showTyp={false}
+        sizePercentage={85}
         typ={typ}
         vek={vek}
         zkratka={zkratka}

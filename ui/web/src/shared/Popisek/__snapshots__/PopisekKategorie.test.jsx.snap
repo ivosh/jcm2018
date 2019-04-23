@@ -13,6 +13,7 @@ exports[`renders cyklo 1`] = `
     height={30}
     src="cyklo.png"
     title="cyklo"
+    width={30}
   />
    
   cyklo
@@ -32,6 +33,7 @@ exports[`renders cyklo with pohlaví and věk; do not show typ 1`] = `
     height={28}
     src="zena.png"
     title="žena"
+    width={28}
   />
   60 let a více
 </span>
@@ -50,6 +52,7 @@ exports[`renders koloběžka with pohlaví 1`] = `
     height={30}
     src="kolobezka.png"
     title="koloběžka"
+    width={30}
   />
    
   <img
@@ -57,6 +60,7 @@ exports[`renders koloběžka with pohlaví 1`] = `
     height={28}
     src="zena.png"
     title="žena"
+    width={28}
   />
 </span>
 `;
@@ -74,6 +78,7 @@ exports[`renders maraton with pohlaví and věk 1`] = `
     height={30}
     src="maraton.png"
     title="maraton"
+    width={30}
   />
    
   <img
@@ -81,6 +86,7 @@ exports[`renders maraton with pohlaví and věk 1`] = `
     height={28}
     src="muz.png"
     title="muž"
+    width={28}
   />
   18 - 39 let
 </span>
@@ -99,6 +105,7 @@ exports[`renders půlmaraton with pohlaví and věk (max) 1`] = `
     height={30}
     src="pulmaraton.png"
     title="půlmaraton"
+    width={42}
   />
    
   <img
@@ -106,6 +113,7 @@ exports[`renders půlmaraton with pohlaví and věk (max) 1`] = `
     height={28}
     src="zena.png"
     title="žena"
+    width={28}
   />
   60 let a více
 </span>

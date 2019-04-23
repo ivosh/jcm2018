@@ -38,6 +38,7 @@ exports[`dva účastníci 1`] = `
               height={30}
               src="maraton.png"
               title="maraton"
+              width={30}
             />
              
             maraton
@@ -65,6 +66,7 @@ exports[`dva účastníci 1`] = `
               height={30}
               src="pulmaraton.png"
               title="půlmaraton"
+              width={42}
             />
              
             půlmaraton
@@ -92,6 +94,7 @@ exports[`dva účastníci 1`] = `
               height={30}
               src="cyklo.png"
               title="cyklo"
+              width={30}
             />
              
             cyklo
@@ -119,6 +122,7 @@ exports[`dva účastníci 1`] = `
               height={30}
               src="kolobezka.png"
               title="koloběžka"
+              width={30}
             />
              
             koloběžka
@@ -146,6 +150,7 @@ exports[`dva účastníci 1`] = `
               height={30}
               src="pesi.png"
               title="pěší"
+              width={30}
             />
              
             pěší
@@ -1315,6 +1320,7 @@ exports[`žádný účastník 1`] = `
               height={30}
               src="maraton.png"
               title="maraton"
+              width={30}
             />
              
             maraton
@@ -1342,6 +1348,7 @@ exports[`žádný účastník 1`] = `
               height={30}
               src="pulmaraton.png"
               title="půlmaraton"
+              width={42}
             />
              
             půlmaraton
@@ -1369,6 +1376,7 @@ exports[`žádný účastník 1`] = `
               height={30}
               src="cyklo.png"
               title="cyklo"
+              width={30}
             />
              
             cyklo
@@ -1396,6 +1404,7 @@ exports[`žádný účastník 1`] = `
               height={30}
               src="kolobezka.png"
               title="koloběžka"
+              width={30}
             />
              
             koloběžka
@@ -1423,6 +1432,7 @@ exports[`žádný účastník 1`] = `
               height={30}
               src="pesi.png"
               title="pěší"
+              width={30}
             />
              
             pěší

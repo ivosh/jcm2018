@@ -37,6 +37,7 @@ exports[`renders kategorie filters 1`] = `
             height={30}
             src="maraton.png"
             title="maraton"
+            width={30}
           />
            
           maraton
@@ -64,6 +65,7 @@ exports[`renders kategorie filters 1`] = `
             height={30}
             src="cyklo.png"
             title="cyklo"
+            width={30}
           />
            
           cyklo
@@ -121,6 +123,7 @@ exports[`renders kategorie subFilters 1`] = `
             height={30}
             src="maraton.png"
             title="maraton"
+            width={30}
           />
            
           maraton

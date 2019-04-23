@@ -86,8 +86,8 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
       className="StartovniCisla__popisek"
     >
       <PopisekKategorie
-        heightPercentage={100}
         showTyp={true}
+        sizePercentage={100}
         typ="maraton"
       />
     </div>
@@ -106,8 +106,8 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
       className="StartovniCisla__popisek"
     >
       <PopisekKategorie
-        heightPercentage={100}
         showTyp={true}
+        sizePercentage={100}
         typ="půlmaraton"
       />
     </div>
@@ -126,8 +126,8 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
       className="StartovniCisla__popisek"
     >
       <PopisekKategorie
-        heightPercentage={100}
         showTyp={true}
+        sizePercentage={100}
         typ="cyklo"
       />
     </div>
@@ -146,8 +146,8 @@ exports[`renders StartovniCisla - odstartováni 1`] = `
       className="StartovniCisla__popisek"
     >
       <PopisekKategorie
-        heightPercentage={100}
         showTyp={true}
+        sizePercentage={100}
         typ="koloběžka"
       />
     </div>
@@ -236,8 +236,8 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
       className="StartovniCisla__popisek"
     >
       <PopisekKategorie
-        heightPercentage={100}
         showTyp={true}
+        sizePercentage={100}
         typ="maraton"
       />
     </div>
@@ -256,8 +256,8 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
       className="StartovniCisla__popisek"
     >
       <PopisekKategorie
-        heightPercentage={100}
         showTyp={true}
+        sizePercentage={100}
         typ="půlmaraton"
       />
     </div>
@@ -276,8 +276,8 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
       className="StartovniCisla__popisek"
     >
       <PopisekKategorie
-        heightPercentage={100}
         showTyp={true}
+        sizePercentage={100}
         typ="cyklo"
       />
     </div>
@@ -296,8 +296,8 @@ exports[`renders StartovniCisla - přihlášeni 1`] = `
       className="StartovniCisla__popisek"
     >
       <PopisekKategorie
-        heightPercentage={100}
         showTyp={true}
+        sizePercentage={100}
         typ="koloběžka"
       />
     </div>

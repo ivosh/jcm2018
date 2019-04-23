@@ -5,7 +5,7 @@ import ObrazekPohlavi from './ObrazekPohlavi';
 import ObrazekTypu from './ObrazekTypu';
 import PopisekVeku from './PopisekVeku';
 
-const PopisekKategorie = ({ heightPercentage, pohlavi, showTyp, typ, vek, zkratka }) => {
+const PopisekKategorie = ({ pohlavi, showTyp, sizePercentage, typ, vek, zkratka }) => {
   const {
     renderObrazekTypu,
     renderMezera,
@@ -16,11 +16,11 @@ const PopisekKategorie = ({ heightPercentage, pohlavi, showTyp, typ, vek, zkratk
   } = usePopisek({ pohlavi, showTyp, vek, zkratka });
 
   return (
-    <span style={{ fontSize: `${heightPercentage}%` }}>
-      {renderObrazekTypu && <ObrazekTypu heightPercentage={heightPercentage} typ={typ} />}
+    <span style={{ fontSize: `${sizePercentage}%` }}>
+      {renderObrazekTypu && <ObrazekTypu sizePercentage={sizePercentage} typ={typ} />}
       {renderMezera && ' '}
       {renderTextTypu && typ}
-      {renderPohlavi && <ObrazekPohlavi heightPercentage={heightPercentage} pohlavi={pohlavi} />}
+      {renderPohlavi && <ObrazekPohlavi sizePercentage={sizePercentage} pohlavi={pohlavi} />}
       {renderVek && <PopisekVeku vek={vek} />}
       {renderZkratka && ` (${zkratka})`}
     </span>
@@ -28,9 +28,9 @@ const PopisekKategorie = ({ heightPercentage, pohlavi, showTyp, typ, vek, zkratk
 };
 
 PopisekKategorie.propTypes = {
-  heightPercentage: PropTypes.number,
   pohlavi: PropTypes.oneOf(['muž', 'žena']),
   showTyp: PropTypes.bool,
+  sizePercentage: PropTypes.number,
   typ: PropTypes.oneOf(['cyklo', 'koloběžka', 'maraton', 'pěší', 'půlmaraton']).isRequired,
   vek: PropTypes.shape({
     min: PropTypes.number,
@@ -40,9 +40,9 @@ PopisekKategorie.propTypes = {
 };
 
 PopisekKategorie.defaultProps = {
-  heightPercentage: 100,
   pohlavi: undefined,
   showTyp: true,
+  sizePercentage: 100,
   vek: undefined,
   zkratka: undefined
 };
