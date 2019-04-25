@@ -1,6 +1,6 @@
 import React from 'react';
 import momentPropTypes from 'react-moment-proptypes';
-import { convertDuration } from '../../Util';
+import convertDuration from 'ui-common/convertDuration';
 import './Displej.css';
 
 const Displej = ({ duration }) => {

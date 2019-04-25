@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { convertDuration, findDokonceno, narozeniToStr } from '../../Util';
+import convertDuration from 'ui-common/convertDuration';
+import { findDokonceno, narozeniToStr } from '../../Util';
 import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
 import PoradiFilters from './PoradiFilters';

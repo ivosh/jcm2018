@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import momentPropTypes from 'react-moment-proptypes';
 import { Button, Glyphicon } from 'react-bootstrap';
-import { convertDuration } from '../../../Util';
+import convertDuration from 'ui-common/convertDuration';
 import DroppableStartovniCislo from './DroppableStartovniCislo';
 import './Mezicas.css';
 

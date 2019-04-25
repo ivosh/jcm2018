@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { convertDuration, narozeniToStr } from '../../Util';
+import convertDuration from 'ui-common/convertDuration';
+import { narozeniToStr } from '../../Util';
 import FilterableContainer from '../Filterable/FilterableContainer';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
 import './UcastniciDigest.css';

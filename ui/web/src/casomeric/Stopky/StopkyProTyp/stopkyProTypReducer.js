@@ -1,6 +1,6 @@
 import moment from 'moment';
+import convertDuration from 'ui-common/convertDuration';
 import { casSortMethod } from '../../../common';
-import { convertDuration } from '../../../Util';
 
 export const getCudly = () => [
   { popisek: '+10', step: 10 * 60 * 60 * 1000 },

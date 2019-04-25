@@ -1,6 +1,7 @@
 import moment from 'moment';
+import convertDuration from 'ui-common/convertDuration';
 import { AKTUALNI_ROK, TYPY_KATEGORII } from '../../constants';
-import { convertDuration, findDokonceno } from '../../Util';
+import { findDokonceno } from '../../Util';
 import { getKategorieProTyp } from '../../entities/rocniky/rocnikyReducer';
 import { getPoradiSorted } from '../Poradi/poradiReducer';
 
