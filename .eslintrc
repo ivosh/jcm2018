@@ -28,6 +28,11 @@
   "settings": {
     "react": {
       "version": "16.8"
+    },
+    "import/resolver": {
+      "alias": {
+        "map": [["ui-common", "../common"]]
+      }
     }
   },
 

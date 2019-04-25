@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useObrazekTypu } from '../../../../common/Popisek/useObrazekPopisku';
+import { useObrazekTypu } from 'ui-common/Popisek/useObrazekPopisku';
 
 const ObrazekTypu = ({ sizePercentage, typ }) => {
   const { source, width, height } = useObrazekTypu({ sizePercentage, typ });

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import usePopisek from '../../../../common/Popisek/usePopisek';
+import usePopisek from 'ui-common/Popisek/usePopisek';
 import ObrazekPohlavi from './ObrazekPohlavi';
 import ObrazekTypu from './ObrazekTypu';
 import PopisekVeku from './PopisekVeku';
