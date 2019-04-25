@@ -78,7 +78,7 @@
   ],
   "jest": {
     "moduleNameMapper": {
-      "ui-common/(.*)": "<rootDir>/../common/$1"
+      "ui-common/(.*)": "<rootDir>/../mobile/src/ui-common/$1"
     }
   }
 }

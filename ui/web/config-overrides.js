@@ -11,8 +11,8 @@ const path = require('path');
 // Process and include also files in ../common
 module.exports = override(
   addWebpackAlias({
-    ['ui-common']: path.resolve(__dirname, '../common')
+    ['ui-common']: path.resolve(__dirname, '../mobile/src/ui-common')
   }),
-  babelInclude([path.resolve('src'), path.resolve('../common')]),
+  babelInclude([path.resolve('src'), path.resolve('../mobile/src/ui-common')]),
   removeModuleScopePlugin()
 );
