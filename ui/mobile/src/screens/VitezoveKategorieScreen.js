@@ -1,11 +1,20 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { MonoText } from '../components/StyledText';
+import PopisekKategorie from '../components/Popisek/PopisekKategorie';
+
+const kategorie = {
+  pohlavi: 'muž',
+  typ: 'maraton',
+  vek: { min: 18, max: 30 }
+};
 
 const VitezoveKategorieScreen = () => (
   <View style={styles.container}>
     <View style={styles.kategorieContainer}>
-      <Text style={styles.kategorie}>maraton muži 18-30</Text>
+      <View style={styles.kategorie}>
+        <PopisekKategorie {...kategorie} />
+      </View>
     </View>
 
     <View style={styles.getStartedContainer}>

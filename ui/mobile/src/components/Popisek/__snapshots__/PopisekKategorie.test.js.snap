@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders cyklo 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+      },
+      Object {
+        "fontSize": "100%",
+      },
+    ]
+  }
+>
+  <Image
+    source={1}
+    style={
+      Object {
+        "height": 30,
+        "width": 30,
+      }
+    }
+  />
+  <Text>
+     
+  </Text>
+  <Text>
+    typ
+  </Text>
+</View>
+`;
+
+exports[`renders cyklo with pohlaví and věk; do not show typ 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+      },
+      Object {
+        "fontSize": "100%",
+      },
+    ]
+  }
+>
+  <Image
+    source={1}
+    style={
+      Object {
+        "height": 28,
+        "width": 28,
+      }
+    }
+  />
+  <Text>
+    60 let a více
+  </Text>
+</View>
+`;
+
+exports[`renders koloběžka with pohlaví 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+      },
+      Object {
+        "fontSize": "100%",
+      },
+    ]
+  }
+>
+  <Image
+    source={1}
+    style={
+      Object {
+        "height": 30,
+        "width": 30,
+      }
+    }
+  />
+  <Text>
+     
+  </Text>
+  <Image
+    source={1}
+    style={
+      Object {
+        "height": 28,
+        "width": 28,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`renders maraton with pohlaví and věk 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+      },
+      Object {
+        "fontSize": "100%",
+      },
+    ]
+  }
+>
+  <Image
+    source={1}
+    style={
+      Object {
+        "height": 30,
+        "width": 30,
+      }
+    }
+  />
+  <Text>
+     
+  </Text>
+  <Image
+    source={1}
+    style={
+      Object {
+        "height": 28,
+        "width": 28,
+      }
+    }
+  />
+  <Text>
+    18 - 39 let
+  </Text>
+</View>
+`;
+
+exports[`renders půlmaraton with pohlaví and věk (max) 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexDirection": "row",
+      },
+      Object {
+        "fontSize": "100%",
+      },
+    ]
+  }
+>
+  <Image
+    source={1}
+    style={
+      Object {
+        "height": 30,
+        "width": 42,
+      }
+    }
+  />
+  <Text>
+     
+  </Text>
+  <Image
+    source={1}
+    style={
+      Object {
+        "height": 28,
+        "width": 28,
+      }
+    }
+  />
+  <Text>
+    60 let a více
+  </Text>
+</View>
+`;
