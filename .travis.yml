@@ -5,6 +5,7 @@ node_js:
 services: mongodb
 install:
   - npm ci
-  - cd ui/web/ && npm ci && npm run build && cd ../..
+  - cd ui/web/ && npm ci && npm run build
+  - cd ui/mobile && npm ci
 after_success:
   - npm run coverage:report

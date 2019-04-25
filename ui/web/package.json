@@ -37,9 +37,9 @@
     "test:bash": "winpty npm.cmd run test",
     "coverage": "react-app-rewired test --env=jsdom --coverage",
     "coverage:bash": "winpty npm.cmd run coverage",
-    "prettier": "prettier --write \"{../common,src}/**/*.{js,jsx,json,css}\"",
-    "lint": "eslint --config ../../.eslintrc \"{../common,src}/**/*.{js,jsx}\"",
-    "lint-cache": "eslint --config ../../.eslintrc --cache \"{../common,src}/**/*.{js,jsx}\"",
+    "prettier": "prettier --write \"{../mobile/src/ui-common,src}/**/*.{js,jsx,json,css}\"",
+    "lint": "eslint --config ../../.eslintrc \"{../mobile/src/ui-common,src}/**/*.{js,jsx}\"",
+    "lint-cache": "eslint --config ../../.eslintrc --cache \"{../mobile/src/ui-common,src}/**/*.{js,jsx}\"",
     "clean": "rm -rf coverage",
     "clobber": "rm -rf coverage node_modules",
     "source-map-explorer": "npm run build && node ./node_modules/source-map-explorer/index.js build/static/js/*"

@@ -4,7 +4,7 @@
 
 const { execSync } = require('child_process');
 
-/* Sets version of package*.json files. Then commits 5 files and adds a git tag.
+/* Sets version of package*.json files. Then commits 6 files and adds a git tag.
    Usage: node ./setversion */
 
 const fs = require('fs');

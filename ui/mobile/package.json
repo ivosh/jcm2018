@@ -8,7 +8,11 @@
     "lint": "eslint --config ../../.eslintrc App.js \"src/**/*.{js,jsx}\"",
     "lint-cache": "eslint --config ../../.eslintrc --cache App.js \"src/**/*.{js,jsx}\"",
     "test": "jest --watchAll",
-    "test:bash": "winpty npm.cmd run test"
+    "test:bash": "winpty npm.cmd run test",
+    "test:ci": "jest --ci",
+    "coverage": "jest --coverage",
+    "clean": "rm -rf coverage",
+    "clobber": "rm -rf coverage node_modules"
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
