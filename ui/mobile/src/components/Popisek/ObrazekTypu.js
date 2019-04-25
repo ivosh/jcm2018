@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from 'react-native';
 import PropTypes from 'prop-types';
-import { useObrazekTypu } from './useObrazekPopisku';
+import { useObrazekTypu } from '../../ui-common/Popisek/useObrazekPopisku';
 
 const ObrazekTypu = ({ sizePercentage, typ }) => {
   const { source, width, height } = useObrazekTypu({ sizePercentage, typ });
