@@ -1,12 +1,32 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { MonoText } from '../components/StyledText';
+import { Dimensions, StyleSheet, View } from 'react-native';
+import moment from 'moment';
+import VitezKategorie from '../components/VitezKategorie';
 import PopisekKategorie from '../components/Popisek/PopisekKategorie';
 
 const kategorie = {
   pohlavi: 'muž',
   typ: 'maraton',
   vek: { min: 18, max: 30 }
+};
+
+const prvni = {
+  cas: moment.duration('PT4H15M32.45S'),
+  jmeno: 'Václav Zakouřil',
+  narozeni: 1945,
+  umisteni: 1
+};
+const druhy = {
+  cas: moment.duration('PT2H17M29.14S'),
+  jmeno: 'Roman Smeták',
+  narozeni: 1986,
+  umisteni: 2
+};
+const treti = {
+  cas: moment.duration('PT3H27M42.38S'),
+  jmeno: 'František Beran',
+  narozeni: 1974,
+  umisteni: 3
 };
 
 const VitezoveKategorieScreen = () => (
@@ -17,14 +37,10 @@ const VitezoveKategorieScreen = () => (
       </View>
     </View>
 
-    <View style={styles.getStartedContainer}>
-      <Text style={styles.getStartedText}>Get started by opening</Text>
-
-      <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-        <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-      </View>
-
-      <Text style={styles.getStartedText}>Tak to je hustý, fakt že jo!</Text>
+    <View style={styles.vitezove}>
+      <VitezKategorie containerStyle={styles.vitez} {...treti} />
+      <VitezKategorie containerStyle={styles.vitez} {...prvni} />
+      <VitezKategorie containerStyle={styles.vitez} {...druhy} />
     </View>
   </View>
 );
@@ -35,6 +51,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     flex: 1,
+    justifyContent: 'space-between',
+    paddingBottom: 10,
     paddingTop: 30
   },
   kategorieContainer: {
@@ -48,25 +66,12 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 8
   },
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50
+  vitezove: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly'
   },
-  homeScreenFilename: {
-    marginVertical: 7
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)'
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center'
+  vitez: {
+    margin: 10,
+    width: Dimensions.get('window').height / 3
   }
 });

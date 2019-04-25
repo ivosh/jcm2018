@@ -1,0 +1,350 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "justifyContent": "space-between",
+      "paddingBottom": 10,
+      "paddingTop": 30,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "marginBottom": 20,
+        "marginTop": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#b0ffb5",
+          "borderRadius": 8,
+          "borderWidth": 2,
+          "padding": 8,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            Object {
+              "fontSize": "100%",
+            },
+          ]
+        }
+      >
+        <Image
+          source={1}
+          style={
+            Object {
+              "height": 30,
+              "width": 30,
+            }
+          }
+        />
+        <Text>
+           
+        </Text>
+        <Image
+          source={1}
+          style={
+            Object {
+              "height": 28,
+              "width": 28,
+            }
+          }
+        />
+        <Text>
+          18 - 30 let
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "space-evenly",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "margin": 10,
+            "width": 444.6666666666667,
+          },
+          Object {
+            "justifyContent": "flex-end",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "paddingBottom": 15,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "marginBottom": 3,
+              },
+              Object {
+                "fontWeight": "500",
+              },
+            ]
+          }
+        >
+          František Beran
+        </Text>
+        <Text
+          style={
+            Object {
+              "marginBottom": 3,
+            }
+          }
+        >
+          1974
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "marginBottom": 3,
+              },
+              Object {
+                "backgroundColor": "rgba(0,0,0,0.05)",
+                "borderRadius": 4,
+                "borderWidth": 1,
+                "paddingLeft": 4,
+                "paddingRight": 2,
+              },
+            ]
+          }
+        >
+          3:27:42.38
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "rgba(52, 128, 249, 0.3)",
+              "borderRadius": 5,
+              "justifyContent": "center",
+            },
+            Object {
+              "height": 60,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 40,
+            }
+          }
+        >
+          3
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "margin": 10,
+            "width": 444.6666666666667,
+          },
+          Object {
+            "justifyContent": "flex-end",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "paddingBottom": 15,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "marginBottom": 3,
+              },
+              Object {
+                "fontWeight": "500",
+              },
+            ]
+          }
+        >
+          Václav Zakouřil
+        </Text>
+        <Text
+          style={
+            Object {
+              "marginBottom": 3,
+            }
+          }
+        >
+          1945
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "marginBottom": 3,
+              },
+              Object {
+                "backgroundColor": "rgba(0,0,0,0.05)",
+                "borderRadius": 4,
+                "borderWidth": 1,
+                "paddingLeft": 4,
+                "paddingRight": 2,
+              },
+            ]
+          }
+        >
+          4:15:32.45
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "rgba(52, 128, 249, 0.3)",
+              "borderRadius": 5,
+              "justifyContent": "center",
+            },
+            Object {
+              "height": 140,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 40,
+            }
+          }
+        >
+          1
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "margin": 10,
+            "width": 444.6666666666667,
+          },
+          Object {
+            "justifyContent": "flex-end",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "paddingBottom": 15,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "marginBottom": 3,
+              },
+              Object {
+                "fontWeight": "500",
+              },
+            ]
+          }
+        >
+          Roman Smeták
+        </Text>
+        <Text
+          style={
+            Object {
+              "marginBottom": 3,
+            }
+          }
+        >
+          1986
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "marginBottom": 3,
+              },
+              Object {
+                "backgroundColor": "rgba(0,0,0,0.05)",
+                "borderRadius": 4,
+                "borderWidth": 1,
+                "paddingLeft": 4,
+                "paddingRight": 2,
+              },
+            ]
+          }
+        >
+          2:17:29.14
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "rgba(52, 128, 249, 0.3)",
+              "borderRadius": 5,
+              "justifyContent": "center",
+            },
+            Object {
+              "height": 80,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "fontSize": 40,
+            }
+          }
+        >
+          2
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
