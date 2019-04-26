@@ -13,6 +13,7 @@
   "engines": {
     "node": "11.x"
   },
+  "cacheDirectories": [],
   "scripts": {
     "start": "node server/server.js",
     "_comment_1": "'node' binary must be granted 'cap_net_bind_service' capability:",
@@ -33,7 +34,7 @@
     "clean": "rm -rf coverage && cd ui/web/ && npm run clean && cd ../mobile/ && npm run clean",
     "clobber": "rm -rf coverage node_modules && cd ui/web/ && npm run clobber && cd ../mobile/ && npm run clobber",
     "deploy": "git push && git push --tags",
-    "heroku-postbuild": "cd ui/web/ && npm install && npm run build"
+    "heroku-postbuild": "cd ui/web/ && npm install && ./node_modules/react-app-rewired/bin/index.js build"
   },
   "dependencies": {
     "async-file": "^2.0.2",
@@ -54,6 +55,7 @@
     "cross-env": "^5.2.0",
     "eslint": "5.12.0",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jasmine": "^2.10.1",
     "eslint-plugin-jsx-a11y": "^6.2.1",
