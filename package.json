@@ -13,7 +13,10 @@
   "engines": {
     "node": "11.x"
   },
-  "cacheDirectories": [],
+  "cacheDirectories": [
+    "node_modules",
+    "ui/web/node_modules"
+  ],
   "scripts": {
     "start": "node server/server.js",
     "_comment_1": "'node' binary must be granted 'cap_net_bind_service' capability:",
@@ -34,7 +37,7 @@
     "clean": "rm -rf coverage && cd ui/web/ && npm run clean && cd ../mobile/ && npm run clean",
     "clobber": "rm -rf coverage node_modules && cd ui/web/ && npm run clobber && cd ../mobile/ && npm run clobber",
     "deploy": "git push && git push --tags",
-    "heroku-postbuild": "cd ui/web/ && npm install && pwd && ls -l && ls -l ./node_modules && ls -l ./node_modules/react-app-rewired && ls -l ./node_modules/react-app-rewired/bin"
+    "heroku-postbuild": "cd ui/web/ && npm install && npm install --only=dev && npm run build"
   },
   "dependencies": {
     "async-file": "^2.0.2",
