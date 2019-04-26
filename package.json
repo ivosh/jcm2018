@@ -34,7 +34,7 @@
     "clean": "rm -rf coverage && cd ui/web/ && npm run clean && cd ../mobile/ && npm run clean",
     "clobber": "rm -rf coverage node_modules && cd ui/web/ && npm run clobber && cd ../mobile/ && npm run clobber",
     "deploy": "git push && git push --tags",
-    "heroku-postbuild": "cd ui/web/ && npm install && ./node_modules/react-app-rewired/bin/index.js build"
+    "heroku-postbuild": "cd ui/web/ && npm install && pwd && ls -l && ls -l ./node_modules && ls -l ./node_modules/react-app-rewired && ls -l ./node_modules/react-app-rewired/bin"
   },
   "dependencies": {
     "async-file": "^2.0.2",
