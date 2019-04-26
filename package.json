@@ -13,10 +13,6 @@
   "engines": {
     "node": "11.x"
   },
-  "cacheDirectories": [
-    "node_modules",
-    "ui/web/node_modules"
-  ],
   "scripts": {
     "start": "node server/server.js",
     "_comment_1": "'node' binary must be granted 'cap_net_bind_service' capability:",
