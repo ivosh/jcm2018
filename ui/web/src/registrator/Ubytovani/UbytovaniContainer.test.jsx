@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
-import { API_MODIFY_UBYTOVANI, UBYTOVANI_ODHLASIT } from '../../common';
+import { API_MODIFY_UBYTOVANI, UBYTOVANI_ODHLASIT } from 'ui-common/common';
 import { AKTUALNI_ROK } from '../../constants';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { WS_API } from '../../store/wsAPI';

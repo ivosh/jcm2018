@@ -3,7 +3,7 @@ import {
   UBYTOVANI_PRIHLASIT,
   UBYTOVANI_PRESPANO,
   UBYTOVANI_NEPRESPANO
-} from '../../common';
+} from 'ui-common/common';
 import { AKTUALNI_ROK } from '../../constants';
 import { sortForColumn } from '../../sort';
 import { getUcastiProRok } from '../../entities/ucastnici/ucastniciReducer';

@@ -1,6 +1,6 @@
 import WebSocketAsPromised from 'websocket-as-promised';
 import Channel from 'chnl';
-import { PORT_DEV_CLIENT, PORT_DEV_SERVER } from './common';
+import { PORT_DEV_CLIENT, PORT_DEV_SERVER } from 'ui-common/common';
 import { WEBSOCKET_RECONNECT_INTERVAL, WEBSOCKET_REQUEST_TIMEOUT } from './constants';
 
 /**

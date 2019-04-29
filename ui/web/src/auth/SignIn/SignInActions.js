@@ -1,5 +1,5 @@
 import jwtDecode from 'jwt-decode';
-import { API_SIGN_IN, CODE_OK, CODE_NONCE_MISMATCH, CODE_TOKEN_INVALID } from '../../common';
+import { API_SIGN_IN, CODE_OK, CODE_NONCE_MISMATCH, CODE_TOKEN_INVALID } from 'ui-common/common';
 import { WS_API } from '../../store/wsAPI';
 
 export const generateNonce = (len = 20) => {

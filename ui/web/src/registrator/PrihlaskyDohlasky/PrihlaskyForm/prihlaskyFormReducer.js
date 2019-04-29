@@ -6,7 +6,7 @@ import {
   UBYTOVANI_PRIHLASIT,
   findKategorie,
   ubytovaniModifications
-} from '../../../common';
+} from 'ui-common/common';
 import { AKTUALNI_ROK, TYPY_KATEGORII, ActionPrefixes } from '../../../constants';
 import {
   datumValid,

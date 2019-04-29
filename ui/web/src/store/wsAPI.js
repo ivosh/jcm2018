@@ -1,4 +1,4 @@
-import { CODE_OK, CODE_TOKEN_INVALID, apiCall } from '../common';
+import { CODE_OK, CODE_TOKEN_INVALID, apiCall } from 'ui-common/common';
 import { errorToStr } from '../Util';
 
 // Action key that carries API call info interpreted by this Redux middleware.

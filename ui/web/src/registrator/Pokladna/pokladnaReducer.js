@@ -1,4 +1,4 @@
-import { PLATBA_TYPY } from '../../common';
+import { PLATBA_TYPY } from 'ui-common/common';
 import { AKTUALNI_ROK } from '../../constants';
 import { getTypKategorie } from '../../entities/rocniky/rocnikyReducer';
 import { getUcastiProRok } from '../../entities/ucastnici/ucastniciReducer';

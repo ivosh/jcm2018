@@ -1,4 +1,4 @@
-import { API_FIND_ALL_ROCNIKY } from '../../common';
+import { API_FIND_ALL_ROCNIKY } from 'ui-common/common';
 import { AKTUALNI_ROK } from '../../constants';
 import { WS_API } from '../../store/wsAPI';
 

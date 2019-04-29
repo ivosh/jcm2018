@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
-import { API_POHAR_PREDAN } from '../../common';
+import { API_POHAR_PREDAN } from 'ui-common/common';
 import { ActionPrefixes, ReduxNames } from '../../constants';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { WS_API } from '../../store/wsAPI';

@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
-import { API_MODIFY_STOPKY, STOPKY_RESET, STOPKY_START, STOPKY_STOP } from '../../../common';
+import { API_MODIFY_STOPKY, STOPKY_RESET, STOPKY_START, STOPKY_STOP } from 'ui-common/common';
 import { WS_API } from '../../../store/wsAPI';
 import { MODIFY_STOPKY } from './StopkyProTypActions';
 import StopkyProTypContainer from './StopkyProTypContainer';

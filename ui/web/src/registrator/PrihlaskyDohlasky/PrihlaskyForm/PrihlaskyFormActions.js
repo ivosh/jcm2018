@@ -1,4 +1,4 @@
-import { API_SAVE_UCAST, CODE_OK } from '../../../common';
+import { API_SAVE_UCAST, CODE_OK } from 'ui-common/common';
 import { AKTUALNI_ROK, PRIHLASKY_SAVE_MODAL_TIMEOUT, ActionPrefixes } from '../../../constants';
 import { getDatumKonani } from '../../../entities/rocniky/rocnikyReducer';
 import { WS_API } from '../../../store/wsAPI';

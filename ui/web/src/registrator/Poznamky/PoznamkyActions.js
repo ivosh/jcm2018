@@ -1,4 +1,4 @@
-import { API_ADD_POZNAMKA, API_DELETE_POZNAMKA, API_MODIFY_POZNAMKA } from '../../common';
+import { API_ADD_POZNAMKA, API_DELETE_POZNAMKA, API_MODIFY_POZNAMKA } from 'ui-common/common';
 import { AKTUALNI_ROK } from '../../constants';
 import { WS_API } from '../../store/wsAPI';
 

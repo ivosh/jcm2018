@@ -1,5 +1,5 @@
 import configureStore from 'redux-mock-store';
-import { API_MODIFY_STOPKY, STOPKY_START } from '../../../common';
+import { API_MODIFY_STOPKY, STOPKY_START } from 'ui-common/common';
 import { WS_API } from '../../../store/wsAPI';
 import { MODIFY_STOPKY, stopkyStart } from './StopkyProTypActions';
 

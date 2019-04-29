@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { PLATBA_TYPY } from '../../../common';
+import { PLATBA_TYPY } from 'ui-common/common';
 import { datumValid, numberValid, parseDatum } from '../../../Util';
 
 const initialState = {

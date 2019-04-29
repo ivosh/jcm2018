@@ -7,7 +7,7 @@ import {
   STOPKY_RESET,
   STOPKY_START,
   STOPKY_STOP
-} from '../../../common';
+} from 'ui-common/common';
 import { WS_API } from '../../../store/wsAPI';
 
 const normalize = ({

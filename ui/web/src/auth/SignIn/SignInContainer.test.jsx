@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
-import { API_SIGN_IN } from '../../common';
+import { API_SIGN_IN } from 'ui-common/common';
 import WsClient from '../../WsClient';
 import { WS_API } from '../../store/wsAPI';
 import { SIGN_IN } from './SignInActions';

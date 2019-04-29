@@ -1,5 +1,5 @@
 import configureStore from 'redux-mock-store';
-import { CODE_OK } from '../../common';
+import { CODE_OK } from 'ui-common/common';
 import { generateTestToken } from '../../testing';
 import WsClient from '../../WsClient';
 import wsAPI from '../../store/wsAPI';

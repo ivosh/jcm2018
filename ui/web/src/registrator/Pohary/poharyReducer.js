@@ -1,4 +1,4 @@
-import { UCASTI_NA_POHAR } from '../../common';
+import { UCASTI_NA_POHAR } from 'ui-common/common';
 import { AKTUALNI_ROK } from '../../constants';
 import { numberAndUndefinedSortMethod, SortDirTypes, sortForColumn } from '../../sort';
 import {

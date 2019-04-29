@@ -1,4 +1,4 @@
-import { API_TIMESYNC } from '../common';
+import { API_TIMESYNC } from 'ui-common/common';
 import {
   TIMESYNC_LAST_SAMPLES,
   TIMESYNC_INITIAL_BURST_DELAY,

@@ -1,4 +1,4 @@
-import { API_POHAR_PREDAN } from '../../common';
+import { API_POHAR_PREDAN } from 'ui-common/common';
 import { WS_API } from '../../store/wsAPI';
 
 export const POHAR_NAROK = 'nárok';

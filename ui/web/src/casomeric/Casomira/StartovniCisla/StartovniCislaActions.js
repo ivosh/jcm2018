@@ -1,4 +1,4 @@
-import { API_SAVE_VYKON } from '../../../common';
+import { API_SAVE_VYKON } from 'ui-common/common';
 import { AKTUALNI_ROK } from '../../../constants';
 import { findDokonceno } from '../../../Util';
 import { WS_API } from '../../../store/wsAPI';

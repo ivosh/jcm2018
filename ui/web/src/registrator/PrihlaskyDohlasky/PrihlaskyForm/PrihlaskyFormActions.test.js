@@ -1,6 +1,6 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { CODE_OK } from '../../../common';
+import { CODE_OK } from 'ui-common/common';
 import { AKTUALNI_ROK } from '../../../constants';
 import WsClient from '../../../WsClient';
 import wsAPI from '../../../store/wsAPI';

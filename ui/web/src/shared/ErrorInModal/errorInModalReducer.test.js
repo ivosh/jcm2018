@@ -1,5 +1,5 @@
 import deepFreeze from 'deep-freeze';
-import { UBYTOVANI_NEPRESPANO } from '../../common';
+import { UBYTOVANI_NEPRESPANO } from 'ui-common/common';
 import { ActionPrefixes, AKTUALNI_ROK } from '../../constants';
 import { signIn } from '../../auth/SignIn/SignInActions';
 import { signOut } from '../../auth/SignOut/SignOutActions';

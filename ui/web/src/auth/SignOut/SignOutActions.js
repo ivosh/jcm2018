@@ -1,4 +1,4 @@
-import { API_SIGN_OUT } from '../../common';
+import { API_SIGN_OUT } from 'ui-common/common';
 import { WS_API } from '../../store/wsAPI';
 
 const takeFromCache = state => !state.auth.authenticated;

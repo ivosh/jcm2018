@@ -1,4 +1,4 @@
-import { API_MODIFY_UBYTOVANI } from '../../common';
+import { API_MODIFY_UBYTOVANI } from 'ui-common/common';
 import { AKTUALNI_ROK } from '../../constants';
 import { WS_API } from '../../store/wsAPI';
 

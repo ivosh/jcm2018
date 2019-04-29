@@ -1,4 +1,4 @@
-import { API_FIND_ALL_STOPKY } from '../../common';
+import { API_FIND_ALL_STOPKY } from 'ui-common/common';
 import { WS_API } from '../../store/wsAPI';
 
 const normalize = ({ request, response: { response: byTypy } }) => ({

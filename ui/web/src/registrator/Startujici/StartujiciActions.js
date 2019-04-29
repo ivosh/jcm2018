@@ -1,4 +1,4 @@
-import { API_DELETE_VYKON, API_SAVE_VYKON } from '../../common';
+import { API_DELETE_VYKON, API_SAVE_VYKON } from 'ui-common/common';
 import { AKTUALNI_ROK } from '../../constants';
 import { WS_API } from '../../store/wsAPI';
 
