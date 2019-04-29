@@ -23,7 +23,7 @@ exports[`renders cyklo 1`] = `
     }
   />
   <Text>
-     
+     
   </Text>
   <Text>
     typ
@@ -82,7 +82,7 @@ exports[`renders koloběžka with pohlaví 1`] = `
     }
   />
   <Text>
-     
+     
   </Text>
   <Image
     source={1}
@@ -119,7 +119,7 @@ exports[`renders maraton with pohlaví and věk 1`] = `
     }
   />
   <Text>
-     
+     
   </Text>
   <Image
     source={1}
@@ -159,7 +159,7 @@ exports[`renders půlmaraton with pohlaví and věk (max) 1`] = `
     }
   />
   <Text>
-     
+     
   </Text>
   <Image
     source={1}

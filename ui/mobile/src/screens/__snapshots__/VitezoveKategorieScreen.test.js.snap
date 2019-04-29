@@ -53,7 +53,7 @@ exports[`renders 1`] = `
           }
         />
         <Text>
-           
+           
         </Text>
         <Image
           source={1}

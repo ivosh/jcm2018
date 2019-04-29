@@ -19,7 +19,7 @@ const PopisekKategorie = ({ pohlavi, showTyp, sizePercentage, typ, vek, zkratka 
   return (
     <View style={[styles.container, { fontSize: `${sizePercentage}%` }]}>
       {renderObrazekTypu && <ObrazekTypu sizePercentage={sizePercentage} typ={typ} />}
-      {renderMezera && <Text> </Text>}
+      {renderMezera && <Text> </Text>}
       {renderTextTypu && <Text>typ</Text>}
       {renderPohlavi && <ObrazekPohlavi sizePercentage={sizePercentage} pohlavi={pohlavi} />}
       {renderVek && <PopisekVeku vek={vek} />}

@@ -13,7 +13,7 @@ const VitezKategorie = ({ cas, containerStyle, jmeno, narozeni, umisteni }) => {
   return (
     <View style={[containerStyle, styles.container]}>
       <View style={styles.inicialyContainer}>
-        <Text style={[styles.inicialy, { fontWeight: '500' }]}>{jmeno}</Text>
+        <Text style={[styles.inicialy, styles.jmeno]}>{jmeno}</Text>
         <Text style={styles.inicialy}>{narozeni}</Text>
         <Text style={[styles.inicialy, styles.cas]}>{`${hours}:${mins}:${secs}.${subsecs}`}</Text>
       </View>
@@ -30,12 +30,15 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'flex-end'
   },
+  inicialy: {
+    marginBottom: 3
+  },
   inicialyContainer: {
     alignItems: 'center',
     paddingBottom: 15
   },
-  inicialy: {
-    marginBottom: 3
+  jmeno: {
+    fontWeight: '500'
   },
   cas: {
     backgroundColor: 'rgba(0,0,0,0.05)',
@@ -61,4 +64,8 @@ VitezKategorie.propTypes = {
   jmeno: PropTypes.string.isRequired,
   narozeni: PropTypes.number.isRequired,
   umisteni: PropTypes.oneOf([1, 2, 3]).isRequired
+};
+
+VitezKategorie.defaultProps = {
+  containerStyle: undefined
 };

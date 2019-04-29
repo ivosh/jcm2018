@@ -55,23 +55,23 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingTop: 30
   },
-  kategorieContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20
-  },
   kategorie: {
     backgroundColor: '#b0ffb5',
-    borderWidth: 2,
     borderRadius: 8,
+    borderWidth: 2,
     padding: 8
   },
-  vitezove: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly'
+  kategorieContainer: {
+    alignItems: 'center',
+    marginBottom: 20,
+    marginTop: 10
   },
   vitez: {
     margin: 10,
     width: Dimensions.get('window').height / 3
+  },
+  vitezove: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly'
   }
 });
