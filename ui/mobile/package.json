@@ -8,7 +8,7 @@
     "prettier": "prettier --write \"App.js\" \"src/**/*.{js,jsx,json,css}\"",
     "lint": "eslint App.js \"src/**/*.{js,jsx}\"",
     "lint-cache": "eslint --cache App.js \"src/**/*.{js,jsx}\"",
-    "test": "jest --watchAll",
+    "test": "node ./node_modules/jest/bin/jest.js --watchAll",
     "test:bash": "winpty npm.cmd run test",
     "test:ci": "jest --ci",
     "coverage": "jest --coverage",
