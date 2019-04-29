@@ -1,5 +1,5 @@
 import { CODE_OK, CODE_TOKEN_INVALID, apiCall } from 'ui-common/common';
-import { errorToStr } from '../Util';
+import { errorToStr } from 'ui-common/errorToStr';
 
 // Action key that carries API call info interpreted by this Redux middleware.
 export const WS_API = 'Websocket API';
