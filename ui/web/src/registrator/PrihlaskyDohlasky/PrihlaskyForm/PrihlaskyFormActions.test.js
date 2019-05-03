@@ -1,8 +1,8 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { CODE_OK } from 'ui-common/common';
+import WsClient from 'ui-common/WsClient';
 import { AKTUALNI_ROK } from '../../../constants';
-import WsClient from '../../../WsClient';
 import wsAPI from '../../../store/wsAPI';
 import { CREATE_PRIHLASKY_SAVE, createSaveUcast } from './PrihlaskyFormActions';
 

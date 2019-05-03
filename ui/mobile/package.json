@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
+    "chnl": "^0.4.2",
     "expo": "^32.0.0",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
@@ -24,7 +25,8 @@
     "react-moment-proptypes": "^1.6.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-swiper": "^1.5.14",
-    "react-style-proptype": "^3.2.2"
+    "react-style-proptype": "^3.2.2",
+    "websocket-as-promised": "^0.9.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
@@ -40,6 +42,7 @@
     "eslint-plugin-react-native": "^3.7.0",
     "jest": "^24.7.1",
     "jest-expo": "^32.0.0",
+    "mock-socket": "^8.0.5",
     "prettier": "^1.17.0",
     "react-test-renderer": "^16.8.6"
   },

@@ -1,7 +1,7 @@
 import configureStore from 'redux-mock-store';
 import { CODE_OK } from 'ui-common/common';
+import WsClient from 'ui-common/WsClient';
 import { generateTestToken } from '../../testing';
-import WsClient from '../../WsClient';
 import wsAPI from '../../store/wsAPI';
 import { SIGN_OUT, signOut } from './SignOutActions';
 

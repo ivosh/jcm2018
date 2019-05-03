@@ -1,5 +1,5 @@
 import configureStore from 'redux-mock-store';
-import WsClient from '../../WsClient';
+import WsClient from 'ui-common/WsClient';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import wsAPI from '../../store/wsAPI';
 import { POHAR_PREDAN, poharPredan } from './PoharyActions';

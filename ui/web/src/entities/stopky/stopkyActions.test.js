@@ -1,5 +1,5 @@
 import configureStore from 'redux-mock-store';
-import WsClient from '../../WsClient';
+import WsClient from 'ui-common/WsClient';
 import wsAPI from '../../store/wsAPI';
 import { FETCH_STOPKY, fetchStopky } from './stopkyActions';
 

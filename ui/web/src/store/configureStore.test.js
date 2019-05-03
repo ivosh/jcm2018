@@ -1,5 +1,5 @@
 import { Server } from 'mock-socket';
-import WsClient from '../WsClient';
+import WsClient from 'ui-common/WsClient';
 import configureStore from './configureStore';
 
 it('configure store', () => {

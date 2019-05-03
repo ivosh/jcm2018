@@ -1,7 +1,7 @@
 import configureStore from 'redux-mock-store';
 import { UBYTOVANI_PRIHLASIT, UBYTOVANI_ODHLASIT } from 'ui-common/common';
+import WsClient from 'ui-common/WsClient';
 import { AKTUALNI_ROK } from '../../constants';
-import WsClient from '../../WsClient';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import wsAPI from '../../store/wsAPI';
 import { MODIFY_UBYTOVANI, modifyUbytovani } from './UbytovaniActions';

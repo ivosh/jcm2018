@@ -1,6 +1,6 @@
 import configureStore from 'redux-mock-store';
 import { CODE_OK, CODE_NONCE_MISMATCH, CODE_TOKEN_INVALID } from 'ui-common/common';
-import WsClient from '../WsClient';
+import WsClient from 'ui-common/WsClient';
 import wsAPI, { WS_API } from './wsAPI';
 
 const mockWsClient = new WsClient();
