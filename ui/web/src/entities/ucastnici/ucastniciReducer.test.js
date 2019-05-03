@@ -1,8 +1,8 @@
 import deepFreeze from 'deep-freeze';
 import { UBYTOVANI_NEPRESPANO, ubytovaniModifications } from 'ui-common/common';
+import { websocketDisconnected } from 'ui-common/App/connectedActions';
 import { createSuccessFromAction } from 'ui-common/store/wsAPI';
 import { AKTUALNI_ROK, ActionPrefixes } from '../../constants';
-import { websocketDisconnected } from '../../App/AppActions';
 import { signOut } from '../../auth/SignOut/SignOutActions';
 import {
   addPoznamka,

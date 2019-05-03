@@ -1,9 +1,9 @@
 import deepFreeze from 'deep-freeze';
 import { createRequestFromAction, createSuccessFromAction } from 'ui-common/store/wsAPI';
+import { websocketConnected, websocketDisconnected } from 'ui-common/App/connectedActions';
 import { fetchStopky } from '../entities/stopky/stopkyActions';
 import { fetchUcastnici } from '../entities/ucastnici/ucastniciActions';
 import appReducer from './appReducer';
-import { websocketConnected, websocketDisconnected } from './AppActions';
 
 it('na začátku', () => {
   const stateBefore = undefined;
