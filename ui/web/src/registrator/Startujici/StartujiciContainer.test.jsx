@@ -2,9 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import { API_DELETE_VYKON, API_SAVE_VYKON } from 'ui-common/common';
+import { WS_API } from 'ui-common/store/wsAPI';
 import { AKTUALNI_ROK } from '../../constants';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
-import { WS_API } from '../../store/wsAPI';
 import { STARTUJICI_CREATE_VYKON, STARTUJICI_DELETE_VYKON } from './StartujiciActions';
 import StartujiciContainer from './StartujiciContainer';
 

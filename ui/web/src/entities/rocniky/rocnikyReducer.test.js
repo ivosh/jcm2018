@@ -1,7 +1,7 @@
 import deepFreeze from 'deep-freeze';
+import { createSuccessFromAction } from 'ui-common/store/wsAPI';
 import { TYPY_KATEGORII, AKTUALNI_ROK } from '../../constants';
 import { signOut } from '../../auth/SignOut/SignOutActions';
-import { createSuccessFromAction } from '../../store/wsAPI';
 import { AKTUALNI_DATUM_KONANI } from '../ucastnici/ucastniciTestData';
 import { fetchRocniky } from './rocnikyActions';
 import rocnikyReducer, { getDatumKonani, getKategorie, getKategorieProTyp } from './rocnikyReducer';

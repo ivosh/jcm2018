@@ -1,7 +1,7 @@
 import { API_SAVE_UCAST, CODE_OK } from 'ui-common/common';
+import { WS_API } from 'ui-common/store/wsAPI';
 import { AKTUALNI_ROK, PRIHLASKY_SAVE_MODAL_TIMEOUT, ActionPrefixes } from '../../../constants';
 import { getDatumKonani } from '../../../entities/rocniky/rocnikyReducer';
-import { WS_API } from '../../../store/wsAPI';
 import { createInputChanged as genericCreateInputChanged } from '../Input/InputActions';
 import { formErrors, kategorieInputOptions } from './prihlaskyFormReducer';
 

@@ -1,8 +1,8 @@
 import configureStore from 'redux-mock-store';
 import WsClient from 'ui-common/WsClient';
+import wsAPI from 'ui-common/store/wsAPI';
 import { AKTUALNI_ROK } from '../../constants';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
-import wsAPI from '../../store/wsAPI';
 import {
   POZNAMKA_ADD,
   POZNAMKA_DELETE,

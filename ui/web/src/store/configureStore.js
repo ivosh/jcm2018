@@ -1,12 +1,12 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { BROADCAST_STOPKY, BROADCAST_UCASTNIK } from 'ui-common/common';
+import wsAPI from 'ui-common/store/wsAPI';
 import appReducer from '../App/appReducer';
 import { websocketConnected, websocketDisconnected } from '../App/AppActions';
 import { broadcastStopky } from '../entities/stopky/stopkyActions';
 import { broadcastUcastnik } from '../entities/ucastnici/ucastniciActions';
 import { timesyncOperation, timesyncStart } from '../Timesync/TimesyncActions';
-import wsAPI from './wsAPI';
 
 const loadState = () => {
   try {

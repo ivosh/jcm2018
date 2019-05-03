@@ -1,6 +1,6 @@
 import configureStore from 'redux-mock-store';
 import WsClient from 'ui-common/WsClient';
-import wsAPI from '../../store/wsAPI';
+import wsAPI from 'ui-common/store/wsAPI';
 import { FETCH_UCASTNICI, fetchUcastnici } from './ucastniciActions';
 
 const mockWsClient = new WsClient();

@@ -2,9 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import { API_POHAR_PREDAN } from 'ui-common/common';
+import { WS_API } from 'ui-common/store/wsAPI';
 import { ActionPrefixes, ReduxNames } from '../../constants';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
-import { WS_API } from '../../store/wsAPI';
 import { POHAR_NEPREVZATO, POHAR_PREDANO, POHAR_PREDAN } from './PoharyActions';
 import PoharyTableContainer from './PoharyTableContainer';
 

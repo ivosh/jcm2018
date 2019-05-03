@@ -1,5 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import { UBYTOVANI_NEPRESPANO, ubytovaniModifications } from 'ui-common/common';
+import { createSuccessFromAction } from 'ui-common/store/wsAPI';
 import { AKTUALNI_ROK, ActionPrefixes } from '../../constants';
 import { websocketDisconnected } from '../../App/AppActions';
 import { signOut } from '../../auth/SignOut/SignOutActions';
@@ -11,7 +12,6 @@ import {
 import { createPrihlaskySave } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
 import { createVykon, deleteVykon } from '../../registrator/Startujici/StartujiciActions';
 import { modifyUbytovani } from '../../registrator/Ubytovani/UbytovaniActions';
-import { createSuccessFromAction } from '../../store/wsAPI';
 import ucastniciReducer, { getUcastiProRok } from './ucastniciReducer';
 import { broadcastUcastnik, fetchUcastnici } from './ucastniciActions';
 import ucastniciTestData, { AKTUALNI_DATUM_KONANI } from './ucastniciTestData';

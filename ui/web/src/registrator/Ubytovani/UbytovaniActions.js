@@ -1,6 +1,6 @@
 import { API_MODIFY_UBYTOVANI } from 'ui-common/common';
+import { WS_API } from 'ui-common/store/wsAPI';
 import { AKTUALNI_ROK } from '../../constants';
-import { WS_API } from '../../store/wsAPI';
 
 export const changeUbytovaniFilter = () => ({
   type: 'UBYTOVANI_CHANGE_FILTER'

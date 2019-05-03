@@ -1,5 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import { UBYTOVANI_NEPRESPANO } from 'ui-common/common';
+import { createFailureFromAction } from 'ui-common/store/wsAPI';
 import { ActionPrefixes, AKTUALNI_ROK } from '../../constants';
 import { signIn } from '../../auth/SignIn/SignInActions';
 import { signOut } from '../../auth/SignOut/SignOutActions';
@@ -19,7 +20,6 @@ import {
 } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
 import { createVykon, deleteVykon } from '../../registrator/Startujici/StartujiciActions';
 import { modifyUbytovani } from '../../registrator/Ubytovani/UbytovaniActions';
-import { createFailureFromAction } from '../../store/wsAPI';
 import { hideError } from './ErrorInModalActions';
 import errorInModalReducer from './errorInModalReducer';
 

@@ -1,10 +1,10 @@
 import { API_TIMESYNC } from 'ui-common/common';
+import { WS_API } from 'ui-common/store/wsAPI';
 import {
   TIMESYNC_LAST_SAMPLES,
   TIMESYNC_INITIAL_BURST_DELAY,
   TIMESYNC_OPERATIONAL_DELAY
 } from '../constants';
-import { WS_API } from '../store/wsAPI';
 
 export const timesyncStart = () => ({ type: 'TIMESYNC_START' });
 export const timesyncStop = () => ({ type: 'TIMESYNC_STOP' });

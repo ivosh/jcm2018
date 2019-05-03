@@ -1,14 +1,14 @@
 import deepFreeze from 'deep-freeze';
+import {
+  createFailureFromAction,
+  createRequestFromAction,
+  createSuccessFromAction
+} from 'ui-common/store/wsAPI';
 import { ActionPrefixes } from '../../../constants';
 import { fetchRocniky } from '../../../entities/rocniky/rocnikyActions';
 import ucastniciTestData, {
   AKTUALNI_DATUM_KONANI
 } from '../../../entities/ucastnici/ucastniciTestData';
-import {
-  createFailureFromAction,
-  createRequestFromAction,
-  createSuccessFromAction
-} from '../../../store/wsAPI';
 import { predepsaneStartovne } from '../../platby';
 import { createAddPlatba, createRemovePlatba } from '../Platby/PlatbyActions';
 import {

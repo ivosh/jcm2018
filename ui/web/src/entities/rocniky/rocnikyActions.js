@@ -1,6 +1,6 @@
 import { API_FIND_ALL_ROCNIKY } from 'ui-common/common';
+import { WS_API } from 'ui-common/store/wsAPI';
 import { AKTUALNI_ROK } from '../../constants';
-import { WS_API } from '../../store/wsAPI';
 
 const decorate = json => ({
   getDatumKonani: (rok = AKTUALNI_ROK) => json.response.rocniky[rok].datum

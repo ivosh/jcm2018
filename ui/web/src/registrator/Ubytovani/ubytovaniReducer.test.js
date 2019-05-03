@@ -1,10 +1,10 @@
 import deepFreeze from 'deep-freeze';
+import { createRequestFromAction, createSuccessFromAction } from 'ui-common/store/wsAPI';
 import { AKTUALNI_ROK } from '../../constants';
 import ucastniciTestData, {
   AKTUALNI_DATUM_KONANI
 } from '../../entities/ucastnici/ucastniciTestData';
 import { SortDirTypes } from '../../sort';
-import { createRequestFromAction, createSuccessFromAction } from '../../store/wsAPI';
 import { createTextFilterChange } from '../Filterable/FilterableActions';
 import { createSortDirChange } from '../UcastniciTable/UcastniciTableActions';
 import { changeUbytovaniFilter, modifyUbytovani } from './UbytovaniActions';

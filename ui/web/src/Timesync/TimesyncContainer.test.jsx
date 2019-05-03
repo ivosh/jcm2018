@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import WsClient from 'ui-common/WsClient';
-import wsAPI from '../store/wsAPI';
+import wsAPI from 'ui-common/store/wsAPI';
 import { TIMESYNC } from './TimesyncActions';
 import TimesyncContainer from './TimesyncContainer';
 

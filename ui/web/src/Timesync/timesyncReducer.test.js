@@ -1,5 +1,5 @@
 import deepFreeze from 'deep-freeze';
-import { createSuccessFromAction } from '../store/wsAPI';
+import { createSuccessFromAction } from 'ui-common/store/wsAPI';
 import { timesync, timesyncStart, timesyncStop } from './TimesyncActions';
 import timesyncReducer from './timesyncReducer';
 

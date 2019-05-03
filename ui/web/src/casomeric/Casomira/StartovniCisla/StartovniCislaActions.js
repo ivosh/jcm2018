@@ -1,7 +1,7 @@
 import { API_SAVE_VYKON } from 'ui-common/common';
+import { WS_API } from 'ui-common/store/wsAPI';
 import { AKTUALNI_ROK } from '../../../constants';
 import { findDokonceno } from '../../../Util';
-import { WS_API } from '../../../store/wsAPI';
 import startovniCislaReducer from './startovniCislaReducer';
 
 export const canDrop = ({ source, destination }) => {

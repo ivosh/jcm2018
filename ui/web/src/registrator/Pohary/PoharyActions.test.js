@@ -1,7 +1,7 @@
 import configureStore from 'redux-mock-store';
 import WsClient from 'ui-common/WsClient';
+import wsAPI from 'ui-common/store/wsAPI';
 import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
-import wsAPI from '../../store/wsAPI';
 import { POHAR_PREDAN, poharPredan } from './PoharyActions';
 
 const successfulResponse = {

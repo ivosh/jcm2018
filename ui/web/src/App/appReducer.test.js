@@ -1,5 +1,5 @@
 import deepFreeze from 'deep-freeze';
-import { createRequestFromAction, createSuccessFromAction } from '../store/wsAPI';
+import { createRequestFromAction, createSuccessFromAction } from 'ui-common/store/wsAPI';
 import { fetchStopky } from '../entities/stopky/stopkyActions';
 import { fetchUcastnici } from '../entities/ucastnici/ucastniciActions';
 import appReducer from './appReducer';

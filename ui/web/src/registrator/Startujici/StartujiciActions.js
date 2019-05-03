@@ -1,6 +1,6 @@
 import { API_DELETE_VYKON, API_SAVE_VYKON } from 'ui-common/common';
+import { WS_API } from 'ui-common/store/wsAPI';
 import { AKTUALNI_ROK } from '../../constants';
-import { WS_API } from '../../store/wsAPI';
 
 const createRequest = ({ id, rok, state }) => {
   const { kategorie, startCislo } = state.entities.ucastnici.byIds[id][rok].prihlaska;

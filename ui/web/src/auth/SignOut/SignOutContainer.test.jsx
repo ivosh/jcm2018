@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import WsClient from 'ui-common/WsClient';
-import wsAPI from '../../store/wsAPI';
+import wsAPI from 'ui-common/store/wsAPI';
 import { signOut } from './SignOutActions';
 import SignOutContainer from './SignOutContainer';
 

@@ -1,6 +1,6 @@
 import jwtDecode from 'jwt-decode';
+import { WS_API } from 'ui-common/store/wsAPI';
 import { API_SIGN_IN, CODE_OK, CODE_NONCE_MISMATCH, CODE_TOKEN_INVALID } from 'ui-common/common';
-import { WS_API } from '../../store/wsAPI';
 
 export const generateNonce = (len = 20) => {
   const arr = new Uint8Array(len / 2);

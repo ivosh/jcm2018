@@ -1,8 +1,8 @@
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import WsClient from 'ui-common/WsClient';
+import wsAPI from 'ui-common/store/wsAPI';
 import { TIMESYNC_INITIAL_BURST_DELAY, TIMESYNC_OPERATIONAL_DELAY } from '../constants';
-import wsAPI from '../store/wsAPI';
 import { TIMESYNC, timesync, timesyncOperation } from './TimesyncActions';
 
 jest.useFakeTimers();

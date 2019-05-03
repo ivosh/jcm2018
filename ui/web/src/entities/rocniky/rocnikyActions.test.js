@@ -1,6 +1,6 @@
 import configureStore from 'redux-mock-store';
 import WsClient from 'ui-common/WsClient';
-import wsAPI from '../../store/wsAPI';
+import wsAPI from 'ui-common/store/wsAPI';
 import { AKTUALNI_DATUM_KONANI } from '../ucastnici/ucastniciTestData';
 import { FETCH_ROCNIKY, fetchRocniky } from './rocnikyActions';
 

@@ -1,5 +1,5 @@
 import { API_FIND_ALL_UCASTNICI } from 'ui-common/common';
-import { WS_API } from '../../store/wsAPI';
+import { WS_API } from 'ui-common/store/wsAPI';
 import { fetchRocniky } from '../rocniky/rocnikyActions';
 
 const normalize = ({ request, response: { response: byIds } }) => ({

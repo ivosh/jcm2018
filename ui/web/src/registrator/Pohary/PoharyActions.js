@@ -1,5 +1,5 @@
 import { API_POHAR_PREDAN } from 'ui-common/common';
-import { WS_API } from '../../store/wsAPI';
+import { WS_API } from 'ui-common/store/wsAPI';
 
 export const POHAR_NAROK = 'nárok';
 export const POHAR_NEPREVZATO = 'nepřevzato';

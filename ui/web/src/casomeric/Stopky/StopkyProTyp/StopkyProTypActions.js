@@ -8,7 +8,7 @@ import {
   STOPKY_START,
   STOPKY_STOP
 } from 'ui-common/common';
-import { WS_API } from '../../../store/wsAPI';
+import { WS_API } from 'ui-common/store/wsAPI';
 
 const normalize = ({
   request,
