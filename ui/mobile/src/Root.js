@@ -24,11 +24,12 @@ class Root extends React.Component {
         // to remove this if you are not using it in your app
         'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf')
       }),
-      async () => {
+      new Promise(async resolve => {
         const initialState = await loadState();
         const store = configureStore(new WsClient(), initialState);
         this.setState({ store });
-      }
+        resolve(store);
+      })
     ]);
 
   handleFinishLoading = () => {
@@ -36,7 +37,7 @@ class Root extends React.Component {
   };
 
   render = () =>
-    this.state.isLoadingComplete ? (
+    this.state.isLoadingComplete && this.state.store ? (
       <Provider store={this.state.store}>
         <Main />
       </Provider>
