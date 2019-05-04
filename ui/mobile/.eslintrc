@@ -70,6 +70,7 @@
     "jsx-a11y/no-autofocus": 0,
     "react/jsx-boolean-value": [2, "always"],
     "react/destructuring-assignment": 0,
+    "react-native/no-color-literals": 0,
 
     // Enable these rules from react-hooks.
     "react-hooks/rules-of-hooks": "error",
