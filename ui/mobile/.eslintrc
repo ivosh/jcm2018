@@ -73,6 +73,10 @@
 
     // Enable these rules from react-hooks.
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+
+    // Disable rules impossible to overcome with Expo right now.
+    "react/jsx-filename-extension": 0,
+    "no-use-before-define": 0
   }
 }

@@ -1,13 +1,12 @@
 https://react-bootstrap.github.io/
-https://www.andrewhfarmer.com/component-communication/
 https://reactjs.org/docs/refs-and-the-dom.html
 https://github.com/theturtle32/WebSocket-Node/tree/master/docs
 
 https://medium.com/@baphemot/intro-to-debugging-reactjs-applications-67cf7a50b3dd
 https://medium.freecodecamp.org/make-react-fast-again-tools-and-techniques-for-speeding-up-your-react-app-7ad39d3c1b82
-https://medium.com/@baphemot/understanding-reactjs-component-life-cycle-823a640b3e8d
 https://hackernoon.com/a-user-encounters-a-javascript-error-youll-never-guess-what-happens-next-dc1a6f725490
 https://blog.scalac.io/react-redux-jwt-authentication.html
+https://medium.freecodecamp.org/how-to-create-email-chips-in-pure-react-ad1cc3ecea16
 
 
 Integration with heroku:
@@ -32,3 +31,15 @@ https://devcenter.heroku.com/articles/http-routing     (X-Forwarded-Proto)
 MongoDB Atlas in the cloud:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 https://cloud.mongodb.com/
+
+
+Focused button:
+.button:focus {
+  
+  /* Adds a white border around the button, along with a blue glow. The white and blue have a color contrast ratio of at least 3:1, which means this will work against any background color. */
+  box-shadow: 0 0 0 2px #ffffff, 0 0 3px 5px #3a97f9;
+  
+  /* NOTE: box-shadow is invisible in Windows high-contrast mode, so we need to add a transparent outline, which actually does show up in high-contrast mode. */
+  outline: 2px dotted transparent;
+  outline-offset: 2px;
+}
