@@ -26,7 +26,10 @@ class Root extends React.Component {
       }),
       new Promise(async resolve => {
         const initialState = await loadState();
-        const store = configureStore(new WsClient(), initialState);
+        const store = configureStore(
+          new WsClient({ url: 'wss://jcm2019.herokuapp.com/' }),
+          initialState
+        );
         this.setState({ store });
         resolve(store);
       })

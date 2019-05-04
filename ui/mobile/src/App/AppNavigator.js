@@ -7,8 +7,8 @@ import SettingsContainer from '../Settings/SettingsContainer';
 const AppNavigator = () => (
   <Swiper style={styles.wrapper} showsPagination={false}>
     <VitezoveKategorieScreen />
-    <HomeScreen />
     <SettingsContainer />
+    <HomeScreen />
   </Swiper>
 );
 

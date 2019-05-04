@@ -19,7 +19,7 @@ RenderItem.propTypes = { item: PropTypes.shape({ type: PropTypes.string }).isReq
 const Settings = ({ connected }) => {
   const { manifest } = Constants;
   const sections = [
-    { data: [{ value: connected ? 'true' : 'false' }], title: 'connected?' },
+    { data: [{ value: connected ? 'yes' : 'no' }], title: 'connected?' },
     { data: [{ value: manifest.version }], title: 'version' },
     { data: [{ value: manifest.orientation }], title: 'orientation' },
     {

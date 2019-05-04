@@ -14,6 +14,7 @@ const WEBSOCKET_REQUEST_TIMEOUT = 20 * 1000; // 20 seconds
  */
 class WsClient {
   constructor({
+    url,
     port: portArg,
     reconnectInterval = WEBSOCKET_RECONNECT_INTERVAL,
     requestTimeout = WEBSOCKET_REQUEST_TIMEOUT,
@@ -21,13 +22,17 @@ class WsClient {
     onConnect,
     onClose
   } = {}) {
-    const hostname = (window && window.location && window.location.hostname) || 'localhost';
-    const port = parseInt((window && window.location && window.location.port) || '80', 10);
-    if (hostname === 'localhost') {
-      const wsPort = portArg || (port === PORT_DEV_CLIENT ? PORT_DEV_SERVER : port);
-      this.url = `ws://${hostname}:${wsPort}/`;
+    if (url) {
+      this.url = url;
     } else {
-      this.url = `wss://${hostname}/`;
+      const hostname = (window && window.location && window.location.hostname) || 'localhost';
+      const port = parseInt((window && window.location && window.location.port) || '80', 10);
+      if (hostname === 'localhost') {
+        const wsPort = portArg || (port === PORT_DEV_CLIENT ? PORT_DEV_SERVER : port);
+        this.url = `ws://${hostname}:${wsPort}/`;
+      } else {
+        this.url = `wss://${hostname}/`;
+      }
     }
     this.reconnectInterval = reconnectInterval;
     this.requestTimeout = requestTimeout;
