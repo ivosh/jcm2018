@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
+import { signOut } from 'ui-common/auth/SignOut/SignOutActions';
 import { createSuccessFromAction } from 'ui-common/store/wsAPI';
-import { signOut } from '../../auth/SignOut/SignOutActions';
 import { fetchRocniky } from '../rocniky/rocnikyActions';
 import kategorieReducer from './kategorieReducer';
 

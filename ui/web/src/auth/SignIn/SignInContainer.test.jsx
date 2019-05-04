@@ -3,8 +3,8 @@ import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import { API_SIGN_IN } from 'ui-common/common';
 import WsClient from 'ui-common/WsClient';
+import { SIGN_IN } from 'ui-common/auth/SignIn/SignInActions';
 import { WS_API } from 'ui-common/store/wsAPI';
-import { SIGN_IN } from './SignInActions';
 import SignInContainer from './SignInContainer';
 
 const mockStore = configureStore();

@@ -3,7 +3,7 @@ import {
   createFailureFromAction,
   createRequestFromAction,
   createSuccessFromAction
-} from 'ui-common/store/wsAPI';
+} from '../../store/wsAPI';
 import { signIn } from './SignInActions';
 import signInReducer from './signInReducer';
 

@@ -1,7 +1,7 @@
 import configureStore from 'redux-mock-store';
-import WsClient from 'ui-common/WsClient';
-import wsAPI from 'ui-common/store/wsAPI';
-import { generateTestToken } from '../../testing';
+import generateTestToken from '../../generateTestToken';
+import WsClient from '../../WsClient';
+import wsAPI from '../../store/wsAPI';
 import { SIGN_IN, signIn } from './SignInActions';
 
 const mockWsClient = new WsClient();

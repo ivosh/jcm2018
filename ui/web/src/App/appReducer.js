@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import connectedReducer from 'ui-common/App/connectedReducer';
 import createFetchingReducer from 'ui-common/App/fetchingReducer';
-import authReducer from '../auth/authReducer';
+import authReducer from 'ui-common/auth/authReducer';
 import casomericReducer from '../casomeric/casomericReducer';
 import entitiesReducer from '../entities/entitiesReducer';
 import errorInModalReducer from '../shared/ErrorInModal/errorInModalReducer';

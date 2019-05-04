@@ -2,8 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import WsClient from 'ui-common/WsClient';
+import { signOut } from 'ui-common/auth/SignOut/SignOutActions';
 import wsAPI from 'ui-common/store/wsAPI';
-import { signOut } from './SignOutActions';
 import SignOutContainer from './SignOutContainer';
 
 const mockWsClient = new WsClient();

@@ -1,6 +1,6 @@
+import { SIGN_IN } from 'ui-common/auth/SignIn/SignInActions';
+import { SIGN_OUT } from 'ui-common/auth/SignOut/SignOutActions';
 import { ActionPrefixes } from '../../constants';
-import { SIGN_IN } from '../../auth/SignIn/SignInActions';
-import { SIGN_OUT } from '../../auth/SignOut/SignOutActions';
 import { CASOMIRA_SAVE_VYKON } from '../../casomeric/Casomira/StartovniCisla/StartovniCislaActions';
 import { MODIFY_STOPKY } from '../../casomeric/Stopky/StopkyProTyp/StopkyProTypActions';
 import { FETCH_ROCNIKY } from '../../entities/rocniky/rocnikyActions';

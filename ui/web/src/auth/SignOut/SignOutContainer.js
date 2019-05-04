@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
+import { signOut } from 'ui-common/auth/SignOut/SignOutActions';
 import SignOut from './SignOut';
-import { signOut } from './SignOutActions';
 
 const mapDispatchToProps = dispatch => ({
   signOut: () => dispatch(signOut())

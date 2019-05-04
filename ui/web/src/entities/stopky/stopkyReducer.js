@@ -1,4 +1,4 @@
-import { SIGN_OUT } from '../../auth/SignOut/SignOutActions';
+import { SIGN_OUT } from 'ui-common/auth/SignOut/SignOutActions';
 import { MODIFY_STOPKY } from '../../casomeric/Stopky/StopkyProTyp/StopkyProTypActions';
 
 export const initialState = { byTypy: {}, typy: [], invalidated: false };

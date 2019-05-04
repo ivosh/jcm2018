@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import { createSuccessFromAction } from 'ui-common/store/wsAPI';
-import { signOut } from '../../auth/SignOut/SignOutActions';
+import { signOut } from 'ui-common/auth/SignOut/SignOutActions';
 import stopkyReducer from './stopkyReducer';
 import { broadcastStopky, fetchStopky } from './stopkyActions';
 

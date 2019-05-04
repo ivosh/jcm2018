@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
-import { createFailureFromAction, createSuccessFromAction } from 'ui-common/store/wsAPI';
-import { generateTestToken } from '../testing';
+import generateTestToken from '../generateTestToken';
+import { createFailureFromAction, createSuccessFromAction } from '../store/wsAPI';
 import { signIn } from './SignIn/SignInActions';
 import { signOut } from './SignOut/SignOutActions';
 import authReducer from './authReducer';

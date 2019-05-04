@@ -1,9 +1,9 @@
 import deepFreeze from 'deep-freeze';
 import { UBYTOVANI_NEPRESPANO } from 'ui-common/common';
 import { createFailureFromAction } from 'ui-common/store/wsAPI';
+import { signIn } from 'ui-common/auth/SignIn/SignInActions';
+import { signOut } from 'ui-common/auth/SignOut/SignOutActions';
 import { ActionPrefixes, AKTUALNI_ROK } from '../../constants';
-import { signIn } from '../../auth/SignIn/SignInActions';
-import { signOut } from '../../auth/SignOut/SignOutActions';
 import { saveVykon } from '../../casomeric/Casomira/StartovniCisla/StartovniCislaActions';
 import { fetchRocniky } from '../../entities/rocniky/rocnikyActions';
 import { fetchStopky } from '../../entities/stopky/stopkyActions';

@@ -3,6 +3,21 @@
   "version": "1.5.17",
   "private": true,
   "---on react version upgrade---": "Update the version in .eslintrc as well.",
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom",
+    "---run test under Windows bash---": "npm run test:bash",
+    "test:bash": "winpty npm.cmd run test",
+    "coverage": "react-app-rewired test --env=jsdom --coverage",
+    "coverage:bash": "winpty npm.cmd run coverage",
+    "prettier": "prettier --write \"{../mobile/src/ui-common,src}/**/*.{js,jsx,json,css}\"",
+    "lint": "eslint \"{../mobile/src/ui-common,src}/**/*.{js,jsx}\"",
+    "lint-cache": "eslint --cache \"{../mobile/src/ui-common,src}/**/*.{js,jsx}\"",
+    "clean": "rm -rf coverage",
+    "clobber": "rm -rf coverage node_modules",
+    "source-map-explorer": "npm run build && node ./node_modules/source-map-explorer/index.js build/static/js/*"
+  },
   "dependencies": {
     "bootstrap": "^3.3.7",
     "chnl": "^0.4.2",
@@ -28,21 +43,6 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "websocket-as-promised": "^0.9.0"
-  },
-  "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test --env=jsdom",
-    "---run test under Windows bash---": "npm run test:bash",
-    "test:bash": "winpty npm.cmd run test",
-    "coverage": "react-app-rewired test --env=jsdom --coverage",
-    "coverage:bash": "winpty npm.cmd run coverage",
-    "prettier": "prettier --write \"{../mobile/src/ui-common,src}/**/*.{js,jsx,json,css}\"",
-    "lint": "eslint \"{../mobile/src/ui-common,src}/**/*.{js,jsx}\"",
-    "lint-cache": "eslint --cache \"{../mobile/src/ui-common,src}/**/*.{js,jsx}\"",
-    "clean": "rm -rf coverage",
-    "clobber": "rm -rf coverage node_modules",
-    "source-map-explorer": "npm run build && node ./node_modules/source-map-explorer/index.js build/static/js/*"
   },
   "devDependencies": {
     "babel-eslint": "9.0.0",

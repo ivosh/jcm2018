@@ -1,5 +1,5 @@
+import { SIGN_OUT } from 'ui-common/auth/SignOut/SignOutActions';
 import { AKTUALNI_ROK } from '../../constants';
-import { SIGN_OUT } from '../../auth/SignOut/SignOutActions';
 import { CASOMIRA_SAVE_VYKON } from '../../casomeric/Casomira/StartovniCisla/StartovniCislaActions';
 import { POHAR_PREDAN } from '../../registrator/Pohary/PoharyActions';
 import {
