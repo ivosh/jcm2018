@@ -1,6 +1,6 @@
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
-import AppNavigator from './navigation/AppNavigator';
+import AppNavigator from './AppNavigator';
 
 const Main = () => (
   <View style={styles.container}>

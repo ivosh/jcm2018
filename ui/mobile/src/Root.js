@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import WsClient from './ui-common/WsClient';
 import configureStore, { loadState } from './store/configureStore';
-import Main from './Main';
+import Main from './App/Main';
 
 class Root extends React.Component {
   state = {
