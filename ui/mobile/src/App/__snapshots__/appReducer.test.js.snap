@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`na začátku 1`] = `
+Object {
+  "connected": false,
+  "fetchingStopky": "init",
+  "fetchingUcastnici": "init",
+}
+`;
+
+exports[`websocket connected 1`] = `
+Object {
+  "connected": true,
+  "fetchingStopky": "init",
+  "fetchingUcastnici": "init",
+}
+`;
+
+exports[`websocket disconnected 1`] = `
+Object {
+  "connected": false,
+  "fetchingStopky": "init",
+  "fetchingUcastnici": "init",
+}
+`;

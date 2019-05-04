@@ -25,13 +25,16 @@
     "react-moment-proptypes": "^1.6.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-swiper": "^1.5.14",
+    "react-redux": "^5.1.1",
     "react-style-proptype": "^3.2.2",
     "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "websocket-as-promised": "^0.9.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "babel-preset-expo": "^5.0.0",
+    "deep-freeze": "0.0.1",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.17.2",
