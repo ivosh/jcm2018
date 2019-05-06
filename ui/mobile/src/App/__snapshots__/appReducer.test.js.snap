@@ -2,6 +2,14 @@
 
 exports[`na začátku 1`] = `
 Object {
+  "auth": Object {
+    "authenticated": false,
+    "decodedToken": null,
+    "signIn": Object {
+      "signingIn": false,
+    },
+    "token": null,
+  },
   "connected": false,
   "fetchingStopky": "init",
   "fetchingUcastnici": "init",
@@ -10,6 +18,14 @@ Object {
 
 exports[`websocket connected 1`] = `
 Object {
+  "auth": Object {
+    "authenticated": false,
+    "decodedToken": null,
+    "signIn": Object {
+      "signingIn": false,
+    },
+    "token": null,
+  },
   "connected": true,
   "fetchingStopky": "init",
   "fetchingUcastnici": "init",
@@ -18,6 +34,14 @@ Object {
 
 exports[`websocket disconnected 1`] = `
 Object {
+  "auth": Object {
+    "authenticated": false,
+    "decodedToken": null,
+    "signIn": Object {
+      "signingIn": false,
+    },
+    "token": null,
+  },
   "connected": false,
   "fetchingStopky": "init",
   "fetchingUcastnici": "init",

@@ -46,7 +46,8 @@ const Settings = ({ connected }) => {
         }
       ],
       title: 'splash.resizeMode'
-    }
+    },
+    { data: [{ value: __DEV__ ? 'yes' : 'no' }], title: 'development mode' }
   ];
 
   return (
