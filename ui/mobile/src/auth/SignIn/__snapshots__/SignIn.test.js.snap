@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`formulář při načítání 1`] = `
+<View>
+  <View
+    onLayout={[Function]}
+    style={
+      Object {
+        "paddingBottom": 0,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCorrect={false}
+      autoFocus={true}
+      onChangeText={[Function]}
+      placeholder="uživatelské jméno"
+      returnKeyType="next"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(255, 255, 255, 0.4)",
+            "borderRadius": 20,
+            "color": "#ffffff",
+          },
+          undefined,
+        ]
+      }
+      textContentType="username"
+      underlineColorAndroid="transparent"
+    />
+    <TextInput
+      allowFontScaling={true}
+      autoCorrect={false}
+      onChangeText={[Function]}
+      placeholder="heslo"
+      returnKeyType="done"
+      secureTextEntry={true}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(255, 255, 255, 0.4)",
+            "borderRadius": 20,
+            "color": "#ffffff",
+          },
+          undefined,
+        ]
+      }
+      textContentType="password"
+      underlineColorAndroid="transparent"
+    />
+    <View
+      accessibilityRole="button"
+      accessibilityStates={
+        Array [
+          "disabled",
+        ]
+      }
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+            Object {},
+          ]
+        }
+      >
+        <Text
+          disabled={true}
+          style={
+            Array [
+              Object {
+                "color": "#007AFF",
+                "fontSize": 18,
+                "padding": 8,
+                "textAlign": "center",
+              },
+              Object {
+                "color": "#cdcdcd",
+              },
+            ]
+          }
+        >
+          Přihlásit
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`prázdný formulář 1`] = `
+<View>
+  <View
+    onLayout={[Function]}
+    style={
+      Object {
+        "paddingBottom": 0,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCorrect={false}
+      autoFocus={true}
+      onChangeText={[Function]}
+      placeholder="uživatelské jméno"
+      returnKeyType="next"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(255, 255, 255, 0.4)",
+            "borderRadius": 20,
+            "color": "#ffffff",
+          },
+          undefined,
+        ]
+      }
+      textContentType="username"
+      underlineColorAndroid="transparent"
+    />
+    <TextInput
+      allowFontScaling={true}
+      autoCorrect={false}
+      onChangeText={[Function]}
+      placeholder="heslo"
+      returnKeyType="done"
+      secureTextEntry={true}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(255, 255, 255, 0.4)",
+            "borderRadius": 20,
+            "color": "#ffffff",
+          },
+          undefined,
+        ]
+      }
+      textContentType="password"
+      underlineColorAndroid="transparent"
+    />
+    <View
+      accessibilityRole="button"
+      accessibilityStates={Array []}
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <Text
+          disabled={false}
+          style={
+            Array [
+              Object {
+                "color": "#007AFF",
+                "fontSize": 18,
+                "padding": 8,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Přihlásit
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

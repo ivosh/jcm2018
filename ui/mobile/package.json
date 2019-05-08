@@ -10,20 +10,22 @@
     "lint-cache": "eslint --cache App.js \"src/**/*.{js,jsx}\"",
     "test": "node ./node_modules/jest/bin/jest.js --watchAll --env=jsdom",
     "test:bash": "winpty npm.cmd run test",
-    "test:ci": "jest --ci",
-    "coverage": "jest --coverage",
+    "test:ci": "jest --ci --env=jsdom",
+    "coverage": "jest --coverage --env=jsdom",
     "clean": "rm -rf coverage",
     "clobber": "rm -rf coverage node_modules"
   },
   "dependencies": {
     "chnl": "^0.4.2",
     "expo": "^32.0.0",
+    "jwt-decode": "^2.2.0",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "16.5.0",
     "react-moment-proptypes": "^1.6.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-swiper": "^1.5.14",
+    "react-navigation": "^3.9.1",
     "react-redux": "^5.1.1",
     "react-style-proptype": "^3.2.2",
     "redux": "^4.0.1",
@@ -45,6 +47,7 @@
     "eslint-plugin-react-native": "^3.7.0",
     "jest": "^24.7.1",
     "jest-expo": "^32.0.0",
+    "jsonwebtoken": "^8.5.1",
     "mock-socket": "^8.0.5",
     "prettier": "^1.17.0",
     "react-test-renderer": "16.5.0",
@@ -54,6 +57,9 @@
   "jest": {
     "coverageDirectory": "./coverage/",
     "preset": "jest-expo",
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.js"
+    ],
     "testPathIgnorePatterns": [
       "node_modules/"
     ]
