@@ -29,6 +29,7 @@
     "react-bootstrap": "^0.31.5",
     "react-bootstrap-typeahead": "^3.3.4",
     "react-debounce-input": "^3.2.0",
+    "react-device-detect": "^1.6.2",
     "react-dnd": "^7.0.2",
     "react-dnd-html5-backend": "^7.0.2",
     "react-dom": "^16.9.0-alpha.0",

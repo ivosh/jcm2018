@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { Glyphicon } from 'react-bootstrap';
+import shouldAutoFocus from '../../shouldAutoFocus';
 import LoadingIndicator from '../../shared/LoadingIndicator';
 import './Poznamka.css';
 
@@ -60,7 +61,7 @@ const Poznamka = ({ focus, datum, lines, text: initialText, deletePoznamka, modi
       </div>
       <div className="Poznamka__text">
         <textarea
-          autoFocus={focus}
+          autoFocus={focus && shouldAutoFocus()}
           className="Poznamka__textarea"
           value={text}
           rows={lines + 1}

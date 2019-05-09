@@ -1,13 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import DebounceInput from 'react-debounce-input';
+import shouldAutoFocus from '../../shouldAutoFocus';
 import './TextFilter.css';
 
 const TextFilter = ({ filter, onChange }) => {
   const inputRef = useRef();
 
   useEffect(() => {
-    if (process.env.NODE_ENV !== 'test') {
+    if (shouldAutoFocus()) {
       inputRef.current.focus();
     }
   });

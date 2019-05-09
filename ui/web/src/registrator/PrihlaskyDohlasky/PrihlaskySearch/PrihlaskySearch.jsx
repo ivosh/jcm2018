@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Typeahead } from 'react-bootstrap-typeahead';
+import shouldAutoFocus from '../../../shouldAutoFocus';
 import './PrihlaskySearch.css';
 
 const stripDiactrics = string => string.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -18,7 +19,7 @@ const PrihlaskySearch = ({ options, onSelect }) => {
   const typeaheadRef = useRef();
 
   useEffect(() => {
-    if (process.env.NODE_ENV !== 'test') {
+    if (shouldAutoFocus()) {
       typeaheadRef.current.focus();
     }
   });

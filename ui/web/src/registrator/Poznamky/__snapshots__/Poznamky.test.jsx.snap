@@ -32,7 +32,7 @@ Array [
       className="Poznamka__text"
     >
       <textarea
-        autoFocus={true}
+        autoFocus={false}
         className="Poznamka__textarea"
         onBlur={[Function]}
         onChange={[Function]}

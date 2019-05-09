@@ -1,12 +1,15 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Form, FormGroup, FormControl } from 'react-bootstrap';
+import shouldAutoFocus from '../../../shouldAutoFocus';
 
 const NovyMezicasInput = ({ cas, validationState, onInputChange, onSubmit }) => {
   const inputRef = useRef();
 
   useEffect(() => {
-    inputRef.current.focus();
+    if (shouldAutoFocus()) {
+      inputRef.current.focus();
+    }
   });
 
   const handleSubmit = useCallback(

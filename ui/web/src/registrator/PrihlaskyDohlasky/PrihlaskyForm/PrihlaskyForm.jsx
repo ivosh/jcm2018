@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Form, Glyphicon, Modal, Panel } from 'react-bootstrap';
+import shouldAutoFocus from '../../../shouldAutoFocus';
 import LoadingButton from '../../../shared/LoadingButton';
 import ObrazekPohlavi from '../../../shared/Popisek/ObrazekPohlavi';
 import PopisekKategorie from '../../../shared/Popisek/PopisekKategorie';
@@ -13,20 +14,24 @@ import PrihlaskyFormInputContainer from './PrihlaskyFormInputContainer';
 import './PrihlaskyForm.css';
 
 class PrihlaskyForm extends PureComponent {
+  focusFirstInput = () => {
+    if (this.inputs && this.inputs[0] && shouldAutoFocus()) {
+      this.inputs[0].focus();
+    }
+  };
+
   componentDidMount = () => {
     const { reset, onLoadId, onReset } = this.props;
 
     if (onLoadId) {
       onLoadId();
+      this.focusFirstInput();
       return;
     }
     if (reset) {
       onReset();
-      return;
-    }
-
-    if (this.inputs && this.inputs[0]) {
-      this.inputs[0].focus();
+      this.focusFirstInput();
+      return; // eslint-disable no-useless-return
     }
   };
 
