@@ -1,5 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`getEmailsForDistribution 1`] = `
+Array [
+  Object {
+    "email": "stary@email.sk",
+    "id": "===id1===",
+    "rok": 2016,
+  },
+  Object {
+    "email": "hana@sukdul.sk",
+    "id": "===id2===",
+    "rok": 2018,
+  },
+]
+`;
+
+exports[`getLatestEmail() - email má jen nějaký předešlý rok, ne poslední 1`] = `
+Object {
+  "email": "nejaky@email.sk",
+  "id": "===id===",
+  "rok": 2017,
+}
+`;
+
+exports[`getLatestEmail() - poslední rok má email 1`] = `
+Object {
+  "email": "novy@email.sk",
+  "id": "===id===",
+  "rok": 2018,
+}
+`;
+
+exports[`getLatestEmail() - vyřazen z distribuce 1`] = `
+Object {
+  "email": undefined,
+  "id": "===id===",
+  "rok": undefined,
+}
+`;
+
+exports[`getLatestEmail() - žádné účasti 1`] = `
+Object {
+  "email": undefined,
+  "id": "===id===",
+  "rok": undefined,
+}
+`;
+
 exports[`přihlaš účastníka 1`] = `
 Array [
   Object {
