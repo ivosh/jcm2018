@@ -24,6 +24,9 @@ Array [
     "startCislo": 7,
   },
   Object {
+    "cas": "PT3H15M32.6S",
+    "dokonceno": true,
+    "id": "9ccbc71dedc1e99b7e1d671",
     "startCislo": 8,
   },
   Object {
@@ -334,6 +337,7 @@ Array [
     "startCislo": 7,
   },
   Object {
+    "id": "9ccbc71dedc1e99b7e1d671",
     "startCislo": 8,
   },
   Object {
@@ -621,6 +625,12 @@ Array [
 exports[`maps state to props - půlmaraton, startující, odstartováni 1`] = `
 Array [
   Object {
+    "cas": "PT3H15M32.6S",
+    "dokonceno": true,
+    "id": "9ccbc71dedc1e99b7e1d671",
+    "startCislo": 8,
+  },
+  Object {
     "cas": "PT2H6M32.6S",
     "dokonceno": true,
     "id": "7a09b1fd371dec1e99b7e142",
@@ -636,6 +646,10 @@ Array [
 
 exports[`maps state to props - půlmaraton, startující, přihlášky 1`] = `
 Array [
+  Object {
+    "id": "9ccbc71dedc1e99b7e1d671",
+    "startCislo": 8,
+  },
   Object {
     "id": "7a09b1fd371dec1e99b7e142",
     "startCislo": 10,

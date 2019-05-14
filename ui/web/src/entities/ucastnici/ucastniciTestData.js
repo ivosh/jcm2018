@@ -2676,6 +2676,7 @@ const state = {
         '5a09b1fd371dec1e99b7e1c9',
         '7a09b1fd371dec1e99b7e142',
         '8344bc71dec1e99b7e1d01e',
+        '9ccbc71dedc1e99b7e1d671',
         'f5c88400190a4bed88c76736'
       ],
       byIds: {
@@ -2978,6 +2979,35 @@ const state = {
               startCislo: 15,
               kod: '0234jsdj0jdaklsd',
               startovnePoSleve: 0
+            }
+          }
+        },
+        '9ccbc71dedc1e99b7e1d671': {
+          roky: [2019],
+          2019: {
+            udaje: {
+              prijmeni: 'Půlmaratonka',
+              jmeno: 'Božena',
+              narozeni: { rok: 2001, mesic: 7, den: 25 },
+              pohlavi: 'žena',
+              obec: 'Velhartice',
+              psc: '354 21',
+              stat: 'Česká republika',
+              klub: 'Bor',
+              email: 'pul.ka@s.cz'
+            },
+            prihlaska: {
+              datum: '2019-05-12T00:00:00.000Z',
+              kategorie: '5a587e1b051c181132cf83d9', // půlmaraton
+              startCislo: 8,
+              kod: 'abc023skd204mvs345'
+            },
+            platby: [],
+            vykon: {
+              kategorie: '5a587e1b051c181132cf83d9', // půlmaraton
+              startCislo: 8,
+              dokonceno: true,
+              cas: 'PT3H15M32.6S'
             }
           }
         },

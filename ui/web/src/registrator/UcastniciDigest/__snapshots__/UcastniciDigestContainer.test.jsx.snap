@@ -36,6 +36,21 @@ Array [
     "prijmeni": "Kyselová",
   },
   Object {
+    "2019": Object {
+      "cas": "PT3H15M32.6S",
+      "dokonceno": true,
+      "kategorie": "půlmaraton",
+    },
+    "id": "9ccbc71dedc1e99b7e1d671",
+    "jmeno": "Božena",
+    "narozeni": Object {
+      "den": 25,
+      "mesic": 7,
+      "rok": 2001,
+    },
+    "prijmeni": "Půlmaratonka",
+  },
+  Object {
     "2014": Object {
       "cas": "PT2H06M32.6S",
       "dokonceno": true,

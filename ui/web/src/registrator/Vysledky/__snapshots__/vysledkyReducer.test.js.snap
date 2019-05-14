@@ -5,8 +5,8 @@ Object {
   "datum": "8. června 2019",
   "subtitle": "Jirkovský crossmarathon a Jirkovský půlmarathon 2019",
   "summary": Object {
-    "dokoncilo": 1,
-    "startovalo": 2,
+    "dokoncilo": 2,
+    "startovalo": 3,
   },
   "title": "Výsledková listina",
   "typy": Object {
@@ -59,9 +59,9 @@ Object {
       "startCisla": true,
       "stats": Object {
         "1Ž": Object {
-          "dokoncilo": 1,
+          "dokoncilo": 2,
           "popisek": "ženy 18-39",
-          "startovalo": 1,
+          "startovalo": 2,
           "zkratka": "1Ž",
         },
         "4M": Object {
@@ -70,8 +70,8 @@ Object {
           "startovalo": 1,
           "zkratka": "4M",
         },
-        "dokoncilo": 1,
-        "startovalo": 2,
+        "dokoncilo": 2,
+        "startovalo": 3,
       },
       "typ": "půlmaraton",
       "ucastnici": Array [
@@ -96,6 +96,28 @@ Object {
           "prijmeni": "Zralá",
           "relPoradi": 1,
           "startCislo": 11,
+        },
+        Object {
+          "absPoradi": 2,
+          "cas": "3:15:32,60",
+          "dokonceno": true,
+          "id": "9ccbc71dedc1e99b7e1d671",
+          "jmeno": "Božena",
+          "kategorie": Object {
+            "id": "5a587e1b051c181132cf83d9",
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 39,
+              "min": 18,
+            },
+            "zkratka": "1Ž",
+          },
+          "misto": "Bor",
+          "narozeni": 2001,
+          "prijmeni": "Půlmaratonka",
+          "relPoradi": 2,
+          "startCislo": 8,
         },
         Object {
           "absPoradi": undefined,

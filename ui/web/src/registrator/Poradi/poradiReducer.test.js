@@ -136,6 +136,27 @@ it('getPoradiSorted() by default', () => {
       dokonceno: false
     },
     {
+      id: '9ccbc71dedc1e99b7e1d671',
+      prijmeni: 'Půlmaratonka',
+      jmeno: 'Božena',
+      narozeni: { den: 25, mesic: 7, rok: 2001 },
+      obec: 'Velhartice',
+      stat: 'Česká republika',
+      klub: 'Bor',
+      kategorie: {
+        id: '5a587e1b051c181132cf83d9',
+        typ: 'půlmaraton',
+        pohlavi: 'žena',
+        vek: { min: 18, max: 39 },
+        zkratka: '1Ž'
+      },
+      startCislo: 8,
+      dokonceno: true,
+      cas: 'PT3H15M32.6S',
+      absPoradi: 2,
+      relPoradi: 2
+    },
+    {
       id: '7a09b1fd371dec1e99b7e142',
       prijmeni: 'Zralá',
       jmeno: 'Hana',
@@ -225,6 +246,27 @@ it('getPoradiSorted() - filter for kategorie půlmaraton/žena/18-39', () => {
     }
   };
   const selected = [
+    {
+      id: '9ccbc71dedc1e99b7e1d671',
+      prijmeni: 'Půlmaratonka',
+      jmeno: 'Božena',
+      narozeni: { den: 25, mesic: 7, rok: 2001 },
+      obec: 'Velhartice',
+      stat: 'Česká republika',
+      klub: 'Bor',
+      kategorie: {
+        id: '5a587e1b051c181132cf83d9',
+        typ: 'půlmaraton',
+        pohlavi: 'žena',
+        vek: { min: 18, max: 39 },
+        zkratka: '1Ž'
+      },
+      startCislo: 8,
+      dokonceno: true,
+      cas: 'PT3H15M32.6S',
+      absPoradi: 2,
+      relPoradi: 2
+    },
     {
       id: '7a09b1fd371dec1e99b7e142',
       prijmeni: 'Zralá',

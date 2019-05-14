@@ -7,6 +7,7 @@ Object {
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
     "8344bc71dec1e99b7e1d01e",
+    "9ccbc71dedc1e99b7e1d671",
     "f5c88400190a4bed88c76736",
   ],
   "byIds": Object {
@@ -427,6 +428,41 @@ Object {
         2018,
       ],
     },
+    "9ccbc71dedc1e99b7e1d671": Object {
+      "2019": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2019-05-12T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 8,
+        },
+        "udaje": Object {
+          "email": "pul.ka@s.cz",
+          "jmeno": "Božena",
+          "klub": "Bor",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Velhartice",
+          "pohlavi": "žena",
+          "prijmeni": "Půlmaratonka",
+          "psc": "354 21",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT3H15M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "startCislo": 8,
+        },
+      },
+      "roky": Array [
+        2019,
+      ],
+    },
     "f5c88400190a4bed88c76736": Object {
       "2014": Object {
         "platby": Array [
@@ -607,6 +643,7 @@ Object {
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
     "8344bc71dec1e99b7e1d01e",
+    "9ccbc71dedc1e99b7e1d671",
     "f5c88400190a4bed88c76736",
   ],
   "byIds": Object {
@@ -971,6 +1008,41 @@ až do nekonečna",
         2018,
       ],
     },
+    "9ccbc71dedc1e99b7e1d671": Object {
+      "2019": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2019-05-12T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 8,
+        },
+        "udaje": Object {
+          "email": "pul.ka@s.cz",
+          "jmeno": "Božena",
+          "klub": "Bor",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Velhartice",
+          "pohlavi": "žena",
+          "prijmeni": "Půlmaratonka",
+          "psc": "354 21",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT3H15M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "startCislo": 8,
+        },
+      },
+      "roky": Array [
+        2019,
+      ],
+    },
     "f5c88400190a4bed88c76736": Object {
       "2014": Object {
         "platby": Array [
@@ -1151,6 +1223,7 @@ Object {
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
     "8344bc71dec1e99b7e1d01e",
+    "9ccbc71dedc1e99b7e1d671",
     "f5c88400190a4bed88c76736",
   ],
   "byIds": Object {
@@ -1583,6 +1656,41 @@ až do nekonečna",
         2018,
       ],
     },
+    "9ccbc71dedc1e99b7e1d671": Object {
+      "2019": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2019-05-12T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 8,
+        },
+        "udaje": Object {
+          "email": "pul.ka@s.cz",
+          "jmeno": "Božena",
+          "klub": "Bor",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Velhartice",
+          "pohlavi": "žena",
+          "prijmeni": "Půlmaratonka",
+          "psc": "354 21",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT3H15M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "startCislo": 8,
+        },
+      },
+      "roky": Array [
+        2019,
+      ],
+    },
     "f5c88400190a4bed88c76736": Object {
       "2014": Object {
         "platby": Array [
@@ -1763,6 +1871,7 @@ Object {
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
     "8344bc71dec1e99b7e1d01e",
+    "9ccbc71dedc1e99b7e1d671",
     "f5c88400190a4bed88c76736",
   ],
   "byIds": Object {
@@ -2179,6 +2288,41 @@ Object {
         2018,
       ],
     },
+    "9ccbc71dedc1e99b7e1d671": Object {
+      "2019": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2019-05-12T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 8,
+        },
+        "udaje": Object {
+          "email": "pul.ka@s.cz",
+          "jmeno": "Božena",
+          "klub": "Bor",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Velhartice",
+          "pohlavi": "žena",
+          "prijmeni": "Půlmaratonka",
+          "psc": "354 21",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT3H15M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "startCislo": 8,
+        },
+      },
+      "roky": Array [
+        2019,
+      ],
+    },
     "f5c88400190a4bed88c76736": Object {
       "2014": Object {
         "platby": Array [
@@ -2359,6 +2503,7 @@ Object {
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
     "8344bc71dec1e99b7e1d01e",
+    "9ccbc71dedc1e99b7e1d671",
     "f5c88400190a4bed88c76736",
   ],
   "byIds": Object {
@@ -2780,6 +2925,41 @@ až do nekonečna",
         2018,
       ],
     },
+    "9ccbc71dedc1e99b7e1d671": Object {
+      "2019": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2019-05-12T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 8,
+        },
+        "udaje": Object {
+          "email": "pul.ka@s.cz",
+          "jmeno": "Božena",
+          "klub": "Bor",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Velhartice",
+          "pohlavi": "žena",
+          "prijmeni": "Půlmaratonka",
+          "psc": "354 21",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT3H15M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "startCislo": 8,
+        },
+      },
+      "roky": Array [
+        2019,
+      ],
+    },
     "f5c88400190a4bed88c76736": Object {
       "2014": Object {
         "platby": Array [
@@ -3094,6 +3274,40 @@ až do nekonečna",
     },
   },
   Object {
+    "id": "9ccbc71dedc1e99b7e1d671",
+    "rok": 2019,
+    "ucast": Object {
+      "platby": Array [],
+      "prihlaska": Object {
+        "datum": "2019-05-12T00:00:00.000Z",
+        "kategorie": "5a587e1b051c181132cf83d9",
+        "kod": "abc023skd204mvs345",
+        "startCislo": 8,
+      },
+      "udaje": Object {
+        "email": "pul.ka@s.cz",
+        "jmeno": "Božena",
+        "klub": "Bor",
+        "narozeni": Object {
+          "den": 25,
+          "mesic": 7,
+          "rok": 2001,
+        },
+        "obec": "Velhartice",
+        "pohlavi": "žena",
+        "prijmeni": "Půlmaratonka",
+        "psc": "354 21",
+        "stat": "Česká republika",
+      },
+      "vykon": Object {
+        "cas": "PT3H15M32.6S",
+        "dokonceno": true,
+        "kategorie": "5a587e1b051c181132cf83d9",
+        "startCislo": 8,
+      },
+    },
+  },
+  Object {
     "id": "f5c88400190a4bed88c76736",
     "rok": 2019,
     "ucast": Object {
@@ -3135,6 +3349,7 @@ Object {
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
     "8344bc71dec1e99b7e1d01e",
+    "9ccbc71dedc1e99b7e1d671",
     "f5c88400190a4bed88c76736",
   ],
   "byIds": Object {
@@ -3555,6 +3770,41 @@ Object {
         2018,
       ],
     },
+    "9ccbc71dedc1e99b7e1d671": Object {
+      "2019": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2019-05-12T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 8,
+        },
+        "udaje": Object {
+          "email": "pul.ka@s.cz",
+          "jmeno": "Božena",
+          "klub": "Bor",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Velhartice",
+          "pohlavi": "žena",
+          "prijmeni": "Půlmaratonka",
+          "psc": "354 21",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT3H15M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "startCislo": 8,
+        },
+      },
+      "roky": Array [
+        2019,
+      ],
+    },
     "f5c88400190a4bed88c76736": Object {
       "2014": Object {
         "platby": Array [
@@ -3735,6 +3985,7 @@ Object {
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
     "8344bc71dec1e99b7e1d01e",
+    "9ccbc71dedc1e99b7e1d671",
     "f5c88400190a4bed88c76736",
   ],
   "byIds": Object {
@@ -4162,6 +4413,41 @@ až do nekonečna",
         2018,
       ],
     },
+    "9ccbc71dedc1e99b7e1d671": Object {
+      "2019": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2019-05-12T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 8,
+        },
+        "udaje": Object {
+          "email": "pul.ka@s.cz",
+          "jmeno": "Božena",
+          "klub": "Bor",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Velhartice",
+          "pohlavi": "žena",
+          "prijmeni": "Půlmaratonka",
+          "psc": "354 21",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT3H15M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "startCislo": 8,
+        },
+      },
+      "roky": Array [
+        2019,
+      ],
+    },
     "f5c88400190a4bed88c76736": Object {
       "2014": Object {
         "platby": Array [
@@ -4342,6 +4628,7 @@ Object {
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
     "8344bc71dec1e99b7e1d01e",
+    "9ccbc71dedc1e99b7e1d671",
     "f5c88400190a4bed88c76736",
   ],
   "byIds": Object {
@@ -4772,6 +5059,41 @@ až do nekonečna",
         2018,
       ],
     },
+    "9ccbc71dedc1e99b7e1d671": Object {
+      "2019": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2019-05-12T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 8,
+        },
+        "udaje": Object {
+          "email": "pul.ka@s.cz",
+          "jmeno": "Božena",
+          "klub": "Bor",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Velhartice",
+          "pohlavi": "žena",
+          "prijmeni": "Půlmaratonka",
+          "psc": "354 21",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT3H15M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "startCislo": 8,
+        },
+      },
+      "roky": Array [
+        2019,
+      ],
+    },
     "f5c88400190a4bed88c76736": Object {
       "2014": Object {
         "platby": Array [
@@ -4952,6 +5274,7 @@ Object {
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
     "8344bc71dec1e99b7e1d01e",
+    "9ccbc71dedc1e99b7e1d671",
     "f5c88400190a4bed88c76736",
     "7a09b1fd371dec1e99b79853",
   ],
@@ -5420,6 +5743,41 @@ až do nekonečna",
         2018,
       ],
     },
+    "9ccbc71dedc1e99b7e1d671": Object {
+      "2019": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2019-05-12T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 8,
+        },
+        "udaje": Object {
+          "email": "pul.ka@s.cz",
+          "jmeno": "Božena",
+          "klub": "Bor",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Velhartice",
+          "pohlavi": "žena",
+          "prijmeni": "Půlmaratonka",
+          "psc": "354 21",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT3H15M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "startCislo": 8,
+        },
+      },
+      "roky": Array [
+        2019,
+      ],
+    },
     "f5c88400190a4bed88c76736": Object {
       "2014": Object {
         "platby": Array [
@@ -5600,6 +5958,7 @@ Object {
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
     "8344bc71dec1e99b7e1d01e",
+    "9ccbc71dedc1e99b7e1d671",
     "f5c88400190a4bed88c76736",
   ],
   "byIds": Object {
@@ -6062,6 +6421,41 @@ až do nekonečna",
         2018,
       ],
     },
+    "9ccbc71dedc1e99b7e1d671": Object {
+      "2019": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2019-05-12T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 8,
+        },
+        "udaje": Object {
+          "email": "pul.ka@s.cz",
+          "jmeno": "Božena",
+          "klub": "Bor",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Velhartice",
+          "pohlavi": "žena",
+          "prijmeni": "Půlmaratonka",
+          "psc": "354 21",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT3H15M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "startCislo": 8,
+        },
+      },
+      "roky": Array [
+        2019,
+      ],
+    },
     "f5c88400190a4bed88c76736": Object {
       "2014": Object {
         "platby": Array [
@@ -6242,6 +6636,7 @@ Object {
     "5a09b1fd371dec1e99b7e1c9",
     "7a09b1fd371dec1e99b7e142",
     "8344bc71dec1e99b7e1d01e",
+    "9ccbc71dedc1e99b7e1d671",
     "f5c88400190a4bed88c76736",
   ],
   "byIds": Object {
@@ -6654,6 +7049,41 @@ až do nekonečna",
       "roky": Array [
         2019,
         2018,
+      ],
+    },
+    "9ccbc71dedc1e99b7e1d671": Object {
+      "2019": Object {
+        "platby": Array [],
+        "prihlaska": Object {
+          "datum": "2019-05-12T00:00:00.000Z",
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "kod": "abc023skd204mvs345",
+          "startCislo": 8,
+        },
+        "udaje": Object {
+          "email": "pul.ka@s.cz",
+          "jmeno": "Božena",
+          "klub": "Bor",
+          "narozeni": Object {
+            "den": 25,
+            "mesic": 7,
+            "rok": 2001,
+          },
+          "obec": "Velhartice",
+          "pohlavi": "žena",
+          "prijmeni": "Půlmaratonka",
+          "psc": "354 21",
+          "stat": "Česká republika",
+        },
+        "vykon": Object {
+          "cas": "PT3H15M32.6S",
+          "dokonceno": true,
+          "kategorie": "5a587e1b051c181132cf83d9",
+          "startCislo": 8,
+        },
+      },
+      "roky": Array [
+        2019,
       ],
     },
     "f5c88400190a4bed88c76736": Object {

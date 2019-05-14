@@ -19,6 +19,39 @@ Object {
 exports[`maps state and dispatch to props 3`] = `
 Array [
   Object {
+    "datum": 2019-05-12T00:00:00.000Z,
+    "email": "pul.ka@s.cz",
+    "id": "9ccbc71dedc1e99b7e1d671",
+    "jmeno": "Božena",
+    "kategorie": Object {
+      "id": "5a587e1b051c181132cf83d9",
+      "pohlavi": "žena",
+      "typ": "půlmaraton",
+      "vek": Object {
+        "max": 39,
+        "min": 18,
+      },
+    },
+    "kod": "abc023skd204mvs345",
+    "narozeni": Object {
+      "den": 25,
+      "mesic": 7,
+      "rok": 2001,
+    },
+    "obec": "Velhartice",
+    "poznamky": Object {
+      "id": "9ccbc71dedc1e99b7e1d671",
+      "nejakaPoznamka": false,
+      "onHide": [Function],
+      "onShow": [Function],
+      "showing": false,
+    },
+    "predepsano": 200,
+    "prijmeni": "Půlmaratonka",
+    "startCislo": 8,
+    "zaplaceno": 0,
+  },
+  Object {
     "datum": 2019-05-17T00:00:00.000Z,
     "email": "",
     "id": "f5c88400190a4bed88c76736",

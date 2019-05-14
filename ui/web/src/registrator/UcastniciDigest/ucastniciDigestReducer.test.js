@@ -159,6 +159,13 @@ it('getUcastniciDigestSorted() by default', () => {
       narozeni: { den: 13, mesic: 8, rok: 2001 }
     },
     {
+      id: '9ccbc71dedc1e99b7e1d671',
+      prijmeni: 'Půlmaratonka',
+      jmeno: 'Božena',
+      narozeni: { den: 25, mesic: 7, rok: 2001 },
+      '2019': { dokonceno: true, cas: 'PT3H15M32.6S', kategorie: 'půlmaraton' }
+    },
+    {
       id: 'f5c88400190a4bed88c76736',
       prijmeni: 'Smalt',
       jmeno: 'Josef',
@@ -241,6 +248,13 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
       2014: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' }
     },
     {
+      id: '9ccbc71dedc1e99b7e1d671',
+      prijmeni: 'Půlmaratonka',
+      jmeno: 'Božena',
+      narozeni: { den: 25, mesic: 7, rok: 2001 },
+      '2019': { dokonceno: true, cas: 'PT3H15M32.6S', kategorie: 'půlmaraton' }
+    },
+    {
       id: '8344bc71dec1e99b7e1d01e',
       prijmeni: 'Kyselová',
       jmeno: 'Slavěna',
@@ -277,6 +291,13 @@ it('getUcastniciDigestSorted() podle jména vzestupně', () => {
     }
   };
   const selected = [
+    {
+      id: '9ccbc71dedc1e99b7e1d671',
+      prijmeni: 'Půlmaratonka',
+      jmeno: 'Božena',
+      narozeni: { den: 25, mesic: 7, rok: 2001 },
+      '2019': { dokonceno: true, cas: 'PT3H15M32.6S', kategorie: 'půlmaraton' }
+    },
     {
       id: '7a09b1fd371dec1e99b7e142',
       prijmeni: 'Zralá',
@@ -359,6 +380,13 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
       2017: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
       2015: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
       2014: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' }
+    },
+    {
+      id: '9ccbc71dedc1e99b7e1d671',
+      prijmeni: 'Půlmaratonka',
+      jmeno: 'Božena',
+      narozeni: { den: 25, mesic: 7, rok: 2001 },
+      '2019': { dokonceno: true, cas: 'PT3H15M32.6S', kategorie: 'půlmaraton' }
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
@@ -450,6 +478,13 @@ it('getUcastniciDigestSorted() filtrováno na kategorii výkonu půlmaraton', ()
       2017: { dokonceno: true, cas: 'PT1H25M32.6S', kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' },
       2019: { dokonceno: false, kategorie: 'půlmaraton' }
+    },
+    {
+      id: '9ccbc71dedc1e99b7e1d671',
+      prijmeni: 'Půlmaratonka',
+      jmeno: 'Božena',
+      narozeni: { den: 25, mesic: 7, rok: 2001 },
+      '2019': { dokonceno: true, cas: 'PT3H15M32.6S', kategorie: 'půlmaraton' }
     },
     {
       id: '7a09b1fd371dec1e99b7e142',

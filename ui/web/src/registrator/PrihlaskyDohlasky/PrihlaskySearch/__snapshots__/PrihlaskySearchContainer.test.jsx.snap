@@ -23,6 +23,17 @@ Array [
     "prijmeni": "Kyselová",
   },
   Object {
+    "id": "9ccbc71dedc1e99b7e1d671",
+    "jmeno": "Božena",
+    "kod": "abc023skd204mvs345",
+    "narozeni": Object {
+      "den": 25,
+      "mesic": 7,
+      "rok": 2001,
+    },
+    "prijmeni": "Půlmaratonka",
+  },
+  Object {
     "id": "f5c88400190a4bed88c76736",
     "jmeno": "Josef",
     "kod": "rcc023skd204mvs345",

@@ -257,6 +257,26 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
       nejakaPoznamka: true
     },
     {
+      id: '9ccbc71dedc1e99b7e1d671',
+      prijmeni: 'Půlmaratonka',
+      jmeno: 'Božena',
+      narozeni: { den: 25, mesic: 7, rok: 2001 },
+      obec: 'Velhartice',
+      email: 'pul.ka@s.cz',
+      datum: new Date('2019-05-12T00:00:00.000Z'),
+      kategorie: {
+        id: '5a587e1b051c181132cf83d9',
+        typ: 'půlmaraton',
+        pohlavi: 'žena',
+        vek: { min: 18, max: 39 }
+      },
+      startCislo: 8,
+      kod: 'abc023skd204mvs345',
+      zaplaceno: 0,
+      predepsano: 200,
+      nejakaPoznamka: false
+    },
+    {
       id: 'f5c88400190a4bed88c76736',
       prijmeni: 'Smalt',
       jmeno: 'Josef',
@@ -407,6 +427,26 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       nejakaPoznamka: true
     },
     {
+      id: '9ccbc71dedc1e99b7e1d671',
+      prijmeni: 'Půlmaratonka',
+      jmeno: 'Božena',
+      narozeni: { den: 25, mesic: 7, rok: 2001 },
+      obec: 'Velhartice',
+      email: 'pul.ka@s.cz',
+      datum: new Date('2019-05-12T00:00:00.000Z'),
+      kategorie: {
+        id: '5a587e1b051c181132cf83d9',
+        typ: 'půlmaraton',
+        pohlavi: 'žena',
+        vek: { min: 18, max: 39 }
+      },
+      startCislo: 8,
+      kod: 'abc023skd204mvs345',
+      zaplaceno: 0,
+      predepsano: 200,
+      nejakaPoznamka: false
+    },
+    {
       id: '7a09b1fd371dec1e99b7e142',
       prijmeni: 'Zralá',
       jmeno: 'Hana',
@@ -451,6 +491,26 @@ it('getPrihlaseniSorted() by default - jen prihlášeni', () => {
     }
   };
   const selected = [
+    {
+      id: '9ccbc71dedc1e99b7e1d671',
+      prijmeni: 'Půlmaratonka',
+      jmeno: 'Božena',
+      narozeni: { den: 25, mesic: 7, rok: 2001 },
+      obec: 'Velhartice',
+      email: 'pul.ka@s.cz',
+      datum: new Date('2019-05-12T00:00:00.000Z'),
+      kategorie: {
+        id: '5a587e1b051c181132cf83d9',
+        typ: 'půlmaraton',
+        pohlavi: 'žena',
+        vek: { min: 18, max: 39 }
+      },
+      startCislo: 8,
+      kod: 'abc023skd204mvs345',
+      zaplaceno: 0,
+      predepsano: 200,
+      nejakaPoznamka: false
+    },
     {
       id: 'f5c88400190a4bed88c76736',
       prijmeni: 'Smalt',

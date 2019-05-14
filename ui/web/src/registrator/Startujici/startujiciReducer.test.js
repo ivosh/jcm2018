@@ -96,6 +96,19 @@ it('getOdstartovani()', () => {
       startCislo: 15
     },
     {
+      id: '9ccbc71dedc1e99b7e1d671',
+      prijmeni: 'Půlmaratonka',
+      jmeno: 'Božena',
+      kategorie: {
+        id: '5a587e1b051c181132cf83d9',
+        pohlavi: 'žena',
+        typ: 'půlmaraton',
+        vek: { max: 39, min: 18 }
+      },
+      narozeni: { den: 25, mesic: 7, rok: 2001 },
+      startCislo: 8
+    },
+    {
       id: '7a09b1fd371dec1e99b7e142',
       prijmeni: 'Zralá',
       jmeno: 'Hana',
