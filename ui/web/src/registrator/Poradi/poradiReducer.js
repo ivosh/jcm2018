@@ -1,7 +1,8 @@
 import { AKTUALNI_ROK } from '../../constants';
-import { dokoncenoCasSortMethod, sortForColumn } from '../../sort';
+import { sortForColumn } from '../../sort';
 import { getKategorie } from '../../entities/rocniky/rocnikyReducer';
 import { getUcastiProRok } from '../../entities/ucastnici/ucastniciReducer';
+import { computePoradiProVsechny } from '../poradi';
 import {
   createFilterableReducer,
   initialState as filterableInitialState
@@ -37,41 +38,6 @@ const poradiReducer = (state = initialState, action) => {
 };
 
 export default poradiReducer;
-
-const computePoradi = ({ data, key }) => {
-  const sorted = data.sort(dokoncenoCasSortMethod);
-
-  let index = 0;
-  return sorted.map(jeden => {
-    const { dokonceno, cas } = jeden;
-    if (dokonceno === true && cas) {
-      index += 1;
-      return { ...jeden, [key]: index };
-    }
-    return jeden;
-  });
-};
-
-export const computePoradiOverall = ({ data, kategorieProRocnik }) => {
-  const vsichni = [];
-
-  const vsechnyKategorie = Object.keys(kategorieProRocnik.typy);
-  vsechnyKategorie.forEach(typ => {
-    const proTyp = data.filter(({ kategorie }) => kategorie.typ === typ);
-    const sAbsPoradim = computePoradi({ data: proTyp, key: 'absPoradi' });
-
-    const serazeni = [];
-    kategorieProRocnik.typy[typ].list.forEach(({ id }) => {
-      const proKategorii = sAbsPoradim.filter(({ kategorie }) => kategorie.id === id);
-      const sRelPoradim = computePoradi({ data: proKategorii, key: 'relPoradi' });
-      serazeni.push(...sRelPoradim);
-    });
-
-    vsichni.push(...serazeni.sort(dokoncenoCasSortMethod));
-  });
-
-  return vsichni;
-};
 
 export const getPoradiSorted = ({
   kategorieFilter = '',
@@ -113,7 +79,7 @@ export const getPoradiSorted = ({
   });
   const filtered = mapped.filter(jeden => jeden);
 
-  const sPoradim = computePoradiOverall({ data: filtered, kategorieProRocnik });
+  const sPoradim = computePoradiProVsechny({ data: filtered, kategorieProRocnik });
 
   const parsed = parseInt(textFilter, 10);
   const startCisloFilter = Number.isNaN(parsed) ? undefined : parsed;

@@ -31,7 +31,7 @@ class PrihlaskyForm extends PureComponent {
     if (reset) {
       onReset();
       this.focusFirstInput();
-      return; // eslint-disable no-useless-return
+      return; // eslint-disable-line no-useless-return
     }
   };
 
