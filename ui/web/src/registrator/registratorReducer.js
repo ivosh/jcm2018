@@ -7,6 +7,7 @@ import { createPrihlaskyDohlaskyReducer } from './PrihlaskyDohlasky/prihlaskyDoh
 import startovniCislaReducer from './StartovniCisla/startovniCislaReducer';
 import ubytovaniReducer from './Ubytovani/ubytovaniReducer';
 import ucastniciDigestReducer from './UcastniciDigest/ucastniciDigestReducer';
+import vitezoveReducer from './Vitezove/vitezoveReducer';
 
 const registratorReducer = combineReducers({
   [ReduxNames.dohlaseni]: createPrihlaseniDohlaseniReducer(ActionPrefixes.DOHLASENI),
@@ -18,7 +19,8 @@ const registratorReducer = combineReducers({
   [ReduxNames.prihlasky]: createPrihlaskyDohlaskyReducer(ActionPrefixes.PRIHLASKY),
   startovniCisla: startovniCislaReducer,
   ubytovani: ubytovaniReducer,
-  ucastniciDigest: ucastniciDigestReducer
+  ucastniciDigest: ucastniciDigestReducer,
+  vitezove: vitezoveReducer
 });
 
 export default registratorReducer;

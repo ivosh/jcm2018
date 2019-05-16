@@ -14,12 +14,12 @@ const computePoradi = ({ data, key }) => {
   });
 };
 
-export const computePoradiProTyp = ({ data, kategorieProRocnik, typKategorie }) => {
-  const proTyp = data.filter(({ kategorie }) => kategorie.typ === typKategorie);
+export const computePoradiProTyp = ({ data, kategorieProRocnik, typ }) => {
+  const proTyp = data.filter(({ kategorie }) => kategorie.typ === typ);
   const sAbsPoradim = computePoradi({ data: proTyp, key: 'absPoradi' });
 
   const serazeni = [];
-  kategorieProRocnik.typy[typKategorie].list.forEach(({ id }) => {
+  kategorieProRocnik.typy[typ].list.forEach(({ id }) => {
     const proKategorii = sAbsPoradim.filter(({ kategorie }) => kategorie.id === id);
     const sRelPoradim = computePoradi({ data: proKategorii, key: 'relPoradi' });
     serazeni.push(...sRelPoradim);
@@ -32,8 +32,8 @@ export const computePoradiProVsechny = ({ data, kategorieProRocnik }) => {
   const vsichni = [];
 
   const vsechnyKategorie = Object.keys(kategorieProRocnik.typy);
-  vsechnyKategorie.forEach(typKategorie => {
-    vsichni.push(...computePoradiProTyp({ data, kategorieProRocnik, typKategorie }));
+  vsechnyKategorie.forEach(typ => {
+    vsichni.push(...computePoradiProTyp({ data, kategorieProRocnik, typ }));
   });
 
   return vsichni;

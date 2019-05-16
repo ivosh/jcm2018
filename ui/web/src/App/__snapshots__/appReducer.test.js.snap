@@ -220,6 +220,10 @@ Object {
       "sortDir": "none",
       "textFilter": "",
     },
+    "vitezove": Object {
+      "kategorieFilter": "",
+      "kategorieSubFilter": "",
+    },
   },
   "timesync": Object {
     "offset": 0,
@@ -449,6 +453,10 @@ Object {
       "sortDir": "none",
       "textFilter": "",
     },
+    "vitezove": Object {
+      "kategorieFilter": "",
+      "kategorieSubFilter": "",
+    },
   },
   "timesync": Object {
     "offset": 0,
@@ -677,6 +685,10 @@ Object {
       "sortColumn": undefined,
       "sortDir": "none",
       "textFilter": "",
+    },
+    "vitezove": Object {
+      "kategorieFilter": "",
+      "kategorieSubFilter": "",
     },
   },
   "timesync": Object {
