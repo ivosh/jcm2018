@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ButtonGroup } from 'react-bootstrap';
 import KategorieFilter from '../Filterable/KategorieFilter';
+import KategorieSubFilter from '../Filterable/KategorieSubFilter';
 import TextFilter from '../Filterable/TextFilter';
 import Zobrazeno from '../Filterable/Zobrazeno';
-import KategorieSubFilter from './KategorieSubFilter';
 import './PoradiFilters.css';
 
 const PoradiSubFilters = ({ kategorieSubFilters }) => {
