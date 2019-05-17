@@ -15,6 +15,7 @@
   },
   "cacheDirectories": [
     "node_modules",
+    "ui/mobile/node_modules",
     "ui/web/node_modules"
   ],
   "scripts": {

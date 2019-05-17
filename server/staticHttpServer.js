@@ -129,7 +129,7 @@ const server = http.createServer((request, response) => {
         `Redirecting to ${redirect} from originating protocol '${proto}' in production.`
       );
       logger.silly(JSON.stringify(request.headers));
-      response.writeHead(301, { Location: redirect });
+      response.writeHead(301, { Location: redirect }).end();
       return;
     }
   }
