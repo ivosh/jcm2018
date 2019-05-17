@@ -92,7 +92,7 @@ exports[`it renders 1`] = `
             onClick={[Function]}
           >
             <span
-              className="glyphicon glyphicon-king"
+              className="glyphicon glyphicon-glass"
             />
              
             Poháry
@@ -238,11 +238,26 @@ exports[`it renders 1`] = `
         >
           <a
             className="Main__menu-link"
+            href="/vitezove"
+            onClick={[Function]}
+          >
+            <span
+              className="glyphicon glyphicon-gift"
+            />
+             
+            Vítězové
+          </a>
+        </li>
+        <li
+          className="Main__menu-item"
+        >
+          <a
+            className="Main__menu-link"
             href="/pohary-po-startu"
             onClick={[Function]}
           >
             <span
-              className="glyphicon glyphicon-king"
+              className="glyphicon glyphicon-glass"
             />
              
             Poháry

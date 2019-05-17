@@ -33,7 +33,7 @@ const navs = {
   },
   poharyPredStartem: {
     key: '2.5',
-    glyph: 'king',
+    glyph: 'glass',
     menu: PRED_STARTEM,
     name: 'Poháry',
     path: '/pohary-pred-startem'
@@ -87,22 +87,29 @@ const navs = {
     name: 'Pořadí',
     path: '/poradi'
   },
-  poharyPoStartu: {
+  vitezove: {
     key: '4.5',
-    glyph: 'king',
+    glyph: 'gift',
+    menu: PO_STARTU,
+    name: 'Vítězové',
+    path: '/vitezove'
+  },
+  poharyPoStartu: {
+    key: '4.6',
+    glyph: 'glass',
     menu: PO_STARTU,
     name: 'Poháry',
     path: '/pohary-po-startu'
   },
   pokladna: {
-    key: '4.6',
+    key: '4.7',
     glyph: 'piggy-bank',
     menu: PO_STARTU,
     name: 'Pokladna',
     path: '/pokladna'
   },
   vysledky: {
-    key: '4.7',
+    key: '4.8',
     glyph: 'flag',
     menu: PO_STARTU,
     name: 'Výsledky',
