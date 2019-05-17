@@ -124,7 +124,7 @@ const server = http.createServer((request, response) => {
   if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
     const proto = request.headers['x-forwarded-proto'];
     if (proto !== 'https') {
-      const redirect = `https://${request.hostname}${request.url}`;
+      const redirect = `https://${request.headers.host}${request.url}`;
       logger.debug(
         `Redirecting to ${redirect} from originating protocol '${proto}' in production.`
       );
