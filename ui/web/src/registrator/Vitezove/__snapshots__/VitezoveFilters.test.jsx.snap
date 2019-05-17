@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders kategorie filters 1`] = `
+<div
+  className="VitezoveFilters"
+>
+  <div
+    className="VitezoveFilters__kategorie btn-group"
+  >
+    <span
+      className="KategorieFilter Bootstrap-buttons--active"
+    >
+      <button
+        className="KategorieFilter--maraton--active btn btn-default active"
+        disabled={false}
+        onClick={[MockFunction]}
+        type="button"
+      >
+        <span
+          style={
+            Object {
+              "fontSize": "100%",
+            }
+          }
+        >
+          <img
+            alt="maraton"
+            height={30}
+            src="maraton.png"
+            title="maraton"
+            width={30}
+          />
+           
+          maraton
+        </span>
+      </button>
+    </span>
+    <span
+      className="KategorieFilter Bootstrap-buttons--active"
+    >
+      <button
+        className="KategorieFilter--cyklo--inactive btn btn-default"
+        disabled={false}
+        onClick={[MockFunction]}
+        type="button"
+      >
+        <span
+          style={
+            Object {
+              "fontSize": "100%",
+            }
+          }
+        >
+          <img
+            alt="cyklo"
+            height={30}
+            src="cyklo.png"
+            title="cyklo"
+            width={30}
+          />
+           
+          cyklo
+        </span>
+      </button>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders kategorie subFilters 1`] = `
+<div
+  className="VitezoveFilters"
+>
+  <div
+    className="VitezoveFilters__kategorie btn-group"
+  >
+    <span
+      className="KategorieFilter Bootstrap-buttons--active"
+    >
+      <button
+        className="KategorieFilter--maraton--active btn btn-default active"
+        disabled={false}
+        onClick={[MockFunction]}
+        type="button"
+      >
+        <span
+          style={
+            Object {
+              "fontSize": "100%",
+            }
+          }
+        >
+          <img
+            alt="maraton"
+            height={30}
+            src="maraton.png"
+            title="maraton"
+            width={30}
+          />
+           
+          maraton
+        </span>
+      </button>
+    </span>
+  </div>
+  <div
+    className="VitezoveFilters__sub-kategorie"
+  >
+    <span
+      className="KategorieSubFilter Bootstrap-buttons--active"
+    >
+      <button
+        className="KategorieSubFilter--maraton--active btn btn-default active"
+        disabled={false}
+        onClick={[MockFunction]}
+        type="button"
+      >
+        <span
+          style={
+            Object {
+              "fontSize": "85%",
+            }
+          }
+        >
+           (1M)
+        </span>
+      </button>
+    </span>
+    <span
+      className="KategorieSubFilter Bootstrap-buttons--active"
+    >
+      <button
+        className="KategorieSubFilter--maraton--inactive btn btn-default"
+        disabled={false}
+        onClick={[MockFunction]}
+        type="button"
+      >
+        <span
+          style={
+            Object {
+              "fontSize": "85%",
+            }
+          }
+        >
+           (2M)
+        </span>
+      </button>
+    </span>
+    <span
+      className="KategorieSubFilter Bootstrap-buttons--active"
+    >
+      <button
+        className="KategorieSubFilter--maraton--inactive btn btn-default"
+        disabled={false}
+        onClick={[MockFunction]}
+        type="button"
+      >
+        <span
+          style={
+            Object {
+              "fontSize": "85%",
+            }
+          }
+        >
+           (3M)
+        </span>
+      </button>
+    </span>
+  </div>
+</div>
+`;

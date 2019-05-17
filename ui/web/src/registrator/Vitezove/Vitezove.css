@@ -1,0 +1,23 @@
+.Vitezove {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+.Vitezove__bedny {
+  display: flex;
+  font-family: sans-serif;
+  justify-content: center;
+  margin-bottom: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+.Vitezove__misto {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 25%;
+}

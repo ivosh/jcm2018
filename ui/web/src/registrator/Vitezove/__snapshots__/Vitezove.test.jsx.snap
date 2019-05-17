@@ -1,0 +1,233 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<div
+  className="Vitezove"
+>
+  <div
+    className="VitezoveFilters"
+  >
+    <div
+      className="VitezoveFilters__kategorie btn-group"
+    >
+      <span
+        className="KategorieFilter Bootstrap-buttons--active"
+      >
+        <button
+          className="KategorieFilter--půlmaraton--active btn btn-default active"
+          disabled={false}
+          onClick={[MockFunction]}
+          type="button"
+        >
+          <span
+            style={
+              Object {
+                "fontSize": "100%",
+              }
+            }
+          >
+            <img
+              alt="půlmaraton"
+              height={30}
+              src="pulmaraton.png"
+              title="půlmaraton"
+              width={42}
+            />
+             
+            půlmaraton
+          </span>
+        </button>
+      </span>
+      <span
+        className="KategorieFilter Bootstrap-buttons--active"
+      >
+        <button
+          className="KategorieFilter--cyklo--inactive btn btn-default"
+          disabled={false}
+          onClick={[MockFunction]}
+          type="button"
+        >
+          <span
+            style={
+              Object {
+                "fontSize": "100%",
+              }
+            }
+          >
+            <img
+              alt="cyklo"
+              height={30}
+              src="cyklo.png"
+              title="cyklo"
+              width={30}
+            />
+             
+            cyklo
+          </span>
+        </button>
+      </span>
+    </div>
+  </div>
+  <div
+    className="Vitezove__bedny"
+  >
+    <div
+      className="Vitezove__misto"
+    >
+      <div
+        className="Clovek"
+      >
+        <div
+          className="Clovek__hlava"
+        />
+        <div
+          className="Clovek__cedule"
+        >
+          <div
+            className="Vitez__cedule"
+          >
+            <div
+              className="Vitez__cedule--jmeno"
+            >
+              Slavěna
+               
+              Kyselová
+            </div>
+            <div
+              className="Vitez__cedule--cas"
+            >
+              3:15:24,42
+            </div>
+          </div>
+        </div>
+        <div
+          className="Clovek__ruce"
+        >
+          <div
+            className="Clovek__ruka--leva"
+          />
+          <div
+            className="Clovek__telo"
+          />
+          <div
+            className="Clovek__ruka--prava"
+          />
+        </div>
+        <div
+          className="Clovek__nohy"
+        >
+          <div
+            className="Clovek__noha--leva"
+          />
+          <div
+            className="Clovek__noha--prava"
+          />
+        </div>
+      </div>
+      <div
+        className="Bedna"
+        style={
+          Object {
+            "backgroundColor": "rgb(120, 120, 120)",
+            "height": "20%",
+          }
+        }
+      >
+        <div
+          className="Bedna__umisteni"
+        >
+          2
+        </div>
+      </div>
+    </div>
+    <div
+      className="Vitezove__misto"
+    >
+      <div
+        className="Clovek"
+      >
+        <div
+          className="Clovek__hlava"
+        />
+        <div
+          className="Clovek__cedule"
+        >
+          <div
+            className="Vitez__cedule"
+          >
+            <div
+              className="Vitez__cedule--jmeno"
+            >
+              Hana
+               
+              Zralá
+            </div>
+            <div
+              className="Vitez__cedule--cas"
+            >
+              2:06:32,60
+            </div>
+          </div>
+        </div>
+        <div
+          className="Clovek__ruce"
+        >
+          <div
+            className="Clovek__ruka--leva"
+          />
+          <div
+            className="Clovek__telo"
+          />
+          <div
+            className="Clovek__ruka--prava"
+          />
+        </div>
+        <div
+          className="Clovek__nohy"
+        >
+          <div
+            className="Clovek__noha--leva"
+          />
+          <div
+            className="Clovek__noha--prava"
+          />
+        </div>
+      </div>
+      <div
+        className="Bedna"
+        style={
+          Object {
+            "backgroundColor": "rgb(60, 60, 60)",
+            "height": "30%",
+          }
+        }
+      >
+        <div
+          className="Bedna__umisteni"
+        >
+          1
+        </div>
+      </div>
+    </div>
+    <div
+      className="Vitezove__misto"
+    >
+      <div
+        className="Bedna"
+        style={
+          Object {
+            "backgroundColor": "rgb(180, 180, 180)",
+            "height": "10%",
+          }
+        }
+      >
+        <div
+          className="Bedna__umisteni"
+        >
+          3
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

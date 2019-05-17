@@ -1,4 +1,5 @@
 export const TYPY_KATEGORII = ['maraton', 'půlmaraton', 'cyklo', 'koloběžka', 'pěší'];
+export const TYPY_KATEGORII_VYHODNOCOVANE = ['maraton', 'půlmaraton', 'cyklo', 'koloběžka'];
 
 export const AKTUALNI_ROK = 2019;
 

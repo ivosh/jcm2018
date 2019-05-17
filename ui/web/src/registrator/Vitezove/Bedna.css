@@ -1,0 +1,26 @@
+.Bedna {
+  align-items: center;
+  border: 2px solid #aeaeae;
+  display: flex;
+  justify-content: center;
+}
+
+.Bedna__umisteni {
+  align-items: center;
+  background: linear-gradient(#999999, #ffffff);
+  border-radius: 100%;
+  cursor: pointer;
+  display: flex;
+  font-weight: 200;
+  font-size: 200%;
+  justify-content: center;
+  padding: 10px;
+  height: 30px;
+  transition: 0.2s ease-in-out;
+  width: 30px;
+}
+
+.Bedna__umisteni:hover {
+  font-weight: 700;
+  transform: scale(1.5, 1.5);
+}

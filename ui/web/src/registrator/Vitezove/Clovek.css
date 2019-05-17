@@ -1,0 +1,81 @@
+.Clovek {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.Clovek__hlava {
+  border: 4px solid #999999;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+
+.Clovek__telo {
+  background-color: #999999;
+  height: 50px;
+  width: 5px;
+}
+
+.Clovek__ruce,
+.Clovek__nohy {
+  display: flex;
+}
+
+.Clovek__ruka--leva,
+.Clovek__ruka--prava {
+  background-color: #999999;
+  height: 45px;
+  margin-top: 5px;
+  transition: all 1.2s;
+  transform-origin: top center;
+  width: 5px;
+}
+.Clovek__ruka--leva {
+  transform: rotate(70deg);
+}
+.Clovek__ruka--prava {
+  transform: rotate(-70deg);
+}
+
+.Clovek__nohy {
+  margin-bottom: -6px;
+}
+
+.Clovek__noha--leva,
+.Clovek__noha--prava {
+  background-color: #999999;
+  height: 60px;
+  transform-origin: top center;
+  width: 5px;
+}
+.Clovek__noha--leva {
+  transform: rotate(25deg);
+}
+.Clovek__noha--prava {
+  transform: rotate(-25deg);
+}
+
+.Clovek__cedule {
+  background-color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 60px;
+  transition: all 1s ease;
+  width: 85%;
+  z-index: 1;
+}
+
+.Clovek:hover .Clovek__cedule {
+  top: -60px;
+  transform: scale(1.2, 1.2);
+}
+.Clovek:hover .Clovek__ruka--leva {
+  transform: rotate(120deg);
+}
+.Clovek:hover .Clovek__ruka--prava {
+  transform: rotate(-120deg);
+}

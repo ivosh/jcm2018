@@ -1,0 +1,9 @@
+.VitezoveFilters {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.VitezoveFilters__kategorie {
+  margin-left: 2em;
+}

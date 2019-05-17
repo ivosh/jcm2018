@@ -1,0 +1,42 @@
+.Vitez {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 25%;
+}
+
+.Vitez__umisteni {
+  align-items: center;
+  background: linear-gradient(#999999, #ffffff);
+  border-radius: 100%;
+  cursor: pointer;
+  display: flex;
+  font-weight: 200;
+  font-size: 200%;
+  justify-content: center;
+  padding: 10px;
+  height: 30px;
+  transition: 0.2s ease-in-out;
+  width: 30px;
+}
+
+.Vitez__umisteni:hover {
+  font-weight: 700;
+  transform: scale(1.5, 1.5);
+}
+
+.Vitez__cedule {
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 3%;
+  width: 100%;
+}
+
+.Vitez__cedule--cas {
+  border-radius: 10%;
+  font-size: 120%;
+  font-family: monospace;
+}
