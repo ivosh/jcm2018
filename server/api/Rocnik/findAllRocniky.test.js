@@ -80,7 +80,11 @@ it('findAllRocniky', async () => {
   rocnik1.ubytovani.sobota = { poplatek: 60 };
   await rocnik1.save();
 
-  const rocnik2 = new Rocnik({ rok: 2018, datum: '2018-06-08' });
+  const rocnik2 = new Rocnik({
+    rok: 2018,
+    datum: '2018-06-08',
+    uzaverka: { prihlasek: '2018-06-03', platebPrihlasek: '2018-06-05' }
+  });
   rocnik2.kategorie.push({
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id],

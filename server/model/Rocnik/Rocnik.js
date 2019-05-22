@@ -8,6 +8,10 @@ const RocnikSchema = new mongoose.Schema(
   {
     rok: { type: Number, required: true },
     datum: { type: Date, required: true },
+    uzaverka: {
+      prihlasek: { type: Date },
+      platebPrihlasek: { type: Date }
+    },
     kategorie: { type: [TypKategorieSchema], required: true },
     ubytovani: {
       pátek: { type: UbytovaniSchema },
