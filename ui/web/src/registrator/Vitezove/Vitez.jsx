@@ -10,22 +10,29 @@ const formatCas = cas => {
   return `${hours}:${mins}:${secs},${subsecs}`;
 };
 
-const Vitez = ({ vitez }) => (
+const Vitez = ({ misto, vitez: { prijmeni, jmeno, startCislo, cas, absPoradi, relPoradi } }) => (
   <Clovek>
-    <div className="Vitez__cedule">
+    <div className={`Vitez__cedule Vitez__cedule--${misto}`}>
+      <div className="Vitez__cedule--cislo">{startCislo}</div>
       <div className="Vitez__cedule--jmeno">
-        {vitez.jmeno} {vitez.prijmeni}
+        {jmeno} {prijmeni}
       </div>
-      <div className="Vitez__cedule--cas">{formatCas(vitez.cas)}</div>
+      <div>abs: {absPoradi}.</div>
+      <div className="Vitez__cedule--cas">{formatCas(cas)}</div>
+      <div>rel: {relPoradi}.</div>
     </div>
   </Clovek>
 );
 
 Vitez.propTypes = {
+  misto: PropTypes.number.isRequired,
   vitez: PropTypes.shape({
     prijmeni: PropTypes.string.isRequired,
     jmeno: PropTypes.string.isRequired,
-    cas: PropTypes.string.isRequired
+    startCislo: PropTypes.number.isRequired,
+    cas: PropTypes.string.isRequired,
+    absPoradi: PropTypes.number.isRequired,
+    relPoradi: PropTypes.number.isRequired
   }).isRequired
 };
 

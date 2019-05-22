@@ -84,8 +84,13 @@ exports[`renders 1`] = `
           className="Clovek__cedule"
         >
           <div
-            className="Vitez__cedule"
+            className="Vitez__cedule Vitez__cedule--2"
           >
+            <div
+              className="Vitez__cedule--cislo"
+            >
+              15
+            </div>
             <div
               className="Vitez__cedule--jmeno"
             >
@@ -93,10 +98,20 @@ exports[`renders 1`] = `
                
               Kyselová
             </div>
+            <div>
+              abs: 
+              15
+              .
+            </div>
             <div
               className="Vitez__cedule--cas"
             >
               3:15:24,42
+            </div>
+            <div>
+              rel: 
+              2
+              .
             </div>
           </div>
         </div>
@@ -153,8 +168,13 @@ exports[`renders 1`] = `
           className="Clovek__cedule"
         >
           <div
-            className="Vitez__cedule"
+            className="Vitez__cedule Vitez__cedule--1"
           >
+            <div
+              className="Vitez__cedule--cislo"
+            >
+              11
+            </div>
             <div
               className="Vitez__cedule--jmeno"
             >
@@ -162,10 +182,20 @@ exports[`renders 1`] = `
                
               Zralá
             </div>
+            <div>
+              abs: 
+              1
+              .
+            </div>
             <div
               className="Vitez__cedule--cas"
             >
               2:06:32,60
+            </div>
+            <div>
+              rel: 
+              1
+              .
             </div>
           </div>
         </div>
