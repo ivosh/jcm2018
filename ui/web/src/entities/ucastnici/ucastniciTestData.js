@@ -2666,6 +2666,7 @@ const state = {
             }
           },
           datum: AKTUALNI_DATUM_KONANI,
+          uzaverka: { prihlasek: '2019-06-03', platebPrihlasek: '2019-06-05' },
           ubytovani: { pátek: { poplatek: 50 } }
         }
       }

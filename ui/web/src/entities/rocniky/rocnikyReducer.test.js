@@ -205,8 +205,12 @@ it('po načtení ročníků', () => {
           }
         },
         2019: {
-          datum: '2019-06-08T00:00:00.000Z',
           id: '5a71cafd371dec1e09bde1bc',
+          datum: '2019-06-08T00:00:00.000Z',
+          uzaverka: {
+            prihlasek: '2019-06-03T00:00:00.000Z',
+            platebPrihlasek: '2019-06-05T00:00:00.000Z'
+          },
           kategorie: {
             maraton: {
               startCisla: '5-95',

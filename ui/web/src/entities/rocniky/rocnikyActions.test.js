@@ -190,8 +190,12 @@ const successfulResponse = {
         }
       },
       2019: {
-        datum: '2019-06-08T00:00:00.000Z',
         id: '6a02c8fd371dec1e99b7e1bc',
+        datum: '2019-06-08T00:00:00.000Z',
+        uzaverka: {
+          prihlasek: '2019-06-03T00:00:00.000Z',
+          platebPrihlasek: '2019-06-05T00:00:00.000Z'
+        },
         kategorie: {
           maraton: {
             startCisla: '5-95',

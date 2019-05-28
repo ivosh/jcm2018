@@ -273,7 +273,7 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
       startCislo: 8,
       kod: 'abc023skd204mvs345',
       zaplaceno: 0,
-      predepsano: 200,
+      predepsano: 250,
       nejakaPoznamka: false
     },
     {
@@ -313,7 +313,7 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
-      predepsano: 200,
+      predepsano: 250,
       nejakaPoznamka: true
     }
   ];
@@ -358,7 +358,7 @@ it('getPrihlaseniSorted() filtrováno na z', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
-      predepsano: 200,
+      predepsano: 250,
       nejakaPoznamka: true
     }
   ];
@@ -443,7 +443,7 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       startCislo: 8,
       kod: 'abc023skd204mvs345',
       zaplaceno: 0,
-      predepsano: 200,
+      predepsano: 250,
       nejakaPoznamka: false
     },
     {
@@ -463,7 +463,7 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
-      predepsano: 200,
+      predepsano: 250,
       nejakaPoznamka: true
     }
   ];
@@ -508,7 +508,7 @@ it('getPrihlaseniSorted() by default - jen prihlášeni', () => {
       startCislo: 8,
       kod: 'abc023skd204mvs345',
       zaplaceno: 0,
-      predepsano: 200,
+      predepsano: 250,
       nejakaPoznamka: false
     },
     {
@@ -548,7 +548,7 @@ it('getPrihlaseniSorted() by default - jen prihlášeni', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
-      predepsano: 200,
+      predepsano: 250,
       nejakaPoznamka: true
     }
   ];
@@ -633,7 +633,7 @@ it('getPrihlaseniSorted() by default - jen dohlášeni', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
-      predepsano: 200,
+      predepsano: 250,
       nejakaPoznamka: true
     }
   ];
@@ -678,7 +678,7 @@ it('getPrihlaseniSorted() by default - jen přihlášeni i dohlášeni', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
-      predepsano: 200,
+      predepsano: 250,
       nejakaPoznamka: true
     }
   ];

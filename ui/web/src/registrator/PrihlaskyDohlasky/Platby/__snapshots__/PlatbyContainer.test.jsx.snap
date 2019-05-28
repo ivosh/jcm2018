@@ -72,15 +72,15 @@ exports[`prihlasky - předepsané startovné předem 1`] = `
 Object {
   "polozky": Array [
     Object {
-      "castka": 200,
-      "duvod": "předem",
+      "castka": 250,
+      "duvod": "na místě (žádná platba)",
     },
     Object {
       "castka": 20,
       "duvod": "záloha",
     },
   ],
-  "suma": 220,
+  "suma": 270,
 }
 `;
 

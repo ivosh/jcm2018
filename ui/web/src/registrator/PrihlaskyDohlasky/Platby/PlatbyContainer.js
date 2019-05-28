@@ -18,10 +18,10 @@ const mapStateToProps = (state, ownProps) => {
         platby: { novaPlatbaMinified }
       }
     },
-    entities: { kategorie, rocniky }
+    entities
   } = state;
 
-  const predepsano = predepsaneStartovne({ kategorie, prihlaska, rocniky });
+  const predepsano = predepsaneStartovne({ ...entities, platby, prihlaska });
   const provedeno = provedenePlatby(platby);
 
   return {

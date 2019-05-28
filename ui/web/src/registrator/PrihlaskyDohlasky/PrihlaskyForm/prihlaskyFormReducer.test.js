@@ -1396,7 +1396,8 @@ it('predepsaneStartovne - cyklo - přihláška předem', () => {
           prihlaska: {
             datum: '2018-05-23T00:00:00.000Z',
             typ: 'cyklo'
-          }
+          },
+          platby: [{ datum: '2018-06-01T00:00:00.000Z', castka: 220 }]
         }
       }
     }
@@ -1405,13 +1406,9 @@ it('predepsaneStartovne - cyklo - přihláška předem', () => {
     polozky: [{ castka: 200, duvod: 'předem' }, { castka: 20, duvod: 'záloha' }],
     suma: 220
   };
-  expect(
-    predepsaneStartovne({
-      kategorie: state.entities.kategorie,
-      prihlaska: state.registrator.prihlasky.form.prihlaska,
-      rocniky: state.entities.rocniky
-    })
-  ).toEqual(selected);
+  expect(predepsaneStartovne({ ...state.registrator.prihlasky.form, ...state.entities })).toEqual(
+    selected
+  );
 });
 
 it('predepsaneStartovne - půlmaraton - dohláška', () => {
@@ -1429,13 +1426,9 @@ it('predepsaneStartovne - půlmaraton - dohláška', () => {
     }
   };
   const selected = { polozky: [{ castka: 250, duvod: 'na místě' }], suma: 250 };
-  expect(
-    predepsaneStartovne({
-      kategorie: state.entities.kategorie,
-      prihlaska: state.registrator.prihlasky.form.prihlaska,
-      rocniky: state.entities.rocniky
-    })
-  ).toEqual(selected);
+  expect(predepsaneStartovne({ ...state.registrator.prihlasky.form, ...state.entities })).toEqual(
+    selected
+  );
 });
 
 it('addPlatba()', () => {

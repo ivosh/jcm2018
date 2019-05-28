@@ -12,15 +12,47 @@ export const provedenePlatby = platby => {
   return { platby: result, suma };
 };
 
-export const predepsaneStartovne = ({ kategorie, prihlaska, rocniky, rok = AKTUALNI_ROK }) => {
-  // Přihláška can contain either kategorie(id) or typ. Consider both.
-  let typ = null;
+// Přihláška can contain either kategorie(id) or typ. Consider both.
+const extractTyp = ({ kategorie, prihlaska }) => {
   if (prihlaska) {
-    ({ typ } = prihlaska); // eslint-disable-line no-param-reassign
+    let { typ } = prihlaska;
     if (!typ && prihlaska.kategorie) {
-      ({ typ } = kategorie[prihlaska.kategorie]); // eslint-disable-line no-param-reassign
+      ({ typ } = kategorie[prihlaska.kategorie]);
     }
+    return typ;
   }
+  return null;
+};
+
+/* Ptáme se po posledním datu, kdy účastník zaplatil alespoň startovné předem.
+   Zálohu může případně doplatit na místě bez přirážky. */
+const getDatumPosledniDostatecnePlatby = ({ platby, startovnePredem }) => {
+  if (!platby || platby.length === 0) {
+    return null;
+  }
+
+  let suma = 0;
+  let posledniDatum = null;
+  platby.forEach(platba => {
+    if (suma < startovnePredem) {
+      suma += platba.castka;
+    }
+    if (suma >= startovnePredem && !posledniDatum) {
+      posledniDatum = platba.datum;
+    }
+  });
+
+  return posledniDatum;
+};
+
+export const predepsaneStartovne = ({
+  kategorie,
+  prihlaska,
+  platby,
+  rocniky,
+  rok = AKTUALNI_ROK
+}) => {
+  const typ = extractTyp({ kategorie, prihlaska });
   if (!typ) {
     return { suma: 0, polozky: [] };
   }
@@ -31,14 +63,39 @@ export const predepsaneStartovne = ({ kategorie, prihlaska, rocniky, rok = AKTUA
   if (prihlaska.startovnePoSleve >= 0) {
     polozky.push({ castka: prihlaska.startovnePoSleve, duvod: 'po slevě' });
   } else {
-    /* Předem lze pouze pokud datum přihlášení je před datem konání. */
+    /* Předem lze pouze pokud datum přihlášení je před uzávěrkou přihlášek a datum platby před
+       uzávěrkou plateb za přihlášky. */
+    const rocnik = rocniky.byRoky[rok];
     const datumKonani = rocniky.byRoky[rok].datum;
     const datumPrihlaseni = prihlaska.datum;
+    const uzaverkaPrihlasek = rocnik.uzaverka.prihlasek;
+    const uzaverkaPlatebPrihlasek = rocnik.uzaverka.platebPrihlasek;
+    const datumPosledniDostatecnePlatby = getDatumPosledniDostatecnePlatby({
+      platby,
+      startovnePredem: startovne.predem
+    });
 
-    if (new Date(datumPrihlaseni).getTime() < new Date(datumKonani).getTime()) {
-      polozky.push({ castka: startovne.predem, duvod: 'předem' });
-    } else {
+    if (
+      datumPrihlaseni &&
+      new Date(datumPrihlaseni).getTime() === new Date(datumKonani).getTime()
+    ) {
       polozky.push({ castka: startovne.naMiste, duvod: 'na místě' });
+    } else if (
+      !datumPrihlaseni ||
+      new Date(datumPrihlaseni).getTime() > new Date(uzaverkaPrihlasek).getTime()
+    ) {
+      polozky.push({ castka: startovne.naMiste, duvod: 'na místě (pozdní přihláška)' });
+    } else if (!platby || platby.length === 0) {
+      polozky.push({ castka: startovne.naMiste, duvod: 'na místě (žádná platba)' });
+    } else if (!datumPosledniDostatecnePlatby) {
+      polozky.push({ castka: startovne.naMiste, duvod: 'na místě (nedostatečná platba)' });
+    } else if (
+      new Date(datumPosledniDostatecnePlatby).getTime() >
+      new Date(uzaverkaPlatebPrihlasek).getTime()
+    ) {
+      polozky.push({ castka: startovne.naMiste, duvod: 'na místě (pozdní platba)' });
+    } else {
+      polozky.push({ castka: startovne.predem, duvod: 'předem' });
     }
   }
   if (startovne.zaloha) {
