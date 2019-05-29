@@ -2,7 +2,7 @@
 
 const nodemailer = require('nodemailer');
 const { google } = require('googleapis');
-const { CODE_OK, CODE_TOKEN_INVALID } = require('../../../common/common');
+const { CODE_OK, CODE_UNFULFILLED_REQUEST, CODE_TOKEN_INVALID } = require('../../../common/common');
 const config = require('../../config');
 const logger = require('../../logger');
 
@@ -55,11 +55,8 @@ const createGmailTransport = async () => {
 };
 
 const createMockTransport = async () => {
-  const sendMailMock = jest.fn();
-  return {
-    code: CODE_OK,
-    transport: nodemailer.createTransport.mockReturnValue({ sendMail: sendMailMock })
-  };
+  const transport = { close: jest.fn(), sendMail: jest.fn().mockReturnValue({}) };
+  return { code: CODE_OK, transport };
 };
 
 const transports = {
