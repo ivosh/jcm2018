@@ -31,6 +31,7 @@ const API_SAVE_UBYTOVANI = 'saveUbytovani';
 const API_SAVE_UCAST = 'saveUcast';
 const API_SAVE_UDAJE = 'saveUdaje';
 const API_SAVE_VYKON = 'saveVykon';
+const API_SEND_EMAIL = 'sendEmail';
 const API_SIGN_IN = 'signIn';
 const API_SIGN_OUT = 'signOut';
 const API_TIMESYNC = 'timesync';
@@ -228,6 +229,7 @@ module.exports = {
   API_SAVE_UCAST,
   API_SAVE_UDAJE,
   API_SAVE_VYKON,
+  API_SEND_EMAIL,
   API_SIGN_IN,
   API_SIGN_OUT,
   API_TIMESYNC,

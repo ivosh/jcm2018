@@ -19,6 +19,7 @@ const {
   API_SAVE_UCAST,
   API_SAVE_UDAJE,
   API_SAVE_VYKON,
+  API_SEND_EMAIL,
   API_SIGN_IN,
   API_SIGN_OUT,
   API_TIMESYNC,
@@ -50,6 +51,7 @@ const saveUbytovani = require('./Ucastnik/Ubytovani/saveUbytovani');
 const saveUcast = require('./Ucastnik/Ucast/saveUcast');
 const saveUdaje = require('./Ucastnik/Udaje/saveUdaje');
 const saveVykon = require('./Ucastnik/Vykon/saveVykon');
+const sendEmail = require('./Email/sendEmail');
 const signIn = require('./User/signIn');
 const signOut = require('./User/signOut');
 const timesync = require('./timesync/timesync');
@@ -173,6 +175,12 @@ const processRequest = async ({ action = '', request, requestId, token, connecti
       authRequired: true,
       dbRequired: true,
       action: async req => saveVykon(req)
+    },
+    [API_SEND_EMAIL]: {
+      apiReadOnly: true,
+      authRequired: true,
+      dbRequired: false,
+      action: async req => sendEmail(req)
     },
     [API_SIGN_IN]: {
       apiReadOnly: true,

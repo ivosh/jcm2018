@@ -1,7 +1,7 @@
 'use strict';
 
 const jwt = require('jsonwebtoken');
-const Actions = require('../../../common/common');
+const { CODE_OK, CODE_PASSWORD_INCORRECT } = require('../../../common/common');
 const config = require('../../config');
 const logger = require('../../logger');
 const User = require('../../model/User/User');
@@ -18,17 +18,17 @@ const signIn = async ({ request, connection }) => {
   const { username, password, nonce } = request;
 
   const { code } = await User.authenticate(username, password);
-  if (code !== Actions.CODE_OK) {
+  if (code !== CODE_OK) {
     logger.debug(`User ${username} failed to authenticate: ${code}`);
     return {
-      code: Actions.CODE_PASSWORD_INCORRECT,
+      code: CODE_PASSWORD_INCORRECT,
       status: 'Špatné jméno či heslo. Uživatel může být též zamčený.'
     };
   }
 
   connection.onAuth(true);
   return {
-    code: Actions.CODE_OK,
+    code: CODE_OK,
     status: undefined,
     response: {
       username,

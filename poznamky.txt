@@ -1,9 +1,6 @@
 https://react-bootstrap.github.io/
 https://reactjs.org/docs/refs-and-the-dom.html
-https://github.com/theturtle32/WebSocket-Node/tree/master/docs
 
-https://medium.com/@baphemot/intro-to-debugging-reactjs-applications-67cf7a50b3dd
-https://medium.freecodecamp.org/make-react-fast-again-tools-and-techniques-for-speeding-up-your-react-app-7ad39d3c1b82
 https://hackernoon.com/a-user-encounters-a-javascript-error-youll-never-guess-what-happens-next-dc1a6f725490
 https://blog.scalac.io/react-redux-jwt-authentication.html
 https://medium.freecodecamp.org/how-to-create-email-chips-in-pure-react-ad1cc3ecea16
@@ -32,6 +29,10 @@ MongoDB Atlas in the cloud:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 https://cloud.mongodb.com/
 
+
+Sending emails via Gmail
+~~~~~~~~~~~~~~~~~~~~~~~~
+https://medium.com/@nickroach_50526/sending-emails-with-node-js-using-smtp-gmail-and-oauth2-316fe9c790a1
 
 Focused button:
 .button:focus {
