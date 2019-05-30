@@ -58,11 +58,11 @@ const timesync = require('./timesync/timesync');
 
 const processAuthentication = ({ token, connection }) => {
   try {
-    jwt.verify(token, config.jwt.secret);
-    connection.onAuth(true);
+    const { username } = jwt.verify(token, config.jwt.secret);
+    connection.onAuth({ authenticated: true, username });
     return { code: CODE_OK };
   } catch (err) {
-    connection.onAuth(false);
+    connection.onAuth({ authenticated: false });
     logger.warn(`Failed to verify authentication token: ${token}`);
     logger.debug(err);
     return {

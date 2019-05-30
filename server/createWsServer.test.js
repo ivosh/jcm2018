@@ -8,7 +8,7 @@ const createWsServer = require('./createWsServer');
 const PORT = 4001;
 
 const processMessage = async (connection, data) => {
-  connection.onAuth(true);
+  connection.onAuth({ authenticated: true, username: 'testuser' });
   const message = JSON.parse(data.utf8Data);
   return { broadcast: { broadcast: 'test', data: message }, debugMessage: 'Message broadcasted.' };
 };

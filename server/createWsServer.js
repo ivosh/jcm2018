@@ -92,21 +92,23 @@ const createWsServer = ({ httpServer, processMessage = processMessageAPI, reques
         ws.removeAuthConnection(connection);
       });
 
-      connection.onAuth = auth => {
-        if (connection.authenticated === auth) {
+      connection.onAuth = ({ authenticated, username }) => {
+        if (connection.authenticated === authenticated) {
           return;
         }
 
-        connection.authenticated = auth;
-        if (auth) {
+        connection.authenticated = authenticated;
+        if (authenticated) {
           logger.debug(
             `Connection ${remoteSocketEndpoint(connection.socket)} authenticated successfully.`
           );
+          connection.username = username;
           ws.addAuthConnection(connection);
         } else {
           logger.debug(
             `Connection ${remoteSocketEndpoint(connection.socket)} is not authenticated.`
           );
+          connection.username = undefined;
           ws.removeAuthConnection(connection);
         }
         logger.debug(`Number of authenticated connections: ${ws.authConnections.length}`);
