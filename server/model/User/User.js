@@ -12,7 +12,7 @@ const UserSchema = new mongoose.Schema(
     password: { type: String, required: true },
     loginAttempts: { type: Number, required: true, default: 0 },
     lockUntil: { type: Date },
-    email: { type: String },
+    email: { type: String, required: true },
     sentEmails: [SentEmailSchema]
   },
   { bufferCommands: false, usePushEach: true }

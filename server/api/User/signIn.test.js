@@ -30,7 +30,7 @@ afterAll(async () => {
 });
 
 it('signIn successfully', async () => {
-  const user = new User({ username: 'tumáš', password: 'jcm2018' });
+  const user = new User({ username: 'tumáš', password: 'jcm2018', email: 'tumas@topol.io' });
   await user.save();
 
   const { requestId, ...response } = await wsClient.sendRequest(
@@ -50,7 +50,7 @@ it('signIn successfully', async () => {
 });
 
 it('signIn unsuccessfully (špatné heslo)', async () => {
-  const user = new User({ username: 'tumáš', password: 'jcm2018' });
+  const user = new User({ username: 'tumáš', password: 'jcm2018', email: 'tumas@topol.io' });
   await user.save();
 
   const { requestId, ...response } = await wsClient.sendRequest(
@@ -63,7 +63,7 @@ it('signIn unsuccessfully (špatné heslo)', async () => {
 });
 
 it('signIn unsuccessfully (špatný uživatel)', async () => {
-  const user = new User({ username: 'tumáš', password: 'jcm2018' });
+  const user = new User({ username: 'tumáš', password: 'jcm2018', email: 'tumas@topol.io' });
   await user.save();
 
   const { requestId, ...response } = await wsClient.sendRequest(
@@ -82,6 +82,7 @@ it('signIn unsuccessfully (zamčený uživatel)', async () => {
   const user = new User({
     username: 'tumáš',
     password: 'jcm2018',
+    email: 'tumas@topol.io',
     lockUntil: dayAfter
   });
   await user.save();

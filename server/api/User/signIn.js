@@ -26,7 +26,7 @@ const signIn = async ({ request, connection }) => {
     };
   }
 
-  connection.onAuth(true);
+  connection.onAuth({ authenticated: true, username });
   return {
     code: CODE_OK,
     status: undefined,

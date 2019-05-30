@@ -2,9 +2,15 @@
 
 const nodemailer = require('nodemailer');
 const { google } = require('googleapis');
-const { CODE_OK, CODE_UNFULFILLED_REQUEST, CODE_TOKEN_INVALID } = require('../../../common/common');
+const {
+  CODE_OK,
+  CODE_NONEXISTING,
+  CODE_TOKEN_INVALID,
+  CODE_UNFULFILLED_REQUEST
+} = require('../../../common/common');
 const config = require('../../config');
 const logger = require('../../logger');
+const User = require('../../model/User/User');
 
 /* Usage:
     export GOOGLE_OAUTH2_CLIENT_ID=...
@@ -16,10 +22,8 @@ const logger = require('../../logger');
   https://medium.com/@nickroach_50526/sending-emails-with-node-js-using-smtp-gmail-and-oauth2-316fe9c790a1
 */
 
-const { OAuth2 } = google.auth;
-
 const createGmailTransport = async () => {
-  const oauth2Client = new OAuth2(
+  const oauth2Client = new google.auth.OAuth2(
     config.email.gmail.clientId,
     config.email.gmail.clientSecret,
     'https://developers.google.com/oauthplayground' // Redirect URL
@@ -64,8 +68,20 @@ const transports = {
   mock: createMockTransport
 };
 
-const sendEmail = async ({ request }) => {
+const logEmailSent = async ({ user, mailFrom, mailTo, subject, date, success }) => {
+  user.sentEmails.push({ mailFrom, mailTo, subject, date, success });
+  await user.save();
+};
+
+const sendEmail = async ({ request, connection }) => {
   const { mailTo, subject, html } = request;
+  const { username } = connection;
+
+  const user = await User.findOne({ username });
+  if (!user) {
+    return { code: CODE_NONEXISTING, status: `Uživatel ${username} nenalezen.` };
+  }
+  const mailFrom = user.email;
 
   const { code, status, transport } = await transports[config.email.transport]();
   if (code !== CODE_OK) {
@@ -73,7 +89,7 @@ const sendEmail = async ({ request }) => {
   }
 
   const mailOptions = {
-    from: 'ivosh@ivosh.net', // :TODO: email z modelu User
+    from: mailFrom,
     to: mailTo,
     subject,
     generateTextFromHTML: true,
@@ -85,8 +101,10 @@ const sendEmail = async ({ request }) => {
     const response = await transport.sendMail(mailOptions);
     logger.info(`Email to ${mailTo} sent successfully.`);
     logger.silly('Response: ', response);
+    await logEmailSent({ user, mailFrom, mailTo, subject, date: new Date(), success: true });
   } catch (error) {
     logger.error('Failed to send the email: ', error);
+    await logEmailSent({ user, mailFrom, mailTo, subject, date: new Date(), success: false });
     return { code: CODE_UNFULFILLED_REQUEST, status: 'Chyba při posílání emailu.' };
   } finally {
     transport.close();
@@ -97,12 +115,15 @@ const sendEmail = async ({ request }) => {
 
 module.exports = sendEmail;
 
+/*
 sendEmail({
-  request: {
-    mailTo: 'ivosh@ivosh.net',
-    subject: 'Node.js Email with Secure OAuth2',
-    html: '<b>test</b> email'
-  }
-})
-  .then()
-  .catch(err => logger.error(err));
+    request: {
+      mailTo: 'ivosh@ivosh.net',
+      subject: 'Node.js Email with Secure OAuth2',
+      html: '<b>test</b> email'
+    },
+    connection: { username: 'tumáš' }
+  })
+    .then()
+    .catch(err => logger.error(err));
+*/

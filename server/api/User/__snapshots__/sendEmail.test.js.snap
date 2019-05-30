@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`not authenticated 1`] = `
+Object {
+  "code": "authentication token invalid",
+  "status": "Špatný ověřovací token. Zkus se přihlásit znovu. Detaily: JsonWebTokenError: jwt must be provided",
+}
+`;
+
+exports[`sendEmail successfully 1`] = `
+Object {
+  "code": "ok",
+}
+`;
+
+exports[`sendEmail successfully 2`] = `
+Array [
+  Object {
+    "__v": 1,
+    "email": "tumas@topol.io",
+    "loginAttempts": 0,
+    "password": "===password===",
+    "sentEmails": Array [
+      Object {
+        "date": "===date===",
+        "mailFrom": "tumas@topol.io",
+        "mailTo": "test@test.io",
+        "subject": "Test subject",
+        "success": true,
+      },
+    ],
+    "username": "tumáš",
+  },
+]
+`;

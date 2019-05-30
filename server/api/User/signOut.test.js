@@ -27,7 +27,7 @@ afterAll(async () => {
 });
 
 it('signOut successfully', async () => {
-  const user = new User({ username: 'tumáš', password: 'jcm2018' });
+  const user = new User({ username: 'tumáš', password: 'jcm2018', email: 'tumas@topol.io' });
   await user.save();
 
   let { requestId, ...response } = await wsClient.sendRequest(
