@@ -4,13 +4,16 @@ const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 const codes = require('../../../common/common');
 const config = require('../../config');
+const SentEmailSchema = require('./SentEmail');
 
 const UserSchema = new mongoose.Schema(
   {
     username: { type: String, required: true, index: { unique: true } },
     password: { type: String, required: true },
     loginAttempts: { type: Number, required: true, default: 0 },
-    lockUntil: { type: Date }
+    lockUntil: { type: Date },
+    email: { type: String },
+    sentEmails: [SentEmailSchema]
   },
   { bufferCommands: false, usePushEach: true }
 );

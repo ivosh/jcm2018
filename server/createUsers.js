@@ -49,8 +49,8 @@ const main = async () => {
 
     await Promise.all(
       lines.map(async line => {
-        const [username, password] = line.split(' ');
-        const user = new User({ username, password });
+        const [username, password, email] = line.split(' ');
+        const user = new User({ username, password, email });
         await user.save();
 
         logger.debug(`User ${username} saved.`);

@@ -28,19 +28,19 @@ const usersMatchSnapshot = async () => {
 };
 
 it('vytvoř uživatele', async () => {
-  const user = new User({ username: 'tomáš', password: 'jcm2018' });
+  const user = new User({ username: 'tomáš', password: 'jcm2018', email: 'tumas@topol.io' });
   await user.save();
 
   await usersMatchSnapshot();
 });
 
 it('vytvoř uživatele s prázdným heslem', async () => {
-  const user = new User({ username: 'tomáš' });
+  const user = new User({ username: 'tomáš', email: 'tumas@topol.io' });
   await expect(user.save()).rejects.toMatchSnapshot();
 });
 
 it('ověř heslo uživatele napřímo', async () => {
-  const user = new User({ username: 'tomáš', password: 'jcm2018' });
+  const user = new User({ username: 'tomáš', password: 'jcm2018', email: 'tumas@topol.io' });
   await user.save();
 
   const user1 = await User.findOne({}, { _id: 0 });
@@ -52,7 +52,7 @@ it('ověř heslo uživatele napřímo', async () => {
 });
 
 it('autentizuj uživatele úspěšně', async () => {
-  const user = new User({ username: 'tomáš', password: 'jcm2018' });
+  const user = new User({ username: 'tomáš', password: 'jcm2018', email: 'tumas@topol.io' });
   await user.save();
 
   const code = await User.authenticate('tomáš', 'jcm2018');
@@ -62,7 +62,7 @@ it('autentizuj uživatele úspěšně', async () => {
 });
 
 it('autentizuj neexistujícího uživatele', async () => {
-  const user = new User({ username: 'tomáš', password: 'jcm2018' });
+  const user = new User({ username: 'tomáš', password: 'jcm2018', email: 'tumas@topol.io' });
   await user.save();
 
   const code = await User.authenticate('tom', 'jcm2018');
@@ -70,7 +70,7 @@ it('autentizuj neexistujícího uživatele', async () => {
 });
 
 it('autentizuj uživatele neúspěšně', async () => {
-  const user = new User({ username: 'tomáš', password: 'jcm2018' });
+  const user = new User({ username: 'tomáš', password: 'jcm2018', email: 'tumas@topol.io' });
   await user.save();
 
   const code = await User.authenticate('tomáš', 'jcm2017');
@@ -85,7 +85,7 @@ const authAttempt = async () => {
 };
 
 it('autentizuj uživatele neúspěšně až se zamkne', async () => {
-  const user = new User({ username: 'tomáš', password: 'jcm2018' });
+  const user = new User({ username: 'tomáš', password: 'jcm2018', email: 'tumas@topol.io' });
   await user.save();
 
   await authAttempt();
@@ -105,6 +105,7 @@ it('autentizuj zamknutého uživatele úspěšně', async () => {
   const user = new User({
     username: 'tomáš',
     password: 'jcm2018',
+    email: 'tumas@topol.io',
     lockUntil: dayBefore
   });
   await user.save();
@@ -121,6 +122,7 @@ it('autentizuj zamknutého uživatele neúspěšně', async () => {
   const user = new User({
     username: 'tomáš',
     password: 'jcm2018',
+    email: 'tumas@topol.io',
     lockUntil: dayBefore
   });
   await user.save();
@@ -132,7 +134,7 @@ it('autentizuj zamknutého uživatele neúspěšně', async () => {
 });
 
 it('vytvoř a změň uživatele', async () => {
-  const user = new User({ username: 'tomáš', password: 'jcm2018' });
+  const user = new User({ username: 'tomáš', password: 'jcm2018', email: 'tumas@topol.io' });
   await user.save();
   const password1 = user.password;
   await usersMatchSnapshot();

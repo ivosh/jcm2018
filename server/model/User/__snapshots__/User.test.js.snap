@@ -4,8 +4,10 @@ exports[`autentizuj uživatele neúspěšně 1`] = `
 Array [
   Object {
     "__v": 0,
+    "email": "tumas@topol.io",
     "loginAttempts": 1,
     "password": "===password===",
+    "sentEmails": Array [],
     "username": "tomáš",
   },
 ]
@@ -15,8 +17,10 @@ exports[`autentizuj uživatele neúspěšně až se zamkne 1`] = `
 Array [
   Object {
     "__v": 0,
+    "email": "tumas@topol.io",
     "loginAttempts": 6,
     "password": "===password===",
+    "sentEmails": Array [],
     "username": "tomáš",
   },
 ]
@@ -26,8 +30,10 @@ exports[`autentizuj uživatele úspěšně 1`] = `
 Array [
   Object {
     "__v": 0,
+    "email": "tumas@topol.io",
     "loginAttempts": 0,
     "password": "===password===",
+    "sentEmails": Array [],
     "username": "tomáš",
   },
 ]
@@ -37,8 +43,10 @@ exports[`autentizuj zamknutého uživatele neúspěšně 1`] = `
 Array [
   Object {
     "__v": 0,
+    "email": "tumas@topol.io",
     "loginAttempts": 1,
     "password": "===password===",
+    "sentEmails": Array [],
     "username": "tomáš",
   },
 ]
@@ -48,8 +56,10 @@ exports[`autentizuj zamknutého uživatele úspěšně 1`] = `
 Array [
   Object {
     "__v": 0,
+    "email": "tumas@topol.io",
     "loginAttempts": 0,
     "password": "===password===",
+    "sentEmails": Array [],
     "username": "tomáš",
   },
 ]
@@ -59,8 +69,10 @@ exports[`vytvoř a změň uživatele 1`] = `
 Array [
   Object {
     "__v": 0,
+    "email": "tumas@topol.io",
     "loginAttempts": 0,
     "password": "===password===",
+    "sentEmails": Array [],
     "username": "tomáš",
   },
 ]
@@ -70,8 +82,10 @@ exports[`vytvoř a změň uživatele 2`] = `
 Array [
   Object {
     "__v": 0,
+    "email": "tumas@topol.io",
     "loginAttempts": 0,
     "password": "===password===",
+    "sentEmails": Array [],
     "username": "tom",
   },
 ]
@@ -81,8 +95,10 @@ exports[`vytvoř uživatele 1`] = `
 Array [
   Object {
     "__v": 0,
+    "email": "tumas@topol.io",
     "loginAttempts": 0,
     "password": "===password===",
+    "sentEmails": Array [],
     "username": "tomáš",
   },
 ]
