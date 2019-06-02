@@ -19,7 +19,7 @@ let store;
 const setup = (props = defaultProps) => {
   store = mockStore();
   store.dispatch = jest.fn();
-  const container = renderer.create(<EmailComposerContainer store={store} {...defaultProps} />);
+  const container = renderer.create(<EmailComposerContainer store={store} {...props} />);
   component = container.root.findByType(EmailComposer);
   expect(component).toBeTruthy();
 };

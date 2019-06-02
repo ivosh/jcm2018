@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import { Button, Glyphicon } from 'react-bootstrap';
 import moment from 'moment';
 import { narozeniToStr } from '../../Util';
+import Modal from '../../shared/Modal/Modal';
 import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import FilterableContainer from '../Filterable/FilterableContainer';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
-import PoznamkyModal from '../Poznamky/PoznamkyModal';
+import PoznamkyContainer from '../Poznamky/PoznamkyContainer';
 import PrihlaseniDohlaseniFilter from './PrihlaseniDohlaseniFilter';
 import './PrihlaseniDohlaseni.css';
 
@@ -27,7 +28,11 @@ const PoznamkyFormat = ({ cellData: { id, nejakaPoznamka, showing, onHide, onSho
         <Glyphicon glyph="edit" />
       </Button>
     )}
-    {showing && <PoznamkyModal id={id} show={showing} onClose={onHide} />}
+    {showing && (
+      <Modal header="Poznámky" show={showing} onClose={onHide}>
+        <PoznamkyContainer id={id} />
+      </Modal>
+    )}
   </React.Fragment>
 );
 PoznamkyFormat.propTypes = {
