@@ -79,6 +79,17 @@
     "jasmine/new-line-before-expect": 0,
 
     // These rules are too strict or do not work with my setup.
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        "labelComponents": [],
+        "labelAttributes": [],
+        "controlComponents": [],
+        "assert": "either",
+        "depth": 25
+      }
+    ],
+    "jsx-a11y/label-has-for": 0, // deprecated
     "jsx-a11y/no-autofocus": 0,
     "react/jsx-boolean-value": [2, "always"],
     "react/destructuring-assignment": 0,

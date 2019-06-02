@@ -1,0 +1,63 @@
+.EmailComposer {
+  display: grid;
+  grid-row-gap: 1ex;
+  grid-template-columns: 0.3fr auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'komuLabel komuInput'
+    'predmetLabel predmetInput'
+    'text text'
+    'submit none'
+    'html html';
+}
+
+.EmailComposer button,
+.EmailComposer input,
+.EmailComposer textarea {
+  border: 1px solid #b2b2b2;
+  border-radius: 3px;
+  padding: 3px;
+}
+.EmailComposer input {
+  max-width: 20em;
+}
+
+.EmailComposer button:focus,
+.EmailComposer input:focus,
+.EmailComposer textarea:focus {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.EmailComposer__text {
+  grid-area: text;
+  width: 80%;
+}
+
+.EmailComposer__submit {
+  --gradient-color-start: 45, 206, 93;
+  --gradient-color-end: 22, 112, 49;
+  background-image: linear-gradient(
+    rgba(var(--gradient-color-start), 0.75),
+    rgba(var(--gradient-color-end), 0.75)
+  );
+  color: white;
+  grid-area: submit;
+  max-width: 10em;
+}
+.EmailComposer__submit:hover {
+  background-image: linear-gradient(
+    rgba(var(--gradient-color-start), 1),
+    rgba(var(--gradient-color-end), 1)
+  );
+  border-color: #757575;
+}
+
+.EmailComposer__html {
+  border: 1px solid green;
+  border-radius: 3px;
+  display: block;
+  grid-area: html;
+  padding: 3px;
+  text-align: left;
+  width: 80%;
+}

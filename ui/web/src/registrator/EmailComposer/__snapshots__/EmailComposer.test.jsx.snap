@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<form
+  className="EmailComposer"
+  onSubmit={[Function]}
+>
+  <label
+    htmlFor="komu"
+  >
+    Komu:
+  </label>
+  <input
+    id="komu"
+    name="komu"
+    onChange={[Function]}
+    type="text"
+    value="s@s.io"
+  />
+  <label
+    htmlFor="predmet"
+  >
+    Předmět:
+  </label>
+  <input
+    id="predmet"
+    name="predmet"
+    onChange={[Function]}
+    type="text"
+    value="Initial subject"
+  />
+  <textarea
+    className="EmailComposer__text"
+    onChange={[Function]}
+    rows={10}
+    value="Tohle je moje <b>zpráva</b>.<br />Pokračuje přes několik řádek."
+  />
+  <button
+    className="EmailComposer__submit"
+    type="submit"
+  >
+    Poslat
+  </button>
+  <div
+    className="EmailComposer__html"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Tohle je moje <b>zpráva</b>.<br />Pokračuje přes několik řádek.",
+      }
+    }
+  />
+</form>
+`;
