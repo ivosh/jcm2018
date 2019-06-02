@@ -8,6 +8,7 @@ import { saveVykon } from '../../casomeric/Casomira/StartovniCisla/StartovniCisl
 import { fetchRocniky } from '../../entities/rocniky/rocnikyActions';
 import { fetchStopky } from '../../entities/stopky/stopkyActions';
 import { fetchUcastnici } from '../../entities/ucastnici/ucastniciActions';
+import { sendEmail } from '../../registrator/EmailComposer/EmailComposerActions';
 import { poharPredan } from '../../registrator/Pohary/PoharyActions';
 import {
   addPoznamka,
@@ -192,6 +193,12 @@ it('MODIFY_UBYTOVANI_ERROR', () =>
     request: {},
     response: unsuccessfulSaveResponse,
     title: 'ukládání ubytování'
+  }));
+
+it('SEND_EMAIL_ERROR', () =>
+  testUnsuccessfulResponse({
+    action: sendEmail({ mailFrom: 's@s.io', subject: 'test subject', text: 'text' }),
+    title: 'posílání emailu'
   }));
 
 it('SIGN_IN_ERROR', () =>

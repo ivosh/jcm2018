@@ -6,6 +6,7 @@ import { MODIFY_STOPKY } from '../../casomeric/Stopky/StopkyProTyp/StopkyProTypA
 import { FETCH_ROCNIKY } from '../../entities/rocniky/rocnikyActions';
 import { FETCH_STOPKY } from '../../entities/stopky/stopkyActions';
 import { FETCH_UCASTNICI } from '../../entities/ucastnici/ucastniciActions';
+import { SEND_EMAIL } from '../../registrator/EmailComposer/EmailComposerActions';
 import { POHAR_PREDAN } from '../../registrator/Pohary/PoharyActions';
 import {
   POZNAMKA_ADD,
@@ -45,6 +46,7 @@ const errorInModalReducer = (state = initialState, action) => {
     case `${POZNAMKA_MODIFY}_ERROR`:
     case `${ActionPrefixes.PRIHLASKY}_FORM_INVALID`:
     case `${PRIHLASKY_SAVE}_ERROR`:
+    case `${SEND_EMAIL}_ERROR`:
     case `${SIGN_IN}_ERROR`:
     case `${SIGN_OUT}_ERROR`:
     case `${STARTUJICI_CREATE_VYKON}_ERROR`:
