@@ -40,7 +40,7 @@
   background-color: rgba(226, 57, 73, 1);
 }
 
-.PrihlaseniDohlaseni__poznamky {
+.PrihlaseniDohlaseni__akceMenu {
   display: flex;
   align-items: center; /* So it does not stretch to the whole cell. */
 }

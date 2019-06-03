@@ -9,6 +9,7 @@ import PopisekKategorie from '../../shared/Popisek/PopisekKategorie';
 import FilterableContainer from '../Filterable/FilterableContainer';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
 import PoznamkyContainer from '../Poznamky/PoznamkyContainer';
+import AkceMenu from './AkceMenu';
 import PrihlaseniDohlaseniFilter from './PrihlaseniDohlaseniFilter';
 import './PrihlaseniDohlaseni.css';
 
@@ -21,21 +22,25 @@ kategorieFormat.propTypes = {
 
 const narozeniFormat = ({ cellData }) => narozeniToStr(cellData);
 
-const PoznamkyFormat = ({ cellData: { id, nejakaPoznamka, showing, onHide, onShow } }) => (
-  <React.Fragment>
-    {!showing && (
-      <Button bsSize="small" bsStyle={nejakaPoznamka ? 'info' : undefined} onClick={onShow}>
-        <Glyphicon glyph="edit" />
-      </Button>
-    )}
-    {showing && (
-      <Modal header="Poznámky" show={showing} onClose={onHide}>
-        <PoznamkyContainer id={id} />
-      </Modal>
-    )}
-  </React.Fragment>
-);
-PoznamkyFormat.propTypes = {
+const AkceMenuFormat = ({ cellData: { id, nejakaPoznamka, showing, onHide, onShow } }) => {
+  const akce = [{ nazev: 'Poznámky', component: <PoznamkyContainer id={id} /> }];
+
+  return (
+    <React.Fragment>
+      {!showing && (
+        <Button bsSize="small" bsStyle={nejakaPoznamka ? 'info' : undefined} onClick={onShow}>
+          <Glyphicon glyph="edit" />
+        </Button>
+      )}
+      {showing && (
+        <Modal header="Akce" show={showing} onClose={onHide}>
+          <AkceMenu akce={akce} />
+        </Modal>
+      )}
+    </React.Fragment>
+  );
+};
+AkceMenuFormat.propTypes = {
   cellData: PropTypes.shape({
     id: PropTypes.string.isRequired,
     nejakaPoznamka: PropTypes.bool.isRequired,
@@ -130,10 +135,10 @@ const PrihlaseniDohlaseni = ({
       width: 110
     },
     {
-      cellClassNames: () => ['PrihlaseniDohlaseni__poznamky'],
-      cellDataFormatter: PoznamkyFormat,
-      key: 'poznamky',
-      label: 'poznámky',
+      cellClassNames: () => ['PrihlaseniDohlaseni__akceMenu'],
+      cellDataFormatter: AkceMenuFormat,
+      key: 'akceMenu',
+      label: 'Akce',
       width: 100
     }
   ];
@@ -197,7 +202,7 @@ PrihlaseniDohlaseni.propTypes = {
       kod: PropTypes.string,
       predepsano: PropTypes.number.isRequired,
       zaplaceno: PropTypes.number.isRequired,
-      poznamky: PropTypes.shape({
+      akceMenu: PropTypes.shape({
         id: PropTypes.string.isRequired,
         nejakaPoznamka: PropTypes.bool.isRequired,
         showing: PropTypes.bool.isRequired,

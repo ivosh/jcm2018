@@ -37,7 +37,7 @@ const prihlaseniDohlaseni = [
     kod: '10728864',
     zaplaceno: 250,
     predepsano: 200,
-    poznamky: {
+    akceMenu: {
       id: '5a09b1fd371dec1e99b7e1c9',
       nejakaPoznamka: false,
       showing: false,
@@ -62,7 +62,7 @@ const prihlaseniDohlaseni = [
     kod: 'abc023skd204mvs345',
     zaplaceno: 100,
     predepsano: 200,
-    poznamky: {
+    akceMenu: {
       id: '7a09b1fd371dec1e99b7e142',
       nejakaPoznamka: true,
       showing: false,

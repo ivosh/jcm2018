@@ -6,8 +6,10 @@ export const createPrihlaseniFilterChange = actionPrefix => () => ({
   type: `${actionPrefix}_PRIHLASENI_FILTER_CHANGE`
 });
 
-export const createHidePoznamky = actionPrefix => () => ({ type: `${actionPrefix}_HIDE_POZNAMKY` });
-export const createShowPoznamky = actionPrefix => id => ({
-  type: `${actionPrefix}_SHOW_POZNAMKY`,
+export const createHideAkceMenu = actionPrefix => () => ({
+  type: `${actionPrefix}_HIDE_AKCE_MENU`
+});
+export const createShowAkceMenu = actionPrefix => id => ({
+  type: `${actionPrefix}_SHOW_AKCE_MENU`,
   id
 });

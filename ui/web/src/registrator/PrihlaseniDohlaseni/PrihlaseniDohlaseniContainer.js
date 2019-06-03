@@ -4,20 +4,20 @@ import { getPrihlaseniDohlaseniSorted } from './prihlaseniDohlaseniReducer';
 import {
   createDohlaseniFilterChange,
   createPrihlaseniFilterChange,
-  createHidePoznamky,
-  createShowPoznamky
+  createHideAkceMenu,
+  createShowAkceMenu
 } from './PrihlaseniDohlaseniActions';
 import PrihlaseniDohlaseni from './PrihlaseniDohlaseni';
 
 const mapStateToProps = ({ entities, registrator }, { actionPrefix, reduxName, route }) => {
   const props = registrator[reduxName];
-  const { dohlaseniFilter, prihlaseniFilter, showingPoznamkyFor } = props;
+  const { dohlaseniFilter, prihlaseniFilter, showingAkceMenuFor } = props;
 
   return {
     dohlaseniFilter,
     prihlaseniFilter,
     prihlaseniDohlaseni: getPrihlaseniDohlaseniSorted({ ...entities, ...props }),
-    showingPoznamkyFor,
+    showingAkceMenuFor,
     actionPrefix,
     reduxName,
     route
@@ -27,8 +27,8 @@ const mapStateToProps = ({ entities, registrator }, { actionPrefix, reduxName, r
 const mapDispatchToProps = (dispatch, { actionPrefix }) => ({
   onDohlaseniFilterChange: () => dispatch(createDohlaseniFilterChange(actionPrefix)()),
   onPrihlaseniFilterChange: () => dispatch(createPrihlaseniFilterChange(actionPrefix)()),
-  hidePoznamky: () => dispatch(createHidePoznamky(actionPrefix)()),
-  showPoznamky: id => dispatch(createShowPoznamky(actionPrefix)(id))
+  hideAkceMenu: () => dispatch(createHideAkceMenu(actionPrefix)()),
+  showAkceMenu: id => dispatch(createShowAkceMenu(actionPrefix)(id))
 });
 
 const mergeProps = (stateProps, dispatchProps) => {
@@ -36,26 +36,26 @@ const mergeProps = (stateProps, dispatchProps) => {
     dohlaseniFilter,
     prihlaseniFilter,
     prihlaseniDohlaseni,
-    showingPoznamkyFor,
+    showingAkceMenuFor,
     ...restState
   } = stateProps;
   const {
     onDohlaseniFilterChange,
     onPrihlaseniFilterChange,
-    hidePoznamky,
-    showPoznamky,
+    hideAkceMenu,
+    showAkceMenu,
     ...restDispatch
   } = dispatchProps;
 
   const prihlaseniDohlaseniWithActions = prihlaseniDohlaseni.map(
     ({ id, nejakaPoznamka, ...rest }) => ({
       id,
-      poznamky: {
+      akceMenu: {
         id,
         nejakaPoznamka,
-        showing: showingPoznamkyFor === id,
-        onHide: hidePoznamky,
-        onShow: () => showPoznamky(id)
+        showing: showingAkceMenuFor === id,
+        onHide: hideAkceMenu,
+        onShow: () => showAkceMenu(id)
       },
       ...rest
     })

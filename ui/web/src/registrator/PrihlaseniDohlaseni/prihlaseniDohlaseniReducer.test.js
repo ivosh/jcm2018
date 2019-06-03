@@ -11,9 +11,9 @@ import {
 import { createSortDirChange } from '../UcastniciTable/UcastniciTableActions';
 import {
   createDohlaseniFilterChange,
-  createHidePoznamky,
+  createHideAkceMenu,
   createPrihlaseniFilterChange,
-  createShowPoznamky
+  createShowAkceMenu
 } from './PrihlaseniDohlaseniActions';
 import {
   createPrihlaseniDohlaseniReducer,
@@ -23,11 +23,11 @@ import {
 const actionPrefix = ActionPrefixes.PRIHLASENI;
 const reduxName = ReduxNames.prihlaseni;
 const dohlaseniFilterChange = createDohlaseniFilterChange(actionPrefix);
-const hidePoznamky = createHidePoznamky(actionPrefix);
+const hideAkceMenu = createHideAkceMenu(actionPrefix);
 const kategorieFilterChange = createKategorieFilterChange(actionPrefix);
 const prihlaseniFilterChange = createPrihlaseniFilterChange(actionPrefix);
 const prihlaseniDohlaseniReducer = createPrihlaseniDohlaseniReducer(actionPrefix);
-const showPoznamky = createShowPoznamky(actionPrefix);
+const showAkceMenu = createShowAkceMenu(actionPrefix);
 const sortDirChange = createSortDirChange(actionPrefix);
 const textFilterChange = createTextFilterChange(actionPrefix);
 
@@ -38,6 +38,7 @@ it('na začátku', () => {
   expect(stateAfter.dohlaseniFilter).toBe(false);
   expect(stateAfter.prihlaseniFilter).toBe(true);
   expect(stateAfter.kategorieFilter).toEqual('');
+  expect(stateAfter.showingAkceMenuFor).toBe(undefined);
   expect(stateAfter.textFilter).toEqual('');
   expect(stateAfter.sortColumn).toBe(undefined);
   expect(stateAfter.sortDir).toEqual(SortDirTypes.NONE);
@@ -75,20 +76,20 @@ it('přepínání prihlaseniFilter - a zase zpět', () => {
   expect(prihlaseniDohlaseniReducer(stateBefore, prihlaseniFilterChange())).toEqual(stateAfter);
 });
 
-it('hidePoznamky()', () => {
-  const stateBefore = { showingPoznamkyFor: '===id1===' };
-  const stateAfter = { showingPoznamkyFor: undefined };
+it('hideAkceMenu()', () => {
+  const stateBefore = { showingAkceMenuFor: '===id1===' };
+  const stateAfter = { showingAkceMenuFor: undefined };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniDohlaseniReducer(stateBefore, hidePoznamky())).toEqual(stateAfter);
+  expect(prihlaseniDohlaseniReducer(stateBefore, hideAkceMenu())).toEqual(stateAfter);
 });
 
-it('přepínání showPoznamky', () => {
-  const stateBefore = { showingPoznamkyFor: undefined };
-  const stateAfter = { showingPoznamkyFor: '===id2===' };
+it('přepínání showAkceMenu', () => {
+  const stateBefore = { showingAkceMenuFor: undefined };
+  const stateAfter = { showingAkceMenuFor: '===id2===' };
   deepFreeze(stateBefore);
 
-  expect(prihlaseniDohlaseniReducer(stateBefore, showPoznamky('===id2==='))).toEqual(stateAfter);
+  expect(prihlaseniDohlaseniReducer(stateBefore, showAkceMenu('===id2==='))).toEqual(stateAfter);
 });
 
 it('řadit dle příjmení vzestupně', () => {
