@@ -40,7 +40,7 @@ it('sendEmail successfully', async () => {
       request: {
         mailTo: 'test@test.io',
         subject: 'Test subject',
-        html: 'Test email for <i>masses</i>.'
+        body: 'Test email for <i>masses</i>.'
       },
       token
     })

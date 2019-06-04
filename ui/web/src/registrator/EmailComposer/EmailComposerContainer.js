@@ -16,13 +16,13 @@ const EmailComposerContainer = connect(
 EmailComposerContainer.propTypes = {
   mailTo: PropTypes.string,
   subject: PropTypes.string,
-  text: PropTypes.string
+  body: PropTypes.string
 };
 
 EmailComposerContainer.defaultProps = {
   mailTo: '',
   subject: '',
-  text: ''
+  body: ''
 };
 
 export default EmailComposerContainer;

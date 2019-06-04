@@ -37,6 +37,7 @@ exports[`renders 1`] = `
   />
   <button
     className="EmailComposer__submit"
+    disabled={false}
     type="submit"
   >
     Poslat

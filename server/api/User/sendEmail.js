@@ -74,7 +74,7 @@ const logEmailSent = async ({ user, mailFrom, mailTo, subject, date, success }) 
 };
 
 const sendEmail = async ({ request, connection }) => {
-  const { mailTo, subject, html } = request;
+  const { mailTo, subject, body } = request;
   const { username } = connection;
 
   const user = await User.findOne({ username });
@@ -93,7 +93,7 @@ const sendEmail = async ({ request, connection }) => {
     to: mailTo,
     subject,
     generateTextFromHTML: true,
-    html
+    body
   };
 
   logger.debug(`Sending email to ${mailTo}...`);

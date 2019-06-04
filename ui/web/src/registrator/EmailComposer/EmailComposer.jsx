@@ -15,16 +15,19 @@ const sanitize = html => sanitizeHtml(html, sanitizerOptions);
 const EmailComposer = ({
   mailTo: initialMailTo,
   subject: initialSubject,
-  text: initialText,
+  body: initialBody,
   onSubmit
 }) => {
   const [mailTo, setMailTo] = useState(initialMailTo);
   const [subject, setSubject] = useState(initialSubject);
-  const [text, setText] = useState(sanitize(initialText));
+  const [body, setBody] = useState(sanitize(initialBody));
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
-    onSubmit({ mailTo, subject, text: sanitize(text) });
+    setSending(true);
+    await onSubmit({ mailTo, subject, body: sanitize(body) });
+    setSending(false);
   };
 
   return (
@@ -48,13 +51,13 @@ const EmailComposer = ({
       <textarea
         className="EmailComposer__text"
         rows={10}
-        value={text}
-        onChange={({ target: { value } }) => setText(value)}
+        value={body}
+        onChange={({ target: { value } }) => setBody(value)}
       />
-      <button type="submit" className="EmailComposer__submit">
+      <button type="submit" className="EmailComposer__submit" disabled={sending}>
         Poslat
       </button>
-      <div className="EmailComposer__html" dangerouslySetInnerHTML={{ __html: sanitize(text) }} />
+      <div className="EmailComposer__html" dangerouslySetInnerHTML={{ __html: sanitize(body) }} />
     </form>
   );
 };
@@ -62,14 +65,14 @@ const EmailComposer = ({
 EmailComposer.propTypes = {
   mailTo: PropTypes.string,
   subject: PropTypes.string,
-  text: PropTypes.string,
+  body: PropTypes.string,
   onSubmit: PropTypes.func.isRequired
 };
 
 EmailComposer.defaultProps = {
   mailTo: '',
   subject: '',
-  text: ''
+  body: ''
 };
 
 export default EmailComposer;
