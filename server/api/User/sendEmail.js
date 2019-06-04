@@ -93,7 +93,7 @@ const sendEmail = async ({ request, connection }) => {
     to: mailTo,
     subject,
     generateTextFromHTML: true,
-    body
+    html: body
   };
 
   logger.debug(`Sending email to ${mailTo}...`);
