@@ -1,7 +1,7 @@
 .Modal__modal {
   border: 2px solid #444444;
   border-radius: 10px;
-  min-width: 20em;
+  min-width: 50em;
 }
 
 .Modal__header {

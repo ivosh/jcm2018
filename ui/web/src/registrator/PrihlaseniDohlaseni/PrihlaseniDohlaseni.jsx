@@ -10,6 +10,7 @@ import FilterableContainer from '../Filterable/FilterableContainer';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
 import PoznamkyContainer from '../Poznamky/PoznamkyContainer';
 import AkceMenu from './AkceMenu';
+import EmailStartovne from './EmailStartovne';
 import PrihlaseniDohlaseniFilter from './PrihlaseniDohlaseniFilter';
 import './PrihlaseniDohlaseni.css';
 
@@ -22,8 +23,26 @@ kategorieFormat.propTypes = {
 
 const narozeniFormat = ({ cellData }) => narozeniToStr(cellData);
 
-const AkceMenuFormat = ({ cellData: { id, nejakaPoznamka, showing, onHide, onShow } }) => {
+const AkceMenuFormat = ({
+  cellData: { id, nejakaPoznamka, showing, onHide, onShow },
+  data,
+  rowIndex
+}) => {
   const akce = [{ nazev: 'Poznámky', component: <PoznamkyContainer id={id} /> }];
+  if (data[rowIndex].email) {
+    akce.push({
+      nazev: 'Upomínka emailem: startovné',
+      component: (
+        <EmailStartovne
+          prijmeni={data[rowIndex].prijmeni}
+          jmeno={data[rowIndex].jmeno}
+          email={data[rowIndex].email}
+          kod={data[rowIndex].kod}
+          predepsano={data[rowIndex].predepsano}
+        />
+      )
+    });
+  }
 
   return (
     <React.Fragment>
@@ -47,7 +66,17 @@ AkceMenuFormat.propTypes = {
     showing: PropTypes.bool.isRequired,
     onHide: PropTypes.func.isRequired,
     onShow: PropTypes.func.isRequired
-  }).isRequired
+  }).isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      prijmeni: PropTypes.string.isRequired,
+      jmeno: PropTypes.string.isRequired,
+      email: PropTypes.string,
+      kod: PropTypes.string,
+      predepsano: PropTypes.number.isRequired
+    })
+  ).isRequired,
+  rowIndex: PropTypes.number.isRequired
 };
 
 const prijmeniFormat = ({ cellData, data, route, rowIndex }) => (
