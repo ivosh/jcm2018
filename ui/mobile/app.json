@@ -5,7 +5,7 @@
     "slug": "jcm2019",
     "privacy": "public",
     "sdkVersion": "32.0.0",
-    "version": "1.12.0",
+    "version": "1.12.1",
     "platforms": [
       "ios",
       "android"
