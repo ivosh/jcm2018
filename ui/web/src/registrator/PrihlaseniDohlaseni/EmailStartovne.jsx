@@ -13,9 +13,8 @@ Prosím uhraďte startovné do 6. června 2019.
 Využijete výhod zlevněného startovného a na startu budete odbaveni bez čekání ve frontě na dohlášky.
 <br/>
 <br/>
-Částku ve výši ${
-      predepsano >= 200 ? predepsano - 50 : predepsano
-    } Kč uhraďte na účet <b>1182341045/3030</b>.<br/>
+Částku ve výši ${predepsano >= 200 ? predepsano - 50 : predepsano} Kč
+uhraďte na účet <b>1182341045/3030</b>.<br/>
 Jako variabilní symbol uveďte následující kód: <b>${kod}</b>.<br/>
 Do zprávy pro příjemce pak uveďte jméno a příjmení (${jmeno} ${prijmeni}).<br/><br/>
 Na viděnou v sobotu,<br/>

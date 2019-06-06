@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Glyphicon } from 'react-bootstrap';
 import './AkceMenu.css';
 
 const AkceMenu = ({ akce, onSelect }) => {
@@ -16,9 +17,15 @@ const AkceMenu = ({ akce, onSelect }) => {
 
   return (
     <ul className="AkceMenu">
-      {akce.map(({ nazev }, index) => (
+      {akce.map(({ icon, nazev }, index) => (
         <li key={nazev}>
           <button type="submit" onClick={() => handleSelect(index)}>
+            {icon && (
+              <React.Fragment>
+                <Glyphicon glyph={icon} />
+                <span>&nbsp;</span>
+              </React.Fragment>
+            )}
             {nazev}
           </button>
         </li>
@@ -30,6 +37,7 @@ const AkceMenu = ({ akce, onSelect }) => {
 AkceMenu.propTypes = {
   akce: PropTypes.arrayOf(
     PropTypes.shape({
+      icon: PropTypes.string,
       nazev: PropTypes.string.isRequired,
       component: PropTypes.node.isRequired
     })

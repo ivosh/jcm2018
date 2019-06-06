@@ -28,9 +28,10 @@ const AkceMenuFormat = ({
   data,
   rowIndex
 }) => {
-  const akce = [{ nazev: 'Poznámky', component: <PoznamkyContainer id={id} /> }];
+  const akce = [{ icon: 'edit', nazev: 'Poznámky', component: <PoznamkyContainer id={id} /> }];
   if (data[rowIndex].email) {
     akce.push({
+      icon: 'envelope',
       nazev: 'Upomínka emailem: startovné',
       component: (
         <EmailStartovne
