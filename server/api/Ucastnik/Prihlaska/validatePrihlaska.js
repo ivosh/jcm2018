@@ -16,7 +16,10 @@ const findUcasti = async ({ rok, startCislo, typ }) => {
     path: 'ucasti.prihlaska.kategorie'
   });
 
-  return ucastnici.filter(ucastnik => ucastnik.ucasti[0].prihlaska.kategorie.typ === typ);
+  return ucastnici.filter(ucastnik => {
+    const ucast = ucastnik.ucasti.find(jednaUcast => jednaUcast.rok === rok);
+    return (ucast && ucast.prihlaska.kategorie.typ === typ) || false;
+  });
 };
 
 // const { kategorie, rocniky } = await findAllRocniky();

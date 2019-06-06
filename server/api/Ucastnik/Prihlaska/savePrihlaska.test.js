@@ -381,6 +381,22 @@ const setup = async () => {
 
   const ucastnik3 = new Ucastnik();
   ucastnik3.ucasti.push({
+    rok: 2017,
+    udaje: {
+      prijmeni: 'Moulová',
+      jmeno: 'Milena',
+      narozeni: { den: 6, mesic: 5, rok: 1973 },
+      pohlavi: 'žena',
+      obec: 'Nusle'
+    },
+    prihlaska: {
+      datum: new Date('2017-05-07Z'),
+      kategorie: kategorie4.id, // půlmaraton
+      startCislo: 6,
+      kod: '===kod3==='
+    }
+  });
+  ucastnik3.ucasti.push({
     rok: 2018,
     udaje: {
       prijmeni: 'Moulová',
@@ -436,6 +452,7 @@ it('ulož startovní číslo - sám sebe', async () => {
   ucastnici[0].ucasti[0].prihlaska.kategorie._id = '===k1===';
   ucastnici[1].ucasti[0].prihlaska.kategorie._id = '===k2===';
   ucastnici[2].ucasti[0].prihlaska.kategorie._id = '===k3===';
+  ucastnici[2].ucasti[1].prihlaska.kategorie._id = '===k4===';
   expect(ucastnici).toMatchSnapshot();
 });
 
@@ -457,6 +474,7 @@ it('ulož startovní číslo - startovní číslo obsazené v jiné kategorii', 
   ucastnici[0].ucasti[0].prihlaska.kategorie._id = '===k1===';
   ucastnici[1].ucasti[0].prihlaska.kategorie._id = '===k2===';
   ucastnici[2].ucasti[0].prihlaska.kategorie._id = '===k3===';
+  ucastnici[2].ucasti[1].prihlaska.kategorie._id = '===k4===';
   expect(ucastnici).toMatchSnapshot();
 });
 
@@ -499,6 +517,7 @@ it('ulož startovní číslo - startovní číslo obsazené v jiném roce', asyn
   ucastnici[1].ucasti[1].prihlaska.kategorie._id = '===k3===';
   ucastnici[1].ucasti[2].prihlaska.kategorie._id = '===k4===';
   ucastnici[2].ucasti[0].prihlaska.kategorie._id = '===k5===';
+  ucastnici[2].ucasti[1].prihlaska.kategorie._id = '===k4===';
   expect(ucastnici).toMatchSnapshot();
 });
 
@@ -520,6 +539,7 @@ it('ulož startovní číslo - duplicitní v kategorii', async () => {
   ucastnici[0].ucasti[0].prihlaska.kategorie._id = '===k1===';
   ucastnici[1].ucasti[0].prihlaska.kategorie._id = '===k2===';
   ucastnici[2].ucasti[0].prihlaska.kategorie._id = '===k3===';
+  ucastnici[2].ucasti[1].prihlaska.kategorie._id = '===k4===';
   expect(ucastnici).toMatchSnapshot();
 });
 
