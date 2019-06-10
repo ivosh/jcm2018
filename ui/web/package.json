@@ -1,6 +1,6 @@
 {
   "name": "ui",
-  "version": "1.12.4",
+  "version": "2.0.0",
   "private": true,
   "---on react version upgrade---": "Update the version in .eslintrc as well.",
   "scripts": {
