@@ -1,0 +1,16 @@
+- startovné předem 300 Kč, 500 Kč na místě
+- storno týden před 50 %, po týdnu 100 %
+- vyrubat kategorii výkonu a startovní číslo výkonu
+- dokončeno pro pěší
+- město/PSČ automaticky
+- formulář přihlášky - odkliknout souhlas s použitím dat
+                     - odkliknout souhlas start na vlastní nebezpečí
+- přihlášky - integrovat s jcm - databáze někde bokem, UI pro potvrzování a přiřazování k existujícím
+- uživatel pro Anku - stage den předem vyzkoušet
+- dohlášky - nezobrazovat ubytování
+- rozmyslet UX pro dohlášky - návaznost pro další zadávání
+- poháry - zobrazit lidi, co jej právě dostali i nedostali za aktuální rok
+- poháry - odkaz na přihlášky nebo dohlášky
+- poháry - napsat 5., 10., 15., 20. účast (jiné typy pohárů)
+- UI - detekovat při loadStore() pokud je token již starý - automaticky odhlásit
+- předělat stránku "Startující" - poznačit, že zaplacený člověk neodstartoval (nepřišel)
