@@ -6,11 +6,8 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "test": "react-app-rewired test --env=jsdom",
-    "---run test under Windows bash---": "npm run test:bash",
-    "test:bash": "winpty npm.cmd run test",
-    "coverage": "react-app-rewired test --env=jsdom --coverage",
-    "coverage:bash": "winpty npm.cmd run coverage",
+    "test": "react-app-rewired test --env=jsdom --colors",
+    "coverage": "react-app-rewired test --env=jsdom --coverage --colors",
     "prettier": "prettier --write \"{../mobile/src/ui-common,src}/**/*.{js,jsx,json,css}\"",
     "lint": "eslint \"{../mobile/src/ui-common,src}/**/*.{js,jsx}\"",
     "lint-cache": "eslint --cache \"{../mobile/src/ui-common,src}/**/*.{js,jsx}\"",
