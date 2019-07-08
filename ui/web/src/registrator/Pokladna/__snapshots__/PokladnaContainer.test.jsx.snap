@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`maps state to props - default 1`] = `
+Object {
+  "total": Object {
+    "odstartovano": 3,
+    "suma": 630,
+    "typy": Object {
+      "hotově": Object {
+        "counts": Object {
+          "250": 1,
+          "80": 1,
+        },
+        "suma": 330,
+      },
+      "převodem": Object {
+        "counts": Object {
+          "100": 1,
+          "200": 1,
+        },
+        "suma": 300,
+      },
+    },
+    "ucastniku": 3,
+  },
+  "typy": Object {
+    "maraton": Object {
+      "odstartovano": 0,
+      "suma": 200,
+      "typy": Object {
+        "převodem": Object {
+          "counts": Object {
+            "200": 1,
+          },
+          "suma": 200,
+        },
+      },
+      "ucastniku": 1,
+    },
+    "půlmaraton": Object {
+      "odstartovano": 3,
+      "suma": 430,
+      "typy": Object {
+        "hotově": Object {
+          "counts": Object {
+            "250": 1,
+            "80": 1,
+          },
+          "suma": 330,
+        },
+        "převodem": Object {
+          "counts": Object {
+            "100": 1,
+          },
+          "suma": 100,
+        },
+      },
+      "ucastniku": 2,
+    },
+  },
+}
+`;

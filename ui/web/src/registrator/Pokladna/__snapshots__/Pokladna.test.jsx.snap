@@ -75,6 +75,17 @@ exports[`renders 1`] = `
         >
           175
         </div>
+        <div />
+        <div
+          className="PokladnaTypu--neodstartovalo"
+        >
+          neodstartovalo
+        </div>
+        <div
+          className="PokladnaTypu--neodstartovalo_pocet"
+        >
+          1
+        </div>
       </div>
     </div>
   </div>
@@ -148,6 +159,17 @@ exports[`renders 1`] = `
           className="PokladnaTypu--ucastniku"
         >
           76
+        </div>
+        <div />
+        <div
+          className="PokladnaTypu--neodstartovalo"
+        >
+          neodstartovalo
+        </div>
+        <div
+          className="PokladnaTypu--neodstartovalo_pocet"
+        >
+          1
         </div>
         <div
           className="PokladnaTypu--name"

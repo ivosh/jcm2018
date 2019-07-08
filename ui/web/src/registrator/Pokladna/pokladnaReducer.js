@@ -27,17 +27,21 @@ export const getPokladna = ({ kategorie, rocniky, ucastnici, rok = AKTUALNI_ROK 
       const { startovne } = getTypKategorie({ rok, typ, rocniky });
       ({ zaloha } = startovne);
     }
-    return { id, kategorie: kategorie[kategorieId], platby, zaloha };
+    return { id, kategorie: kategorie[kategorieId], odstartovano: !!vykon, platby, zaloha };
   });
 
-  const pokladna = { typy: {}, total: { suma: 0, ucastniku: 0, typy: {} } };
-  populated.forEach(({ kategorie: { typ: typKategorie }, platby, zaloha }) => {
+  const pokladna = { typy: {}, total: { suma: 0, ucastniku: 0, odstartovano: 0, typy: {} } };
+  populated.forEach(({ kategorie: { typ: typKategorie }, odstartovano, platby, zaloha }) => {
     if (!pokladna.typy[typKategorie]) {
-      pokladna.typy[typKategorie] = { suma: 0, ucastniku: 0, typy: {} };
+      pokladna.typy[typKategorie] = { odstartovano: 0, suma: 0, ucastniku: 0, typy: {} };
     }
     if (platby.length > 0) {
       pokladna.typy[typKategorie].ucastniku += 1;
       pokladna.total.ucastniku += 1;
+    }
+    if (odstartovano) {
+      pokladna.typy[typKategorie].odstartovano += 1;
+      pokladna.total.odstartovano += 1;
     }
 
     platby.forEach(({ castka, typ: typPlatby }) => {

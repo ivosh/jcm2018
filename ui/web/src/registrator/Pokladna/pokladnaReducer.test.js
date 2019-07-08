@@ -9,6 +9,7 @@ it('getPokladna() - ucastniciTestData', () => {
   const pokladna = getPokladna({ ...state.entities });
   const expected = {
     total: {
+      odstartovano: 3,
       suma: 630,
       ucastniku: 3,
       typy: {
@@ -30,6 +31,7 @@ it('getPokladna() - ucastniciTestData', () => {
     },
     typy: {
       maraton: {
+        odstartovano: 0,
         suma: 200,
         ucastniku: 1,
         typy: {
@@ -42,6 +44,7 @@ it('getPokladna() - ucastniciTestData', () => {
         }
       },
       půlmaraton: {
+        odstartovano: 3,
         suma: 430,
         ucastniku: 2,
         typy: {
@@ -66,7 +69,7 @@ it('getPokladna() - ucastniciTestData', () => {
   expect(pokladna).toEqual(expected);
 });
 
-it('getPokladna - all cases', () => {
+it('getPokladna - všechny případy', () => {
   const state = JSON.parse(JSON.stringify(ucastniciTestData)); // deep copy
   const { ucastnici } = state.entities;
 
@@ -105,6 +108,7 @@ it('getPokladna - all cases', () => {
   const pokladna = getPokladna({ ...state.entities });
   const expected = {
     total: {
+      odstartovano: 6,
       suma: 1150,
       ucastniku: 6,
       zaloha: {
@@ -135,6 +139,7 @@ it('getPokladna - all cases', () => {
     },
     typy: {
       cyklo: {
+        odstartovano: 1,
         suma: 270,
         ucastniku: 1,
         typy: {
@@ -153,6 +158,7 @@ it('getPokladna - all cases', () => {
         }
       },
       maraton: {
+        odstartovano: 1,
         suma: 450,
         ucastniku: 2,
         typy: {
@@ -171,6 +177,7 @@ it('getPokladna - all cases', () => {
         }
       },
       půlmaraton: {
+        odstartovano: 4,
         suma: 430,
         ucastniku: 3,
         typy: {

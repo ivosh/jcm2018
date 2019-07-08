@@ -15,7 +15,7 @@ SumaTypu.propTypes = {
   suma: PropTypes.number.isRequired
 };
 
-const PokladnaTypu = ({ name, suma, ucastniku, zaloha, typy }) => (
+const PokladnaTypu = ({ name, odstartovano, suma, ucastniku, zaloha, typy }) => (
   <React.Fragment>
     <div className="PokladnaTypu--name">{name}:</div>
     <div />
@@ -28,11 +28,19 @@ const PokladnaTypu = ({ name, suma, ucastniku, zaloha, typy }) => (
     <div />
     <div>účastníků</div>
     <div className="PokladnaTypu--ucastniku">{ucastniku}</div>
+    {odstartovano !== ucastniku && (
+      <React.Fragment>
+        <div />
+        <div className="PokladnaTypu--neodstartovalo">neodstartovalo</div>
+        <div className="PokladnaTypu--neodstartovalo_pocet">{ucastniku - odstartovano}</div>
+      </React.Fragment>
+    )}
   </React.Fragment>
 );
 
 PokladnaTypu.propTypes = {
   name: PropTypes.string.isRequired,
+  odstartovano: PropTypes.number.isRequired,
   suma: PropTypes.number.isRequired,
   ucastniku: PropTypes.number.isRequired,
   zaloha: PropTypes.shape({

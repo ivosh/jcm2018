@@ -6,7 +6,7 @@
 - formulář přihlášky - odkliknout souhlas s použitím dat
                      - odkliknout souhlas start na vlastní nebezpečí
 - přihlášky - integrovat s jcm - databáze někde bokem, UI pro potvrzování a přiřazování k existujícím
-- uživatel pro Anku - stage den předem vyzkoušet
+- uživatel pro Anku a půlmaraton - stage den předem vyzkoušet
 - dohlášky - nezobrazovat ubytování
 - rozmyslet UX pro dohlášky - návaznost pro další zadávání
 - poháry - zobrazit lidi, co jej právě dostali i nedostali za aktuální rok

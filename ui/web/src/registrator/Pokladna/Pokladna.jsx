@@ -33,6 +33,7 @@ const Pokladna = ({ pokladna: { total, typy } }) => (
 Pokladna.propTypes = {
   pokladna: PropTypes.shape({
     total: PropTypes.shape({
+      odstartovano: PropTypes.number.isRequired,
       suma: PropTypes.number.isRequired,
       ucastniku: PropTypes.number.isRequired,
       zaloha: PropTypes.shape({

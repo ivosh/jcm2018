@@ -4,6 +4,7 @@ import Pokladna from './Pokladna';
 
 const pokladna = {
   total: {
+    odstartovano: 174,
     suma: 37590,
     ucastniku: 175,
     zaloha: {
@@ -36,6 +37,7 @@ const pokladna = {
   },
   typy: {
     cyklo: {
+      odstartovano: 75,
       suma: 17720,
       ucastniku: 76,
       zaloha: {
@@ -61,6 +63,7 @@ const pokladna = {
       }
     },
     koloběžka: {
+      odstartovano: 5,
       suma: 1050,
       ucastniku: 5,
       typy: {
@@ -80,6 +83,7 @@ const pokladna = {
       }
     },
     maraton: {
+      odstartovano: 59,
       suma: 12250,
       ucastniku: 59,
       typy: {
@@ -100,6 +104,7 @@ const pokladna = {
       }
     },
     pěší: {
+      odstartovano: 4,
       suma: 120,
       ucastniku: 4,
       typy: {
@@ -112,6 +117,7 @@ const pokladna = {
       }
     },
     půlmaraton: {
+      odstartovano: 31,
       suma: 6450,
       ucastniku: 31,
       typy: {

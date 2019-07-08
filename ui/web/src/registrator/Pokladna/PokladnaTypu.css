@@ -7,7 +7,16 @@
   text-align: right;
 }
 
+.PokladnaTypu--neodstartovalo_pocet,
+.PokladnaTypu--ucastniku {
+  text-align: right;
+}
+
 .PokladnaTypu--ucastniku {
   font-weight: bolder;
-  text-align: right;
+}
+
+.PokladnaTypu--neodstartovalo,
+.PokladnaTypu--neodstartovalo_pocet {
+  font-style: italic;
 }
