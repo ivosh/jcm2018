@@ -17,7 +17,7 @@
     "source-map-explorer": "npm run build && node ./node_modules/source-map-explorer/index.js build/static/js/*"
   },
   "dependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "chnl": "^0.4.2",
     "dom-helpers": "^3.4.0",
     "jwt-decode": "^2.2.0",
@@ -25,7 +25,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.9.0-alpha.0",
     "react-bootstrap": "^0.31.5",
-    "react-bootstrap-typeahead": "^3.3.4",
+    "react-bootstrap-typeahead": "^3.4.5",
     "react-debounce-input": "^3.2.0",
     "react-device-detect": "^1.6.2",
     "react-dnd": "^7.0.2",
@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "babel-eslint": "10.0.1",
-    "customize-cra": "^0.2.12",
+    "customize-cra": "^0.2.14",
     "deep-freeze": "0.0.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.9.1",

@@ -31,6 +31,7 @@ const PrihlaskySearch = ({ options, onSelect }) => {
       emptyLabel="Nic nenalezeno."
       filterBy={isMatch}
       highlightOnlyResult={true}
+      id="prihlaskySearch"
       labelKey="prijmeni"
       minLength={1}
       options={options}
