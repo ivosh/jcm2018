@@ -48,9 +48,7 @@ const JedenStartujici = ({
     <div className="StartujiciPanel__leftCell JedenStartujici__jmeno">{jmeno}</div>
     <div className="StartujiciPanel__middleCell JedenStartujici__narozeni">{narozeni.rok}</div>
     <div
-      className={`StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--${
-        kategorie.typ
-      }`}
+      className={`StartujiciPanel__middleCell JedenStartujici__kategorie JedenStartujici__kategorie--${kategorie.typ}`}
     >
       <PopisekKategorie {...kategorie} />
     </div>
