@@ -18,6 +18,9 @@ const Vysledky = ({ vysledky }) => (
 
 Vysledky.propTypes = {
   vysledky: PropTypes.shape({
+    datum: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     typy: PropTypes.object.isRequired
   }).isRequired
 };
