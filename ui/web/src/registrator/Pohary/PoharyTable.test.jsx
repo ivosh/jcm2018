@@ -5,6 +5,7 @@ import { mount } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import configureStore from 'redux-mock-store';
 import { ActionPrefixes, ReduxNames } from '../../constants';
+import { wrapInDnDTestContext } from '../../testing';
 import PoharyTable from './PoharyTable';
 
 const actionPrefix = ActionPrefixes.POHARY_PO_STARTU;
@@ -57,11 +58,14 @@ const pohary = [
   }
 ];
 
+// Render with the test context that uses the test backend.
+const PoharyTableDnD = wrapInDnDTestContext(PoharyTable);
+
 it('žádný pohár', () => {
   const wrapper = mount(
     <Provider store={store}>
       <MemoryRouter keyLength={0}>
-        <PoharyTable pohary={[]} {...commonProps} />
+        <PoharyTableDnD pohary={[]} {...commonProps} />
       </MemoryRouter>
     </Provider>
   );
@@ -72,7 +76,7 @@ it('dva pohároví', () => {
   const wrapper = mount(
     <Provider store={store}>
       <MemoryRouter keyLength={0}>
-        <PoharyTable pohary={pohary} {...commonProps} />
+        <PoharyTableDnD pohary={pohary} {...commonProps} />
       </MemoryRouter>
     </Provider>
   );
