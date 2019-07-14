@@ -41,12 +41,8 @@ exports[`with websocket connected, authenticated 1`] = `
       pullRight={true}
       stacked={false}
     >
-      <LinkContainer
-        activeClassName="active"
-        exact={false}
+      <withRouter(LinkContainer)
         key="signout"
-        replace={false}
-        strict={false}
         to="/signout"
       >
         <NavItem
@@ -60,12 +56,8 @@ exports[`with websocket connected, authenticated 1`] = `
           />
            Odhlášení
         </NavItem>
-      </LinkContainer>
-      <LinkContainer
-        activeClassName="active"
-        exact={false}
-        replace={false}
-        strict={false}
+      </withRouter(LinkContainer)>
+      <withRouter(LinkContainer)
         to="/about"
       >
         <NavItem
@@ -79,7 +71,7 @@ exports[`with websocket connected, authenticated 1`] = `
           />
            O aplikaci
         </NavItem>
-      </LinkContainer>
+      </withRouter(LinkContainer)>
     </Nav>
   </Uncontrolled(Navbar)>
   <main>
@@ -205,11 +197,7 @@ exports[`with websocket connected, not authenticated 1`] = `
       pullRight={true}
       stacked={false}
     >
-      <LinkContainer
-        activeClassName="active"
-        exact={false}
-        replace={false}
-        strict={false}
+      <withRouter(LinkContainer)
         to="/signin"
       >
         <NavItem
@@ -223,12 +211,8 @@ exports[`with websocket connected, not authenticated 1`] = `
           />
            Přihlášení
         </NavItem>
-      </LinkContainer>
-      <LinkContainer
-        activeClassName="active"
-        exact={false}
-        replace={false}
-        strict={false}
+      </withRouter(LinkContainer)>
+      <withRouter(LinkContainer)
         to="/about"
       >
         <NavItem
@@ -242,7 +226,7 @@ exports[`with websocket connected, not authenticated 1`] = `
           />
            O aplikaci
         </NavItem>
-      </LinkContainer>
+      </withRouter(LinkContainer)>
     </Nav>
   </Uncontrolled(Navbar)>
   <main>
@@ -381,12 +365,8 @@ exports[`with websocket disconnected, authenticated 1`] = `
       pullRight={true}
       stacked={false}
     >
-      <LinkContainer
-        activeClassName="active"
-        exact={false}
+      <withRouter(LinkContainer)
         key="signout"
-        replace={false}
-        strict={false}
         to="/signout"
       >
         <NavItem
@@ -400,12 +380,8 @@ exports[`with websocket disconnected, authenticated 1`] = `
           />
            Odhlášení
         </NavItem>
-      </LinkContainer>
-      <LinkContainer
-        activeClassName="active"
-        exact={false}
-        replace={false}
-        strict={false}
+      </withRouter(LinkContainer)>
+      <withRouter(LinkContainer)
         to="/about"
       >
         <NavItem
@@ -419,7 +395,7 @@ exports[`with websocket disconnected, authenticated 1`] = `
           />
            O aplikaci
         </NavItem>
-      </LinkContainer>
+      </withRouter(LinkContainer)>
     </Nav>
   </Uncontrolled(Navbar)>
   <main>
