@@ -7,7 +7,12 @@ import wsAPI from 'ui-common/store/wsAPI';
 import { TIMESYNC } from './TimesyncActions';
 import TimesyncContainer from './TimesyncContainer';
 
-const successfulResponse = { code: 'ok' };
+const successfulResponse = {
+  code: 'ok',
+  response: { now: '2019-16-07T00:00:23.132Z', serverTime: '2019-16-07T00:00:22.000Z' },
+  requestId: '0.9310306652587377'
+};
+
 const mockWsClient = new WsClient();
 mockWsClient.sendRequest = async () => successfulResponse;
 
@@ -32,12 +37,23 @@ it('maps onStart to dispatch TIMESYNC_START action', async () => {
   await wrapper.props().onStart();
 
   const actions = store.getActions();
-  expect(actions).toHaveLength(2);
+  expect(actions).toHaveLength(3);
   expect(actions[0]).toEqual({ type: 'TIMESYNC_START' });
   expect(actions[1]).toEqual({
     type: `${TIMESYNC}_REQUEST`,
     request: { clientTime: expect.any(String) },
     receivedAt: expect.any(Number)
+  });
+  expect(actions[2]).toEqual({
+    type: `${TIMESYNC}_SUCCESS`,
+    request: { clientTime: expect.any(String) },
+    response: {
+      code: 'ok',
+      now: expect.any(String),
+      serverTime: expect.any(String)
+    },
+    receivedAt: expect.any(Number),
+    title: 'synchronizace času'
   });
 });
 
