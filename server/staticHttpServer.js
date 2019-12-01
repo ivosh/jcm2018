@@ -73,7 +73,7 @@ const streamFile = async ({ filename, host, response }) => {
   const workboxSrc = 'https://storage.googleapis.com/workbox-cdn/';
   const inlineRuntimeScript = 'sha256-5As4+3YpY62+l38PsxCEkjB1R4YtyktBtRScTJ3fyLU=';
   const inlineStyles =
-    "'sha256-/zy+dOBqUDw6PYwgNqu6Puhrs275njSeyyQGuL2MRR4=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='";
+    "'sha256-/zy+dOBqUDw6PYwgNqu6Puhrs275njSeyyQGuL2MRR4=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-deDIoPlRijnpfbTDYsK+8JmDfUBmpwpnb0L/SUV8NeU='";
   response.writeHead(200, {
     'Content-Type': contentType,
     'Content-Length': stats.size,
