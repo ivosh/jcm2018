@@ -9,6 +9,8 @@ import moment from 'moment';
 
 export const PORT_DEV_CLIENT = 3000;
 export const PORT_DEV_SERVER = 4000;
+export const PORT_DEV_PUPPETEER_CLIENT = 5002;
+export const PORT_DEV_PUPPETEER_SERVER = 5001;
 export const PLATBA_TYPY = ['hotově', 'převodem', 'složenkou'];
 export const UCASTI_NA_POHAR = 5;
 

@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
 
-const URL = 'http://localhost:5000';
+const URL = 'http://localhost:5002';
 
 let browser;
 beforeAll(async () => {

@@ -1,9 +1,23 @@
 import WebSocketAsPromised from 'websocket-as-promised';
 import Channel from 'chnl';
-import { PORT_DEV_CLIENT, PORT_DEV_SERVER } from './common';
+import {
+  PORT_DEV_CLIENT,
+  PORT_DEV_PUPPETEER_CLIENT,
+  PORT_DEV_PUPPETEER_SERVER,
+  PORT_DEV_SERVER
+} from './common';
 
 const WEBSOCKET_RECONNECT_INTERVAL = 2 * 1000; // 2 seconds
 const WEBSOCKET_REQUEST_TIMEOUT = 20 * 1000; // 20 seconds
+
+const choosePort = ({ portFromCaller, portFromLocation }) => {
+  const ports = {
+    [PORT_DEV_CLIENT]: PORT_DEV_SERVER,
+    [PORT_DEV_PUPPETEER_CLIENT]: PORT_DEV_PUPPETEER_SERVER
+  };
+
+  return portFromCaller ? portFromCaller : ports[portFromLocation] || portFromLocation;
+};
 
 /**
  * Usage:
@@ -15,7 +29,7 @@ const WEBSOCKET_REQUEST_TIMEOUT = 20 * 1000; // 20 seconds
 class WsClient {
   constructor({
     url,
-    port: portArg,
+    port: portFromCaller,
     reconnectInterval = WEBSOCKET_RECONNECT_INTERVAL,
     requestTimeout = WEBSOCKET_REQUEST_TIMEOUT,
     onBroadcast,
@@ -27,12 +41,8 @@ class WsClient {
     } else {
       const hostname = (window && window.location && window.location.hostname) || 'localhost';
       const port = parseInt((window && window.location && window.location.port) || '80', 10);
-      if (hostname === 'localhost') {
-        const wsPort = portArg || (port === PORT_DEV_CLIENT ? PORT_DEV_SERVER : port);
-        this.url = `ws://${hostname}:${wsPort}/`;
-      } else {
-        this.url = `wss://${hostname}/`;
-      }
+      let wsPort = choosePort({ portFromCaller, portFromLocation: port });
+      this.url = hostname === 'localhost' ? `ws://${hostname}:${wsPort}/` : `wss://${hostname}/`;
     }
     this.reconnectInterval = reconnectInterval;
     this.requestTimeout = requestTimeout;
