@@ -2,7 +2,8 @@
 
 /* Get emails for distribution from the DB.
    Usage:
-       LOG_LEVEL=debug NODE_ENV={development,test,production} node ./server/getEmailsForDistribution 2019
+       LOG_LEVEL=debug NODE_ENV={development,test,production} \
+           node ./server/getEmailsForDistribution 2020
 
    Send via Gmail UI, 100 Bcc per message.
 */

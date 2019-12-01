@@ -61,7 +61,7 @@ const createWsServer = ({ httpServer, processMessage = processMessageAPI, reques
     }
 
     try {
-      const connection = wsRequest.accept('jcm2019', wsRequest.origin);
+      const connection = wsRequest.accept('jcm2020', wsRequest.origin);
       logger.info(
         `Connection from '${remoteSocketEndpoint(wsRequest.socket)}' and origin '${
           wsRequest.origin

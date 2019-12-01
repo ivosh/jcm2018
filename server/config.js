@@ -34,9 +34,9 @@ if (env === 'production') {
   };
   config.jwt.secret = process.env.JWT_SECRET;
 } else if (env === 'test') {
-  config.db.uri = 'mongodb://localhost/jcm2019-test';
+  config.db.uri = 'mongodb://localhost/jcm2020-test';
 } else {
-  config.db.uri = 'mongodb://localhost/jcm2019-dev';
+  config.db.uri = 'mongodb://localhost/jcm2020-dev';
 }
 
 module.exports = config;

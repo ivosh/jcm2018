@@ -16,7 +16,7 @@ const choosePort = ({ portFromCaller, portFromLocation }) => {
     [PORT_DEV_PUPPETEER_CLIENT]: PORT_DEV_PUPPETEER_SERVER
   };
 
-  return portFromCaller ? portFromCaller : ports[portFromLocation] || portFromLocation;
+  return portFromCaller || (ports[portFromLocation] || portFromLocation);
 };
 
 /**
@@ -41,7 +41,7 @@ class WsClient {
     } else {
       const hostname = (window && window.location && window.location.hostname) || 'localhost';
       const port = parseInt((window && window.location && window.location.port) || '80', 10);
-      let wsPort = choosePort({ portFromCaller, portFromLocation: port });
+      const wsPort = choosePort({ portFromCaller, portFromLocation: port });
       this.url = hostname === 'localhost' ? `ws://${hostname}:${wsPort}/` : `wss://${hostname}/`;
     }
     this.reconnectInterval = reconnectInterval;
@@ -54,7 +54,7 @@ class WsClient {
 
   connectPrivate = async request => {
     const ws = new WebSocketAsPromised(this.url, {
-      createWebSocket: () => new WebSocket(this.url, 'jcm2019'),
+      createWebSocket: () => new WebSocket(this.url, 'jcm2020'),
       packMessage: data => JSON.stringify(data),
       unpackMessage: message => JSON.parse(message),
       attachRequestId: (data, requestId) => ({ ...data, requestId }),

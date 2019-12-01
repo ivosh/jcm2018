@@ -8,5 +8,5 @@
 
 # Jirkovský crossmarathon
 
-Nová implementace systému pro správu účastníků a výsledků pro rok 2019.
-Dostupná online na [jcm2019.herokuapp.com](https://jcm2019.herokuapp.com/).
+Nová implementace systému pro správu účastníků a výsledků pro rok 2020.
+Dostupná online na [jcm2020.herokuapp.com](https://jcm2020.herokuapp.com/).
