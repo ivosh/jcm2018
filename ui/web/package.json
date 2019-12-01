@@ -91,6 +91,9 @@
     "moduleNameMapper": {
       "ui-common/(.*)": "<rootDir>/../mobile/src/ui-common/$1"
     },
+    "modulePathIgnorePatterns": [
+      "<rootDir>/src/end-to-end"
+    ],
     "roots": [
       "<rootDir>",
       "<rootDir>/../mobile/src/ui-common"
