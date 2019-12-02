@@ -233,8 +233,8 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
       },
       startCislo: 17,
       kod: '10728864',
-      zaplaceno: 250,
-      predepsano: 250,
+      zaplaceno: 350,
+      predepsano: 350,
       nejakaPoznamka: false
     },
     {
@@ -264,7 +264,7 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
       narozeni: { den: 25, mesic: 7, rok: 2001 },
       obec: 'Velhartice',
       email: 'pul.ka@s.cz',
-      datum: new Date('2019-05-12T00:00:00.000Z'),
+      datum: new Date('2020-05-12T00:00:00.000Z'),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
@@ -274,7 +274,7 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
       startCislo: 8,
       kod: 'abc023skd204mvs345',
       zaplaceno: 0,
-      predepsano: 250,
+      predepsano: 350,
       nejakaPoznamka: false
     },
     {
@@ -284,7 +284,7 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
       narozeni: { den: 25, mesic: 7, rok: 2001 },
       obec: 'Králův Dvůr',
       email: '',
-      datum: new Date('2019-05-17T00:00:00.000Z'),
+      datum: new Date('2020-05-17T00:00:00.000Z'),
       kategorie: {
         id: '5a587e1a051c181132cf83b8',
         typ: 'maraton',
@@ -293,8 +293,8 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
       },
       startCislo: 15,
       kod: 'rcc023skd204mvs345',
-      zaplaceno: 200,
-      predepsano: 200,
+      zaplaceno: 250,
+      predepsano: 250,
       nejakaPoznamka: false
     },
     {
@@ -304,7 +304,7 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
-      datum: new Date('2019-05-12T00:00:00.000Z'),
+      datum: new Date('2020-05-12T00:00:00.000Z'),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
@@ -314,7 +314,7 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
-      predepsano: 250,
+      predepsano: 350,
       nejakaPoznamka: true
     }
   ];
@@ -349,7 +349,7 @@ it('getPrihlaseniSorted() filtrováno na z', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
-      datum: new Date('2019-05-12T00:00:00.000Z'),
+      datum: new Date('2020-05-12T00:00:00.000Z'),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
@@ -359,7 +359,7 @@ it('getPrihlaseniSorted() filtrováno na z', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
-      predepsano: 250,
+      predepsano: 350,
       nejakaPoznamka: true
     }
   ];
@@ -403,8 +403,8 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       },
       startCislo: 17,
       kod: '10728864',
-      zaplaceno: 250,
-      predepsano: 250,
+      zaplaceno: 350,
+      predepsano: 350,
       nejakaPoznamka: false
     },
     {
@@ -434,7 +434,7 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       narozeni: { den: 25, mesic: 7, rok: 2001 },
       obec: 'Velhartice',
       email: 'pul.ka@s.cz',
-      datum: new Date('2019-05-12T00:00:00.000Z'),
+      datum: new Date('2020-05-12T00:00:00.000Z'),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
@@ -444,7 +444,7 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       startCislo: 8,
       kod: 'abc023skd204mvs345',
       zaplaceno: 0,
-      predepsano: 250,
+      predepsano: 350,
       nejakaPoznamka: false
     },
     {
@@ -454,7 +454,7 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
-      datum: new Date('2019-05-12T00:00:00.000Z'),
+      datum: new Date('2020-05-12T00:00:00.000Z'),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
@@ -464,7 +464,7 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
-      predepsano: 250,
+      predepsano: 350,
       nejakaPoznamka: true
     }
   ];
@@ -499,7 +499,7 @@ it('getPrihlaseniSorted() by default - jen prihlášeni', () => {
       narozeni: { den: 25, mesic: 7, rok: 2001 },
       obec: 'Velhartice',
       email: 'pul.ka@s.cz',
-      datum: new Date('2019-05-12T00:00:00.000Z'),
+      datum: new Date('2020-05-12T00:00:00.000Z'),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
@@ -509,7 +509,7 @@ it('getPrihlaseniSorted() by default - jen prihlášeni', () => {
       startCislo: 8,
       kod: 'abc023skd204mvs345',
       zaplaceno: 0,
-      predepsano: 250,
+      predepsano: 350,
       nejakaPoznamka: false
     },
     {
@@ -519,7 +519,7 @@ it('getPrihlaseniSorted() by default - jen prihlášeni', () => {
       narozeni: { den: 25, mesic: 7, rok: 2001 },
       obec: 'Králův Dvůr',
       email: '',
-      datum: new Date('2019-05-17T00:00:00.000Z'),
+      datum: new Date('2020-05-17T00:00:00.000Z'),
       kategorie: {
         id: '5a587e1a051c181132cf83b8',
         typ: 'maraton',
@@ -528,8 +528,8 @@ it('getPrihlaseniSorted() by default - jen prihlášeni', () => {
       },
       startCislo: 15,
       kod: 'rcc023skd204mvs345',
-      zaplaceno: 200,
-      predepsano: 200,
+      zaplaceno: 250,
+      predepsano: 250,
       nejakaPoznamka: false
     },
     {
@@ -539,7 +539,7 @@ it('getPrihlaseniSorted() by default - jen prihlášeni', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
-      datum: new Date('2019-05-12T00:00:00.000Z'),
+      datum: new Date('2020-05-12T00:00:00.000Z'),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
@@ -549,7 +549,7 @@ it('getPrihlaseniSorted() by default - jen prihlášeni', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
-      predepsano: 250,
+      predepsano: 350,
       nejakaPoznamka: true
     }
   ];
@@ -593,8 +593,8 @@ it('getPrihlaseniSorted() by default - jen dohlášeni', () => {
       },
       startCislo: 17,
       kod: '10728864',
-      zaplaceno: 250,
-      predepsano: 250,
+      zaplaceno: 350,
+      predepsano: 350,
       nejakaPoznamka: false
     },
     {
@@ -624,7 +624,7 @@ it('getPrihlaseniSorted() by default - jen dohlášeni', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
-      datum: new Date('2019-05-12T00:00:00.000Z'),
+      datum: new Date('2020-05-12T00:00:00.000Z'),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
@@ -634,7 +634,7 @@ it('getPrihlaseniSorted() by default - jen dohlášeni', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
-      predepsano: 250,
+      predepsano: 350,
       nejakaPoznamka: true
     }
   ];
@@ -669,7 +669,7 @@ it('getPrihlaseniSorted() by default - jen přihlášeni i dohlášeni', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
-      datum: new Date('2019-05-12T00:00:00.000Z'),
+      datum: new Date('2020-05-12T00:00:00.000Z'),
       kategorie: {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
@@ -679,7 +679,7 @@ it('getPrihlaseniSorted() by default - jen přihlášeni i dohlášeni', () => {
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
-      predepsano: 250,
+      predepsano: 350,
       nejakaPoznamka: true
     }
   ];

@@ -1,4 +1,4 @@
-export const AKTUALNI_DATUM_KONANI = '2019-06-08T00:00:00.000Z';
+export const AKTUALNI_DATUM_KONANI = '2020-06-06T00:00:00.000Z';
 
 // Reflects state.entities after normalization.
 const state = {
@@ -248,7 +248,8 @@ const state = {
         2016,
         2017,
         2018,
-        2019
+        2019,
+        2020
       ],
       byRoky: {
         2001: {
@@ -2665,8 +2666,232 @@ const state = {
               startovne: { predem: 30, naMiste: 30 }
             }
           },
-          datum: AKTUALNI_DATUM_KONANI,
+          datum: '2019-06-08T00:00:00.000Z',
           uzaverka: { prihlasek: '2019-06-03', platebPrihlasek: '2019-06-05' },
+          ubytovani: { pátek: { poplatek: 50 } }
+        },
+        2020: {
+          id: '5b587e1d451e131132cf83df',
+          kategorie: {
+            maraton: {
+              muž: [
+                {
+                  id: '5a587e1a051c181132cf83b8',
+                  pohlavi: 'muž',
+                  typ: 'maraton',
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1M'
+                },
+                {
+                  id: '5a587e1a051c181132cf83ba',
+                  pohlavi: 'muž',
+                  typ: 'maraton',
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2M'
+                },
+                {
+                  id: '5a587e1a051c181132cf83bc',
+                  pohlavi: 'muž',
+                  typ: 'maraton',
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3M'
+                },
+                {
+                  id: '5a587e1b051c181132cf83d6',
+                  pohlavi: 'muž',
+                  typ: 'maraton',
+                  vek: { min: 60, max: 69 },
+                  zkratka: '4M'
+                },
+                {
+                  id: '5a587e1b051c181132cf83d8',
+                  pohlavi: 'muž',
+                  typ: 'maraton',
+                  vek: { min: 70, max: 150 },
+                  zkratka: '5M'
+                }
+              ],
+              žena: [
+                {
+                  id: '5a587e1a051c181132cf83c0',
+                  pohlavi: 'žena',
+                  typ: 'maraton',
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1Ž'
+                },
+                {
+                  id: '5a587e1a051c181132cf83c1',
+                  pohlavi: 'žena',
+                  typ: 'maraton',
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2Ž'
+                },
+                {
+                  id: '5a587e1a051c181132cf83c2',
+                  pohlavi: 'žena',
+                  typ: 'maraton',
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3Ž'
+                },
+                {
+                  id: '5a587e1a051c181132cf83ac',
+                  pohlavi: 'žena',
+                  typ: 'maraton',
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4Ž'
+                }
+              ],
+              startovne: { predem: 250, naMiste: 350 },
+              startCisla: { barva: 'cervena', rozsahy: ['1-100'] }
+            },
+            půlmaraton: {
+              muž: [
+                {
+                  id: '5a587e1b051c181132cf83d3',
+                  pohlavi: 'muž',
+                  typ: 'půlmaraton',
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1M'
+                },
+                {
+                  id: '5a587e1b051c181132cf83d4',
+                  pohlavi: 'muž',
+                  typ: 'půlmaraton',
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2M'
+                },
+                {
+                  id: '5a587e1b051c181132cf83d5',
+                  pohlavi: 'muž',
+                  typ: 'půlmaraton',
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3M'
+                },
+                {
+                  id: '5a587e1b051c181132cf83d7',
+                  pohlavi: 'muž',
+                  typ: 'půlmaraton',
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4M'
+                }
+              ],
+              žena: [
+                {
+                  id: '5a587e1b051c181132cf83d9',
+                  pohlavi: 'žena',
+                  typ: 'půlmaraton',
+                  vek: { min: 18, max: 39 },
+                  zkratka: '1Ž'
+                },
+                {
+                  id: '5a587e1b051c181132cf83da',
+                  pohlavi: 'žena',
+                  typ: 'půlmaraton',
+                  vek: { min: 40, max: 49 },
+                  zkratka: '2Ž'
+                },
+                {
+                  id: '5a587e1b051c181132cf83db',
+                  pohlavi: 'žena',
+                  typ: 'půlmaraton',
+                  vek: { min: 50, max: 59 },
+                  zkratka: '3Ž'
+                },
+                {
+                  id: '5a587e1b051c181132cf83dd',
+                  pohlavi: 'žena',
+                  typ: 'půlmaraton',
+                  vek: { min: 60, max: 150 },
+                  zkratka: '4Ž'
+                }
+              ],
+              startovne: { predem: 250, naMiste: 350 },
+              startCisla: { barva: 'cerna', rozsahy: ['1-100'] }
+            },
+            cyklo: {
+              id: '5a587e1b051c181132cf83c8',
+              typ: 'cyklo',
+              vek: { min: 16, max: 17, presne: true },
+              muž: [
+                {
+                  id: '5a587e1a051c181132cf83b3',
+                  pohlavi: 'muž',
+                  typ: 'cyklo',
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1M'
+                },
+                {
+                  id: '5a587e1a051c181132cf83b9',
+                  pohlavi: 'muž',
+                  typ: 'cyklo',
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2M'
+                },
+                {
+                  id: '5a587e1a051c181132cf83bb',
+                  pohlavi: 'muž',
+                  typ: 'cyklo',
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3M'
+                }
+              ],
+              žena: [
+                {
+                  id: '5a587e1a051c181132cf83b5',
+                  pohlavi: 'žena',
+                  typ: 'cyklo',
+                  vek: { min: 18, max: 35 },
+                  zkratka: '1Ž'
+                },
+                {
+                  id: '5a587e1a051c181132cf83bd',
+                  pohlavi: 'žena',
+                  typ: 'cyklo',
+                  vek: { min: 36, max: 45 },
+                  zkratka: '2Ž'
+                },
+                {
+                  id: '5a587e1a051c181132cf83bf',
+                  pohlavi: 'žena',
+                  typ: 'cyklo',
+                  vek: { min: 46, max: 150 },
+                  zkratka: '3Ž'
+                }
+              ],
+              startovne: { predem: 250, naMiste: 350, zaloha: 20 },
+              startCisla: { rozsahy: ['1-150'] }
+            },
+            koloběžka: {
+              muž: [
+                {
+                  id: '5a587e1b051c181132cf83cf',
+                  pohlavi: 'muž',
+                  typ: 'koloběžka',
+                  vek: { min: 18, max: 150 },
+                  zkratka: '1M'
+                }
+              ],
+              žena: [
+                {
+                  id: '5a587e1b051c181132cf83d0',
+                  pohlavi: 'žena',
+                  typ: 'koloběžka',
+                  vek: { min: 18, max: 150 },
+                  zkratka: '1Ž'
+                }
+              ],
+              startovne: { predem: 250, naMiste: 350 },
+              startCisla: { rozsahy: ['100-90'] }
+            },
+            pěší: {
+              id: '5a587e1a051c181132cf83b1',
+              typ: 'pěší',
+              zkratka: 'P',
+              startovne: { predem: 30, naMiste: 30 }
+            }
+          },
+          datum: '2020-06-06T00:00:00.000Z',
+          uzaverka: { prihlasek: '2020-05-31', platebPrihlasek: '2020-06-03' },
           ubytovani: { pátek: { poplatek: 50 } }
         }
       }
@@ -2804,7 +3029,30 @@ const state = {
           }
         },
         '5a09b1fd371dec1e99b7e1c9': {
-          roky: [2019, 2018, 2017],
+          roky: [2020, 2019, 2018, 2017],
+          2020: {
+            udaje: {
+              prijmeni: 'Balabák',
+              jmeno: 'Roman',
+              narozeni: { rok: 1956 },
+              pohlavi: 'muž',
+              obec: 'Ostrava 2',
+              stat: 'Česká republika'
+            },
+            platby: [{ castka: 350, datum: AKTUALNI_DATUM_KONANI, typ: 'hotově' }],
+            prihlaska: {
+              datum: AKTUALNI_DATUM_KONANI,
+              kategorie: '5a587e1b051c181132cf83d7', // půlmaraton
+              startCislo: 17,
+              kod: '10728864'
+            },
+            vykon: {
+              kategorie: '5a587e1b051c181132cf83d7', // půlmaraton
+              startCislo: 15,
+              dokonceno: false
+            },
+            ubytovani: { pátek: { prihlaseno: true, prespano: true } }
+          },
           2019: {
             udaje: {
               prijmeni: 'Balabák',
@@ -2816,7 +3064,7 @@ const state = {
             },
             platby: [{ castka: 250, datum: AKTUALNI_DATUM_KONANI, typ: 'hotově' }],
             prihlaska: {
-              datum: AKTUALNI_DATUM_KONANI,
+              datum: '2019-06-08T00:00:00.000Z',
               kategorie: '5a587e1b051c181132cf83d7', // půlmaraton
               startCislo: 17,
               kod: '10728864'
@@ -2874,7 +3122,38 @@ const state = {
           }
         },
         '7a09b1fd371dec1e99b7e142': {
-          roky: [2019, 2018],
+          roky: [2020, 2019, 2018],
+          2020: {
+            udaje: {
+              prijmeni: 'Zralá',
+              jmeno: 'Hana',
+              narozeni: { rok: 1999, mesic: 7, den: 25 },
+              pohlavi: 'žena',
+              obec: 'Bučovice',
+              psc: '654 21',
+              stat: 'Česká republika',
+              klub: 'SK Nudle',
+              email: 'zrala.kl@s.cz'
+            },
+            platby: [
+              { castka: 100, datum: '2020-05-13T00:00:00.000Z', typ: 'převodem' },
+              { castka: 80, datum: AKTUALNI_DATUM_KONANI, typ: 'hotově' }
+            ],
+            prihlaska: {
+              datum: '2020-05-12T00:00:00.000Z',
+              kategorie: '5a587e1b051c181132cf83d9', // půlmaraton
+              startCislo: 10,
+              kod: 'abc023skd204mvs345'
+            },
+            vykon: {
+              kategorie: '5a587e1b051c181132cf83d9', // půlmaraton
+              startCislo: 11,
+              dokonceno: true,
+              cas: 'PT2H06M32.6S'
+            },
+            ubytovani: { pátek: { prihlaseno: true } },
+            poznamky: [{ datum: '2020-05-12T00:00:00.000Z', text: 'přihlášena zraněná' }]
+          },
           2019: {
             udaje: {
               prijmeni: 'Zralá',
@@ -2889,7 +3168,7 @@ const state = {
             },
             platby: [
               { castka: 100, datum: '2019-05-13T00:00:00.000Z', typ: 'převodem' },
-              { castka: 80, datum: AKTUALNI_DATUM_KONANI, typ: 'hotově' }
+              { castka: 80, datum: '2019-06-08T00:00:00.000Z', typ: 'hotově' }
             ],
             prihlaska: {
               datum: '2019-05-12T00:00:00.000Z',
@@ -2938,8 +3217,8 @@ const state = {
           }
         },
         '8344bc71dec1e99b7e1d01e': {
-          roky: [2019, 2018],
-          2019: {
+          roky: [2020, 2019, 2018],
+          2020: {
             udaje: {
               prijmeni: 'Kyselová',
               jmeno: 'Slavěna',
@@ -2959,7 +3238,33 @@ const state = {
               { datum: AKTUALNI_DATUM_KONANI, text: 'přihlášena na startu' },
               { datum: AKTUALNI_DATUM_KONANI, text: 'poběží s vodičem' },
               {
-                datum: '2019-05-21T08:53:49.154Z',
+                datum: '2020-05-21T08:53:49.154Z',
+                text:
+                  'jedna moc super dlouhá poznámka\r\nkterá pokračuje na dalších a dalších\r\nřádcích dle libosti\r\naž do nekonečna'
+              }
+            ]
+          },
+          2019: {
+            udaje: {
+              prijmeni: 'Kyselová',
+              jmeno: 'Slavěna',
+              narozeni: { den: 13, mesic: 8, rok: 2001 },
+              obec: 'Aš',
+              email: 'sks@por.cz'
+            },
+            platby: [],
+            prihlaska: {
+              datum: '2019-06-08T00:00:00.000Z',
+              kategorie: '5a587e1b051c181132cf83d9', // půlmaraton
+              startCislo: 15,
+              kod: '0234jsdj0jdaklsd',
+              startovnePoSleve: 0
+            },
+            poznamky: [
+              { datum: '2019-06-08T00:00:00.000Z', text: 'přihlášena na startu' },
+              { datum: '2019-06-08T00:00:00.000Z', text: 'poběží s vodičem' },
+              {
+                datum: '2020-05-21T08:53:49.154Z',
                 text:
                   'jedna moc super dlouhá poznámka\r\nkterá pokračuje na dalších a dalších\r\nřádcích dle libosti\r\naž do nekonečna'
               }
@@ -2984,7 +3289,7 @@ const state = {
           }
         },
         '9ccbc71dedc1e99b7e1d671': {
-          roky: [2019],
+          roky: [2020, 2019],
           2019: {
             udaje: {
               prijmeni: 'Půlmaratonka',
@@ -3010,10 +3315,54 @@ const state = {
               dokonceno: true,
               cas: 'PT3H15M32.6S'
             }
+          },
+          2020: {
+            udaje: {
+              prijmeni: 'Půlmaratonka',
+              jmeno: 'Božena',
+              narozeni: { rok: 2001, mesic: 7, den: 25 },
+              pohlavi: 'žena',
+              obec: 'Velhartice',
+              psc: '354 21',
+              stat: 'Česká republika',
+              klub: 'Bor',
+              email: 'pul.ka@s.cz'
+            },
+            prihlaska: {
+              datum: '2020-05-12T00:00:00.000Z',
+              kategorie: '5a587e1b051c181132cf83d9', // půlmaraton
+              startCislo: 8,
+              kod: 'abc023skd204mvs345'
+            },
+            platby: [],
+            vykon: {
+              kategorie: '5a587e1b051c181132cf83d9', // půlmaraton
+              startCislo: 8,
+              dokonceno: true,
+              cas: 'PT3H15M32.6S'
+            }
           }
         },
         f5c88400190a4bed88c76736: {
-          roky: [2019, 2018, 2017, 2015, 2014],
+          roky: [2020, 2019, 2018, 2017, 2015, 2014],
+          2020: {
+            udaje: {
+              prijmeni: 'Smalt',
+              jmeno: 'Josef',
+              narozeni: { rok: 2001, mesic: 7, den: 25 },
+              pohlavi: 'muž',
+              obec: 'Králův Dvůr',
+              psc: '735 97',
+              stat: 'Česká republika'
+            },
+            platby: [{ castka: 250, datum: '2020-05-13T00:00:00.000Z', typ: 'převodem' }],
+            prihlaska: {
+              datum: '2020-05-17T00:00:00.000Z',
+              kategorie: '5a587e1a051c181132cf83b8', // maraton
+              startCislo: 15,
+              kod: 'rcc023skd204mvs345'
+            }
+          },
           2019: {
             udaje: {
               prijmeni: 'Smalt',

@@ -4,76 +4,8 @@ exports[`maps state and dispatch to props 1`] = `
 Object {
   "polozky": Array [
     Object {
-      "castka": 200,
-      "duvod": "předem",
-    },
-    Object {
-      "castka": 20,
-      "duvod": "záloha",
-    },
-  ],
-  "suma": 220,
-}
-`;
-
-exports[`maps state and dispatch to props 2`] = `
-Object {
-  "platby": Array [
-    Object {
-      "castka": 200,
-      "datum": "1. 5. 2018",
-      "onRemove": [Function],
-      "poznamka": "stále visí",
-      "typ": "převodem",
-    },
-    Object {
-      "castka": 20,
-      "datum": "9. 6. 2018",
-      "onRemove": [Function],
-      "typ": "hotově",
-    },
-  ],
-  "suma": 220,
-}
-`;
-
-exports[`nastav novaPlatbaMinified pokud provedeno < předepsáno 1`] = `
-Object {
-  "polozky": Array [
-    Object {
-      "castka": 200,
-      "duvod": "předem",
-    },
-    Object {
-      "castka": 20,
-      "duvod": "záloha",
-    },
-  ],
-  "suma": 220,
-}
-`;
-
-exports[`nastav novaPlatbaMinified pokud provedeno < předepsáno 2`] = `
-Object {
-  "platby": Array [
-    Object {
-      "castka": 200,
-      "datum": "1. 5. 2018",
-      "onRemove": [Function],
-      "poznamka": "stále visí",
-      "typ": "převodem",
-    },
-  ],
-  "suma": 200,
-}
-`;
-
-exports[`prihlasky - předepsané startovné předem 1`] = `
-Object {
-  "polozky": Array [
-    Object {
       "castka": 250,
-      "duvod": "na místě (žádná platba)",
+      "duvod": "předem",
     },
     Object {
       "castka": 20,
@@ -81,6 +13,74 @@ Object {
     },
   ],
   "suma": 270,
+}
+`;
+
+exports[`maps state and dispatch to props 2`] = `
+Object {
+  "platby": Array [
+    Object {
+      "castka": 250,
+      "datum": "1. 5. 2020",
+      "onRemove": [Function],
+      "poznamka": "stále visí",
+      "typ": "převodem",
+    },
+    Object {
+      "castka": 20,
+      "datum": "6. 6. 2020",
+      "onRemove": [Function],
+      "typ": "hotově",
+    },
+  ],
+  "suma": 270,
+}
+`;
+
+exports[`nastav novaPlatbaMinified pokud provedeno < předepsáno 1`] = `
+Object {
+  "polozky": Array [
+    Object {
+      "castka": 250,
+      "duvod": "předem",
+    },
+    Object {
+      "castka": 20,
+      "duvod": "záloha",
+    },
+  ],
+  "suma": 270,
+}
+`;
+
+exports[`nastav novaPlatbaMinified pokud provedeno < předepsáno 2`] = `
+Object {
+  "platby": Array [
+    Object {
+      "castka": 250,
+      "datum": "1. 5. 2020",
+      "onRemove": [Function],
+      "poznamka": "stále visí",
+      "typ": "převodem",
+    },
+  ],
+  "suma": 250,
+}
+`;
+
+exports[`prihlasky - předepsané startovné předem 1`] = `
+Object {
+  "polozky": Array [
+    Object {
+      "castka": 350,
+      "duvod": "na místě (žádná platba)",
+    },
+    Object {
+      "castka": 20,
+      "duvod": "záloha",
+    },
+  ],
+  "suma": 370,
 }
 `;
 

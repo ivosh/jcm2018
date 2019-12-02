@@ -231,27 +231,15 @@ Array [
   },
   Object {
     "active": false,
-    "id": "5a587e1b051c181132cf83dc",
-    "onClick": [Function],
-    "pohlavi": "žena",
-    "typ": "maraton",
-    "vek": Object {
-      "max": 69,
-      "min": 60,
-    },
-    "zkratka": "4Ž",
-  },
-  Object {
-    "active": false,
-    "id": "5a587e1b051c181132cf83de",
+    "id": "5a587e1a051c181132cf83ac",
     "onClick": [Function],
     "pohlavi": "žena",
     "typ": "maraton",
     "vek": Object {
       "max": 150,
-      "min": 70,
+      "min": 60,
     },
-    "zkratka": "5Ž",
+    "zkratka": "4Ž",
   },
 ]
 `;

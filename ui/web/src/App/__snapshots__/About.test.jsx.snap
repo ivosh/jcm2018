@@ -8,7 +8,7 @@ exports[`it renders 1`] = `
     bsClass="panel"
     bsStyle="info"
     defaultExpanded={false}
-    header="Jirkovský crossmarathon 2019"
+    header="Jirkovský crossmarathon 2020"
   >
     <div
       className="About_row"
@@ -27,7 +27,7 @@ exports[`it renders 1`] = `
           glyph="star"
         />
         Jirkovský crossmarathon 
-        2019
+        2020
          
         <Glyphicon
           bsClass="glyphicon"

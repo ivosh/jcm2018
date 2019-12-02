@@ -171,7 +171,7 @@ it('getUbytovaniSorted() by default', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       obec: 'Bučovice',
       email: 'zrala.kl@s.cz',
-      datum: new Date('2019-05-12'),
+      datum: new Date('2020-05-12'),
       prihlaseno: true,
       akce: {
         loading: true,

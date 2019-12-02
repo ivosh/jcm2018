@@ -190,8 +190,8 @@ it('addPoznamka - success()', () => {
   deepFreeze(stateBefore);
   const id = '8344bc71dec1e99b7e1d01e';
   const poznamky = [
-    { datum: '2019-05-21T08:53:49.154Z', text: 'jedna poznámka' },
-    { datum: '2019-06-01T15:35:43.543Z', text: 'druhá poznámka' }
+    { datum: '2020-05-21T08:53:49.154Z', text: 'jedna poznámka' },
+    { datum: '2020-06-01T15:35:43.543Z', text: 'druhá poznámka' }
   ];
 
   expect(
@@ -209,7 +209,7 @@ it('deletePoznamka - success()', () => {
   const stateBefore = { ...ucastniciTestData.entities.ucastnici };
   deepFreeze(stateBefore);
   const id = '8344bc71dec1e99b7e1d01e';
-  const poznamky = [{ datum: '2019-06-01T15:35:43.543Z', text: 'druhá poznámka' }];
+  const poznamky = [{ datum: '2020-06-01T15:35:43.543Z', text: 'druhá poznámka' }];
 
   expect(
     ucastniciReducer(
@@ -227,8 +227,8 @@ it('modifyPoznamka - success()', () => {
   deepFreeze(stateBefore);
   const id = '8344bc71dec1e99b7e1d01e';
   const poznamky = [
-    { datum: '2019-05-21T08:53:49.154Z', text: 'první poznámka' },
-    { datum: '2019-06-01T15:35:43.543Z', text: 'druhá poznámka' }
+    { datum: '2020-05-21T08:53:49.154Z', text: 'první poznámka' },
+    { datum: '2020-06-01T15:35:43.543Z', text: 'druhá poznámka' }
   ];
 
   expect(
@@ -283,14 +283,14 @@ it('prihlaskySave() - success - stávající účastník - nový rok', () => {
   let { udaje } = ucastnik[2016];
   udaje = { ...udaje, klub: 'SK Nudle' };
   const prihlaska = {
-    datum: '2019-05-12T00:00:00.000Z',
+    datum: '2020-05-12T00:00:00.000Z',
     kategorie: '5a587e1b051c181132cf83db',
     typ: 'půlmaraton',
     startCislo: 15,
     kod: '===kod===',
     mladistvyPotvrzen: undefined
   };
-  const platby = [{ castka: 200, datum: '2019-05-12T00:00:00.000Z', typ: 'převodem' }];
+  const platby = [{ castka: 250, datum: '2020-05-12T00:00:00.000Z', typ: 'převodem' }];
   const ubytovani = { pátek: { prihlaseno: true } };
   const request = { rok: AKTUALNI_ROK, udaje, prihlaska, platby, ubytovani };
 
@@ -334,16 +334,16 @@ it('prihlaskySave() - success - nový účastník', () => {
     stat: 'Polsko'
   };
   const prihlaska = {
-    datum: '2018-05-12T00:00:00.000Z',
+    datum: '2020-05-12T00:00:00.000Z',
     kategorie: '5a587e1b051c181132cf83d9',
     typ: 'půlmaraton',
     startCislo: 15,
     kod: '===kod===',
     mladistvyPotvrzen: undefined
   };
-  const platby = [{ castka: 200, datum: '2019-05-12T00:00:00.000Z', typ: 'složenkou' }];
+  const platby = [{ castka: 250, datum: '2020-05-12T00:00:00.000Z', typ: 'složenkou' }];
   const ubytovani = { pátek: { prihlaseno: true, prespano: true } };
-  const poznamky = [{ datum: new Date('2019-05-12T00:00:00.000Z'), text: 'přihlášena zraněná' }];
+  const poznamky = [{ datum: new Date('2020-05-12T00:00:00.000Z'), text: 'přihlášena zraněná' }];
   const request = { rok: AKTUALNI_ROK, udaje, prihlaska, platby, ubytovani, poznamky };
 
   expect(

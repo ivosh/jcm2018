@@ -295,6 +295,98 @@ it('po načtení ročníků', () => {
           ubytovani: {
             pátek: { poplatek: 50 }
           }
+        },
+        2020: {
+          id: '5a71cafd371dec1e87bde1bc',
+          datum: '2020-06-06T00:00:00.000Z',
+          uzaverka: {
+            prihlasek: '2020-05-31T00:00:00.000Z',
+            platebPrihlasek: '2020-06-03T00:00:00.000Z'
+          },
+          kategorie: {
+            maraton: {
+              startCisla: '5-95',
+              startovne: {
+                naMiste: 250,
+                predem: 200
+              },
+              žena: [
+                {
+                  id: '5a71b1fd45754c1e99b7e1bc',
+                  pohlavi: 'žena',
+                  typ: 'maraton',
+                  vek: {
+                    max: 49,
+                    min: 40
+                  },
+                  zkratka: '1Ž'
+                },
+                {
+                  id: '5a09b1fd371dec1e99b7e1c9',
+                  pohlavi: 'žena',
+                  typ: 'maraton',
+                  vek: {
+                    max: 59,
+                    min: 50
+                  },
+                  zkratka: '2Ž'
+                }
+              ]
+            },
+            pěší: {
+              id: '5a71b1fd371dec1e99b7e1bc',
+              startovne: {
+                naMiste: 25,
+                predem: 25
+              },
+              typ: 'pěší',
+              zkratka: 'P'
+            },
+            půlmaraton: {
+              muž: [
+                {
+                  id: '8799b1fd371dec1e99b7e1c9',
+                  pohlavi: 'muž',
+                  typ: 'půlmaraton',
+                  vek: {
+                    max: 59,
+                    min: 50
+                  },
+                  zkratka: '1M'
+                }
+              ],
+              startCisla: '100-199',
+              startovne: {
+                naMiste: 250,
+                predem: 200
+              },
+              žena: [
+                {
+                  id: '1609b1fd3748746e99b7e1c9',
+                  pohlavi: 'žena',
+                  typ: 'půlmaraton',
+                  vek: {
+                    max: 49,
+                    min: 40
+                  },
+                  zkratka: '1Ž'
+                },
+                {
+                  id: '3279b1fd371dec1e99b7e1c9',
+                  pohlavi: 'žena',
+                  typ: 'půlmaraton',
+                  vek: {
+                    max: 59,
+                    min: 50
+                  },
+                  zkratka: '2Ž'
+                }
+              ]
+            }
+          },
+          ubytovani: {
+            pátek: { poplatek: 50 }
+          }
         }
       }
     },
@@ -302,7 +394,7 @@ it('po načtení ročníků', () => {
   };
 
   const stateBefore = { byRoky: {}, roky: [] };
-  const stateAfter = { byRoky: { ...json.response.rocniky }, roky: [2017, 2018, 2019] };
+  const stateAfter = { byRoky: { ...json.response.rocniky }, roky: [2017, 2018, 2019, 2020] };
   deepFreeze(stateBefore);
 
   expect(

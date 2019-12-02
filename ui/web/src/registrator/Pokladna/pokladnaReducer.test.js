@@ -10,50 +10,50 @@ it('getPokladna() - ucastniciTestData', () => {
   const expected = {
     total: {
       odstartovano: 3,
-      suma: 630,
+      suma: 780,
       ucastniku: 3,
       typy: {
         hotově: {
           counts: {
             80: 1,
-            250: 1
+            350: 1
           },
-          suma: 330
+          suma: 430
         },
         převodem: {
           counts: {
             100: 1,
-            200: 1
+            250: 1
           },
-          suma: 300
+          suma: 350
         }
       }
     },
     typy: {
       maraton: {
         odstartovano: 0,
-        suma: 200,
+        suma: 250,
         ucastniku: 1,
         typy: {
           převodem: {
             counts: {
-              200: 1
+              250: 1
             },
-            suma: 200
+            suma: 250
           }
         }
       },
       půlmaraton: {
         odstartovano: 3,
-        suma: 430,
+        suma: 530,
         ucastniku: 2,
         typy: {
           hotově: {
             counts: {
               80: 1,
-              250: 1
+              350: 1
             },
-            suma: 330
+            suma: 430
           },
           převodem: {
             counts: {
@@ -81,7 +81,7 @@ it('getPokladna - všechny případy', () => {
   } = ucastnici;
   ucastnici.byIds['6f09b1fd371dec1e99b7e1c9'][AKTUALNI_ROK] = staraUcast;
   ucastnici.byIds['6f09b1fd371dec1e99b7e1c9'][AKTUALNI_ROK].platby = [
-    { castka: 200, typ: 'převodem' },
+    { castka: 300, typ: 'převodem' },
     { castka: 50, typ: 'hotově' }
   ];
 
@@ -101,7 +101,7 @@ it('getPokladna - všechny případy', () => {
         kategorie: '5a587e1a051c181132cf83b3'
       },
       vykon: { kategorie: '5a587e1a051c181132cf83b3' },
-      platby: [{ castka: 270, typ: 'hotově' }]
+      platby: [{ castka: 370, typ: 'hotově' }]
     }
   };
 
@@ -109,7 +109,7 @@ it('getPokladna - všechny případy', () => {
   const expected = {
     total: {
       odstartovano: 6,
-      suma: 1150,
+      suma: 1500,
       ucastniku: 6,
       zaloha: {
         counts: {
@@ -123,31 +123,32 @@ it('getPokladna - všechny případy', () => {
             0: 1,
             80: 1,
             50: 1,
-            250: 1,
-            270: 1
+            350: 1,
+            370: 1
           },
-          suma: 650
+          suma: 850
         },
         převodem: {
           counts: {
             100: 1,
-            200: 2
+            250: 1,
+            300: 1
           },
-          suma: 500
+          suma: 650
         }
       }
     },
     typy: {
       cyklo: {
         odstartovano: 1,
-        suma: 270,
+        suma: 370,
         ucastniku: 1,
         typy: {
           hotově: {
             counts: {
-              270: 1
+              370: 1
             },
-            suma: 270
+            suma: 370
           }
         },
         zaloha: {
@@ -159,7 +160,7 @@ it('getPokladna - všechny případy', () => {
       },
       maraton: {
         odstartovano: 1,
-        suma: 450,
+        suma: 600,
         ucastniku: 2,
         typy: {
           hotově: {
@@ -170,24 +171,25 @@ it('getPokladna - všechny případy', () => {
           },
           převodem: {
             counts: {
-              200: 2
+              250: 1,
+              300: 1
             },
-            suma: 400
+            suma: 550
           }
         }
       },
       půlmaraton: {
         odstartovano: 4,
-        suma: 430,
+        suma: 530,
         ucastniku: 3,
         typy: {
           hotově: {
             counts: {
               0: 1,
               80: 1,
-              250: 1
+              350: 1
             },
-            suma: 330
+            suma: 430
           },
           převodem: {
             counts: {

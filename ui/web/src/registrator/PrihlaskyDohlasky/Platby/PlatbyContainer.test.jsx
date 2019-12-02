@@ -15,15 +15,15 @@ const state = {
       form: {
         jePrihlaskou: false,
         validatePlatba: false,
-        prihlaska: { datum: '2018-05-01T00:00:00.000Z', typ: 'cyklo' },
+        prihlaska: { datum: '2020-05-01T00:00:00.000Z', typ: 'cyklo' },
         platby: [
           {
-            castka: 200,
-            datum: '2018-05-01T00:00:00.000Z',
+            castka: 250,
+            datum: '2020-05-01T00:00:00.000Z',
             typ: 'převodem',
             poznamka: 'stále visí'
           },
-          { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
+          { castka: 20, datum: '2020-06-06T00:00:00.000Z', typ: 'hotově' }
         ]
       },
       platby: {

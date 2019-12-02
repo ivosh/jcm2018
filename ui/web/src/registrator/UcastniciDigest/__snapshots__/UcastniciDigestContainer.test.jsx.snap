@@ -18,6 +18,11 @@ Array [
       "dokonceno": false,
       "kategorie": "půlmaraton",
     },
+    "2020": Object {
+      "cas": undefined,
+      "dokonceno": false,
+      "kategorie": "půlmaraton",
+    },
     "id": "5a09b1fd371dec1e99b7e1c9",
     "jmeno": "Roman",
     "narozeni": Object {
@@ -37,6 +42,11 @@ Array [
   },
   Object {
     "2019": Object {
+      "cas": "PT3H15M32.6S",
+      "dokonceno": true,
+      "kategorie": "půlmaraton",
+    },
+    "2020": Object {
       "cas": "PT3H15M32.6S",
       "dokonceno": true,
       "kategorie": "půlmaraton",
@@ -127,6 +137,11 @@ Array [
       "kategorie": "půlmaraton",
     },
     "2019": Object {
+      "cas": "PT2H06M32.6S",
+      "dokonceno": true,
+      "kategorie": "půlmaraton",
+    },
+    "2020": Object {
       "cas": "PT2H06M32.6S",
       "dokonceno": true,
       "kategorie": "půlmaraton",

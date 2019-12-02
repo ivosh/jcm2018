@@ -4,7 +4,9 @@ import configureStore from 'redux-mock-store';
 import { API_ADD_POZNAMKA, API_DELETE_POZNAMKA, API_MODIFY_POZNAMKA } from 'ui-common/common';
 import { WS_API } from 'ui-common/store/wsAPI';
 import { AKTUALNI_ROK } from '../../constants';
-import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
+import ucastniciTestData, {
+  AKTUALNI_DATUM_KONANI
+} from '../../entities/ucastnici/ucastniciTestData';
 import { POZNAMKA_ADD, POZNAMKA_DELETE, POZNAMKA_MODIFY } from './PoznamkyActions';
 import PoznamkyContainer from './PoznamkyContainer';
 
@@ -75,7 +77,7 @@ it('maps modifyPoznamka to dispatch POZNAMKA_MODIFY action', () => {
         id: '8344bc71dec1e99b7e1d01e',
         index: 1,
         poznamka: {
-          datum: '2019-06-08T00:00:00.000Z',
+          datum: AKTUALNI_DATUM_KONANI,
           text: 'text nějaké poznámky'
         },
         rok: AKTUALNI_ROK

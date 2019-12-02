@@ -1195,7 +1195,7 @@ it('loadUcastnik() - údaje i přihláška', () => {
       telefon: '765 123 089'
     },
     prihlaska: {
-      datum: '1. 12. 2017',
+      datum: '1. 12. 2019',
       kategorie: '===k1===',
       typ: 'maraton',
       startCislo: 14,
@@ -1224,7 +1224,7 @@ it('loadUcastnik() - údaje i přihláška', () => {
       startCislo: 17,
       kod: '10728864'
     },
-    platby: [{ castka: 250, datum: AKTUALNI_DATUM_KONANI, typ: 'hotově' }],
+    platby: [{ castka: 350, datum: AKTUALNI_DATUM_KONANI, typ: 'hotově' }],
     ubytovani: { pátek: { prihlaseno: true, prespano: true } },
     poznamky: []
   };
@@ -1394,17 +1394,17 @@ it('predepsaneStartovne - cyklo - přihláška předem', () => {
       prihlasky: {
         form: {
           prihlaska: {
-            datum: '2018-05-23T00:00:00.000Z',
+            datum: '2020-05-23T00:00:00.000Z',
             typ: 'cyklo'
           },
-          platby: [{ datum: '2018-06-01T00:00:00.000Z', castka: 220 }]
+          platby: [{ datum: '2020-06-01T00:00:00.000Z', castka: 270 }]
         }
       }
     }
   };
   const selected = {
-    polozky: [{ castka: 200, duvod: 'předem' }, { castka: 20, duvod: 'záloha' }],
-    suma: 220
+    polozky: [{ castka: 250, duvod: 'předem' }, { castka: 20, duvod: 'záloha' }],
+    suma: 270
   };
   expect(predepsaneStartovne({ ...state.registrator.prihlasky.form, ...state.entities })).toEqual(
     selected
@@ -1425,7 +1425,7 @@ it('predepsaneStartovne - půlmaraton - dohláška', () => {
       }
     }
   };
-  const selected = { polozky: [{ castka: 250, duvod: 'na místě' }], suma: 250 };
+  const selected = { polozky: [{ castka: 350, duvod: 'na místě' }], suma: 350 };
   expect(predepsaneStartovne({ ...state.registrator.prihlasky.form, ...state.entities })).toEqual(
     selected
   );
