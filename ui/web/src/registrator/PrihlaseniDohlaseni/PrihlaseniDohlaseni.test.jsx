@@ -25,6 +25,7 @@ const prihlaseniDohlaseni = [
     prijmeni: 'Balabák',
     jmeno: 'Roman',
     narozeni: { rok: 1956 },
+    pohlavi: 'muž',
     obec: 'Ostrava 2',
     datum: new Date('2018-06-09T00:00:00.000Z'),
     kategorie: {
@@ -50,6 +51,7 @@ const prihlaseniDohlaseni = [
     prijmeni: 'Zralá',
     jmeno: 'Hana',
     narozeni: { den: 25, mesic: 7, rok: 1999 },
+    pohlavi: 'žena',
     obec: 'Bučovice',
     datum: new Date('2018-06-09T00:00:00.000Z'),
     kategorie: {

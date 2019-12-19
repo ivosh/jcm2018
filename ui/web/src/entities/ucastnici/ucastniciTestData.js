@@ -3223,6 +3223,7 @@ const state = {
               prijmeni: 'Kyselová',
               jmeno: 'Slavěna',
               narozeni: { den: 13, mesic: 8, rok: 2001 },
+              pohlavi: 'žena',
               obec: 'Aš',
               email: 'sks@por.cz'
             },
@@ -3249,6 +3250,7 @@ const state = {
               prijmeni: 'Kyselová',
               jmeno: 'Slavěna',
               narozeni: { den: 13, mesic: 8, rok: 2001 },
+              pohlavi: 'žena',
               obec: 'Aš',
               email: 'sks@por.cz'
             },
@@ -3275,6 +3277,7 @@ const state = {
               prijmeni: 'Kyselová',
               jmeno: 'Slavěna',
               narozeni: { den: 13, mesic: 8, rok: 2001 },
+              pohlavi: 'žena',
               obec: 'Aš',
               email: 'sks@por.cz'
             },

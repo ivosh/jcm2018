@@ -1,13 +1,7 @@
-- přihlášky - integrovat s JCM
-  - email účastníkovi a mě
-  - databáze někde bokem
-  - UI pro potvrzování a přiřazování k existujícím
 - storno týden před 50 %, po týdnu 100 %
 - kategorii výkonu, startovní číslo, dokončeno/nedokončeno a čas dostupné z přihlášky/dohlášky
 - dokončeno pro pěší
-- město/PSČ automaticky
-- formulář přihlášky - odkliknout souhlas s použitím dat
-                     - odkliknout souhlas start na vlastní nebezpečí
+- formulář přihlášky: odkliknout souhlas start na vlastní nebezpečí
 - uživatel pro Anku a půlmaraton - stage: den předem vyzkoušet
 - dohlášky - nezobrazovat ubytování
 - rozmyslet UX pro dohlášky - návaznost pro další zadávání

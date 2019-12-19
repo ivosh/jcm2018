@@ -64,7 +64,7 @@ export const getPrihlaseniDohlaseniSorted = ({
   const mapped = ucasti.map(jeden => {
     const { id, ucast } = jeden;
     const {
-      udaje: { prijmeni, jmeno, narozeni, obec, email },
+      udaje: { prijmeni, jmeno, narozeni, pohlavi, obec, email },
       prihlaska,
       platby,
       poznamky
@@ -80,6 +80,7 @@ export const getPrihlaseniDohlaseniSorted = ({
       prijmeni,
       jmeno,
       narozeni,
+      pohlavi,
       obec,
       email: email || '',
       datum: new Date(datum),

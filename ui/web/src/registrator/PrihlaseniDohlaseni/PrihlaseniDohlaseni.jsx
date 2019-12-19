@@ -37,6 +37,7 @@ const AkceMenuFormat = ({
         <EmailStartovne
           prijmeni={data[rowIndex].prijmeni}
           jmeno={data[rowIndex].jmeno}
+          pohlavi={data[rowIndex].pohlavi}
           email={data[rowIndex].email}
           kod={data[rowIndex].kod}
           predepsano={data[rowIndex].predepsano}
@@ -72,6 +73,7 @@ AkceMenuFormat.propTypes = {
     PropTypes.shape({
       prijmeni: PropTypes.string.isRequired,
       jmeno: PropTypes.string.isRequired,
+      pohlavi: PropTypes.oneOf(['muž', 'žena']).isRequired,
       email: PropTypes.string,
       kod: PropTypes.string,
       predepsano: PropTypes.number.isRequired
@@ -222,6 +224,7 @@ PrihlaseniDohlaseni.propTypes = {
         mesic: PropTypes.number,
         rok: PropTypes.number.isRequired
       }).isRequired,
+      pohlavi: PropTypes.oneOf(['muž', 'žena']).isRequired,
       obec: PropTypes.string.isRequired,
       email: PropTypes.string,
       datum: PropTypes.instanceOf(Date).isRequired,
