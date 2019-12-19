@@ -26,12 +26,7 @@ const main = async () => {
   logger.info(`Getting emails from DB: ${config.db.uri}.`);
 
   try {
-    let result;
-    try {
-      result = await Ucastnik.getEmailsForDistribution(aktualniRok);
-    } catch (err) {
-      throw err;
-    }
+    const result = await Ucastnik.getEmailsForDistribution(aktualniRok);
 
     const emails = result
       .map(({ email }) => email)
@@ -41,8 +36,6 @@ const main = async () => {
     await fs.writeFile('emails.txt', sorted.join(',\r\n'));
 
     logger.info('Completed.');
-  } catch (err) {
-    throw err;
   } finally {
     await db.disconnect();
   }

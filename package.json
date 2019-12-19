@@ -55,15 +55,15 @@
     "xml2js": "^0.4.19"
   },
   "devDependencies": {
-    "babel-eslint": "10.0.1",
+    "babel-eslint": "10.0.3",
     "codecov": "^3.2.0",
     "cross-env": "^5.2.0",
-    "eslint": "5.16.0",
+    "eslint": "6.7.2",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jasmine": "^2.10.1",
     "eslint-plugin-prettier": "^3.0.1",
-    "jest": "24.7.1",
+    "jest": "24.9.0",
     "jsonfile-updater": "^3.1.0",
     "prettier": "^1.16.4",
     "supertest": "^3.4.2"

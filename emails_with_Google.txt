@@ -1,0 +1,6 @@
+https://medium.com/@nickroach_50526/sending-emails-with-node-js-using-smtp-gmail-and-oauth2-316fe9c790a1
+Note: nodemailer requires scope https://mail.google.com/
+
+client id: 409009503675-llu2kljahh6slps7bs1jcljsfl5q59t8.apps.googleusercontent.com
+client secret: <https://console.cloud.google.com>
+refresh token: <https://developers.google.com/oauthplayground>

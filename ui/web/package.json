@@ -47,8 +47,8 @@
     "websocket-as-promised": "^0.10.1"
   },
   "devDependencies": {
-    "babel-eslint": "10.0.1",
-    "babel-jest": "^24.8.0",
+    "babel-eslint": "10.0.3",
+    "babel-jest": "24.9.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "cross-env": "^5.2.0",
     "customize-cra": "^0.2.14",
@@ -56,10 +56,10 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.3.5",
-    "eslint": "5.16.0",
+    "eslint": "^6.7.2",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-import-resolver-alias": "^1.1.2",
-    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-import": "2.18.2",
     "eslint-plugin-jasmine": "^2.10.1",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.2",
@@ -75,7 +75,7 @@
     "react-app-rewired": "^2.1.3",
     "react-dnd-test-backend": "^7.7.0",
     "react-mock-router": "^1.0.15",
-    "react-scripts": "^3.0.1",
+    "react-scripts": "3.3.0",
     "react-test-renderer": "^16.9.0-alpha.0",
     "redux-mock-store": "^1.5.3",
     "source-map-explorer": "^2.0.1"

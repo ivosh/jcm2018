@@ -19,8 +19,6 @@ const main = async () => {
   try {
     await importFromXML({ file });
     logger.info('Import completed.');
-  } catch (err) {
-    throw err;
   } finally {
     await db.disconnect();
   }

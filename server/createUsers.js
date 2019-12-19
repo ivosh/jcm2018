@@ -58,8 +58,6 @@ const main = async () => {
     );
 
     logger.info('Completed.');
-  } catch (err) {
-    throw err;
   } finally {
     await db.disconnect();
   }
