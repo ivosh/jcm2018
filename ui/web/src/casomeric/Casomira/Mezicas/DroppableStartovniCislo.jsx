@@ -24,9 +24,11 @@ class DroppableStartovniCislo extends PureComponent {
 
   render = () => {
     const { canDrop, onDrop, ...rest } = this.props;
-    const Droppable = DropTarget(DragTypes.STARTOVNI_CISLO, this.dropTarget, collect)(
-      StartovniCislo
-    );
+    const Droppable = DropTarget(
+      DragTypes.STARTOVNI_CISLO,
+      this.dropTarget,
+      collect
+    )(StartovniCislo);
     return <Droppable {...rest} />;
   };
 }

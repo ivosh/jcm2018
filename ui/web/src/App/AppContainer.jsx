@@ -11,7 +11,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  null
-)(AppDnD);
+export default connect(mapStateToProps, null)(AppDnD);

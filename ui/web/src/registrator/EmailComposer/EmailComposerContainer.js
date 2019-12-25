@@ -8,10 +8,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   ...ownProps
 });
 
-const EmailComposerContainer = connect(
-  null,
-  mapDispatchToProps
-)(EmailComposer);
+const EmailComposerContainer = connect(null, mapDispatchToProps)(EmailComposer);
 
 EmailComposerContainer.propTypes = {
   mailTo: PropTypes.string,

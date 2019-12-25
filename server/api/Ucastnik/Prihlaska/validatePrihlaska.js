@@ -73,9 +73,7 @@ const validatePrihlaska = async ({ id, rok, ucast, prihlaska, kategorie, rocniky
       const { jmeno, prijmeni } = kandidati[0].ucasti[0].udaje;
       return {
         code: Actions.CODE_DUPLICIT_START_CISLO,
-        status: `Startovní číslo ${
-          prihlaska.startCislo
-        } je již obsazené v kategorii ${typ} účastníkem: ${prijmeni} ${jmeno}`
+        status: `Startovní číslo ${prihlaska.startCislo} je již obsazené v kategorii ${typ} účastníkem: ${prijmeni} ${jmeno}`
       };
     }
   }

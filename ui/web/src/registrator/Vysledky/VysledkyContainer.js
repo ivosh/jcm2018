@@ -4,9 +4,6 @@ import Vysledky from './Vysledky';
 
 const mapStateToProps = ({ entities }) => ({ vysledky: getVysledky({ ...entities }) });
 
-const VysledkyContainer = connect(
-  mapStateToProps,
-  {}
-)(Vysledky);
+const VysledkyContainer = connect(mapStateToProps, {})(Vysledky);
 
 export default VysledkyContainer;

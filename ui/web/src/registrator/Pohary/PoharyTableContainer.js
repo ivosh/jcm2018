@@ -71,14 +71,9 @@ const mapDispatchToProps = (dispatch, { actionPrefix }) => ({
 const areStatesEqual = (next, prev) =>
   prev.entities === next.entities && prev.registrator === next.registrator;
 
-const PoharyTableContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-  null,
-  {
-    areStatesEqual
-  }
-)(PoharyTable);
+const PoharyTableContainer = connect(mapStateToProps, mapDispatchToProps, null, {
+  areStatesEqual
+})(PoharyTable);
 
 PoharyTable.propTypes = {
   actionPrefix: PropTypes.string.isRequired,

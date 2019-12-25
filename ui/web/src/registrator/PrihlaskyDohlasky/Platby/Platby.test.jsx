@@ -25,11 +25,17 @@ const state = {
 const store = mockStore(state);
 
 const predepsano270 = {
-  polozky: [{ castka: 250, duvod: 'na místě' }, { castka: 20, duvod: 'záloha' }],
+  polozky: [
+    { castka: 250, duvod: 'na místě' },
+    { castka: 20, duvod: 'záloha' }
+  ],
   suma: 270
 };
 const predepsano220 = {
-  polozky: [{ castka: 200, duvod: 'předem' }, { castka: 20, duvod: 'záloha' }],
+  polozky: [
+    { castka: 200, duvod: 'předem' },
+    { castka: 20, duvod: 'záloha' }
+  ],
   suma: 220
 };
 const provedeno220 = {

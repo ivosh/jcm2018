@@ -213,9 +213,7 @@ const processRequest = async ({ action = '', request, requestId, token, connecti
 
   const processMessageAction = actions[action] || actions.default;
   logger.debug(
-    `Dispatching request ${requestId} to action ${
-      processMessageAction.action
-    }, authentication required: ${processMessageAction.authRequired}`
+    `Dispatching request ${requestId} to action ${processMessageAction.action}, authentication required: ${processMessageAction.authRequired}`
   );
 
   if (processMessageAction.dbRequired && !db.isConnected()) {

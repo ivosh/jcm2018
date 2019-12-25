@@ -74,10 +74,6 @@ const mergeProps = (stateProps, dispatchProps) => {
   };
 };
 
-const PoradiContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-  mergeProps
-)(Poradi);
+const PoradiContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(Poradi);
 
 export default PoradiContainer;

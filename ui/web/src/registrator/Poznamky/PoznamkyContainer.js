@@ -32,11 +32,7 @@ const mergeProps = (
   ...dispatchProps
 });
 
-const PoznamkyContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-  mergeProps
-)(Poznamky);
+const PoznamkyContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(Poznamky);
 
 PoznamkyContainer.propTypes = {
   id: PropTypes.string.isRequired

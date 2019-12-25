@@ -58,7 +58,10 @@ it('predepsaneStartovne() - včasná přihláška a včasná platba (bez zálohy
   const prihlaska = { typ: 'cyklo', datum: '2020-05-31' };
   const platby = [{ castka: 250, datum: '2020-06-03', typ: 'převodem' }];
   const expected = {
-    polozky: [{ castka: 250, duvod: 'předem' }, { castka: 20, duvod: 'záloha' }],
+    polozky: [
+      { castka: 250, duvod: 'předem' },
+      { castka: 20, duvod: 'záloha' }
+    ],
     suma: 270
   };
 

@@ -4,9 +4,6 @@ import Pokladna from './Pokladna';
 
 const mapStateToProps = ({ entities }) => ({ pokladna: getPokladna({ ...entities }) });
 
-const PokladnaContainer = connect(
-  mapStateToProps,
-  {}
-)(Pokladna);
+const PokladnaContainer = connect(mapStateToProps, {})(Pokladna);
 
 export default PokladnaContainer;

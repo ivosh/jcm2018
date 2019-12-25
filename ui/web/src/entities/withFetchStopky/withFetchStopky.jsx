@@ -42,10 +42,7 @@ const withFetchStopky = WrappedComponent => {
     fetchStopky: () => dispatch(fetchStopkyAction())
   });
 
-  return connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(WithFetchStopkyComponent);
+  return connect(mapStateToProps, mapDispatchToProps)(WithFetchStopkyComponent);
 };
 
 export default withFetchStopky;

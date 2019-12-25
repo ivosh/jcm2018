@@ -42,10 +42,7 @@ const withFetchUcastnici = WrappedComponent => {
     fetchUcastnici: () => dispatch(fetchUcastniciAction())
   });
 
-  return connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(WithFetchUcastniciComponent);
+  return connect(mapStateToProps, mapDispatchToProps)(WithFetchUcastniciComponent);
 };
 
 export default withFetchUcastnici;

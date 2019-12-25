@@ -42,11 +42,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   };
 };
 
-const InputContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-  mergeProps
-)(Input);
+const InputContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(Input);
 
 InputContainer.propTypes = {
   form: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types

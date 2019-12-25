@@ -16,9 +16,6 @@ const mapDispatchToProps = dispatch => ({
   onStop: () => dispatch(timesyncStop())
 });
 
-const TimesyncContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Timesync);
+const TimesyncContainer = connect(mapStateToProps, mapDispatchToProps)(Timesync);
 
 export default TimesyncContainer;

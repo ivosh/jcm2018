@@ -20,9 +20,6 @@ const mapDispatchToProps = dispatch => ({
   onOdstartovaniChange: () => dispatch(changeOdstartovani())
 });
 
-const StartovniCislaContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(StartovniCisla);
+const StartovniCislaContainer = connect(mapStateToProps, mapDispatchToProps)(StartovniCisla);
 
 export default StartovniCislaContainer;

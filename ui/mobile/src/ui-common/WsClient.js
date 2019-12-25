@@ -16,7 +16,7 @@ const choosePort = ({ portFromCaller, portFromLocation }) => {
     [PORT_DEV_PUPPETEER_CLIENT]: PORT_DEV_PUPPETEER_SERVER
   };
 
-  return portFromCaller || (ports[portFromLocation] || portFromLocation);
+  return portFromCaller || ports[portFromLocation] || portFromLocation;
 };
 
 /**

@@ -30,10 +30,7 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const NovaPlatbaInputContainer = connect(
-  mapStateToProps,
-  {}
-)(InputContainer);
+const NovaPlatbaInputContainer = connect(mapStateToProps, {})(InputContainer);
 
 NovaPlatbaInputContainer.propTypes = {
   actionPrefix: PropTypes.string.isRequired,

@@ -63,10 +63,6 @@ const mergeProps = (stateProps, dispatchProps) => {
   };
 };
 
-const VitezoveContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-  mergeProps
-)(Vitezove);
+const VitezoveContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(Vitezove);
 
 export default VitezoveContainer;

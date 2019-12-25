@@ -1,6 +1,6 @@
 const usePopisek = ({ pohlavi, showTyp, vek, zkratka }) => {
   const renderObrazekTypu = !!showTyp;
-  const renderTextTypu = showTyp && (!pohlavi && !vek);
+  const renderTextTypu = showTyp && !pohlavi && !vek;
   const renderPohlavi = !!pohlavi;
   const renderVek = !!vek;
   const renderZkratka = !!zkratka;

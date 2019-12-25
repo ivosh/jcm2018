@@ -8,9 +8,6 @@ const mapDispatchToProps = dispatch => ({
   onHide: () => dispatch(hideError())
 });
 
-const ErrorInModalContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ErrorInModal);
+const ErrorInModalContainer = connect(mapStateToProps, mapDispatchToProps)(ErrorInModal);
 
 export default ErrorInModalContainer;

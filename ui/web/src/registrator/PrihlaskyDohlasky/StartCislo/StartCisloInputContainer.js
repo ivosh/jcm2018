@@ -33,10 +33,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-const StartCisloInputContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(StartCisloInput);
+const StartCisloInputContainer = connect(mapStateToProps, mapDispatchToProps)(StartCisloInput);
 
 StartCisloInputContainer.propTypes = {
   actionPrefix: PropTypes.string.isRequired,

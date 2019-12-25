@@ -302,7 +302,7 @@ export const inputValid = ({ name, value, form, rocniky }) => {
       // Dohláška má startovní číslo povinné, přihláška doplňuje později.
       return numberValid(
         value,
-        validate && (!jePrihlaskou && isStartCisloRequired({ form, rocniky }))
+        validate && !jePrihlaskou && isStartCisloRequired({ form, rocniky })
       );
     case 'prihlaska.startovnePoSleve':
       return numberValid(value, false);

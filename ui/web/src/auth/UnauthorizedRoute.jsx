@@ -20,7 +20,4 @@ UnauthorizedRoute.defaultProps = { authenticated: false };
 
 const mapStateToProps = state => ({ authenticated: state.auth.authenticated });
 
-export default connect(
-  mapStateToProps,
-  {}
-)(UnauthorizedRoute);
+export default connect(mapStateToProps, {})(UnauthorizedRoute);

@@ -82,7 +82,10 @@ state.entities.ucastnici = {
 
 it('getStartovniCislaProTyp - přihlášky 2013', () => {
   deepFreeze(state);
-  const selected = [{ id: 'id2', startCislo: 10 }, { id: 'id1', startCislo: 13 }];
+  const selected = [
+    { id: 'id2', startCislo: 10 },
+    { id: 'id1', startCislo: 13 }
+  ];
 
   expect(
     getStartovniCislaProTyp({ rok: 2013, typ: 'maraton', odstartovani: false, ...state.entities })
@@ -162,7 +165,10 @@ it('getStartovniCislaProTyp - výkony 2013', () => {
 
 it('getStartovniCislaProTyp - přihlášky 2018', () => {
   deepFreeze(state);
-  const selected = [{ id: 'id3', startCislo: 10 }, { id: 'id1', startCislo: 15 }];
+  const selected = [
+    { id: 'id3', startCislo: 10 },
+    { id: 'id1', startCislo: 15 }
+  ];
 
   expect(getStartovniCislaProTyp({ rok: 2018, typ: 'koloběžka', ...state.entities })).toEqual(
     selected

@@ -1403,7 +1403,10 @@ it('predepsaneStartovne - cyklo - přihláška předem', () => {
     }
   };
   const selected = {
-    polozky: [{ castka: 250, duvod: 'předem' }, { castka: 20, duvod: 'záloha' }],
+    polozky: [
+      { castka: 250, duvod: 'předem' },
+      { castka: 20, duvod: 'záloha' }
+    ],
     suma: 270
   };
   expect(predepsaneStartovne({ ...state.registrator.prihlasky.form, ...state.entities })).toEqual(

@@ -38,13 +38,8 @@ const mergeProps = (stateProps, dispatchProps) => {
 const areStatesEqual = (next, prev) =>
   prev.entities === next.entities && prev.registrator.ubytovani === next.registrator.ubytovani;
 
-const UbytovaniContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-  mergeProps,
-  {
-    areStatesEqual
-  }
-)(Ubytovani);
+const UbytovaniContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps, {
+  areStatesEqual
+})(Ubytovani);
 
 export default UbytovaniContainer;

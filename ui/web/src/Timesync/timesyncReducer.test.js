@@ -22,7 +22,10 @@ it('stop', () => {
   const stateBefore = {
     offset: -234,
     running: true,
-    samples: [{ latency: 34645, offset: 23 }, { latency: 980, offset: -34 }]
+    samples: [
+      { latency: 34645, offset: 23 },
+      { latency: 980, offset: -34 }
+    ]
   };
   const stateAfter = { ...stateBefore, running: false };
   deepFreeze(stateBefore);

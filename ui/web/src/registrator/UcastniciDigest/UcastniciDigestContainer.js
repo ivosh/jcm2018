@@ -14,13 +14,8 @@ const areStatesEqual = (next, prev) =>
   prev.entities === next.entities &&
   prev.registrator.ucastniciDigest === next.registrator.ucastniciDigest;
 
-const UcastniciDigestContainer = connect(
-  mapStateToProps,
-  null,
-  null,
-  {
-    areStatesEqual
-  }
-)(UcastniciDigest);
+const UcastniciDigestContainer = connect(mapStateToProps, null, null, {
+  areStatesEqual
+})(UcastniciDigest);
 
 export default UcastniciDigestContainer;

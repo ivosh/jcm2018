@@ -39,9 +39,7 @@ const poharPredan = async ({ request }) => {
   const predano = (ucastnik.pohar && ucastnik.pohar.predano) || 0;
   if (predano < narok) {
     logger.silly(
-      `Účastník s id ${id} má celkem ${
-        ucasti.length
-      } dokončených účastí v typu kategorie maraton (tedy nárok ${narok}) a jen ${predano} pohárů předaných.`
+      `Účastník s id ${id} má celkem ${ucasti.length} dokončených účastí v typu kategorie maraton (tedy nárok ${narok}) a jen ${predano} pohárů předaných.`
     );
     logger.debug(`Předán pohár účastníkovi s id ${id}.`);
     if (ucastnik.pohar) {
@@ -55,15 +53,11 @@ const poharPredan = async ({ request }) => {
   }
 
   logger.silly(
-    `Účastník s id ${id} má celkem ${
-      ucasti.length
-    } dokončených účastí v typu kategorie maraton (tedy nárok ${narok}) a už ${predano} pohárů předaných.`
+    `Účastník s id ${id} má celkem ${ucasti.length} dokončených účastí v typu kategorie maraton (tedy nárok ${narok}) a už ${predano} pohárů předaných.`
   );
   return {
     code: CODE_NOT_ALLOWED,
-    status: `Účastník má celkem ${
-      ucasti.length
-    } dokončených účastí v kategorii maraton (tedy nárok ${narok}) a už ${predano} pohárů předaných.`
+    status: `Účastník má celkem ${ucasti.length} dokončených účastí v kategorii maraton (tedy nárok ${narok}) a už ${predano} pohárů předaných.`
   };
 };
 
