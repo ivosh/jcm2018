@@ -14,7 +14,7 @@ mongoose.set('useCreateIndex', true);
 class DB {
   async connect() {
     const { uri, ...options } = config.db;
-    this.options = { ...options, useNewUrlParser: true };
+    this.options = { ...options, useNewUrlParser: true, useUnifiedTopology: true };
 
     await this.reconnect();
   }
@@ -32,14 +32,14 @@ class DB {
     /* If first connect fails because mongod is down, try again later.
        This is only needed for the first connect, not for runtime reconnects.
        See: https://github.com/Automattic/mongoose/issues/5169 */
-    if (err.message && err.message.match(/failed to connect to server .* on first connect/)) {
+    if (err.name && err.name === 'MongoTimeoutError') {
       logger.error(`Failed to connect to the DB: ${err}`);
 
       // Wait for a bit, then try to connect again.
       setTimeout(async () => {
         logger.debug('Retrying first connect to the DB...');
         await this.reconnect();
-      }, config.db.reconnectInterval);
+      }, config.db.serverSelectionTimeoutMS);
     } else {
       // Some other error occurred. Log it.
       logger.error(`DB problem: ${err}`);

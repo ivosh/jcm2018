@@ -10,8 +10,7 @@ const config = {
     maxAttempts: 5
   },
   db: {
-    reconnectTries: Number.MAX_VALUE, // Never stop trying reconnect.
-    reconnectInterval: 2 * 1000, // Reconnect every two seconds.
+    serverSelectionTimeoutMS: 2 * 1000, // Connect or retry timeout [milliseconds]
     poolSize: 10 // Maintain up to 10 database connections.
   },
   email: {

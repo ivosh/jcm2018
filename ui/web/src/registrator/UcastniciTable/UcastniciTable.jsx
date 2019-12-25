@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, ScrollSync } from 'react-virtualized';
-import scrollbarSize from 'dom-helpers/util/scrollbarSize';
+import scrollbarSize from 'dom-helpers/scrollbarSize';
 import { SortDirTypes } from '../../sort';
 import SortHeader from './SortHeader';
 import './UcastniciTable.css';

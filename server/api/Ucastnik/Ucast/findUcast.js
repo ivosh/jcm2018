@@ -1,5 +1,6 @@
 'use strict';
 
+const { inspect } = require('util');
 const { CODE_OK, CODE_NONEXISTING } = require('../../../../common/common');
 const logger = require('../../../logger');
 const Ucastnik = require('../../../model/Ucastnik/Ucastnik');
@@ -19,7 +20,7 @@ const findUcast = async ({ id, rok }) => {
     return { code: CODE_NONEXISTING, status: `Účastník s id ${id} neexistuje.` };
   }
   logger.debug(`Účastník id ${id} found.`);
-  logger.silly(`Účastník id ${id} found: ${ucastnik}`);
+  logger.silly(`Účastník id ${id} found: ${inspect(ucastnik, undefined, Infinity)}`);
 
   const ucast = ucastnik.ucasti.find(oneUcast => oneUcast.rok === rok);
   if (ucast) {

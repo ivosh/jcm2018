@@ -51,8 +51,7 @@
     "nodemailer": "^6.4.2",
     "websocket": "^1.0.31",
     "websocket-as-promised": "^1.0.1",
-    "winston": "^3.1.0",
-    "xml2js": "^0.4.19"
+    "winston": "^3.1.0"
   },
   "devDependencies": {
     "babel-eslint": "10.0.3",
