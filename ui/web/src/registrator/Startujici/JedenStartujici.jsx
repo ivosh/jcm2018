@@ -38,7 +38,7 @@ const JedenStartujici = ({
   startCislo,
   startCisloRequired
 }) => (
-  <React.Fragment>
+  <>
     <Prijmeni
       draggable={!!startCislo || !startCisloRequired}
       id={id}
@@ -53,7 +53,7 @@ const JedenStartujici = ({
       <PopisekKategorie {...kategorie} />
     </div>
     <div className="StartujiciPanel__cell JedenStartujici__startCislo">{startCislo}</div>
-  </React.Fragment>
+  </>
 );
 
 JedenStartujici.propTypes = {

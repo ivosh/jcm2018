@@ -15,8 +15,8 @@ LegendaItem.propTypes = {
 const Legenda = ({ legenda }) => (
   <div className="Legenda">
     Legenda:{' '}
-    {legenda.map(jedna => (
-      <LegendaItem key={jedna.name} {...jedna} />
+    {legenda.map(({ name, popisek }) => (
+      <LegendaItem key={name} name={name} popisek={popisek} />
     ))}
   </div>
 );

@@ -15,7 +15,7 @@ const Poznamky = ({ poznamky, addPoznamka }) => {
   };
 
   return (
-    <React.Fragment>
+    <>
       {poznamky.length > 0 ? (
         poznamky.map((poznamka, index) => (
           <React.Fragment key={poznamka.datum.toString()}>
@@ -34,7 +34,7 @@ const Poznamky = ({ poznamky, addPoznamka }) => {
       >
         <Glyphicon glyph="plus" /> Přidej poznámku
       </LoadingButton>
-    </React.Fragment>
+    </>
   );
 };
 

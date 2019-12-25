@@ -243,7 +243,9 @@ exports[`platby v plusu 1`] = `
         <th>
           pozn.
         </th>
-        <th />
+        <th
+          aria-label="odebrat platbu"
+        />
       </tr>
     </thead>
     <tbody>
@@ -393,7 +395,9 @@ exports[`platby v plusu, novaPlatba expanded 1`] = `
         <th>
           pozn.
         </th>
-        <th />
+        <th
+          aria-label="odebrat platbu"
+        />
       </tr>
     </thead>
     <tbody>
@@ -659,7 +663,9 @@ exports[`platby částečně v mínusu 1`] = `
         <th>
           pozn.
         </th>
-        <th />
+        <th
+          aria-label="odebrat platbu"
+        />
       </tr>
     </thead>
     <tbody>

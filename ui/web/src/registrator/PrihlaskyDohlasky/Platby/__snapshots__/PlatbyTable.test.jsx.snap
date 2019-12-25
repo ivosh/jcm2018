@@ -18,7 +18,9 @@ exports[`dvě platby 1`] = `
       <th>
         pozn.
       </th>
-      <th />
+      <th
+        aria-label="odebrat platbu"
+      />
     </tr>
   </thead>
   <tbody>

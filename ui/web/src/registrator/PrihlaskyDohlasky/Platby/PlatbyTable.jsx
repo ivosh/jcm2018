@@ -11,7 +11,7 @@ const PlatbyTable = ({ platby }) => (
         <th>datum</th>
         <th>jak?</th>
         <th>pozn.</th>
-        <th />
+        <th aria-label="odebrat platbu" />
       </tr>
     </thead>
     <tbody>

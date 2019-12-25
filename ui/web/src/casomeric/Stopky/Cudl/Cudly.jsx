@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Cudl from './Cudl';
 
 const Cudly = ({ cudly }) => (
-  <React.Fragment>
+  <>
     <div className="StopkyProTyp__cudly">
       <Cudl text={cudly[1].popisek} onClick={cudly[1].onClick} />
     </div>
@@ -22,7 +22,7 @@ const Cudly = ({ cudly }) => (
       <Cudl text={cudly[6].popisek} onClick={cudly[6].onClick} />
       <Cudl text={cudly[7].popisek} onClick={cudly[7].onClick} />
     </div>
-  </React.Fragment>
+  </>
 );
 
 Cudly.propTypes = {

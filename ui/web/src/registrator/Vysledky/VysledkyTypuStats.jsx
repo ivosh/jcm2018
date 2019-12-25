@@ -6,7 +6,7 @@ const VysledkyTypuStats = ({ anchorHref, popisek, stats, typ, zkratky }) => (
   <table className="VysledkyTypuStats__table">
     <thead>
       <tr>
-        <th />
+        <th aria-label="kategorie" />
         <th>
           {anchorHref && (
             <a className="VysledkTypuStats__a--href" href={`#${typ}`}>

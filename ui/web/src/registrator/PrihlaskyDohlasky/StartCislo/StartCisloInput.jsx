@@ -18,7 +18,7 @@ const StartCisloInput = ({
   onSelect,
   onShow
 }) => (
-  <React.Fragment>
+  <>
     <TextInput
       className="StartCisloInput__input"
       enabled={enabled}
@@ -54,7 +54,7 @@ const StartCisloInput = ({
         <Glyphicon glyph="plus" /> Vybrat
       </Button>
     )}
-  </React.Fragment>
+  </>
 );
 
 StartCisloInput.propTypes = {

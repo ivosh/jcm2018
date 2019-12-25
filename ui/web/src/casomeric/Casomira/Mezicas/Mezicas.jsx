@@ -20,7 +20,7 @@ const Mezicas = ({
   const duration = convertDuration(cas);
 
   return (
-    <React.Fragment>
+    <>
       <div className="Mezicasy__cell Mezicas__poradi">{poradi}.</div>
       <div className="Mezicasy__leftCell Mezicas__cas">
         {cas && `${duration.hours}:${duration.mins}:${duration.secs},${duration.subsecs}`}
@@ -42,7 +42,7 @@ const Mezicas = ({
           <Glyphicon glyph="edit" />
         </Button>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

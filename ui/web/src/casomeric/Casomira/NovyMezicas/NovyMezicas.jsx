@@ -12,7 +12,7 @@ const NovyMezicas = ({
   onShow,
   onSubmit
 }) => (
-  <React.Fragment>
+  <>
     <Modal keyboard={true} show={showing} onHide={onHide} bsSize="small">
       <Modal.Header closeButton={true}>
         <Modal.Title>Nový mezičas</Modal.Title>
@@ -38,7 +38,7 @@ const NovyMezicas = ({
         <Glyphicon glyph="plus" />
       </Button>
     )}
-  </React.Fragment>
+  </>
 );
 
 NovyMezicas.propTypes = {

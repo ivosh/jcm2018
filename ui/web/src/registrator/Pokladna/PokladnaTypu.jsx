@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import './PokladnaTypu.css';
 
 const SumaTypu = ({ popisek, suma }) => (
-  <React.Fragment>
+  <>
     <div />
     <div>{popisek}</div>
     <div className="PokladnaTypu--suma">{suma} Kč</div>
-  </React.Fragment>
+  </>
 );
 
 SumaTypu.propTypes = {
@@ -16,7 +16,7 @@ SumaTypu.propTypes = {
 };
 
 const PokladnaTypu = ({ name, odstartovano, suma, ucastniku, zaloha, typy }) => (
-  <React.Fragment>
+  <>
     <div className="PokladnaTypu--name">{name}:</div>
     <div />
     <div />
@@ -29,13 +29,13 @@ const PokladnaTypu = ({ name, odstartovano, suma, ucastniku, zaloha, typy }) => 
     <div>účastníků</div>
     <div className="PokladnaTypu--ucastniku">{ucastniku}</div>
     {odstartovano !== ucastniku && (
-      <React.Fragment>
+      <>
         <div />
         <div className="PokladnaTypu--neodstartovalo">neodstartovalo</div>
         <div className="PokladnaTypu--neodstartovalo_pocet">{ucastniku - odstartovano}</div>
-      </React.Fragment>
+      </>
     )}
-  </React.Fragment>
+  </>
 );
 
 PokladnaTypu.propTypes = {

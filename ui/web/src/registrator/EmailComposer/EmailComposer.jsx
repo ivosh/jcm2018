@@ -11,7 +11,7 @@ const sanitizerOptions = {
 };
 const sanitize = html => sanitizeHtml(html, sanitizerOptions);
 
-// eslint-disable react/no-danger
+/* eslint-disable react/no-danger */
 const EmailComposer = ({
   mailTo: initialMailTo,
   subject: initialSubject,
@@ -61,6 +61,7 @@ const EmailComposer = ({
     </form>
   );
 };
+/* eslint-enable react/no-danger */
 
 EmailComposer.propTypes = {
   mailTo: PropTypes.string,

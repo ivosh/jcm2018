@@ -47,7 +47,7 @@ const AkceMenuFormat = ({
   }
 
   return (
-    <React.Fragment>
+    <>
       {!showing && (
         <Button bsSize="small" bsStyle={nejakaPoznamka ? 'info' : undefined} onClick={onShow}>
           <Glyphicon glyph="edit" />
@@ -58,7 +58,7 @@ const AkceMenuFormat = ({
           <AkceMenu akce={akce} />
         </Modal>
       )}
-    </React.Fragment>
+    </>
   );
 };
 AkceMenuFormat.propTypes = {

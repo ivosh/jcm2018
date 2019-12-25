@@ -105,19 +105,19 @@ export const getPrihlaseniDohlaseniSorted = ({
 
   const afterPrihlaseniFilter = prihlaseniFilter
     ? afterKategorieFilter.filter(
-        ({ datum }) => new Date(datum).getTime() < new Date(datumKonani).getTime()
-      )
+      ({ datum }) => new Date(datum).getTime() < new Date(datumKonani).getTime()
+    )
     : afterKategorieFilter;
 
   const afterDohlaseniFilter = dohlaseniFilter
     ? afterPrihlaseniFilter.filter(
-        ({ datum, platby }) =>
-          new Date(datum).getTime() >= new Date(datumKonani).getTime() ||
+      ({ datum, platby }) =>
+        new Date(datum).getTime() >= new Date(datumKonani).getTime() ||
           platby.filter(
             ({ datum: datumPlatby }) =>
               new Date(datumPlatby).getTime() >= new Date(datumKonani).getTime()
           ).length > 0
-      )
+    )
     : afterPrihlaseniFilter;
 
   const final = afterDohlaseniFilter.map(({ platby, ...rest }) => rest);

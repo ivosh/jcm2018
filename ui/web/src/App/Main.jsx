@@ -6,9 +6,9 @@ import { navsForMenu, navMenus } from './nav';
 import './Main.css';
 
 const Item = ({ glyph, name }) => (
-  <React.Fragment>
+  <>
     <Glyphicon glyph={glyph} /> {name}
-  </React.Fragment>
+  </>
 );
 Item.propTypes = {
   glyph: PropTypes.string.isRequired,

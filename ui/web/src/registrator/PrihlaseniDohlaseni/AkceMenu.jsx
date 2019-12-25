@@ -21,10 +21,10 @@ const AkceMenu = ({ akce, onSelect }) => {
         <li key={nazev}>
           <button type="submit" onClick={() => handleSelect(index)}>
             {icon && (
-              <React.Fragment>
+              <>
                 <Glyphicon glyph={icon} />
                 <span>&nbsp;</span>
-              </React.Fragment>
+              </>
             )}
             {nazev}
           </button>
