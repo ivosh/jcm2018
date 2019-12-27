@@ -1542,15 +1542,19 @@ exports[`dva pohároví 1`] = `
                                     }
                                   >
                                     <Link
-                                      replace={false}
                                       to="/prihlasky/5a09b1fd371dec1e99b7e1c9"
                                     >
-                                      <a
+                                      <LinkAnchor
                                         href="/prihlasky/5a09b1fd371dec1e99b7e1c9"
-                                        onClick={[Function]}
+                                        navigate={[Function]}
                                       >
-                                        Balabák
-                                      </a>
+                                        <a
+                                          href="/prihlasky/5a09b1fd371dec1e99b7e1c9"
+                                          onClick={[Function]}
+                                        >
+                                          Balabák
+                                        </a>
+                                      </LinkAnchor>
                                     </Link>
                                   </div>
                                   <div
@@ -1597,15 +1601,19 @@ exports[`dva pohároví 1`] = `
                                     }
                                   >
                                     <Link
-                                      replace={false}
                                       to="/prihlasky/6f09b1fd371dec1e99b7e1c9"
                                     >
-                                      <a
+                                      <LinkAnchor
                                         href="/prihlasky/6f09b1fd371dec1e99b7e1c9"
-                                        onClick={[Function]}
+                                        navigate={[Function]}
                                       >
-                                        Sukdoláková
-                                      </a>
+                                        <a
+                                          href="/prihlasky/6f09b1fd371dec1e99b7e1c9"
+                                          onClick={[Function]}
+                                        >
+                                          Sukdoláková
+                                        </a>
+                                      </LinkAnchor>
                                     </Link>
                                   </div>
                                   <div
@@ -1652,15 +1660,19 @@ exports[`dva pohároví 1`] = `
                                     }
                                   >
                                     <Link
-                                      replace={false}
                                       to="/prihlasky/7a09b1fd371dec1e99b7e142"
                                     >
-                                      <a
+                                      <LinkAnchor
                                         href="/prihlasky/7a09b1fd371dec1e99b7e142"
-                                        onClick={[Function]}
+                                        navigate={[Function]}
                                       >
-                                        Zralá
-                                      </a>
+                                        <a
+                                          href="/prihlasky/7a09b1fd371dec1e99b7e142"
+                                          onClick={[Function]}
+                                        >
+                                          Zralá
+                                        </a>
+                                      </LinkAnchor>
                                     </Link>
                                   </div>
                                   <div

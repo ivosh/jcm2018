@@ -10,7 +10,6 @@ exports[`with websocket connected, authenticated 1`] = `
   >
     <NavbarHeader>
       <Link
-        replace={false}
         to="/"
       >
         <img
@@ -158,7 +157,6 @@ exports[`with websocket connected, authenticated 1`] = `
         path="/vysledky"
       />
       <Redirect
-        push={false}
         to="/"
       />
     </Switch>
@@ -179,7 +177,6 @@ exports[`with websocket connected, not authenticated 1`] = `
   >
     <NavbarHeader>
       <Link
-        replace={false}
         to="/"
       >
         <img
@@ -313,7 +310,6 @@ exports[`with websocket connected, not authenticated 1`] = `
         path="/vysledky"
       />
       <Redirect
-        push={false}
         to="/"
       />
     </Switch>
@@ -334,7 +330,6 @@ exports[`with websocket disconnected, authenticated 1`] = `
   >
     <NavbarHeader>
       <Link
-        replace={false}
         to="/"
       >
         <img
@@ -482,7 +477,6 @@ exports[`with websocket disconnected, authenticated 1`] = `
         path="/vysledky"
       />
       <Redirect
-        push={false}
         to="/"
       />
     </Switch>

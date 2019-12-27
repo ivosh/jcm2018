@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
-import MockRouter from 'react-mock-router';
 import configureStore from 'redux-mock-store';
 import LoadingIndicator from '../shared/LoadingIndicator';
 import AuthorizedRoute from './AuthorizedRoute';
@@ -13,9 +13,9 @@ test('navigates to /signin when not authenticated', () => {
 
   const component = renderer.create(
     <Provider store={store}>
-      <MockRouter>
+      <MemoryRouter>
         <AuthorizedRoute component={LoadingIndicator} />
-      </MockRouter>
+      </MemoryRouter>
     </Provider>
   );
 
@@ -27,9 +27,9 @@ test('shows wrapped component when authenticated', () => {
 
   const component = renderer.create(
     <Provider store={store}>
-      <MockRouter>
+      <MemoryRouter>
         <AuthorizedRoute component={LoadingIndicator} />
-      </MockRouter>
+      </MemoryRouter>
     </Provider>
   );
 
