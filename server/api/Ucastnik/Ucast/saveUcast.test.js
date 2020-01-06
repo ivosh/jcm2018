@@ -170,8 +170,7 @@ const setup = async () => {
       jmeno: 'Božena',
       narozeni: { rok: 1967 },
       pohlavi: 'žena',
-      obec: 'Kladno Rozdělov',
-      psc: '327 41'
+      obec: 'Kladno Rozdělov'
     },
     prihlaska: {
       datum: new Date('2018-05-03Z'),
@@ -259,8 +258,7 @@ it('chybná kategorie (věk)', async () => {
     jmeno: 'Božena',
     narozeni: { rok: 1967 },
     pohlavi: 'žena',
-    obec: 'Kladno 1',
-    psc: '327 41'
+    obec: 'Kladno 1'
   };
   const prihlaska = {
     datum: new Date('2015-02-07Z'),

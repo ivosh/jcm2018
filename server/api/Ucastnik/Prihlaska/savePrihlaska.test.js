@@ -198,8 +198,7 @@ it('vytvoř dvě účasti s přihláškami', async () => {
     jmeno: 'Božena',
     narozeni: { rok: 1967 },
     pohlavi: 'žena',
-    obec: 'Kladno Rozdělov',
-    psc: '327 41'
+    obec: 'Kladno Rozdělov'
   };
   const udaje2 = { ...udaje1, obec: 'Kamenický Přívoz' };
   const prihlaska1 = {
@@ -264,8 +263,7 @@ it('přepiš existující přihlášku', async () => {
     jmeno: 'Božena',
     narozeni: { rok: 1967 },
     pohlavi: 'žena',
-    obec: 'Kladno 1',
-    psc: '327 41'
+    obec: 'Kladno 1'
   };
   const prihlaska1 = { datum: new Date('2018-05-03Z'), kategorie: kategorie2.id };
   const prihlaska2 = { datum: new Date('2017-05-03Z'), kategorie: kategorie2.id };
@@ -345,8 +343,7 @@ const setup = async () => {
       jmeno: 'Božena',
       narozeni: { rok: 1967 },
       pohlavi: 'žena',
-      obec: 'Kladno Rozdělov',
-      psc: '327 41'
+      obec: 'Kladno Rozdělov'
     },
     prihlaska: {
       datum: new Date('2018-05-03Z'),
@@ -549,7 +546,6 @@ it('přihláška na pěší', async () => {
     jmeno: 'Bára',
     narozeni: { den: 4, mesic: 11, rok: 1998 },
     pohlavi: 'žena',
-    adresa: 'Za elektrárnou 23',
     obec: 'Horákov'
   };
   const prihlaska = {
@@ -626,8 +622,7 @@ it('chybná kategorie (věk)', async () => {
     jmeno: 'Božena',
     narozeni: { rok: 1967 },
     pohlavi: 'žena',
-    obec: 'Kladno 1',
-    psc: '327 41'
+    obec: 'Kladno 1'
   };
   const prihlaska = {
     datum: new Date('2015-02-07Z'),
@@ -654,8 +649,7 @@ it('přihláška chybí', async () => {
     jmeno: 'Božena',
     narozeni: { rok: 1967 },
     pohlavi: 'žena',
-    obec: 'Kladno 1',
-    psc: '327 41'
+    obec: 'Kladno 1'
   };
 
   const response1 = await wsClient.sendRequest(

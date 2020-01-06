@@ -54,8 +54,7 @@ it('vytvoř dvě účasti', async () => {
     jmeno: 'Božena',
     narozeni: { rok: 1967 },
     pohlavi: 'žena',
-    obec: 'Kladno Rozdělov',
-    psc: '327 41'
+    obec: 'Kladno Rozdělov'
   };
   const udaje2 = { ...udaje1, obec: 'Kamenický Přívoz' };
 
@@ -84,8 +83,7 @@ it('přepiš existující účast', async () => {
     jmeno: 'Božena',
     narozeni: { rok: 1967 },
     pohlavi: 'žena',
-    obec: 'Kladno 1',
-    psc: '327 41'
+    obec: 'Kladno 1'
   };
   const udaje2 = { ...udaje1, obec: 'Kladno 2' };
   const udaje3 = { ...udaje1, obec: 'Kladno 3' };
@@ -177,8 +175,7 @@ it('údaje chybí', async () => {
     jmeno: 'Božena',
     narozeni: { rok: 1967 },
     pohlavi: 'žena',
-    obec: 'Kladno 1',
-    psc: '327 41'
+    obec: 'Kladno 1'
   };
 
   const response1 = await wsClient.sendRequest(

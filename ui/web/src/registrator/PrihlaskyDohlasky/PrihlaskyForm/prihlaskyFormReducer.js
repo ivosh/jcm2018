@@ -28,9 +28,7 @@ const initialState = {
     jmeno: undefined,
     narozeni: { den: undefined, mesic: undefined, rok: undefined },
     pohlavi: undefined,
-    adresa: undefined,
     obec: undefined,
-    psc: undefined,
     stat: 'Česká republika',
     klub: undefined,
     email: undefined,
@@ -274,7 +272,6 @@ export const inputValid = ({ name, value, form, rocniky }) => {
     case 'prihlaska.kategorie':
     case 'prihlaska.typ':
       return nonEmptyInputValid({ value, validate });
-    case 'udaje.adresa':
     case 'udaje.klub':
     case 'udaje.email':
     case 'udaje.telefon':
@@ -285,11 +282,6 @@ export const inputValid = ({ name, value, form, rocniky }) => {
     case 'udaje.narozeni':
       // TODO: kategorie presne => den + mesic required === true
       return narozeniValid({ value, validate, requireDenMesic: false });
-    case 'udaje.psc':
-      if (form.udaje.stat === 'Česká republika') {
-        return nonEmptyInputValid({ value, validate });
-      }
-      return undefined;
     case 'prihlaska.datum':
       if (value === undefined) {
         if (validate) {
@@ -337,7 +329,6 @@ export const formErrors = ({ form, rocniky }) => {
   errors.push(inputError({ name: 'udaje.narozeni', value: udaje.narozeni, form, rocniky }));
   errors.push(inputError({ name: 'udaje.pohlavi', value: udaje.pohlavi, form, rocniky }));
   errors.push(inputError({ name: 'udaje.obec', value: udaje.obec, form, rocniky }));
-  errors.push(inputError({ name: 'udaje.psc', value: udaje.psc, form, rocniky }));
   errors.push(inputError({ name: 'udaje.stat', value: udaje.stat, form, rocniky }));
   errors.push(
     inputError({

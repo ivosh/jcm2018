@@ -66,9 +66,7 @@ it('na začátku - jePrihlaskou: true', () => {
     jmeno: undefined,
     narozeni: { den: undefined, mesic: undefined, rok: undefined },
     pohlavi: undefined,
-    adresa: undefined,
     obec: undefined,
-    psc: undefined,
     stat: 'Česká republika',
     klub: undefined,
     email: undefined,
@@ -103,9 +101,7 @@ it('reset()', () => {
       jmeno: 'Jan',
       narozeni: { den: 7, mesic: 7, rok: 1954 },
       pohlavi: 'muž',
-      adresa: '',
       obec: 'Samorost',
-      psc: '34567',
       stat: 'Česká republika',
       klub: '',
       email: 'em@ai.l',
@@ -134,9 +130,7 @@ it('reset()', () => {
       jmeno: undefined,
       narozeni: { den: undefined, mesic: undefined, rok: undefined },
       pohlavi: undefined,
-      adresa: undefined,
       obec: undefined,
-      psc: undefined,
       stat: 'Česká republika',
       klub: undefined,
       email: undefined,
@@ -249,9 +243,7 @@ it('validation of the initial state [validate === false]', () => {
       jmeno: undefined,
       narozeni: { den: undefined, mesic: undefined, rok: undefined },
       pohlavi: undefined,
-      adresa: undefined,
       obec: undefined,
-      psc: undefined,
       stat: 'Česká republika',
       klub: undefined,
       email: undefined,
@@ -276,9 +268,7 @@ it('validation of the initial state [validate === false]', () => {
   expect(inputValid({ name: 'udaje.jmeno', value: form.udaje.jmeno, form })).toBe(undefined);
   expect(inputValid({ name: 'udaje.narozeni', value: form.udaje.narozeni, form })).toBe(undefined);
   expect(inputValid({ name: 'udaje.pohlavi', value: form.udaje.pohlavi, form })).toBe(undefined);
-  expect(inputValid({ name: 'udaje.adresa', value: form.udaje.adresa, form })).toBe(undefined);
   expect(inputValid({ name: 'udaje.obec', value: form.udaje.obec, form })).toBe(undefined);
-  expect(inputValid({ name: 'udaje.psc', value: form.udaje.psc, form })).toBe(undefined);
   expect(inputValid({ name: 'udaje.stat', value: form.udaje.stat, form })).toBe('success');
   expect(inputValid({ name: 'udaje.klub', value: form.udaje.klub, form })).toBe(undefined);
   expect(inputValid({ name: 'udaje.telefon', value: form.udaje.telefon, form })).toBe(undefined);
@@ -316,9 +306,7 @@ it('validation of the initial state [validate === true]', () => {
       jmeno: undefined,
       narozeni: { den: undefined, mesic: undefined, rok: undefined },
       pohlavi: undefined,
-      adresa: undefined,
       obec: undefined,
-      psc: undefined,
       stat: 'Česká republika',
       klub: undefined,
       email: undefined,
@@ -343,9 +331,7 @@ it('validation of the initial state [validate === true]', () => {
   expect(inputValid({ name: 'udaje.jmeno', value: form.udaje.jmeno, form })).toEqual('error');
   expect(inputValid({ name: 'udaje.narozeni', value: form.udaje.narozeni, form })).toEqual('error');
   expect(inputValid({ name: 'udaje.pohlavi', value: form.udaje.pohlavi, form })).toEqual('error');
-  expect(inputValid({ name: 'udaje.adresa', value: form.udaje.adresa, form })).toBe(undefined);
   expect(inputValid({ name: 'udaje.obec', value: form.udaje.obec, form })).toEqual('error');
-  expect(inputValid({ name: 'udaje.psc', value: form.udaje.psc, form })).toEqual('error');
   expect(inputValid({ name: 'udaje.stat', value: form.udaje.stat, form })).toEqual('success');
   expect(inputValid({ name: 'udaje.klub', value: form.udaje.klub, form })).toBe(undefined);
   expect(inputValid({ name: 'udaje.telefon', value: form.udaje.telefon, form })).toBe(undefined);
@@ -375,7 +361,6 @@ it('validation of the initial state [validate === true]', () => {
     { name: 'udaje.narozeni', value: { den: undefined, mesic: undefined, rok: undefined } },
     { name: 'udaje.pohlavi', value: undefined },
     { name: 'udaje.obec', value: undefined },
-    { name: 'udaje.psc', value: undefined },
     { name: 'prihlaska.datum', value: undefined },
     { name: 'prihlaska.kategorie', value: undefined },
     { name: 'prihlaska.typ', value: undefined }
@@ -392,9 +377,7 @@ it('validation of some invalid state [validate === false]', () => {
       jmeno: undefined,
       narozeni: { den: undefined, mesic: undefined, rok: 'žblabuňka' },
       pohlavi: 'muž',
-      adresa: 'Za vodou 4787',
       obec: 'Kolešov',
-      psc: undefined,
       stat: 'Česká republika',
       klub: 'Hory hory hory',
       email: 'není',
@@ -419,9 +402,7 @@ it('validation of some invalid state [validate === false]', () => {
   expect(inputValid({ name: 'udaje.jmeno', value: form.udaje.jmeno, form })).toBe(undefined);
   expect(inputValid({ name: 'udaje.narozeni', value: form.udaje.narozeni, form })).toEqual('error');
   expect(inputValid({ name: 'udaje.pohlavi', value: form.udaje.pohlavi, form })).toEqual('success');
-  expect(inputValid({ name: 'udaje.adresa', value: form.udaje.adresa, form })).toBe(undefined);
   expect(inputValid({ name: 'udaje.obec', value: form.udaje.obec, form })).toEqual('success');
-  expect(inputValid({ name: 'udaje.psc', value: form.udaje.psc, form })).toBe(undefined);
   expect(inputValid({ name: 'udaje.stat', value: form.udaje.stat, form })).toEqual('success');
   expect(inputValid({ name: 'udaje.klub', value: form.udaje.klub, form })).toBe(undefined);
   expect(inputValid({ name: 'udaje.telefon', value: form.udaje.telefon, form })).toBe(undefined);
@@ -464,9 +445,7 @@ it('validation of some invalid state [validate === true]', () => {
       jmeno: undefined,
       narozeni: { den: 1, mesic: 10, rok: 'žblabuňka' },
       pohlavi: 'muž',
-      adresa: 'Za vodou 4787',
       obec: 'Kolešov',
-      psc: undefined,
       stat: 'Česká republika',
       klub: 'Hory hory hory',
       email: 'není',
@@ -493,9 +472,7 @@ it('validation of some invalid state [validate === true]', () => {
   expect(inputValid({ name: 'udaje.jmeno', value: form.udaje.jmeno, form })).toEqual('error');
   expect(inputValid({ name: 'udaje.narozeni', value: form.udaje.narozeni, form })).toEqual('error');
   expect(inputValid({ name: 'udaje.pohlavi', value: form.udaje.pohlavi, form })).toEqual('success');
-  expect(inputValid({ name: 'udaje.adresa', value: form.udaje.adresa, form })).toBe(undefined);
   expect(inputValid({ name: 'udaje.obec', value: form.udaje.obec, form })).toEqual('success');
-  expect(inputValid({ name: 'udaje.psc', value: form.udaje.psc, form })).toEqual('error');
   expect(inputValid({ name: 'udaje.stat', value: form.udaje.stat, form })).toEqual('success');
   expect(inputValid({ name: 'udaje.klub', value: form.udaje.klub, form })).toBe(undefined);
   expect(inputValid({ name: 'udaje.telefon', value: form.udaje.telefon, form })).toBe(undefined);
@@ -523,7 +500,6 @@ it('validation of some invalid state [validate === true]', () => {
     { name: 'udaje.prijmeni', value: '' },
     { name: 'udaje.jmeno', value: undefined },
     { name: 'udaje.narozeni', value: { den: 1, mesic: 10, rok: 'žblabuňka' } },
-    { name: 'udaje.psc', value: undefined },
     { name: 'prihlaska.kategorie', value: undefined },
     { name: 'prihlaska.typ', value: undefined },
     { name: 'prihlaska.startCislo', value: 'oho12' }
@@ -1186,9 +1162,7 @@ it('loadUcastnik() - údaje i přihláška', () => {
       jmeno: 'Jméno',
       narozeni: { den: 1, mesic: 10, rok: 'žblabuňka' },
       pohlavi: 'muž',
-      adresa: 'Za vodou 4787',
       obec: 'Kolešov',
-      psc: '321 34',
       stat: 'Česká republika',
       klub: 'Hory hory hory',
       email: 'není',
@@ -1245,9 +1219,7 @@ it('loadUcastnik() - jen údaje', () => {
       jmeno: 'Jméno',
       narozeni: { den: 1, mesic: 10, rok: 'žblabuňka' },
       pohlavi: 'muž',
-      adresa: 'Za vodou 4787',
       obec: 'Kolešov',
-      psc: '321 34',
       stat: 'Česká republika',
       klub: 'Hory hory hory',
       email: 'není',
@@ -1304,9 +1276,7 @@ it('loadUcastnik() - dohláška', () => {
       jmeno: 'Jméno',
       narozeni: { den: 1, mesic: 10, rok: 'žblabuňka' },
       pohlavi: 'muž',
-      adresa: 'Za vodou 4787',
       obec: 'Kolešov',
-      psc: '321 34',
       stat: 'Česká republika',
       klub: 'Hory hory hory',
       email: 'není',

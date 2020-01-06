@@ -329,7 +329,6 @@ it('prihlaskySave() - success - nový účastník', () => {
     jmeno: 'Bára',
     narozeni: { den: 4, mesic: 10, rok: 1998 },
     pohlavi: 'žena',
-    adresa: 'Za elektrárnou 21',
     obec: 'Mieroszow',
     stat: 'Polsko'
   };
@@ -394,7 +393,6 @@ it('broadcastUcastnik - změna', () => {
         narozeni: { rok: 1999, mesic: 7, den: 25 },
         pohlavi: 'žena',
         obec: 'Luhačovice',
-        psc: '654 21',
         stat: 'Česká republika',
         klub: 'SK Nudle',
         email: 'zrala.kl@s.cz'

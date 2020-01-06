@@ -75,7 +75,6 @@ Array [
         },
         "rok": 2017,
         "udaje": Object {
-          "adresa": "Za Kohoutem 194/2",
           "email": "sk@nudle.cz",
           "jmeno": "Šárka",
           "klub": "SK Nudle",
@@ -87,7 +86,6 @@ Array [
           "obec": "Třebechovice pod Orebem",
           "pohlavi": "žena",
           "prijmeni": "Ženíšková",
-          "psc": "312 78",
           "stat": "Česká republika",
           "telefon": "732 187 987",
         },

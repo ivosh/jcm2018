@@ -139,15 +139,6 @@ class PrihlaskyForm extends PureComponent {
               actionPrefix={actionPrefix}
               index={4}
               inputRef={this.inputRef}
-              name="udaje.adresa"
-              popisek="adresa"
-              reduxName={reduxName}
-              Type={TextInput}
-            />
-            <PrihlaskyFormInputContainer
-              actionPrefix={actionPrefix}
-              index={5}
-              inputRef={this.inputRef}
               name="udaje.obec"
               popisek="obec"
               reduxName={reduxName}
@@ -155,16 +146,7 @@ class PrihlaskyForm extends PureComponent {
             />
             <PrihlaskyFormInputContainer
               actionPrefix={actionPrefix}
-              index={6}
-              inputRef={this.inputRef}
-              name="udaje.psc"
-              popisek="PSČ"
-              reduxName={reduxName}
-              Type={TextInput}
-            />
-            <PrihlaskyFormInputContainer
-              actionPrefix={actionPrefix}
-              index={7}
+              index={5}
               inputRef={this.inputRef}
               name="udaje.stat"
               popisek="stát"
@@ -173,7 +155,7 @@ class PrihlaskyForm extends PureComponent {
             />
             <PrihlaskyFormInputContainer
               actionPrefix={actionPrefix}
-              index={8}
+              index={6}
               inputRef={this.inputRef}
               name="udaje.klub"
               popisek="klub"
@@ -182,7 +164,7 @@ class PrihlaskyForm extends PureComponent {
             />
             <PrihlaskyFormInputContainer
               actionPrefix={actionPrefix}
-              index={9}
+              index={7}
               inputRef={this.inputRef}
               name="udaje.email"
               popisek="email"
@@ -191,7 +173,7 @@ class PrihlaskyForm extends PureComponent {
             />
             <PrihlaskyFormInputContainer
               actionPrefix={actionPrefix}
-              index={10}
+              index={8}
               inputRef={this.inputRef}
               name="udaje.telefon"
               popisek="telefon"
@@ -206,7 +188,7 @@ class PrihlaskyForm extends PureComponent {
           >
             <PrihlaskyFormInputContainer
               actionPrefix={actionPrefix}
-              index={11}
+              index={9}
               inputRef={this.inputRef}
               name="prihlaska.datum"
               popisek="datum"
@@ -215,7 +197,7 @@ class PrihlaskyForm extends PureComponent {
             />
             <PrihlaskyFormInputContainer
               actionPrefix={actionPrefix}
-              index={12}
+              index={10}
               inputRef={this.inputRef}
               name="prihlaska.typ"
               popisek="kategorie"
@@ -225,7 +207,7 @@ class PrihlaskyForm extends PureComponent {
             />
             <PrihlaskyFormInputContainer
               actionPrefix={actionPrefix}
-              index={13}
+              index={11}
               inputRef={this.inputRef}
               name="prihlaska.startCislo"
               popisek="číslo"
@@ -234,7 +216,7 @@ class PrihlaskyForm extends PureComponent {
             />
             <PrihlaskyFormInputContainer
               actionPrefix={actionPrefix}
-              index={14}
+              index={12}
               inputRef={this.inputRef}
               name="prihlaska.kod"
               popisek="kód"
@@ -243,7 +225,7 @@ class PrihlaskyForm extends PureComponent {
             />
             <PrihlaskyFormInputContainer
               actionPrefix={actionPrefix}
-              index={15}
+              index={13}
               inputRef={this.inputRef}
               name="ubytovani.pátek"
               popisek="ubytování"
@@ -253,7 +235,7 @@ class PrihlaskyForm extends PureComponent {
             />
             <PrihlaskyFormInputContainer
               actionPrefix={actionPrefix}
-              index={16}
+              index={14}
               inputRef={this.inputRef}
               name="ubytovani.sobota"
               popisek=""
@@ -263,7 +245,7 @@ class PrihlaskyForm extends PureComponent {
             />
             <PrihlaskyFormInputContainer
               actionPrefix={actionPrefix}
-              index={17}
+              index={15}
               inputRef={this.inputRef}
               name="prihlaska.mladistvyPotvrzen"
               popisek="mladistvý"
@@ -277,7 +259,7 @@ class PrihlaskyForm extends PureComponent {
               <PlatbyContainer
                 actionPrefix={actionPrefix}
                 reduxName={reduxName}
-                startIndex={18}
+                startIndex={16}
                 inputRef={this.inputRef}
               />
             </Panel>

@@ -3130,7 +3130,6 @@ const state = {
               narozeni: { rok: 1999, mesic: 7, den: 25 },
               pohlavi: 'žena',
               obec: 'Bučovice',
-              psc: '654 21',
               stat: 'Česká republika',
               klub: 'SK Nudle',
               email: 'zrala.kl@s.cz'
@@ -3161,7 +3160,6 @@ const state = {
               narozeni: { rok: 1999, mesic: 7, den: 25 },
               pohlavi: 'žena',
               obec: 'Bučovice',
-              psc: '654 21',
               stat: 'Česká republika',
               klub: 'SK Nudle',
               email: 'zrala.kl@s.cz'
@@ -3192,7 +3190,6 @@ const state = {
               narozeni: { rok: 1999, mesic: 7, den: 25 },
               pohlavi: 'žena',
               obec: 'Bučovice',
-              psc: '654 21',
               stat: 'Česká republika',
               klub: 'SK Nudle',
               email: 'zrala.kl@s.cz'
@@ -3300,7 +3297,6 @@ const state = {
               narozeni: { rok: 2001, mesic: 7, den: 25 },
               pohlavi: 'žena',
               obec: 'Velhartice',
-              psc: '354 21',
               stat: 'Česká republika',
               klub: 'Bor',
               email: 'pul.ka@s.cz'
@@ -3326,7 +3322,6 @@ const state = {
               narozeni: { rok: 2001, mesic: 7, den: 25 },
               pohlavi: 'žena',
               obec: 'Velhartice',
-              psc: '354 21',
               stat: 'Česká republika',
               klub: 'Bor',
               email: 'pul.ka@s.cz'
@@ -3355,7 +3350,6 @@ const state = {
               narozeni: { rok: 2001, mesic: 7, den: 25 },
               pohlavi: 'muž',
               obec: 'Králův Dvůr',
-              psc: '735 97',
               stat: 'Česká republika'
             },
             platby: [{ castka: 250, datum: '2020-05-13T00:00:00.000Z', typ: 'převodem' }],
@@ -3373,7 +3367,6 @@ const state = {
               narozeni: { rok: 2001, mesic: 7, den: 25 },
               pohlavi: 'muž',
               obec: 'Králův Dvůr',
-              psc: '735 97',
               stat: 'Česká republika'
             },
             platby: [{ castka: 200, datum: '2019-05-13T00:00:00.000Z', typ: 'převodem' }],
@@ -3391,7 +3384,6 @@ const state = {
               narozeni: { rok: 2001, mesic: 7, den: 25 },
               pohlavi: 'muž',
               obec: 'Králův Dvůr',
-              psc: '735 97',
               stat: 'Česká republika'
             },
             platby: [{ castka: 200, datum: '2018-05-01T00:00:00.000Z', typ: 'převodem' }],
@@ -3414,7 +3406,6 @@ const state = {
               narozeni: { rok: 2001, mesic: 7, den: 25 },
               pohlavi: 'muž',
               obec: 'Králův Dvůr',
-              psc: '735 97',
               stat: 'Česká republika'
             },
             platby: [{ castka: 200, datum: '2017-05-01T00:00:00.000Z', typ: 'převodem' }],
@@ -3437,7 +3428,6 @@ const state = {
               narozeni: { rok: 2001, mesic: 7, den: 25 },
               pohlavi: 'muž',
               obec: 'Králův Dvůr',
-              psc: '735 97',
               stat: 'Česká republika'
             },
             platby: [{ castka: 200, datum: '2015-05-01T00:00:00.000Z', typ: 'převodem' }],
@@ -3460,7 +3450,6 @@ const state = {
               narozeni: { rok: 2001, mesic: 7, den: 25 },
               pohlavi: 'muž',
               obec: 'Králův Dvůr',
-              psc: '735 97',
               stat: 'Česká republika'
             },
             platby: [{ castka: 200, datum: '2014-05-01T00:00:00.000Z', typ: 'převodem' }],
