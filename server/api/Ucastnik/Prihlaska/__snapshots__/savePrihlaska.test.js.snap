@@ -211,6 +211,447 @@ Object {
 }
 `;
 
+exports[`ulož přihlášku - duplicitní kód 1`] = `
+Object {
+  "code": "duplicitní kód",
+  "status": "Kód přihlášky ===kod4=== je již obsazen účastníkem: Moulová Milena",
+}
+`;
+
+exports[`ulož přihlášku - duplicitní kód 2`] = `
+Array [
+  Object {
+    "__v": 0,
+    "ucasti": Array [
+      Object {
+        "platby": Array [],
+        "poznamky": Array [],
+        "prihlaska": Object {
+          "datum": 2018-05-03T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+          "kod": "===kod1===",
+          "startCislo": 7,
+        },
+        "rok": 2018,
+        "udaje": Object {
+          "jmeno": "Božena",
+          "narozeni": Object {
+            "rok": 1967,
+          },
+          "obec": "Kladno Rozdělov",
+          "pohlavi": "žena",
+          "prijmeni": "Sukdoláková",
+          "stat": "Česká republika",
+        },
+      },
+    ],
+  },
+  Object {
+    "__v": 1,
+    "ucasti": Array [
+      Object {
+        "platby": Array [],
+        "poznamky": Array [],
+        "prihlaska": Object {
+          "datum": 2018-02-07T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k2===",
+            "pohlavi": "muž",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+          "kod": "===kod2===",
+          "startCislo": 15,
+        },
+        "rok": 2018,
+        "udaje": Object {
+          "jmeno": "František",
+          "narozeni": Object {
+            "rok": 1953,
+          },
+          "obec": "Ostrava 1",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+      },
+      Object {
+        "platby": Array [],
+        "poznamky": Array [],
+        "prihlaska": Object {
+          "datum": 2017-04-02T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k2===",
+            "pohlavi": "muž",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+          "kod": "===kod2===",
+          "startCislo": 15,
+        },
+        "rok": 2017,
+        "udaje": Object {
+          "jmeno": "František",
+          "narozeni": Object {
+            "rok": 1953,
+          },
+          "obec": "Ostrava 1",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+      },
+      Object {
+        "platby": Array [],
+        "poznamky": Array [],
+        "rok": 2019,
+        "udaje": Object {
+          "jmeno": "František",
+          "narozeni": Object {
+            "rok": 1953,
+          },
+          "obec": "Ostrava 1",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+      },
+    ],
+  },
+  Object {
+    "__v": 0,
+    "ucasti": Array [
+      Object {
+        "platby": Array [],
+        "poznamky": Array [],
+        "prihlaska": Object {
+          "datum": 2017-05-07T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k3===",
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          "kod": "===kod3===",
+          "startCislo": 6,
+        },
+        "rok": 2017,
+        "udaje": Object {
+          "jmeno": "Milena",
+          "narozeni": Object {
+            "den": 6,
+            "mesic": 5,
+            "rok": 1973,
+          },
+          "obec": "Nusle",
+          "pohlavi": "žena",
+          "prijmeni": "Moulová",
+          "stat": "Česká republika",
+        },
+      },
+      Object {
+        "platby": Array [],
+        "poznamky": Array [],
+        "prihlaska": Object {
+          "datum": 2018-02-07T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k4===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          "kod": "===kod3===",
+          "startCislo": 8,
+        },
+        "rok": 2018,
+        "udaje": Object {
+          "jmeno": "Milena",
+          "narozeni": Object {
+            "den": 6,
+            "mesic": 5,
+            "rok": 1973,
+          },
+          "obec": "Nusle",
+          "pohlavi": "žena",
+          "prijmeni": "Moulová",
+          "stat": "Česká republika",
+        },
+      },
+      Object {
+        "platby": Array [],
+        "poznamky": Array [],
+        "prihlaska": Object {
+          "datum": 2019-01-15T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k4===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          "kod": "===kod4===",
+          "startCislo": 23,
+        },
+        "rok": 2019,
+        "udaje": Object {
+          "jmeno": "Milena",
+          "narozeni": Object {
+            "den": 6,
+            "mesic": 5,
+            "rok": 1973,
+          },
+          "obec": "Nusle",
+          "pohlavi": "žena",
+          "prijmeni": "Moulová",
+          "stat": "Česká republika",
+        },
+      },
+    ],
+  },
+]
+`;
+
+exports[`ulož přihlášku - kód obsazen v jiném roce 1`] = `
+Object {
+  "code": "ok",
+  "status": "uloženo v pořádku",
+}
+`;
+
+exports[`ulož přihlášku - kód obsazen v jiném roce 2`] = `
+Array [
+  Object {
+    "__v": 0,
+    "ucasti": Array [
+      Object {
+        "platby": Array [],
+        "poznamky": Array [],
+        "prihlaska": Object {
+          "datum": 2018-05-03T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k1===",
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+          "kod": "===kod1===",
+          "startCislo": 7,
+        },
+        "rok": 2018,
+        "udaje": Object {
+          "jmeno": "Božena",
+          "narozeni": Object {
+            "rok": 1967,
+          },
+          "obec": "Kladno Rozdělov",
+          "pohlavi": "žena",
+          "prijmeni": "Sukdoláková",
+          "stat": "Česká republika",
+        },
+      },
+    ],
+  },
+  Object {
+    "__v": 0,
+    "ucasti": Array [
+      Object {
+        "platby": Array [],
+        "poznamky": Array [],
+        "prihlaska": Object {
+          "datum": 2018-02-07T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k2===",
+            "pohlavi": "muž",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+          "kod": "===kod4===",
+          "startCislo": 15,
+        },
+        "rok": 2018,
+        "udaje": Object {
+          "jmeno": "František",
+          "narozeni": Object {
+            "rok": 1953,
+          },
+          "obec": "Ostrava 1",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+      },
+      Object {
+        "platby": Array [],
+        "poznamky": Array [],
+        "prihlaska": Object {
+          "datum": 2017-04-02T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k2===",
+            "pohlavi": "muž",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 59,
+              "min": 50,
+            },
+          },
+          "kod": "===kod2===",
+          "startCislo": 15,
+        },
+        "rok": 2017,
+        "udaje": Object {
+          "jmeno": "František",
+          "narozeni": Object {
+            "rok": 1953,
+          },
+          "obec": "Ostrava 1",
+          "pohlavi": "muž",
+          "prijmeni": "Balabák",
+          "stat": "Česká republika",
+        },
+      },
+    ],
+  },
+  Object {
+    "__v": 0,
+    "ucasti": Array [
+      Object {
+        "platby": Array [],
+        "poznamky": Array [],
+        "prihlaska": Object {
+          "datum": 2017-05-07T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k3===",
+            "pohlavi": "žena",
+            "typ": "půlmaraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          "kod": "===kod3===",
+          "startCislo": 6,
+        },
+        "rok": 2017,
+        "udaje": Object {
+          "jmeno": "Milena",
+          "narozeni": Object {
+            "den": 6,
+            "mesic": 5,
+            "rok": 1973,
+          },
+          "obec": "Nusle",
+          "pohlavi": "žena",
+          "prijmeni": "Moulová",
+          "stat": "Česká republika",
+        },
+      },
+      Object {
+        "platby": Array [],
+        "poznamky": Array [],
+        "prihlaska": Object {
+          "datum": 2018-02-07T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k4===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          "kod": "===kod3===",
+          "startCislo": 8,
+        },
+        "rok": 2018,
+        "udaje": Object {
+          "jmeno": "Milena",
+          "narozeni": Object {
+            "den": 6,
+            "mesic": 5,
+            "rok": 1973,
+          },
+          "obec": "Nusle",
+          "pohlavi": "žena",
+          "prijmeni": "Moulová",
+          "stat": "Česká republika",
+        },
+      },
+      Object {
+        "platby": Array [],
+        "poznamky": Array [],
+        "prihlaska": Object {
+          "datum": 2019-01-15T00:00:00.000Z,
+          "kategorie": Object {
+            "__v": 0,
+            "_id": "===k4===",
+            "pohlavi": "žena",
+            "typ": "maraton",
+            "vek": Object {
+              "max": 49,
+              "min": 40,
+            },
+          },
+          "kod": "===kod4===",
+          "startCislo": 23,
+        },
+        "rok": 2019,
+        "udaje": Object {
+          "jmeno": "Milena",
+          "narozeni": Object {
+            "den": 6,
+            "mesic": 5,
+            "rok": 1973,
+          },
+          "obec": "Nusle",
+          "pohlavi": "žena",
+          "prijmeni": "Moulová",
+          "stat": "Česká republika",
+        },
+      },
+    ],
+  },
+]
+`;
+
 exports[`ulož startovní číslo - duplicitní v kategorii 1`] = `
 Object {
   "code": "duplicitní startovní číslo",

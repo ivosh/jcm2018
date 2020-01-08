@@ -41,6 +41,7 @@ const BROADCAST_UCASTNIK = 'broadcastUcastnik';
 const CODE_OK = 'ok';
 const CODE_ALREADY_EXISTING = 'již existuje';
 const CODE_DB_DISCONNECTED = 'nepřipojeno k databázi';
+const CODE_DUPLICIT_KOD = 'duplicitní kód';
 const CODE_DUPLICIT_START_CISLO = 'duplicitní startovní číslo';
 const CODE_KATEGORIE_INVALID = 'chybná kategorie';
 const CODE_MAX_LOGIN_ATTEMPTS = 'max login attempts reached';
@@ -238,6 +239,7 @@ module.exports = {
   CODE_OK,
   CODE_ALREADY_EXISTING,
   CODE_DB_DISCONNECTED,
+  CODE_DUPLICIT_KOD,
   CODE_DUPLICIT_START_CISLO,
   CODE_KATEGORIE_INVALID,
   CODE_MAX_LOGIN_ATTEMPTS,

@@ -540,6 +540,65 @@ it('ulož startovní číslo - duplicitní v kategorii', async () => {
   expect(ucastnici).toMatchSnapshot();
 });
 
+it('ulož přihlášku - kód obsazen v jiném roce', async () => {
+  const [id2, prihlaska2] = await setup();
+
+  const { requestId, ...response } = await wsClient.sendRequest(
+    apiCall({
+      endpoint: API_SAVE_PRIHLASKA,
+      request: {
+        id: id2,
+        rok: 2018,
+        prihlaska: { ...prihlaska2, rok: 2018, kod: '===kod4===' }
+      },
+      token
+    })
+  );
+  expect(response.code).toEqual('ok'); // kod4 je obsazeno v roce 2019, musí projít
+  expect(response).toMatchSnapshot();
+
+  const ucastnici = await Ucastnik.find({}, { _id: 0 })
+    .populate('ucasti.prihlaska.kategorie')
+    .lean();
+  ucastnici[0].ucasti[0].prihlaska.kategorie._id = '===k1===';
+  ucastnici[1].ucasti[0].prihlaska.kategorie._id = '===k2===';
+  ucastnici[2].ucasti[0].prihlaska.kategorie._id = '===k3===';
+  ucastnici[2].ucasti[1].prihlaska.kategorie._id = '===k4===';
+  expect(ucastnici).toMatchSnapshot();
+});
+
+it('ulož přihlášku - duplicitní kód', async () => {
+  const [id2, prihlaska2, udaje2] = await setup();
+
+  let requestId;
+  let response;
+  ({ requestId, ...response } = await wsClient.sendRequest(
+    apiCall({ endpoint: API_SAVE_UDAJE, request: { id: id2, rok: 2019, udaje: udaje2 }, token })
+  ));
+  const { id } = response.response;
+  expect(id).toBeTruthy();
+  expect(requestId).not.toBeNull();
+
+  ({ requestId, ...response } = await wsClient.sendRequest(
+    apiCall({
+      endpoint: API_SAVE_PRIHLASKA,
+      request: { id: id2, rok: 2019, prihlaska: { ...prihlaska2, kod: '===kod4===' } },
+      token
+    })
+  ));
+  expect(response.code).not.toEqual('ok'); // nesmí projít
+  expect(response).toMatchSnapshot();
+
+  const ucastnici = await Ucastnik.find({}, { _id: 0 })
+    .populate('ucasti.prihlaska.kategorie')
+    .lean();
+  ucastnici[0].ucasti[0].prihlaska.kategorie._id = '===k1===';
+  ucastnici[1].ucasti[0].prihlaska.kategorie._id = '===k2===';
+  ucastnici[2].ucasti[0].prihlaska.kategorie._id = '===k3===';
+  ucastnici[2].ucasti[1].prihlaska.kategorie._id = '===k4===';
+  expect(ucastnici).toMatchSnapshot();
+});
+
 it('přihláška na pěší', async () => {
   const udaje = {
     prijmeni: 'Malá',

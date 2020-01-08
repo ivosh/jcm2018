@@ -41,6 +41,7 @@ export const BROADCAST_UCASTNIK = 'broadcastUcastnik';
 export const CODE_OK = 'ok';
 export const CODE_ALREADY_EXISTING = 'již existuje';
 export const CODE_DB_DISCONNECTED = 'nepřipojeno k databázi';
+export const CODE_DUPLICIT_KOD = 'duplicitní kód';
 export const CODE_DUPLICIT_START_CISLO = 'duplicitní startovní číslo';
 export const CODE_KATEGORIE_INVALID = 'chybná kategorie';
 export const CODE_MAX_LOGIN_ATTEMPTS = 'max login attempts reached';
