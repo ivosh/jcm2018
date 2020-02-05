@@ -10,6 +10,7 @@ import FilterableContainer from '../Filterable/FilterableContainer';
 import UcastniciTableContainer from '../UcastniciTable/UcastniciTableContainer';
 import PoznamkyContainer from '../Poznamky/PoznamkyContainer';
 import AkceMenu from './AkceMenu';
+import EmailStartCislo from './EmailStartCislo';
 import EmailStartovne from './EmailStartovne';
 import PrihlaseniDohlaseniFilter from './PrihlaseniDohlaseniFilter';
 import './PrihlaseniDohlaseni.css';
@@ -41,6 +42,18 @@ const AkceMenuFormat = ({
           email={data[rowIndex].email}
           kod={data[rowIndex].kod}
           predepsano={data[rowIndex].predepsano}
+        />
+      )
+    });
+    akce.push({
+      icon: 'envelope',
+      nazev: 'Upomínka emailem: startovní číslo',
+      component: (
+        <EmailStartCislo
+          pohlavi={data[rowIndex].pohlavi}
+          email={data[rowIndex].email}
+          kategorie={data[rowIndex].kategorie}
+          startCislo={data[rowIndex].startCislo}
         />
       )
     });
@@ -76,7 +89,11 @@ AkceMenuFormat.propTypes = {
       pohlavi: PropTypes.oneOf(['muž', 'žena']).isRequired,
       email: PropTypes.string,
       kod: PropTypes.string,
-      predepsano: PropTypes.number.isRequired
+      predepsano: PropTypes.number.isRequired,
+      kategorie: PropTypes.shape({
+        typ: PropTypes.string.isRequired
+      }).isRequired,
+      startCislo: PropTypes.number
     })
   ).isRequired,
   rowIndex: PropTypes.number.isRequired

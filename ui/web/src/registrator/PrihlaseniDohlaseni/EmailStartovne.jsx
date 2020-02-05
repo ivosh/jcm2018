@@ -9,7 +9,7 @@ const prechylenaOdbavena = pohlavi => (pohlavi === 'žena' ? 'odbavena' : 'odbav
 const EmailStartovne = ({ prijmeni, jmeno, pohlavi, email, kod, predepsano }) => (
   <EmailComposerContainer
     mailTo={email}
-    subject="Jirkovský crossmarathon - zaplacení startovného"
+    subject={`Jirkovský crossmarathon ${AKTUALNI_ROK} - startovné`}
     body={`Ahoj,<br/>
 děkujeme za včasnou přihlášku na Jirkovský crossmarathon ${AKTUALNI_ROK}.<br/>
 Startovné je třeba uhradit do 31. května 2020.
