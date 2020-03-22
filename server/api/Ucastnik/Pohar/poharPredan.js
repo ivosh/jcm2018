@@ -4,7 +4,7 @@ const {
   CODE_OK,
   CODE_NONEXISTING,
   CODE_NOT_ALLOWED,
-  UCASTI_NA_POHAR
+  UCASTI_NA_POHAR,
 } = require('../../../../common/common');
 const logger = require('../../../logger');
 const Ucastnik = require('../../../model/Ucastnik/Ucastnik');
@@ -30,7 +30,7 @@ const poharPredan = async ({ request }) => {
   logger.silly(`Účastník id ${id} found: ${ucastnik}`);
 
   const ucasti = ucastnik.ucasti.filter(
-    ucast =>
+    (ucast) =>
       ucast.vykon && ucast.vykon.kategorie.typ === 'maraton' && ucast.vykon.dokonceno === true
   );
   logger.silly(`Nalezeny dokončené účasti v typu kategorie maraton: ${ucasti}.`);
@@ -57,7 +57,7 @@ const poharPredan = async ({ request }) => {
   );
   return {
     code: CODE_NOT_ALLOWED,
-    status: `Účastník má celkem ${ucasti.length} dokončených účastí v kategorii maraton (tedy nárok ${narok}) a už ${predano} pohárů předaných.`
+    status: `Účastník má celkem ${ucasti.length} dokončených účastí v kategorii maraton (tedy nárok ${narok}) a už ${predano} pohárů předaných.`,
   };
 };
 

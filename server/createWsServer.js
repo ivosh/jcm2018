@@ -14,17 +14,17 @@ const createWsServer = ({ httpServer, processMessage = processMessageAPI, reques
 
   const ws = new WebSocketServer({
     httpServer: wsHttpServer,
-    autoAcceptConnections: false
+    autoAcceptConnections: false,
   });
 
   ws.authConnections = [];
-  ws.addAuthConnection = connection => {
+  ws.addAuthConnection = (connection) => {
     const index = ws.authConnections.indexOf(connection);
     if (index === -1) {
       ws.authConnections.push(connection);
     }
   };
-  ws.removeAuthConnection = connection => {
+  ws.removeAuthConnection = (connection) => {
     const index = ws.authConnections.indexOf(connection);
     if (index !== -1) {
       ws.authConnections.splice(index, 1);
@@ -34,8 +34,8 @@ const createWsServer = ({ httpServer, processMessage = processMessageAPI, reques
   ws.broadcast = ({ debugMessage, excludedConnection, message }) => {
     const json = JSON.stringify(message);
     ws.authConnections
-      .filter(connection => connection !== excludedConnection)
-      .forEach(connection => {
+      .filter((connection) => connection !== excludedConnection)
+      .forEach((connection) => {
         connection.sendUTF(json);
         logger.silly(`Broadcasted: ${json} to ${remoteSocketEndpoint(connection.socket)}`);
       });
@@ -44,11 +44,11 @@ const createWsServer = ({ httpServer, processMessage = processMessageAPI, reques
 
   // Returns a promise which resolves once all background connections have been closed, as indicated
   // to the callback of server.close().
-  ws.close = async () => new Promise(resolve => wsHttpServer.close(() => resolve()));
+  ws.close = async () => new Promise((resolve) => wsHttpServer.close(() => resolve()));
 
-  ws.listen = port => wsHttpServer.listen(port);
+  ws.listen = (port) => wsHttpServer.listen(port);
 
-  ws.on('request', wsRequest => {
+  ws.on('request', (wsRequest) => {
     if (requestAllowed && !requestAllowed(wsRequest)) {
       wsRequest.reject(401);
       logger.warn('Request for websocket connection rejected.');
@@ -69,7 +69,7 @@ const createWsServer = ({ httpServer, processMessage = processMessageAPI, reques
       );
       logger.debug(`Number of authenticated connections: ${ws.authConnections.length}`);
 
-      connection.on('message', async message => {
+      connection.on('message', async (message) => {
         if (message.type !== 'utf8') {
           connection.drop(connection.CLOSE_REASON_INVALID_DATA);
           logger.warn(`Message with unknown type ${message.type}.`);

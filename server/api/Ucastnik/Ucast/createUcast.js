@@ -28,7 +28,7 @@ const createUcast = async ({ id, rok }) => {
 
   logger.debug(`Vytvářím novou účast pro rok ${rok} účastníka ${ucastnik.id}.`);
   ucastnik.ucasti.push({ rok });
-  ucast = ucastnik.ucasti.find(oneUcast => oneUcast.rok === rok);
+  ucast = ucastnik.ucasti.find((oneUcast) => oneUcast.rok === rok);
   return { code: CODE_OK, status: `Vytvořena účast pro rok ${rok}.`, ucast, ucastnik };
 };
 

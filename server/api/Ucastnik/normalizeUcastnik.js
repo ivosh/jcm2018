@@ -1,4 +1,4 @@
-const normalizeUcastnik = ucastnik => {
+const normalizeUcastnik = (ucastnik) => {
   const roky = [];
   const ucasti = {};
 
@@ -6,7 +6,7 @@ const normalizeUcastnik = ucastnik => {
     return { roky, ucasti };
   }
 
-  ucastnik.ucasti.forEach(ucast => {
+  ucastnik.ucasti.forEach((ucast) => {
     const { rok, ...ucastBezRoku } = ucast;
     roky.push(rok);
     ucasti[rok] = ucastBezRoku;

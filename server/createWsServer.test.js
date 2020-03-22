@@ -32,7 +32,7 @@ beforeEach(() => {
 
 it('connect successfully', async () => {
   const wsClient = new WebSocketAsPromised(`ws://localhost:${PORT}`, {
-    createWebSocket: url => new W3CWebSocket(url, 'jcm2020')
+    createWebSocket: (url) => new W3CWebSocket(url, 'jcm2020'),
   });
   await wsClient.open();
 
@@ -41,7 +41,7 @@ it('connect successfully', async () => {
 
 it('connect fails because of invalid protocol', async () => {
   const wsClient = new WebSocketAsPromised(`ws://localhost:${PORT}`, {
-    createWebSocket: url => new W3CWebSocket(url, '')
+    createWebSocket: (url) => new W3CWebSocket(url, ''),
   });
   await expect(wsClient.open()).rejects.toMatchSnapshot();
 });
@@ -50,22 +50,22 @@ it('connect fails because of invalid origin', async () => {
   allowThisRequest = false;
 
   const wsClient = new WebSocketAsPromised(`ws://localhost:${PORT}`, {
-    createWebSocket: url => new W3CWebSocket(url, 'jcm2020'),
-    timeout: 5000
+    createWebSocket: (url) => new W3CWebSocket(url, 'jcm2020'),
+    timeout: 5000,
   });
   await expect(wsClient.open()).rejects.toMatchSnapshot();
 });
 
-it('broadcast', async done => {
+it('broadcast', async (done) => {
   const wsClient2 = new WebSocketAsPromised(`ws://localhost:${PORT}`, {
-    createWebSocket: url => new W3CWebSocket(url, 'jcm2020')
+    createWebSocket: (url) => new W3CWebSocket(url, 'jcm2020'),
   });
   await wsClient2.open();
 
   const wsClient1 = new WebSocketAsPromised(`ws://localhost:${PORT}`, {
-    createWebSocket: url => new W3CWebSocket(url, 'jcm2020')
+    createWebSocket: (url) => new W3CWebSocket(url, 'jcm2020'),
   });
-  wsClient1.onMessage.addListener(async message => {
+  wsClient1.onMessage.addListener(async (message) => {
     const parsed = JSON.parse(message);
     expect(parsed).toMatchSnapshot();
 

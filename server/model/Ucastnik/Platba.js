@@ -8,7 +8,7 @@ const PlatbaSchema = new mongoose.Schema(
     castka: { type: Number, required: true },
     datum: { type: Date, required: true },
     typ: { type: String, enum: common.PLATBA_TYPY, required: true },
-    poznamka: { type: String }
+    poznamka: { type: String },
   },
   { _id: false, bufferCommands: false }
 );

@@ -3,7 +3,7 @@
 const db = require('../../../db');
 const { API_MODIFY_POZNAMKA, apiCall } = require('../../../../common/common');
 const createWsServer = require('../../../createWsServer');
-const createWsClient = require('./../../createWsClient');
+const createWsClient = require('../../createWsClient');
 const Ucastnik = require('../../../model/Ucastnik/Ucastnik');
 const generateTestToken = require('../../generateTestToken');
 
@@ -34,11 +34,11 @@ it('modifyPoznamka - index ok', async () => {
     jmeno: 'František',
     narozeni: { rok: 1953 },
     pohlavi: 'muž',
-    obec: 'Ostrava 1'
+    obec: 'Ostrava 1',
   };
   const poznamky = [
     { datum: '2018-02-07T00:00:00Z', text: 'první přihlášený' },
-    { datum: '2018-06-08T00:00:00Z', text: 'možná se odhlásí' }
+    { datum: '2018-06-08T00:00:00Z', text: 'možná se odhlásí' },
   ];
   const ucastnik = new Ucastnik();
   ucastnik.ucasti.push({ rok: 2018, udaje, poznamky });
@@ -51,9 +51,9 @@ it('modifyPoznamka - index ok', async () => {
         id: ucastnik.id,
         rok: 2018,
         index: 0,
-        poznamka: { datum: '2018-06-12T18:42:12.234Z', text: 'změněná poznámka' }
+        poznamka: { datum: '2018-06-12T18:42:12.234Z', text: 'změněná poznámka' },
       },
-      token
+      token,
     })
   );
   expect(response).toMatchSnapshot();
@@ -68,11 +68,11 @@ it('modifyPoznamka - špatný index', async () => {
     jmeno: 'František',
     narozeni: { rok: 1953 },
     pohlavi: 'muž',
-    obec: 'Ostrava 1'
+    obec: 'Ostrava 1',
   };
   const poznamky = [
     { datum: '2018-02-07T00:00:00Z', text: 'první přihlášený' },
-    { datum: '2018-06-08T00:00:00Z', text: 'možná se odhlásí' }
+    { datum: '2018-06-08T00:00:00Z', text: 'možná se odhlásí' },
   ];
   const ucastnik = new Ucastnik();
   ucastnik.ucasti.push({ rok: 2018, udaje, poznamky });
@@ -85,9 +85,9 @@ it('modifyPoznamka - špatný index', async () => {
         id: ucastnik.id,
         rok: 2018,
         index: 2,
-        poznamka: { datum: '2018-08-01T18:42:12.234Z', text: 'změněná poznámka' }
+        poznamka: { datum: '2018-08-01T18:42:12.234Z', text: 'změněná poznámka' },
       },
-      token
+      token,
     })
   );
   expect(response).toMatchSnapshot();
@@ -101,7 +101,7 @@ it('účastník neexistuje', async () => {
     apiCall({
       endpoint: API_MODIFY_POZNAMKA,
       request: { id: '41224d776a326fb40f000001', rok: 2018, index: 0 },
-      token
+      token,
     })
   );
   expect(response).toMatchSnapshot();

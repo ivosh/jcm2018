@@ -4,10 +4,10 @@ const Actions = require('../../../common/common');
 const Ucastnik = require('../../model/Ucastnik/Ucastnik');
 const normalizeUcastnik = require('./normalizeUcastnik');
 
-const normalizeUcastnici = ucastnici => {
+const normalizeUcastnici = (ucastnici) => {
   const normalized = {};
 
-  ucastnici.forEach(ucastnik => {
+  ucastnici.forEach((ucastnik) => {
     const { ucasti, ...rest } = normalizeUcastnik(ucastnik);
     normalized[ucastnik._id] = { ...rest, ...ucasti };
   });

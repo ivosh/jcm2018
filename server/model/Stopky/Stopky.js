@@ -8,12 +8,12 @@ const StopkySchema = new mongoose.Schema(
     typ: {
       type: String,
       enum: ['maraton', 'půlmaraton', 'cyklo', 'koloběžka'],
-      required: true
+      required: true,
     },
     base: { type: Date }, // when Stopky running
     delta: { type: String }, // when Stopky not running
     mezicasy: { type: [MezicasSchema] }, // always sorted by cas
-    running: { type: Boolean, required: true }
+    running: { type: Boolean, required: true },
   },
   { bufferCommands: false, usePushEach: true }
 );

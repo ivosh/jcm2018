@@ -106,7 +106,7 @@ it('autentizuj zamknutého uživatele úspěšně', async () => {
     username: 'tomáš',
     password: 'jcm2018',
     email: 'tumas@topol.io',
-    lockUntil: dayBefore
+    lockUntil: dayBefore,
   });
   await user.save();
 
@@ -123,7 +123,7 @@ it('autentizuj zamknutého uživatele neúspěšně', async () => {
     username: 'tomáš',
     password: 'jcm2018',
     email: 'tumas@topol.io',
-    lockUntil: dayBefore
+    lockUntil: dayBefore,
   });
   await user.save();
 

@@ -22,14 +22,14 @@ const findUcast = async ({ id, rok }) => {
   logger.debug(`Účastník id ${id} found.`);
   logger.silly(`Účastník id ${id} found: ${inspect(ucastnik, undefined, Infinity)}`);
 
-  const ucast = ucastnik.ucasti.find(oneUcast => oneUcast.rok === rok);
+  const ucast = ucastnik.ucasti.find((oneUcast) => oneUcast.rok === rok);
   if (ucast) {
     logger.debug(`Nalezena účast pro rok ${rok} účastníka ${ucastnik.id}.`);
     return {
       code: CODE_OK,
       status: `Nalezena existující účast pro rok ${rok}.`,
       ucast,
-      ucastnik
+      ucastnik,
     };
   }
 
@@ -37,7 +37,7 @@ const findUcast = async ({ id, rok }) => {
   return {
     code: CODE_NONEXISTING,
     status: `Účast roku ${rok} pro účastníka s id ${id} neexistuje.`,
-    ucastnik
+    ucastnik,
   };
 };
 

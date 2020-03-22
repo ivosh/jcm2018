@@ -2,7 +2,7 @@
 
 const Actions = require('../../../common/common');
 
-const broadcastStopky = async stopky => {
+const broadcastStopky = async (stopky) => {
   const json = stopky.toJSON ? stopky.toJSON() : stopky;
   const { _id, __v, ...data } = json;
 

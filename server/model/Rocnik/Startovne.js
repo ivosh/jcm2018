@@ -6,7 +6,7 @@ const StartovneSchema = new mongoose.Schema(
   {
     predem: { type: Number, required: true },
     naMiste: { type: Number, required: true },
-    zaloha: { type: Number }
+    zaloha: { type: Number },
   },
   { _id: false, bufferCommands: false }
 );

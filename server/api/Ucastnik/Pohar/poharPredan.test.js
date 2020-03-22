@@ -18,9 +18,9 @@ const testovaciRoky = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 202
 let kategorie1;
 let kategorie3;
 
-const setupUcastnik = async roky => {
+const setupUcastnik = async (roky) => {
   const ucastnik = new Ucastnik();
-  testovaciRoky.forEach(rok => {
+  testovaciRoky.forEach((rok) => {
     if (roky[rok]) {
       const { kategorie, dokonceno, prihlaska } = roky[rok];
       const kategorieId = kategorie === 'maraton' ? kategorie1.id : kategorie3.id;
@@ -31,8 +31,8 @@ const setupUcastnik = async roky => {
           jmeno: 'Y',
           narozeni: { rok: 2000, mesic: 1, den: 1 },
           pohlavi: 'muž',
-          obec: 'Z'
-        }
+          obec: 'Z',
+        },
       };
       if (prihlaska || dokonceno !== undefined) {
         ucast.prihlaska = { datum: '2009-09-09', kategorie: kategorieId };
@@ -58,19 +58,19 @@ beforeAll(async () => {
   kategorie1 = new Kategorie({
     typ: 'maraton',
     pohlavi: 'žena',
-    vek: { min: 40, max: 49 }
+    vek: { min: 40, max: 49 },
   });
   await kategorie1.save();
   const kategorie2 = new Kategorie({
     typ: 'maraton',
     pohlavi: 'žena',
-    vek: { min: 50, max: 59 }
+    vek: { min: 50, max: 59 },
   });
   await kategorie2.save();
   kategorie3 = new Kategorie({
     typ: 'půlmaraton',
     pohlavi: 'žena',
-    vek: { min: 40, max: 49 }
+    vek: { min: 40, max: 49 },
   });
   await kategorie3.save();
 
@@ -78,7 +78,7 @@ beforeAll(async () => {
   rocnik1.kategorie.push({
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id],
-    startovne: { predem: 200, naMiste: 250 }
+    startovne: { predem: 200, naMiste: 250 },
   });
   await rocnik1.save();
 
@@ -86,7 +86,7 @@ beforeAll(async () => {
   rocnik2.kategorie.push({
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id],
-    startovne: { predem: 200, naMiste: 250 }
+    startovne: { predem: 200, naMiste: 250 },
   });
   await rocnik2.save();
 
@@ -94,12 +94,12 @@ beforeAll(async () => {
   rocnik3.kategorie.push({
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id],
-    startovne: { predem: 200, naMiste: 250 }
+    startovne: { predem: 200, naMiste: 250 },
   });
   rocnik3.kategorie.push({
     typ: 'půlmaraton',
     kategorie: [kategorie3.id],
-    startovne: { predem: 250, naMiste: 300 }
+    startovne: { predem: 250, naMiste: 300 },
   });
   await rocnik3.save();
 
@@ -107,7 +107,7 @@ beforeAll(async () => {
   rocnik4.kategorie.push({
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id],
-    startovne: { predem: 200, naMiste: 250 }
+    startovne: { predem: 200, naMiste: 250 },
   });
   await rocnik4.save();
 
@@ -115,12 +115,12 @@ beforeAll(async () => {
   rocnik5.kategorie.push({
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id],
-    startovne: { predem: 200, naMiste: 250 }
+    startovne: { predem: 200, naMiste: 250 },
   });
   rocnik5.kategorie.push({
     typ: 'půlmaraton',
     kategorie: [kategorie3.id],
-    startovne: { predem: 250, naMiste: 300 }
+    startovne: { predem: 250, naMiste: 300 },
   });
   await rocnik5.save();
 
@@ -128,7 +128,7 @@ beforeAll(async () => {
   rocnik6.kategorie.push({
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id],
-    startovne: { predem: 200, naMiste: 250 }
+    startovne: { predem: 200, naMiste: 250 },
   });
   await rocnik6.save();
 
@@ -136,12 +136,12 @@ beforeAll(async () => {
   rocnik7.kategorie.push({
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id],
-    startovne: { predem: 200, naMiste: 250 }
+    startovne: { predem: 200, naMiste: 250 },
   });
   rocnik7.kategorie.push({
     typ: 'půlmaraton',
     kategorie: [kategorie3.id],
-    startovne: { predem: 250, naMiste: 300 }
+    startovne: { predem: 250, naMiste: 300 },
   });
   await rocnik7.save();
 
@@ -149,7 +149,7 @@ beforeAll(async () => {
   rocnik8.kategorie.push({
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id],
-    startovne: { predem: 200, naMiste: 250 }
+    startovne: { predem: 200, naMiste: 250 },
   });
   await rocnik8.save();
 
@@ -157,7 +157,7 @@ beforeAll(async () => {
   rocnik9.kategorie.push({
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id],
-    startovne: { predem: 200, naMiste: 250 }
+    startovne: { predem: 200, naMiste: 250 },
   });
   await rocnik9.save();
 
@@ -165,12 +165,12 @@ beforeAll(async () => {
   rocnik10.kategorie.push({
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id],
-    startovne: { predem: 200, naMiste: 250 }
+    startovne: { predem: 200, naMiste: 250 },
   });
   rocnik10.kategorie.push({
     typ: 'půlmaraton',
     kategorie: [kategorie3.id],
-    startovne: { predem: 250, naMiste: 300 }
+    startovne: { predem: 250, naMiste: 300 },
   });
   await rocnik10.save();
 });
@@ -193,7 +193,7 @@ it('4x dokončila a přihlášena na pátý ročník', async () => {
     2012: { kategorie: 'maraton', dokonceno: true },
     2014: { kategorie: 'maraton', dokonceno: true },
     2017: { kategorie: 'maraton', dokonceno: true },
-    2018: { kategorie: 'maraton', prihlaska: true }
+    2018: { kategorie: 'maraton', prihlaska: true },
   });
 
   const { requestId, ...response } = await wsClient.sendRequest(
@@ -217,7 +217,7 @@ it('5x dokončila a přihlášena na šestý ročník', async () => {
     2013: { kategorie: 'maraton', dokonceno: true },
     2014: { kategorie: 'maraton', dokonceno: true },
     2017: { kategorie: 'maraton', dokonceno: true },
-    2018: { kategorie: 'maraton', prihlaska: true }
+    2018: { kategorie: 'maraton', prihlaska: true },
   });
 
   const { requestId, ...response } = await wsClient.sendRequest(
@@ -241,7 +241,7 @@ it('6x dokončila ale z toho jen 3x maraton', async () => {
     2014: { kategorie: 'maraton', dokonceno: true },
     2015: { kategorie: 'půlmaraton', dokonceno: true },
     2017: { kategorie: 'půlmaraton', dokonceno: true },
-    2018: { kategorie: 'maraton', dokonceno: true }
+    2018: { kategorie: 'maraton', dokonceno: true },
   });
 
   const { requestId, ...response } = await wsClient.sendRequest(
@@ -266,7 +266,7 @@ it('5x dokončila maraton, ale jednou byla přihlášena na půlku a přepsala s
     2012: { kategorie: 'maraton', dokonceno: true },
     2013: { kategorie: 'maraton', dokonceno: true },
     2014: { kategorie: 'maraton', dokonceno: true },
-    2017: { kategorie: 'maraton', dokonceno: true }
+    2017: { kategorie: 'maraton', dokonceno: true },
   });
 
   // přihláška byla ale na půlmaraton
@@ -293,7 +293,7 @@ it('účastník neexistuje', async () => {
     apiCall({
       endpoint: API_POHAR_PREDAN,
       request: { id: '41224d776a326fb40f000001' },
-      token
+      token,
     })
   );
   expect(response).toMatchSnapshot();

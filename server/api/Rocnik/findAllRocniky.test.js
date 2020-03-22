@@ -39,31 +39,31 @@ it('findAllRocniky', async () => {
   const kategorie1 = new Kategorie({
     typ: 'maraton',
     pohlavi: 'žena',
-    vek: { min: 40, max: 49 }
+    vek: { min: 40, max: 49 },
   });
   await kategorie1.save();
   const kategorie2 = new Kategorie({
     typ: 'maraton',
     pohlavi: 'žena',
-    vek: { min: 50, max: 59 }
+    vek: { min: 50, max: 59 },
   });
   await kategorie2.save();
   const kategorie3 = new Kategorie({
     typ: 'půlmaraton',
     pohlavi: 'žena',
-    vek: { min: 40, max: 49 }
+    vek: { min: 40, max: 49 },
   });
   await kategorie3.save();
   const kategorie4 = new Kategorie({
     typ: 'půlmaraton',
     pohlavi: 'žena',
-    vek: { min: 50, max: 59 }
+    vek: { min: 50, max: 59 },
   });
   await kategorie4.save();
   const kategorie5 = new Kategorie({
     typ: 'půlmaraton',
     pohlavi: 'muž',
-    vek: { min: 50, max: 59 }
+    vek: { min: 50, max: 59 },
   });
   await kategorie5.save();
   const kategorie6 = new Kategorie({ typ: 'pěší' });
@@ -74,7 +74,7 @@ it('findAllRocniky', async () => {
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id],
     startCisla: { rozsahy: ['1-100'] },
-    startovne: { predem: 150, naMiste: 200 }
+    startovne: { predem: 150, naMiste: 200 },
   });
   rocnik1.ubytovani.pátek = { poplatek: 50 };
   rocnik1.ubytovani.sobota = { poplatek: 60 };
@@ -83,24 +83,24 @@ it('findAllRocniky', async () => {
   const rocnik2 = new Rocnik({
     rok: 2018,
     datum: '2018-06-08',
-    uzaverka: { prihlasek: '2018-06-03', platebPrihlasek: '2018-06-05' }
+    uzaverka: { prihlasek: '2018-06-03', platebPrihlasek: '2018-06-05' },
   });
   rocnik2.kategorie.push({
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id],
     startCisla: { rozsahy: ['5-95'] },
-    startovne: { predem: 200, naMiste: 250 }
+    startovne: { predem: 200, naMiste: 250 },
   });
   rocnik2.kategorie.push({
     typ: 'půlmaraton',
     kategorie: [kategorie3.id, kategorie4.id, kategorie5.id],
     startCisla: { rozsahy: ['100-199'] },
-    startovne: { predem: 200, naMiste: 250 }
+    startovne: { predem: 200, naMiste: 250 },
   });
   rocnik2.kategorie.push({
     typ: 'pěší',
     kategorie: [kategorie6.id],
-    startovne: { predem: 25, naMiste: 25 }
+    startovne: { predem: 25, naMiste: 25 },
   });
   rocnik2.ubytovani.pátek = { poplatek: 60 };
   await rocnik2.save();
@@ -112,7 +112,7 @@ it('findAllRocniky', async () => {
 
   const ids = {};
   let current = 1;
-  Object.keys(kategorie).forEach(id => {
+  Object.keys(kategorie).forEach((id) => {
     ids[id] = `---k${current}`;
     current += 1;
 

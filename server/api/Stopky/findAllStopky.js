@@ -3,10 +3,10 @@
 const Actions = require('../../../common/common');
 const Stopky = require('../../model/Stopky/Stopky');
 
-const normalizeStopky = stopky => {
+const normalizeStopky = (stopky) => {
   const normalized = {};
 
-  stopky.forEach(element => {
+  stopky.forEach((element) => {
     const { typ, __v, _id, ...stopkyBezTypu } = element;
     const jedny = { typ, ...stopkyBezTypu };
 

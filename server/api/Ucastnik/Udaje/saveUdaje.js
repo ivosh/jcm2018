@@ -33,7 +33,7 @@ const saveUdaje = async ({ request }) => {
     broadcast,
     code: Actions.CODE_OK,
     status: 'uloženo v pořádku',
-    response: { id: ucastnik.id }
+    response: { id: ucastnik.id },
   };
 };
 

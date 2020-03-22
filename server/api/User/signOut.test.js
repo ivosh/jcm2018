@@ -3,7 +3,7 @@
 const { API_SIGN_IN, API_SIGN_OUT, apiCall } = require('../../../common/common');
 const db = require('../../db');
 const createWsServer = require('../../createWsServer');
-const createWsClient = require('./../createWsClient');
+const createWsClient = require('../createWsClient');
 const User = require('../../model/User/User');
 
 const port = 5605;
@@ -33,7 +33,7 @@ it('signOut successfully', async () => {
   let { requestId, ...response } = await wsClient.sendRequest(
     apiCall({
       endpoint: API_SIGN_IN,
-      request: { username: 'tumáš', password: 'jcm2018', nonce: 'x834t8df' }
+      request: { username: 'tumáš', password: 'jcm2018', nonce: 'x834t8df' },
     })
   );
   const { token } = response.response;

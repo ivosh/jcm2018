@@ -5,10 +5,10 @@ const {
   API_DELETE_VYKON,
   API_SAVE_UDAJE,
   API_SAVE_VYKON,
-  apiCall
+  apiCall,
 } = require('../../../../common/common');
 const createWsServer = require('../../../createWsServer');
-const createWsClient = require('./../../createWsClient');
+const createWsClient = require('../../createWsClient');
 const Kategorie = require('../../../model/Kategorie/Kategorie');
 const Ucastnik = require('../../../model/Ucastnik/Ucastnik');
 const generateTestToken = require('../../generateTestToken');
@@ -28,7 +28,7 @@ beforeAll(async () => {
   kategorie = new Kategorie({
     typ: 'maraton',
     pohlavi: 'žena',
-    vek: { min: 40, max: 49 }
+    vek: { min: 40, max: 49 },
   });
   await kategorie.save();
 });
@@ -49,7 +49,7 @@ it('vytvoř minimálního účastníka', async () => {
     jmeno: 'Božena',
     narozeni: { rok: 1973 },
     pohlavi: 'žena',
-    obec: 'Kladno'
+    obec: 'Kladno',
   };
   const vykon = { kategorie: kategorie.id, startCislo: 15, dokonceno: true, cas: 'T3:24:15.048S' };
 

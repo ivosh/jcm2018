@@ -13,7 +13,7 @@ const UdajeSchema = new mongoose.Schema(
     stat: { type: String, required: true, default: 'Česká republika' },
     klub: { type: String },
     email: { type: String },
-    telefon: { type: String }
+    telefon: { type: String },
   },
   { _id: false, bufferCommands: false }
 );

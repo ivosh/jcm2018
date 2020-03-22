@@ -13,7 +13,7 @@ const UserSchema = new mongoose.Schema(
     loginAttempts: { type: Number, required: true, default: 0 },
     lockUntil: { type: Date },
     email: { type: String, required: true },
-    sentEmails: [SentEmailSchema]
+    sentEmails: [SentEmailSchema],
   },
   { bufferCommands: false, usePushEach: true }
 );
@@ -56,7 +56,7 @@ UserSchema.methods.incLoginAttempts = async function incLoginAttempts() {
   if (this.lockUntil && this.lockUntil < new Date()) {
     return this.updateOne({
       $set: { loginAttempts: 1 },
-      $unset: { lockUntil: 1 }
+      $unset: { lockUntil: 1 },
     });
   }
 
@@ -90,7 +90,7 @@ UserSchema.static('authenticate', async function authenticate(username, password
       // Reset attempts and lock info.
       const updates = {
         $set: { loginAttempts: 0 },
-        $unset: { lockUntil: 1 }
+        $unset: { lockUntil: 1 },
       };
       await user.updateOne(updates);
     }

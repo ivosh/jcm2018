@@ -43,4 +43,4 @@ const main = async () => {
 
 main()
   .then()
-  .catch(err => logger.error(err));
+  .catch((err) => logger.error(err));

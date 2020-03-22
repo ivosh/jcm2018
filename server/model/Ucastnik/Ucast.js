@@ -17,9 +17,9 @@ const UcastSchema = new mongoose.Schema(
     platby: { type: [PlatbaSchema], default: null },
     ubytovani: {
       pátek: { type: UbytovaniSchema },
-      sobota: { type: UbytovaniSchema }
+      sobota: { type: UbytovaniSchema },
     },
-    poznamky: { type: [PoznamkaSchema], default: null }
+    poznamky: { type: [PoznamkaSchema], default: null },
   },
   { _id: false, bufferCommands: false }
 );

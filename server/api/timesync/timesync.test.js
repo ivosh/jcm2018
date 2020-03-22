@@ -2,7 +2,7 @@
 
 const { API_TIMESYNC, apiCall } = require('../../../common/common');
 const createWsServer = require('../../createWsServer');
-const createWsClient = require('./../createWsClient');
+const createWsClient = require('../createWsClient');
 
 const port = 5602;
 const wsServer = createWsServer({});
@@ -22,7 +22,7 @@ it('timesync', async () => {
   const { requestId, ...response } = await wsClient.sendRequest(
     apiCall({
       endpoint: API_TIMESYNC,
-      request: { clientTime: new Date('2018-12-01T10:38:08.361Z').toJSON() }
+      request: { clientTime: new Date('2018-12-01T10:38:08.361Z').toJSON() },
     })
   );
   expect(response.response.serverTime).toBeDefined();

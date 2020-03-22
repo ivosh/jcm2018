@@ -3,7 +3,7 @@
 const db = require('../../../db');
 const { API_SAVE_POZNAMKY, API_SAVE_UDAJE, apiCall } = require('../../../../common/common');
 const createWsServer = require('../../../createWsServer');
-const createWsClient = require('./../../createWsClient');
+const createWsClient = require('../../createWsClient');
 const Ucastnik = require('../../../model/Ucastnik/Ucastnik');
 const generateTestToken = require('../../generateTestToken');
 
@@ -34,11 +34,11 @@ it('vytvoř minimálního účastníka', async () => {
     jmeno: 'František',
     narozeni: { rok: 1953 },
     pohlavi: 'muž',
-    obec: 'Ostrava 1'
+    obec: 'Ostrava 1',
   };
   const poznamky = [
     { datum: '2018-02-07T00:00:00Z', text: 'první přihlášený' },
-    { datum: '2018-06-08T00:00:00Z', text: 'možná se odhlásí' }
+    { datum: '2018-06-08T00:00:00Z', text: 'možná se odhlásí' },
   ];
 
   const response1 = await wsClient.sendRequest(
@@ -63,7 +63,7 @@ it('účastník neexistuje', async () => {
     apiCall({
       endpoint: API_SAVE_POZNAMKY,
       request: { id: '41224d776a326fb40f000001', rok: 2018, poznamky },
-      token
+      token,
     })
   );
   expect(response).toMatchSnapshot();

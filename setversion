@@ -26,16 +26,16 @@ const jsonFiles = [
   'package.json',
   'package-lock.json',
   'ui/web/package.json',
-  'ui/web/package-lock.json'
+  'ui/web/package-lock.json',
 ];
 const snapFiles = ['ui/web/src/App/__snapshots__/About.test.jsx.snap'];
 
 const main = async () => {
   logger.info(`Setting version to ${version}.`);
 
-  await Promise.all(jsonFiles.map(jsonFile => updater(jsonFile).set('version', version)));
-  await Promise.all(appFiles.map(appFile => updater(appFile).set('expo.version', version)));
-  snapFiles.forEach(file =>
+  await Promise.all(jsonFiles.map((jsonFile) => updater(jsonFile).set('version', version)));
+  await Promise.all(appFiles.map((appFile) => updater(appFile).set('expo.version', version)));
+  snapFiles.forEach((file) =>
     replaceInFile(file, /^(\s*)Verze:(\s*)\n(\s*)\S+(\s*)$/m, `$1Verze:$2\n$3${version}$4`)
   );
 
@@ -49,4 +49,4 @@ const main = async () => {
 
 main()
   .then()
-  .catch(err => logger.error(err));
+  .catch((err) => logger.error(err));

@@ -29,8 +29,8 @@ it('basic connectivity', async () => {
   expect(response).toMatchSnapshot();
 });
 
-it('unparsable message', async done => {
-  wsClient.onMessage.addListener(message => {
+it('unparsable message', async (done) => {
+  wsClient.onMessage.addListener((message) => {
     const parsed = JSON.parse(message);
     expect(parsed).toMatchSnapshot();
     done();
@@ -39,8 +39,8 @@ it('unparsable message', async done => {
   await wsClient.send('--');
 });
 
-it('unknown action', async done => {
-  wsClient.onMessage.addListener(message => {
+it('unknown action', async (done) => {
+  wsClient.onMessage.addListener((message) => {
     const parsed = JSON.parse(message);
     expect(parsed).toMatchSnapshot();
     done();

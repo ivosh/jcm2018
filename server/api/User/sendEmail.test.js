@@ -2,7 +2,7 @@
 
 const { API_SEND_EMAIL, apiCall } = require('../../../common/common');
 const createWsServer = require('../../createWsServer');
-const createWsClient = require('./../createWsClient');
+const createWsClient = require('../createWsClient');
 const db = require('../../db');
 const User = require('../../model/User/User');
 const generateTestToken = require('../generateTestToken');
@@ -40,9 +40,9 @@ it('sendEmail successfully', async () => {
       request: {
         mailTo: 'test@test.io',
         subject: 'Test subject',
-        body: 'Test email for <i>masses</i>.'
+        body: 'Test email for <i>masses</i>.',
       },
-      token
+      token,
     })
   );
 

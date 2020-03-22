@@ -8,10 +8,10 @@ const {
   UBYTOVANI_ODHLASIT,
   UBYTOVANI_PRESPANO,
   UBYTOVANI_PRIHLASIT,
-  apiCall
+  apiCall,
 } = require('../../../../common/common');
 const createWsServer = require('../../../createWsServer');
-const createWsClient = require('./../../createWsClient');
+const createWsClient = require('../../createWsClient');
 const Kategorie = require('../../../model/Kategorie/Kategorie');
 const Rocnik = require('../../../model/Rocnik/Rocnik');
 const Ucastnik = require('../../../model/Ucastnik/Ucastnik');
@@ -33,7 +33,7 @@ beforeAll(async () => {
   kategorie1 = new Kategorie({
     typ: 'maraton',
     pohlavi: 'žena',
-    vek: { min: 40, max: 49 }
+    vek: { min: 40, max: 49 },
   });
   await kategorie1.save();
 
@@ -42,7 +42,7 @@ beforeAll(async () => {
     typ: 'maraton',
     kategorie: [kategorie1.id],
     startCisla: { rozsahy: ['1-100'] },
-    startovne: { predem: 150, naMiste: 200 }
+    startovne: { predem: 150, naMiste: 200 },
   });
   rocnik1.ubytovani.pátek = { poplatek: 50 };
   rocnik1.ubytovani.sobota = { poplatek: 60 };
@@ -53,7 +53,7 @@ beforeAll(async () => {
     typ: 'maraton',
     kategorie: [kategorie1.id],
     startCisla: { rozsahy: ['5-95'] },
-    startovne: { predem: 200, naMiste: 250 }
+    startovne: { predem: 200, naMiste: 250 },
   });
   rocnik2.ubytovani.pátek = { poplatek: 60 };
   await rocnik2.save();
@@ -75,7 +75,7 @@ it('přihlaš ubytování (nebyla nikdy přihlášena)', async () => {
     jmeno: 'Františka',
     narozeni: { rok: 1953 },
     pohlavi: 'žena',
-    obec: 'Ostrava 1'
+    obec: 'Ostrava 1',
   };
   const prihlaska = { kategorie: kategorie1.id, datum: '2018-06-20' };
 
@@ -83,7 +83,7 @@ it('přihlaš ubytování (nebyla nikdy přihlášena)', async () => {
     apiCall({
       endpoint: API_SAVE_UCAST,
       request: { rok: 2018, udaje, prihlaska, ubytovani: {} },
-      token
+      token,
     })
   );
   const { id } = response1.response;
@@ -93,7 +93,7 @@ it('přihlaš ubytování (nebyla nikdy přihlášena)', async () => {
     apiCall({
       endpoint: API_MODIFY_UBYTOVANI,
       request: { id, rok: 2018, den: 'pátek', modifikace: UBYTOVANI_PRIHLASIT },
-      token
+      token,
     })
   );
   expect(response).toMatchSnapshot();
@@ -109,7 +109,7 @@ it('odhlaš a přihlaš ubytování', async () => {
     jmeno: 'Františka',
     narozeni: { rok: 1953 },
     pohlavi: 'žena',
-    obec: 'Ostrava 1'
+    obec: 'Ostrava 1',
   };
   const prihlaska = { kategorie: kategorie1.id, datum: '2018-06-20' };
 
@@ -117,7 +117,7 @@ it('odhlaš a přihlaš ubytování', async () => {
     apiCall({
       endpoint: API_SAVE_UCAST,
       request: { rok: 2018, udaje, prihlaska, ubytovani: { pátek: { prihlaseno: true } } },
-      token
+      token,
     })
   );
   const { id } = response1.response;
@@ -127,7 +127,7 @@ it('odhlaš a přihlaš ubytování', async () => {
     apiCall({
       endpoint: API_MODIFY_UBYTOVANI,
       request: { id, rok: 2018, den: 'pátek', modifikace: UBYTOVANI_ODHLASIT },
-      token
+      token,
     })
   );
   expect(response).toMatchSnapshot();
@@ -136,7 +136,7 @@ it('odhlaš a přihlaš ubytování', async () => {
     apiCall({
       endpoint: API_MODIFY_UBYTOVANI,
       request: { id, rok: 2018, den: 'pátek', modifikace: UBYTOVANI_PRIHLASIT },
-      token
+      token,
     })
   ));
   expect(response).toMatchSnapshot();
@@ -152,7 +152,7 @@ it('ubytování přihlásila a přespala', async () => {
     jmeno: 'Františka',
     narozeni: { rok: 1953 },
     pohlavi: 'žena',
-    obec: 'Ostrava 1'
+    obec: 'Ostrava 1',
   };
   const prihlaska = { kategorie: kategorie1.id, datum: '2018-06-20' };
 
@@ -160,7 +160,7 @@ it('ubytování přihlásila a přespala', async () => {
     apiCall({
       endpoint: API_SAVE_UCAST,
       request: { rok: 2018, udaje, prihlaska, ubytovani: { pátek: { prihlaseno: true } } },
-      token
+      token,
     })
   );
   const { id } = response1.response;
@@ -170,7 +170,7 @@ it('ubytování přihlásila a přespala', async () => {
     apiCall({
       endpoint: API_MODIFY_UBYTOVANI,
       request: { id, rok: 2018, den: 'pátek', modifikace: UBYTOVANI_PRESPANO },
-      token
+      token,
     })
   );
   expect(response).toMatchSnapshot();
@@ -186,7 +186,7 @@ it('ubytování přihlásila a nepřespala', async () => {
     jmeno: 'Františka',
     narozeni: { rok: 1953 },
     pohlavi: 'žena',
-    obec: 'Ostrava 1'
+    obec: 'Ostrava 1',
   };
   const prihlaska = { kategorie: kategorie1.id, datum: '2018-06-20' };
 
@@ -194,7 +194,7 @@ it('ubytování přihlásila a nepřespala', async () => {
     apiCall({
       endpoint: API_SAVE_UCAST,
       request: { rok: 2018, udaje, prihlaska, ubytovani: { pátek: { prihlaseno: true } } },
-      token
+      token,
     })
   );
   const { id } = response1.response;
@@ -204,7 +204,7 @@ it('ubytování přihlásila a nepřespala', async () => {
     apiCall({
       endpoint: API_MODIFY_UBYTOVANI,
       request: { id, rok: 2018, den: 'pátek', modifikace: UBYTOVANI_NEPRESPANO },
-      token
+      token,
     })
   );
   expect(response).toMatchSnapshot();
@@ -220,7 +220,7 @@ it('ubytování nevypsáno', async () => {
     jmeno: 'Františka',
     narozeni: { rok: 1953 },
     pohlavi: 'žena',
-    obec: 'Ostrava 1'
+    obec: 'Ostrava 1',
   };
   const prihlaska = { kategorie: kategorie1.id, datum: '2018-06-20' };
 
@@ -228,7 +228,7 @@ it('ubytování nevypsáno', async () => {
     apiCall({
       endpoint: API_SAVE_UCAST,
       request: { rok: 2018, udaje, prihlaska, ubytovani: {} },
-      token
+      token,
     })
   );
   const { id } = response1.response;
@@ -238,7 +238,7 @@ it('ubytování nevypsáno', async () => {
     apiCall({
       endpoint: API_MODIFY_UBYTOVANI,
       request: { id, rok: 2018, den: 'sobota', modifikace: UBYTOVANI_PRIHLASIT },
-      token
+      token,
     })
   );
   expect(response).toMatchSnapshot();
@@ -252,9 +252,9 @@ it('účastník neexistuje', async () => {
         id: '41224d776a326fb40f000001',
         rok: 2018,
         den: 'pátek',
-        modifikace: UBYTOVANI_PRIHLASIT
+        modifikace: UBYTOVANI_PRIHLASIT,
       },
-      token
+      token,
     })
   );
   expect(response).toMatchSnapshot();

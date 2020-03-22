@@ -10,7 +10,7 @@ const logger = require('./logger');
 const STATIC_ASSETS_PATH = '../ui/web/build';
 const INITIAL_FILE = 'index.html';
 
-const pickContentType = extension => {
+const pickContentType = (extension) => {
   const contentTypes = {
     '.css': 'text/css',
     '.eot': 'application/vnd.ms-fontobject',
@@ -23,7 +23,7 @@ const pickContentType = extension => {
     '.svg': 'image/svg+xml',
     '.ttf': 'application/font-ttf',
     '.woff': 'application/font-woff',
-    '.woff2': 'application/font-woff2'
+    '.woff2': 'application/font-woff2',
   };
 
   return contentTypes[extension];
@@ -82,11 +82,11 @@ const streamFile = async ({ filename, host, response }) => {
     'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
     'X-Content-Type-Options': 'nosniff',
     'X-Frame-Options': 'DENY',
-    'X-XSS-Protection': '1; mode=block'
+    'X-XSS-Protection': '1; mode=block',
   });
 
   const rs = fs.createReadStream(undefined, { fd });
-  rs.on('error', err => {
+  rs.on('error', (err) => {
     rs.end();
     const message = `Problem while reading ${file}: ${err.message}`;
     logger.error(message);
@@ -115,7 +115,7 @@ const streamRequest = async ({ filename, host, response }) => {
 const server = http.createServer((request, response) => {
   logger.verbose(`HTTP request for ${request.url}.`);
 
-  response.on('error', err => {
+  response.on('error', (err) => {
     const message = `Problem while writing HTTP response: ${err.message}`;
     logger.error(message);
     responseAbend(response, message);
@@ -150,7 +150,7 @@ const server = http.createServer((request, response) => {
 
     streamRequest({ filename: pathname, host: request.headers.host, response })
       .then()
-      .catch(err => responseAbend(response, err.message));
+      .catch((err) => responseAbend(response, err.message));
   }
 });
 

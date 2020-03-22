@@ -31,37 +31,37 @@ beforeAll(async () => {
   kategorie1 = new Kategorie({
     typ: 'maraton',
     pohlavi: 'žena',
-    vek: { min: 40, max: 49 }
+    vek: { min: 40, max: 49 },
   });
   await kategorie1.save();
   kategorie2 = new Kategorie({
     typ: 'maraton',
     pohlavi: 'žena',
-    vek: { min: 50, max: 59 }
+    vek: { min: 50, max: 59 },
   });
   await kategorie2.save();
   kategorie3 = new Kategorie({
     typ: 'maraton',
     pohlavi: 'muž',
-    vek: { min: 50, max: 59 }
+    vek: { min: 50, max: 59 },
   });
   await kategorie3.save();
   kategorie4 = new Kategorie({
     typ: 'půlmaraton',
     pohlavi: 'žena',
-    vek: { min: 40, max: 49 }
+    vek: { min: 40, max: 49 },
   });
   await kategorie4.save();
   kategorie5 = new Kategorie({
     typ: 'půlmaraton',
     pohlavi: 'žena',
-    vek: { min: 50, max: 59 }
+    vek: { min: 50, max: 59 },
   });
   await kategorie5.save();
   kategorie6 = new Kategorie({
     typ: 'půlmaraton',
     pohlavi: 'muž',
-    vek: { min: 50, max: 59 }
+    vek: { min: 50, max: 59 },
   });
   await kategorie6.save();
   kategorie7 = new Kategorie({ typ: 'pěší' });
@@ -72,7 +72,7 @@ beforeAll(async () => {
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id, kategorie3.id],
     startCisla: { rozsahy: ['1-100'] },
-    startovne: { predem: 150, naMiste: 200 }
+    startovne: { predem: 150, naMiste: 200 },
   });
   rocnik1.ubytovani.pátek = { poplatek: 50 };
   rocnik1.ubytovani.sobota = { poplatek: 60 };
@@ -83,7 +83,7 @@ beforeAll(async () => {
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id, kategorie3.id],
     startCisla: { rozsahy: ['1-100'] },
-    startovne: { predem: 150, naMiste: 200 }
+    startovne: { predem: 150, naMiste: 200 },
   });
   rocnik2.ubytovani.pátek = { poplatek: 50 };
   rocnik2.ubytovani.sobota = { poplatek: 60 };
@@ -94,13 +94,13 @@ beforeAll(async () => {
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id, kategorie3.id],
     startCisla: { rozsahy: ['1-100'] },
-    startovne: { predem: 150, naMiste: 200 }
+    startovne: { predem: 150, naMiste: 200 },
   });
   rocnik3.kategorie.push({
     typ: 'půlmaraton',
     kategorie: [kategorie4.id, kategorie5.id, kategorie6.id],
     startCisla: { rozsahy: ['1-100'] },
-    startovne: { predem: 150, naMiste: 200 }
+    startovne: { predem: 150, naMiste: 200 },
   });
   rocnik3.ubytovani.pátek = { poplatek: 50 };
   rocnik3.ubytovani.sobota = { poplatek: 60 };
@@ -111,18 +111,18 @@ beforeAll(async () => {
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id, kategorie3.id],
     startCisla: { rozsahy: ['5-95'] },
-    startovne: { predem: 200, naMiste: 250 }
+    startovne: { predem: 200, naMiste: 250 },
   });
   rocnik4.kategorie.push({
     typ: 'půlmaraton',
     kategorie: [kategorie4.id, kategorie5.id, kategorie6.id],
     startCisla: { rozsahy: ['100-199'] },
-    startovne: { predem: 200, naMiste: 250 }
+    startovne: { predem: 200, naMiste: 250 },
   });
   rocnik4.kategorie.push({
     typ: 'pěší',
     kategorie: [kategorie7.id],
-    startovne: { predem: 25, naMiste: 25 }
+    startovne: { predem: 25, naMiste: 25 },
   });
   rocnik4.ubytovani.pátek = { poplatek: 60 };
   await rocnik4.save();
@@ -132,18 +132,18 @@ beforeAll(async () => {
     typ: 'maraton',
     kategorie: [kategorie1.id, kategorie2.id, kategorie3.id],
     startCisla: { rozsahy: ['5-95'] },
-    startovne: { predem: 200, naMiste: 250 }
+    startovne: { predem: 200, naMiste: 250 },
   });
   rocnik5.kategorie.push({
     typ: 'půlmaraton',
     kategorie: [kategorie4.id, kategorie5.id, kategorie6.id],
     startCisla: { rozsahy: ['100-199'] },
-    startovne: { predem: 200, naMiste: 250 }
+    startovne: { predem: 200, naMiste: 250 },
   });
   rocnik5.kategorie.push({
     typ: 'pěší',
     kategorie: [kategorie7.id],
-    startovne: { predem: 25, naMiste: 25 }
+    startovne: { predem: 25, naMiste: 25 },
   });
   rocnik5.ubytovani.pátek = { poplatek: 60 };
   await rocnik5.save();
@@ -165,13 +165,13 @@ it('vytvoř minimálního účastníka', async () => {
     jmeno: 'František',
     narozeni: { rok: 1953 },
     pohlavi: 'muž',
-    obec: 'Ostrava 1'
+    obec: 'Ostrava 1',
   };
   const prihlaska = {
     datum: new Date('2018-02-07Z'),
     kategorie: kategorie6.id, // půlmaraton
     kod: '===kod===',
-    startovnePoSleve: 0
+    startovnePoSleve: 0,
   };
 
   const response1 = await wsClient.sendRequest(
@@ -198,7 +198,7 @@ it('vytvoř dvě účasti s přihláškami', async () => {
     jmeno: 'Božena',
     narozeni: { rok: 1967 },
     pohlavi: 'žena',
-    obec: 'Kladno Rozdělov'
+    obec: 'Kladno Rozdělov',
   };
   const udaje2 = { ...udaje1, obec: 'Kamenický Přívoz' };
   const prihlaska1 = {
@@ -206,13 +206,13 @@ it('vytvoř dvě účasti s přihláškami', async () => {
     kategorie: kategorie2.id, // maraton
     startCislo: 7,
     kod: '===kod1===',
-    startovnePoSleve: 200
+    startovnePoSleve: 200,
   };
   const prihlaska2 = {
     datum: new Date('2018-02-07Z'),
     kategorie: kategorie5.id, // půlmaraton
     startCislo: 15,
-    kod: '===kod2==='
+    kod: '===kod2===',
   };
 
   let requestId;
@@ -236,7 +236,7 @@ it('vytvoř dvě účasti s přihláškami', async () => {
     apiCall({
       endpoint: API_SAVE_PRIHLASKA,
       request: { id, rok: 2017, prihlaska: prihlaska1 },
-      token
+      token,
     })
   ));
   expect(response).toMatchSnapshot();
@@ -244,7 +244,7 @@ it('vytvoř dvě účasti s přihláškami', async () => {
     apiCall({
       endpoint: API_SAVE_PRIHLASKA,
       request: { id, rok: 2018, prihlaska: prihlaska2 },
-      token
+      token,
     })
   ));
   expect(response).toMatchSnapshot();
@@ -263,7 +263,7 @@ it('přepiš existující přihlášku', async () => {
     jmeno: 'Božena',
     narozeni: { rok: 1967 },
     pohlavi: 'žena',
-    obec: 'Kladno 1'
+    obec: 'Kladno 1',
   };
   const prihlaska1 = { datum: new Date('2018-05-03Z'), kategorie: kategorie2.id };
   const prihlaska2 = { datum: new Date('2017-05-03Z'), kategorie: kategorie2.id };
@@ -291,35 +291,35 @@ it('přepiš existující přihlášku', async () => {
     apiCall({
       endpoint: API_SAVE_PRIHLASKA,
       request: { id, rok: 2018, prihlaska: prihlaska1 },
-      token
+      token,
     })
   );
   await wsClient.sendRequest(
     apiCall({
       endpoint: API_SAVE_PRIHLASKA,
       request: { id, rok: 2017, prihlaska: prihlaska2 },
-      token
+      token,
     })
   );
   await wsClient.sendRequest(
     apiCall({
       endpoint: API_SAVE_PRIHLASKA,
       request: { id, rok: 2016, prihlaska: prihlaska3 },
-      token
+      token,
     })
   );
   await wsClient.sendRequest(
     apiCall({
       endpoint: API_SAVE_PRIHLASKA,
       request: { id, rok: 2015, prihlaska: prihlaska4 },
-      token
+      token,
     })
   );
   const { requestId, ...response } = await wsClient.sendRequest(
     apiCall({
       endpoint: API_SAVE_PRIHLASKA,
       request: { id, rok: 2017, prihlaska: prihlaska5 },
-      token
+      token,
     })
   );
   expect(response).toMatchSnapshot();
@@ -343,14 +343,14 @@ const setup = async () => {
       jmeno: 'Božena',
       narozeni: { rok: 1967 },
       pohlavi: 'žena',
-      obec: 'Kladno Rozdělov'
+      obec: 'Kladno Rozdělov',
     },
     prihlaska: {
       datum: new Date('2018-05-03Z'),
       kategorie: kategorie5.id, // půlmaraton
       startCislo: 7,
-      kod: '===kod1==='
-    }
+      kod: '===kod1===',
+    },
   });
   await ucastnik1.save();
 
@@ -360,19 +360,19 @@ const setup = async () => {
     jmeno: 'František',
     narozeni: { rok: 1953 },
     pohlavi: 'muž',
-    obec: 'Ostrava 1'
+    obec: 'Ostrava 1',
   };
   const prihlaska2 = {
     datum: new Date('2018-02-07Z'),
     kategorie: kategorie6.id, // půlmaraton
     startCislo: 15,
-    kod: '===kod2==='
+    kod: '===kod2===',
   };
   ucastnik2.ucasti.push({ rok: 2018, udaje: udaje2, prihlaska: prihlaska2 });
   ucastnik2.ucasti.push({
     rok: 2017,
     udaje: udaje2,
-    prihlaska: { ...prihlaska2, datum: new Date('2017-04-02') }
+    prihlaska: { ...prihlaska2, datum: new Date('2017-04-02') },
   });
   await ucastnik2.save();
 
@@ -384,14 +384,14 @@ const setup = async () => {
       jmeno: 'Milena',
       narozeni: { den: 6, mesic: 5, rok: 1973 },
       pohlavi: 'žena',
-      obec: 'Nusle'
+      obec: 'Nusle',
     },
     prihlaska: {
       datum: new Date('2017-05-07Z'),
       kategorie: kategorie4.id, // půlmaraton
       startCislo: 6,
-      kod: '===kod3==='
-    }
+      kod: '===kod3===',
+    },
   });
   ucastnik3.ucasti.push({
     rok: 2018,
@@ -400,14 +400,14 @@ const setup = async () => {
       jmeno: 'Milena',
       narozeni: { den: 6, mesic: 5, rok: 1973 },
       pohlavi: 'žena',
-      obec: 'Nusle'
+      obec: 'Nusle',
     },
     prihlaska: {
       datum: new Date('2018-02-07Z'),
       kategorie: kategorie1.id, // maraton
       startCislo: 8,
-      kod: '===kod3==='
-    }
+      kod: '===kod3===',
+    },
   });
   ucastnik3.ucasti.push({
     rok: 2019,
@@ -416,14 +416,14 @@ const setup = async () => {
       jmeno: 'Milena',
       narozeni: { den: 6, mesic: 5, rok: 1973 },
       pohlavi: 'žena',
-      obec: 'Nusle'
+      obec: 'Nusle',
     },
     prihlaska: {
       datum: new Date('2019-01-15Z'),
       kategorie: kategorie1.id, // maraton
       startCislo: 23,
-      kod: '===kod4==='
-    }
+      kod: '===kod4===',
+    },
   });
   await ucastnik3.save();
 
@@ -436,7 +436,7 @@ it('ulož startovní číslo - sám sebe', async () => {
     apiCall({
       endpoint: API_SAVE_PRIHLASKA,
       request: { id: id2, rok: 2018, prihlaska: prihlaska2 },
-      token
+      token,
     })
   );
 
@@ -459,7 +459,7 @@ it('ulož startovní číslo - startovní číslo obsazené v jiné kategorii', 
     apiCall({
       endpoint: API_SAVE_PRIHLASKA,
       request: { id: id2, rok: 2018, prihlaska: { ...prihlaska2, startCislo: 8 } },
-      token
+      token,
     })
   );
   expect(response.code).toEqual('ok'); // 8 je obsazeno v jiném typu kategorie, musí projít
@@ -497,10 +497,10 @@ it('ulož startovní číslo - startovní číslo obsazené v jiném roce', asyn
           rok: 2019,
           datum: new Date('2018-12-25'),
           kategorie: kategorie3.id, // maraton
-          startCislo: 8
-        }
+          startCislo: 8,
+        },
       },
-      token
+      token,
     })
   ));
   expect(response.code).toEqual('ok'); // 8 je obsazeno v roce 2018, musí projít
@@ -524,7 +524,7 @@ it('ulož startovní číslo - duplicitní v kategorii', async () => {
     apiCall({
       endpoint: API_SAVE_PRIHLASKA,
       request: { id: id2, rok: 2018, prihlaska: { ...prihlaska2, startCislo: 7 } },
-      token
+      token,
     })
   );
   expect(response.code).not.toEqual('ok'); // nesmí projít
@@ -549,9 +549,9 @@ it('ulož přihlášku - kód obsazen v jiném roce', async () => {
       request: {
         id: id2,
         rok: 2018,
-        prihlaska: { ...prihlaska2, rok: 2018, kod: '===kod4===' }
+        prihlaska: { ...prihlaska2, rok: 2018, kod: '===kod4===' },
       },
-      token
+      token,
     })
   );
   expect(response.code).toEqual('ok'); // kod4 je obsazeno v roce 2019, musí projít
@@ -583,7 +583,7 @@ it('ulož přihlášku - duplicitní kód', async () => {
     apiCall({
       endpoint: API_SAVE_PRIHLASKA,
       request: { id: id2, rok: 2019, prihlaska: { ...prihlaska2, kod: '===kod4===' } },
-      token
+      token,
     })
   ));
   expect(response.code).not.toEqual('ok'); // nesmí projít
@@ -605,13 +605,13 @@ it('přihláška na pěší', async () => {
     jmeno: 'Bára',
     narozeni: { den: 4, mesic: 11, rok: 1998 },
     pohlavi: 'žena',
-    obec: 'Horákov'
+    obec: 'Horákov',
   };
   const prihlaska = {
     datum: new Date('2018-02-07Z'),
     kategorie: kategorie7.id, // pěší
     startCislo: 14, // navíc
-    kod: '===kod==='
+    kod: '===kod===',
   };
 
   const response1 = await wsClient.sendRequest(
@@ -636,14 +636,14 @@ it('účastník neexistuje', async () => {
   const prihlaska = {
     datum: new Date('2018-02-07Z'),
     kategorie: kategorie1.id,
-    kod: '===kod==='
+    kod: '===kod===',
   };
 
   const { requestId, ...response } = await wsClient.sendRequest(
     apiCall({
       endpoint: API_SAVE_PRIHLASKA,
       request: { id: '41224d776a326fb40f000001', rok: 2018, prihlaska },
-      token
+      token,
     })
   );
   expect(response).toMatchSnapshot();
@@ -655,12 +655,12 @@ it('kategorie neexistuje', async () => {
     jmeno: 'František',
     narozeni: { rok: 1953 },
     pohlavi: 'muž',
-    obec: 'Ostrava 1'
+    obec: 'Ostrava 1',
   };
   const prihlaska = {
     datum: new Date('2018-02-07Z'),
     kategorie: '===neexistující===',
-    startCislo: 34
+    startCislo: 34,
   };
 
   const response1 = await wsClient.sendRequest(
@@ -681,12 +681,12 @@ it('chybná kategorie (věk)', async () => {
     jmeno: 'Božena',
     narozeni: { rok: 1967 },
     pohlavi: 'žena',
-    obec: 'Kladno 1'
+    obec: 'Kladno 1',
   };
   const prihlaska = {
     datum: new Date('2015-02-07Z'),
     kategorie: kategorie2.id,
-    startCislo: 34
+    startCislo: 34,
   };
 
   const response1 = await wsClient.sendRequest(
@@ -708,7 +708,7 @@ it('přihláška chybí', async () => {
     jmeno: 'Božena',
     narozeni: { rok: 1967 },
     pohlavi: 'žena',
-    obec: 'Kladno 1'
+    obec: 'Kladno 1',
   };
 
   const response1 = await wsClient.sendRequest(

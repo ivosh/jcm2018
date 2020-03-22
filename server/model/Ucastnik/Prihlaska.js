@@ -9,7 +9,7 @@ const PrihlaskaSchema = new mongoose.Schema(
     startCislo: { type: Number },
     kod: { type: String },
     mladistvyPotvrzen: { type: Boolean },
-    startovnePoSleve: { type: Number }
+    startovnePoSleve: { type: Number },
   },
   { _id: false, bufferCommands: false }
 );

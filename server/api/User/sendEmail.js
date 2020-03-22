@@ -6,7 +6,7 @@ const {
   CODE_OK,
   CODE_NONEXISTING,
   CODE_TOKEN_INVALID,
-  CODE_UNFULFILLED_REQUEST
+  CODE_UNFULFILLED_REQUEST,
 } = require('../../../common/common');
 const config = require('../../config');
 const logger = require('../../logger');
@@ -52,9 +52,9 @@ const createGmailTransport = async () => {
         clientId: config.email.gmail.clientId,
         clientSecret: config.email.gmail.clientSecret,
         refreshToken: config.email.gmail.refreshToken,
-        accessToken
-      }
-    })
+        accessToken,
+      },
+    }),
   };
 };
 
@@ -65,7 +65,7 @@ const createMockTransport = async () => {
 
 const transports = {
   gmail: createGmailTransport,
-  mock: createMockTransport
+  mock: createMockTransport,
 };
 
 const logEmailSent = async ({ user, mailFrom, mailTo, subject, date, success }) => {
@@ -93,7 +93,7 @@ const sendEmail = async ({ request, connection }) => {
     to: mailTo,
     subject,
     generateTextFromHTML: true,
-    html: body
+    html: body,
   };
 
   logger.debug(`Sending email to ${mailTo}...`);

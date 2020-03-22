@@ -22,7 +22,7 @@ const signIn = async ({ request, connection }) => {
     logger.debug(`User ${username} failed to authenticate: ${code}`);
     return {
       code: CODE_PASSWORD_INCORRECT,
-      status: 'Špatné jméno či heslo. Uživatel může být též zamčený.'
+      status: 'Špatné jméno či heslo. Uživatel může být též zamčený.',
     };
   }
 
@@ -36,9 +36,9 @@ const signIn = async ({ request, connection }) => {
         username,
         nonce,
         secret: config.jwt.secret,
-        expireTime: config.jwt.expireTime
-      })
-    }
+        expireTime: config.jwt.expireTime,
+      }),
+    },
   };
 };
 

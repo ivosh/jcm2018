@@ -8,10 +8,10 @@ const KategorieSchema = new mongoose.Schema(
     typ: {
       type: String,
       enum: ['maraton', 'půlmaraton', 'cyklo', 'koloběžka', 'pěší'],
-      required: true
+      required: true,
     },
     pohlavi: { type: String, enum: ['muž', 'žena'] },
-    vek: { type: VekSchema }
+    vek: { type: VekSchema },
   },
   { bufferCommands: false, usePushEach: true }
 );

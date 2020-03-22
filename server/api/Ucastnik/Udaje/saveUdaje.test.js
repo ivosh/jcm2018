@@ -3,7 +3,7 @@
 const db = require('../../../db');
 const { API_SAVE_UDAJE, apiCall } = require('../../../../common/common');
 const createWsServer = require('../../../createWsServer');
-const createWsClient = require('./../../createWsClient');
+const createWsClient = require('../../createWsClient');
 const Ucastnik = require('../../../model/Ucastnik/Ucastnik');
 const generateTestToken = require('../../generateTestToken');
 
@@ -34,7 +34,7 @@ it('vytvoř minimálního účastníka', async () => {
     jmeno: 'František',
     narozeni: { rok: 1953 },
     pohlavi: 'muž',
-    obec: 'Ostrava 1'
+    obec: 'Ostrava 1',
   };
 
   const { requestId, ...response } = await wsClient.sendRequest(
@@ -54,7 +54,7 @@ it('vytvoř dvě účasti', async () => {
     jmeno: 'Božena',
     narozeni: { rok: 1967 },
     pohlavi: 'žena',
-    obec: 'Kladno Rozdělov'
+    obec: 'Kladno Rozdělov',
   };
   const udaje2 = { ...udaje1, obec: 'Kamenický Přívoz' };
 
@@ -67,7 +67,7 @@ it('vytvoř dvě účasti', async () => {
     apiCall({
       endpoint: API_SAVE_UDAJE,
       request: { id: ucastnikId, rok: 2018, udaje: udaje2 },
-      token
+      token,
     })
   );
   response2.response.id = '---';
@@ -83,7 +83,7 @@ it('přepiš existující účast', async () => {
     jmeno: 'Božena',
     narozeni: { rok: 1967 },
     pohlavi: 'žena',
-    obec: 'Kladno 1'
+    obec: 'Kladno 1',
   };
   const udaje2 = { ...udaje1, obec: 'Kladno 2' };
   const udaje3 = { ...udaje1, obec: 'Kladno 3' };
@@ -99,21 +99,21 @@ it('přepiš existující účast', async () => {
     apiCall({
       endpoint: API_SAVE_UDAJE,
       request: { id: ucastnikId, rok: 2017, udaje: udaje2 },
-      token
+      token,
     })
   );
   await wsClient.sendRequest(
     apiCall({
       endpoint: API_SAVE_UDAJE,
       request: { id: ucastnikId, rok: 2016, udaje: udaje3 },
-      token
+      token,
     })
   );
   await wsClient.sendRequest(
     apiCall({
       endpoint: API_SAVE_UDAJE,
       request: { id: ucastnikId, rok: 2015, udaje: udaje4 },
-      token
+      token,
     })
   );
 
@@ -121,7 +121,7 @@ it('přepiš existující účast', async () => {
     apiCall({
       endpoint: API_SAVE_UDAJE,
       request: { id: ucastnikId, rok: 2017, udaje: udaje5 },
-      token
+      token,
     })
   );
   response5.response.id = '---';
@@ -137,14 +137,14 @@ it('účastník neexistuje', async () => {
     jmeno: 'František',
     narozeni: { rok: 1953 },
     pohlavi: 'muž',
-    obec: 'Ostrava 1'
+    obec: 'Ostrava 1',
   };
 
   const { requestId, ...response } = await wsClient.sendRequest(
     apiCall({
       endpoint: API_SAVE_UDAJE,
       request: { id: '41224d776a326fb40f000001', rok: 2018, udaje },
-      token
+      token,
     })
   );
   expect(response).toMatchSnapshot();
@@ -156,14 +156,14 @@ it('účastník neexistuje - špatné ID', async () => {
     jmeno: 'František',
     narozeni: { rok: 1953 },
     pohlavi: 'muž',
-    obec: 'Ostrava 1'
+    obec: 'Ostrava 1',
   };
 
   const { requestId, ...response } = await wsClient.sendRequest(
     apiCall({
       endpoint: API_SAVE_UDAJE,
       request: { id: '===neexistujici===', rok: 2018, udaje },
-      token
+      token,
     })
   );
   expect(response).toMatchSnapshot();
@@ -175,7 +175,7 @@ it('údaje chybí', async () => {
     jmeno: 'Božena',
     narozeni: { rok: 1967 },
     pohlavi: 'žena',
-    obec: 'Kladno 1'
+    obec: 'Kladno 1',
   };
 
   const response1 = await wsClient.sendRequest(

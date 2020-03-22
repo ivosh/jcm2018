@@ -13,14 +13,14 @@ const {
   STOPKY_RESET,
   STOPKY_START,
   STOPKY_STOP,
-  casSortMethod
+  casSortMethod,
 } = require('../../../common/common');
 const logger = require('../../logger');
 const Stopky = require('../../model/Stopky/Stopky');
 const broadcastStopky = require('./broadcastStopky');
 
 const zeroDuration = moment.duration(0).toJSON();
-const sortByCas = mezicasy => mezicasy.sort(casSortMethod);
+const sortByCas = (mezicasy) => mezicasy.sort(casSortMethod);
 
 const addCasAndSort = (input, cas) => {
   const mezicasy = (input || []).slice();
@@ -29,7 +29,7 @@ const addCasAndSort = (input, cas) => {
   return mezicasy;
 };
 
-const toPOJO = stopky => {
+const toPOJO = (stopky) => {
   const { _id, __v, ...withoutIdAndVersion } = stopky.toObject();
   return withoutIdAndVersion;
 };
@@ -44,7 +44,7 @@ const modifications = {
       const cas = moment.duration(new Date(now).getTime() - new Date(base).getTime()).toJSON();
       return {
         code: CODE_OK,
-        changes: [{ name: 'mezicasy', value: addCasAndSort(mezicasy, cas) }]
+        changes: [{ name: 'mezicasy', value: addCasAndSort(mezicasy, cas) }],
       };
     }
     return { code: CODE_OK, changes: [] };
@@ -57,7 +57,7 @@ const modifications = {
   },
   [STOPKY_REMOVE_MEZICAS]: ({ request: { cas }, stopky: { mezicasy } }) => ({
     code: CODE_OK,
-    changes: [{ name: 'mezicasy', value: mezicasy.filter(mezicas => mezicas.cas !== cas) }]
+    changes: [{ name: 'mezicasy', value: mezicasy.filter((mezicas) => mezicas.cas !== cas) }],
   }),
   [STOPKY_CHANGE_TIME]: ({ request: { now, step }, stopky: { base, delta, running } }) => {
     if (!now) {
@@ -71,7 +71,7 @@ const modifications = {
       if (newBase <= new Date(now).getTime()) {
         return {
           code: CODE_OK,
-          changes: [{ name: 'base', value: new Date(newBase).toJSON() }]
+          changes: [{ name: 'base', value: new Date(newBase).toJSON() }],
         };
       }
       return { code: CODE_NOT_ALLOWED, status: 'stopky by se dostaly do mínusu' };
@@ -93,8 +93,8 @@ const modifications = {
       { name: 'base', value: null },
       { name: 'delta', value: zeroDuration },
       { name: 'mezicasy', value: [] },
-      { name: 'running', value: false }
-    ]
+      { name: 'running', value: false },
+    ],
   }),
   [STOPKY_START]: ({ request: { now }, stopky: { delta, running } }) => {
     if (!now) {
@@ -107,8 +107,8 @@ const modifications = {
         changes: [
           { name: 'running', value: true },
           { name: 'base', value: base },
-          { name: 'delta', value: zeroDuration }
-        ]
+          { name: 'delta', value: zeroDuration },
+        ],
       };
     }
     return { code: CODE_OK, changes: [] };
@@ -124,12 +124,12 @@ const modifications = {
         changes: [
           { name: 'running', value: false },
           { name: 'base', value: null },
-          { name: 'delta', value: delta }
-        ]
+          { name: 'delta', value: delta },
+        ],
       };
     }
     return { code: CODE_OK, changes: [] };
-  }
+  },
 };
 
 const modifyStopky = async ({ request }) => {
@@ -159,7 +159,7 @@ const modifyStopky = async ({ request }) => {
     return { code, status };
   }
 
-  changes.forEach(change => {
+  changes.forEach((change) => {
     stopky[change.name] = change.value;
   });
   await stopky.save();
@@ -168,7 +168,7 @@ const modifyStopky = async ({ request }) => {
     broadcast,
     code: CODE_OK,
     status: 'uloženo v pořádku',
-    response: { stopky: toPOJO(stopky) }
+    response: { stopky: toPOJO(stopky) },
   };
 };
 

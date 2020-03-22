@@ -21,14 +21,14 @@ beforeAll(async () => {
         jmeno: 'Roman',
         narozeni: { rok: 1956 },
         pohlavi: 'muž',
-        obec: 'Ostrava 1'
+        obec: 'Ostrava 1',
       },
       vykon: {
         kategorie: kategorie2.id,
         startCislo: 34,
         dokonceno: true,
-        cas: 'PT1H25M32.6S'
-      }
+        cas: 'PT1H25M32.6S',
+      },
     },
     {
       rok: 2018,
@@ -37,10 +37,10 @@ beforeAll(async () => {
         jmeno: 'Roman',
         narozeni: { rok: 1956 },
         pohlavi: 'muž',
-        obec: 'Ostrava 2'
+        obec: 'Ostrava 2',
       },
-      vykon: { kategorie: kategorie2.id, startCislo: 15, dokonceno: false }
-    }
+      vykon: { kategorie: kategorie2.id, startCislo: 15, dokonceno: false },
+    },
   ];
 
   const ucastnik = new Ucastnik({ ucasti });

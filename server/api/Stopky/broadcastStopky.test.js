@@ -21,9 +21,9 @@ it('broadcast', async () => {
     mezicasy: [
       { cas: 'PT5H03M19.32S' },
       { cas: 'PT5H15M24.7S', korekce: 'PT5H12M24.7S' },
-      { cas: 'PT5H19M03.5S' }
+      { cas: 'PT5H19M03.5S' },
     ],
-    running: false
+    running: false,
   });
   expect(data).toMatchSnapshot();
 });

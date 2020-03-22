@@ -33,7 +33,7 @@ it('findAllStopky', async () => {
     base: null,
     delta: 'P0D',
     mezicasy: [{ cas: 'PT1H23M07.4S', korekce: 'PT1H23M01.5S' }, { cas: 'PT2H15M24.7S' }],
-    running: false
+    running: false,
   });
   await stopky1.save();
   const stopky2 = new Stopky({
@@ -43,23 +43,23 @@ it('findAllStopky', async () => {
     mezicasy: [
       { cas: 'PT5H03M19.32S' },
       { cas: 'PT5H15M24.7S', korekce: 'PT5H12M24.7S' },
-      { cas: 'PT5H19M03.5S' }
+      { cas: 'PT5H19M03.5S' },
     ],
-    running: false
+    running: false,
   });
   await stopky2.save();
   const stopky3 = new Stopky({
     typ: 'cyklo',
     base: new Date('2017-12-01T07:30:00Z'),
     delta: 'P0D',
-    running: true
+    running: true,
   });
   await stopky3.save();
   const stopky4 = new Stopky({
     typ: 'koloběžka',
     base: null,
     delta: 'PT4H0M0.32S',
-    running: false
+    running: false,
   });
   await stopky4.save();
 

@@ -15,7 +15,7 @@ httpServer.listen(PORT, () => {
   logger.info(`Server is listening on port ${PORT}.`);
 });
 
-const requestAllowed = wsRequest => {
+const requestAllowed = (wsRequest) => {
   /* webSocketRequest.origin is only advisory and Same origin policy cannot rely on it.
      Rather, we disallow http in production and employ authentication-protected API. */
   if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {

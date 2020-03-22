@@ -6,7 +6,7 @@ const VekSchema = new mongoose.Schema(
   {
     min: { type: Number, required: true },
     max: { type: Number, required: true },
-    presne: { type: Boolean }
+    presne: { type: Boolean },
   },
   { _id: false, bufferCommands: false }
 );

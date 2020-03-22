@@ -3,7 +3,6 @@
 const Actions = require('../../../../common/common');
 const logger = require('../../../logger');
 const findAllRocniky = require('../../Rocnik/findAllRocniky');
-const createUcast = require('../Ucast/createUcast');
 const broadcastUcastnik = require('../broadcastUcastnik');
 const updatePlatby = require('../Platby/updatePlatby');
 const updatePoznamky = require('../Poznamky/updatePoznamky');
@@ -17,6 +16,7 @@ const validatePrihlaska = require('../Prihlaska/validatePrihlaska');
 const validateUbytovani = require('../Ubytovani/validateUbytovani');
 const validateUdaje = require('../Udaje/validateUdaje');
 const validateVykon = require('../Vykon/validateVykon');
+const createUcast = require('./createUcast');
 
 const validates = [
   validateUdaje,
@@ -24,7 +24,7 @@ const validates = [
   validateVykon,
   validatePlatby,
   validateUbytovani,
-  validatePoznamky
+  validatePoznamky,
 ];
 const updates = [
   updateUdaje,
@@ -32,7 +32,7 @@ const updates = [
   updateVykon,
   updatePlatby,
   updateUbytovani,
-  updatePoznamky
+  updatePoznamky,
 ];
 
 const saveUcast = async ({ request }) => {
@@ -68,7 +68,7 @@ const saveUcast = async ({ request }) => {
     return { code, status };
   }
 
-  updates.forEach(update => update({ ...request, ucast, kategorie, rocniky }));
+  updates.forEach((update) => update({ ...request, ucast, kategorie, rocniky }));
 
   await ucastnik.save();
   const broadcast = await broadcastUcastnik(id);
@@ -76,7 +76,7 @@ const saveUcast = async ({ request }) => {
     broadcast,
     code: Actions.CODE_OK,
     status: 'uloženo v pořádku',
-    response: { id: ucastnik.id }
+    response: { id: ucastnik.id },
   };
 };
 

@@ -10,11 +10,11 @@ const TypKategorieSchema = new mongoose.Schema(
     typ: {
       type: String,
       enum: ['maraton', 'půlmaraton', 'cyklo', 'koloběžka', 'pěší'],
-      required: true
+      required: true,
     },
     kategorie: [{ type: mongoose.Schema.ObjectId, ref: 'Kategorie' }],
     startCisla: { type: StartCisla },
-    startovne: { type: Startovne, required: true }
+    startovne: { type: Startovne, required: true },
   },
   { _id: false, bufferCommands: false }
 );

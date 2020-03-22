@@ -10,13 +10,13 @@ const RocnikSchema = new mongoose.Schema(
     datum: { type: Date, required: true },
     uzaverka: {
       prihlasek: { type: Date },
-      platebPrihlasek: { type: Date }
+      platebPrihlasek: { type: Date },
     },
     kategorie: { type: [TypKategorieSchema], required: true },
     ubytovani: {
       pátek: { type: UbytovaniSchema },
-      sobota: { type: UbytovaniSchema }
-    }
+      sobota: { type: UbytovaniSchema },
+    },
   },
   { bufferCommands: false, usePushEach: true }
 );

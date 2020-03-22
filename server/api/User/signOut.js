@@ -7,7 +7,7 @@ const signOut = async ({ connection }) => {
 
   return {
     code: Actions.CODE_OK,
-    status: undefined
+    status: undefined,
   };
 };
 

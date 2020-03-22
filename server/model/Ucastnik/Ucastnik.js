@@ -9,7 +9,7 @@ const UcastnikSchema = new mongoose.Schema(
   {
     ucasti: [UcastSchema],
     pohar: { type: PoharSchema },
-    profil: { type: ProfilSchema }
+    profil: { type: ProfilSchema },
   },
   { bufferCommands: false, usePushEach: true }
 );
@@ -21,7 +21,7 @@ UcastnikSchema.methods.getLatestEmail = function getLatestEmail() {
 
   let email;
   let rok;
-  this.ucasti.forEach(ucast => {
+  this.ucasti.forEach((ucast) => {
     if (ucast.udaje.email && (!rok || ucast.rok > rok)) {
       ({ rok } = ucast);
       ({ email } = ucast.udaje);
@@ -36,7 +36,7 @@ UcastnikSchema.static('getEmailsForDistribution', async function getEmailsForDis
 ) {
   const ucastnici = await this.find({});
   const emails = ucastnici
-    .map(ucastnik => ucastnik.getLatestEmail())
+    .map((ucastnik) => ucastnik.getLatestEmail())
     .filter(({ email, rok }) => email && rok !== aktualniRok);
   return emails;
 });

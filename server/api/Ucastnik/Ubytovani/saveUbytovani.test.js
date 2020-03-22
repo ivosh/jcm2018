@@ -8,10 +8,10 @@ const {
   UBYTOVANI_ODHLASIT,
   UBYTOVANI_PRIHLASIT,
   apiCall,
-  ubytovaniModifications
+  ubytovaniModifications,
 } = require('../../../../common/common');
 const createWsServer = require('../../../createWsServer');
-const createWsClient = require('./../../createWsClient');
+const createWsClient = require('../../createWsClient');
 const Kategorie = require('../../../model/Kategorie/Kategorie');
 const Rocnik = require('../../../model/Rocnik/Rocnik');
 const Ucastnik = require('../../../model/Ucastnik/Ucastnik');
@@ -32,7 +32,7 @@ beforeAll(async () => {
   const kategorie1 = new Kategorie({
     typ: 'maraton',
     pohlavi: 'žena',
-    vek: { min: 40, max: 49 }
+    vek: { min: 40, max: 49 },
   });
   await kategorie1.save();
 
@@ -41,7 +41,7 @@ beforeAll(async () => {
     typ: 'maraton',
     kategorie: [kategorie1.id],
     startCisla: { rozsahy: ['1-100'] },
-    startovne: { predem: 150, naMiste: 200 }
+    startovne: { predem: 150, naMiste: 200 },
   });
   rocnik1.ubytovani.pátek = { poplatek: 50 };
   rocnik1.ubytovani.sobota = { poplatek: 60 };
@@ -52,7 +52,7 @@ beforeAll(async () => {
     typ: 'maraton',
     kategorie: [kategorie1.id],
     startCisla: { rozsahy: ['5-95'] },
-    startovne: { predem: 200, naMiste: 250 }
+    startovne: { predem: 200, naMiste: 250 },
   });
   rocnik2.ubytovani.pátek = { poplatek: 60 };
   await rocnik2.save();
@@ -74,11 +74,11 @@ it('vytvoř minimálního účastníka', async () => {
     jmeno: 'František',
     narozeni: { rok: 1953 },
     pohlavi: 'muž',
-    obec: 'Ostrava 1'
+    obec: 'Ostrava 1',
   };
   const ubytovani = {
     pátek: { prihlaseno: true, prespano: false },
-    sobota: { prihlaseno: true, prespano: true }
+    sobota: { prihlaseno: true, prespano: true },
   };
 
   const response1 = await wsClient.sendRequest(
@@ -102,12 +102,12 @@ it('přihlaš a zase odhlaš', async () => {
     jmeno: 'František',
     narozeni: { rok: 1953 },
     pohlavi: 'muž',
-    obec: 'Ostrava 1'
+    obec: 'Ostrava 1',
   };
   const ubytovaniPrihlaseno = ubytovaniModifications[UBYTOVANI_PRIHLASIT]({ den: 'pátek' });
   const ubytovaniOdhlaseno = ubytovaniModifications[UBYTOVANI_ODHLASIT]({
     den: 'pátek',
-    ubytovani: ubytovaniPrihlaseno
+    ubytovani: ubytovaniPrihlaseno,
   });
 
   const response1 = await wsClient.sendRequest(
@@ -120,7 +120,7 @@ it('přihlaš a zase odhlaš', async () => {
     apiCall({
       endpoint: API_SAVE_UBYTOVANI,
       request: { id, rok: 2018, ubytovani: ubytovaniPrihlaseno },
-      token
+      token,
     })
   );
   expect(response).toMatchSnapshot();
@@ -129,7 +129,7 @@ it('přihlaš a zase odhlaš', async () => {
     apiCall({
       endpoint: API_SAVE_UBYTOVANI,
       request: { id, rok: 2018, ubytovani: ubytovaniOdhlaseno },
-      token
+      token,
     })
   ));
   expect(response).toMatchSnapshot();
@@ -144,7 +144,7 @@ it('zapiš nepřespáno', async () => {
     jmeno: 'František',
     narozeni: { rok: 1953 },
     pohlavi: 'muž',
-    obec: 'Ostrava 1'
+    obec: 'Ostrava 1',
   };
 
   const response1 = await wsClient.sendRequest(
@@ -159,9 +159,9 @@ it('zapiš nepřespáno', async () => {
       request: {
         id,
         rok: 2018,
-        ubytovani: ubytovaniModifications[UBYTOVANI_NEPRESPANO]({ den: 'pátek' })
+        ubytovani: ubytovaniModifications[UBYTOVANI_NEPRESPANO]({ den: 'pátek' }),
       },
-      token
+      token,
     })
   );
   expect(response).toMatchSnapshot();
@@ -176,7 +176,7 @@ it('ročník neexistuje', async () => {
     jmeno: 'František',
     narozeni: { rok: 1953 },
     pohlavi: 'muž',
-    obec: 'Ostrava 1'
+    obec: 'Ostrava 1',
   };
   const ubytovani = { pátek: { prihlaseno: true, prespano: false } };
 
@@ -201,7 +201,7 @@ it('ubytování nevypsáno', async () => {
     jmeno: 'František',
     narozeni: { rok: 1953 },
     pohlavi: 'muž',
-    obec: 'Ostrava 1'
+    obec: 'Ostrava 1',
   };
   const ubytovani = { sobota: { prihlaseno: true, prespano: false } };
 
@@ -227,7 +227,7 @@ it('účastník neexistuje', async () => {
     apiCall({
       endpoint: API_SAVE_UBYTOVANI,
       request: { id: '41224d776a326fb40f000001', rok: 2018, ubytovani },
-      token
+      token,
     })
   );
   expect(response).toMatchSnapshot();

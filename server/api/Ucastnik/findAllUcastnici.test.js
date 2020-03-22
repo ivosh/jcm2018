@@ -49,14 +49,14 @@ it('findAllUcastnici', async () => {
         jmeno: 'Roman',
         narozeni: { rok: 1956 },
         pohlavi: 'muž',
-        obec: 'Ostrava 1'
+        obec: 'Ostrava 1',
       },
       vykon: {
         kategorie: kategorieZena[0].id,
         startCislo: 34,
         dokonceno: true,
-        cas: 'PT1H25M32.6S'
-      }
+        cas: 'PT1H25M32.6S',
+      },
     },
     {
       rok: 2018,
@@ -65,10 +65,10 @@ it('findAllUcastnici', async () => {
         jmeno: 'Roman',
         narozeni: { rok: 1956 },
         pohlavi: 'muž',
-        obec: 'Ostrava 2'
+        obec: 'Ostrava 2',
       },
-      vykon: { kategorie: kategorieZena[0].id, startCislo: 15, dokonceno: false }
-    }
+      vykon: { kategorie: kategorieZena[0].id, startCislo: 15, dokonceno: false },
+    },
   ];
 
   const ucastnik1 = new Ucastnik({ ucasti: ucasti1, pohar: { predano: 1 } });
@@ -82,9 +82,14 @@ it('findAllUcastnici', async () => {
         jmeno: 'Zdeňka',
         narozeni: { den: 7, mesic: 12, rok: 1966 },
         pohlavi: 'žena',
-        obec: 'Kladno'
+        obec: 'Kladno',
       },
-      vykon: { kategorie: kategorieMuz[0].id, startCislo: 11, dokonceno: true, cas: 'PT3H42M32.6S' }
+      vykon: {
+        kategorie: kategorieMuz[0].id,
+        startCislo: 11,
+        dokonceno: true,
+        cas: 'PT3H42M32.6S',
+      },
     },
     {
       rok: 2017,
@@ -93,10 +98,10 @@ it('findAllUcastnici', async () => {
         jmeno: 'Zdeňka',
         narozeni: { den: 7, mesic: 12, rok: 1966 },
         pohlavi: 'žena',
-        obec: 'Kladno'
+        obec: 'Kladno',
       },
-      vykon: { kategorie: kategorieMuz[0].id, startCislo: 7, dokonceno: true, cas: 'PT2H8M23.7S' }
-    }
+      vykon: { kategorie: kategorieMuz[0].id, startCislo: 7, dokonceno: true, cas: 'PT2H8M23.7S' },
+    },
   ];
 
   const ucastnik2 = new Ucastnik({ ucasti: ucasti2 });
@@ -117,7 +122,7 @@ it('findAllUcastnici', async () => {
   expect({
     code,
     status,
-    response: { id1: response[ids[0]], id2: response[ids[1]] }
+    response: { id1: response[ids[0]], id2: response[ids[1]] },
   }).toMatchSnapshot();
 });
 

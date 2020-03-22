@@ -28,8 +28,8 @@ it('vytvoř účastníka s minimální účastí', async () => {
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
       pohlavi: 'muž',
-      obec: 'Ostrava'
-    }
+      obec: 'Ostrava',
+    },
   };
 
   const ucastnik = new Ucastnik();
@@ -45,7 +45,7 @@ it('přihlaš účastníka', async () => {
     typ: 'maraton',
     pohlavi: 'žena',
     vek: { min: 40, max: 49 },
-    maStartCislo: true
+    maStartCislo: true,
   });
   await kategorie.save();
 
@@ -60,14 +60,14 @@ it('přihlaš účastníka', async () => {
       stat: 'Česká republika',
       klub: 'SK Nudle',
       email: 'sk@nudle.cz',
-      telefon: '732 187 987'
+      telefon: '732 187 987',
     },
     prihlaska: {
       datum: '2017-11-18',
       kategorie: kategorie.id,
-      startCislo: 44
+      startCislo: 44,
     },
-    poznamky: [{ datum: '2017-11-19', text: 'první přihlášená' }]
+    poznamky: [{ datum: '2017-11-19', text: 'první přihlášená' }],
   };
 
   const ucastnik = new Ucastnik();
@@ -75,7 +75,7 @@ it('přihlaš účastníka', async () => {
   await ucastnik.save();
 
   const ucastnici = await Ucastnik.find({}, { _id: 0 }).populate('ucasti.prihlaska.kategorie', {
-    _id: 0
+    _id: 0,
   });
   expect(ucastnici).toMatchSnapshot();
 });
@@ -88,8 +88,8 @@ it('účastník zaplatil ubytování', async () => {
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
       pohlavi: 'muž',
-      obec: 'Ostrava'
-    }
+      obec: 'Ostrava',
+    },
   };
 
   const ucastnik = new Ucastnik();
@@ -125,8 +125,8 @@ it('getLatestEmail() - poslední rok má email', async () => {
       narozeni: { rok: 1956 },
       pohlavi: 'muž',
       obec: 'Ostrava',
-      email: 'stary@email.sk'
-    }
+      email: 'stary@email.sk',
+    },
   });
   ucastnik.ucasti.push({
     rok: 2018,
@@ -136,8 +136,8 @@ it('getLatestEmail() - poslední rok má email', async () => {
       narozeni: { rok: 1956 },
       pohlavi: 'muž',
       obec: 'Ostrava',
-      email: 'novy@email.sk'
-    }
+      email: 'novy@email.sk',
+    },
   });
   await ucastnik.save();
 
@@ -159,8 +159,8 @@ it('getLatestEmail() - vyřazen z distribuce', async () => {
       narozeni: { rok: 1956 },
       pohlavi: 'muž',
       obec: 'Ostrava',
-      email: 'balabak@email.sk'
-    }
+      email: 'balabak@email.sk',
+    },
   });
   ucastnik.profil = { vyraditZDistribuce: true };
   await ucastnik.save();
@@ -182,8 +182,8 @@ it('getLatestEmail() - email má jen nějaký předešlý rok, ne poslední', as
       narozeni: { rok: 1956 },
       pohlavi: 'muž',
       obec: 'Ostrava',
-      email: 'stary@email.sk'
-    }
+      email: 'stary@email.sk',
+    },
   });
   ucastnik.ucasti.push({
     rok: 2017,
@@ -193,8 +193,8 @@ it('getLatestEmail() - email má jen nějaký předešlý rok, ne poslední', as
       narozeni: { rok: 1956 },
       pohlavi: 'muž',
       obec: 'Ostrava',
-      email: 'nejaky@email.sk'
-    }
+      email: 'nejaky@email.sk',
+    },
   });
   ucastnik.ucasti.push({
     rok: 2018,
@@ -203,8 +203,8 @@ it('getLatestEmail() - email má jen nějaký předešlý rok, ne poslední', as
       jmeno: 'Roman',
       narozeni: { rok: 1956 },
       pohlavi: 'muž',
-      obec: 'Ostrava'
-    }
+      obec: 'Ostrava',
+    },
   });
   await ucastnik.save();
 
@@ -226,8 +226,8 @@ it('getEmailsForDistribution', async () => {
       narozeni: { rok: 1956 },
       pohlavi: 'muž',
       obec: 'Ostrava',
-      email: 'stary@email.sk'
-    }
+      email: 'stary@email.sk',
+    },
   });
   await ucastnik1.save();
 
@@ -240,8 +240,8 @@ it('getEmailsForDistribution', async () => {
       narozeni: { rok: 1984 },
       pohlavi: 'žena',
       obec: 'Baběcí',
-      email: 'hana@sukdul.sk'
-    }
+      email: 'hana@sukdul.sk',
+    },
   });
   await ucastnik2.save();
 
@@ -254,8 +254,8 @@ it('getEmailsForDistribution', async () => {
       narozeni: { rok: 2005 },
       pohlavi: 'žena',
       obec: 'Sluky',
-      email: 'zrala@boh.sk'
-    }
+      email: 'zrala@boh.sk',
+    },
   });
   ucastnik3.profil = { vyraditZDistribuce: true };
   await ucastnik3.save();
@@ -269,8 +269,8 @@ it('getEmailsForDistribution', async () => {
       narozeni: { rok: 1965 },
       pohlavi: 'muž',
       obec: 'Dudkinc',
-      email: 'dudek@dudu.sk'
-    }
+      email: 'dudek@dudu.sk',
+    },
   });
   await ucastnik4.save();
 

@@ -29,7 +29,7 @@ const {
   CODE_TOKEN_INVALID,
   CODE_UNFULFILLED_REQUEST,
   CODE_UNPARSEABLE_MESSAGE,
-  CODE_UNRECOGNIZED_ACTION
+  CODE_UNRECOGNIZED_ACTION,
 } = require('../../common/common');
 const config = require('../config');
 const db = require('../db');
@@ -67,7 +67,7 @@ const processAuthentication = ({ token, connection }) => {
     logger.debug(err);
     return {
       code: CODE_TOKEN_INVALID,
-      status: `Špatný ověřovací token. Zkus se přihlásit znovu. Detaily: ${err}`
+      status: `Špatný ověřovací token. Zkus se přihlásit znovu. Detaily: ${err}`,
     };
   }
 };
@@ -78,127 +78,127 @@ const processRequest = async ({ action = '', request, requestId, token, connecti
       apiReadOnly: false,
       authRequired: true,
       dbRequired: true,
-      action: async req => addPoznamka(req)
+      action: async (req) => addPoznamka(req),
     },
     [API_DELETE_POZNAMKA]: {
       apiReadOnly: false,
       authRequired: true,
       dbRequired: true,
-      action: async req => deletePoznamka(req)
+      action: async (req) => deletePoznamka(req),
     },
     [API_DELETE_VYKON]: {
       apiReadOnly: false,
       authRequired: true,
       dbRequired: true,
-      action: async req => deleteVykon(req)
+      action: async (req) => deleteVykon(req),
     },
     [API_FIND_ALL_ROCNIKY]: {
       apiReadOnly: true,
       authRequired: true,
       dbRequired: true,
-      action: async req => findAllRocniky(req)
+      action: async (req) => findAllRocniky(req),
     },
     [API_FIND_ALL_STOPKY]: {
       apiReadOnly: true,
       authRequired: true,
       dbRequired: true,
-      action: async req => findAllStopky(req)
+      action: async (req) => findAllStopky(req),
     },
     [API_FIND_ALL_UCASTNICI]: {
       apiReadOnly: true,
       authRequired: true,
       dbRequired: true,
-      action: async req => findAllUcastnici(req)
+      action: async (req) => findAllUcastnici(req),
     },
     [API_MODIFY_POZNAMKA]: {
       apiReadOnly: false,
       authRequired: true,
       dbRequired: true,
-      action: async req => modifyPoznamka(req)
+      action: async (req) => modifyPoznamka(req),
     },
     [API_MODIFY_STOPKY]: {
       apiReadOnly: false,
       authRequired: true,
       dbRequired: true,
-      action: async req => modifyStopky(req)
+      action: async (req) => modifyStopky(req),
     },
     [API_MODIFY_UBYTOVANI]: {
       apiReadOnly: false,
       authRequired: true,
       dbRequired: true,
-      action: async req => modifyUbytovani(req)
+      action: async (req) => modifyUbytovani(req),
     },
     [API_POHAR_PREDAN]: {
       apiReadOnly: false,
       authRequired: true,
       dbRequired: true,
-      action: async req => poharPredan(req)
+      action: async (req) => poharPredan(req),
     },
     [API_SAVE_PLATBY]: {
       apiReadOnly: false,
       authRequired: true,
       dbRequired: true,
-      action: async req => savePlatby(req)
+      action: async (req) => savePlatby(req),
     },
     [API_SAVE_POZNAMKY]: {
       apiReadOnly: false,
       authRequired: true,
       dbRequired: true,
-      action: async req => savePoznamky(req)
+      action: async (req) => savePoznamky(req),
     },
     [API_SAVE_PRIHLASKA]: {
       apiReadOnly: false,
       authRequired: true,
       dbRequired: true,
-      action: async req => savePrihlaska(req)
+      action: async (req) => savePrihlaska(req),
     },
     [API_SAVE_UBYTOVANI]: {
       apiReadOnly: false,
       authRequired: true,
       dbRequired: true,
-      action: async req => saveUbytovani(req)
+      action: async (req) => saveUbytovani(req),
     },
     [API_SAVE_UCAST]: {
       apiReadOnly: false,
       authRequired: true,
       dbRequired: true,
-      action: async req => saveUcast(req)
+      action: async (req) => saveUcast(req),
     },
     [API_SAVE_UDAJE]: {
       apiReadOnly: false,
       authRequired: true,
       dbRequired: true,
-      action: async req => saveUdaje(req)
+      action: async (req) => saveUdaje(req),
     },
     [API_SAVE_VYKON]: {
       apiReadOnly: false,
       authRequired: true,
       dbRequired: true,
-      action: async req => saveVykon(req)
+      action: async (req) => saveVykon(req),
     },
     [API_SEND_EMAIL]: {
       apiReadOnly: true,
       authRequired: true,
       dbRequired: false,
-      action: async req => sendEmail(req)
+      action: async (req) => sendEmail(req),
     },
     [API_SIGN_IN]: {
       apiReadOnly: true,
       authRequired: false,
       dbRequired: true,
-      action: async req => signIn(req)
+      action: async (req) => signIn(req),
     },
     [API_SIGN_OUT]: {
       apiReadOnly: true,
       authRequired: false,
       dbRequired: true,
-      action: async req => signOut(req)
+      action: async (req) => signOut(req),
     },
     [API_TIMESYNC]: {
       apiReadOnly: true,
       authRequired: false,
       dbRequired: false,
-      action: async req => timesync(req)
+      action: async (req) => timesync(req),
     },
     default: {
       apiReadOnly: true,
@@ -206,9 +206,9 @@ const processRequest = async ({ action = '', request, requestId, token, connecti
       dbRequired: false,
       action: () => ({
         code: CODE_UNRECOGNIZED_ACTION,
-        status: `neznámá akce: ${action}`
-      })
-    }
+        status: `neznámá akce: ${action}`,
+      }),
+    },
   };
 
   const processMessageAction = actions[action] || actions.default;
@@ -219,13 +219,13 @@ const processRequest = async ({ action = '', request, requestId, token, connecti
   if (processMessageAction.dbRequired && !db.isConnected()) {
     return {
       code: CODE_DB_DISCONNECTED,
-      status: 'Není připojeno k databázi.'
+      status: 'Není připojeno k databázi.',
     };
   }
   if (!processMessageAction.apiReadOnly && config.api.readOnly) {
     return {
       code: CODE_READ_ONLY,
-      status: 'Aplikace je v módu jen pro čtení. Zápis nepovolen.'
+      status: 'Aplikace je v módu jen pro čtení. Zápis nepovolen.',
     };
   }
 
@@ -259,7 +259,7 @@ const processMessage = async (connection, message) => {
         request,
         requestId,
         token,
-        connection
+        connection,
       });
       sendResponse({ connection, code, status, response, requestId });
       return { broadcast, debugMessage: `Message for ${requestId} broadcasted.` };
@@ -270,7 +270,7 @@ const processMessage = async (connection, message) => {
         connection,
         code: CODE_UNFULFILLED_REQUEST,
         status: err.message,
-        requestId
+        requestId,
       });
     }
   } catch (err) {
@@ -278,7 +278,7 @@ const processMessage = async (connection, message) => {
     sendResponse({
       connection,
       code: CODE_UNPARSEABLE_MESSAGE,
-      requestId: null
+      requestId: null,
     });
   }
 
