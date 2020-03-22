@@ -22,6 +22,7 @@ const pickContentType = (extension) => {
     '.png': 'image/png',
     '.svg': 'image/svg+xml',
     '.ttf': 'application/font-ttf',
+    '.txt': 'text/plain',
     '.woff': 'application/font-woff',
     '.woff2': 'application/font-woff2',
   };
