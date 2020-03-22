@@ -26,7 +26,7 @@
     "start:80": "cross-env PORT=80 npm start",
     "test:server": "cross-env NODE_ENV=test LOG_LEVEL=error jest --env=node --colors --runInBand",
     "test": "npm run test:server -- && cd ui/web/ && cross-env CI=1 npm run test",
-    "prettier:server": "prettier --write \"{common,server}/**/*.js\" && prettier --parser=babel --write \"setversion\"",
+    "prettier:server": "prettier --write \"{common,server}/**/*.js\" && prettier --write \"setversion\"",
     "prettier": "npm run prettier:server && cd ui/web/ && npm run prettier && cd ../mobile/ && npm run prettier",
     "lint:server": "eslint common server setversion",
     "lint-cache:server": "eslint --cache common server setversion",
