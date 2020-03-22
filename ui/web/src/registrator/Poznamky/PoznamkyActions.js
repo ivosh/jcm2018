@@ -5,8 +5,8 @@ import { AKTUALNI_ROK } from '../../constants';
 const normalize = ({
   request,
   response: {
-    response: { poznamky }
-  }
+    response: { poznamky },
+  },
 }) => ({ request, response: { poznamky } });
 
 export const POZNAMKA_ADD = 'POZNAMKA_ADD';
@@ -21,12 +21,12 @@ export const addPoznamka = ({ id, poznamka, rok = AKTUALNI_ROK }) => ({
         ...poznamka,
         datum:
           (poznamka.datum && (poznamka.datum.toJSON ? poznamka.datum.toJSON() : poznamka.datum)) ||
-          new Date().toJSON()
+          new Date().toJSON(),
       },
-      rok
+      rok,
     },
-    title: 'přidávání poznámky'
-  }
+    title: 'přidávání poznámky',
+  },
 });
 
 export const POZNAMKA_DELETE = 'POZNAMKA_DELETE';
@@ -36,8 +36,8 @@ export const deletePoznamka = ({ id, index, rok = AKTUALNI_ROK }) => ({
     endpoint: API_DELETE_POZNAMKA,
     normalize,
     request: { id, index, rok },
-    title: 'mazání poznámky'
-  }
+    title: 'mazání poznámky',
+  },
 });
 
 export const POZNAMKA_MODIFY = 'POZNAMKA_MODIFY';
@@ -51,10 +51,10 @@ export const modifyPoznamka = ({ id, index, poznamka, rok = AKTUALNI_ROK }) => (
       index,
       poznamka: {
         ...poznamka,
-        datum: poznamka.datum.toJSON ? poznamka.datum.toJSON() : poznamka.datum
+        datum: poznamka.datum.toJSON ? poznamka.datum.toJSON() : poznamka.datum,
       },
-      rok
+      rok,
     },
-    title: 'ukládání poznámky'
-  }
+    title: 'ukládání poznámky',
+  },
 });

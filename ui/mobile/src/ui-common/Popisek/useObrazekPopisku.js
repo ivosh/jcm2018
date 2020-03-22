@@ -12,7 +12,7 @@ const computeSize = ({ goodRatio, size, sizePercentage }) =>
 export const useObrazekPohlavi = ({ pohlavi, sizePercentage }) => {
   const pohlaviToImg = {
     muž: muz,
-    žena: zena
+    žena: zena,
   };
 
   const goodRatio = 1.78;
@@ -29,7 +29,7 @@ export const useObrazekTypu = ({ sizePercentage, typ }) => {
     koloběžka: kolobezka,
     maraton,
     pěší: pesi,
-    půlmaraton: pulmaraton
+    půlmaraton: pulmaraton,
   };
 
   const goodRatio = 1.66;
@@ -38,7 +38,7 @@ export const useObrazekTypu = ({ sizePercentage, typ }) => {
     koloběžka: 50,
     maraton: 50,
     pěší: 50,
-    půlmaraton: 70
+    půlmaraton: 70,
   };
 
   const source = typToImg[typ];

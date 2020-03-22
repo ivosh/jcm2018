@@ -9,7 +9,7 @@ const getRequest = (request, state) => (typeof request === 'function' ? request(
 const createRequest = ({ type, request }) => ({
   type: `${type}_REQUEST`,
   request,
-  receivedAt: Date.now()
+  receivedAt: Date.now(),
 });
 
 const getLast = ({ [WS_API]: action }) => (Array.isArray(action) ? action.slice(-1)[0] : action);
@@ -33,7 +33,7 @@ const createSuccess = ({
   normalize = ({ request, response }) => ({ request, response }),
   request,
   response = {},
-  title
+  title,
 }) => {
   let suffix = 'SUCCESS';
 
@@ -47,7 +47,7 @@ const createSuccess = ({
 
   const { request: normalizedRequest, response: normalizedResponse } = normalize({
     request,
-    response
+    response,
   });
 
   return {
@@ -56,7 +56,7 @@ const createSuccess = ({
     response: { code: response.code, status: response.status, ...normalizedResponse },
     title,
     receivedAt: Date.now(),
-    ...decorate(response)
+    ...decorate(response),
   };
 };
 
@@ -77,7 +77,7 @@ const createFailure = ({ type, error, request, response, title }) => ({
   request,
   response,
   title,
-  receivedAt: Date.now()
+  receivedAt: Date.now(),
 });
 
 const createAuthTokenExpired = ({ response, ...rest }) =>
@@ -85,8 +85,8 @@ const createAuthTokenExpired = ({ response, ...rest }) =>
     ...rest,
     response: {
       ...response,
-      status: `Platnost ověřovacího tokenu pravděpodobně vypršela. ${response.status}`
-    }
+      status: `Platnost ověřovacího tokenu pravděpodobně vypršela. ${response.status}`,
+    },
   });
 
 // For testing. Takes the last action in case array of actions is passed.
@@ -118,7 +118,7 @@ const doOneAction = async ({ action, next, store, wsClient }) => {
     endpoint,
     normalize,
     takeFromCache,
-    title
+    title,
   } = action;
   const request = getRequest(action.request, state);
   if (!endpoint) {
@@ -164,8 +164,8 @@ const doOneAction = async ({ action, next, store, wsClient }) => {
 // A Redux middleware that interprets actions with WS_API info specified.
 // Performs the call and promises when such actions are dispatched.
 // eslint-disable-next-line arrow-body-style
-const createWsAPIMiddleware = wsClient => {
-  return store => next => async action => {
+const createWsAPIMiddleware = (wsClient) => {
+  return (store) => (next) => async (action) => {
     const { [WS_API]: callAPI } = action;
     if (!callAPI) {
       next(action);

@@ -9,7 +9,7 @@ const Vitezove = ({
   kategorieFilters,
   kategorieSubFilters,
   kategorieSubFiltersVisible,
-  vitezove
+  vitezove,
 }) => (
   <div className="Vitezove">
     <VitezoveFilters
@@ -39,7 +39,7 @@ Vitezove.propTypes = {
     PropTypes.shape({
       active: PropTypes.bool,
       typ: PropTypes.string.isRequired,
-      onClick: PropTypes.func.isRequired
+      onClick: PropTypes.func.isRequired,
     }).isRequired
   ).isRequired,
   kategorieSubFilters: PropTypes.arrayOf(
@@ -47,7 +47,7 @@ Vitezove.propTypes = {
       active: PropTypes.bool,
       id: PropTypes.string.isRequired,
       typ: PropTypes.string.isRequired,
-      onClick: PropTypes.func.isRequired
+      onClick: PropTypes.func.isRequired,
     }).isRequired
   ).isRequired,
   kategorieSubFiltersVisible: PropTypes.bool.isRequired,
@@ -59,19 +59,19 @@ Vitezove.propTypes = {
       narozeni: PropTypes.shape({
         den: PropTypes.number,
         mesic: PropTypes.number,
-        rok: PropTypes.number.isRequired
+        rok: PropTypes.number.isRequired,
       }).isRequired,
       kategorie: PropTypes.shape({
         typ: PropTypes.string.isRequired,
-        zkratka: PropTypes.string.isRequired
+        zkratka: PropTypes.string.isRequired,
       }).isRequired,
       startCislo: PropTypes.number.isRequired,
       dokonceno: PropTypes.bool.isRequired,
       cas: PropTypes.string.isRequired,
       absPoradi: PropTypes.number.isRequired,
-      relPoradi: PropTypes.number.isRequired
+      relPoradi: PropTypes.number.isRequired,
     }).isRequired
-  ).isRequired
+  ).isRequired,
 };
 
 export default Vitezove;

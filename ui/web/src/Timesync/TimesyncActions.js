@@ -3,7 +3,7 @@ import { WS_API } from 'ui-common/store/wsAPI';
 import {
   TIMESYNC_LAST_SAMPLES,
   TIMESYNC_INITIAL_BURST_DELAY,
-  TIMESYNC_OPERATIONAL_DELAY
+  TIMESYNC_OPERATIONAL_DELAY,
 } from '../constants';
 
 export const timesyncStart = () => ({ type: 'TIMESYNC_START' });
@@ -12,8 +12,8 @@ export const timesyncStop = () => ({ type: 'TIMESYNC_STOP' });
 const normalize = ({
   request,
   response: {
-    response: { now, serverTime } // 'now' from response used only for testing
-  }
+    response: { now, serverTime }, // 'now' from response used only for testing
+  },
 }) => ({ request, response: { now: now || new Date().toJSON(), serverTime } });
 
 export const TIMESYNC = 'TIMESYNC';
@@ -24,14 +24,14 @@ export const timesync = () => ({
     endpoint: API_TIMESYNC,
     normalize,
     request: { clientTime: new Date().toJSON() },
-    title: 'synchronizace času'
-  }
+    title: 'synchronizace času',
+  },
 });
 
 export const timesyncOperation = () => async (dispatch, getState) => {
   const {
     connected,
-    timesync: { running, samples }
+    timesync: { running, samples },
   } = getState();
   if (connected && running) {
     await dispatch(timesync());

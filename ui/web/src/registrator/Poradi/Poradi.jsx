@@ -20,7 +20,7 @@ const dokoncenoFormat = ({ cellData }) => findDokonceno(cellData).popisek;
 
 const kategorieFormat = ({ cellData }) => <PopisekKategorie {...cellData} />; // uses 'zkratka'
 kategorieFormat.propTypes = {
-  cellData: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
+  cellData: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
 const narozeniFormat = ({ cellData }) => narozeniToStr(cellData);
@@ -44,7 +44,7 @@ const Poradi = ({
   poradi,
   reduxName,
   textFilter,
-  onTextFilterChange
+  onTextFilterChange,
 }) => {
   const columns = [
     {
@@ -52,14 +52,14 @@ const Poradi = ({
       key: 'prijmeni',
       label: 'příjmení',
       sortable: true,
-      width: 100
+      width: 100,
     },
     {
       cellClassNames: () => ['align-left'],
       key: 'jmeno',
       label: 'jméno',
       sortable: true,
-      width: 90
+      width: 90,
     },
     {
       cellClassNames: () => ['align-right'],
@@ -67,21 +67,21 @@ const Poradi = ({
       key: 'narozeni',
       label: 'narození',
       sortable: true,
-      width: 100
+      width: 100,
     },
     {
       cellClassNames: ({ cellData }) => ['align-left', `Poradi--${cellData.typ}`],
       cellDataFormatter: kategorieFormat,
       key: 'kategorie',
       sortable: true,
-      width: 220
+      width: 220,
     },
     {
       cellClassNames: () => ['align-right'],
       key: 'startCislo',
       label: 'číslo',
       sortable: true,
-      width: 60
+      width: 60,
     },
     {
       cellDataFormatter: dokoncenoFormat,
@@ -89,29 +89,29 @@ const Poradi = ({
       key: 'dokonceno',
       label: 'dokončeno',
       sortable: true,
-      width: 110
+      width: 110,
     },
     {
       cellDataFormatter: casFormat,
       key: 'cas',
       label: 'čas',
       sortable: true,
-      width: 100
+      width: 100,
     },
     {
       cellDataFormatter: poradiFormat,
       key: 'absPoradi',
       label: 'abs.',
       sortable: true,
-      width: 60
+      width: 60,
     },
     {
       cellDataFormatter: poradiFormat,
       key: 'relPoradi',
       label: 'rel.',
       sortable: true,
-      width: 60
-    }
+      width: 60,
+    },
   ];
 
   return (
@@ -143,7 +143,7 @@ Poradi.propTypes = {
     PropTypes.shape({
       active: PropTypes.bool,
       typ: PropTypes.string.isRequired,
-      onClick: PropTypes.func.isRequired
+      onClick: PropTypes.func.isRequired,
     }).isRequired
   ).isRequired,
   kategorieSubFilters: PropTypes.arrayOf(
@@ -151,7 +151,7 @@ Poradi.propTypes = {
       active: PropTypes.bool,
       id: PropTypes.string.isRequired,
       typ: PropTypes.string.isRequired,
-      onClick: PropTypes.func.isRequired
+      onClick: PropTypes.func.isRequired,
     }).isRequired
   ).isRequired,
   kategorieSubFiltersVisible: PropTypes.bool.isRequired,
@@ -163,22 +163,22 @@ Poradi.propTypes = {
       narozeni: PropTypes.shape({
         den: PropTypes.number,
         mesic: PropTypes.number,
-        rok: PropTypes.number.isRequired
+        rok: PropTypes.number.isRequired,
       }).isRequired,
       kategorie: PropTypes.shape({
         typ: PropTypes.string.isRequired,
-        zkratka: PropTypes.string.isRequired
+        zkratka: PropTypes.string.isRequired,
       }).isRequired,
       startCislo: PropTypes.number,
       dokonceno: PropTypes.bool,
       cas: PropTypes.string,
       absPoradi: PropTypes.number,
-      relPoradi: PropTypes.number
+      relPoradi: PropTypes.number,
     }).isRequired
   ).isRequired,
   reduxName: PropTypes.string.isRequired,
   textFilter: PropTypes.string.isRequired,
-  onTextFilterChange: PropTypes.func.isRequired
+  onTextFilterChange: PropTypes.func.isRequired,
 };
 
 export default Poradi;

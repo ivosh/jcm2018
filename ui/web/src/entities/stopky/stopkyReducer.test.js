@@ -27,35 +27,35 @@ it('po načtení stopek', () => {
         base: '2017-12-01T07:30:00.000Z',
         delta: 'P0D',
         running: true,
-        typ: 'cyklo'
+        typ: 'cyklo',
       },
       koloběžka: {
         base: null,
         delta: 'PT4H0M0.32S',
         running: false,
-        typ: 'koloběžka'
+        typ: 'koloběžka',
       },
       maraton: {
         base: null,
         delta: 'P0D',
         running: false,
-        typ: 'maraton'
+        typ: 'maraton',
       },
       půlmaraton: {
         base: null,
         delta: 'PT1H23M07.34S',
         running: false,
-        typ: 'půlmaraton'
-      }
+        typ: 'půlmaraton',
+      },
     },
-    requestId: '0.9310306652587377'
+    requestId: '0.9310306652587377',
   };
 
   const stateBefore = { byTypy: {}, typy: [] };
   const stateAfter = {
     byTypy: { ...json.response },
     typy: ['cyklo', 'koloběžka', 'maraton', 'půlmaraton'],
-    invalidated: false
+    invalidated: false,
   };
   deepFreeze(stateBefore);
 
@@ -71,11 +71,11 @@ it('po odhlášení', () => {
         base: '2017-12-01T07:30:00.000Z',
         delta: 'P0D',
         running: true,
-        typ: 'cyklo'
-      }
+        typ: 'cyklo',
+      },
     },
     typy: ['cyklo'],
-    invalidated: false
+    invalidated: false,
   };
   const stateAfter = { ...stateBefore, invalidated: true };
   deepFreeze(stateBefore);
@@ -92,10 +92,10 @@ it('broadcastStopky - změna', () => {
         base: '2017-12-01T07:30:00.000Z',
         delta: 'P0D',
         running: true,
-        typ: 'cyklo'
-      }
+        typ: 'cyklo',
+      },
     },
-    typy: ['cyklo']
+    typy: ['cyklo'],
   };
   deepFreeze(stateBefore);
 

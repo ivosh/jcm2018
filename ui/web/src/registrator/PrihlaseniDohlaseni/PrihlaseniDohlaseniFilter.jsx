@@ -15,11 +15,11 @@ PrihlaseniDohlaseniFilter.propTypes = {
   active: PropTypes.bool,
   bsStyle: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
 };
 
 PrihlaseniDohlaseniFilter.defaultProps = {
-  active: false
+  active: false,
 };
 
 export default PrihlaseniDohlaseniFilter;

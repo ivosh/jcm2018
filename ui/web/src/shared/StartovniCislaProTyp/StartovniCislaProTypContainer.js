@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
   getStartovniCislaProTyp,
-  getStartovniCislaProTypVsechna
+  getStartovniCislaProTypVsechna,
 } from './startovniCislaProTypReducer';
 import StartovniCislaProTyp from './StartovniCislaProTyp';
 
@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownProps) => {
       : getStartovniCislaProTypVsechna({ odstartovani, typ, ...entities }),
     typ,
     Renderer,
-    ...restOwnProps
+    ...restOwnProps,
   };
 };
 
@@ -26,7 +26,7 @@ StartovniCislaProTypContainer.propTypes = {
   jenStartujici: PropTypes.bool.isRequired,
   odstartovani: PropTypes.bool.isRequired,
   typ: PropTypes.string.isRequired,
-  Renderer: PropTypes.func.isRequired
+  Renderer: PropTypes.func.isRequired,
 };
 
 export default StartovniCislaProTypContainer;

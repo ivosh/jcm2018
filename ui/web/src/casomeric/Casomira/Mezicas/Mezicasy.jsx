@@ -26,10 +26,10 @@ Mezicasy.propTypes = {
       dokonceno: PropTypes.bool,
       startCislo: PropTypes.number,
       onEdit: PropTypes.func.isRequired,
-      onRemove: PropTypes.func.isRequired
+      onRemove: PropTypes.func.isRequired,
     }).isRequired
   ).isRequired,
-  typ: PropTypes.string.isRequired
+  typ: PropTypes.string.isRequired,
 };
 
 export default Mezicasy;

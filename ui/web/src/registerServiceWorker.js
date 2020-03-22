@@ -16,10 +16,10 @@ const isLocalhost = Boolean(
     window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/)
 );
 
-const registerValidSW = swUrl => {
+const registerValidSW = (swUrl) => {
   window.navigator.serviceWorker
     .register(swUrl)
-    .then(registration => {
+    .then((registration) => {
       // eslint-disable-next-line no-param-reassign
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
@@ -41,23 +41,23 @@ const registerValidSW = swUrl => {
         };
       };
     })
-    .catch(error => {
+    .catch((error) => {
       // eslint-disable-next-line no-console
       console.error('Error during service worker registration:', error);
     });
 };
 
-const checkValidServiceWorker = swUrl => {
+const checkValidServiceWorker = (swUrl) => {
   // Check if the service worker can be found. If it can't reload the page.
   fetch(swUrl)
-    .then(response => {
+    .then((response) => {
       // Ensure service worker exists, and that we really are getting a JS file.
       if (
         response.status === 404 ||
         response.headers.get('content-type').indexOf('javascript') === -1
       ) {
         // No service worker found. Probably a different app. Reload the page.
-        window.navigator.serviceWorker.ready.then(registration => {
+        window.navigator.serviceWorker.ready.then((registration) => {
           registration.unregister().then(() => {
             window.location.reload();
           });
@@ -101,7 +101,7 @@ export default register;
 
 export const unregister = () => {
   if ('serviceWorker' in window.navigator) {
-    window.navigator.serviceWorker.ready.then(registration => {
+    window.navigator.serviceWorker.ready.then((registration) => {
       registration.unregister();
     });
   }

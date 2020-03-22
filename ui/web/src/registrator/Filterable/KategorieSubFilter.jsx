@@ -29,16 +29,16 @@ KategorieSubFilter.propTypes = {
   typ: PropTypes.string.isRequired,
   vek: PropTypes.shape({
     min: PropTypes.number.isRequired,
-    max: PropTypes.number.isRequired
+    max: PropTypes.number.isRequired,
   }),
   zkratka: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
 };
 
 KategorieSubFilter.defaultProps = {
   active: false,
   pohlavi: undefined,
-  vek: undefined
+  vek: undefined,
 };
 
 export default KategorieSubFilter;

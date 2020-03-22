@@ -21,20 +21,20 @@ const state = {
             castka: 250,
             datum: '2020-05-01T00:00:00.000Z',
             typ: 'převodem',
-            poznamka: 'stále visí'
+            poznamka: 'stále visí',
           },
-          { castka: 20, datum: '2020-06-06T00:00:00.000Z', typ: 'hotově' }
-        ]
+          { castka: 20, datum: '2020-06-06T00:00:00.000Z', typ: 'hotově' },
+        ],
       },
       platby: {
         castka: 150,
         datum: 'rozepsáno',
         typ: 'složenkou',
         poznamka: undefined,
-        novaPlatbaMinified: true
-      }
-    }
-  }
+        novaPlatbaMinified: true,
+      },
+    },
+  },
 };
 
 let store;

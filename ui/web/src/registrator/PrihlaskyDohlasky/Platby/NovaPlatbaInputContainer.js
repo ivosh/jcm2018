@@ -7,7 +7,7 @@ import {
   inputOptions,
   inputValid,
   isInputEnabled,
-  isInputVisible
+  isInputVisible,
 } from './platbyReducer';
 
 const mapStateToProps = (state, ownProps) => {
@@ -26,7 +26,7 @@ const mapStateToProps = (state, ownProps) => {
     inputValid,
     isInputEnabled,
     isInputVisible,
-    ...ownProps
+    ...ownProps,
   };
 };
 
@@ -35,7 +35,7 @@ const NovaPlatbaInputContainer = connect(mapStateToProps, {})(InputContainer);
 NovaPlatbaInputContainer.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  reduxName: PropTypes.string.isRequired
+  reduxName: PropTypes.string.isRequired,
 };
 
 export default NovaPlatbaInputContainer;

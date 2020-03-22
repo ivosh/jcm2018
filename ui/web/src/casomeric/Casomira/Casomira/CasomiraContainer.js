@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownProps) => {
     mezicasEnabled: running === true,
     running,
     typ,
-    onRemoveCasomira
+    onRemoveCasomira,
   };
 };
 
@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { typ } = ownProps;
 
   return {
-    onStopkyAddMezicas: () => dispatch(stopkyAddMezicas({ typ }))
+    onStopkyAddMezicas: () => dispatch(stopkyAddMezicas({ typ })),
   };
 };
 
@@ -33,7 +33,7 @@ const CasomiraContainer = connect(mapStateToProps, mapDispatchToProps)(Casomira)
 CasomiraContainer.propTypes = {
   accessKey: PropTypes.string.isRequired,
   typ: PropTypes.string.isRequired,
-  onRemoveCasomira: PropTypes.func.isRequired
+  onRemoveCasomira: PropTypes.func.isRequired,
 };
 
 export default CasomiraContainer;

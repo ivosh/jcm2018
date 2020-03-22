@@ -2,7 +2,7 @@ import { AKTUALNI_ROK } from '../../../constants';
 import { prijmeniJmenoNarozeniSortMethod } from '../../../sort';
 
 export const getSearchOptions = ({ ucastnici }) => {
-  const selected = ucastnici.allIds.map(id => {
+  const selected = ucastnici.allIds.map((id) => {
     const ucastnik = ucastnici.byIds[id];
     const posledniRok = ucastnik.roky[0];
     const { prijmeni, jmeno, narozeni } = ucastnik[posledniRok].udaje;

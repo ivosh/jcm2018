@@ -22,9 +22,9 @@ beforeEach(() => {
         narokovanePrihlaskouFilter: true,
         narokovaneStartemFilter: false,
         neprevzateFilter: false,
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
@@ -46,7 +46,7 @@ it('maps state and dispatch to props', () => {
 it('maps onDrop to dispatch poharPredan action', () => {
   wrapper.props().onDrop({
     source: { type: POHAR_NEPREVZATO, id: 'ab57345309fc23' },
-    destination: { type: POHAR_PREDANO }
+    destination: { type: POHAR_PREDANO },
   });
 
   expect(store.dispatch).toHaveBeenCalledWith({
@@ -55,10 +55,10 @@ it('maps onDrop to dispatch poharPredan action', () => {
       endpoint: API_POHAR_PREDAN,
       normalize: expect.any(Function),
       request: {
-        id: 'ab57345309fc23'
+        id: 'ab57345309fc23',
       },
-      title: 'předávání poháru'
-    }
+      title: 'předávání poháru',
+    },
   });
 });
 
@@ -66,7 +66,7 @@ it('maps onNarokovaneFilterChange to dispatch narokovanePrihlaskouFilterChange a
   wrapper.props().onNarokovaneFilterChange();
 
   expect(store.dispatch).toHaveBeenCalledWith({
-    type: `${actionPrefix}_NAROKOVANE_PRIHLASKOU_FILTER_CHANGE`
+    type: `${actionPrefix}_NAROKOVANE_PRIHLASKOU_FILTER_CHANGE`,
   });
 });
 
@@ -81,6 +81,6 @@ it('maps onTextFilterChange to dispatch textFilterChange action', () => {
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: `${actionPrefix}_TEXT_FILTER_CHANGE`,
-    textFilter: 'Kl'
+    textFilter: 'Kl',
   });
 });

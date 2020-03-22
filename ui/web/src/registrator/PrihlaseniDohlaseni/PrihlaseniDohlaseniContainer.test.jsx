@@ -20,9 +20,9 @@ beforeEach(() => {
         dohlaseniFilter: false,
         prihlaseniFilter: true,
         kategorieFilter: '',
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   store = mockStore(state);
   store.dispatch = jest.fn();

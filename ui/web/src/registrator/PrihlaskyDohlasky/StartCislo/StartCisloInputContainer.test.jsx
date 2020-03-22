@@ -15,13 +15,13 @@ beforeEach(() => {
       [reduxName]: {
         form: {
           ucastnikId: '874647ab4857dc',
-          prihlaska: { startCislo: 12, typ: 'maraton' }
+          prihlaska: { startCislo: 12, typ: 'maraton' },
         },
         startCislo: {
-          showing: false
-        }
-      }
-    }
+          showing: false,
+        },
+      },
+    },
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
@@ -62,7 +62,7 @@ it('maps onSelect to dispatch hide and inputChanged actions', () => {
     type: `${actionPrefix}_INPUT_CHANGED`,
     name: 'prihlaska.startCislo',
     value: '12',
-    chooseKategorie: expect.any(Function)
+    chooseKategorie: expect.any(Function),
   });
 });
 

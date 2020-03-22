@@ -19,7 +19,7 @@ const datumFormat = ({ cellData }) => moment.utc(cellData).format('D. M. YYYY');
 
 const kategorieFormat = ({ cellData }) => <PopisekKategorie {...cellData} />;
 kategorieFormat.propTypes = {
-  cellData: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
+  cellData: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
 const narozeniFormat = ({ cellData }) => narozeniToStr(cellData);
@@ -27,7 +27,7 @@ const narozeniFormat = ({ cellData }) => narozeniToStr(cellData);
 const AkceMenuFormat = ({
   cellData: { id, nejakaPoznamka, showing, onHide, onShow },
   data,
-  rowIndex
+  rowIndex,
 }) => {
   const akce = [{ icon: 'edit', nazev: 'Poznámky', component: <PoznamkyContainer id={id} /> }];
   if (data[rowIndex].email) {
@@ -43,7 +43,7 @@ const AkceMenuFormat = ({
           kod={data[rowIndex].kod}
           predepsano={data[rowIndex].predepsano}
         />
-      )
+      ),
     });
     akce.push({
       icon: 'envelope',
@@ -55,7 +55,7 @@ const AkceMenuFormat = ({
           kategorie={data[rowIndex].kategorie}
           startCislo={data[rowIndex].startCislo}
         />
-      )
+      ),
     });
   }
 
@@ -80,7 +80,7 @@ AkceMenuFormat.propTypes = {
     nejakaPoznamka: PropTypes.bool.isRequired,
     showing: PropTypes.bool.isRequired,
     onHide: PropTypes.func.isRequired,
-    onShow: PropTypes.func.isRequired
+    onShow: PropTypes.func.isRequired,
   }).isRequired,
   data: PropTypes.arrayOf(
     PropTypes.shape({
@@ -91,12 +91,12 @@ AkceMenuFormat.propTypes = {
       kod: PropTypes.string,
       predepsano: PropTypes.number.isRequired,
       kategorie: PropTypes.shape({
-        typ: PropTypes.string.isRequired
+        typ: PropTypes.string.isRequired,
       }).isRequired,
-      startCislo: PropTypes.number
+      startCislo: PropTypes.number,
     })
   ).isRequired,
-  rowIndex: PropTypes.number.isRequired
+  rowIndex: PropTypes.number.isRequired,
 };
 
 const prijmeniFormat = ({ cellData, data, route, rowIndex }) => (
@@ -106,7 +106,7 @@ prijmeniFormat.propTypes = {
   cellData: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   data: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string.isRequired })).isRequired,
   route: PropTypes.string.isRequired,
-  rowIndex: PropTypes.number.isRequired
+  rowIndex: PropTypes.number.isRequired,
 };
 
 const zaplacenoFormat = ({ cellData }) => `${cellData} Kč`;
@@ -117,7 +117,7 @@ const PrihlaseniDohlaseni = ({
   route,
   dohlaseniFilter,
   prihlaseniFilter,
-  prihlaseniDohlaseni
+  prihlaseniDohlaseni,
 }) => {
   const columns = [
     {
@@ -126,14 +126,14 @@ const PrihlaseniDohlaseni = ({
       key: 'prijmeni',
       label: 'příjmení',
       sortable: true,
-      width: 100
+      width: 100,
     },
     {
       cellClassNames: () => ['align-left'],
       key: 'jmeno',
       label: 'jméno',
       sortable: true,
-      width: 90
+      width: 90,
     },
     {
       cellClassNames: () => ['align-right'],
@@ -141,7 +141,7 @@ const PrihlaseniDohlaseni = ({
       key: 'narozeni',
       label: 'narození',
       sortable: true,
-      width: 100
+      width: 100,
     },
     { cellClassNames: () => ['align-left'], key: 'obec', sortable: true, width: 90 },
     { cellClassNames: () => ['align-left'], key: 'email', sortable: true, width: 200 },
@@ -151,21 +151,21 @@ const PrihlaseniDohlaseni = ({
       key: 'datum',
       label: 'přihlášení',
       sortable: true,
-      width: 110
+      width: 110,
     },
     {
       cellClassNames: ({ cellData }) => ['align-left', `PrihlaseniDohlaseni--${cellData.typ}`],
       cellDataFormatter: kategorieFormat,
       key: 'kategorie',
       sortable: true,
-      width: 180
+      width: 180,
     },
     {
       cellClassNames: () => ['align-right'],
       key: 'startCislo',
       label: 'číslo',
       sortable: true,
-      width: 70
+      width: 70,
     },
     { cellClassNames: () => ['align-left', 'monospace'], key: 'kod', label: 'kód', width: 90 },
     {
@@ -181,15 +181,15 @@ const PrihlaseniDohlaseni = ({
       cellDataFormatter: zaplacenoFormat,
       key: 'zaplaceno',
       sortable: true,
-      width: 110
+      width: 110,
     },
     {
       cellClassNames: () => ['PrihlaseniDohlaseni__akceMenu'],
       cellDataFormatter: AkceMenuFormat,
       key: 'akceMenu',
       label: 'Akce',
-      width: 100
-    }
+      width: 100,
+    },
   ];
 
   return (
@@ -224,12 +224,12 @@ PrihlaseniDohlaseni.propTypes = {
   dohlaseniFilter: PropTypes.shape({
     active: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired
+    onClick: PropTypes.func.isRequired,
   }).isRequired,
   prihlaseniFilter: PropTypes.shape({
     active: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired
+    onClick: PropTypes.func.isRequired,
   }).isRequired,
   prihlaseniDohlaseni: PropTypes.arrayOf(
     PropTypes.shape({
@@ -239,14 +239,14 @@ PrihlaseniDohlaseni.propTypes = {
       narozeni: PropTypes.shape({
         den: PropTypes.number,
         mesic: PropTypes.number,
-        rok: PropTypes.number.isRequired
+        rok: PropTypes.number.isRequired,
       }).isRequired,
       pohlavi: PropTypes.oneOf(['muž', 'žena']).isRequired,
       obec: PropTypes.string.isRequired,
       email: PropTypes.string,
       datum: PropTypes.instanceOf(Date).isRequired,
       kategorie: PropTypes.shape({
-        typ: PropTypes.string.isRequired
+        typ: PropTypes.string.isRequired,
       }).isRequired,
       startCislo: PropTypes.number,
       kod: PropTypes.string,
@@ -257,10 +257,10 @@ PrihlaseniDohlaseni.propTypes = {
         nejakaPoznamka: PropTypes.bool.isRequired,
         showing: PropTypes.bool.isRequired,
         onHide: PropTypes.func.isRequired,
-        onShow: PropTypes.func.isRequired
-      }).isRequired
+        onShow: PropTypes.func.isRequired,
+      }).isRequired,
     }).isRequired
-  ).isRequired
+  ).isRequired,
 };
 
 export default PrihlaseniDohlaseni;

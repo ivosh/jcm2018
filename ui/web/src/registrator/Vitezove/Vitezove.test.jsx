@@ -7,7 +7,7 @@ import Vitezove from './Vitezove';
 
 const kategorieFilters = [
   { active: true, typ: 'půlmaraton', onClick: jest.fn() },
-  { typ: 'cyklo', onClick: jest.fn() }
+  { typ: 'cyklo', onClick: jest.fn() },
 ];
 const vitezove = [
   {
@@ -20,13 +20,13 @@ const vitezove = [
       typ: 'půlmaraton',
       pohlavi: 'žena',
       vek: { min: 18, max: 39 },
-      zkratka: '1Ž'
+      zkratka: '1Ž',
     },
     startCislo: 11,
     dokonceno: true,
     cas: 'PT2H06M32.6S',
     absPoradi: 1,
-    relPoradi: 1
+    relPoradi: 1,
   },
   {
     id: '8344bc71dec1e99b7e1d01e',
@@ -38,14 +38,14 @@ const vitezove = [
       typ: 'půlmaraton',
       pohlavi: 'žena',
       vek: { min: 18, max: 39 },
-      zkratka: '1Ž'
+      zkratka: '1Ž',
     },
     startCislo: 15,
     dokonceno: true,
     cas: 'PT3H15M24.42S',
     absPoradi: 15,
-    relPoradi: 2
-  }
+    relPoradi: 2,
+  },
 ];
 
 const state = {
@@ -53,9 +53,9 @@ const state = {
   registrator: {
     vitezove: {
       kategorieFilter: '',
-      kategorieSubFilter: ''
-    }
-  }
+      kategorieSubFilter: '',
+    },
+  },
 };
 
 const mockStore = configureStore();

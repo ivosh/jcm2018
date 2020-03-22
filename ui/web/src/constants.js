@@ -18,14 +18,14 @@ export const ActionPrefixes = {
   POHARY_PRED_STARTEM: 'POHARY_PRED_STARTEM',
   PORADI: 'PORADI',
   PRIHLASENI: 'PRIHLASENI',
-  PRIHLASKY: 'PRIHLASKY'
+  PRIHLASKY: 'PRIHLASKY',
 };
 
 export const DragTypes = {
   POHAR: 'pohár',
   STARTOVNI_CISLO: 'startovniCislo',
   STARTUJICI_PRIHLASEN: 'startujiciPrihlasen',
-  STARTUJICI_ODSTARTOVAN: 'startujiciOdstartovan'
+  STARTUJICI_ODSTARTOVAN: 'startujiciOdstartovan',
 };
 
 export const ReduxNames = {
@@ -35,5 +35,5 @@ export const ReduxNames = {
   poharyPredStartem: 'poharyPredStartem',
   poradi: 'poradi',
   prihlaseni: 'prihlaseni',
-  prihlasky: 'prihlasky'
+  prihlasky: 'prihlasky',
 };

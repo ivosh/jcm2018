@@ -1,1 +1,1 @@
-export const errorToStr = err => (err && err.toString ? err.toString() : err);
+export const errorToStr = (err) => (err && err.toString ? err.toString() : err);

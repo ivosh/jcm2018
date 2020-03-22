@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import { Checkbox } from 'react-bootstrap';
 
 const CheckboxInput = ({ name, option, value, inputRef, onChange }) => (
-  <Checkbox checked={value === 'on'} id={name} inputRef={ref => inputRef(ref)} onChange={onChange}>
+  <Checkbox
+    checked={value === 'on'}
+    id={name}
+    inputRef={(ref) => inputRef(ref)}
+    onChange={onChange}
+  >
     {option}
   </Checkbox>
 );
@@ -13,11 +18,11 @@ CheckboxInput.propTypes = {
   value: PropTypes.string,
   option: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   inputRef: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
 };
 
 CheckboxInput.defaultProps = {
-  value: undefined
+  value: undefined,
 };
 
 export default CheckboxInput;

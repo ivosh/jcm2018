@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { fetchUcastnici as fetchUcastniciAction } from '../ucastnici/ucastniciActions';
 import LoadingIndicator from '../../shared/LoadingIndicator';
 
-const withFetchUcastnici = WrappedComponent => {
+const withFetchUcastnici = (WrappedComponent) => {
   class WithFetchUcastniciComponent extends PureComponent {
     componentDidMount = () => {
       this.props.fetchUcastnici();
@@ -30,16 +30,16 @@ const withFetchUcastnici = WrappedComponent => {
 
   WithFetchUcastniciComponent.propTypes = {
     fetchingUcastnici: PropTypes.oneOf(['init', 'fetching', 'done']).isRequired,
-    fetchUcastnici: PropTypes.func.isRequired
+    fetchUcastnici: PropTypes.func.isRequired,
   };
 
   const mapStateToProps = (state, ownProps) => ({
     fetchingUcastnici: state.fetchingUcastnici,
-    ...ownProps
+    ...ownProps,
   });
 
-  const mapDispatchToProps = dispatch => ({
-    fetchUcastnici: () => dispatch(fetchUcastniciAction())
+  const mapDispatchToProps = (dispatch) => ({
+    fetchUcastnici: () => dispatch(fetchUcastniciAction()),
   });
 
   return connect(mapStateToProps, mapDispatchToProps)(WithFetchUcastniciComponent);

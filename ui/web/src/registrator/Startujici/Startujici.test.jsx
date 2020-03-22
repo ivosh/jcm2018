@@ -13,10 +13,10 @@ const prihlaseni = [
       id: '5a587e1b051c181132cf83d7',
       pohlavi: 'muž',
       typ: 'půlmaraton',
-      vek: { min: 60, max: 150 }
+      vek: { min: 60, max: 150 },
     },
     startCislo: 17,
-    startCisloRequired: true
+    startCisloRequired: true,
   },
   {
     id: '7a09b1fd371dec1e99b7e142',
@@ -27,11 +27,11 @@ const prihlaseni = [
       id: '5a587e1b051c181132cf83d9',
       typ: 'půlmaraton',
       pohlavi: 'žena',
-      vek: { min: 18, max: 39 }
+      vek: { min: 18, max: 39 },
     },
     startCislo: 10,
-    startCisloRequired: true
-  }
+    startCisloRequired: true,
+  },
 ];
 
 const odstartovani = [
@@ -44,10 +44,10 @@ const odstartovani = [
       id: '5a587e1b051c181132cf83d7',
       pohlavi: 'muž',
       typ: 'půlmaraton',
-      vek: { min: 60, max: 150 }
+      vek: { min: 60, max: 150 },
     },
     startCislo: 15,
-    startCisloRequired: true
+    startCisloRequired: true,
   },
   {
     id: '7a09b1fd371dec1e99b7e142',
@@ -58,11 +58,11 @@ const odstartovani = [
       id: '5a587e1b051c181132cf83d9',
       typ: 'půlmaraton',
       pohlavi: 'žena',
-      vek: { min: 18, max: 39 }
+      vek: { min: 18, max: 39 },
     },
     startCislo: 11,
-    startCisloRequired: true
-  }
+    startCisloRequired: true,
+  },
 ];
 
 // Render with the test context that uses the test backend.

@@ -4,7 +4,7 @@ import { Typeahead } from 'react-bootstrap-typeahead';
 import shouldAutoFocus from '../../../shouldAutoFocus';
 import './PrihlaskySearch.css';
 
-const stripDiactrics = string => string.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+const stripDiactrics = (string) => string.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 const isMatch = (option, { text }) => {
   const { prijmeni, kod } = option;
@@ -38,13 +38,13 @@ const PrihlaskySearch = ({ options, onSelect }) => {
       placeholder="Začni psát příjmení nebo vlož kód přihlášky."
       ref={typeaheadRef}
       selectHintOnEnter={true}
-      onChange={results => {
+      onChange={(results) => {
         if (results.length >= 1) {
           // Typeahead provides an array so take the first result.
           onSelect(results[0]);
         }
       }}
-      renderMenuItemChildren={option => {
+      renderMenuItemChildren={(option) => {
         const { prijmeni, jmeno, narozeni } = option;
         return `${prijmeni} ${jmeno}, ${narozeni.rok}`;
       }}
@@ -59,12 +59,12 @@ PrihlaskySearch.propTypes = {
       prijmeni: PropTypes.string.isRequired,
       jmeno: PropTypes.string.isRequired,
       narozeni: PropTypes.shape({
-        rok: PropTypes.number.isRequired
+        rok: PropTypes.number.isRequired,
       }).isRequired,
-      kod: PropTypes.string
+      kod: PropTypes.string,
     })
   ).isRequired,
-  onSelect: PropTypes.func.isRequired
+  onSelect: PropTypes.func.isRequired,
 };
 
 export default PrihlaskySearch;

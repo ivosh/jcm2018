@@ -29,9 +29,9 @@ Cudly.propTypes = {
   cudly: PropTypes.arrayOf(
     PropTypes.shape({
       popisek: PropTypes.string.isRequired,
-      onClick: PropTypes.func.isRequired
+      onClick: PropTypes.func.isRequired,
     }).isRequired
-  ).isRequired
+  ).isRequired,
 };
 
 export default Cudly;

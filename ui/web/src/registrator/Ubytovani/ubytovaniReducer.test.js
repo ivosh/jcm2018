@@ -2,7 +2,7 @@ import deepFreeze from 'deep-freeze';
 import { createRequestFromAction, createSuccessFromAction } from 'ui-common/store/wsAPI';
 import { AKTUALNI_ROK } from '../../constants';
 import ucastniciTestData, {
-  AKTUALNI_DATUM_KONANI
+  AKTUALNI_DATUM_KONANI,
 } from '../../entities/ucastnici/ucastniciTestData';
 import { SortDirTypes } from '../../sort';
 import { createTextFilterChange } from '../Filterable/FilterableActions';
@@ -48,7 +48,7 @@ it('loading - zapnutí', () => {
     ubytovaniReducer(
       stateBefore,
       createRequestFromAction({
-        action: modifyUbytovani({ id: '5a09b1fd371dec1e99b7e1c9', rok: AKTUALNI_ROK })
+        action: modifyUbytovani({ id: '5a09b1fd371dec1e99b7e1c9', rok: AKTUALNI_ROK }),
       })
     )
   ).toEqual(stateAfter);
@@ -64,7 +64,7 @@ it('loading - vypnutí', () => {
       stateBefore,
       createSuccessFromAction({
         action: modifyUbytovani({ id: '5a09b1fd371dec1e99b7e1c9', rok: AKTUALNI_ROK }),
-        response: { response: {} }
+        response: { response: {} },
       })
     )
   ).toEqual(stateAfter);
@@ -75,7 +75,7 @@ it('řadit dle příjmení vzestupně', () => {
     jenUbytovani: true,
     sortColumn: undefined,
     sortDir: SortDirTypes.NONE,
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC };
   deepFreeze(stateBefore);
@@ -88,7 +88,7 @@ it('řadit dle příjmení sestupně', () => {
     jenUbytovani: true,
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.DESC };
   deepFreeze(stateBefore);
@@ -101,7 +101,7 @@ it('řadit dle příjmení zase vzestupně', () => {
     jenUbytovani: true,
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.DESC,
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC };
   deepFreeze(stateBefore);
@@ -114,7 +114,7 @@ it('řadit dle jména vzestupně', () => {
     jenUbytovani: true,
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, sortColumn: 'jmeno', sortDir: SortDirTypes.ASC };
   deepFreeze(stateBefore);
@@ -127,7 +127,7 @@ it('filtrovat na dvě písmena', () => {
     jenUbytovani: true,
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, textFilter: 'kl' };
   deepFreeze(stateBefore);
@@ -144,9 +144,9 @@ it('getUbytovaniSorted() by default', () => {
         jenUbytovani: true,
         sortColumn: undefined,
         sortDir: undefined,
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   const selected = [
     {
@@ -161,8 +161,8 @@ it('getUbytovaniSorted() by default', () => {
       prespano: true,
       akce: {
         loading: false,
-        options: ['<vyber>', 'odhlásit', 'nepřespáno']
-      }
+        options: ['<vyber>', 'odhlásit', 'nepřespáno'],
+      },
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
@@ -175,15 +175,15 @@ it('getUbytovaniSorted() by default', () => {
       prihlaseno: true,
       akce: {
         loading: true,
-        options: ['<vyber>', 'odhlásit', 'přespáno', 'nepřespáno']
-      }
-    }
+        options: ['<vyber>', 'odhlásit', 'přespáno', 'nepřespáno'],
+      },
+    },
   ];
   deepFreeze(state);
 
   const {
     entities,
-    registrator: { prihlaseni }
+    registrator: { prihlaseni },
   } = state;
   expect(getUbytovaniSorted({ ...entities, ...prihlaseni })).toEqual(selected);
 });
@@ -197,9 +197,9 @@ it('getUbytovaniSorted() filtrováno na z', () => {
         jenUbytovani: true,
         sortColumn: undefined,
         sortDir: undefined,
-        textFilter: 'z'
-      }
-    }
+        textFilter: 'z',
+      },
+    },
   };
   const selected = [
     {
@@ -213,15 +213,15 @@ it('getUbytovaniSorted() filtrováno na z', () => {
       prihlaseno: true,
       akce: {
         loading: false,
-        options: ['<vyber>', 'odhlásit', 'přespáno', 'nepřespáno']
-      }
-    }
+        options: ['<vyber>', 'odhlásit', 'přespáno', 'nepřespáno'],
+      },
+    },
   ];
   deepFreeze(state);
 
   const {
     entities,
-    registrator: { prihlaseni }
+    registrator: { prihlaseni },
   } = state;
   expect(getUbytovaniSorted({ ...entities, ...prihlaseni })).toEqual(selected);
 });

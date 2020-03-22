@@ -7,12 +7,12 @@ import Pohar from './Pohar';
 
 const dragSource = {
   beginDrag: ({ id, type }) => ({ id, type, source: true }),
-  canDrag: ({ type }) => isTypeDraggable(type)
+  canDrag: ({ type }) => isTypeDraggable(type),
 };
 
 const collectDrag = (connect, monitor) => ({
   dragAllowed: monitor.canDrag(),
-  connectDragSource: connect.dragSource()
+  connectDragSource: connect.dragSource(),
 });
 
 class DraggablePohar extends PureComponent {
@@ -29,7 +29,7 @@ class DraggablePohar extends PureComponent {
 
 DraggablePohar.propTypes = {
   id: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(TYPY_POHARU).isRequired
+  type: PropTypes.oneOf(TYPY_POHARU).isRequired,
 };
 
 export default DraggablePohar;

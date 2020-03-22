@@ -17,7 +17,7 @@ const months = [
   'září',
   'října',
   'listopadu',
-  'prosince'
+  'prosince',
 ];
 
 const pohlaviMnozne = { muž: 'muži', žena: 'ženy' };
@@ -40,7 +40,7 @@ const popisekTypu = {
   půlmaraton: 'půlmaratonci',
   cyklo: 'cyklisté',
   koloběžka: 'koloběžky',
-  pěší: 'turisté'
+  pěší: 'turisté',
 };
 
 export const getVysledky = ({ rocniky, ucastnici, rok = AKTUALNI_ROK }) => {
@@ -52,17 +52,17 @@ export const getVysledky = ({ rocniky, ucastnici, rok = AKTUALNI_ROK }) => {
     subtitle: `Jirkovský crossmarathon a Jirkovský půlmarathon ${rok}`,
     datum: `${date.getDate()}. ${months[date.getMonth()]} ${date.getFullYear()}`,
     summary: { startovalo: 0, dokoncilo: 0 },
-    typy: {}
+    typy: {},
   };
 
-  TYPY_KATEGORII.forEach(typ => {
+  TYPY_KATEGORII.forEach((typ) => {
     const stats = { startovalo: 0, dokoncilo: 0 };
     const poradi = getPoradiSorted({
       kategorieFilter: typ,
       sortColumn: 'absPoradi',
       rocniky,
       ucastnici,
-      rok
+      rok,
     });
 
     const ucastniciProTyp = poradi.map(
@@ -79,7 +79,7 @@ export const getVysledky = ({ rocniky, ucastnici, rok = AKTUALNI_ROK }) => {
         dokonceno,
         cas,
         absPoradi,
-        relPoradi
+        relPoradi,
       }) => {
         const { zkratka } = kategorie;
         let casAsText;
@@ -100,7 +100,7 @@ export const getVysledky = ({ rocniky, ucastnici, rok = AKTUALNI_ROK }) => {
           dokonceno,
           cas: casAsText,
           absPoradi,
-          relPoradi
+          relPoradi,
         };
 
         if (!stats[zkratka]) {
@@ -108,7 +108,7 @@ export const getVysledky = ({ rocniky, ucastnici, rok = AKTUALNI_ROK }) => {
             startovalo: 0,
             dokoncilo: 0,
             popisek: popisekKategorie(kategorie),
-            zkratka
+            zkratka,
           };
         }
         stats[zkratka].startovalo += 1;
@@ -128,7 +128,7 @@ export const getVysledky = ({ rocniky, ucastnici, rok = AKTUALNI_ROK }) => {
     const vsechnyZkratky = kategorieProTyp.list.map(({ zkratka }) =>
       stats[zkratka] ? zkratka : undefined
     );
-    const zkratky = vsechnyZkratky.filter(zkratka => zkratka);
+    const zkratky = vsechnyZkratky.filter((zkratka) => zkratka);
 
     vysledky.typy[typ] = {
       popisek: popisekTypu[typ],
@@ -136,7 +136,7 @@ export const getVysledky = ({ rocniky, ucastnici, rok = AKTUALNI_ROK }) => {
       stats,
       typ,
       ucastnici: ucastniciProTyp,
-      zkratky
+      zkratky,
     };
   });
 

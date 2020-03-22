@@ -13,7 +13,7 @@ const NovaPlatba = ({
   startIndex,
   inputRef,
   onAdd,
-  onExpand
+  onExpand,
 }) => {
   let index = startIndex;
 
@@ -80,11 +80,11 @@ NovaPlatba.propTypes = {
   startIndex: PropTypes.number.isRequired,
   inputRef: PropTypes.func.isRequired,
   onAdd: PropTypes.func.isRequired,
-  onExpand: PropTypes.func.isRequired
+  onExpand: PropTypes.func.isRequired,
 };
 
 NovaPlatba.defaultProps = {
-  showMinified: true
+  showMinified: true,
 };
 
 export default NovaPlatba;

@@ -4,7 +4,7 @@ import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import { SortDirTypes } from '../../sort';
 import {
   createKategorieFilterChange,
-  createTextFilterChange
+  createTextFilterChange,
 } from '../Filterable/FilterableActions';
 import { createSortDirChange } from '../UcastniciTable/UcastniciTableActions';
 import { kategorieSubFilterChange } from './PoradiActions';
@@ -40,7 +40,7 @@ it('přepínání kategorieSubFilter', () => {
 it('přepínání kategorieSubFilter - vypnout', () => {
   const stateBefore = {
     kategorieFilter: 'maraton',
-    kategorieSubFilter: '5a587e1a051c181132cf83ba'
+    kategorieSubFilter: '5a587e1a051c181132cf83ba',
   };
   const stateAfter = { ...stateBefore, kategorieSubFilter: '' };
   deepFreeze(stateBefore);
@@ -53,7 +53,7 @@ it('přepínání kategorieSubFilter - vypnout', () => {
 it('přepínání kategorieFilter - vypnout', () => {
   const stateBefore = {
     kategorieFilter: 'maraton',
-    kategorieSubFilter: '5a587e1a051c181132cf83ba'
+    kategorieSubFilter: '5a587e1a051c181132cf83ba',
   };
   const stateAfter = { kategorieFilter: '', kategorieSubFilter: '' };
   deepFreeze(stateBefore);
@@ -64,7 +64,7 @@ it('přepínání kategorieFilter - vypnout', () => {
 it('přepínání kategorieFilter - přepnout', () => {
   const stateBefore = {
     kategorieFilter: 'maraton',
-    kategorieSubFilter: '5a587e1a051c181132cf83ba'
+    kategorieSubFilter: '5a587e1a051c181132cf83ba',
   };
   const stateAfter = { kategorieFilter: 'cyklo', kategorieSubFilter: '' };
   deepFreeze(stateBefore);
@@ -113,9 +113,9 @@ it('getPoradiSorted() by default', () => {
         sortDir: undefined,
         kategorieFilter: '',
         kategorieSubFilter: '',
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   const selected = [
     {
@@ -130,10 +130,10 @@ it('getPoradiSorted() by default', () => {
         pohlavi: 'muž',
         typ: 'půlmaraton',
         vek: { min: 60, max: 150 },
-        zkratka: '4M'
+        zkratka: '4M',
       },
       startCislo: 15,
-      dokonceno: false
+      dokonceno: false,
     },
     {
       id: '9ccbc71dedc1e99b7e1d671',
@@ -148,13 +148,13 @@ it('getPoradiSorted() by default', () => {
         typ: 'půlmaraton',
         pohlavi: 'žena',
         vek: { min: 18, max: 39 },
-        zkratka: '1Ž'
+        zkratka: '1Ž',
       },
       startCislo: 8,
       dokonceno: true,
       cas: 'PT3H15M32.6S',
       absPoradi: 2,
-      relPoradi: 2
+      relPoradi: 2,
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
@@ -169,20 +169,20 @@ it('getPoradiSorted() by default', () => {
         typ: 'půlmaraton',
         pohlavi: 'žena',
         vek: { min: 18, max: 39 },
-        zkratka: '1Ž'
+        zkratka: '1Ž',
       },
       startCislo: 11,
       dokonceno: true,
       cas: 'PT2H06M32.6S',
       absPoradi: 1,
-      relPoradi: 1
-    }
+      relPoradi: 1,
+    },
   ];
   deepFreeze(state);
 
   const {
     entities,
-    registrator: { [reduxName]: props }
+    registrator: { [reduxName]: props },
   } = state;
   expect(getPoradiSorted({ ...entities, ...props })).toEqual(selected);
 });
@@ -196,9 +196,9 @@ it('getPoradiSorted() - filter for startovní číslo 11', () => {
         sortDir: undefined,
         kategorieFilter: '',
         kategorieSubFilter: '',
-        textFilter: '11'
-      }
-    }
+        textFilter: '11',
+      },
+    },
   };
   const selected = [
     {
@@ -214,20 +214,20 @@ it('getPoradiSorted() - filter for startovní číslo 11', () => {
         typ: 'půlmaraton',
         pohlavi: 'žena',
         vek: { min: 18, max: 39 },
-        zkratka: '1Ž'
+        zkratka: '1Ž',
       },
       startCislo: 11,
       dokonceno: true,
       cas: 'PT2H06M32.6S',
       absPoradi: 1,
-      relPoradi: 1
-    }
+      relPoradi: 1,
+    },
   ];
   deepFreeze(state);
 
   const {
     entities,
-    registrator: { [reduxName]: props }
+    registrator: { [reduxName]: props },
   } = state;
   expect(getPoradiSorted({ ...entities, ...props })).toEqual(selected);
 });
@@ -241,9 +241,9 @@ it('getPoradiSorted() - filter for kategorie půlmaraton/žena/18-39', () => {
         sortDir: undefined,
         kategorieFilter: 'půlmaraton',
         kategorieSubFilter: '5a587e1b051c181132cf83d9',
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   const selected = [
     {
@@ -259,13 +259,13 @@ it('getPoradiSorted() - filter for kategorie půlmaraton/žena/18-39', () => {
         typ: 'půlmaraton',
         pohlavi: 'žena',
         vek: { min: 18, max: 39 },
-        zkratka: '1Ž'
+        zkratka: '1Ž',
       },
       startCislo: 8,
       dokonceno: true,
       cas: 'PT3H15M32.6S',
       absPoradi: 2,
-      relPoradi: 2
+      relPoradi: 2,
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
@@ -280,20 +280,20 @@ it('getPoradiSorted() - filter for kategorie půlmaraton/žena/18-39', () => {
         typ: 'půlmaraton',
         pohlavi: 'žena',
         vek: { min: 18, max: 39 },
-        zkratka: '1Ž'
+        zkratka: '1Ž',
       },
       startCislo: 11,
       dokonceno: true,
       cas: 'PT2H06M32.6S',
       absPoradi: 1,
-      relPoradi: 1
-    }
+      relPoradi: 1,
+    },
   ];
   deepFreeze(state);
 
   const {
     entities,
-    registrator: { [reduxName]: props }
+    registrator: { [reduxName]: props },
   } = state;
   expect(getPoradiSorted({ ...entities, ...props })).toEqual(selected);
 });

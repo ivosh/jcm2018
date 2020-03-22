@@ -14,9 +14,9 @@ const successfulResponse = {
   code: 'ok',
   response: {
     clientTime: '2018-12-01T10:38:08.361Z',
-    serverTime: '2018-12-01T10:38:08:364Z'
+    serverTime: '2018-12-01T10:38:08:364Z',
   },
-  requestId: '0.9310306652587377'
+  requestId: '0.9310306652587377',
 };
 
 const middlewares = [thunk, wsAPI.withExtraArgument(mockWsClient)];
@@ -31,14 +31,14 @@ it('timesync() should dispatch two successful actions', async () => {
   expect(actions[0]).toEqual({
     type: `${TIMESYNC}_REQUEST`,
     request: { clientTime: expect.any(String) },
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${TIMESYNC}_SUCCESS`,
     request: { clientTime: expect.any(String) },
     response: { code: 'ok', now: expect.any(String), serverTime: expect.any(String) },
     title: 'synchronizace času',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -62,7 +62,7 @@ it('timesyncOperation should set an initial timeout if running', async () => {
 it('timesyncOperation should set a longer timeout if enough samples', async () => {
   const store = mockStore({
     connected: true,
-    timesync: { running: true, samples: [{}, {}, {}, {}, {}] }
+    timesync: { running: true, samples: [{}, {}, {}, {}, {}] },
   });
 
   await store.dispatch(timesyncOperation());

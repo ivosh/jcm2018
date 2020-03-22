@@ -20,6 +20,6 @@ export const getTypyStartCisel = (rocniky, rok = AKTUALNI_ROK) => {
   }
   const { kategorie } = rocnik;
 
-  const typy = Object.keys(kategorie).map(typ => (kategorie[typ].startCisla ? typ : undefined));
-  return typy.filter(typ => typ);
+  const typy = Object.keys(kategorie).map((typ) => (kategorie[typ].startCisla ? typ : undefined));
+  return typy.filter((typ) => typ);
 };

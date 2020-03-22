@@ -4,7 +4,7 @@ import { SortDirTypes } from '../../sort';
 import ucastniciDigestReducer, { getUcastniciDigestSorted } from './ucastniciDigestReducer';
 import {
   createKategorieFilterChange,
-  createTextFilterChange
+  createTextFilterChange,
 } from '../Filterable/FilterableActions';
 import { createSortDirChange } from '../UcastniciTable/UcastniciTableActions';
 
@@ -27,7 +27,7 @@ it('řadit dle příjmení vzestupně', () => {
     sortColumn: undefined,
     sortDir: SortDirTypes.NONE,
     kategorieFilter: '',
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC };
   deepFreeze(stateBefore);
@@ -40,7 +40,7 @@ it('řadit dle příjmení sestupně', () => {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
     kategorieFilter: '',
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.DESC };
   deepFreeze(stateBefore);
@@ -53,7 +53,7 @@ it('řadit dle příjmení zase vzestupně', () => {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.DESC,
     kategorieFilter: '',
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC };
   deepFreeze(stateBefore);
@@ -66,7 +66,7 @@ it('řadit dle jména vzestupně', () => {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
     kategorieFilter: '',
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, sortColumn: 'jmeno', sortDir: SortDirTypes.ASC };
   deepFreeze(stateBefore);
@@ -79,7 +79,7 @@ it('zapnout filtrování podle kategorie výkonu', () => {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
     kategorieFilter: '',
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, kategorieFilter: 'půlmaraton' };
   deepFreeze(stateBefore);
@@ -94,7 +94,7 @@ it('vypnout filtrování podle kategorie výkonu', () => {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
     kategorieFilter: 'půlmaraton',
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, kategorieFilter: '' };
   deepFreeze(stateBefore);
@@ -109,7 +109,7 @@ it('přepnout filtrování podle kategorie výkonu', () => {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
     kategorieFilter: 'půlmaraton',
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, kategorieFilter: 'pěší' };
   deepFreeze(stateBefore);
@@ -122,7 +122,7 @@ it('filtrovat na dvě písmena', () => {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
     kategorieFilter: '',
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, textFilter: 'kl' };
   deepFreeze(stateBefore);
@@ -138,9 +138,9 @@ it('getUcastniciDigestSorted() by default', () => {
         sortColumn: undefined,
         sortDir: undefined,
         kategorieFilter: '',
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   const selected = [
     {
@@ -151,13 +151,13 @@ it('getUcastniciDigestSorted() by default', () => {
       2017: { dokonceno: true, cas: 'PT1H25M32.6S', kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' },
       2019: { dokonceno: false, kategorie: 'půlmaraton' },
-      2020: { dokonceno: false, kategorie: 'půlmaraton' }
+      2020: { dokonceno: false, kategorie: 'půlmaraton' },
     },
     {
       id: '8344bc71dec1e99b7e1d01e',
       prijmeni: 'Kyselová',
       jmeno: 'Slavěna',
-      narozeni: { den: 13, mesic: 8, rok: 2001 }
+      narozeni: { den: 13, mesic: 8, rok: 2001 },
     },
     {
       id: '9ccbc71dedc1e99b7e1d671',
@@ -165,7 +165,7 @@ it('getUcastniciDigestSorted() by default', () => {
       jmeno: 'Božena',
       narozeni: { den: 25, mesic: 7, rok: 2001 },
       2019: { dokonceno: true, cas: 'PT3H15M32.6S', kategorie: 'půlmaraton' },
-      2020: { dokonceno: true, cas: 'PT3H15M32.6S', kategorie: 'půlmaraton' }
+      2020: { dokonceno: true, cas: 'PT3H15M32.6S', kategorie: 'půlmaraton' },
     },
     {
       id: 'f5c88400190a4bed88c76736',
@@ -175,7 +175,7 @@ it('getUcastniciDigestSorted() by default', () => {
       2018: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
       2017: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
       2015: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
-      2014: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' }
+      2014: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
     },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
@@ -187,7 +187,7 @@ it('getUcastniciDigestSorted() by default', () => {
       2012: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
       2013: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
       2014: { dokonceno: false, kategorie: 'maraton' },
-      2016: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' }
+      2016: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
@@ -196,8 +196,8 @@ it('getUcastniciDigestSorted() by default', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       2018: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' },
       2019: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' },
-      2020: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' }
-    }
+      2020: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' },
+    },
   ];
   deepFreeze(state);
 
@@ -215,9 +215,9 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
         sortColumn: 'prijmeni',
         sortDir: SortDirTypes.DESC,
         kategorieFilter: '',
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   const selected = [
     {
@@ -227,7 +227,7 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       2018: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' },
       2019: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' },
-      2020: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' }
+      2020: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' },
     },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
@@ -239,7 +239,7 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
       2012: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
       2013: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
       2014: { dokonceno: false, kategorie: 'maraton' },
-      2016: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' }
+      2016: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
     },
     {
       id: 'f5c88400190a4bed88c76736',
@@ -249,7 +249,7 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
       2018: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
       2017: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
       2015: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
-      2014: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' }
+      2014: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
     },
     {
       id: '9ccbc71dedc1e99b7e1d671',
@@ -257,13 +257,13 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
       jmeno: 'Božena',
       narozeni: { den: 25, mesic: 7, rok: 2001 },
       2019: { dokonceno: true, cas: 'PT3H15M32.6S', kategorie: 'půlmaraton' },
-      2020: { dokonceno: true, cas: 'PT3H15M32.6S', kategorie: 'půlmaraton' }
+      2020: { dokonceno: true, cas: 'PT3H15M32.6S', kategorie: 'půlmaraton' },
     },
     {
       id: '8344bc71dec1e99b7e1d01e',
       prijmeni: 'Kyselová',
       jmeno: 'Slavěna',
-      narozeni: { den: 13, mesic: 8, rok: 2001 }
+      narozeni: { den: 13, mesic: 8, rok: 2001 },
     },
     {
       id: '5a09b1fd371dec1e99b7e1c9',
@@ -273,8 +273,8 @@ it('getUcastniciDigestSorted() podle příjmení sestupně', () => {
       2017: { dokonceno: true, cas: 'PT1H25M32.6S', kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' },
       2019: { dokonceno: false, kategorie: 'půlmaraton' },
-      2020: { dokonceno: false, kategorie: 'půlmaraton' }
-    }
+      2020: { dokonceno: false, kategorie: 'půlmaraton' },
+    },
   ];
   deepFreeze(state);
 
@@ -292,9 +292,9 @@ it('getUcastniciDigestSorted() podle jména vzestupně', () => {
         sortColumn: 'jmeno',
         sortDir: SortDirTypes.ASC,
         kategorieFilter: '',
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   const selected = [
     {
@@ -303,7 +303,7 @@ it('getUcastniciDigestSorted() podle jména vzestupně', () => {
       jmeno: 'Božena',
       narozeni: { den: 25, mesic: 7, rok: 2001 },
       2019: { dokonceno: true, cas: 'PT3H15M32.6S', kategorie: 'půlmaraton' },
-      2020: { dokonceno: true, cas: 'PT3H15M32.6S', kategorie: 'půlmaraton' }
+      2020: { dokonceno: true, cas: 'PT3H15M32.6S', kategorie: 'půlmaraton' },
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
@@ -312,7 +312,7 @@ it('getUcastniciDigestSorted() podle jména vzestupně', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       2018: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' },
       2019: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' },
-      2020: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' }
+      2020: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' },
     },
     {
       id: 'f5c88400190a4bed88c76736',
@@ -322,7 +322,7 @@ it('getUcastniciDigestSorted() podle jména vzestupně', () => {
       2018: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
       2017: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
       2015: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
-      2014: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' }
+      2014: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
     },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
@@ -334,7 +334,7 @@ it('getUcastniciDigestSorted() podle jména vzestupně', () => {
       2012: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
       2013: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
       2014: { dokonceno: false, kategorie: 'maraton' },
-      2016: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' }
+      2016: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
     },
     {
       id: '5a09b1fd371dec1e99b7e1c9',
@@ -344,14 +344,14 @@ it('getUcastniciDigestSorted() podle jména vzestupně', () => {
       2017: { dokonceno: true, cas: 'PT1H25M32.6S', kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' },
       2019: { dokonceno: false, kategorie: 'půlmaraton' },
-      2020: { dokonceno: false, kategorie: 'půlmaraton' }
+      2020: { dokonceno: false, kategorie: 'půlmaraton' },
     },
     {
       id: '8344bc71dec1e99b7e1d01e',
       prijmeni: 'Kyselová',
       jmeno: 'Slavěna',
-      narozeni: { den: 13, mesic: 8, rok: 2001 }
-    }
+      narozeni: { den: 13, mesic: 8, rok: 2001 },
+    },
   ];
   deepFreeze(state);
 
@@ -369,16 +369,16 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
         sortColumn: 'narozeni',
         sortDir: SortDirTypes.DESC,
         kategorieFilter: '',
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   const selected = [
     {
       id: '8344bc71dec1e99b7e1d01e',
       prijmeni: 'Kyselová',
       jmeno: 'Slavěna',
-      narozeni: { den: 13, mesic: 8, rok: 2001 }
+      narozeni: { den: 13, mesic: 8, rok: 2001 },
     },
     {
       id: 'f5c88400190a4bed88c76736',
@@ -388,7 +388,7 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
       2018: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
       2017: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
       2015: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
-      2014: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' }
+      2014: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'maraton' },
     },
     {
       id: '9ccbc71dedc1e99b7e1d671',
@@ -396,7 +396,7 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
       jmeno: 'Božena',
       narozeni: { den: 25, mesic: 7, rok: 2001 },
       2019: { dokonceno: true, cas: 'PT3H15M32.6S', kategorie: 'půlmaraton' },
-      2020: { dokonceno: true, cas: 'PT3H15M32.6S', kategorie: 'půlmaraton' }
+      2020: { dokonceno: true, cas: 'PT3H15M32.6S', kategorie: 'půlmaraton' },
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
@@ -405,7 +405,7 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       2018: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' },
       2019: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' },
-      2020: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' }
+      2020: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' },
     },
     {
       id: '6f09b1fd371dec1e99b7e1c9',
@@ -417,7 +417,7 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
       2012: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
       2013: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
       2014: { dokonceno: false, kategorie: 'maraton' },
-      2016: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' }
+      2016: { dokonceno: true, cas: 'PT3H42M32.6S', kategorie: 'maraton' },
     },
     {
       id: '5a09b1fd371dec1e99b7e1c9',
@@ -427,8 +427,8 @@ it('getUcastniciDigestSorted() podle narození sestupně', () => {
       2017: { dokonceno: true, cas: 'PT1H25M32.6S', kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' },
       2019: { dokonceno: false, kategorie: 'půlmaraton' },
-      2020: { dokonceno: false, kategorie: 'půlmaraton' }
-    }
+      2020: { dokonceno: false, kategorie: 'půlmaraton' },
+    },
   ];
   deepFreeze(state);
 
@@ -446,9 +446,9 @@ it('getUcastniciDigestSorted() filtrováno na r', () => {
         sortColumn: undefined,
         sortDir: undefined,
         kategorieFilter: '',
-        textFilter: 'r'
-      }
-    }
+        textFilter: 'r',
+      },
+    },
   };
   const selected = [
     {
@@ -459,8 +459,8 @@ it('getUcastniciDigestSorted() filtrováno na r', () => {
       2017: { dokonceno: true, cas: 'PT1H25M32.6S', kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' },
       2019: { dokonceno: false, kategorie: 'půlmaraton' },
-      2020: { dokonceno: false, kategorie: 'půlmaraton' }
-    }
+      2020: { dokonceno: false, kategorie: 'půlmaraton' },
+    },
   ];
   deepFreeze(state);
 
@@ -478,9 +478,9 @@ it('getUcastniciDigestSorted() filtrováno na kategorii výkonu půlmaraton', ()
         sortColumn: undefined,
         sortDir: undefined,
         kategorieFilter: 'půlmaraton',
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   const selected = [
     {
@@ -491,7 +491,7 @@ it('getUcastniciDigestSorted() filtrováno na kategorii výkonu půlmaraton', ()
       2017: { dokonceno: true, cas: 'PT1H25M32.6S', kategorie: 'maraton' },
       2018: { dokonceno: false, kategorie: 'půlmaraton' },
       2019: { dokonceno: false, kategorie: 'půlmaraton' },
-      2020: { dokonceno: false, kategorie: 'půlmaraton' }
+      2020: { dokonceno: false, kategorie: 'půlmaraton' },
     },
     {
       id: '9ccbc71dedc1e99b7e1d671',
@@ -499,7 +499,7 @@ it('getUcastniciDigestSorted() filtrováno na kategorii výkonu půlmaraton', ()
       jmeno: 'Božena',
       narozeni: { den: 25, mesic: 7, rok: 2001 },
       2019: { dokonceno: true, cas: 'PT3H15M32.6S', kategorie: 'půlmaraton' },
-      2020: { dokonceno: true, cas: 'PT3H15M32.6S', kategorie: 'půlmaraton' }
+      2020: { dokonceno: true, cas: 'PT3H15M32.6S', kategorie: 'půlmaraton' },
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
@@ -508,8 +508,8 @@ it('getUcastniciDigestSorted() filtrováno na kategorii výkonu půlmaraton', ()
       narozeni: { den: 25, mesic: 7, rok: 1999 },
       2018: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' },
       2019: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' },
-      2020: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' }
-    }
+      2020: { dokonceno: true, cas: 'PT2H06M32.6S', kategorie: 'půlmaraton' },
+    },
   ];
   deepFreeze(state);
 

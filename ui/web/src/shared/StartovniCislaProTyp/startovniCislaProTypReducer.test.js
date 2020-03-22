@@ -4,7 +4,7 @@ import ucastniciTestData from '../../entities/ucastnici/ucastniciTestData';
 import {
   getStartovniCislaProTyp,
   getStartovniCislaProTypVsechna,
-  isStartCisloTaken
+  isStartCisloTaken,
 } from './startovniCislaProTypReducer';
 
 const state = JSON.parse(JSON.stringify(ucastniciTestData)); // deep copy
@@ -19,72 +19,72 @@ state.entities.ucastnici = {
       2013: {
         prihlaska: {
           kategorie: '5a587e1a051c181132cf83b8', // maraton
-          startCislo: 13
-        }
+          startCislo: 13,
+        },
       },
       2014: {
         prihlaska: {
           kategorie: '5a587e1a051c181132cf83b8', // maraton
-          startCislo: 9
-        }
+          startCislo: 9,
+        },
       },
       2018: {
         prihlaska: {
           kategorie: '5a587e1b051c181132cf83d0', // koloběžka
-          startCislo: 15
+          startCislo: 15,
         },
         vykon: {
           kategorie: '5a587e1b051c181132cf83d0', // koloběžka
           startCislo: 14,
-          dokonceno: false
-        }
-      }
+          dokonceno: false,
+        },
+      },
     },
     id2: {
       roky: [2018, 2013],
       2013: {
         prihlaska: {
           kategorie: '5a587e1a051c181132cf83b8', // maraton
-          startCislo: 10
+          startCislo: 10,
         },
         vykon: {
           kategorie: '5a587e1a051c181132cf83b8', // maraton
           startCislo: 12,
           dokonceno: true,
-          cas: 'PT2H17M23.4S'
-        }
+          cas: 'PT2H17M23.4S',
+        },
       },
       2018: {
         prihlaska: {
-          kategorie: '5a587e1a051c181132cf83b1' // pěší
+          kategorie: '5a587e1a051c181132cf83b1', // pěší
         },
         vykon: {
           kategorie: '5a587e1a051c181132cf83b1', // pěší
-          dokonceno: false
-        }
-      }
+          dokonceno: false,
+        },
+      },
     },
     id3: {
       roky: [2018],
       2018: {
         prihlaska: {
           kategorie: '5a587e1b051c181132cf83d0', // koloběžka
-          startCislo: 10
+          startCislo: 10,
         },
         vykon: {
           kategorie: '5a587e1b051c181132cf83d0', // koloběžka
-          startCislo: 10
-        }
-      }
-    }
-  }
+          startCislo: 10,
+        },
+      },
+    },
+  },
 };
 
 it('getStartovniCislaProTyp - přihlášky 2013', () => {
   deepFreeze(state);
   const selected = [
     { id: 'id2', startCislo: 10 },
-    { id: 'id1', startCislo: 13 }
+    { id: 'id1', startCislo: 13 },
   ];
 
   expect(
@@ -97,7 +97,7 @@ it('getStartovniCislaProTyp - přihlášky 2013', () => {
       rok: 2013,
       typ: 'maraton',
       startCislo: 10,
-      ...state.entities
+      ...state.entities,
     })
   ).toBe(true);
   expect(
@@ -107,7 +107,7 @@ it('getStartovniCislaProTyp - přihlášky 2013', () => {
       rok: 2013,
       typ: 'maraton',
       startCislo: 10,
-      ...state.entities
+      ...state.entities,
     })
   ).toBe(false);
   expect(
@@ -117,7 +117,7 @@ it('getStartovniCislaProTyp - přihlášky 2013', () => {
       rok: 2013,
       typ: 'maraton',
       startCislo: 11,
-      ...state.entities
+      ...state.entities,
     })
   ).toBe(false);
 });
@@ -125,7 +125,7 @@ it('getStartovniCislaProTyp - přihlášky 2013', () => {
 it('getStartovniCislaProTyp - výkony 2013', () => {
   deepFreeze(state);
   const selected = [
-    { id: 'id2', startCislo: 12, dokonceno: true, cas: moment.duration('PT2H17M23.4S') }
+    { id: 'id2', startCislo: 12, dokonceno: true, cas: moment.duration('PT2H17M23.4S') },
   ];
 
   expect(
@@ -138,7 +138,7 @@ it('getStartovniCislaProTyp - výkony 2013', () => {
       rok: 2013,
       typ: 'maraton',
       startCislo: 12,
-      ...state.entities
+      ...state.entities,
     })
   ).toBe(true);
   expect(
@@ -148,7 +148,7 @@ it('getStartovniCislaProTyp - výkony 2013', () => {
       rok: 2013,
       typ: 'maraton',
       startCislo: 12,
-      ...state.entities
+      ...state.entities,
     })
   ).toBe(false);
   expect(
@@ -158,7 +158,7 @@ it('getStartovniCislaProTyp - výkony 2013', () => {
       rok: 2013,
       typ: 'maraton',
       startCislo: 11,
-      ...state.entities
+      ...state.entities,
     })
   ).toBe(false);
 });
@@ -167,7 +167,7 @@ it('getStartovniCislaProTyp - přihlášky 2018', () => {
   deepFreeze(state);
   const selected = [
     { id: 'id3', startCislo: 10 },
-    { id: 'id1', startCislo: 15 }
+    { id: 'id1', startCislo: 15 },
   ];
 
   expect(getStartovniCislaProTyp({ rok: 2018, typ: 'koloběžka', ...state.entities })).toEqual(
@@ -179,7 +179,7 @@ it('getStartovniCislaProTyp - výkony 2018', () => {
   deepFreeze(state);
   const selected = [
     { id: 'id3', startCislo: 10, dokonceno: undefined },
-    { id: 'id1', startCislo: 14, dokonceno: false }
+    { id: 'id1', startCislo: 14, dokonceno: false },
   ];
 
   expect(
@@ -198,7 +198,7 @@ it('getStartovniCislaProTypVsechna - přihlášky 2013', () => {
     { startCislo: 15 },
     { startCislo: 23 },
     { startCislo: 35 },
-    { startCislo: 36 }
+    { startCislo: 36 },
   ];
 
   expect(
@@ -206,7 +206,7 @@ it('getStartovniCislaProTypVsechna - přihlášky 2013', () => {
       rok: 2013,
       typ: 'maraton',
       odstartovani: false,
-      ...state.entities
+      ...state.entities,
     })
   ).toEqual(selected);
 });
@@ -222,7 +222,7 @@ it('getStartovniCislaProTypVsechna - výkony 2013', () => {
     { startCislo: 15 },
     { startCislo: 23 },
     { startCislo: 35 },
-    { startCislo: 36 }
+    { startCislo: 36 },
   ];
 
   expect(
@@ -230,7 +230,7 @@ it('getStartovniCislaProTypVsechna - výkony 2013', () => {
       rok: 2013,
       typ: 'maraton',
       odstartovani: true,
-      ...state.entities
+      ...state.entities,
     })
   ).toEqual(selected);
 });
@@ -244,7 +244,7 @@ it('getStartovniCislaProTypVsechna - přihlášky 2018', () => {
     { startCislo: 12 },
     { startCislo: 11 },
     { id: 'id3', startCislo: 10 },
-    { startCislo: 16 }
+    { startCislo: 16 },
   ];
 
   expect(
@@ -252,7 +252,7 @@ it('getStartovniCislaProTypVsechna - přihlášky 2018', () => {
       rok: 2018,
       typ: 'koloběžka',
       odstartovani: false,
-      ...state.entities
+      ...state.entities,
     })
   ).toEqual(selected);
 });
@@ -266,7 +266,7 @@ it('getStartovniCislaProTypVsechna - výkony 2018', () => {
     { startCislo: 12 },
     { startCislo: 11 },
     { id: 'id3', startCislo: 10 },
-    { startCislo: 16 }
+    { startCislo: 16 },
   ];
 
   expect(
@@ -274,7 +274,7 @@ it('getStartovniCislaProTypVsechna - výkony 2018', () => {
       rok: 2018,
       typ: 'koloběžka',
       odstartovani: true,
-      ...state.entities
+      ...state.entities,
     })
   ).toEqual(selected);
 });

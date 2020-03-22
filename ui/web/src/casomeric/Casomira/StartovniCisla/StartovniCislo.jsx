@@ -19,7 +19,7 @@ StartovniCislo.propTypes = {
   startCislo: PropTypes.number.isRequired,
   dokonceno: PropTypes.bool,
   connectDragSource: PropTypes.func.isRequired,
-  isDragging: PropTypes.bool.isRequired
+  isDragging: PropTypes.bool.isRequired,
 };
 
 export default StartovniCislo;

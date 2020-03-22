@@ -18,8 +18,8 @@ beforeEach(() => {
   const state = {
     auth: {
       authenticated: true,
-      token: '===token==='
-    }
+      token: '===token===',
+    },
   };
   store = mockStore(state);
   store.dispatch = jest.fn();

@@ -39,9 +39,9 @@ VitezoveSubFilters.propTypes = {
       active: PropTypes.bool,
       id: PropTypes.string.isRequired,
       typ: PropTypes.string.isRequired,
-      onClick: PropTypes.func.isRequired
+      onClick: PropTypes.func.isRequired,
     }).isRequired
-  ).isRequired
+  ).isRequired,
 };
 
 const VitezoveFilters = ({ kategorieFilters, kategorieSubFilters, kategorieSubFiltersVisible }) => (
@@ -61,7 +61,7 @@ VitezoveFilters.propTypes = {
     PropTypes.shape({
       active: PropTypes.bool,
       typ: PropTypes.string.isRequired,
-      onClick: PropTypes.func.isRequired
+      onClick: PropTypes.func.isRequired,
     }).isRequired
   ).isRequired,
   kategorieSubFilters: PropTypes.arrayOf(
@@ -70,10 +70,10 @@ VitezoveFilters.propTypes = {
       id: PropTypes.string.isRequired,
       typ: PropTypes.string.isRequired,
       zkratka: PropTypes.string.isRequired,
-      onClick: PropTypes.func.isRequired
+      onClick: PropTypes.func.isRequired,
     }).isRequired
   ).isRequired,
-  kategorieSubFiltersVisible: PropTypes.bool.isRequired
+  kategorieSubFiltersVisible: PropTypes.bool.isRequired,
 };
 
 export default VitezoveFilters;

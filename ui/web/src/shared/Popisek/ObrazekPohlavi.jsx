@@ -9,11 +9,11 @@ const ObrazekPohlavi = ({ pohlavi, sizePercentage }) => {
 
 ObrazekPohlavi.propTypes = {
   pohlavi: PropTypes.oneOf(['muž', 'žena']).isRequired,
-  sizePercentage: PropTypes.number
+  sizePercentage: PropTypes.number,
 };
 
 ObrazekPohlavi.defaultProps = {
-  sizePercentage: 100
+  sizePercentage: 100,
 };
 
 export default ObrazekPohlavi;

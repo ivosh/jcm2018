@@ -19,7 +19,7 @@ const mapStateToProps = (state, ownProps) => {
     running,
     startEnabled: running === false,
     stopEnabled: running === true,
-    typ
+    typ,
   };
 };
 
@@ -30,7 +30,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onReset: () => dispatch(stopkyReset({ typ })),
     onStart: () => dispatch(stopkyStart({ typ })),
     onStop: () => dispatch(stopkyStop({ typ })),
-    onChange: step => dispatch(stopkyChangeTime({ step, typ }))
+    onChange: (step) => dispatch(stopkyChangeTime({ step, typ })),
   };
 };
 
@@ -39,9 +39,9 @@ const mergeProps = (stateProps, dispatchProps) => {
   const { onChange, ...restOfDispatchProps } = dispatchProps;
 
   return {
-    cudly: cudly.map(cudl => ({ ...cudl, onClick: () => onChange(cudl.step) })),
+    cudly: cudly.map((cudl) => ({ ...cudl, onClick: () => onChange(cudl.step) })),
     ...restOfStateProps,
-    ...restOfDispatchProps
+    ...restOfDispatchProps,
   };
 };
 
@@ -52,7 +52,7 @@ const StopkyProTypContainer = connect(
 )(StopkyProTyp);
 
 StopkyProTypContainer.propTypes = {
-  typ: PropTypes.string.isRequired
+  typ: PropTypes.string.isRequired,
 };
 
 export default StopkyProTypContainer;

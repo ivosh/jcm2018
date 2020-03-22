@@ -6,7 +6,7 @@ import PrihlaskySearch from './PrihlaskySearch';
 const options = [
   { id: '===id1===', prijmeni: 'Hudec', jmeno: 'Jiří', narozeni: { rok: 1956 }, kod: '===kod1===' },
   { id: '===id2===', prijmeni: 'Suchá', jmeno: 'Jana', narozeni: { rok: 1967 }, kod: '===kod2===' },
-  { id: '===id3===', prijmeni: 'Kryl', jmeno: 'Jan', narozeni: { rok: 2001 } }
+  { id: '===id3===', prijmeni: 'Kryl', jmeno: 'Jan', narozeni: { rok: 2001 } },
 ];
 
 it('renders', () => {

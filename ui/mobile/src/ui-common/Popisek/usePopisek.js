@@ -12,7 +12,7 @@ const usePopisek = ({ pohlavi, showTyp, vek, zkratka }) => {
     renderTextTypu,
     renderPohlavi,
     renderVek,
-    renderZkratka
+    renderZkratka,
   };
 };
 

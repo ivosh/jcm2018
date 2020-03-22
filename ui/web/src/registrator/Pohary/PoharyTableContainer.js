@@ -7,20 +7,20 @@ import {
   createNarokovanePrihlaskouFilterChange,
   createNarokovaneStartemFilterChange,
   createNeprevzateFilterChange,
-  createOnDrop
+  createOnDrop,
 } from './PoharyActions';
 import { getPoharySorted } from './poharyReducer';
 import PoharyTable from './PoharyTable';
 
-const jePrihlaskou = actionPrefix => actionPrefix === ActionPrefixes.POHARY_PRED_STARTEM;
+const jePrihlaskou = (actionPrefix) => actionPrefix === ActionPrefixes.POHARY_PRED_STARTEM;
 
 const remapNarok = (ucastnici, jePrihlaska) =>
-  ucastnici.map(ucastnik => {
+  ucastnici.map((ucastnik) => {
     const { pohary } = ucastnik;
     const { narokPrihlaskou, narokStartem, ...rest } = pohary;
     return {
       ...ucastnik,
-      pohary: { ...rest, narok: jePrihlaska ? narokPrihlaskou : narokStartem }
+      pohary: { ...rest, narok: jePrihlaska ? narokPrihlaskou : narokStartem },
     };
   });
 
@@ -31,7 +31,7 @@ const mapStateToProps = ({ entities, registrator }, { actionPrefix, reduxName })
     narokovanePrihlaskouFilter,
     narokovaneStartemFilter,
     neprevzateFilter,
-    textFilter
+    textFilter,
   } = pohary;
 
   const narokovaneFilter = jePrihlaskou(actionPrefix)
@@ -49,7 +49,7 @@ const mapStateToProps = ({ entities, registrator }, { actionPrefix, reduxName })
     pohary: poharovi,
     popisek: jePrihlaskou(actionPrefix) ? 'se na něj přihlásili' : 'odstartovali',
     reduxName,
-    textFilter
+    textFilter,
   };
 };
 
@@ -63,7 +63,7 @@ const mapDispatchToProps = (dispatch, { actionPrefix }) => ({
         : createNarokovaneStartemFilterChange(actionPrefix)()
     ),
   onNeprevzateFilterChange: () => dispatch(createNeprevzateFilterChange(actionPrefix)()),
-  onTextFilterChange: text => dispatch(createTextFilterChange(actionPrefix)(text))
+  onTextFilterChange: (text) => dispatch(createTextFilterChange(actionPrefix)(text)),
 });
 
 /* :TODO: Ideally we would say here registrator[reduxName] but this is currently not
@@ -72,12 +72,12 @@ const areStatesEqual = (next, prev) =>
   prev.entities === next.entities && prev.registrator === next.registrator;
 
 const PoharyTableContainer = connect(mapStateToProps, mapDispatchToProps, null, {
-  areStatesEqual
+  areStatesEqual,
 })(PoharyTable);
 
 PoharyTable.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
-  reduxName: PropTypes.string.isRequired
+  reduxName: PropTypes.string.isRequired,
 };
 
 export default PoharyTableContainer;

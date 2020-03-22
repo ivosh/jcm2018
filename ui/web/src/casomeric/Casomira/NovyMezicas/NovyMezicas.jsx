@@ -10,7 +10,7 @@ const NovyMezicas = ({
   onHide,
   onInputChange,
   onShow,
-  onSubmit
+  onSubmit,
 }) => (
   <>
     <Modal keyboard={true} show={showing} onHide={onHide} bsSize="small">
@@ -48,11 +48,11 @@ NovyMezicas.propTypes = {
   onHide: PropTypes.func.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onShow: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
 };
 
 NovyMezicas.defaultProps = {
-  validationState: undefined
+  validationState: undefined,
 };
 
 export default NovyMezicas;

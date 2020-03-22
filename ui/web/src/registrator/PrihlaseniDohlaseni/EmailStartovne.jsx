@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { AKTUALNI_ROK } from '../../constants';
 import EmailComposerContainer from '../EmailComposer/EmailComposerContainer';
 
-const prechylenaOdbavena = pohlavi => (pohlavi === 'žena' ? 'odbavena' : 'odbaven');
+const prechylenaOdbavena = (pohlavi) => (pohlavi === 'žena' ? 'odbavena' : 'odbaven');
 
 // :TODO: předepsané startovné už nabíhá na místě - predepsanoPredem?
 const EmailStartovne = ({ prijmeni, jmeno, pohlavi, email, kod, predepsano }) => (
@@ -32,11 +32,11 @@ EmailStartovne.propTypes = {
   pohlavi: PropTypes.oneOf(['muž', 'žena']).isRequired,
   email: PropTypes.string.isRequired,
   kod: PropTypes.string,
-  predepsano: PropTypes.number.isRequired
+  predepsano: PropTypes.number.isRequired,
 };
 
 EmailStartovne.defaultProps = {
-  kod: ''
+  kod: '',
 };
 
 export default EmailStartovne;

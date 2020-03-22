@@ -13,11 +13,11 @@ const prihlaseni = [
       id: '5a587e1b051c181132cf83d7',
       pohlavi: 'muž',
       typ: 'půlmaraton',
-      vek: { min: 60, max: 150 }
+      vek: { min: 60, max: 150 },
     },
     startCislo: 17,
-    startCisloRequired: true
-  }
+    startCisloRequired: true,
+  },
 ];
 
 // Render with the test context that uses the test backend.
@@ -36,10 +36,7 @@ it('can simulate a full drag and drop interaction', () => {
   );
 
   // Obtain a reference to the backend.
-  const backend = wrapper
-    .instance()
-    .getManager()
-    .getBackend();
+  const backend = wrapper.instance().getManager().getBackend();
 
   // Find the drag source ID and use it to simulate the dragging operation.
   expect(wrapper.find('DragSource(JedenStartujici)')).toHaveLength(1);

@@ -30,7 +30,7 @@ const roky = [
   2015,
   2016,
   2017,
-  2018
+  2018,
 ];
 
 const ucastniciDigest = [
@@ -41,7 +41,7 @@ const ucastniciDigest = [
     narozeni: { rok: 1956 },
     2016: { dokonceno: false },
     2017: { dokonceno: true, kategorie: 'maraton' },
-    2018: { dokonceno: true, kategorie: 'půlmaraton' }
+    2018: { dokonceno: true, kategorie: 'půlmaraton' },
   },
   {
     id: '6f09b1fd371dec1e99b7e1c9',
@@ -50,8 +50,8 @@ const ucastniciDigest = [
     narozeni: { den: 7, mesic: 12, rok: 1963 },
     2015: { dokonceno: false },
     2017: { dokonceno: true, kategorie: 'maraton' },
-    2018: { dokonceno: undefined, kategorie: 'půlmaraton' }
-  }
+    2018: { dokonceno: undefined, kategorie: 'půlmaraton' },
+  },
 ];
 
 it('žádný účastník', () => {

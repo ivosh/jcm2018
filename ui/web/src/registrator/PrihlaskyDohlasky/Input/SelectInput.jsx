@@ -7,10 +7,10 @@ const SelectInput = ({ name, options, value, inputRef, onChange }) => (
     componentClass="select"
     defaultValue={value}
     name={name}
-    inputRef={ref => inputRef(ref)}
+    inputRef={(ref) => inputRef(ref)}
     onChange={onChange}
   >
-    {options.map(option => (
+    {options.map((option) => (
       <option key={option.key} value={option.key}>
         {option.value}
       </option>
@@ -25,15 +25,15 @@ SelectInput.propTypes = {
     PropTypes.shape({
       key: PropTypes.string.isRequired,
       id: PropTypes.string,
-      value: PropTypes.string.isRequired
+      value: PropTypes.string.isRequired,
     })
   ).isRequired,
   inputRef: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
 };
 
 SelectInput.defaultProps = {
-  value: undefined
+  value: undefined,
 };
 
 export default SelectInput;

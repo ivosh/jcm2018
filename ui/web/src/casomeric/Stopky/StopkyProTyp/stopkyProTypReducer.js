@@ -18,7 +18,7 @@ export const getCudly = () => [
   { popisek: '-10', step: -10 * 1000 },
   { popisek: '-1', step: -1000 },
   { popisek: '-10', step: -100 },
-  { popisek: '-1', step: -10 }
+  { popisek: '-1', step: -10 },
 ];
 
 const zeroDuration = moment.duration(0).toJSON();
@@ -27,7 +27,7 @@ const initialState = {
   delta: zeroDuration, // a duration when not running
   mezicasy: [], // Mezicas = { cas, korekce }
   running: false,
-  typ: null // supplied by the caller
+  typ: null, // supplied by the caller
 };
 
 export const getStopkyByTyp = ({ state, typ }) => {
@@ -41,7 +41,7 @@ export const getRozdily = ({ state, typ }) => {
   const stopky = getStopkyByTyp({ state, typ });
   const { [typ]: _, ...ostatni } = typy;
 
-  return Object.keys(ostatni).map(jeden => {
+  return Object.keys(ostatni).map((jeden) => {
     const ostatniStopky = getStopkyByTyp({ state, typ: jeden });
 
     let rozdil = null;
@@ -67,12 +67,12 @@ export const getRozdily = ({ state, typ }) => {
 export const getMezicasy = ({ kategorie, stopky, ucasti }) => {
   const mezicasy = [];
   if (stopky.mezicasy) {
-    stopky.mezicasy.forEach(mezicas => {
+    stopky.mezicasy.forEach((mezicas) => {
       mezicasy.push({ cas: mezicas.cas });
     });
   }
 
-  const ucastisVykonem = ucasti.filter(jeden => {
+  const ucastisVykonem = ucasti.filter((jeden) => {
     const { ucast } = jeden;
     if (ucast.vykon && ucast.vykon.dokonceno) {
       const jednaKategorie = kategorie[ucast.vykon.kategorie];
@@ -81,7 +81,7 @@ export const getMezicasy = ({ kategorie, stopky, ucasti }) => {
     return false;
   });
 
-  ucastisVykonem.forEach(jeden => {
+  ucastisVykonem.forEach((jeden) => {
     const { id, ucast } = jeden;
     const { cas, dokonceno, startCislo } = ucast.vykon;
     mezicasy.push({ id, cas, dokonceno, startCislo });

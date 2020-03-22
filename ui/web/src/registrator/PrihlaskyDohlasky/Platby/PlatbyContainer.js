@@ -4,7 +4,7 @@ import { predepsaneStartovne, provedenePlatby } from '../../platby';
 import {
   createAddValidatedPlatba,
   createExpandNovaPlatba,
-  createRemovePlatba
+  createRemovePlatba,
 } from './PlatbyActions';
 import Platby from './Platby';
 
@@ -15,10 +15,10 @@ const mapStateToProps = (state, ownProps) => {
     registrator: {
       [reduxName]: {
         form: { platby, prihlaska },
-        platby: { novaPlatbaMinified }
-      }
+        platby: { novaPlatbaMinified },
+      },
     },
-    entities
+    entities,
   } = state;
 
   const predepsano = predepsaneStartovne({ ...entities, platby, prihlaska });
@@ -28,7 +28,7 @@ const mapStateToProps = (state, ownProps) => {
     novaPlatbaMinified:
       provedeno.suma < predepsano.suma || provedeno.suma === 0 ? false : novaPlatbaMinified,
     predepsano,
-    provedeno
+    provedeno,
   };
 };
 
@@ -38,7 +38,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onAdd: () => dispatch(createAddValidatedPlatba(actionPrefix, reduxName)()),
     onExpand: () => dispatch(createExpandNovaPlatba(actionPrefix)()),
-    onRemove: idx => dispatch(createRemovePlatba(actionPrefix)(idx))
+    onRemove: (idx) => dispatch(createRemovePlatba(actionPrefix)(idx)),
   };
 };
 
@@ -48,7 +48,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
 
   const platby = provedeno.platby.map((platba, index) => ({
     ...platba,
-    onRemove: () => onRemove(index)
+    onRemove: () => onRemove(index),
   }));
 
   return {
@@ -56,7 +56,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     ...ownProps,
     provedeno: { ...provedeno, platby },
     onAdd,
-    onExpand
+    onExpand,
   };
 };
 
@@ -64,7 +64,7 @@ const PlatbyContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)
 
 PlatbyContainer.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
-  reduxName: PropTypes.string.isRequired
+  reduxName: PropTypes.string.isRequired,
 };
 
 export default PlatbyContainer;

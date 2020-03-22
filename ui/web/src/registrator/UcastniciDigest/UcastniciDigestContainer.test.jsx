@@ -14,9 +14,9 @@ beforeEach(() => {
     registrator: {
       ucastniciDigest: {
         kategorieFilter: '',
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   store = mockStore(state);
   store.dispatch = jest.fn();

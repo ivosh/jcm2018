@@ -21,19 +21,19 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
   return {
     onHide: () => dispatch(hide(typ)),
-    onInputChange: event => dispatch(inputChanged(typ)(event)),
+    onInputChange: (event) => dispatch(inputChanged(typ)(event)),
     onShow: () => dispatch(show(typ)),
-    onSubmit: cas => {
+    onSubmit: (cas) => {
       const duration = moment.duration(cas.replace(',', '.'));
       dispatch(stopkyInsertMezicas({ cas: duration, typ }));
-    }
+    },
   };
 };
 
 const NovyMezicasContainer = connect(mapStateToProps, mapDispatchToProps)(NovyMezicas);
 
 NovyMezicasContainer.propTypes = {
-  typ: PropTypes.string.isRequired
+  typ: PropTypes.string.isRequired,
 };
 
 export default NovyMezicasContainer;

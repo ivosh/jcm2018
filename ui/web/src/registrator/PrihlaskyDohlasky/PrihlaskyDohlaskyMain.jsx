@@ -40,7 +40,7 @@ const PrihlaskyDohlaskyMain = ({ name, path, routeOnSelect }) => (
 PrihlaskyDohlaskyMain.propTypes = {
   name: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
-  routeOnSelect: PropTypes.func.isRequired
+  routeOnSelect: PropTypes.func.isRequired,
 };
 
 export default PrihlaskyDohlaskyMain;

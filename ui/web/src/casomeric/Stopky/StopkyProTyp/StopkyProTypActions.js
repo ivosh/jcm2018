@@ -6,15 +6,15 @@ import {
   STOPKY_REMOVE_MEZICAS,
   STOPKY_RESET,
   STOPKY_START,
-  STOPKY_STOP
+  STOPKY_STOP,
 } from 'ui-common/common';
 import { WS_API } from 'ui-common/store/wsAPI';
 
 const normalize = ({
   request,
   response: {
-    response: { stopky }
-  }
+    response: { stopky },
+  },
 }) => ({ request, response: { stopky } });
 
 const createRequest = ({ cas, modifikace, now, state, step, typ }) => {
@@ -31,9 +31,9 @@ export const modifyStopky = ({ cas, modifikace, now, step, typ }) => ({
     type: MODIFY_STOPKY,
     endpoint: API_MODIFY_STOPKY,
     normalize,
-    request: state => createRequest({ cas, modifikace, now, state, step, typ }),
-    title: 'ukládání stopek'
-  }
+    request: (state) => createRequest({ cas, modifikace, now, state, step, typ }),
+    title: 'ukládání stopek',
+  },
 });
 
 export const stopkyAddMezicas = ({ now = new Date(), typ }) =>
@@ -42,13 +42,13 @@ export const stopkyInsertMezicas = ({ cas, typ }) =>
   modifyStopky({
     modifikace: STOPKY_INSERT_MEZICAS,
     cas: cas.toJSON ? cas.toJSON() : cas,
-    typ
+    typ,
   });
 export const stopkyRemoveMezicas = ({ cas, typ }) =>
   modifyStopky({
     modifikace: STOPKY_REMOVE_MEZICAS,
     cas: cas.toJSON ? cas.toJSON() : cas,
-    typ
+    typ,
   });
 export const stopkyReset = ({ typ }) => modifyStopky({ modifikace: STOPKY_RESET, typ });
 export const stopkyStart = ({ now = new Date(), typ }) =>

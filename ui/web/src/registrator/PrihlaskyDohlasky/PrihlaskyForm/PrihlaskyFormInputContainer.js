@@ -9,7 +9,7 @@ import {
   inputOptions,
   inputValid,
   isInputEnabled,
-  isInputVisible
+  isInputVisible,
 } from './prihlaskyFormReducer';
 
 const startCisloValid = ({ typ, kategorie, rocniky, ucastnici }) => ({ name, value, form }) => {
@@ -22,7 +22,7 @@ const startCisloValid = ({ typ, kategorie, rocniky, ucastnici }) => ({ name, val
         startCislo: value,
         typ,
         kategorie,
-        ucastnici
+        ucastnici,
       })
     ) {
       return 'warning';
@@ -51,7 +51,7 @@ const mapStateToProps = (state, ownProps) => {
         : inputValid,
     isInputEnabled,
     isInputVisible,
-    ...restOwnProps
+    ...restOwnProps,
   };
 };
 
@@ -60,7 +60,7 @@ const PrihlaskyFormInputContainer = connect(mapStateToProps, {})(InputContainer)
 PrihlaskyFormInputContainer.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  reduxName: PropTypes.string.isRequired
+  reduxName: PropTypes.string.isRequired,
 };
 
 export default PrihlaskyFormInputContainer;

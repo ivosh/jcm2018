@@ -7,20 +7,20 @@ import {
   CASOMIRA_SAVE_VYKON,
   createDropAction,
   saveVykon,
-  startCisloNaTrase
+  startCisloNaTrase,
 } from './StartovniCislaActions';
 
 const successfulResponse = {
   code: 'ok',
   response: {
-    id: '===id==='
+    id: '===id===',
   },
-  requestId: '0.9310306652587377'
+  requestId: '0.9310306652587377',
 };
 
 const unsuccessfulResponse = {
   code: 'unfulfilled request',
-  status: 'A strange error occurred.'
+  status: 'A strange error occurred.',
 };
 
 const mockWsClient = new WsClient();
@@ -35,7 +35,7 @@ it('createDropAction() - nedokonceno should dispatch two successful actions', as
   await store.dispatch(
     createDropAction({
       source: { id: '7a09b1fd371dec1e99b7e142', startCislo: 11 },
-      destination: { name: 'nedokonceno', typ: 'půlmaraton' }
+      destination: { name: 'nedokonceno', typ: 'půlmaraton' },
     })
   );
   const request = {
@@ -43,21 +43,21 @@ it('createDropAction() - nedokonceno should dispatch two successful actions', as
     rok: AKTUALNI_ROK,
     startCislo: 11,
     typ: 'půlmaraton',
-    vykon: { dokonceno: false, kategorie: expect.any(String), startCislo: 11 }
+    vykon: { dokonceno: false, kategorie: expect.any(String), startCislo: 11 },
   };
 
   const actions = store.getActions();
   expect(actions[0]).toEqual({
     type: `${CASOMIRA_SAVE_VYKON}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${CASOMIRA_SAVE_VYKON}_SUCCESS`,
     request,
     response: { code: 'ok', requestId: expect.any(String), response: { id: '===id===' } },
     title: 'ukládání registrace na start',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -67,7 +67,7 @@ it('createDropAction() - na-trase should dispatch two successful actions', async
   await store.dispatch(
     createDropAction({
       source: { id: '7a09b1fd371dec1e99b7e142', startCislo: 11 },
-      destination: { name: 'na-trase', typ: 'půlmaraton' }
+      destination: { name: 'na-trase', typ: 'půlmaraton' },
     })
   );
   const request = {
@@ -75,21 +75,21 @@ it('createDropAction() - na-trase should dispatch two successful actions', async
     rok: AKTUALNI_ROK,
     startCislo: 11,
     typ: 'půlmaraton',
-    vykon: { dokonceno: null, kategorie: expect.any(String), startCislo: 11 }
+    vykon: { dokonceno: null, kategorie: expect.any(String), startCislo: 11 },
   };
 
   const actions = store.getActions();
   expect(actions[0]).toEqual({
     type: `${CASOMIRA_SAVE_VYKON}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${CASOMIRA_SAVE_VYKON}_SUCCESS`,
     request,
     response: { code: 'ok', requestId: expect.any(String), response: { id: '===id===' } },
     title: 'ukládání registrace na start',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -99,7 +99,7 @@ it('createDropAction() - dokonceno should dispatch two successful actions', asyn
   await store.dispatch(
     createDropAction({
       source: { id: '7a09b1fd371dec1e99b7e142', startCislo: 11 },
-      destination: { cas: 'PT1H23M32.56S', name: 'dokonceno', typ: 'půlmaraton' }
+      destination: { cas: 'PT1H23M32.56S', name: 'dokonceno', typ: 'půlmaraton' },
     })
   );
   const request = {
@@ -107,21 +107,21 @@ it('createDropAction() - dokonceno should dispatch two successful actions', asyn
     rok: AKTUALNI_ROK,
     startCislo: 11,
     typ: 'půlmaraton',
-    vykon: { cas: 'PT1H23M32.56S', dokonceno: true, kategorie: expect.any(String), startCislo: 11 }
+    vykon: { cas: 'PT1H23M32.56S', dokonceno: true, kategorie: expect.any(String), startCislo: 11 },
   };
 
   const actions = store.getActions();
   expect(actions[0]).toEqual({
     type: `${CASOMIRA_SAVE_VYKON}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${CASOMIRA_SAVE_VYKON}_SUCCESS`,
     request,
     response: { code: 'ok', requestId: expect.any(String), response: { id: '===id===' } },
     title: 'ukládání registrace na start',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -139,23 +139,23 @@ it('saveVykon() should dispatch two unsuccessful actions', async () => {
     rok: AKTUALNI_ROK,
     startCislo: 11,
     typ: 'půlmaraton',
-    vykon: expect.any(Object)
+    vykon: expect.any(Object),
   };
 
   const actions = store.getActions();
   expect(actions[0]).toEqual({
     type: `${CASOMIRA_SAVE_VYKON}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${CASOMIRA_SAVE_VYKON}_ERROR`,
     request,
     response: {
       code: 'unfulfilled request',
-      status: 'A strange error occurred.'
+      status: 'A strange error occurred.',
     },
     title: 'ukládání registrace na start',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });

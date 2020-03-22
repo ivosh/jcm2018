@@ -8,7 +8,7 @@ import './Poznamky.css';
 const Poznamky = ({ poznamky, addPoznamka }) => {
   const [saving, setSaving] = useState(false);
 
-  const handleAdd = async event => {
+  const handleAdd = async (event) => {
     setSaving(true);
     await addPoznamka(event);
     setSaving(false);
@@ -41,10 +41,10 @@ const Poznamky = ({ poznamky, addPoznamka }) => {
 Poznamky.propTypes = {
   poznamky: PropTypes.arrayOf(
     PropTypes.shape({
-      datum: PropTypes.instanceOf(Date).isRequired
+      datum: PropTypes.instanceOf(Date).isRequired,
     }).isRequired
   ).isRequired,
-  addPoznamka: PropTypes.func.isRequired
+  addPoznamka: PropTypes.func.isRequired,
 };
 
 export default Poznamky;

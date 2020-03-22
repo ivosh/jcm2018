@@ -19,7 +19,7 @@ const StartujiciPanel = ({ bsStyle, connectDropTarget, dragType, isOver, popisek
           <div className="StartujiciPanel__middleHeader">narození</div>
           <div className="StartujiciPanel__middleHeader">kategorie</div>
           <div className="StartujiciPanel__header">číslo</div>
-          {seznam.map(jeden => (
+          {seznam.map((jeden) => (
             <DraggableJedenStartujici key={jeden.id} dragType={dragType} {...jeden} />
           ))}
         </div>
@@ -40,15 +40,15 @@ StartujiciPanel.propTypes = {
       prijmeni: PropTypes.string.isRequired,
       jmeno: PropTypes.string.isRequired,
       narozeni: PropTypes.shape({
-        rok: PropTypes.number.isRequired
+        rok: PropTypes.number.isRequired,
       }).isRequired,
       kategorie: PropTypes.shape({
-        typ: PropTypes.string.isRequired
+        typ: PropTypes.string.isRequired,
       }).isRequired,
       startCislo: PropTypes.number,
-      startCisloRequired: PropTypes.bool
+      startCisloRequired: PropTypes.bool,
     })
-  ).isRequired
+  ).isRequired,
 };
 
 export default StartujiciPanel;

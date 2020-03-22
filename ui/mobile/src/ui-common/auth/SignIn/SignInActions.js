@@ -5,10 +5,10 @@ import { WS_API } from '../../store/wsAPI';
 export const generateNonce = (len = 20) => {
   const arr = new Uint8Array(len / 2);
   window.crypto.getRandomValues(arr);
-  return Array.from(arr, val => val.toString(16)).join('');
+  return Array.from(arr, (val) => val.toString(16)).join('');
 };
 
-const decodeToken = token => jwtDecode(token);
+const decodeToken = (token) => jwtDecode(token);
 
 const checkResponse = ({ request, response }) => {
   let decodedToken;
@@ -18,7 +18,7 @@ const checkResponse = ({ request, response }) => {
     return {
       code: CODE_TOKEN_INVALID,
       status: 'Špatný přihlašovací token. Zkus se přihlásit znovu.',
-      token: response.response.token
+      token: response.response.token,
     };
   }
 
@@ -31,7 +31,7 @@ const checkResponse = ({ request, response }) => {
     status:
       'Jednorázový přihlašovací kód vygenerovaný prohlížečem nesouhlasí s kódem, který poslal server.',
     client: request.nonce,
-    server: decodedToken.nonce
+    server: decodedToken.nonce,
   };
 };
 
@@ -39,8 +39,8 @@ const normalize = ({
   request,
   response: {
     check: { client, code, decodedToken, server, status } = {},
-    response: { token, username }
-  }
+    response: { token, username },
+  },
 }) => ({ request, response: { client, code, decodedToken, server, status, token, username } });
 
 export const SIGN_IN = 'SIGN_IN';
@@ -52,6 +52,6 @@ export const signIn = ({ username, password }) => ({
     endpoint: API_SIGN_IN,
     normalize,
     request: () => ({ username, password, nonce: generateNonce() }),
-    title: 'přihlašování'
-  }
+    title: 'přihlašování',
+  },
 });

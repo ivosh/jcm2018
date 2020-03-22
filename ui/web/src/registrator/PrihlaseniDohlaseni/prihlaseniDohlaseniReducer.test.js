@@ -1,23 +1,23 @@
 import deepFreeze from 'deep-freeze';
 import { ActionPrefixes, ReduxNames } from '../../constants';
 import ucastniciTestData, {
-  AKTUALNI_DATUM_KONANI
+  AKTUALNI_DATUM_KONANI,
 } from '../../entities/ucastnici/ucastniciTestData';
 import { SortDirTypes } from '../../sort';
 import {
   createKategorieFilterChange,
-  createTextFilterChange
+  createTextFilterChange,
 } from '../Filterable/FilterableActions';
 import { createSortDirChange } from '../UcastniciTable/UcastniciTableActions';
 import {
   createDohlaseniFilterChange,
   createHideAkceMenu,
   createPrihlaseniFilterChange,
-  createShowAkceMenu
+  createShowAkceMenu,
 } from './PrihlaseniDohlaseniActions';
 import {
   createPrihlaseniDohlaseniReducer,
-  getPrihlaseniDohlaseniSorted
+  getPrihlaseniDohlaseniSorted,
 } from './prihlaseniDohlaseniReducer';
 
 const actionPrefix = ActionPrefixes.PRIHLASENI;
@@ -97,7 +97,7 @@ it('řadit dle příjmení vzestupně', () => {
     sortColumn: undefined,
     sortDir: SortDirTypes.NONE,
     kategorieFilter: '',
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC };
   deepFreeze(stateBefore);
@@ -110,7 +110,7 @@ it('řadit dle příjmení sestupně', () => {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
     kategorieFilter: '',
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.DESC };
   deepFreeze(stateBefore);
@@ -123,7 +123,7 @@ it('řadit dle příjmení zase vzestupně', () => {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.DESC,
     kategorieFilter: '',
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, sortColumn: 'prijmeni', sortDir: SortDirTypes.ASC };
   deepFreeze(stateBefore);
@@ -136,7 +136,7 @@ it('řadit dle jména vzestupně', () => {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
     kategorieFilter: '',
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, sortColumn: 'jmeno', sortDir: SortDirTypes.ASC };
   deepFreeze(stateBefore);
@@ -149,7 +149,7 @@ it('zapnout filtrování podle kategorie výkonu', () => {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
     kategorieFilter: '',
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, kategorieFilter: 'půlmaraton' };
   deepFreeze(stateBefore);
@@ -164,7 +164,7 @@ it('vypnout filtrování podle kategorie výkonu', () => {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
     kategorieFilter: 'půlmaraton',
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, kategorieFilter: '' };
   deepFreeze(stateBefore);
@@ -179,7 +179,7 @@ it('přepnout filtrování podle kategorie výkonu', () => {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
     kategorieFilter: 'půlmaraton',
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, kategorieFilter: 'pěší' };
   deepFreeze(stateBefore);
@@ -194,7 +194,7 @@ it('filtrovat na dvě písmena', () => {
     sortColumn: 'prijmeni',
     sortDir: SortDirTypes.ASC,
     kategorieFilter: '',
-    textFilter: ''
+    textFilter: '',
   };
   const stateAfter = { ...stateBefore, textFilter: 'kl' };
   deepFreeze(stateBefore);
@@ -212,9 +212,9 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
         sortColumn: undefined,
         sortDir: undefined,
         kategorieFilter: '',
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   const selected = [
     {
@@ -230,13 +230,13 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
         id: '5a587e1b051c181132cf83d7',
         pohlavi: 'muž',
         typ: 'půlmaraton',
-        vek: { min: 60, max: 150 }
+        vek: { min: 60, max: 150 },
       },
       startCislo: 17,
       kod: '10728864',
       zaplaceno: 350,
       predepsano: 350,
-      nejakaPoznamka: false
+      nejakaPoznamka: false,
     },
     {
       id: '8344bc71dec1e99b7e1d01e',
@@ -251,13 +251,13 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
         pohlavi: 'žena',
-        vek: { min: 18, max: 39 }
+        vek: { min: 18, max: 39 },
       },
       startCislo: 15,
       kod: '0234jsdj0jdaklsd',
       zaplaceno: 0,
       predepsano: 0,
-      nejakaPoznamka: true
+      nejakaPoznamka: true,
     },
     {
       id: '9ccbc71dedc1e99b7e1d671',
@@ -272,13 +272,13 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
         pohlavi: 'žena',
-        vek: { min: 18, max: 39 }
+        vek: { min: 18, max: 39 },
       },
       startCislo: 8,
       kod: 'abc023skd204mvs345',
       zaplaceno: 0,
       predepsano: 350,
-      nejakaPoznamka: false
+      nejakaPoznamka: false,
     },
     {
       id: 'f5c88400190a4bed88c76736',
@@ -293,13 +293,13 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
         id: '5a587e1a051c181132cf83b8',
         typ: 'maraton',
         pohlavi: 'muž',
-        vek: { min: 18, max: 39 }
+        vek: { min: 18, max: 39 },
       },
       startCislo: 15,
       kod: 'rcc023skd204mvs345',
       zaplaceno: 250,
       predepsano: 250,
-      nejakaPoznamka: false
+      nejakaPoznamka: false,
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
@@ -314,20 +314,20 @@ it('getPrihlaseniSorted() by default - prihlášeni i dohlášeni', () => {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
         pohlavi: 'žena',
-        vek: { min: 18, max: 39 }
+        vek: { min: 18, max: 39 },
       },
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
       predepsano: 350,
-      nejakaPoznamka: true
-    }
+      nejakaPoznamka: true,
+    },
   ];
   deepFreeze(state);
 
   const {
     entities,
-    registrator: { [reduxName]: props }
+    registrator: { [reduxName]: props },
   } = state;
   expect(getPrihlaseniDohlaseniSorted({ ...entities, ...props })).toEqual(selected);
 });
@@ -342,9 +342,9 @@ it('getPrihlaseniSorted() filtrováno na z', () => {
         sortColumn: undefined,
         sortDir: undefined,
         kategorieFilter: '',
-        textFilter: 'z'
-      }
-    }
+        textFilter: 'z',
+      },
+    },
   };
   const selected = [
     {
@@ -360,20 +360,20 @@ it('getPrihlaseniSorted() filtrováno na z', () => {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
         pohlavi: 'žena',
-        vek: { min: 18, max: 39 }
+        vek: { min: 18, max: 39 },
       },
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
       predepsano: 350,
-      nejakaPoznamka: true
-    }
+      nejakaPoznamka: true,
+    },
   ];
   deepFreeze(state);
 
   const {
     entities,
-    registrator: { [reduxName]: props }
+    registrator: { [reduxName]: props },
   } = state;
   expect(getPrihlaseniDohlaseniSorted({ ...entities, ...props })).toEqual(selected);
 });
@@ -388,9 +388,9 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
         sortColumn: undefined,
         sortDir: undefined,
         kategorieFilter: 'půlmaraton',
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   const selected = [
     {
@@ -406,13 +406,13 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
         id: '5a587e1b051c181132cf83d7',
         pohlavi: 'muž',
         typ: 'půlmaraton',
-        vek: { min: 60, max: 150 }
+        vek: { min: 60, max: 150 },
       },
       startCislo: 17,
       kod: '10728864',
       zaplaceno: 350,
       predepsano: 350,
-      nejakaPoznamka: false
+      nejakaPoznamka: false,
     },
     {
       id: '8344bc71dec1e99b7e1d01e',
@@ -427,13 +427,13 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
         pohlavi: 'žena',
-        vek: { min: 18, max: 39 }
+        vek: { min: 18, max: 39 },
       },
       startCislo: 15,
       kod: '0234jsdj0jdaklsd',
       zaplaceno: 0,
       predepsano: 0,
-      nejakaPoznamka: true
+      nejakaPoznamka: true,
     },
     {
       id: '9ccbc71dedc1e99b7e1d671',
@@ -448,13 +448,13 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
         pohlavi: 'žena',
-        vek: { min: 18, max: 39 }
+        vek: { min: 18, max: 39 },
       },
       startCislo: 8,
       kod: 'abc023skd204mvs345',
       zaplaceno: 0,
       predepsano: 350,
-      nejakaPoznamka: false
+      nejakaPoznamka: false,
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
@@ -469,20 +469,20 @@ it('getPrihlaseniSorted() filtrováno na kategorii výkonu půlmaraton', () => {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
         pohlavi: 'žena',
-        vek: { min: 18, max: 39 }
+        vek: { min: 18, max: 39 },
       },
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
       predepsano: 350,
-      nejakaPoznamka: true
-    }
+      nejakaPoznamka: true,
+    },
   ];
   deepFreeze(state);
 
   const {
     entities,
-    registrator: { [reduxName]: props }
+    registrator: { [reduxName]: props },
   } = state;
   expect(getPrihlaseniDohlaseniSorted({ ...entities, ...props })).toEqual(selected);
 });
@@ -497,9 +497,9 @@ it('getPrihlaseniSorted() by default - jen prihlášeni', () => {
         sortColumn: undefined,
         sortDir: undefined,
         kategorieFilter: '',
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   const selected = [
     {
@@ -515,13 +515,13 @@ it('getPrihlaseniSorted() by default - jen prihlášeni', () => {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
         pohlavi: 'žena',
-        vek: { min: 18, max: 39 }
+        vek: { min: 18, max: 39 },
       },
       startCislo: 8,
       kod: 'abc023skd204mvs345',
       zaplaceno: 0,
       predepsano: 350,
-      nejakaPoznamka: false
+      nejakaPoznamka: false,
     },
     {
       id: 'f5c88400190a4bed88c76736',
@@ -536,13 +536,13 @@ it('getPrihlaseniSorted() by default - jen prihlášeni', () => {
         id: '5a587e1a051c181132cf83b8',
         typ: 'maraton',
         pohlavi: 'muž',
-        vek: { min: 18, max: 39 }
+        vek: { min: 18, max: 39 },
       },
       startCislo: 15,
       kod: 'rcc023skd204mvs345',
       zaplaceno: 250,
       predepsano: 250,
-      nejakaPoznamka: false
+      nejakaPoznamka: false,
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
@@ -557,20 +557,20 @@ it('getPrihlaseniSorted() by default - jen prihlášeni', () => {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
         pohlavi: 'žena',
-        vek: { min: 18, max: 39 }
+        vek: { min: 18, max: 39 },
       },
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
       predepsano: 350,
-      nejakaPoznamka: true
-    }
+      nejakaPoznamka: true,
+    },
   ];
   deepFreeze(state);
 
   const {
     entities,
-    registrator: { [reduxName]: props }
+    registrator: { [reduxName]: props },
   } = state;
   expect(getPrihlaseniDohlaseniSorted({ ...entities, ...props })).toEqual(selected);
 });
@@ -585,9 +585,9 @@ it('getPrihlaseniSorted() by default - jen dohlášeni', () => {
         sortColumn: undefined,
         sortDir: undefined,
         kategorieFilter: '',
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   const selected = [
     {
@@ -603,13 +603,13 @@ it('getPrihlaseniSorted() by default - jen dohlášeni', () => {
         id: '5a587e1b051c181132cf83d7',
         pohlavi: 'muž',
         typ: 'půlmaraton',
-        vek: { min: 60, max: 150 }
+        vek: { min: 60, max: 150 },
       },
       startCislo: 17,
       kod: '10728864',
       zaplaceno: 350,
       predepsano: 350,
-      nejakaPoznamka: false
+      nejakaPoznamka: false,
     },
     {
       id: '8344bc71dec1e99b7e1d01e',
@@ -624,13 +624,13 @@ it('getPrihlaseniSorted() by default - jen dohlášeni', () => {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
         pohlavi: 'žena',
-        vek: { min: 18, max: 39 }
+        vek: { min: 18, max: 39 },
       },
       startCislo: 15,
       kod: '0234jsdj0jdaklsd',
       zaplaceno: 0,
       predepsano: 0,
-      nejakaPoznamka: true
+      nejakaPoznamka: true,
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
@@ -645,20 +645,20 @@ it('getPrihlaseniSorted() by default - jen dohlášeni', () => {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
         pohlavi: 'žena',
-        vek: { min: 18, max: 39 }
+        vek: { min: 18, max: 39 },
       },
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
       predepsano: 350,
-      nejakaPoznamka: true
-    }
+      nejakaPoznamka: true,
+    },
   ];
   deepFreeze(state);
 
   const {
     entities,
-    registrator: { [reduxName]: props }
+    registrator: { [reduxName]: props },
   } = state;
   expect(getPrihlaseniDohlaseniSorted({ ...entities, ...props })).toEqual(selected);
 });
@@ -673,9 +673,9 @@ it('getPrihlaseniSorted() by default - jen přihlášeni i dohlášeni', () => {
         sortColumn: undefined,
         sortDir: undefined,
         kategorieFilter: '',
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   const selected = [
     {
@@ -691,20 +691,20 @@ it('getPrihlaseniSorted() by default - jen přihlášeni i dohlášeni', () => {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
         pohlavi: 'žena',
-        vek: { min: 18, max: 39 }
+        vek: { min: 18, max: 39 },
       },
       startCislo: 10,
       kod: 'abc023skd204mvs345',
       zaplaceno: 180,
       predepsano: 350,
-      nejakaPoznamka: true
-    }
+      nejakaPoznamka: true,
+    },
   ];
   deepFreeze(state);
 
   const {
     entities,
-    registrator: { [reduxName]: props }
+    registrator: { [reduxName]: props },
   } = state;
   expect(getPrihlaseniDohlaseniSorted({ ...entities, ...props })).toEqual(selected);
 });

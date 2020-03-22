@@ -19,7 +19,7 @@ const StopkyProTyp = ({
   typ,
   onReset,
   onStart,
-  onStop
+  onStop,
 }) => (
   <Panel className={`StopkyProTyp__panel--${typ}`} header={<PopisekKategorie typ={typ} />}>
     <div className="StopkyProTyp__div">
@@ -51,7 +51,7 @@ StopkyProTyp.propTypes = {
     PropTypes.shape({
       popisek: PropTypes.string.isRequired,
       step: PropTypes.number.isRequired,
-      onClick: PropTypes.func.isRequired
+      onClick: PropTypes.func.isRequired,
     }).isRequired
   ).isRequired,
   delta: momentPropTypes.momentDurationObj,
@@ -62,8 +62,8 @@ StopkyProTyp.propTypes = {
         hours: PropTypes.string.isRequired,
         mins: PropTypes.string.isRequired,
         secs: PropTypes.string.isRequired,
-        subsecs: PropTypes.string.isRequired
-      }).isRequired
+        subsecs: PropTypes.string.isRequired,
+      }).isRequired,
     }).isRequired
   ).isRequired,
   running: PropTypes.bool.isRequired,
@@ -72,12 +72,12 @@ StopkyProTyp.propTypes = {
   typ: PropTypes.string.isRequired,
   onReset: PropTypes.func.isRequired,
   onStart: PropTypes.func.isRequired,
-  onStop: PropTypes.func.isRequired
+  onStop: PropTypes.func.isRequired,
 };
 
 StopkyProTyp.defaultProps = {
   base: undefined,
-  delta: undefined
+  delta: undefined,
 };
 
 export default StopkyProTyp;

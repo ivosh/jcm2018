@@ -13,11 +13,11 @@ import { poharPredan } from '../../registrator/Pohary/PoharyActions';
 import {
   addPoznamka,
   deletePoznamka,
-  modifyPoznamka
+  modifyPoznamka,
 } from '../../registrator/Poznamky/PoznamkyActions';
 import {
   createPrihlaskySave,
-  createValidationError
+  createValidationError,
 } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
 import { createVykon, deleteVykon } from '../../registrator/Startujici/StartujiciActions';
 import { modifyUbytovani } from '../../registrator/Ubytovani/UbytovaniActions';
@@ -29,25 +29,25 @@ const prihlaskySave = createPrihlaskySave(ActionPrefixes.PRIHLASKY);
 
 const genericUnsuccessfulResponse = {
   code: 'unfulfilled request',
-  status: 'A strange error occurred.'
+  status: 'A strange error occurred.',
 };
 
 const unsuccessfulSaveResponse = {
   code: 'neexistuje',
   status: 'účastník s id ===id=== neexistuje.',
-  requestId: '0.9310306652587374'
+  requestId: '0.9310306652587374',
 };
 
 const unsuccessfulSignInResponse = {
   code: 'password incorrect',
   status: 'Špatné jméno či heslo. Uživatel může být též zamčený.',
-  requestId: '0.9310306652587374'
+  requestId: '0.9310306652587374',
 };
 
 const unsuccessfulSignOutResponse = {
   code: 'authentication token invalid',
   status: 'Špatný ověřovací token. Zkus se přihlásit znovu.',
-  requestId: '0.9310306652587371'
+  requestId: '0.9310306652587371',
 };
 
 const testUnsuccessfulResponse = ({
@@ -56,7 +56,7 @@ const testUnsuccessfulResponse = ({
   message = 'A strange error occurred.',
   request,
   response = genericUnsuccessfulResponse,
-  title
+  title,
 }) => {
   const stateBefore = {};
   const stateAfter = { code, message, show: true, title };
@@ -77,13 +77,13 @@ it('na začátku', () => {
   expect(stateAfter.title).toEqual('');
 });
 
-global.crypto = { getRandomValues: arr => arr.fill(86) };
+global.crypto = { getRandomValues: (arr) => arr.fill(86) };
 
 it('CASOMIRA_SAVE_VYKON_ERROR', () =>
   testUnsuccessfulResponse({
     action: saveVykon({}),
     request: { id: '===id===' },
-    title: 'ukládání registrace na start'
+    title: 'ukládání registrace na start',
   }));
 
 it('DOHLASKY_FORM_INVALID', () => {
@@ -93,7 +93,7 @@ it('DOHLASKY_FORM_INVALID', () => {
     code: 'nejde uložit',
     message: 'Přihláška nejde uložit. Povinná pole nejsou vyplněna.',
     show: true,
-    title: 'vyplňování formuláře'
+    title: 'vyplňování formuláře',
   };
   deepFreeze(stateBefore);
 
@@ -109,43 +109,43 @@ it('DOHLASKY_SAVE_ERROR', () =>
     message: 'účastník s id ===id=== neexistuje.',
     request: {},
     response: unsuccessfulSaveResponse,
-    title: 'ukládání formuláře'
+    title: 'ukládání formuláře',
   }));
 
 it('FETCH_ROCNIKY_ERROR', () =>
   testUnsuccessfulResponse({
     action: fetchRocniky(),
-    title: 'načítání ročníků'
+    title: 'načítání ročníků',
   }));
 
 it('FETCH_STOPKY_ERROR', () =>
   testUnsuccessfulResponse({
     action: fetchStopky(),
-    title: 'načítání stopek'
+    title: 'načítání stopek',
   }));
 
 it('FETCH_UCASTNICI_ERROR', () =>
   testUnsuccessfulResponse({
     action: fetchUcastnici(),
-    title: 'načítání účastníků'
+    title: 'načítání účastníků',
   }));
 
 it('POHAR_PREDAN_ERROR', () =>
   testUnsuccessfulResponse({
     action: poharPredan({ id: '===id===' }),
-    title: 'předávání poháru'
+    title: 'předávání poháru',
   }));
 
 it('POZNAMKA_ADD_ERROR', () =>
   testUnsuccessfulResponse({
     action: addPoznamka({ id: '===id===', poznamka: { text: 'text' }, rok: AKTUALNI_ROK }),
-    title: 'přidávání poznámky'
+    title: 'přidávání poznámky',
   }));
 
 it('POZNAMKA_DELETE_ERROR', () =>
   testUnsuccessfulResponse({
     action: deletePoznamka({ id: '===id===', index: 0, rok: AKTUALNI_ROK }),
-    title: 'mazání poznámky'
+    title: 'mazání poznámky',
   }));
 
 it('POZNAMKA_MODIFY_ERROR', () =>
@@ -154,9 +154,9 @@ it('POZNAMKA_MODIFY_ERROR', () =>
       id: '===id===',
       index: 1,
       poznamka: { datum: new Date(), text: 'text' },
-      rok: AKTUALNI_ROK
+      rok: AKTUALNI_ROK,
     }),
-    title: 'ukládání poznámky'
+    title: 'ukládání poznámky',
   }));
 
 it('PRIHLASKY_FORM_INVALID', () => {
@@ -166,7 +166,7 @@ it('PRIHLASKY_FORM_INVALID', () => {
     code: 'nejde uložit',
     message: 'Přihláška nejde uložit. Povinná pole nejsou vyplněna.',
     show: true,
-    title: 'vyplňování formuláře'
+    title: 'vyplňování formuláře',
   };
   deepFreeze(stateBefore);
 
@@ -182,7 +182,7 @@ it('PRIHLASKY_SAVE_ERROR', () =>
     message: 'účastník s id ===id=== neexistuje.',
     request: {},
     response: unsuccessfulSaveResponse,
-    title: 'ukládání formuláře'
+    title: 'ukládání formuláře',
   }));
 
 it('MODIFY_UBYTOVANI_ERROR', () =>
@@ -192,13 +192,13 @@ it('MODIFY_UBYTOVANI_ERROR', () =>
     message: 'účastník s id ===id=== neexistuje.',
     request: {},
     response: unsuccessfulSaveResponse,
-    title: 'ukládání ubytování'
+    title: 'ukládání ubytování',
   }));
 
 it('SEND_EMAIL_ERROR', () =>
   testUnsuccessfulResponse({
     action: sendEmail({ mailFrom: 's@s.io', subject: 'test subject', text: 'text' }),
-    title: 'posílání emailu'
+    title: 'posílání emailu',
   }));
 
 it('SIGN_IN_ERROR', () =>
@@ -207,7 +207,7 @@ it('SIGN_IN_ERROR', () =>
     code: 'password incorrect',
     message: 'Špatné jméno či heslo. Uživatel může být též zamčený.',
     response: unsuccessfulSignInResponse,
-    title: 'přihlašování'
+    title: 'přihlašování',
   }));
 
 it('SIGN_OUT_ERROR', () =>
@@ -216,21 +216,21 @@ it('SIGN_OUT_ERROR', () =>
     code: 'authentication token invalid',
     message: 'Špatný ověřovací token. Zkus se přihlásit znovu.',
     response: unsuccessfulSignOutResponse,
-    title: 'odhlašování'
+    title: 'odhlašování',
   }));
 
 it('STARTUJICI_CREATE_VYKON_ERROR', () =>
   testUnsuccessfulResponse({
     action: createVykon({}),
     request: { id: '===id===', rok: 2018 },
-    title: 'vytváření registrace na start'
+    title: 'vytváření registrace na start',
   }));
 
 it('STARTUJICI_DELETE_VYKON_ERROR', () =>
   testUnsuccessfulResponse({
     action: deleteVykon({}),
     request: { id: '===id===', rok: 2018 },
-    title: 'rušení registrace na start'
+    title: 'rušení registrace na start',
   }));
 
 it('hideError()', () => {

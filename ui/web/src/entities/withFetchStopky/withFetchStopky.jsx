@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { fetchStopky as fetchStopkyAction } from '../stopky/stopkyActions';
 import LoadingIndicator from '../../shared/LoadingIndicator';
 
-const withFetchStopky = WrappedComponent => {
+const withFetchStopky = (WrappedComponent) => {
   class WithFetchStopkyComponent extends PureComponent {
     componentDidMount = () => {
       this.props.fetchStopky();
@@ -30,16 +30,16 @@ const withFetchStopky = WrappedComponent => {
 
   WithFetchStopkyComponent.propTypes = {
     fetchingStopky: PropTypes.oneOf(['init', 'fetching', 'done']).isRequired,
-    fetchStopky: PropTypes.func.isRequired
+    fetchStopky: PropTypes.func.isRequired,
   };
 
   const mapStateToProps = (state, ownProps) => ({
     fetchingStopky: state.fetchingStopky,
-    ...ownProps
+    ...ownProps,
   });
 
-  const mapDispatchToProps = dispatch => ({
-    fetchStopky: () => dispatch(fetchStopkyAction())
+  const mapDispatchToProps = (dispatch) => ({
+    fetchStopky: () => dispatch(fetchStopkyAction()),
   });
 
   return connect(mapStateToProps, mapDispatchToProps)(WithFetchStopkyComponent);

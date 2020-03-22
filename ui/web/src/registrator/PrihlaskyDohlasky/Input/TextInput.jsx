@@ -8,7 +8,7 @@ const TextInput = ({ className, enabled, value, inputRef, onChange }) => (
     className={className}
     disabled={!enabled}
     value={value}
-    inputRef={ref => inputRef(ref)}
+    inputRef={(ref) => inputRef(ref)}
     onChange={onChange}
   />
 );
@@ -18,12 +18,12 @@ TextInput.propTypes = {
   enabled: PropTypes.bool.isRequired,
   value: PropTypes.string,
   inputRef: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
 };
 
 TextInput.defaultProps = {
   className: undefined,
-  value: undefined
+  value: undefined,
 };
 
 export default TextInput;

@@ -5,7 +5,7 @@ import convertDuration from 'ui-common/convertDuration';
 import Clovek from './Clovek';
 import './Vitez.css';
 
-const formatCas = cas => {
+const formatCas = (cas) => {
   const { hours, mins, secs, subsecs } = convertDuration(moment.duration(cas));
   return `${hours}:${mins}:${secs},${subsecs}`;
 };
@@ -32,8 +32,8 @@ Vitez.propTypes = {
     startCislo: PropTypes.number.isRequired,
     cas: PropTypes.string.isRequired,
     absPoradi: PropTypes.number.isRequired,
-    relPoradi: PropTypes.number.isRequired
-  }).isRequired
+    relPoradi: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default Vitez;

@@ -7,12 +7,12 @@ import { POHAR_PREDAN, poharPredan } from './PoharyActions';
 const successfulResponse = {
   code: 'ok',
   status: 'uloženo v pořádku',
-  requestId: '0.9310306652587377'
+  requestId: '0.9310306652587377',
 };
 
 const unsuccessfulResponse = {
   code: 'unfulfilled request',
-  status: 'A strange error occurred.'
+  status: 'A strange error occurred.',
 };
 
 const mockWsClient = new WsClient();
@@ -31,17 +31,17 @@ it('poharPredan() should dispatch two successful actions', async () => {
   expect(actions[0]).toEqual({
     type: `${POHAR_PREDAN}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${POHAR_PREDAN}_SUCCESS`,
     request,
     response: {
       code: 'ok',
-      status: 'uloženo v pořádku'
+      status: 'uloženo v pořádku',
     },
     title: 'předávání poháru',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -57,16 +57,16 @@ it('modifyUbytovani() should dispatch two unsuccessful actions', async () => {
   expect(actions[0]).toEqual({
     type: `${POHAR_PREDAN}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${POHAR_PREDAN}_ERROR`,
     request,
     response: {
       code: 'unfulfilled request',
-      status: 'A strange error occurred.'
+      status: 'A strange error occurred.',
     },
     title: 'předávání poháru',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });

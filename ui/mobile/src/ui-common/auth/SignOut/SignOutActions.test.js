@@ -10,20 +10,20 @@ mockWsClient.sendRequest = null;
 
 const successfulResponse = {
   code: 'ok',
-  requestId: '0.9310306652587371'
+  requestId: '0.9310306652587371',
 };
 
 const unsuccessfulResponse = {
   code: 'authentication token invalid',
   status: 'Špatný ověřovací token. Nicméně odhlášení proběhlo.',
-  requestId: '0.9310306652587371'
+  requestId: '0.9310306652587371',
 };
 
 const initialState = {
   auth: {
     authenticated: true,
-    token: generateTestToken({ username: 'tomáš', nonce: '56565656565656565656' })
-  }
+    token: generateTestToken({ username: 'tomáš', nonce: '56565656565656565656' }),
+  },
 };
 
 const middlewares = [wsAPI.withExtraArgument(mockWsClient)];
@@ -40,10 +40,10 @@ it('signOut() should dispatch two successful actions', async () => {
     type: `${SIGN_OUT}_SUCCESS`,
     response: {
       code: CODE_OK,
-      requestId: expect.any(String)
+      requestId: expect.any(String),
     },
     title: 'odhlašování',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -60,10 +60,10 @@ it('signOut() should dispatch two unsuccessful actions', async () => {
       code: 'authentication token invalid',
       requestId: expect.any(String),
       status:
-        'Platnost ověřovacího tokenu pravděpodobně vypršela. Špatný ověřovací token. Nicméně odhlášení proběhlo.'
+        'Platnost ověřovacího tokenu pravděpodobně vypršela. Špatný ověřovací token. Nicméně odhlášení proběhlo.',
     },
     title: 'odhlašování',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -78,10 +78,10 @@ it('signOut() should dispatch two unsuccessful actions on error', async () => {
     type: `${SIGN_OUT}_ERROR`,
     error: 'Error: Parse error!',
     response: {
-      code: 'internal error'
+      code: 'internal error',
     },
     title: 'odhlašování',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 

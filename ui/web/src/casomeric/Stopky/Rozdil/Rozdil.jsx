@@ -16,8 +16,8 @@ Rozdil.propTypes = {
     hours: PropTypes.string.isRequired,
     mins: PropTypes.string.isRequired,
     secs: PropTypes.string.isRequired,
-    subsecs: PropTypes.string.isRequired
-  }).isRequired
+    subsecs: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Rozdil;

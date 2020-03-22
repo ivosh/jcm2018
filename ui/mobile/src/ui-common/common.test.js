@@ -11,7 +11,7 @@ import {
   UBYTOVANI_PRESPANO,
   UBYTOVANI_PRIHLASIT,
   findKategorie,
-  ubytovaniModifications
+  ubytovaniModifications,
 } from './common';
 
 it('findKategorie() - ročník neexistuje', () => {
@@ -20,7 +20,7 @@ it('findKategorie() - ročník neexistuje', () => {
     rok: 2018,
     typ: 'maraton',
     pohlavi: 'muž',
-    narozeni: { rok: 1956 }
+    narozeni: { rok: 1956 },
   });
   expect(nalezeno.kategorie).toBeNull();
   expect(nalezeno).toMatchSnapshot();
@@ -32,7 +32,7 @@ it('findKategorie() - typ kategorie neexistuje', () => {
     rok: 2018,
     typ: 'maraton',
     pohlavi: 'muž',
-    narozeni: { rok: 1956 }
+    narozeni: { rok: 1956 },
   });
   expect(nalezeno.kategorie).toBeNull();
   expect(nalezeno).toMatchSnapshot();
@@ -44,7 +44,7 @@ it('findKategorie() - nevyplněné pohlaví', () => {
     rok: 2018,
     typ: 'maraton',
     pohlavi: undefined,
-    narozeni: { rok: 1956 }
+    narozeni: { rok: 1956 },
   });
   expect(nalezeno.kategorie).toBeNull();
   expect(nalezeno).toMatchSnapshot();
@@ -59,17 +59,17 @@ it('findKategorie() - nevyplněné narození', () => {
           žena: [
             { id: '1234', vek: { min: 40, max: 49 } },
             { id: '2345', vek: { min: 50, max: 59 } },
-            { id: '3456', vek: { min: 59, max: 60 } }
-          ]
-        }
-      }
-    }
+            { id: '3456', vek: { min: 59, max: 60 } },
+          ],
+        },
+      },
+    },
   };
   const nalezeno = findKategorie(rocniky, {
     rok: 2018,
     typ: 'půlmaraton',
     pohlavi: 'žena',
-    narozeni: { den: undefined, mesic: undefined, rok: undefined }
+    narozeni: { den: undefined, mesic: undefined, rok: undefined },
   });
   expect(nalezeno.kategorie).toBeNull();
   expect(nalezeno).toMatchSnapshot();
@@ -79,14 +79,14 @@ it('findKategorie() - jedna kategorie pro typ', () => {
   const rocniky = {
     2018: {
       datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)).toJSON(),
-      kategorie: { pěší: { id: '1234', typ: 'pěší' } }
-    }
+      kategorie: { pěší: { id: '1234', typ: 'pěší' } },
+    },
   };
   const nalezeno = findKategorie(rocniky, {
     rok: 2018,
     typ: 'pěší',
     pohlavi: 'muž',
-    narozeni: { rok: 1956 }
+    narozeni: { rok: 1956 },
   });
   expect(nalezeno.kategorie).toBeTruthy();
   expect(nalezeno).toMatchSnapshot();
@@ -96,14 +96,14 @@ it('findKategorie() - pohlaví neexistuje', () => {
   const rocniky = {
     2018: {
       datum: new Date(Date.UTC(2018, 5, 9, 0, 0, 0)).toJSON(),
-      kategorie: { půlmaraton: { žena: [] } }
-    }
+      kategorie: { půlmaraton: { žena: [] } },
+    },
   };
   const nalezeno = findKategorie(rocniky, {
     rok: 2018,
     typ: 'půlmaraton',
     pohlavi: 'muž',
-    narozeni: { rok: 1956 }
+    narozeni: { rok: 1956 },
   });
   expect(nalezeno.kategorie).toBeNull();
   expect(nalezeno).toMatchSnapshot();
@@ -116,16 +116,16 @@ it('findKategorie() - jedna kategorie pro pohlaví', () => {
       kategorie: {
         koloběžka: {
           muž: [{ id: '1234', typ: 'koloběžka', pohlavi: 'muž', vek: { min: 18, max: 150 } }],
-          žena: [{ id: '3456', typ: 'koloběžka', pohlavi: 'žena', vek: { min: 18, max: 150 } }]
-        }
-      }
-    }
+          žena: [{ id: '3456', typ: 'koloběžka', pohlavi: 'žena', vek: { min: 18, max: 150 } }],
+        },
+      },
+    },
   };
   const nalezeno = findKategorie(rocniky, {
     rok: 2018,
     typ: 'koloběžka',
     pohlavi: 'žena',
-    narozeni: { rok: 1956 }
+    narozeni: { rok: 1956 },
   });
   expect(nalezeno.kategorie).toBeTruthy();
   expect(nalezeno).toMatchSnapshot();
@@ -140,17 +140,17 @@ it('findKategorie() - nejmladší věková kategorie', () => {
           muž: [
             { id: '1234', vek: { min: 30, max: 39 } },
             { id: '2345', vek: { min: 40, max: 49 } },
-            { id: '3456', vek: { min: 50, max: 59 } }
-          ]
-        }
-      }
-    }
+            { id: '3456', vek: { min: 50, max: 59 } },
+          ],
+        },
+      },
+    },
   };
   const nalezeno = findKategorie(rocniky, {
     rok: 2018,
     typ: 'půlmaraton',
     pohlavi: 'muž',
-    narozeni: { rok: 1999 }
+    narozeni: { rok: 1999 },
   });
   expect(nalezeno.kategorie).toBeTruthy();
   expect(nalezeno).toMatchSnapshot();
@@ -165,17 +165,17 @@ it('findKategorie() - nejstarší věková kategorie', () => {
           muž: [
             { id: '1234', vek: { min: 40, max: 49 } },
             { id: '2345', vek: { min: 50, max: 59 } },
-            { id: '3456', vek: { min: 59, max: 60 } }
-          ]
-        }
-      }
-    }
+            { id: '3456', vek: { min: 59, max: 60 } },
+          ],
+        },
+      },
+    },
   };
   const nalezeno = findKategorie(rocniky, {
     rok: 2018,
     typ: 'půlmaraton',
     pohlavi: 'muž',
-    narozeni: { rok: 1958 }
+    narozeni: { rok: 1958 },
   });
   expect(nalezeno.kategorie).toBeTruthy();
   expect(nalezeno).toMatchSnapshot();
@@ -189,17 +189,17 @@ it('findKategorie() - správná věková kategorie', () => {
         půlmaraton: {
           muž: [
             { id: '1234', vek: { min: 40, max: 49 } },
-            { id: '2345', vek: { min: 50, max: 59 } }
-          ]
-        }
-      }
-    }
+            { id: '2345', vek: { min: 50, max: 59 } },
+          ],
+        },
+      },
+    },
   };
   const nalezeno = findKategorie(rocniky, {
     rok: 2018,
     typ: 'půlmaraton',
     pohlavi: 'muž',
-    narozeni: { rok: 1968 }
+    narozeni: { rok: 1968 },
   });
   expect(nalezeno.kategorie).toBeTruthy();
   expect(nalezeno).toMatchSnapshot();
@@ -215,17 +215,17 @@ it('findKategorie() - mladistvý pro maraton/věk', () => {
             { id: '1234', pohlavi: 'muž', vek: { min: 18, max: 29 } },
             { id: '2345', pohlavi: 'muž', vek: { min: 30, max: 39 } },
             { id: '3456', pohlavi: 'muž', vek: { min: 40, max: 49 } },
-            { id: '4567', pohlavi: 'muž', vek: { min: 50, max: 59 } }
-          ]
-        }
-      }
-    }
+            { id: '4567', pohlavi: 'muž', vek: { min: 50, max: 59 } },
+          ],
+        },
+      },
+    },
   };
   const nalezeno = findKategorie(rocniky, {
     rok: 2018,
     typ: 'maraton',
     pohlavi: 'muž',
-    narozeni: { rok: 2001 }
+    narozeni: { rok: 2001 },
   });
   expect(nalezeno.kategorie).toBeNull();
   expect(nalezeno).toMatchSnapshot();
@@ -238,16 +238,16 @@ it('findKategorie() - mladistvá pro koloběžku', () => {
       kategorie: {
         koloběžka: {
           muž: [{ id: '1234', pohlavi: 'muž', vek: { min: 18, max: 150 } }],
-          žena: [{ id: '2345', pohlavi: 'žena', vek: { min: 18, max: 150 } }]
-        }
-      }
-    }
+          žena: [{ id: '2345', pohlavi: 'žena', vek: { min: 18, max: 150 } }],
+        },
+      },
+    },
   };
   const nalezeno = findKategorie(rocniky, {
     rok: 2018,
     typ: 'koloběžka',
     pohlavi: 'žena',
-    narozeni: { rok: 2002 }
+    narozeni: { rok: 2002 },
   });
   expect(nalezeno.kategorie).toBeNull();
   expect(nalezeno).toMatchSnapshot();
@@ -262,17 +262,17 @@ it('findKategorie() - junior a cyklo přesný věk - mladistvý', () => {
           muž: [
             { id: '1234', pohlavi: 'muž', vek: { min: 16, max: 17, presne: true } },
             { id: '2345', pohlavi: 'muž', vek: { min: 18, max: 29 } },
-            { id: '3456', pohlavi: 'muž', vek: { min: 30, max: 39 } }
-          ]
-        }
-      }
-    }
+            { id: '3456', pohlavi: 'muž', vek: { min: 30, max: 39 } },
+          ],
+        },
+      },
+    },
   };
   const nalezeno = findKategorie(rocniky, {
     rok: 2018,
     typ: 'cyklo',
     pohlavi: 'muž',
-    narozeni: { rok: 2001 }
+    narozeni: { rok: 2001 },
   });
   expect(nalezeno.kategorie).toBeNull();
   expect(nalezeno).toMatchSnapshot();
@@ -287,18 +287,18 @@ it('findKategorie() - junior a cyklo přesný věk - mladistvý s potvrzením', 
           muž: [
             { id: '1234', pohlavi: 'muž', vek: { min: 16, max: 17, presne: true } },
             { id: '2345', pohlavi: 'muž', vek: { min: 18, max: 29 } },
-            { id: '3456', pohlavi: 'muž', vek: { min: 30, max: 39 } }
-          ]
-        }
-      }
-    }
+            { id: '3456', pohlavi: 'muž', vek: { min: 30, max: 39 } },
+          ],
+        },
+      },
+    },
   };
   const nalezeno = findKategorie(rocniky, {
     rok: 2018,
     typ: 'cyklo',
     pohlavi: 'muž',
     narozeni: { rok: 2001 },
-    mladistvyPotvrzen: true
+    mladistvyPotvrzen: true,
   });
   expect(nalezeno.kategorie).toBeTruthy();
   expect(nalezeno).toMatchSnapshot();
@@ -313,18 +313,18 @@ it('findKategorie() - junior a cyklo přesný věk - mladistvý s potvrzením - 
           muž: [
             { id: '1234', pohlavi: 'muž', vek: { min: 16, max: 17, presne: true } },
             { id: '2345', pohlavi: 'muž', vek: { min: 18, max: 29 } },
-            { id: '3456', pohlavi: 'muž', vek: { min: 30, max: 39 } }
-          ]
-        }
-      }
-    }
+            { id: '3456', pohlavi: 'muž', vek: { min: 30, max: 39 } },
+          ],
+        },
+      },
+    },
   };
   const nalezeno = findKategorie(rocniky, {
     rok: 2018,
     typ: 'cyklo',
     pohlavi: 'muž',
     narozeni: { rok: 2000, mesic: 6, den: 8 },
-    mladistvyPotvrzen: true
+    mladistvyPotvrzen: true,
   });
   expect(nalezeno.kategorie).toBeTruthy();
   expect(nalezeno).toMatchSnapshot();
@@ -339,18 +339,18 @@ it('findKategorie() - junior a cyklo přesný věk - mladistvý - těsně na hra
           muž: [
             { id: '1234', pohlavi: 'muž', vek: { min: 16, max: 17, presne: true } },
             { id: '2345', pohlavi: 'muž', vek: { min: 18, max: 29 } },
-            { id: '3456', pohlavi: 'muž', vek: { min: 30, max: 39 } }
-          ]
-        }
-      }
-    }
+            { id: '3456', pohlavi: 'muž', vek: { min: 30, max: 39 } },
+          ],
+        },
+      },
+    },
   };
   const nalezeno = findKategorie(rocniky, {
     rok: 2018,
     typ: 'cyklo',
     pohlavi: 'muž',
     narozeni: { rok: 2000, mesic: 6, den: 9 },
-    mladistvyPotvrzen: true
+    mladistvyPotvrzen: true,
   });
   expect(nalezeno.kategorie).toBeTruthy();
   expect(nalezeno).toMatchSnapshot();
@@ -365,18 +365,18 @@ it('findKategorie() - junior a cyklo přesný věk - mladistvý - těsně za hra
           muž: [
             { id: '1234', pohlavi: 'muž', vek: { min: 16, max: 17, presne: true } },
             { id: '2345', pohlavi: 'muž', vek: { min: 18, max: 29 } },
-            { id: '3456', pohlavi: 'muž', vek: { min: 30, max: 39 } }
-          ]
-        }
-      }
-    }
+            { id: '3456', pohlavi: 'muž', vek: { min: 30, max: 39 } },
+          ],
+        },
+      },
+    },
   };
   const nalezeno = findKategorie(rocniky, {
     rok: 2018,
     typ: 'cyklo',
     pohlavi: 'muž',
     narozeni: { rok: 2000, mesic: 6, den: 10 },
-    mladistvyPotvrzen: true
+    mladistvyPotvrzen: true,
   });
   expect(nalezeno.kategorie).toBeTruthy();
   expect(nalezeno).toMatchSnapshot();

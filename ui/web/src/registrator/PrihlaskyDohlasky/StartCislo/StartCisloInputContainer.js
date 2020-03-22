@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => {
 
   const {
     ucastnikId: vybraneId,
-    prihlaska: { startCislo: vybraneStartCislo, typ = '' }
+    prihlaska: { startCislo: vybraneStartCislo, typ = '' },
   } = state.registrator[reduxName].form;
   const { showing } = state.registrator[reduxName].startCislo;
 
@@ -21,15 +21,15 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
   return {
     onHide: () => dispatch(createHide(actionPrefix)()),
-    onSelect: startCislo => {
+    onSelect: (startCislo) => {
       dispatch(createHide(actionPrefix)());
       dispatch(
         createInputChanged({ actionPrefix })('prihlaska.startCislo', {
-          target: { value: `${startCislo}` }
+          target: { value: `${startCislo}` },
         })
       );
     },
-    onShow: () => dispatch(createShow(actionPrefix)())
+    onShow: () => dispatch(createShow(actionPrefix)()),
   };
 };
 
@@ -37,7 +37,7 @@ const StartCisloInputContainer = connect(mapStateToProps, mapDispatchToProps)(St
 
 StartCisloInputContainer.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
-  reduxName: PropTypes.string.isRequired
+  reduxName: PropTypes.string.isRequired,
 };
 
 export default StartCisloInputContainer;

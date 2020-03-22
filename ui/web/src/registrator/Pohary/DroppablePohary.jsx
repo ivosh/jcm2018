@@ -7,7 +7,7 @@ import Pohary from './Pohary';
 
 const collect = (connect, monitor) => ({
   connectDropTarget: connect.dropTarget(),
-  isDragOver: monitor.isOver() && monitor.canDrop()
+  isDragOver: monitor.isOver() && monitor.canDrop(),
 });
 
 class DroppablePohary extends PureComponent {
@@ -19,7 +19,7 @@ class DroppablePohary extends PureComponent {
       drop: (dropProps, monitor) =>
         onDrop({ source: monitor.getItem(), destination: { ...dropProps, type } }),
       canDrop: (dropProps, monitor) =>
-        canDrop({ source: monitor.getItem(), destination: { ...dropProps, type } })
+        canDrop({ source: monitor.getItem(), destination: { ...dropProps, type } }),
     };
   }
 
@@ -33,7 +33,7 @@ class DroppablePohary extends PureComponent {
 DroppablePohary.propTypes = {
   type: PropTypes.oneOf(TYPY_POHARU).isRequired,
   canDrop: PropTypes.func.isRequired,
-  onDrop: PropTypes.func.isRequired
+  onDrop: PropTypes.func.isRequired,
 };
 
 export default DroppablePohary;

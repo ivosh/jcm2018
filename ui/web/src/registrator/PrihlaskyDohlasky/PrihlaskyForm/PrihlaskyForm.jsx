@@ -40,7 +40,7 @@ class PrihlaskyForm extends PureComponent {
       event.preventDefault();
 
       const inputCandidates = this.inputs.slice(index + 1);
-      const next = inputCandidates.find(input => input && !input.disabled);
+      const next = inputCandidates.find((input) => input && !input.disabled);
       if (next) {
         next.focus();
       } else {
@@ -49,12 +49,12 @@ class PrihlaskyForm extends PureComponent {
     }
   };
 
-  handleReset = event => {
+  handleReset = (event) => {
     event.preventDefault();
     this.props.onReset();
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     this.props.onSubmit();
   };
@@ -69,7 +69,7 @@ class PrihlaskyForm extends PureComponent {
         oldRef.onkeypress = null;
       }
       this.inputs[index] = ref;
-      this.inputs[index].onkeypress = event => this.handleKeyPress({ event, index });
+      this.inputs[index].onkeypress = (event) => this.handleKeyPress({ event, index });
     }
   };
 
@@ -293,12 +293,12 @@ PrihlaskyForm.propTypes = {
   onHideModal: PropTypes.func.isRequired,
   onLoadId: PropTypes.func,
   onReset: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
 };
 
 PrihlaskyForm.defaultProps = {
   reset: undefined,
-  onLoadId: undefined
+  onLoadId: undefined,
 };
 
 export default PrihlaskyForm;

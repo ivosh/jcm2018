@@ -34,8 +34,8 @@ it('maps movePrihlasen to dispatch createVykon', () => {
       type: STARTUJICI_CREATE_VYKON,
       endpoint: API_SAVE_VYKON,
       request: expect.any(Function),
-      title: 'vytváření registrace na start'
-    }
+      title: 'vytváření registrace na start',
+    },
   });
 });
 
@@ -47,7 +47,7 @@ it('maps moveOdstartovan to dispatch deleteVykon', () => {
       type: STARTUJICI_DELETE_VYKON,
       endpoint: API_DELETE_VYKON,
       request: { id: '8344bc71dec1e99b7e1d01e', rok: AKTUALNI_ROK },
-      title: 'rušení registrace na start'
-    }
+      title: 'rušení registrace na start',
+    },
   });
 });

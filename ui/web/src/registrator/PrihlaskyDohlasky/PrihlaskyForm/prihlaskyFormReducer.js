@@ -5,7 +5,7 @@ import {
   UBYTOVANI_ODHLASIT,
   UBYTOVANI_PRIHLASIT,
   findKategorie,
-  ubytovaniModifications
+  ubytovaniModifications,
 } from 'ui-common/common';
 import { AKTUALNI_ROK, TYPY_KATEGORII, ActionPrefixes } from '../../../constants';
 import {
@@ -13,7 +13,7 @@ import {
   narozeniToStr,
   numberValid,
   parseDatum,
-  validDatumFormats
+  validDatumFormats,
 } from '../../../Util';
 import { getTypKategorie } from '../../../entities/rocniky/rocnikyReducer';
 
@@ -32,7 +32,7 @@ const initialState = {
     stat: 'Česká republika',
     klub: undefined,
     email: undefined,
-    telefon: undefined
+    telefon: undefined,
   },
   prihlaska: {
     datum: undefined,
@@ -41,14 +41,14 @@ const initialState = {
     startCislo: undefined,
     kod: undefined,
     mladistvyPotvrzen: undefined,
-    startovnePoSleve: undefined
+    startovnePoSleve: undefined,
   },
   platby: [],
   ubytovani: {},
-  poznamky: []
+  poznamky: [],
 };
 
-const parseNarozeni = value => {
+const parseNarozeni = (value) => {
   if (value === undefined) {
     return { den: undefined, mesic: undefined, rok: undefined };
   }
@@ -130,7 +130,7 @@ export const createPrihlaskyFormReducer = (
       if (section === 'ubytovani') {
         return {
           ...state,
-          ubytovani: reduceUbytovani({ den: name, value, ubytovani: state.ubytovani })
+          ubytovani: reduceUbytovani({ den: name, value, ubytovani: state.ubytovani }),
         };
       }
 
@@ -155,7 +155,7 @@ export const createPrihlaskyFormReducer = (
         prihlaska: action.prihlaska || initialState.prihlaska,
         platby: action.platby || initialState.platby,
         ubytovani: action.ubytovani || initialState.ubytovani,
-        poznamky: action.poznamky || initialState.poznamky
+        poznamky: action.poznamky || initialState.poznamky,
       };
       if (action.datumKonani && !newState.prihlaska.datum) {
         return { ...newState, prihlaska: { ...newState.prihlaska, datum: action.datumKonani } };
@@ -166,7 +166,7 @@ export const createPrihlaskyFormReducer = (
       return {
         ...initialState,
         jePrihlaskou,
-        prihlaska: { ...initialState.prihlaska, datum: action.datumKonani }
+        prihlaska: { ...initialState.prihlaska, datum: action.datumKonani },
       };
     case `${actionPrefix}_VALIDATE_FORM`:
       return { ...state, validate: true };
@@ -188,7 +188,7 @@ export const createPrihlaskyFormReducer = (
     case `${actionPrefix}_REMOVE_PLATBA`:
       return {
         ...state,
-        platby: [...state.platby.slice(0, action.idx), ...state.platby.slice(action.idx + 1)]
+        platby: [...state.platby.slice(0, action.idx), ...state.platby.slice(action.idx + 1)],
       };
     case 'FETCH_ROCNIKY_SUCCESS':
       if (!jePrihlaskou && !state.prihlaska.datum) {
@@ -207,7 +207,7 @@ const isMladistvy = ({ form, rocniky }) => {
     typ: form.prihlaska.typ,
     pohlavi: form.udaje.pohlavi,
     narozeni: form.udaje.narozeni,
-    mladistvyPotvrzen: false
+    mladistvyPotvrzen: false,
   });
   return found.code === CODE_MLADISTVY_UCASTNIK;
 };
@@ -335,7 +335,7 @@ export const formErrors = ({ form, rocniky }) => {
       name: 'prihlaska.datum',
       value: prihlaska.datum,
       form,
-      rocniky
+      rocniky,
     })
   );
   errors.push(
@@ -343,7 +343,7 @@ export const formErrors = ({ form, rocniky }) => {
       name: 'prihlaska.kategorie',
       value: prihlaska.kategorie,
       form,
-      rocniky
+      rocniky,
     })
   );
   errors.push(inputError({ name: 'prihlaska.typ', value: prihlaska.typ, form, rocniky }));
@@ -352,7 +352,7 @@ export const formErrors = ({ form, rocniky }) => {
       name: 'prihlaska.startCislo',
       value: prihlaska.startCislo,
       form,
-      rocniky
+      rocniky,
     })
   );
   errors.push(
@@ -360,11 +360,11 @@ export const formErrors = ({ form, rocniky }) => {
       name: 'prihlaska.mladistvyPotvrzen',
       value: prihlaska.mladistvyPotvrzen,
       form,
-      rocniky
+      rocniky,
     })
   );
 
-  return errors.filter(error => error);
+  return errors.filter((error) => error);
 };
 
 export const isInputVisible = ({ name, form, rocniky }) => {
@@ -400,13 +400,13 @@ export const kategorieInputOptions = ({ narozeni, pohlavi, rocniky }) => {
     (rocniky.byRoky[rok] && Object.keys(rocniky.byRoky[rok].kategorie)) || TYPY_KATEGORII;
 
   const options = {};
-  typyKategorii.forEach(typ => {
+  typyKategorii.forEach((typ) => {
     const found = findKategorie(rocniky.byRoky, {
       rok,
       typ,
       pohlavi,
       narozeni,
-      mladistvyPotvrzen: true
+      mladistvyPotvrzen: true,
     });
     if (found.code === CODE_OK) {
       const { id, pohlavi: foundPohlavi, vek } = found.kategorie;
@@ -423,7 +423,7 @@ export const inputOptions = ({ name, form, rocniky }) => {
     case 'udaje.pohlavi':
       return [
         { key: 'muž', value: { pohlavi: 'muž' } },
-        { key: 'žena', value: { pohlavi: 'žena' } }
+        { key: 'žena', value: { pohlavi: 'žena' } },
       ];
     case 'prihlaska.typ': {
       const { narozeni, pohlavi } = form.udaje;

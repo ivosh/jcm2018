@@ -8,7 +8,7 @@ const entitiesReducer = combineReducers({
   kategorie: kategorieReducer,
   rocniky: rocnikyReducer,
   stopky: stopkyReducer,
-  ucastnici: ucastniciReducer
+  ucastnici: ucastniciReducer,
 });
 
 export default entitiesReducer;

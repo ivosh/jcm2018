@@ -22,11 +22,11 @@ beforeEach(() => {
         form: {
           jePrihlaskou: true,
           udaje: {
-            jmeno: 'Klára'
-          }
-        }
-      }
-    }
+            jmeno: 'Klára',
+          },
+        },
+      },
+    },
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
@@ -64,7 +64,7 @@ it('maps onChange to dispatch inputChanged', () => {
     type: `${actionPrefix}_INPUT_CHANGED`,
     name: 'udaje.jmeno',
     value: 'Bára',
-    chooseKategorie: expect.any(Function)
+    chooseKategorie: expect.any(Function),
   });
 });
 
@@ -82,11 +82,11 @@ it('maps state to props - narození - jen rok', () => {
         form: {
           validate: false,
           udaje: {
-            narozeni: { den: undefined, mesic: undefined, rok: 1981 }
-          }
-        }
-      }
-    }
+            narozeni: { den: undefined, mesic: undefined, rok: 1981 },
+          },
+        },
+      },
+    },
   };
   store = mockStore(state);
   const component = mount(
@@ -118,11 +118,11 @@ it('maps state to props - narození - celé', () => {
         form: {
           validate: false,
           udaje: {
-            narozeni: { den: 1, mesic: 6, rok: 1981 }
-          }
-        }
-      }
-    }
+            narozeni: { den: 1, mesic: 6, rok: 1981 },
+          },
+        },
+      },
+    },
   };
   store = mockStore(state);
   const component = mount(
@@ -155,11 +155,11 @@ it('maps state to props - startCislo ok', () => {
           ucastnikId: '7a09b1fd371dec1e99b7e142',
           validate: false,
           udaje: {},
-          prihlaska: { typ: 'půlmaraton', startCislo: 10 }
+          prihlaska: { typ: 'půlmaraton', startCislo: 10 },
         },
-        startCislo: { showing: false }
-      }
-    }
+        startCislo: { showing: false },
+      },
+    },
   };
   store = mockStore(state);
   const component = mount(
@@ -192,11 +192,11 @@ it('maps state to props - startCislo duplicitní', () => {
           ucastnikId: '6f09b1fd371dec1e99b7e1c9',
           validate: false,
           udaje: {},
-          prihlaska: { typ: 'půlmaraton', startCislo: 10 }
+          prihlaska: { typ: 'půlmaraton', startCislo: 10 },
         },
-        startCislo: { showing: false }
-      }
-    }
+        startCislo: { showing: false },
+      },
+    },
   };
   store = mockStore(state);
   const component = mount(

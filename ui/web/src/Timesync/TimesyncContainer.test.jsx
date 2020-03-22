@@ -10,7 +10,7 @@ import TimesyncContainer from './TimesyncContainer';
 const successfulResponse = {
   code: 'ok',
   response: { now: '2019-16-07T00:00:23.132Z', serverTime: '2019-16-07T00:00:22.000Z' },
-  requestId: '0.9310306652587377'
+  requestId: '0.9310306652587377',
 };
 
 const mockWsClient = new WsClient();
@@ -42,7 +42,7 @@ it('maps onStart to dispatch TIMESYNC_START action', async () => {
   expect(actions[1]).toEqual({
     type: `${TIMESYNC}_REQUEST`,
     request: { clientTime: expect.any(String) },
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   if (actions.length === 3) {
     // Due to a different scheduling, we sometimes get this action as well.
@@ -52,10 +52,10 @@ it('maps onStart to dispatch TIMESYNC_START action', async () => {
       response: {
         code: 'ok',
         now: expect.any(String),
-        serverTime: expect.any(String)
+        serverTime: expect.any(String),
       },
       receivedAt: expect.any(Number),
-      title: 'synchronizace času'
+      title: 'synchronizace času',
     });
   }
 });

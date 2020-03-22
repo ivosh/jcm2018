@@ -6,7 +6,7 @@ import './SortHeader.css';
 const sortDirs = {
   [SortDirTypes.NONE]: '',
   [SortDirTypes.ASC]: '↑',
-  [SortDirTypes.DESC]: '↓'
+  [SortDirTypes.DESC]: '↓',
 };
 
 const SortHeader = ({ children, sortDir, onClick }) => (
@@ -18,12 +18,12 @@ const SortHeader = ({ children, sortDir, onClick }) => (
 SortHeader.propTypes = {
   children: PropTypes.node,
   sortDir: PropTypes.oneOf([SortDirTypes.NONE, SortDirTypes.ASC, SortDirTypes.DESC]),
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
 };
 
 SortHeader.defaultProps = {
   children: undefined,
-  sortDir: SortDirTypes.NONE
+  sortDir: SortDirTypes.NONE,
 };
 
 export default SortHeader;

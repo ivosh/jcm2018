@@ -2,14 +2,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Input from './Input';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const {
-    entities: { rocniky }
+    entities: { rocniky },
   } = state;
   return { rocniky };
 };
 
-const mapDispatchToProps = dispatch => ({ dispatch });
+const mapDispatchToProps = (dispatch) => ({ dispatch });
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const { rocniky } = stateProps;
@@ -36,9 +36,9 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     validationState: inputValid({ name, value: rawValue, form, rocniky }),
     value: formatValue({ name, rawValue }),
     visible: isInputVisible({ name, form, rocniky }),
-    inputRef: ref => inputRef(index, ref),
-    onChange: event => dispatch(inputChanged(name, event)),
-    ...restOwnProps
+    inputRef: (ref) => inputRef(index, ref),
+    onChange: (event) => dispatch(inputChanged(name, event)),
+    ...restOwnProps,
   };
 };
 
@@ -54,7 +54,7 @@ InputContainer.propTypes = {
   inputRef: PropTypes.func.isRequired,
   inputOptions: PropTypes.func.isRequired,
   inputValid: PropTypes.func.isRequired,
-  isInputEnabled: PropTypes.func.isRequired
+  isInputEnabled: PropTypes.func.isRequired,
 };
 
 export default InputContainer;

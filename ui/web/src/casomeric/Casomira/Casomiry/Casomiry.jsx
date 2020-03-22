@@ -22,10 +22,10 @@ Casomiry.propTypes = {
   casomiry: PropTypes.arrayOf(
     PropTypes.shape({
       casomira: PropTypes.string.isRequired,
-      accessKey: PropTypes.string.isRequired
+      accessKey: PropTypes.string.isRequired,
     }).isRequired
   ).isRequired,
-  onRemoveCasomira: PropTypes.func.isRequired
+  onRemoveCasomira: PropTypes.func.isRequired,
 };
 
 export default Casomiry;

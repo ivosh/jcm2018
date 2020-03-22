@@ -18,10 +18,10 @@ it('addValidatedPlatba() should dispatch two successful actions', async () => {
           castka: '200',
           datum: '2018-05-12T00:00:00Z',
           typ: 'převodem',
-          validate: false
-        }
-      }
-    }
+          validate: false,
+        },
+      },
+    },
   });
 
   await store.dispatch(addValidatedPlatba());
@@ -32,8 +32,8 @@ it('addValidatedPlatba() should dispatch two successful actions', async () => {
     platba: {
       castka: 200,
       datum: '2018-05-12T00:00:00Z',
-      typ: 'převodem'
-    }
+      typ: 'převodem',
+    },
   });
 });
 
@@ -46,10 +46,10 @@ it('addValidatedPlatba() should dispatch only one action on error', async () => 
           castka: 'rozepsáno',
           datum: '2018-05-12T00:00:00Z',
           typ: 'převodem',
-          validate: false
-        }
-      }
-    }
+          validate: false,
+        },
+      },
+    },
   });
 
   await store.dispatch(addValidatedPlatba());

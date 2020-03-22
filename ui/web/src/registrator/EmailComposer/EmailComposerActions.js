@@ -7,6 +7,6 @@ export const sendEmail = ({ mailTo, subject, body }) => ({
     type: SEND_EMAIL,
     endpoint: API_SEND_EMAIL,
     request: { mailTo, subject, body },
-    title: 'posílání emailu'
-  }
+    title: 'posílání emailu',
+  },
 });

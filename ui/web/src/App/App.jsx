@@ -39,7 +39,7 @@ const Item = ({ glyph, name }) => (
 );
 Item.propTypes = {
   glyph: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
 };
 
 const CurrentItem = ({ route }) => (
@@ -48,7 +48,7 @@ const CurrentItem = ({ route }) => (
   </li>
 );
 CurrentItem.propTypes = {
-  route: PropTypes.string.isRequired
+  route: PropTypes.string.isRequired,
 };
 
 const NavsForMenu = ({ menu, menuGlyph, menuKey }) => (
@@ -73,7 +73,7 @@ const NavsForMenu = ({ menu, menuGlyph, menuKey }) => (
 NavsForMenu.propTypes = {
   menu: PropTypes.string.isRequired,
   menuGlyph: PropTypes.string.isRequired,
-  menuKey: PropTypes.number.isRequired
+  menuKey: PropTypes.number.isRequired,
 };
 
 const NavsAuthenticated = () =>
@@ -179,13 +179,13 @@ App.propTypes = {
   authenticated: PropTypes.bool.isRequired,
   connected: PropTypes.bool.isRequired,
   location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired
+    pathname: PropTypes.string.isRequired,
   }),
-  username: PropTypes.string
+  username: PropTypes.string,
 };
 App.defaultProps = {
   location: { pathname: '/' },
-  username: null
+  username: null,
 };
 
 export default App;

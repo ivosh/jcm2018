@@ -2,12 +2,12 @@ import deepFreeze from 'deep-freeze';
 import {
   createFailureFromAction,
   createRequestFromAction,
-  createSuccessFromAction
+  createSuccessFromAction,
 } from 'ui-common/store/wsAPI';
 import { ActionPrefixes } from '../../../constants';
 import { fetchRocniky } from '../../../entities/rocniky/rocnikyActions';
 import ucastniciTestData, {
-  AKTUALNI_DATUM_KONANI
+  AKTUALNI_DATUM_KONANI,
 } from '../../../entities/ucastnici/ucastniciTestData';
 import { predepsaneStartovne } from '../../platby';
 import { createAddPlatba, createRemovePlatba } from '../Platby/PlatbyActions';
@@ -18,7 +18,7 @@ import {
   createPrihlaskySave,
   createReset,
   createShowModal,
-  createValidate
+  createValidate,
 } from './PrihlaskyFormActions';
 import {
   createPrihlaskyFormReducer,
@@ -28,7 +28,7 @@ import {
   inputOptions,
   inputValid,
   isInputEnabled,
-  isInputVisible
+  isInputVisible,
 } from './prihlaskyFormReducer';
 
 const actionPrefix = 'PRIHLASKY_YYY';
@@ -37,7 +37,7 @@ const dohlaskyFormReducer = createPrihlaskyFormReducer(ActionPrefixes.DOHLASKY);
 const hideModal = createHideModal(actionPrefix);
 const inputChanged = createInputChanged({
   actionPrefix,
-  rocniky: ucastniciTestData.entities.rocniky
+  rocniky: ucastniciTestData.entities.rocniky,
 });
 const loadUcastnik = createLoadUcastnik({ actionPrefix, jePrihlaskou: true });
 const prihlaskyFormReducer = createPrihlaskyFormReducer(actionPrefix, true);
@@ -50,7 +50,7 @@ const validate = createValidate(actionPrefix);
 const unsuccessfulResponse = {
   code: 'neexistuje',
   status: 'účastník s id ===id=== neexistuje.',
-  requestId: '0.9310306652587374'
+  requestId: '0.9310306652587374',
 };
 
 it('na začátku - jePrihlaskou: true', () => {
@@ -70,7 +70,7 @@ it('na začátku - jePrihlaskou: true', () => {
     stat: 'Česká republika',
     klub: undefined,
     email: undefined,
-    telefon: undefined
+    telefon: undefined,
   });
   expect(stateAfter.prihlaska).toEqual({
     datum: undefined,
@@ -78,7 +78,7 @@ it('na začátku - jePrihlaskou: true', () => {
     typ: undefined,
     startCislo: undefined,
     kod: undefined,
-    mladistvyPotvrzen: undefined
+    mladistvyPotvrzen: undefined,
   });
   expect(stateAfter.platby).toEqual([]);
 });
@@ -105,7 +105,7 @@ it('reset()', () => {
       stat: 'Česká republika',
       klub: '',
       email: 'em@ai.l',
-      telefon: '123 456 789'
+      telefon: '123 456 789',
     },
     prihlaska: {
       datum: '1. 10. 2019',
@@ -113,11 +113,11 @@ it('reset()', () => {
       typ: 'maraton',
       startCislo: 23,
       kod: '===kod==',
-      mladistvyPotvrzen: false
+      mladistvyPotvrzen: false,
     },
     platby: [{ castka: 200, datum: new Date(), typ: 'převodem' }],
     ubytovani: { pátek: { prihlaseno: true } },
-    poznamky: [{ datum: '2019-06-10T00:00:00.000Z', text: 'přihlášen zraněný' }]
+    poznamky: [{ datum: '2019-06-10T00:00:00.000Z', text: 'přihlášen zraněný' }],
   };
   const stateAfter = {
     jePrihlaskou: true,
@@ -134,7 +134,7 @@ it('reset()', () => {
       stat: 'Česká republika',
       klub: undefined,
       email: undefined,
-      telefon: undefined
+      telefon: undefined,
     },
     prihlaska: {
       datum: '2018-06-01T00:00:00.000Z',
@@ -142,11 +142,11 @@ it('reset()', () => {
       typ: undefined,
       startCislo: undefined,
       kod: undefined,
-      mladistvyPotvrzen: undefined
+      mladistvyPotvrzen: undefined,
     },
     platby: [],
     ubytovani: {},
-    poznamky: []
+    poznamky: [],
   };
   deepFreeze(stateBefore);
   const { rocniky } = ucastniciTestData.entities;
@@ -156,7 +156,7 @@ it('reset()', () => {
 
 it('hideModal()', () => {
   const stateBefore = {
-    saved: true
+    saved: true,
   };
   const stateAfter = { ...stateBefore, saved: false };
   deepFreeze(stateBefore);
@@ -166,7 +166,7 @@ it('hideModal()', () => {
 
 it('showModal()', () => {
   const stateBefore = {
-    saved: false
+    saved: false,
   };
   const stateAfter = { ...stateBefore, saved: true };
   deepFreeze(stateBefore);
@@ -184,7 +184,7 @@ it('prihlaskySave() - request', () => {
     prihlaska: {},
     platby: [],
     ubytovani: {},
-    poznamky: []
+    poznamky: [],
   };
 
   expect(
@@ -202,7 +202,7 @@ it('prihlaskySave() - success', () => {
     prihlaska: {},
     platby: [],
     ubytovani: {},
-    poznamky: []
+    poznamky: [],
   };
   const response = { response: { id: '===id===' } };
 
@@ -224,7 +224,7 @@ it('prihlaskySave() - error', () => {
     prihlaska: {},
     platby: [],
     ubytovani: {},
-    poznamky: []
+    poznamky: [],
   };
 
   expect(
@@ -247,7 +247,7 @@ it('validation of the initial state [validate === false]', () => {
       stat: 'Česká republika',
       klub: undefined,
       email: undefined,
-      telefon: undefined
+      telefon: undefined,
     },
     prihlaska: {
       datum: undefined,
@@ -255,11 +255,11 @@ it('validation of the initial state [validate === false]', () => {
       typ: undefined,
       startCislo: undefined,
       kod: undefined,
-      mladistvyPotvrzen: undefined
+      mladistvyPotvrzen: undefined,
     },
     platby: [],
     ubytovani: {},
-    poznamky: []
+    poznamky: [],
   };
   deepFreeze(form);
   const { rocniky } = ucastniciTestData.entities;
@@ -289,7 +289,7 @@ it('validation of the initial state [validate === false]', () => {
       name: 'prihlaska.mladistvyPotvrzen',
       value: form.prihlaska.mladistvyPotvrzen,
       form,
-      rocniky
+      rocniky,
     })
   ).toBe(undefined);
   expect(inputValid({ name: 'complete.nonsense', value: 'huh', form })).toEqual('error');
@@ -310,7 +310,7 @@ it('validation of the initial state [validate === true]', () => {
       stat: 'Česká republika',
       klub: undefined,
       email: undefined,
-      telefon: undefined
+      telefon: undefined,
     },
     prihlaska: {
       datum: undefined,
@@ -318,11 +318,11 @@ it('validation of the initial state [validate === true]', () => {
       typ: undefined,
       startCislo: undefined,
       kod: undefined,
-      mladistvyPotvrzen: undefined
+      mladistvyPotvrzen: undefined,
     },
     platby: [],
     ubytovani: {},
-    poznamky: []
+    poznamky: [],
   };
   deepFreeze(form);
   const { rocniky } = ucastniciTestData.entities;
@@ -352,7 +352,7 @@ it('validation of the initial state [validate === true]', () => {
       name: 'prihlaska.mladistvyPotvrzen',
       value: form.prihlaska.mladistvyPotvrzen,
       form,
-      rocniky
+      rocniky,
     })
   ).toBe(undefined);
   expect(formErrors({ form, rocniky })).toEqual([
@@ -363,7 +363,7 @@ it('validation of the initial state [validate === true]', () => {
     { name: 'udaje.obec', value: undefined },
     { name: 'prihlaska.datum', value: undefined },
     { name: 'prihlaska.kategorie', value: undefined },
-    { name: 'prihlaska.typ', value: undefined }
+    { name: 'prihlaska.typ', value: undefined },
   ]);
   expect(isInputEnabled({ name: 'prihlaska.startCislo', form, rocniky })).toBe(false);
   expect(isInputEnabled({ name: 'ubytovani.pátek', form, rocniky })).toBe(true);
@@ -381,7 +381,7 @@ it('validation of some invalid state [validate === false]', () => {
       stat: 'Česká republika',
       klub: 'Hory hory hory',
       email: 'není',
-      telefon: undefined
+      telefon: undefined,
     },
     prihlaska: {
       datum: '1. 12. 2017',
@@ -389,11 +389,11 @@ it('validation of some invalid state [validate === false]', () => {
       typ: undefined,
       startCislo: 'aha',
       kod: '===kód===',
-      mladistvyPotvrzen: false
+      mladistvyPotvrzen: false,
     },
     platby: [{ castka: 220, datum: new Date(), typ: 'převodem' }],
     ubytovani: { pátek: { prihlaseno: false, prespano: true } },
-    poznamky: [{ datum: '2017-06-10T00:00:00.000Z', text: 'přihlášen zraněný' }]
+    poznamky: [{ datum: '2017-06-10T00:00:00.000Z', text: 'přihlášen zraněný' }],
   };
   deepFreeze(form);
   const { rocniky } = ucastniciTestData.entities;
@@ -423,13 +423,13 @@ it('validation of some invalid state [validate === false]', () => {
       name: 'prihlaska.mladistvyPotvrzen',
       value: form.prihlaska.mladistvyPotvrzen,
       form,
-      rocniky
+      rocniky,
     })
   ).toBe(undefined);
   expect(formErrors({ form, rocniky })).toEqual([
     { name: 'udaje.prijmeni', value: '' },
     { name: 'udaje.narozeni', value: { den: undefined, mesic: undefined, rok: 'žblabuňka' } },
-    { name: 'prihlaska.startCislo', value: 'aha' }
+    { name: 'prihlaska.startCislo', value: 'aha' },
   ]);
   expect(isInputEnabled({ name: 'prihlaska.startCislo', form, rocniky })).toBe(false);
   expect(isInputEnabled({ name: 'ubytovani.pátek', form, rocniky })).toBe(false);
@@ -449,7 +449,7 @@ it('validation of some invalid state [validate === true]', () => {
       stat: 'Česká republika',
       klub: 'Hory hory hory',
       email: 'není',
-      telefon: undefined
+      telefon: undefined,
     },
     prihlaska: {
       datum: '1. 12. 2017',
@@ -457,11 +457,11 @@ it('validation of some invalid state [validate === true]', () => {
       typ: undefined,
       startCislo: 'oho12',
       kod: '===kód===',
-      mladistvyPotvrzen: true
+      mladistvyPotvrzen: true,
     },
     platby: [{ castka: 200, datum: '3. 1. 2015', typ: 'převodem' }],
     ubytovani: { pátek: { prihlaseno: true } },
-    poznamky: [{ datum: '2017-06-10T00:00:00.000Z', text: 'přihlášen zraněný' }]
+    poznamky: [{ datum: '2017-06-10T00:00:00.000Z', text: 'přihlášen zraněný' }],
   };
   deepFreeze(form);
   const { rocniky } = ucastniciTestData.entities;
@@ -493,7 +493,7 @@ it('validation of some invalid state [validate === true]', () => {
       name: 'prihlaska.mladistvyPotvrzen',
       value: form.prihlaska.mladistvyPotvrzen,
       form,
-      rocniky
+      rocniky,
     })
   ).toBe(undefined);
   expect(formErrors({ form, rocniky })).toEqual([
@@ -502,7 +502,7 @@ it('validation of some invalid state [validate === true]', () => {
     { name: 'udaje.narozeni', value: { den: 1, mesic: 10, rok: 'žblabuňka' } },
     { name: 'prihlaska.kategorie', value: undefined },
     { name: 'prihlaska.typ', value: undefined },
-    { name: 'prihlaska.startCislo', value: 'oho12' }
+    { name: 'prihlaska.startCislo', value: 'oho12' },
   ]);
   expect(isInputEnabled({ name: 'prihlaska.startCislo', form, rocniky })).toBe(false);
   expect(isInputEnabled({ name: 'ubytovani.pátek', form, rocniky })).toBe(true);
@@ -523,7 +523,7 @@ it('udaje.pohlavi - nahodí ženu', () => {
   deepFreeze(stateBefore);
   const stateAfter = {
     udaje: { prijmeni: 'Sukdoláková', pohlavi: 'žena' },
-    prihlaska: { kategorie: undefined }
+    prihlaska: { kategorie: undefined },
   };
 
   expect(
@@ -537,12 +537,12 @@ it('udaje.pohlavi - nahodí ženu', () => {
 it('udaje.pohlavi - nedojde ke změně pohlaví', () => {
   const stateBefore = {
     udaje: { narozeni: { rok: 1990 }, prijmeni: 'Mala', pohlavi: 'muž' },
-    prihlaska: {}
+    prihlaska: {},
   };
   deepFreeze(stateBefore);
   const stateAfter = {
     udaje: { narozeni: { rok: 1990 }, prijmeni: 'Malová', pohlavi: 'muž' },
-    prihlaska: {}
+    prihlaska: {},
   };
 
   expect(
@@ -557,13 +557,13 @@ it('udaje.narozeni - prázdné', () => {
   const stateBefore = {
     validate: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: undefined } },
-    prihlaska: {}
+    prihlaska: {},
   };
   deepFreeze(stateBefore);
   const stateAfter = {
     validate: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: '' } },
-    prihlaska: {}
+    prihlaska: {},
   };
 
   expect(
@@ -581,13 +581,13 @@ it('udaje.narozeni - neúplné', () => {
   const stateBefore = {
     validate: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: undefined } },
-    prihlaska: {}
+    prihlaska: {},
   };
   deepFreeze(stateBefore);
   const stateAfter = {
     validate: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: '1. ' } },
-    prihlaska: {}
+    prihlaska: {},
   };
 
   expect(
@@ -605,13 +605,13 @@ it('udaje.narozeni - jen rok', () => {
   const stateBefore = {
     validate: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: '197' } },
-    prihlaska: {}
+    prihlaska: {},
   };
   deepFreeze(stateBefore);
   const stateAfter = {
     validate: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1978 } },
-    prihlaska: {}
+    prihlaska: {},
   };
 
   expect(
@@ -629,13 +629,13 @@ it('udaje.narozeni - celé', () => {
   const stateBefore = {
     validate: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: '1.7.196' } },
-    prihlaska: {}
+    prihlaska: {},
   };
   deepFreeze(stateBefore);
   const stateAfter = {
     validate: false,
     udaje: { narozeni: { den: 1, mesic: 7, rok: 1967 } },
-    prihlaska: {}
+    prihlaska: {},
   };
 
   expect(
@@ -656,7 +656,7 @@ it('udaje.narozeni - změna kategorie a mladistvyPotvrzen', () => {
   const stateBefore = {
     validate: false,
     udaje: { narozeni: { den: undefined, mesic: undefined, rok: 2008 }, pohlavi: 'muž' },
-    prihlaska: { kategorie: '5aa90e4a3607497c4d37bcf3', mladistvyPotvrzen: true, typ: 'maraton' }
+    prihlaska: { kategorie: '5aa90e4a3607497c4d37bcf3', mladistvyPotvrzen: true, typ: 'maraton' },
   };
   deepFreeze(stateBefore);
   const stateAfter = {
@@ -665,8 +665,8 @@ it('udaje.narozeni - změna kategorie a mladistvyPotvrzen', () => {
     prihlaska: {
       kategorie: '5a587e1a051c181132cf83ba',
       mladistvyPotvrzen: undefined,
-      typ: 'maraton'
-    }
+      typ: 'maraton',
+    },
   };
   const { rocniky } = ucastniciTestData.entities;
 
@@ -678,7 +678,7 @@ it('udaje.narozeni - změna kategorie a mladistvyPotvrzen', () => {
       name: 'prihlaska.mladistvyPotvrzen',
       value: stateBefore.prihlaska.mladistvyPotvrzen,
       form: stateBefore,
-      rocniky
+      rocniky,
     })
   ).toEqual('success');
   expect(
@@ -686,7 +686,7 @@ it('udaje.narozeni - změna kategorie a mladistvyPotvrzen', () => {
       name: 'prihlaska.mladistvyPotvrzen',
       value: stateAfter.prihlaska.mladistvyPotvrzen,
       form: stateAfter,
-      rocniky
+      rocniky,
     })
   ).toBe(undefined);
 });
@@ -694,7 +694,7 @@ it('udaje.narozeni - změna kategorie a mladistvyPotvrzen', () => {
 it('udaje.pohlavi - změna ještě nenahodí kategorii I.', () => {
   const stateBefore = {
     udaje: { narozeni: {}, pohlavi: 'muž' },
-    prihlaska: { kategorie: undefined, typ: 'maraton' }
+    prihlaska: { kategorie: undefined, typ: 'maraton' },
   };
   const stateAfter = { ...stateBefore, udaje: { ...stateBefore.udaje, pohlavi: 'žena' } };
   deepFreeze(stateBefore);
@@ -707,7 +707,7 @@ it('udaje.pohlavi - změna ještě nenahodí kategorii I.', () => {
 it('udaje.pohlavi - změna ještě nenahodí kategorii II.', () => {
   const stateBefore = {
     udaje: { narozeni: { rok: 1978 }, pohlavi: 'muž' },
-    prihlaska: { kategorie: undefined }
+    prihlaska: { kategorie: undefined },
   };
   const stateAfter = { ...stateBefore, udaje: { ...stateBefore.udaje, pohlavi: 'žena' } };
   deepFreeze(stateBefore);
@@ -720,11 +720,11 @@ it('udaje.pohlavi - změna ještě nenahodí kategorii II.', () => {
 it('udaje.pohlavi - změna už nahodí kategorii', () => {
   const stateBefore = {
     udaje: { narozeni: { rok: 1978 }, pohlavi: 'muž' },
-    prihlaska: { kategorie: undefined, typ: 'maraton' }
+    prihlaska: { kategorie: undefined, typ: 'maraton' },
   };
   const stateAfter = {
     udaje: { narozeni: { rok: 1978 }, pohlavi: 'žena' },
-    prihlaska: { kategorie: '5a587e1a051c181132cf83c1', typ: 'maraton' }
+    prihlaska: { kategorie: '5a587e1a051c181132cf83c1', typ: 'maraton' },
   };
   deepFreeze(stateBefore);
 
@@ -818,10 +818,10 @@ it('prihlaska.typ - není pohlaví', () => {
       prihlasky: {
         form: {
           udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: undefined },
-          prihlaska: {}
-        }
-      }
-    }
+          prihlaska: {},
+        },
+      },
+    },
   };
   const { form } = state.registrator.prihlasky;
   const { kategorie, rocniky } = state.entities;
@@ -830,7 +830,7 @@ it('prihlaska.typ - není pohlaví', () => {
     { key: 'půlmaraton', value: { typ: 'půlmaraton' } },
     { key: 'cyklo', value: { typ: 'cyklo' } },
     { key: 'koloběžka', value: { typ: 'koloběžka' } },
-    { key: 'pěší', id: '5a587e1a051c181132cf83b1', value: { typ: 'pěší' } }
+    { key: 'pěší', id: '5a587e1a051c181132cf83b1', value: { typ: 'pěší' } },
   ];
 
   expect(inputOptions({ name: 'prihlaska.typ', form, kategorie, rocniky })).toEqual(selected);
@@ -844,12 +844,12 @@ it('prihlaska.typ - není narození', () => {
         form: {
           udaje: {
             narozeni: { den: undefined, mesic: undefined, rok: undefined },
-            pohlavi: 'žena'
+            pohlavi: 'žena',
           },
-          prihlaska: {}
-        }
-      }
-    }
+          prihlaska: {},
+        },
+      },
+    },
   };
   const { form } = state.registrator.prihlasky;
   const { kategorie, rocniky } = state.entities;
@@ -860,9 +860,9 @@ it('prihlaska.typ - není narození', () => {
     {
       key: 'koloběžka',
       id: '5a587e1b051c181132cf83d0',
-      value: { pohlavi: 'žena', typ: 'koloběžka', vek: { min: 18, max: 150 } }
+      value: { pohlavi: 'žena', typ: 'koloběžka', vek: { min: 18, max: 150 } },
     },
-    { key: 'pěší', id: '5a587e1a051c181132cf83b1', value: { typ: 'pěší' } }
+    { key: 'pěší', id: '5a587e1a051c181132cf83b1', value: { typ: 'pěší' } },
   ];
 
   expect(inputOptions({ name: 'prihlaska.typ', form, kategorie, rocniky })).toEqual(selected);
@@ -875,10 +875,10 @@ it('prihlaska.typ - muž', () => {
       prihlasky: {
         form: {
           udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: 'muž' },
-          prihlaska: {}
-        }
-      }
-    }
+          prihlaska: {},
+        },
+      },
+    },
   };
   const { form } = state.registrator.prihlasky;
   const { kategorie, rocniky } = state.entities;
@@ -886,24 +886,24 @@ it('prihlaska.typ - muž', () => {
     {
       key: 'maraton',
       id: '5a587e1a051c181132cf83b8',
-      value: { pohlavi: 'muž', typ: 'maraton', vek: { min: 18, max: 39 } }
+      value: { pohlavi: 'muž', typ: 'maraton', vek: { min: 18, max: 39 } },
     },
     {
       key: 'půlmaraton',
       id: '5a587e1b051c181132cf83d3',
-      value: { pohlavi: 'muž', typ: 'půlmaraton', vek: { min: 18, max: 39 } }
+      value: { pohlavi: 'muž', typ: 'půlmaraton', vek: { min: 18, max: 39 } },
     },
     {
       key: 'cyklo',
       id: '5a587e1a051c181132cf83b9',
-      value: { pohlavi: 'muž', typ: 'cyklo', vek: { min: 36, max: 45 } }
+      value: { pohlavi: 'muž', typ: 'cyklo', vek: { min: 36, max: 45 } },
     },
     {
       key: 'koloběžka',
       id: '5a587e1b051c181132cf83cf',
-      value: { pohlavi: 'muž', typ: 'koloběžka', vek: { min: 18, max: 150 } }
+      value: { pohlavi: 'muž', typ: 'koloběžka', vek: { min: 18, max: 150 } },
     },
-    { key: 'pěší', id: '5a587e1a051c181132cf83b1', value: { typ: 'pěší' } }
+    { key: 'pěší', id: '5a587e1a051c181132cf83b1', value: { typ: 'pěší' } },
   ];
 
   expect(inputOptions({ name: 'prihlaska.typ', form, kategorie, rocniky })).toEqual(selected);
@@ -929,10 +929,10 @@ it('prihlaska.startCislo - kategorie má čísla', () => {
       prihlasky: {
         form: {
           udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: 'muž' },
-          prihlaska: { kategorie: '5a587e1b051c181132cf83d3', typ: 'půlmaraton', startCislo: 45 }
-        }
-      }
-    }
+          prihlaska: { kategorie: '5a587e1b051c181132cf83d3', typ: 'půlmaraton', startCislo: 45 },
+        },
+      },
+    },
   };
   const { form } = state.registrator.prihlasky;
   const { rocniky } = state.entities;
@@ -953,10 +953,10 @@ it('prihlaska.startCislo - kategorie nemá čísla', () => {
       prihlasky: {
         form: {
           udaje: { narozeni: { den: undefined, mesic: undefined, rok: 1981 }, pohlavi: 'muž' },
-          prihlaska: { kategorie: '5a587e1a051c181132cf83b1', typ: 'pěší' }
-        }
-      }
-    }
+          prihlaska: { kategorie: '5a587e1a051c181132cf83b1', typ: 'pěší' },
+        },
+      },
+    },
   };
   const { form } = state.registrator.prihlasky;
   const { rocniky } = state.entities;
@@ -985,7 +985,7 @@ it('prihlaska.startCislo - vymazání', () => {
     inputValid({
       name: 'prihlaska.startCislo',
       value: stateAfter.prihlaska.startCislo,
-      form: stateAfter
+      form: stateAfter,
     })
   ).toBe(undefined);
 });
@@ -999,7 +999,7 @@ it('prihlaska.startCislo - dohláška - validate: true', () => {
       name: 'prihlaska.startCislo',
       value: form.prihlaska.startCislo,
       form,
-      rocniky
+      rocniky,
     })
   ).toBe('error');
 });
@@ -1015,11 +1015,11 @@ it('prihlaska.mladistvyPotvrzen - má potvrzení', () => {
             kategorie: '5a587e1b051c181132cf83d3',
             typ: 'půlmaraton',
             startCislo: 43,
-            mladistvyPotvrzen: true
-          }
-        }
-      }
-    }
+            mladistvyPotvrzen: true,
+          },
+        },
+      },
+    },
   };
   const { form } = state.registrator.prihlasky;
   const { rocniky } = state.entities;
@@ -1030,7 +1030,7 @@ it('prihlaska.mladistvyPotvrzen - má potvrzení', () => {
       name: 'prihlaska.mladistvyPotvrzen',
       value: form.prihlaska.mladistvyPotvrzen,
       form,
-      rocniky
+      rocniky,
     })
   ).toEqual('success');
 });
@@ -1046,11 +1046,11 @@ it('prihlaska.mladistvyPotvrzen - nemá potvrzení', () => {
             kategorie: '5a587e1b051c181132cf83d3',
             typ: 'půlmaraton',
             startCislo: 43,
-            mladistvyPotvrzen: false
-          }
-        }
-      }
-    }
+            mladistvyPotvrzen: false,
+          },
+        },
+      },
+    },
   };
   const { form } = state.registrator.prihlasky;
   const { rocniky } = state.entities;
@@ -1061,7 +1061,7 @@ it('prihlaska.mladistvyPotvrzen - nemá potvrzení', () => {
       name: 'prihlaska.mladistvyPotvrzen',
       value: form.prihlaska.mladistvyPotvrzen,
       form,
-      rocniky
+      rocniky,
     })
   ).toEqual('error');
 });
@@ -1081,7 +1081,7 @@ it('prihlaska.startovnePoSleve - prázdné', () => {
     inputValid({
       name: 'prihlaska.startovnePoSleve',
       value: stateAfter.prihlaska.startovnePoSleve,
-      form: stateAfter
+      form: stateAfter,
     })
   ).toBe(undefined);
 });
@@ -1101,7 +1101,7 @@ it('prihlaska.startovnePoSleve - číslo', () => {
     inputValid({
       name: 'prihlaska.startovnePoSleve',
       value: stateAfter.prihlaska.startovnePoSleve,
-      form: stateAfter
+      form: stateAfter,
     })
   ).toEqual('success');
 });
@@ -1121,7 +1121,7 @@ it('prihlaska.startovnePoSleve - invalid', () => {
     inputValid({
       name: 'prihlaska.startovnePoSleve',
       value: stateAfter.prihlaska.startovnePoSleve,
-      form: stateAfter
+      form: stateAfter,
     })
   ).toEqual('error');
 });
@@ -1166,7 +1166,7 @@ it('loadUcastnik() - údaje i přihláška', () => {
       stat: 'Česká republika',
       klub: 'Hory hory hory',
       email: 'není',
-      telefon: '765 123 089'
+      telefon: '765 123 089',
     },
     prihlaska: {
       datum: '1. 12. 2019',
@@ -1174,8 +1174,8 @@ it('loadUcastnik() - údaje i přihláška', () => {
       typ: 'maraton',
       startCislo: 14,
       kod: '===kód===',
-      mladistvyPotvrzen: undefined
-    }
+      mladistvyPotvrzen: undefined,
+    },
   };
   const stateAfter = {
     jePrihlaskou: true,
@@ -1189,18 +1189,18 @@ it('loadUcastnik() - údaje i přihláška', () => {
       narozeni: { rok: 1956 },
       pohlavi: 'muž',
       obec: 'Ostrava 2',
-      stat: 'Česká republika'
+      stat: 'Česká republika',
     },
     prihlaska: {
       datum: AKTUALNI_DATUM_KONANI,
       kategorie: '5a587e1b051c181132cf83d7',
       typ: 'půlmaraton',
       startCislo: 17,
-      kod: '10728864'
+      kod: '10728864',
     },
     platby: [{ castka: 350, datum: AKTUALNI_DATUM_KONANI, typ: 'hotově' }],
     ubytovani: { pátek: { prihlaseno: true, prespano: true } },
-    poznamky: []
+    poznamky: [],
   };
   deepFreeze(stateBefore);
 
@@ -1223,7 +1223,7 @@ it('loadUcastnik() - jen údaje', () => {
       stat: 'Česká republika',
       klub: 'Hory hory hory',
       email: 'není',
-      telefon: '765 123 089'
+      telefon: '765 123 089',
     },
     prihlaska: {
       datum: '1. 12. 2017',
@@ -1231,8 +1231,8 @@ it('loadUcastnik() - jen údaje', () => {
       typ: 'maraton',
       startCislo: 14,
       kod: '===kód===',
-      mladistvyPotvrzen: undefined
-    }
+      mladistvyPotvrzen: undefined,
+    },
   };
   const stateAfter = {
     jePrihlaskou: true,
@@ -1246,18 +1246,18 @@ it('loadUcastnik() - jen údaje', () => {
       narozeni: { rok: 1963, mesic: 12, den: 7 },
       pohlavi: 'žena',
       obec: 'Zlín',
-      stat: 'Česká republika'
+      stat: 'Česká republika',
     },
     prihlaska: {
       datum: undefined,
       kategorie: undefined,
       typ: undefined,
       startCislo: undefined,
-      kod: undefined
+      kod: undefined,
     },
     platby: [],
     ubytovani: {},
-    poznamky: []
+    poznamky: [],
   };
   deepFreeze(stateBefore);
 
@@ -1280,7 +1280,7 @@ it('loadUcastnik() - dohláška', () => {
       stat: 'Česká republika',
       klub: 'Hory hory hory',
       email: 'není',
-      telefon: '765 123 089'
+      telefon: '765 123 089',
     },
     prihlaska: {
       datum: '1. 12. 2017',
@@ -1288,8 +1288,8 @@ it('loadUcastnik() - dohláška', () => {
       typ: 'maraton',
       startCislo: 14,
       kod: '===kód===',
-      mladistvyPotvrzen: undefined
-    }
+      mladistvyPotvrzen: undefined,
+    },
   };
   const stateAfter = {
     jePrihlaskou: true,
@@ -1303,18 +1303,18 @@ it('loadUcastnik() - dohláška', () => {
       narozeni: { rok: 1963, mesic: 12, den: 7 },
       pohlavi: 'žena',
       obec: 'Zlín',
-      stat: 'Česká republika'
+      stat: 'Česká republika',
     },
     prihlaska: {
       datum: AKTUALNI_DATUM_KONANI,
       kategorie: undefined,
       typ: undefined,
       startCislo: undefined,
-      kod: undefined
+      kod: undefined,
     },
     platby: [],
     ubytovani: {},
-    poznamky: []
+    poznamky: [],
   };
   deepFreeze(stateBefore);
 
@@ -1323,7 +1323,7 @@ it('loadUcastnik() - dohláška', () => {
       stateBefore,
       createLoadUcastnik({ actionPrefix, jePrihlaskou: false })({
         id: '6f09b1fd371dec1e99b7e1c9',
-        ...ucastniciTestData.entities
+        ...ucastniciTestData.entities,
       })
     )
   ).toEqual(stateAfter);
@@ -1365,19 +1365,19 @@ it('predepsaneStartovne - cyklo - přihláška předem', () => {
         form: {
           prihlaska: {
             datum: '2020-05-23T00:00:00.000Z',
-            typ: 'cyklo'
+            typ: 'cyklo',
           },
-          platby: [{ datum: '2020-06-01T00:00:00.000Z', castka: 270 }]
-        }
-      }
-    }
+          platby: [{ datum: '2020-06-01T00:00:00.000Z', castka: 270 }],
+        },
+      },
+    },
   };
   const selected = {
     polozky: [
       { castka: 250, duvod: 'předem' },
-      { castka: 20, duvod: 'záloha' }
+      { castka: 20, duvod: 'záloha' },
     ],
-    suma: 270
+    suma: 270,
   };
   expect(predepsaneStartovne({ ...state.registrator.prihlasky.form, ...state.entities })).toEqual(
     selected
@@ -1392,11 +1392,11 @@ it('predepsaneStartovne - půlmaraton - dohláška', () => {
         form: {
           prihlaska: {
             datum: AKTUALNI_DATUM_KONANI,
-            kategorie: '5a587e1b051c181132cf83d4'
-          }
-        }
-      }
-    }
+            kategorie: '5a587e1b051c181132cf83d4',
+          },
+        },
+      },
+    },
   };
   const selected = { polozky: [{ castka: 350, duvod: 'na místě' }], suma: 350 };
   expect(predepsaneStartovne({ ...state.registrator.prihlasky.form, ...state.entities })).toEqual(
@@ -1408,15 +1408,15 @@ it('addPlatba()', () => {
   const stateBefore = {
     platby: [
       { castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' },
-      { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
-    ]
+      { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' },
+    ],
   };
   const stateAfter = {
     platby: [
       { castka: 133, datum: '2018-05-13T00:00:00.000Z', typ: 'převodem' },
       { castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' },
-      { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
-    ]
+      { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' },
+    ],
   };
   deepFreeze(stateBefore);
 
@@ -1433,20 +1433,20 @@ it('removePlatba()', () => {
     platby: [
       { castka: 133, datum: '2018-05-13T00:00:00.000Z', typ: 'převodem' },
       { castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' },
-      { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
-    ]
+      { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' },
+    ],
   };
   const stateAfter0 = {
     platby: [
       { castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' },
-      { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
-    ]
+      { castka: 20, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' },
+    ],
   };
   const stateAfter2 = {
     platby: [
       { castka: 133, datum: '2018-05-13T00:00:00.000Z', typ: 'převodem' },
-      { castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' }
-    ]
+      { castka: 250, datum: '2018-06-09T00:00:00.000Z', typ: 'hotově' },
+    ],
   };
   deepFreeze(stateBefore);
 

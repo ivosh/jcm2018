@@ -4,7 +4,7 @@ const computePoradi = ({ data, key }) => {
   const sorted = data.sort(dokoncenoCasSortMethod);
 
   let index = 0;
-  return sorted.map(jeden => {
+  return sorted.map((jeden) => {
     const { dokonceno, cas } = jeden;
     if (dokonceno === true && cas) {
       index += 1;
@@ -32,7 +32,7 @@ export const computePoradiProVsechny = ({ data, kategorieProRocnik }) => {
   const vsichni = [];
 
   const vsechnyKategorie = Object.keys(kategorieProRocnik.typy);
-  vsechnyKategorie.forEach(typ => {
+  vsechnyKategorie.forEach((typ) => {
     vsichni.push(...computePoradiProTyp({ data, kategorieProRocnik, typ }));
   });
 

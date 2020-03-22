@@ -41,9 +41,9 @@ PoradiSubFilters.propTypes = {
       active: PropTypes.bool,
       id: PropTypes.string.isRequired,
       typ: PropTypes.string.isRequired,
-      onClick: PropTypes.func.isRequired
+      onClick: PropTypes.func.isRequired,
     }).isRequired
-  ).isRequired
+  ).isRequired,
 };
 
 const PoradiFilters = ({
@@ -52,7 +52,7 @@ const PoradiFilters = ({
   kategorieSubFiltersVisible,
   numberOfItems,
   textFilter,
-  onTextFilterChange
+  onTextFilterChange,
 }) => (
   <div className="PoradiFilters">
     <TextFilter filter={textFilter} onChange={onTextFilterChange} />
@@ -74,7 +74,7 @@ PoradiFilters.propTypes = {
     PropTypes.shape({
       active: PropTypes.bool,
       typ: PropTypes.string.isRequired,
-      onClick: PropTypes.func.isRequired
+      onClick: PropTypes.func.isRequired,
     }).isRequired
   ).isRequired,
   kategorieSubFilters: PropTypes.arrayOf(
@@ -83,17 +83,17 @@ PoradiFilters.propTypes = {
       id: PropTypes.string.isRequired,
       typ: PropTypes.string.isRequired,
       zkratka: PropTypes.string.isRequired,
-      onClick: PropTypes.func.isRequired
+      onClick: PropTypes.func.isRequired,
     }).isRequired
   ).isRequired,
   kategorieSubFiltersVisible: PropTypes.bool.isRequired,
   numberOfItems: PropTypes.number.isRequired,
   textFilter: PropTypes.string,
-  onTextFilterChange: PropTypes.func.isRequired
+  onTextFilterChange: PropTypes.func.isRequired,
 };
 
 PoradiFilters.defaultProps = {
-  textFilter: undefined
+  textFilter: undefined,
 };
 
 export default PoradiFilters;

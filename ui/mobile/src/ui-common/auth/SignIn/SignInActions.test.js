@@ -11,24 +11,24 @@ const successfulResponse = {
   code: 'ok',
   response: {
     token: generateTestToken({ username: 'tomáš', nonce: '56565656565656565656' }),
-    username: 'tomáš'
+    username: 'tomáš',
   },
-  requestId: '0.9310306652587374'
+  requestId: '0.9310306652587374',
 };
 
 const mismatchedNonceResponse = {
   code: 'ok',
   response: {
     token: generateTestToken({ username: 'tomáš', nonce: 'abc5656' }),
-    username: 'tomáš'
+    username: 'tomáš',
   },
-  requestId: '0.9310306652587374'
+  requestId: '0.9310306652587374',
 };
 
 const unsuccessfulResponse = {
   code: 'password incorrect',
   status: 'Špatné jméno či heslo. Uživatel může být též zamčený.',
-  requestId: '0.9310306652587374'
+  requestId: '0.9310306652587374',
 };
 
 const middlewares = [wsAPI.withExtraArgument(mockWsClient)];
@@ -45,7 +45,7 @@ it('signIn() should dispatch two successful actions', async () => {
   expect(actions[0]).toEqual({
     type: `${SIGN_IN}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${SIGN_IN}_SUCCESS`,
@@ -56,13 +56,13 @@ it('signIn() should dispatch two successful actions', async () => {
         exp: 2208988800,
         iat: expect.any(Number),
         nonce: '56565656565656565656',
-        username: 'tomáš'
+        username: 'tomáš',
       },
       token: expect.any(String),
-      username: 'tomáš'
+      username: 'tomáš',
     },
     title: 'přihlašování',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -76,7 +76,7 @@ it('signIn() should dispatch two unsuccessful actions', async () => {
   expect(actions[0]).toEqual({
     type: `${SIGN_IN}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${SIGN_IN}_ERROR`,
@@ -84,10 +84,10 @@ it('signIn() should dispatch two unsuccessful actions', async () => {
     response: {
       code: 'password incorrect',
       requestId: expect.any(String),
-      status: 'Špatné jméno či heslo. Uživatel může být též zamčený.'
+      status: 'Špatné jméno či heslo. Uživatel může být též zamčený.',
     },
     title: 'přihlašování',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -101,17 +101,17 @@ it('signIn() should dispatch two unsuccessful actions on error', async () => {
   expect(actions[0]).toEqual({
     type: `${SIGN_IN}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${SIGN_IN}_ERROR`,
     error: 'Error: Parse error!',
     request,
     response: {
-      code: 'internal error'
+      code: 'internal error',
     },
     title: 'přihlašování',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -125,7 +125,7 @@ it('signIn() should dispatch two unsuccessful actions [nonce mismatch]', async (
   expect(actions[0]).toEqual({
     type: `${SIGN_IN}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${SIGN_IN}_ERROR`,
@@ -137,9 +137,9 @@ it('signIn() should dispatch two unsuccessful actions [nonce mismatch]', async (
       status:
         'Jednorázový přihlašovací kód vygenerovaný prohlížečem nesouhlasí s kódem, který poslal server.',
       token: expect.any(String),
-      username: 'tomáš'
+      username: 'tomáš',
     },
     title: 'přihlašování',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });

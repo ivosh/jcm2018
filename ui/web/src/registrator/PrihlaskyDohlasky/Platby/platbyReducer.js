@@ -8,10 +8,10 @@ const initialState = {
   typ: PLATBA_TYPY[0],
   poznamka: undefined,
   novaPlatbaMinified: true,
-  validate: false
+  validate: false,
 };
 
-export const createPlatbyReducer = actionPrefix => (state = initialState, action) => {
+export const createPlatbyReducer = (actionPrefix) => (state = initialState, action) => {
   switch (action.type) {
     case `${actionPrefix}_NOVA_PLATBA_INPUT_CHANGED`: {
       const [, name] = action.name.split('.');
@@ -82,13 +82,13 @@ export const formErrors = ({ form }) => {
   errors.push(inputError({ name: 'novaPlatba.typ', value: form.typ, form }));
   errors.push(inputError({ name: 'novaPlatba.poznamka', value: form.poznamka, form }));
 
-  return errors.filter(error => error);
+  return errors.filter((error) => error);
 };
 
 export const inputOptions = ({ name }) => {
   switch (name) {
     case 'novaPlatba.typ':
-      return PLATBA_TYPY.map(typ => ({ key: typ, value: typ }));
+      return PLATBA_TYPY.map((typ) => ({ key: typ, value: typ }));
     default:
       return null;
   }

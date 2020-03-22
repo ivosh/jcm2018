@@ -2,14 +2,14 @@ const casomiry = [
   { casomira: 'maraton', accessKey: 'm' },
   { casomira: 'půlmaraton', accessKey: 'p' },
   { casomira: 'cyklo', accessKey: 'c' },
-  { casomira: 'koloběžka', accessKey: 'k' }
+  { casomira: 'koloběžka', accessKey: 'k' },
 ];
 
 const initialState = {
   maraton: true,
   půlmaraton: true,
   cyklo: true,
-  koloběžka: true
+  koloběžka: true,
 };
 
 const casomiryReducer = (state = initialState, action) => {
@@ -23,4 +23,4 @@ const casomiryReducer = (state = initialState, action) => {
 
 export default casomiryReducer;
 
-export const getCasomiry = state => casomiry.filter(casomira => state[casomira.casomira]);
+export const getCasomiry = (state) => casomiry.filter((casomira) => state[casomira.casomira]);

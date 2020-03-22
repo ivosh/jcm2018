@@ -9,7 +9,7 @@ const mapStateToProps = ({ entities, registrator: { vitezove } }) => {
   const { kategorieFilter, kategorieSubFilter } = vitezove;
 
   const kategorieFilters = TYPY_KATEGORII_VYHODNOCOVANE;
-  const kategorieFiltersActive = kategorieFilters.map(typ => {
+  const kategorieFiltersActive = kategorieFilters.map((typ) => {
     const active = typ === kategorieFilter;
     const visible = active || kategorieFilter === '';
     return { typ, active, visible };
@@ -19,7 +19,7 @@ const mapStateToProps = ({ entities, registrator: { vitezove } }) => {
   const kategorieSubFiltersVisible = kategorieFilter !== '';
   const kategorieSubFilters =
     kategorieFilter === '' ? [] : getKategorieProTyp({ ...entities, typ: kategorieFilter }).list;
-  const kategorieSubFiltersActive = kategorieSubFilters.map(jedna => {
+  const kategorieSubFiltersActive = kategorieSubFilters.map((jedna) => {
     const active = kategorieSubFilter === jedna.id;
     return { ...jedna, active };
   });
@@ -28,13 +28,13 @@ const mapStateToProps = ({ entities, registrator: { vitezove } }) => {
     kategorieFilters: kategorieFiltersActiveVisible,
     kategorieSubFiltersVisible,
     kategorieSubFilters: kategorieSubFiltersActive,
-    vitezove: getVitezove({ ...vitezove, ...entities })
+    vitezove: getVitezove({ ...vitezove, ...entities }),
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  onKategorieFilterChange: typ => dispatch(kategorieFilterChange(typ)),
-  onKategorieSubFilterChange: kategorie => dispatch(kategorieSubFilterChange(kategorie))
+const mapDispatchToProps = (dispatch) => ({
+  onKategorieFilterChange: (typ) => dispatch(kategorieFilterChange(typ)),
+  onKategorieSubFilterChange: (kategorie) => dispatch(kategorieSubFilterChange(kategorie)),
 });
 
 const mergeProps = (stateProps, dispatchProps) => {
@@ -45,21 +45,21 @@ const mergeProps = (stateProps, dispatchProps) => {
     ...restOfDispatchProps
   } = dispatchProps;
 
-  const kategorieFiltersAction = kategorieFilters.map(jedna => ({
+  const kategorieFiltersAction = kategorieFilters.map((jedna) => ({
     ...jedna,
-    onClick: () => onKategorieFilterChange(jedna.typ)
+    onClick: () => onKategorieFilterChange(jedna.typ),
   }));
 
-  const kategorieSubFiltersAction = kategorieSubFilters.map(jedna => ({
+  const kategorieSubFiltersAction = kategorieSubFilters.map((jedna) => ({
     ...jedna,
-    onClick: () => onKategorieSubFilterChange(jedna.id)
+    onClick: () => onKategorieSubFilterChange(jedna.id),
   }));
 
   return {
     ...restOfStateProps,
     ...restOfDispatchProps,
     kategorieFilters: kategorieFiltersAction,
-    kategorieSubFilters: kategorieSubFiltersAction
+    kategorieSubFilters: kategorieSubFiltersAction,
   };
 };
 

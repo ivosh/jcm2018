@@ -21,13 +21,13 @@ LoadingButton.propTypes = {
   type: PropTypes.string,
   loading: PropTypes.bool,
   loadingText: PropTypes.string, // eslint-disable-line react/require-default-props
-  onClick: PropTypes.func // eslint-disable-line react/require-default-props
+  onClick: PropTypes.func, // eslint-disable-line react/require-default-props
 };
 
 LoadingButton.defaultProps = {
   bsStyle: 'success',
   loading: false,
-  type: 'button'
+  type: 'button',
 };
 
 export default LoadingButton;

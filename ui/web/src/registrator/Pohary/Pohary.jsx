@@ -6,7 +6,7 @@ import DraggablePohar from './DraggablePohar';
 import './Pohary.css';
 
 const Pohary = ({ className, count, id, key, isDragOver, style, type, connectDropTarget }) => {
-  const classNames = className.split(' ').filter(str => str); // filter empty strings
+  const classNames = className.split(' ').filter((str) => str); // filter empty strings
   classNames.push('Pohary');
   if (isDragOver) {
     classNames.push('Pohary--isDragOver');
@@ -32,12 +32,12 @@ Pohary.propTypes = {
   isDragOver: PropTypes.bool,
   style: StylePropType,
   type: PropTypes.oneOf(TYPY_POHARU).isRequired,
-  connectDropTarget: PropTypes.func
+  connectDropTarget: PropTypes.func,
 };
 
 Pohary.defaultProps = {
   className: '',
-  connectDropTarget: el => el
+  connectDropTarget: (el) => el,
 };
 
 export default Pohary;

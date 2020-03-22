@@ -1,4 +1,4 @@
-const convertDuration = duration => {
+const convertDuration = (duration) => {
   let hours;
   let mins;
   let secs;

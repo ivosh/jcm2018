@@ -34,7 +34,7 @@ const StartovniCisla = ({ typ, canDrop, onDrop }) => (
 StartovniCisla.propTypes = {
   typ: PropTypes.string.isRequired,
   canDrop: PropTypes.func.isRequired,
-  onDrop: PropTypes.func.isRequired
+  onDrop: PropTypes.func.isRequired,
 };
 
 export default StartovniCisla;

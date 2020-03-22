@@ -11,15 +11,15 @@ import { POHAR_PREDAN } from '../../registrator/Pohary/PoharyActions';
 import {
   POZNAMKA_ADD,
   POZNAMKA_DELETE,
-  POZNAMKA_MODIFY
+  POZNAMKA_MODIFY,
 } from '../../registrator/Poznamky/PoznamkyActions';
 import {
   DOHLASKY_SAVE,
-  PRIHLASKY_SAVE
+  PRIHLASKY_SAVE,
 } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
 import {
   STARTUJICI_CREATE_VYKON,
-  STARTUJICI_DELETE_VYKON
+  STARTUJICI_DELETE_VYKON,
 } from '../../registrator/Startujici/StartujiciActions';
 import { MODIFY_UBYTOVANI } from '../../registrator/Ubytovani/UbytovaniActions';
 
@@ -27,7 +27,7 @@ const initialState = {
   code: '',
   message: '',
   show: false,
-  title: ''
+  title: '',
 };
 
 const errorInModalReducer = (state = initialState, action) => {

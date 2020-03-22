@@ -6,7 +6,7 @@ import StartovniCislo from './StartovniCislo';
 
 const collect = (connect, monitor) => ({
   connectDropTarget: connect.dropTarget(),
-  isDropOver: monitor.isOver() && monitor.canDrop()
+  isDropOver: monitor.isOver() && monitor.canDrop(),
 });
 
 class DroppableStartovniCislo extends PureComponent {
@@ -18,7 +18,7 @@ class DroppableStartovniCislo extends PureComponent {
       drop: (dropProps, monitor) =>
         onDrop({ source: monitor.getItem(), destination: { ...dropProps, typ } }),
       canDrop: (dropProps, monitor) =>
-        canDrop({ source: monitor.getItem(), destination: { ...dropProps, typ } })
+        canDrop({ source: monitor.getItem(), destination: { ...dropProps, typ } }),
     };
   }
 
@@ -36,7 +36,7 @@ class DroppableStartovniCislo extends PureComponent {
 DroppableStartovniCislo.propTypes = {
   typ: PropTypes.string.isRequired,
   canDrop: PropTypes.func.isRequired,
-  onDrop: PropTypes.func.isRequired
+  onDrop: PropTypes.func.isRequired,
 };
 
 export default DroppableStartovniCislo;

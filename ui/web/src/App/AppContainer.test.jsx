@@ -10,7 +10,7 @@ let wrapper;
 beforeEach(() => {
   const state = {
     connected: true,
-    auth: { authenticated: true, decodedToken: { username: 'tomáš' } }
+    auth: { authenticated: true, decodedToken: { username: 'tomáš' } },
   };
   store = mockStore(state);
   store.dispatch = jest.fn();

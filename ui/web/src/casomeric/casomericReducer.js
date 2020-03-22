@@ -6,12 +6,12 @@ const novyMezicasReducers = combineReducers({
   maraton: createNovyMezicasReducer('maraton'),
   půlmaraton: createNovyMezicasReducer('půlmaraton'),
   cyklo: createNovyMezicasReducer('cyklo'),
-  koloběžka: createNovyMezicasReducer('koloběžka')
+  koloběžka: createNovyMezicasReducer('koloběžka'),
 });
 
 const casomericReducer = combineReducers({
   casomiry: casomiryReducer,
-  novyMezicas: novyMezicasReducers
+  novyMezicas: novyMezicasReducers,
 });
 
 export default casomericReducer;

@@ -22,9 +22,9 @@ export const getTypKategorie = ({ rok, typ, rocniky }) => {
   return rocnik.kategorie[typ];
 };
 
-const buildLookup = list => {
+const buildLookup = (list) => {
   const lookup = {};
-  list.forEach(kategorie => {
+  list.forEach((kategorie) => {
     lookup[kategorie.id] = kategorie;
   });
   return lookup;
@@ -45,7 +45,7 @@ export const getKategorieProTyp = ({ typ, rocniky, rok = AKTUALNI_ROK }) => {
 
 export const getKategorie = ({ rocniky, rok = AKTUALNI_ROK }) => {
   const result = { kategorie: {}, typy: {} };
-  TYPY_KATEGORII.forEach(typ => {
+  TYPY_KATEGORII.forEach((typ) => {
     result.typy[typ] = getKategorieProTyp({ typ, rocniky, rok });
     result.kategorie = { ...result.kategorie, ...buildLookup(result.typy[typ].list) };
   });

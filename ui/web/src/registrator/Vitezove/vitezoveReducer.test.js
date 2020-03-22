@@ -24,7 +24,7 @@ it('přepínání kategorieSubFilter', () => {
 it('přepínání kategorieSubFilter - vypnout', () => {
   const stateBefore = {
     kategorieFilter: 'maraton',
-    kategorieSubFilter: '5a587e1a051c181132cf83ba'
+    kategorieSubFilter: '5a587e1a051c181132cf83ba',
   };
   const stateAfter = { ...stateBefore, kategorieSubFilter: '' };
   deepFreeze(stateBefore);
@@ -37,7 +37,7 @@ it('přepínání kategorieSubFilter - vypnout', () => {
 it('přepínání kategorieFilter - vypnout', () => {
   const stateBefore = {
     kategorieFilter: 'maraton',
-    kategorieSubFilter: '5a587e1a051c181132cf83ba'
+    kategorieSubFilter: '5a587e1a051c181132cf83ba',
   };
   const stateAfter = { kategorieFilter: '', kategorieSubFilter: '' };
   deepFreeze(stateBefore);
@@ -48,7 +48,7 @@ it('přepínání kategorieFilter - vypnout', () => {
 it('přepínání kategorieFilter - přepnout', () => {
   const stateBefore = {
     kategorieFilter: 'maraton',
-    kategorieSubFilter: '5a587e1a051c181132cf83ba'
+    kategorieSubFilter: '5a587e1a051c181132cf83ba',
   };
   const stateAfter = { kategorieFilter: 'cyklo', kategorieSubFilter: '' };
   deepFreeze(stateBefore);
@@ -62,15 +62,15 @@ it('getVitezove() - kategorie nevybrána', () => {
     registrator: {
       vitezove: {
         kategorieFilter: '',
-        kategorieSubFilter: ''
-      }
-    }
+        kategorieSubFilter: '',
+      },
+    },
   };
   deepFreeze(state);
 
   const {
     entities,
-    registrator: { vitezove: props }
+    registrator: { vitezove: props },
   } = state;
   expect(getVitezove({ ...entities, ...props })).toEqual([]);
 });
@@ -81,9 +81,9 @@ it('getVitezove() - for kategorie půlmaraton/žena/18-39', () => {
     registrator: {
       vitezove: {
         kategorieFilter: 'půlmaraton',
-        kategorieSubFilter: '5a587e1b051c181132cf83d9'
-      }
-    }
+        kategorieSubFilter: '5a587e1b051c181132cf83d9',
+      },
+    },
   };
   const selected = [
     {
@@ -96,13 +96,13 @@ it('getVitezove() - for kategorie půlmaraton/žena/18-39', () => {
         typ: 'půlmaraton',
         pohlavi: 'žena',
         vek: { min: 18, max: 39 },
-        zkratka: '1Ž'
+        zkratka: '1Ž',
       },
       startCislo: 11,
       dokonceno: true,
       cas: 'PT2H06M32.6S',
       absPoradi: 1,
-      relPoradi: 1
+      relPoradi: 1,
     },
     {
       id: '9ccbc71dedc1e99b7e1d671',
@@ -114,20 +114,20 @@ it('getVitezove() - for kategorie půlmaraton/žena/18-39', () => {
         typ: 'půlmaraton',
         pohlavi: 'žena',
         vek: { min: 18, max: 39 },
-        zkratka: '1Ž'
+        zkratka: '1Ž',
       },
       startCislo: 8,
       dokonceno: true,
       cas: 'PT3H15M32.6S',
       absPoradi: 2,
-      relPoradi: 2
-    }
+      relPoradi: 2,
+    },
   ];
   deepFreeze(state);
 
   const {
     entities,
-    registrator: { vitezove: props }
+    registrator: { vitezove: props },
   } = state;
   expect(getVitezove({ ...entities, ...props })).toEqual(selected);
 });

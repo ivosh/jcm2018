@@ -21,7 +21,7 @@ class SignOut extends PureComponent {
 }
 
 SignOut.propTypes = {
-  signOut: PropTypes.func.isRequired
+  signOut: PropTypes.func.isRequired,
 };
 
 export default SignOut;

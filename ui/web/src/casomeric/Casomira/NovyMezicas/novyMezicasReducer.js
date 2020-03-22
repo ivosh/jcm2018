@@ -1,6 +1,6 @@
 const initialState = { cas: '', showing: false };
 
-export const createNovyMezicasReducer = typ => (state = initialState, action) => {
+export const createNovyMezicasReducer = (typ) => (state = initialState, action) => {
   switch (action.type) {
     case `NOVY_MEZICAS_INPUT_CHANGED_${typ}`:
       return { ...state, cas: action.cas };
@@ -13,7 +13,7 @@ export const createNovyMezicasReducer = typ => (state = initialState, action) =>
   }
 };
 
-export const casValid = state => {
+export const casValid = (state) => {
   if (state.cas === '') {
     return undefined;
   }

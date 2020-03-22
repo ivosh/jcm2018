@@ -9,12 +9,12 @@ import {
   POZNAMKA_MODIFY,
   addPoznamka,
   deletePoznamka,
-  modifyPoznamka
+  modifyPoznamka,
 } from './PoznamkyActions';
 
 const unsuccessfulResponse = {
   code: 'unfulfilled request',
-  status: 'A strange error occurred.'
+  status: 'A strange error occurred.',
 };
 
 const mockWsClient = new WsClient();
@@ -27,10 +27,10 @@ it('addPoznamka() should dispatch two successful actions', async () => {
   const response = {
     code: 'ok',
     response: {
-      poznamky: [poznamka]
+      poznamky: [poznamka],
     },
     status: 'uloženo v pořádku',
-    requestId: '0.9310306652587377'
+    requestId: '0.9310306652587377',
   };
 
   mockWsClient.sendRequest = async () => response;
@@ -42,7 +42,7 @@ it('addPoznamka() should dispatch two successful actions', async () => {
   expect(actions[0]).toEqual({
     type: `${POZNAMKA_ADD}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${POZNAMKA_ADD}_SUCCESS`,
@@ -50,10 +50,10 @@ it('addPoznamka() should dispatch two successful actions', async () => {
     response: {
       code: 'ok',
       status: 'uloženo v pořádku',
-      poznamky: [poznamka]
+      poznamky: [poznamka],
     },
     title: 'přidávání poznámky',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -65,7 +65,7 @@ it('addPoznamka() should dispatch two unsuccessful actions', async () => {
   await store.dispatch(
     addPoznamka({
       id: '7a09b1fd371dec1e99b7e142',
-      poznamka: { ...poznamka, datum: new Date(poznamka.datum) }
+      poznamka: { ...poznamka, datum: new Date(poznamka.datum) },
     })
   );
 
@@ -74,17 +74,17 @@ it('addPoznamka() should dispatch two unsuccessful actions', async () => {
   expect(actions[0]).toEqual({
     type: `${POZNAMKA_ADD}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${POZNAMKA_ADD}_ERROR`,
     request,
     response: {
       code: 'unfulfilled request',
-      status: 'A strange error occurred.'
+      status: 'A strange error occurred.',
     },
     title: 'přidávání poznámky',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -92,10 +92,10 @@ it('deletePoznamka() should dispatch two successful actions', async () => {
   const response = {
     code: 'ok',
     response: {
-      poznamky: []
+      poznamky: [],
     },
     status: 'uloženo v pořádku',
-    requestId: '0.9310306652587377'
+    requestId: '0.9310306652587377',
   };
 
   mockWsClient.sendRequest = async () => response;
@@ -107,7 +107,7 @@ it('deletePoznamka() should dispatch two successful actions', async () => {
   expect(actions[0]).toEqual({
     type: `${POZNAMKA_DELETE}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${POZNAMKA_DELETE}_SUCCESS`,
@@ -115,10 +115,10 @@ it('deletePoznamka() should dispatch two successful actions', async () => {
     response: {
       code: 'ok',
       status: 'uloženo v pořádku',
-      poznamky: []
+      poznamky: [],
     },
     title: 'mazání poznámky',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -133,17 +133,17 @@ it('deletePoznamka() should dispatch two unsuccessful actions', async () => {
   expect(actions[0]).toEqual({
     type: `${POZNAMKA_DELETE}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${POZNAMKA_DELETE}_ERROR`,
     request,
     response: {
       code: 'unfulfilled request',
-      status: 'A strange error occurred.'
+      status: 'A strange error occurred.',
     },
     title: 'mazání poznámky',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -152,10 +152,10 @@ it('modifyPoznamka() should dispatch two successful actions', async () => {
   const response = {
     code: 'ok',
     response: {
-      poznamky: [poznamka]
+      poznamky: [poznamka],
     },
     status: 'uloženo v pořádku',
-    requestId: '0.9310306652587377'
+    requestId: '0.9310306652587377',
   };
 
   mockWsClient.sendRequest = async () => response;
@@ -167,7 +167,7 @@ it('modifyPoznamka() should dispatch two successful actions', async () => {
   expect(actions[0]).toEqual({
     type: `${POZNAMKA_MODIFY}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${POZNAMKA_MODIFY}_SUCCESS`,
@@ -175,10 +175,10 @@ it('modifyPoznamka() should dispatch two successful actions', async () => {
     response: {
       code: 'ok',
       status: 'uloženo v pořádku',
-      poznamky: [poznamka]
+      poznamky: [poznamka],
     },
     title: 'ukládání poznámky',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -191,7 +191,7 @@ it('modifyPoznamka() should dispatch two unsuccessful actions', async () => {
     modifyPoznamka({
       id: '7a09b1fd371dec1e99b7e142',
       index: 0,
-      poznamka: { ...poznamka, datum: new Date(poznamka.datum) }
+      poznamka: { ...poznamka, datum: new Date(poznamka.datum) },
     })
   );
 
@@ -200,16 +200,16 @@ it('modifyPoznamka() should dispatch two unsuccessful actions', async () => {
   expect(actions[0]).toEqual({
     type: `${POZNAMKA_MODIFY}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${POZNAMKA_MODIFY}_ERROR`,
     request,
     response: {
       code: 'unfulfilled request',
-      status: 'A strange error occurred.'
+      status: 'A strange error occurred.',
     },
     title: 'ukládání poznámky',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });

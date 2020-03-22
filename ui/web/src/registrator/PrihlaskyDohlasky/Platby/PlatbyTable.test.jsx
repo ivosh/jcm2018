@@ -8,9 +8,9 @@ const platby = [
     datum: '10. 12. 2017',
     typ: 'převodem',
     poznamka: 'stále visí',
-    onRemove: jest.fn()
+    onRemove: jest.fn(),
   },
-  { castka: 20, datum: '11. 12. 2017', typ: 'hotově', onRemove: jest.fn() }
+  { castka: 20, datum: '11. 12. 2017', typ: 'hotově', onRemove: jest.fn() },
 ];
 
 it('dvě platby', () => {

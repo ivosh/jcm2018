@@ -18,15 +18,15 @@ beforeEach(() => {
         maraton: true,
         půlmaraton: false,
         cyklo: true,
-        koloběžka: true
+        koloběžka: true,
       },
       novyMezicas: {
         maraton: { cas: '', showing: false },
         půlmaraton: { cas: '', showing: false },
         cyklo: { cas: '', showing: false },
-        koloběžka: { cas: '', showing: false }
-      }
-    }
+        koloběžka: { cas: '', showing: false },
+      },
+    },
   };
   state.entities.stopky = { byTypy: {}, typy: [] };
 
@@ -52,6 +52,6 @@ it('maps onRemove to dispatch removeCasomira', () => {
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: 'CASOMIRY_REMOVE_CASOMIRA',
-    casomira: 'půlmaraton'
+    casomira: 'půlmaraton',
   });
 });

@@ -6,12 +6,12 @@ import { getUcastiProRok } from '../../../entities/ucastnici/ucastniciReducer';
 import { getMezicasy, getStopkyByTyp } from '../../Stopky/StopkyProTyp/stopkyProTypReducer';
 import {
   stopkyInsertMezicas,
-  stopkyRemoveMezicas
+  stopkyRemoveMezicas,
 } from '../../Stopky/StopkyProTyp/StopkyProTypActions';
 import {
   createDropAction,
   saveVykon,
-  startCisloNaTrase
+  startCisloNaTrase,
 } from '../StartovniCisla/StartovniCislaActions';
 import { canDrop } from './MezicasyActions';
 import Mezicasy from './Mezicasy';
@@ -22,7 +22,7 @@ const mapStateToProps = (state, ownProps) => {
   const ucasti = getUcastiProRok({ ...state.entities });
 
   const mezicasy = getMezicasy({ stopky, ucasti, kategorie: state.entities.kategorie });
-  const populated = mezicasy.map(mezicas => {
+  const populated = mezicasy.map((mezicas) => {
     const { cas, ...rest } = mezicas;
     return { ...rest, cas: moment.duration(cas) };
   });
@@ -35,7 +35,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const onStopkyRemoveMezicas = ({ cas }) => dispatch(stopkyRemoveMezicas({ cas, typ }));
 
   return {
-    onDrop: dropResult => {
+    onDrop: (dropResult) => {
       dispatch(createDropAction(dropResult));
       onStopkyRemoveMezicas({ cas: dropResult.destination.cas });
       return undefined;
@@ -44,7 +44,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onUcastnikRemoveCas: ({ id, cas }) => {
       dispatch(stopkyInsertMezicas({ cas, typ }));
       dispatch(saveVykon({ action: startCisloNaTrase({ id }), id, typ }));
-    }
+    },
   };
 };
 
@@ -57,21 +57,21 @@ const mergeProps = (stateProps, dispatchProps) => {
     ...restOfDispatchProps
   } = dispatchProps;
 
-  const populated = mezicasy.map(mezicas => {
+  const populated = mezicasy.map((mezicas) => {
     const { id, cas } = mezicas;
     return {
       ...mezicas,
       canDrop,
       onDrop,
       onEdit: () => {},
-      onRemove: id ? () => onUcastnikRemoveCas({ id, cas }) : () => onStopkyRemoveMezicas({ cas })
+      onRemove: id ? () => onUcastnikRemoveCas({ id, cas }) : () => onStopkyRemoveMezicas({ cas }),
     };
   });
 
   return {
     ...restOfStateProps,
     mezicasy: populated,
-    ...restOfDispatchProps
+    ...restOfDispatchProps,
   };
 };
 
@@ -84,7 +84,7 @@ const MezicasyContainer = connect(
 )(MezicasyResponsive);
 
 MezicasyContainer.propTypes = {
-  typ: PropTypes.string.isRequired
+  typ: PropTypes.string.isRequired,
 };
 
 export default MezicasyContainer;

@@ -9,7 +9,7 @@ import poharPredano from './pohar_predano.svg';
 const typeToImg = {
   [POHAR_NAROK]: poharNarok,
   [POHAR_NEPREVZATO]: poharNeprevzato,
-  [POHAR_PREDANO]: poharPredano
+  [POHAR_PREDANO]: poharPredano,
 };
 
 const Pohar = ({ dragAllowed, sizePercentage, type, connectDragSource }) =>
@@ -28,12 +28,12 @@ Pohar.propTypes = {
   dragAllowed: PropTypes.bool,
   sizePercentage: PropTypes.number.isRequired,
   type: PropTypes.oneOf(TYPY_POHARU).isRequired,
-  connectDragSource: PropTypes.func
+  connectDragSource: PropTypes.func,
 };
 
 Pohar.defaultProps = {
   sizePercentage: 100,
-  connectDragSource: el => el
+  connectDragSource: (el) => el,
 };
 
 export default Pohar;

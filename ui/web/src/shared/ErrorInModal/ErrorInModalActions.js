@@ -8,5 +8,5 @@ export const showError = ({ code, status, err, type, ...rest }) => ({
   status,
   err: errorToStr(err),
   ...rest,
-  receivedAt: Date.now()
+  receivedAt: Date.now(),
 });

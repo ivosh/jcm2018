@@ -5,14 +5,14 @@ import { predepsaneStartovne, provedenePlatby } from './platby';
 it('provedenePlatby()', () => {
   const platby = [
     { castka: 250, datum: AKTUALNI_DATUM_KONANI, typ: 'hotově' },
-    { castka: 20, datum: AKTUALNI_DATUM_KONANI, typ: 'hotově' }
+    { castka: 20, datum: AKTUALNI_DATUM_KONANI, typ: 'hotově' },
   ];
   const selected = {
     platby: [
       { castka: 250, datum: `6. 6. ${AKTUALNI_ROK}`, typ: 'hotově' },
-      { castka: 20, datum: `6. 6. ${AKTUALNI_ROK}`, typ: 'hotově' }
+      { castka: 20, datum: `6. 6. ${AKTUALNI_ROK}`, typ: 'hotově' },
     ],
-    suma: 270
+    suma: 270,
   };
   expect(provedenePlatby(platby)).toEqual(selected);
 });
@@ -46,7 +46,7 @@ it('predepsaneStartovne() - včasná přihláška a včasná (ale nedostatečná
   const platby = [{ castka: 230, datum: '2020-06-03', typ: 'převodem' }];
   const expected = {
     polozky: [{ castka: 350, duvod: 'na místě (nedostatečná platba)' }],
-    suma: 350
+    suma: 350,
   };
 
   expect(predepsaneStartovne({ ...ucastniciTestData.entities, prihlaska, platby })).toEqual(
@@ -60,9 +60,9 @@ it('predepsaneStartovne() - včasná přihláška a včasná platba (bez zálohy
   const expected = {
     polozky: [
       { castka: 250, duvod: 'předem' },
-      { castka: 20, duvod: 'záloha' }
+      { castka: 20, duvod: 'záloha' },
     ],
-    suma: 270
+    suma: 270,
   };
 
   expect(predepsaneStartovne({ ...ucastniciTestData.entities, prihlaska, platby })).toEqual(

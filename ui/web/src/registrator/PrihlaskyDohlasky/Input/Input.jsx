@@ -49,7 +49,7 @@ Input.propTypes = {
     PropTypes.shape({
       key: PropTypes.string.isRequired,
       id: PropTypes.string,
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
     })
   ), // for RadioInput
   showFeedback: PropTypes.bool,
@@ -58,7 +58,7 @@ Input.propTypes = {
   visible: PropTypes.bool.isRequired,
   Type: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.node]).isRequired,
   inputRef: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
 };
 
 Input.defaultProps = {
@@ -67,7 +67,7 @@ Input.defaultProps = {
   popisekWidth: 3,
   showFeedback: true,
   validationState: undefined,
-  value: undefined
+  value: undefined,
 };
 
 export default Input;

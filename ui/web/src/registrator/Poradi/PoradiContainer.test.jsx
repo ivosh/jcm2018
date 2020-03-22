@@ -15,9 +15,9 @@ const defaultState = {
     [reduxName]: {
       kategorieFilter: '',
       kategorieSubFilter: '',
-      textFilter: ''
-    }
-  }
+      textFilter: '',
+    },
+  },
 };
 
 let store;
@@ -47,9 +47,9 @@ it('maps state and dispatch to props - non-default', () => {
       [reduxName]: {
         kategorieFilter: 'maraton',
         kategorieSubFilter: '5a587e1a051c181132cf83ba',
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   setup(state);
 
@@ -65,7 +65,7 @@ it('maps kategorieFilters[4].onClick() to dispatch kategorieFilterChange action'
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: `${actionPrefix}_KATEGORIE_FILTER_CHANGE`,
-    typKategorie: 'pěší'
+    typKategorie: 'pěší',
   });
 });
 
@@ -76,16 +76,16 @@ it('maps kategorieSubFilters[1].onClick() to dispatch kategorieSubFilterChange a
       [reduxName]: {
         kategorieFilter: 'maraton',
         kategorieSubFilter: '',
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   setup(state);
   wrapper.props().kategorieSubFilters[1].onClick();
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: `${actionPrefix}_KATEGORIE_SUB_FILTER_CHANGE`,
-    kategorieSubFilter: '5a587e1a051c181132cf83ba'
+    kategorieSubFilter: '5a587e1a051c181132cf83ba',
   });
 });
 
@@ -94,6 +94,6 @@ it('maps onTextFilterChange to dispatch textFilterChange action', () => {
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: `${actionPrefix}_TEXT_FILTER_CHANGE`,
-    textFilter: 'Kl'
+    textFilter: 'Kl',
   });
 });

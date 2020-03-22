@@ -25,14 +25,14 @@ const store = mockStore({
         udaje: { narozeni: {} },
         prihlaska: {},
         platby: [],
-        ubytovani: {}
+        ubytovani: {},
       },
       platby: {
-        novaPlatbaMinified: true
+        novaPlatbaMinified: true,
       },
-      startCislo: { showing: false }
-    }
-  }
+      startCislo: { showing: false },
+    },
+  },
 });
 
 it('renders /prihlasky route', () => {
@@ -77,7 +77,7 @@ it('renders /prihlasky/reset route', () => {
   expect(store.dispatch).toHaveBeenCalledTimes(3); // fetchUcastnici + Form/reset + Platby/reset
   expect(store.dispatch).toHaveBeenCalledWith({
     type: `${actionPrefix}_RESET`,
-    datumKonani: expect.any(String)
+    datumKonani: expect.any(String),
   });
   expect(store.dispatch).toHaveBeenCalledWith({ type: `${actionPrefix}_NOVA_PLATBA_RESET` });
 });
@@ -104,7 +104,7 @@ it('renders /prihlasky/:id route', () => {
       obec: 'Zlín',
       pohlavi: 'žena',
       prijmeni: 'Sukdoláková',
-      stat: 'Česká republika'
-    }
+      stat: 'Česká republika',
+    },
   });
 });

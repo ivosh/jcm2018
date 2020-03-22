@@ -13,7 +13,7 @@ StartovniCislo.propTypes = {
   classNames: PropTypes.string.isRequired,
   isDropOver: PropTypes.bool,
   startCislo: PropTypes.number,
-  connectDropTarget: PropTypes.func.isRequired
+  connectDropTarget: PropTypes.func.isRequired,
 };
 
 export default StartovniCislo;

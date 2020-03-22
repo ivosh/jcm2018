@@ -14,8 +14,8 @@ const Dohlasky = ({ match }) => (
 
 Dohlasky.propTypes = {
   match: PropTypes.shape({
-    path: PropTypes.string.isRequired
-  }).isRequired
+    path: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Dohlasky;

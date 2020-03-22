@@ -6,24 +6,24 @@ import './EmailComposer.css';
 const sanitizerOptions = {
   allowedTags: ['b', 'br', 'i', 'em', 'strong', 'a'],
   allowedAttributes: {
-    a: ['href']
-  }
+    a: ['href'],
+  },
 };
-const sanitize = html => sanitizeHtml(html, sanitizerOptions);
+const sanitize = (html) => sanitizeHtml(html, sanitizerOptions);
 
 /* eslint-disable react/no-danger */
 const EmailComposer = ({
   mailTo: initialMailTo,
   subject: initialSubject,
   body: initialBody,
-  onSubmit
+  onSubmit,
 }) => {
   const [mailTo, setMailTo] = useState(initialMailTo);
   const [subject, setSubject] = useState(initialSubject);
   const [body, setBody] = useState(sanitize(initialBody));
   const [sending, setSending] = useState(false);
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setSending(true);
     await onSubmit({ mailTo, subject, body: sanitize(body) });
@@ -67,13 +67,13 @@ EmailComposer.propTypes = {
   mailTo: PropTypes.string,
   subject: PropTypes.string,
   body: PropTypes.string,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
 };
 
 EmailComposer.defaultProps = {
   mailTo: '',
   subject: '',
-  body: ''
+  body: '',
 };
 
 export default EmailComposer;

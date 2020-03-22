@@ -23,12 +23,12 @@ const RunningDisplej = ({ base, delta, running }) => {
 RunningDisplej.propTypes = {
   base: PropTypes.instanceOf(Date),
   delta: momentPropTypes.momentDurationObj,
-  running: PropTypes.bool.isRequired
+  running: PropTypes.bool.isRequired,
 };
 
 RunningDisplej.defaultProps = {
   base: undefined,
-  delta: undefined
+  delta: undefined,
 };
 
 export default RunningDisplej;

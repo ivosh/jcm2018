@@ -4,7 +4,7 @@ import {
   prijmeniJmenoNarozeniSortMethod,
   reverseSortDirType,
   sortForColumn,
-  SortDirTypes
+  SortDirTypes,
 } from './sort';
 
 const narozeniSortMethodDescending = (a, b) => narozeniSortMethod(a, b, true);
@@ -20,14 +20,14 @@ const data = [
     kategorie: {
       pohlavi: 'muž',
       typ: 'půlmaraton',
-      vek: { min: 60, max: 150 }
+      vek: { min: 60, max: 150 },
     },
     startCislo: 17,
     kod: '10728864',
     zaplaceno: 250,
     predepsano: 200,
     dokonceno: undefined,
-    cas: undefined
+    cas: undefined,
   },
   {
     prijmeni: 'Kyselová',
@@ -39,12 +39,12 @@ const data = [
     kategorie: {
       typ: 'půlmaraton',
       pohlavi: 'žena',
-      vek: { min: 40, max: 49 }
+      vek: { min: 40, max: 49 },
     },
     zaplaceno: 0,
     predepsano: 200,
     dokonceno: false,
-    cas: undefined
+    cas: undefined,
   },
   {
     prijmeni: 'Sukdoláková',
@@ -57,11 +57,11 @@ const data = [
     kategorie: {
       typ: 'maraton',
       pohlavi: 'žena',
-      vek: { min: 50, max: 59 }
+      vek: { min: 50, max: 59 },
     },
     zaplaceno: 0,
     dokonceno: true,
-    cas: 'PT3H07M56.12S'
+    cas: 'PT3H07M56.12S',
   },
   {
     prijmeni: 'Zralá',
@@ -73,15 +73,15 @@ const data = [
     kategorie: {
       typ: 'půlmaraton',
       pohlavi: 'žena',
-      vek: { min: 18, max: 39 }
+      vek: { min: 18, max: 39 },
     },
     startCislo: 10,
     kod: 'abc023skd204mvs345',
     zaplaceno: 100,
     predepsano: 200,
     dokonceno: true,
-    cas: 'PT1H23M32.56S'
-  }
+    cas: 'PT1H23M32.56S',
+  },
 ];
 deepFreeze(data);
 
@@ -114,7 +114,7 @@ it('narozeniSort(desc=false) - roky, dny, měsíce', () => {
     { rok: 2001, mesic: 4, den: 13 },
     { rok: 1956, mesic: 1, den: 26 },
     { rok: 2001, mesic: 4, den: 12 },
-    { rok: 1956, mesic: 2, den: 25 }
+    { rok: 1956, mesic: 2, den: 25 },
   ];
   expect(narozeni.sort(narozeniSortMethod)).toEqual([
     { rok: 1956, mesic: 1, den: 26 },
@@ -122,7 +122,7 @@ it('narozeniSort(desc=false) - roky, dny, měsíce', () => {
     { rok: 1956, mesic: 2, den: 25 },
     { rok: 1978, mesic: 4, den: 7 },
     { rok: 2001, mesic: 4, den: 12 },
-    { rok: 2001, mesic: 4, den: 13 }
+    { rok: 2001, mesic: 4, den: 13 },
   ]);
 });
 
@@ -130,12 +130,12 @@ it('narozeniSort(desc=false) - prázdný měsíc a den', () => {
   const narozeni = [
     { rok: 1978, mesic: 8, den: 7 },
     { rok: 1978 },
-    { rok: 1978, mesic: 8, den: 6 }
+    { rok: 1978, mesic: 8, den: 6 },
   ];
   expect(narozeni.sort(narozeniSortMethod)).toEqual([
     { rok: 1978, mesic: 8, den: 6 },
     { rok: 1978, mesic: 8, den: 7 },
-    { rok: 1978 }
+    { rok: 1978 },
   ]);
 });
 
@@ -144,7 +144,7 @@ it('narozeniSort(desc=true) - nulls', () => {
   expect(narozeni.sort(narozeniSortMethodDescending)).toEqual([
     null,
     null,
-    { rok: 1978, mesic: 8, den: 7 }
+    { rok: 1978, mesic: 8, den: 7 },
   ]);
 });
 
@@ -153,7 +153,7 @@ it('narozeniSort(desc=true) - jen roky', () => {
   expect(narozeni.sort(narozeniSortMethodDescending)).toEqual([
     { rok: 1956 },
     { rok: 1978 },
-    { rok: 2001 }
+    { rok: 2001 },
   ]);
 });
 
@@ -164,7 +164,7 @@ it('narozeniSort(desc=true) - roky, dny, měsíce', () => {
     { rok: 2001, mesic: 4, den: 13 },
     { rok: 1956, mesic: 1, den: 26 },
     { rok: 2001, mesic: 4, den: 12 },
-    { rok: 1956, mesic: 2, den: 25 }
+    { rok: 1956, mesic: 2, den: 25 },
   ];
   expect(narozeni.sort(narozeniSortMethodDescending)).toEqual([
     { rok: 1956, mesic: 1, den: 26 },
@@ -172,7 +172,7 @@ it('narozeniSort(desc=true) - roky, dny, měsíce', () => {
     { rok: 1956, mesic: 2, den: 25 },
     { rok: 1978, mesic: 4, den: 7 },
     { rok: 2001, mesic: 4, den: 12 },
-    { rok: 2001, mesic: 4, den: 13 }
+    { rok: 2001, mesic: 4, den: 13 },
   ]);
 });
 
@@ -185,7 +185,7 @@ it('narozeniSort(desc=true) - prázdný měsíc a den', () => {
     { rok: 1978, mesic: 8, den: 6, id: 5 },
     { rok: 1978, mesic: 8, den: 5, id: 6 },
     { rok: 1978, mesic: 9, id: 7 },
-    { rok: 1978, mesic: 10, id: 8 }
+    { rok: 1978, mesic: 10, id: 8 },
   ];
   expect(narozeni.sort(narozeniSortMethodDescending)).toEqual([
     { rok: 1978, id: 2 },
@@ -195,7 +195,7 @@ it('narozeniSort(desc=true) - prázdný měsíc a den', () => {
     { rok: 1978, mesic: 9, id: 7 },
     { rok: 1978, mesic: 10, id: 3 },
     { rok: 1978, mesic: 10, id: 4 },
-    { rok: 1978, mesic: 10, id: 8 }
+    { rok: 1978, mesic: 10, id: 8 },
   ]);
 });
 
@@ -204,29 +204,29 @@ it('narozeniSort(desc=true) - prázdný den', () => {
   expect(narozeni.sort(narozeniSortMethodDescending)).toEqual([
     { rok: 1978 },
     { rok: 1978, mesic: 8 },
-    { rok: 1978, mesic: 8, den: 6 }
+    { rok: 1978, mesic: 8, den: 6 },
   ]);
 });
 
 it('prijmeniJmenoNarozeniSortMethod - podle jména', () => {
   const ucastnici = [
     { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1978, mesic: 8, den: 7 } },
-    { prijmeni: 'Bubáková', jmeno: 'Alena', narozeni: { rok: 1999, mesic: 1, den: 23 } }
+    { prijmeni: 'Bubáková', jmeno: 'Alena', narozeni: { rok: 1999, mesic: 1, den: 23 } },
   ];
   expect(ucastnici.sort(prijmeniJmenoNarozeniSortMethod)).toEqual([
     { prijmeni: 'Bubáková', jmeno: 'Alena', narozeni: { rok: 1999, mesic: 1, den: 23 } },
-    { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1978, mesic: 8, den: 7 } }
+    { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1978, mesic: 8, den: 7 } },
   ]);
 });
 
 it('prijmeniJmenoNarozeniSortMethod - podle narození', () => {
   const ucastnici = [
     { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1999, mesic: 8, den: 7 } },
-    { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1968, mesic: 1, den: 23 } }
+    { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1968, mesic: 1, den: 23 } },
   ];
   expect(ucastnici.sort(prijmeniJmenoNarozeniSortMethod)).toEqual([
     { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1968, mesic: 1, den: 23 } },
-    { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1999, mesic: 8, den: 7 } }
+    { prijmeni: 'Bubáková', jmeno: 'Milena', narozeni: { rok: 1999, mesic: 8, den: 7 } },
   ]);
 });
 
@@ -235,7 +235,7 @@ it('sortForColumn - prijmeni ASC', () => {
     data[0],
     data[1],
     data[2],
-    data[3]
+    data[3],
   ]);
 });
 
@@ -244,7 +244,7 @@ it('sortForColumn - prijmeni DESC', () => {
     data[3],
     data[2],
     data[1],
-    data[0]
+    data[0],
   ]);
 });
 
@@ -253,7 +253,7 @@ it('sortForColumn - jmeno ASC', () => {
     data[3],
     data[2],
     data[0],
-    data[1]
+    data[1],
   ]);
 });
 
@@ -262,7 +262,7 @@ it('sortForColumn - jmeno DESC', () => {
     data[1],
     data[0],
     data[2],
-    data[3]
+    data[3],
   ]);
 });
 
@@ -271,7 +271,7 @@ it('sortForColumn - obec ASC', () => {
     data[1],
     data[3],
     data[0],
-    data[2]
+    data[2],
   ]);
 });
 
@@ -280,7 +280,7 @@ it('sortForColumn - email DESC', () => {
     data[3],
     data[1],
     data[2],
-    data[0]
+    data[0],
   ]);
 });
 
@@ -289,7 +289,7 @@ it('sortForColumn - datum ASC', () => {
     data[2],
     data[0],
     data[1],
-    data[3]
+    data[3],
   ]);
 });
 
@@ -298,7 +298,7 @@ it('sortForColumn - datum DESC', () => {
     data[3],
     data[1],
     data[0],
-    data[2]
+    data[2],
   ]);
 });
 
@@ -307,7 +307,7 @@ it('sortForColumn - kategorie ASC', () => {
     data[2],
     data[0],
     data[3],
-    data[1]
+    data[1],
   ]);
 });
 
@@ -316,7 +316,7 @@ it('sortForColumn - kategorie DESC', () => {
     data[1],
     data[3],
     data[0],
-    data[2]
+    data[2],
   ]);
 });
 
@@ -325,7 +325,7 @@ it('sortForColumn - startCislo ASC', () => {
     data[3],
     data[0],
     data[1],
-    data[2]
+    data[2],
   ]);
 });
 
@@ -334,7 +334,7 @@ it('sortForColumn - startCislo DESC', () => {
     data[0],
     data[3],
     data[2],
-    data[1]
+    data[1],
   ]);
 });
 
@@ -343,7 +343,7 @@ it('sortForColumn - zaplaceno ASC', () => {
     data[1],
     data[2],
     data[3],
-    data[0]
+    data[0],
   ]);
 });
 
@@ -352,7 +352,7 @@ it('sortForColumn - zaplaceno DESC', () => {
     data[0],
     data[3],
     data[2],
-    data[1]
+    data[1],
   ]);
 });
 
@@ -361,7 +361,7 @@ it('sortForColumn - dokonceno ASC', () => {
     data[2],
     data[3],
     data[1],
-    data[0]
+    data[0],
   ]);
 });
 
@@ -370,7 +370,7 @@ it('sortForColumn - dokonceno DESC', () => {
     data[0],
     data[1],
     data[3],
-    data[2]
+    data[2],
   ]);
 });
 
@@ -379,7 +379,7 @@ it('sortForColumn - cas ASC', () => {
     data[3],
     data[2],
     data[0],
-    data[1]
+    data[1],
   ]);
 });
 
@@ -388,6 +388,6 @@ it('sortForColumn - cas DESC', () => {
     data[2],
     data[3],
     data[1],
-    data[0]
+    data[0],
   ]);
 });

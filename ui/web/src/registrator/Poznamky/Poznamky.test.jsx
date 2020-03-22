@@ -8,15 +8,15 @@ const poznamky = [
     lines: 1,
     text: 'text poznámky',
     deletePoznamka: jest.fn(),
-    modifyPoznamka: jest.fn()
+    modifyPoznamka: jest.fn(),
   },
   {
     datum: new Date('2019-06-08T08:13:15.000Z'),
     lines: 3,
     text: 'jedna\r\ntrochu delší\r\npoznámka',
     deletePoznamka: jest.fn(),
-    modifyPoznamka: jest.fn()
-  }
+    modifyPoznamka: jest.fn(),
+  },
 ];
 
 it('žádná poznámka', () => {

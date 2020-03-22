@@ -13,33 +13,33 @@ const successfulResponse = {
       base: '2017-12-01T07:30:00.000Z',
       delta: 'P0D',
       running: true,
-      typ: 'cyklo'
+      typ: 'cyklo',
     },
     koloběžka: {
       base: null,
       delta: 'PT4H0M0.32S',
       running: false,
-      typ: 'koloběžka'
+      typ: 'koloběžka',
     },
     maraton: {
       base: null,
       delta: 'P0D',
       running: false,
-      typ: 'maraton'
+      typ: 'maraton',
     },
     půlmaraton: {
       base: null,
       delta: 'PT1H23M07.34S',
       running: false,
-      typ: 'půlmaraton'
-    }
+      typ: 'půlmaraton',
+    },
   },
-  requestId: '0.9310306652587377'
+  requestId: '0.9310306652587377',
 };
 
 const unsuccessfulResponse = {
   code: 'unfulfilled request',
-  status: 'A strange error occurred.'
+  status: 'A strange error occurred.',
 };
 
 const middlewares = [wsAPI.withExtraArgument(mockWsClient)];
@@ -47,7 +47,7 @@ const mockStore = configureStore(middlewares);
 
 it('fetchStopky() should not dispatch anything if stopky cached', async () => {
   const store = mockStore({
-    entities: { stopky: { byTypy: { cyklo: {} }, typy: ['cyklo'] }, invalidated: false }
+    entities: { stopky: { byTypy: { cyklo: {} }, typy: ['cyklo'] }, invalidated: false },
   });
   await store.dispatch(fetchStopky());
   expect(store.getActions()).toHaveLength(0);
@@ -65,10 +65,10 @@ it('fetchStopky() should dispatch two successful actions [not cached]', async ()
     response: {
       code: 'ok',
       byTypy: successfulResponse.response,
-      typy: ['cyklo', 'koloběžka', 'maraton', 'půlmaraton']
+      typy: ['cyklo', 'koloběžka', 'maraton', 'půlmaraton'],
     },
     title: 'načítání stopek',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -83,10 +83,10 @@ it('fetchStopky() should dispatch two unsuccessful actions', async () => {
     type: `${FETCH_STOPKY}_ERROR`,
     response: {
       code: 'unfulfilled request',
-      status: 'A strange error occurred.'
+      status: 'A strange error occurred.',
     },
     title: 'načítání stopek',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -101,9 +101,9 @@ it('fetchStopky() should dispatch two unsuccessful actions on error', async () =
     type: `${FETCH_STOPKY}_ERROR`,
     error: 'Error: Parse error!',
     response: {
-      code: 'internal error'
+      code: 'internal error',
     },
     title: 'načítání stopek',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });

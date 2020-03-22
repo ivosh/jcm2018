@@ -7,7 +7,7 @@ const mapStateToProps = ({ entities, registrator }) => ({
   roky: entities.rocniky.roky,
   ucastniciDigest: getUcastniciDigestSorted({ ...entities, ...registrator.ucastniciDigest }),
   actionPrefix: 'UCASTNICI_DIGEST',
-  reduxName: 'ucastniciDigest'
+  reduxName: 'ucastniciDigest',
 });
 
 const areStatesEqual = (next, prev) =>
@@ -15,7 +15,7 @@ const areStatesEqual = (next, prev) =>
   prev.registrator.ucastniciDigest === next.registrator.ucastniciDigest;
 
 const UcastniciDigestContainer = connect(mapStateToProps, null, null, {
-  areStatesEqual
+  areStatesEqual,
 })(UcastniciDigest);
 
 export default UcastniciDigestContainer;

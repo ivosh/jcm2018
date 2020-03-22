@@ -2,21 +2,21 @@ import { API_FIND_ALL_ROCNIKY } from 'ui-common/common';
 import { WS_API } from 'ui-common/store/wsAPI';
 import { AKTUALNI_ROK } from '../../constants';
 
-const decorate = json => ({
-  getDatumKonani: (rok = AKTUALNI_ROK) => json.response.rocniky[rok].datum
+const decorate = (json) => ({
+  getDatumKonani: (rok = AKTUALNI_ROK) => json.response.rocniky[rok].datum,
 });
 
 const normalize = ({
   request,
   response: {
-    response: { kategorie, rocniky: byRoky }
-  }
+    response: { kategorie, rocniky: byRoky },
+  },
 }) => ({
   request,
   response: {
     kategorie,
-    rocniky: { byRoky, roky: Object.keys(byRoky).map(value => parseInt(value, 10)) }
-  }
+    rocniky: { byRoky, roky: Object.keys(byRoky).map((value) => parseInt(value, 10)) },
+  },
 });
 
 const takeFromCache = ({ entities: { rocniky } }) =>
@@ -30,6 +30,6 @@ export const fetchRocniky = () => ({
     endpoint: API_FIND_ALL_ROCNIKY,
     normalize,
     takeFromCache,
-    title: 'načítání ročníků'
-  }
+    title: 'načítání ročníků',
+  },
 });

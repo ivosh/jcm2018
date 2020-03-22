@@ -5,17 +5,17 @@ import { getUcastiProRok } from '../../entities/ucastnici/ucastniciReducer';
 import { computePoradiProVsechny } from '../poradi';
 import {
   createFilterableReducer,
-  initialState as filterableInitialState
+  initialState as filterableInitialState,
 } from '../Filterable/filterableReducer';
 import {
   createUcastniciTableReducer,
-  initialState as ucastniciTableInitialState
+  initialState as ucastniciTableInitialState,
 } from '../UcastniciTable/ucastniciTableReducer';
 
 export const initialState = {
   kategorieSubFilter: '', // kategorie.id
   ...filterableInitialState,
-  ...ucastniciTableInitialState
+  ...ucastniciTableInitialState,
 };
 
 const filterableReducer = createFilterableReducer('PORADI');
@@ -47,16 +47,16 @@ export const getPoradiSorted = ({
   sortDir,
   rocniky,
   ucastnici,
-  rok = AKTUALNI_ROK
+  rok = AKTUALNI_ROK,
 }) => {
   const kategorieProRocnik = getKategorie({ rocniky, rok });
 
   const ucasti = getUcastiProRok({ rok, ucastnici });
-  const mapped = ucasti.map(jeden => {
+  const mapped = ucasti.map((jeden) => {
     const { id, ucast } = jeden;
     const {
       udaje: { prijmeni, jmeno, narozeni, obec, stat, klub },
-      vykon
+      vykon,
     } = ucast;
     if (!vykon) {
       return undefined;
@@ -74,10 +74,10 @@ export const getPoradiSorted = ({
       kategorie: kategorieProRocnik.kategorie[kategorieId], // will contain 'zkratka' as well
       startCislo,
       dokonceno,
-      cas
+      cas,
     };
   });
-  const filtered = mapped.filter(jeden => jeden);
+  const filtered = mapped.filter((jeden) => jeden);
 
   const sPoradim = computePoradiProVsechny({ data: filtered, kategorieProRocnik });
 

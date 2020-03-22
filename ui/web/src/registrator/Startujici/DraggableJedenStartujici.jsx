@@ -5,12 +5,12 @@ import { DragTypes } from '../../constants';
 import JedenStartujici from './JedenStartujici';
 
 const dragSource = {
-  beginDrag: ({ dragType, id }) => ({ dragType, id })
+  beginDrag: ({ dragType, id }) => ({ dragType, id }),
 };
 
 const collectDrag = (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
-  isDragging: monitor.isDragging()
+  isDragging: monitor.isDragging(),
 });
 
 class DraggableJedenStartujici extends PureComponent {
@@ -28,7 +28,7 @@ class DraggableJedenStartujici extends PureComponent {
 
 DraggableJedenStartujici.propTypes = {
   dragType: PropTypes.oneOf([DragTypes.STARTUJICI_PRIHLASEN, DragTypes.STARTUJICI_ODSTARTOVAN])
-    .isRequired
+    .isRequired,
 };
 
 export default DraggableJedenStartujici;

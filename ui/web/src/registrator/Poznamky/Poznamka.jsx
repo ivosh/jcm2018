@@ -66,7 +66,7 @@ const Poznamka = ({ focus, datum, lines, text: initialText, deletePoznamka, modi
           value={text}
           rows={lines + 1}
           onBlur={handleSave}
-          onChange={event => {
+          onChange={(event) => {
             setText(event.target.value);
             setSaved(false);
             setModified(true);
@@ -83,11 +83,11 @@ Poznamka.propTypes = {
   lines: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired,
   deletePoznamka: PropTypes.func.isRequired,
-  modifyPoznamka: PropTypes.func.isRequired
+  modifyPoznamka: PropTypes.func.isRequired,
 };
 
 Poznamka.defaultProps = {
-  focus: false
+  focus: false,
 };
 
 export default Poznamka;

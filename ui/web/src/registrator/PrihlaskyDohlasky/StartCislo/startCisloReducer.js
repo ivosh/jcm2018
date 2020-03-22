@@ -1,6 +1,6 @@
 const initialState = { showing: false };
 
-export const createStartCisloReducer = actionPrefix => (state = initialState, action) => {
+export const createStartCisloReducer = (actionPrefix) => (state = initialState, action) => {
   switch (action.type) {
     case `${actionPrefix}_RESET`:
       return initialState;

@@ -9,7 +9,7 @@ const LegendaItem = ({ name, popisek }) => (
 
 LegendaItem.propTypes = {
   name: PropTypes.string.isRequired,
-  popisek: PropTypes.string.isRequired
+  popisek: PropTypes.string.isRequired,
 };
 
 const Legenda = ({ legenda }) => (
@@ -25,9 +25,9 @@ Legenda.propTypes = {
   legenda: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      popisek: PropTypes.string.isRequired
+      popisek: PropTypes.string.isRequired,
     })
-  ).isRequired
+  ).isRequired,
 };
 
 export default Legenda;

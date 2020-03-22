@@ -7,7 +7,7 @@ beforeAll(async () => {
   browser = await puppeteer.launch({
     headless: false,
     devtools: true,
-    slowMo: 250
+    slowMo: 250,
   });
 });
 
@@ -22,9 +22,9 @@ beforeEach(async () => {
   page.emulate({
     viewport: {
       width: 500,
-      height: 900
+      height: 900,
     },
-    userAgent: ''
+    userAgent: '',
   });
 });
 

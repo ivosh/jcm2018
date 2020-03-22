@@ -1,5 +1,5 @@
 import ucastniciTestData, {
-  AKTUALNI_DATUM_KONANI
+  AKTUALNI_DATUM_KONANI,
 } from '../../entities/ucastnici/ucastniciTestData';
 import { getPoznamky } from './poznamkyReducer';
 
@@ -12,8 +12,8 @@ it('getPoznamky() - něco', () => {
       datum: new Date('2020-05-21T08:53:49.154Z'),
       lines: 4,
       text:
-        'jedna moc super dlouhá poznámka\r\nkterá pokračuje na dalších a dalších\r\nřádcích dle libosti\r\naž do nekonečna'
-    }
+        'jedna moc super dlouhá poznámka\r\nkterá pokračuje na dalších a dalších\r\nřádcích dle libosti\r\naž do nekonečna',
+    },
   ];
 
   const { entities } = state;

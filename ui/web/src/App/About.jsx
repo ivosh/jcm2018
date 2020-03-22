@@ -30,11 +30,11 @@ const About = ({ username }) => (
 );
 
 About.propTypes = {
-  username: PropTypes.string
+  username: PropTypes.string,
 };
 
 About.defaultProps = {
-  username: null
+  username: null,
 };
 
 export default About;

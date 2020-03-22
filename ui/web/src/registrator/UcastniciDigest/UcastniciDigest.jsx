@@ -22,7 +22,7 @@ const vykonCellDataFormatter = ({ cellData }) => {
   return '';
 };
 
-const casFormat = cas => {
+const casFormat = (cas) => {
   if (cas) {
     const { hours, mins, secs, subsecs } = convertDuration(moment.duration(cas));
     return `${hours}:${mins}:${secs},${subsecs}`;
@@ -30,7 +30,7 @@ const casFormat = cas => {
   return undefined;
 };
 
-const vykonRenderer = args => {
+const vykonRenderer = (args) => {
   const cas = casFormat(args.cellData && args.cellData.cas);
   const className = cas
     ? args.rowIndex === 0
@@ -52,14 +52,14 @@ const UcastniciDigest = ({ actionPrefix, reduxName, roky, ucastniciDigest }) => 
       key: 'prijmeni',
       label: 'příjmení',
       sortable: true,
-      width: 100
+      width: 100,
     },
     {
       cellClassNames: () => ['align-left'],
       key: 'jmeno',
       label: 'jméno',
       sortable: true,
-      width: 90
+      width: 90,
     },
     {
       cellClassNames: () => ['align-right'],
@@ -67,9 +67,9 @@ const UcastniciDigest = ({ actionPrefix, reduxName, roky, ucastniciDigest }) => 
       key: 'narozeni',
       label: 'narození',
       sortable: true,
-      width: 100
+      width: 100,
     },
-    ...roky.map(rok => ({
+    ...roky.map((rok) => ({
       cellClassNames: ({ cellData }) =>
         cellData ? [`UcastniciDigest--${cellData.kategorie}`] : [],
       cellDataFormatter: vykonCellDataFormatter,
@@ -77,8 +77,8 @@ const UcastniciDigest = ({ actionPrefix, reduxName, roky, ucastniciDigest }) => 
       key: `${rok}`,
       label: rok,
       sortable: false,
-      width: 50
-    }))
+      width: 50,
+    })),
   ];
 
   return (
@@ -113,14 +113,14 @@ UcastniciDigest.propTypes = {
       narozeni: PropTypes.shape({
         den: PropTypes.number,
         mesic: PropTypes.number,
-        rok: PropTypes.number.isRequired
+        rok: PropTypes.number.isRequired,
       }).isRequired,
       vykon: PropTypes.shape({
         cas: PropTypes.string,
-        dokonceno: PropTypes.bool
-      })
+        dokonceno: PropTypes.bool,
+      }),
     }).isRequired
-  ).isRequired
+  ).isRequired,
 };
 
 export default UcastniciDigest;

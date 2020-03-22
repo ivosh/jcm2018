@@ -46,7 +46,7 @@ const authReducer = combineReducers({
   authenticated: authenticatedReducer,
   signIn: signInReducer,
   decodedToken: decodedTokenReducer,
-  token: tokenReducer
+  token: tokenReducer,
 });
 
 export default authReducer;

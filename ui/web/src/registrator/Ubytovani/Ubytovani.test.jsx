@@ -17,7 +17,7 @@ const commonProps = {
   reduxName: 'ubytovani',
   textFilter: '',
   onTextFilterChange: jest.fn(),
-  onUbytovaniChange: jest.fn()
+  onUbytovaniChange: jest.fn(),
 };
 
 const ubytovani = [
@@ -33,8 +33,8 @@ const ubytovani = [
     akce: {
       loading: false,
       options: ['Odhlásit', 'Nepřespáno'],
-      onSelect: jest.fn()
-    }
+      onSelect: jest.fn(),
+    },
   },
   {
     id: '6f09b1fd371dec1e99b7e1c9',
@@ -47,8 +47,8 @@ const ubytovani = [
     akce: {
       loading: true,
       options: ['Přihlásit', 'Přespáno'],
-      onSelect: jest.fn()
-    }
+      onSelect: jest.fn(),
+    },
   },
   {
     id: '7a09b1fd371dec1e99b7e142',
@@ -61,9 +61,9 @@ const ubytovani = [
     akce: {
       loading: false,
       options: ['Odhlásit', 'Nepřespáno', 'Přespáno'],
-      onSelect: jest.fn()
-    }
-  }
+      onSelect: jest.fn(),
+    },
+  },
 ];
 
 it('žádný ubytovaný', () => {

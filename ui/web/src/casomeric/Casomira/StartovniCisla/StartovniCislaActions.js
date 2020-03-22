@@ -20,7 +20,7 @@ export const canDrop = ({ source, destination }) => {
 const startCisloDokonceno = ({ id, cas }) => ({
   type: 'START_CISLO_DOKONCENO',
   id,
-  cas: cas.toJSON ? cas.toJSON() : cas
+  cas: cas.toJSON ? cas.toJSON() : cas,
 });
 const startCisloNedokonceno = ({ id }) => ({ type: 'START_CISLO_NEDOKONCENO', id });
 export const startCisloNaTrase = ({ id }) => ({ type: 'START_CISLO_NA_TRASE', id });
@@ -35,9 +35,9 @@ export const saveVykon = ({ action, id, rok = AKTUALNI_ROK, startCislo, typ }) =
   [WS_API]: {
     type: CASOMIRA_SAVE_VYKON,
     endpoint: API_SAVE_VYKON,
-    request: state => createRequest({ action, id, rok, startCislo, state, typ }),
-    title: 'ukládání registrace na start'
-  }
+    request: (state) => createRequest({ action, id, rok, startCislo, state, typ }),
+    title: 'ukládání registrace na start',
+  },
 });
 
 export const createDropAction = ({ source, destination }) => {

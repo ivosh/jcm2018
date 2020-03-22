@@ -11,7 +11,7 @@ const mockStore = configureStore();
 const defaultProps = {
   mailTo: 'i@iv.sh',
   subject: 'test subject',
-  text: '<b>Zpráva</b> z bojiště.'
+  text: '<b>Zpráva</b> z bojiště.',
 };
 
 let component;
@@ -41,7 +41,7 @@ it('maps onSubmit() to dispatch sendEmail action', async () => {
       type: SEND_EMAIL,
       endpoint: API_SEND_EMAIL,
       request: expect.any(Object),
-      title: 'posílání emailu'
-    }
+      title: 'posílání emailu',
+    },
   });
 });

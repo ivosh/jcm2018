@@ -13,7 +13,7 @@ const NovyMezicasInput = ({ cas, validationState, onInputChange, onSubmit }) => 
   });
 
   const handleSubmit = useCallback(
-    event => {
+    (event) => {
       event.preventDefault();
       if (validationState === 'success') {
         onSubmit(cas);
@@ -42,11 +42,11 @@ NovyMezicasInput.propTypes = {
   cas: PropTypes.string.isRequired,
   validationState: PropTypes.string,
   onInputChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
 };
 
 NovyMezicasInput.defaultProps = {
-  validationState: undefined
+  validationState: undefined,
 };
 
 export default NovyMezicasInput;

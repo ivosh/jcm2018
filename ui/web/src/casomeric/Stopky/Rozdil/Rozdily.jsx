@@ -5,7 +5,7 @@ import './Rozdily.css';
 
 const Rozdily = ({ rozdily }) => (
   <div className="Rozdily">
-    {rozdily.map(rozdil => (
+    {rozdily.map((rozdil) => (
       <Rozdil key={rozdil.name} {...rozdil} />
     ))}
   </div>
@@ -19,10 +19,10 @@ Rozdily.propTypes = {
         hours: PropTypes.string.isRequired,
         mins: PropTypes.string.isRequired,
         secs: PropTypes.string.isRequired,
-        subsecs: PropTypes.string.isRequired
-      }).isRequired
+        subsecs: PropTypes.string.isRequired,
+      }).isRequired,
     }).isRequired
-  ).isRequired
+  ).isRequired,
 };
 
 export default Rozdily;

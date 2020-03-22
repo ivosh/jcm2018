@@ -12,13 +12,13 @@ const Filterable = ({
   numberOfItems,
   textFilter,
   onKategorieFilterChange,
-  onTextFilterChange
+  onTextFilterChange,
 }) => (
   <div>
     <TextFilter filter={textFilter} onChange={onTextFilterChange} />
 
     <ButtonGroup className="Filterable__kategorie">
-      {TYPY_KATEGORII.map(typKategorie => (
+      {TYPY_KATEGORII.map((typKategorie) => (
         <KategorieFilter
           key={typKategorie}
           typKategorie={typKategorie}
@@ -37,12 +37,12 @@ Filterable.propTypes = {
   numberOfItems: PropTypes.number.isRequired,
   textFilter: PropTypes.string,
   onKategorieFilterChange: PropTypes.func.isRequired,
-  onTextFilterChange: PropTypes.func.isRequired
+  onTextFilterChange: PropTypes.func.isRequired,
 };
 
 Filterable.defaultProps = {
   kategorieFilter: undefined,
-  textFilter: undefined
+  textFilter: undefined,
 };
 
 export default Filterable;

@@ -20,7 +20,7 @@ LegendaItem.propTypes = {
   name: PropTypes.string.isRequired,
   popisek: PropTypes.string.isRequired,
   connectDropTarget: PropTypes.func.isRequired,
-  isDropOver: PropTypes.bool.isRequired
+  isDropOver: PropTypes.bool.isRequired,
 };
 
 export default LegendaItem;

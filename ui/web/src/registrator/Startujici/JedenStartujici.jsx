@@ -25,7 +25,7 @@ Prijmeni.propTypes = {
   draggable: PropTypes.bool.isRequired,
   id: PropTypes.string.isRequired,
   prijmeni: PropTypes.string.isRequired,
-  connectDragSource: PropTypes.func.isRequired
+  connectDragSource: PropTypes.func.isRequired,
 };
 
 const JedenStartujici = ({
@@ -36,7 +36,7 @@ const JedenStartujici = ({
   narozeni,
   kategorie,
   startCislo,
-  startCisloRequired
+  startCisloRequired,
 }) => (
   <>
     <Prijmeni
@@ -63,13 +63,13 @@ JedenStartujici.propTypes = {
   prijmeni: PropTypes.string.isRequired,
   jmeno: PropTypes.string.isRequired,
   narozeni: PropTypes.shape({
-    rok: PropTypes.number.isRequired
+    rok: PropTypes.number.isRequired,
   }).isRequired,
   kategorie: PropTypes.shape({
-    typ: PropTypes.string.isRequired
+    typ: PropTypes.string.isRequired,
   }).isRequired,
   startCislo: PropTypes.number.isRequired,
-  startCisloRequired: PropTypes.bool.isRequired
+  startCisloRequired: PropTypes.bool.isRequired,
 };
 
 export default JedenStartujici;

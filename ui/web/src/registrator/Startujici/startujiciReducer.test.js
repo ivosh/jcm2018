@@ -15,10 +15,10 @@ it('getPrihlaseni() - default', () => {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
         pohlavi: 'žena',
-        vek: { min: 18, max: 39 }
+        vek: { min: 18, max: 39 },
       },
       startCislo: 15,
-      startCisloRequired: true
+      startCisloRequired: true,
     },
     {
       id: 'f5c88400190a4bed88c76736',
@@ -29,11 +29,11 @@ it('getPrihlaseni() - default', () => {
         id: '5a587e1a051c181132cf83b8',
         typ: 'maraton',
         pohlavi: 'muž',
-        vek: { min: 18, max: 39 }
+        vek: { min: 18, max: 39 },
       },
       startCislo: 15,
-      startCisloRequired: true
-    }
+      startCisloRequired: true,
+    },
   ];
   deepFreeze(state);
 
@@ -55,9 +55,9 @@ it('getPrihlaseni() - chybí startovní číslo', () => {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
         pohlavi: 'žena',
-        vek: { min: 18, max: 39 }
+        vek: { min: 18, max: 39 },
       },
-      startCisloRequired: true
+      startCisloRequired: true,
     },
     {
       id: 'f5c88400190a4bed88c76736',
@@ -68,11 +68,11 @@ it('getPrihlaseni() - chybí startovní číslo', () => {
         id: '5a587e1a051c181132cf83b8',
         typ: 'maraton',
         pohlavi: 'muž',
-        vek: { min: 18, max: 39 }
+        vek: { min: 18, max: 39 },
       },
       startCislo: 15,
-      startCisloRequired: true
-    }
+      startCisloRequired: true,
+    },
   ];
   deepFreeze(state);
 
@@ -91,9 +91,9 @@ it('getOdstartovani()', () => {
         id: '5a587e1b051c181132cf83d7',
         pohlavi: 'muž',
         typ: 'půlmaraton',
-        vek: { min: 60, max: 150 }
+        vek: { min: 60, max: 150 },
       },
-      startCislo: 15
+      startCislo: 15,
     },
     {
       id: '9ccbc71dedc1e99b7e1d671',
@@ -103,10 +103,10 @@ it('getOdstartovani()', () => {
         id: '5a587e1b051c181132cf83d9',
         pohlavi: 'žena',
         typ: 'půlmaraton',
-        vek: { max: 39, min: 18 }
+        vek: { max: 39, min: 18 },
       },
       narozeni: { den: 25, mesic: 7, rok: 2001 },
-      startCislo: 8
+      startCislo: 8,
     },
     {
       id: '7a09b1fd371dec1e99b7e142',
@@ -117,10 +117,10 @@ it('getOdstartovani()', () => {
         id: '5a587e1b051c181132cf83d9',
         typ: 'půlmaraton',
         pohlavi: 'žena',
-        vek: { min: 18, max: 39 }
+        vek: { min: 18, max: 39 },
       },
-      startCislo: 11
-    }
+      startCislo: 11,
+    },
   ];
   deepFreeze(state);
 

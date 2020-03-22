@@ -10,7 +10,7 @@ import { POHAR_NAROK, POHAR_NEPREVZATO, POHAR_PREDANO } from './PoharyActions';
 import DroppablePohary from './DroppablePohary';
 import './PoharyTable.css';
 
-const poharyRenderer = args => (
+const poharyRenderer = (args) => (
   <DroppablePohary
     className={args.className}
     count={args.count}
@@ -23,35 +23,35 @@ const poharyRenderer = args => (
   />
 );
 
-const narokRenderer = args =>
+const narokRenderer = (args) =>
   poharyRenderer({
     count: args.data[args.rowIndex].pohary.narok ? 1 : 0,
     type: POHAR_NAROK,
-    ...args
+    ...args,
   });
 
-const neprevzatoRenderer = args =>
+const neprevzatoRenderer = (args) =>
   poharyRenderer({
     count: args.data[args.rowIndex].pohary[args.columnKey],
     type: POHAR_NEPREVZATO,
-    ...args
+    ...args,
   });
 
-const predanoRenderer = args =>
+const predanoRenderer = (args) =>
   poharyRenderer({
     count: args.data[args.rowIndex].pohary[args.columnKey],
     type: POHAR_PREDANO,
-    ...args
+    ...args,
   });
 
 const narozeniFormat = ({ cellData }) => narozeniToStr(cellData);
 
-const prijmeniFormat = args => (
+const prijmeniFormat = (args) => (
   <Link to={`/prihlasky/${args.data[args.rowIndex].id}`}>{args.cellData}</Link>
 );
 
 const ROKU_NA_RADKU = 5;
-const ucastiRenderer = args => {
+const ucastiRenderer = (args) => {
   const dokoncene = args.cellData.dokoncene.slice().sort();
   const className =
     dokoncene.length > 0
@@ -92,7 +92,7 @@ const PoharyTable = ({
   onDrop,
   onNarokovaneFilterChange,
   onNeprevzateFilterChange,
-  onTextFilterChange
+  onTextFilterChange,
 }) => {
   const columns = [
     {
@@ -101,14 +101,14 @@ const PoharyTable = ({
       key: 'prijmeni',
       label: 'příjmení',
       sortable: true,
-      width: 100
+      width: 100,
     },
     {
       cellClassNames: () => ['align-left'],
       key: 'jmeno',
       label: 'jméno',
       sortable: true,
-      width: 90
+      width: 90,
     },
     {
       cellClassNames: () => ['align-right'],
@@ -116,7 +116,7 @@ const PoharyTable = ({
       key: 'narozeni',
       label: 'narození',
       sortable: true,
-      width: 100
+      width: 100,
     },
     {
       cellClassNames: () => ['align-right'],
@@ -125,29 +125,29 @@ const PoharyTable = ({
       key: 'ucasti',
       label: 'účastí',
       sortable: true,
-      width: 100
+      width: 100,
     },
     {
       cellRenderer: predanoRenderer,
       key: 'predano',
       label: 'předáno',
       sortable: true,
-      width: 100
+      width: 100,
     },
     {
       cellRenderer: neprevzatoRenderer,
       key: 'neprevzato',
       label: 'nepřevzato',
       sortable: true,
-      width: 120
+      width: 120,
     },
     {
       cellRenderer: narokRenderer,
       key: 'narok',
       label: 'nárok?',
       sortable: true,
-      width: 100
-    }
+      width: 100,
+    },
   ];
 
   return (
@@ -198,18 +198,18 @@ PoharyTable.propTypes = {
       narozeni: PropTypes.shape({
         den: PropTypes.number,
         mesic: PropTypes.number,
-        rok: PropTypes.number.isRequired
+        rok: PropTypes.number.isRequired,
       }).isRequired,
       pohary: PropTypes.shape({
         narok: PropTypes.bool.isRequired,
         predano: PropTypes.number.isRequired,
-        neprevzato: PropTypes.number.isRequired
+        neprevzato: PropTypes.number.isRequired,
       }),
       ucasti: PropTypes.shape({
         dokoncene: PropTypes.arrayOf(PropTypes.number).isRequired,
         prihlaseno: PropTypes.bool.isRequired,
-        odstartovano: PropTypes.bool.isRequired
-      }).isRequired
+        odstartovano: PropTypes.bool.isRequired,
+      }).isRequired,
     }).isRequired
   ).isRequired,
   popisek: PropTypes.string.isRequired,
@@ -219,7 +219,7 @@ PoharyTable.propTypes = {
   onDrop: PropTypes.func.isRequired,
   onNarokovaneFilterChange: PropTypes.func.isRequired,
   onNeprevzateFilterChange: PropTypes.func.isRequired,
-  onTextFilterChange: PropTypes.func.isRequired
+  onTextFilterChange: PropTypes.func.isRequired,
 };
 
 export default PoharyTable;

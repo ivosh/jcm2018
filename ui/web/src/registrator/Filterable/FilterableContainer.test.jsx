@@ -12,9 +12,9 @@ beforeEach(() => {
     registrator: {
       yyyDigest: {
         kategorieFilter: '',
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
@@ -38,7 +38,7 @@ it('maps onKategorieFilterChange to dispatch kategorieFilterChange action', () =
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: 'YYY_DIGEST_KATEGORIE_FILTER_CHANGE',
-    typKategorie: 'pěší'
+    typKategorie: 'pěší',
   });
 });
 
@@ -47,6 +47,6 @@ it('maps onTextFilterChange to dispatch textFilterChange action', () => {
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: 'YYY_DIGEST_TEXT_FILTER_CHANGE',
-    textFilter: 'Kl'
+    textFilter: 'Kl',
   });
 });

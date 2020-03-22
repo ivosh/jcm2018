@@ -1,14 +1,14 @@
 import deepFreeze from 'deep-freeze';
 import { ActionPrefixes } from '../../../constants';
 import ucastniciTestData, {
-  AKTUALNI_DATUM_KONANI
+  AKTUALNI_DATUM_KONANI,
 } from '../../../entities/ucastnici/ucastniciTestData';
 import {
   createAddPlatba,
   createExpandNovaPlatba,
   createInputChanged,
   createReset,
-  createValidate
+  createValidate,
 } from './PlatbyActions';
 import { createPlatbyReducer, formErrors, inputValid } from './platbyReducer';
 
@@ -30,7 +30,7 @@ it('na začátku', () => {
     typ: 'hotově',
     poznamka: undefined,
     novaPlatbaMinified: true,
-    validate: false
+    validate: false,
   });
 });
 
@@ -41,7 +41,7 @@ it('reset() - přihlášky', () => {
     typ: 'složenkou',
     poznamka: 'haha',
     novaPlatbaMinified: false,
-    validate: true
+    validate: true,
   };
   const stateAfter = {
     castka: undefined,
@@ -49,7 +49,7 @@ it('reset() - přihlášky', () => {
     typ: 'hotově',
     poznamka: undefined,
     novaPlatbaMinified: true,
-    validate: false
+    validate: false,
   };
   deepFreeze(stateBefore);
   const { rocniky } = ucastniciTestData.entities;
@@ -64,7 +64,7 @@ it('reset() - dohlášky', () => {
     typ: 'složenkou',
     poznamka: 'haha',
     novaPlatbaMinified: false,
-    validate: true
+    validate: true,
   };
   const stateAfter = {
     castka: undefined,
@@ -72,7 +72,7 @@ it('reset() - dohlášky', () => {
     typ: 'hotově',
     poznamka: undefined,
     novaPlatbaMinified: true,
-    validate: false
+    validate: false,
   };
   deepFreeze(stateBefore);
   const { rocniky } = ucastniciTestData.entities;
@@ -93,7 +93,7 @@ it('validate()', () => {
     typ: 'složenkou',
     poznamka: 'haha',
     novaPlatbaMinified: false,
-    validate: false
+    validate: false,
   };
   const stateAfter = { ...stateBefore, validate: true };
   deepFreeze(stateBefore);
@@ -107,7 +107,7 @@ it('validation of the initial state [validate === false]', () => {
     datum: undefined,
     typ: 'hotově',
     poznamka: undefined,
-    validate: false
+    validate: false,
   };
   deepFreeze(form);
 
@@ -125,7 +125,7 @@ it('validation of the initial state [validate === true]', () => {
     datum: undefined,
     typ: 'hotově',
     poznamka: undefined,
-    validate: true
+    validate: true,
   };
   deepFreeze(form);
 
@@ -135,7 +135,7 @@ it('validation of the initial state [validate === true]', () => {
   expect(inputValid({ name: 'novaPlatba.poznamka', value: form.poznamka, form })).toBe(undefined);
   expect(formErrors({ form })).toEqual([
     { name: 'novaPlatba.castka', value: undefined },
-    { name: 'novaPlatba.datum', value: undefined }
+    { name: 'novaPlatba.datum', value: undefined },
   ]);
 });
 
@@ -145,7 +145,7 @@ it('validation of some invalid state [validate === false]', () => {
     datum: '1. 5.',
     typ: 'hotově',
     poznamka: undefined,
-    validate: false
+    validate: false,
   };
   deepFreeze(form);
 
@@ -162,7 +162,7 @@ it('validation of some invalid state [validate === true]', () => {
     datum: '3. 1. 2015',
     typ: undefined,
     poznamka: 'haha',
-    validate: true
+    validate: true,
   };
   deepFreeze(form);
 
@@ -172,7 +172,7 @@ it('validation of some invalid state [validate === true]', () => {
   expect(inputValid({ name: 'novaPlatba.poznamka', value: form.poznamka, form })).toBe(undefined);
   expect(formErrors({ form })).toEqual([
     { name: 'novaPlatba.castka', value: undefined },
-    { name: 'novaPlatba.typ', value: undefined }
+    { name: 'novaPlatba.typ', value: undefined },
   ]);
 });
 

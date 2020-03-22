@@ -3,7 +3,7 @@ import { TYPY_KATEGORII, ActionPrefixes, ReduxNames } from '../../constants';
 import { getKategorieProTyp } from '../../entities/rocniky/rocnikyReducer';
 import {
   createKategorieFilterChange,
-  createTextFilterChange
+  createTextFilterChange,
 } from '../Filterable/FilterableActions';
 import { getPoradiSorted } from './poradiReducer';
 import { kategorieSubFilterChange } from './PoradiActions';
@@ -16,7 +16,7 @@ const mapStateToProps = ({ entities, registrator: { poradi } }) => {
   const { kategorieFilter, kategorieSubFilter, textFilter } = poradi;
 
   const kategorieFilters = TYPY_KATEGORII;
-  const kategorieFiltersActive = kategorieFilters.map(typ => {
+  const kategorieFiltersActive = kategorieFilters.map((typ) => {
     const active = typ === kategorieFilter;
     const visible = active || kategorieFilter === '';
     return { typ, active, visible };
@@ -26,7 +26,7 @@ const mapStateToProps = ({ entities, registrator: { poradi } }) => {
   const kategorieSubFiltersVisible = kategorieFilter !== '';
   const kategorieSubFilters =
     kategorieFilter === '' ? [] : getKategorieProTyp({ ...entities, typ: kategorieFilter }).list;
-  const kategorieSubFiltersActive = kategorieSubFilters.map(jedna => {
+  const kategorieSubFiltersActive = kategorieSubFilters.map((jedna) => {
     const active = kategorieSubFilter === jedna.id;
     return { ...jedna, active };
   });
@@ -38,14 +38,14 @@ const mapStateToProps = ({ entities, registrator: { poradi } }) => {
     kategorieSubFilters: kategorieSubFiltersActive,
     poradi: getPoradiSorted({ ...poradi, ...entities }),
     reduxName,
-    textFilter
+    textFilter,
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  onKategorieFilterChange: typ => dispatch(createKategorieFilterChange(actionPrefix)(typ)),
-  onKategorieSubFilterChange: kategorie => dispatch(kategorieSubFilterChange(kategorie)),
-  onTextFilterChange: text => dispatch(createTextFilterChange(actionPrefix)(text))
+const mapDispatchToProps = (dispatch) => ({
+  onKategorieFilterChange: (typ) => dispatch(createKategorieFilterChange(actionPrefix)(typ)),
+  onKategorieSubFilterChange: (kategorie) => dispatch(kategorieSubFilterChange(kategorie)),
+  onTextFilterChange: (text) => dispatch(createTextFilterChange(actionPrefix)(text)),
 });
 
 const mergeProps = (stateProps, dispatchProps) => {
@@ -56,21 +56,21 @@ const mergeProps = (stateProps, dispatchProps) => {
     ...restOfDispatchProps
   } = dispatchProps;
 
-  const kategorieFiltersAction = kategorieFilters.map(jedna => ({
+  const kategorieFiltersAction = kategorieFilters.map((jedna) => ({
     ...jedna,
-    onClick: () => onKategorieFilterChange(jedna.typ)
+    onClick: () => onKategorieFilterChange(jedna.typ),
   }));
 
-  const kategorieSubFiltersAction = kategorieSubFilters.map(jedna => ({
+  const kategorieSubFiltersAction = kategorieSubFilters.map((jedna) => ({
     ...jedna,
-    onClick: () => onKategorieSubFilterChange(jedna.id)
+    onClick: () => onKategorieSubFilterChange(jedna.id),
   }));
 
   return {
     ...restOfStateProps,
     ...restOfDispatchProps,
     kategorieFilters: kategorieFiltersAction,
-    kategorieSubFilters: kategorieSubFiltersAction
+    kategorieSubFilters: kategorieSubFiltersAction,
   };
 };
 

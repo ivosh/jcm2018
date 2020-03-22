@@ -6,7 +6,7 @@ import {
   createHideModal,
   createLoadUcastnik,
   createReset as createResetForm,
-  createSaveUcast
+  createSaveUcast,
 } from './PrihlaskyFormActions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -14,8 +14,8 @@ const mapStateToProps = (state, ownProps) => {
   const {
     entities,
     registrator: {
-      [reduxName]: { form }
-    }
+      [reduxName]: { form },
+    },
   } = state;
   const { saved, saving, ucastnikId } = form;
 
@@ -26,7 +26,7 @@ const mapStateToProps = (state, ownProps) => {
     saved,
     saving,
     existujiciUcastnik: !!ucastnikId,
-    reset
+    reset,
   };
 };
 
@@ -35,12 +35,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
   return {
     onHideModal: () => dispatch(createHideModal(actionPrefix)()),
-    onReset: rocniky => {
+    onReset: (rocniky) => {
       dispatch(createResetForm({ actionPrefix })({ rocniky }));
       dispatch(createResetNovaPlatba({ actionPrefix })({ rocniky }));
     },
     onSubmit: () => dispatch(createSaveUcast(actionPrefix, reduxName)()),
-    dispatch
+    dispatch,
   };
 };
 
@@ -53,7 +53,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     actionPrefix,
     ...restOfStateProps,
     onReset: () => onReset(entities.rocniky),
-    ...restOfDispatchProps
+    ...restOfDispatchProps,
   };
   if (loadId) {
     result.onLoadId = () =>
@@ -72,7 +72,7 @@ PrihlaskyFormContainer.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
   loadId: PropTypes.string,
   reduxName: PropTypes.string.isRequired,
-  reset: PropTypes.bool
+  reset: PropTypes.bool,
 };
 
 export default PrihlaskyFormContainer;

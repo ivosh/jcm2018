@@ -11,7 +11,7 @@ const calculateHeight = ({
   horizontalScrollbarSize,
   horizontalScrollbarVisible,
   rowHeight,
-  rowCount
+  rowCount,
 }) => {
   let height = containerHeight - horizontalScrollbarSize - rowHeight;
   if (height % rowHeight < rowHeight / 2) {
@@ -30,7 +30,7 @@ const calculateWidth = ({
   allColumnsWidth,
   containerWidth,
   verticalScrollbarSize,
-  verticalScrollbarVisible
+  verticalScrollbarVisible,
 }) => {
   let width = allColumnsWidth < containerWidth ? allColumnsWidth : containerWidth;
   if (verticalScrollbarVisible) {
@@ -39,7 +39,7 @@ const calculateWidth = ({
   return width;
 };
 
-const defaultCellRenderer = args => (
+const defaultCellRenderer = (args) => (
   <div className={args.className} key={args.key} style={args.style}>
     {args.formattedCellData}
   </div>
@@ -48,7 +48,7 @@ const defaultCellRenderer = args => (
 class UcastniciTable extends PureComponent {
   columnWidth = ({ index }) => this.props.columns[index].width;
 
-  columnsWidth = columnCount =>
+  columnsWidth = (columnCount) =>
     this.props.columns.slice(0, columnCount).reduce((sum, column) => sum + column.width, 0);
 
   customProps = () => {
@@ -136,7 +136,7 @@ class UcastniciTable extends PureComponent {
       key,
       rowIndex,
       style: mergedStyle,
-      ...customProps
+      ...customProps,
     });
   };
 
@@ -147,7 +147,7 @@ class UcastniciTable extends PureComponent {
       containerWidth,
       data,
       fixedColumnCount,
-      rowHeight
+      rowHeight,
     } = this.props;
     const overscanColumnCount = 0;
     const overscanRowCount = 5;
@@ -163,7 +163,7 @@ class UcastniciTable extends PureComponent {
       horizontalScrollbarSize: scrollbarSize(),
       horizontalScrollbarVisible,
       rowHeight,
-      rowCount
+      rowCount,
     });
 
     const verticalScrollbarVisible = rowHeight * rowCount > containerHeight;
@@ -171,7 +171,7 @@ class UcastniciTable extends PureComponent {
       containerWidth,
       allColumnsWidth,
       verticalScrollbarSize: scrollbarSize(),
-      verticalScrollbarVisible
+      verticalScrollbarVisible,
     });
 
     // Child components need to re-render if interestingProps change.
@@ -186,7 +186,7 @@ class UcastniciTable extends PureComponent {
               className="UcastniciTable_LeftSideGridContainer"
               style={{
                 top: 0,
-                flexBasis: `${fixedColumnsWidth}px`
+                flexBasis: `${fixedColumnsWidth}px`,
               }}
             >
               <Grid
@@ -205,7 +205,7 @@ class UcastniciTable extends PureComponent {
               className="UcastniciTable_LeftSideGridContainer"
               style={{
                 top: rowHeight,
-                flexBasis: `${fixedColumnsWidth}px`
+                flexBasis: `${fixedColumnsWidth}px`,
               }}
             >
               <Grid
@@ -228,7 +228,7 @@ class UcastniciTable extends PureComponent {
                 <div
                   style={{
                     height: rowHeight,
-                    width: width - fixedColumnsWidth - scrollbarSize()
+                    width: width - fixedColumnsWidth - scrollbarSize(),
                   }}
                 >
                   <Grid
@@ -248,7 +248,7 @@ class UcastniciTable extends PureComponent {
                 <div
                   style={{
                     height,
-                    width
+                    width,
                   }}
                 >
                   <Grid
@@ -292,7 +292,7 @@ UcastniciTable.propTypes = {
       key: PropTypes.string.isRequired,
       label: PropTypes.node,
       sortable: PropTypes.bool,
-      width: PropTypes.number.isRequired
+      width: PropTypes.number.isRequired,
     }).isRequired
   ).isRequired,
   containerHeight: PropTypes.number.isRequired,
@@ -302,7 +302,7 @@ UcastniciTable.propTypes = {
   rowHeight: PropTypes.number.isRequired,
   sortColumn: PropTypes.string,
   sortDir: PropTypes.string,
-  onSortDirChange: PropTypes.func
+  onSortDirChange: PropTypes.func,
   // + any other custom props you want to pass to cellClassNames, cellDataFormatter, cellRenderer,
   // and cellStyler
 };
@@ -310,7 +310,7 @@ UcastniciTable.propTypes = {
 UcastniciTable.defaultProps = {
   sortColumn: undefined,
   sortDir: SortDirTypes.NONE,
-  onSortDirChange: undefined
+  onSortDirChange: undefined,
 };
 
 export default UcastniciTable;

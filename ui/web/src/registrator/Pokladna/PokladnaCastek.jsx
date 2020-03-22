@@ -12,7 +12,7 @@ const PocetCastek = ({ popisek, pocet }) => (
 
 PocetCastek.propTypes = {
   popisek: PropTypes.string.isRequired,
-  pocet: PropTypes.number.isRequired
+  pocet: PropTypes.number.isRequired,
 };
 
 const PokladnaCastek = ({ counts, name }) => (
@@ -20,7 +20,7 @@ const PokladnaCastek = ({ counts, name }) => (
     <div className="PokladnaCastek--name">{name}:</div>
     <div />
     <div />
-    {Object.keys(counts).map(castka => (
+    {Object.keys(counts).map((castka) => (
       <PocetCastek key={castka} popisek={`částka ${castka} Kč`} pocet={counts[castka]} />
     ))}
   </>
@@ -28,7 +28,7 @@ const PokladnaCastek = ({ counts, name }) => (
 
 PokladnaCastek.propTypes = {
   counts: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
 };
 
 export default PokladnaCastek;

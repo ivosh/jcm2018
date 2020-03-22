@@ -14,14 +14,14 @@ const saveUcast = createSaveUcast(actionPrefix, reduxName);
 const successfulResponse = {
   code: 'ok',
   response: {
-    id: '===id==='
+    id: '===id===',
   },
-  requestId: '0.9310306652587377'
+  requestId: '0.9310306652587377',
 };
 
 const unsuccessfulResponse = {
   code: 'unfulfilled request',
-  status: 'A strange error occurred.'
+  status: 'A strange error occurred.',
 };
 
 const mockWsClient = new WsClient();
@@ -37,8 +37,8 @@ it('saveUcast() should dispatch four successful actions (new účastník)', asyn
     auth: { token: '===token===' },
     entities: { rocniky: { byRoky: {} } },
     registrator: {
-      [reduxName]: { form: { validate: false, udaje: { narozeni: {} }, prihlaska: {} } }
-    }
+      [reduxName]: { form: { validate: false, udaje: { narozeni: {} }, prihlaska: {} } },
+    },
   });
   const request = { rok: AKTUALNI_ROK, udaje: { narozeni: {} }, prihlaska: {} };
 
@@ -48,14 +48,14 @@ it('saveUcast() should dispatch four successful actions (new účastník)', asyn
   expect(actions[1]).toEqual({
     type: `${PRIHLASKY_YYY_SAVE}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[2]).toEqual({
     type: `${PRIHLASKY_YYY_SAVE}_SUCCESS`,
     request,
     response: { code: CODE_OK, id: '===id===' },
     title: 'ukládání formuláře',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[3]).toEqual({ type: `${actionPrefix}_SAVE_SHOW_MODAL` });
 });
@@ -71,24 +71,24 @@ it('saveUcast() should dispatch four successful actions (existing účastník, e
           '===id===': {
             roky: [AKTUALNI_ROK],
             [AKTUALNI_ROK]: {
-              vykon: { kategorie: '===kat1===' }
-            }
-          }
-        }
-      }
+              vykon: { kategorie: '===kat1===' },
+            },
+          },
+        },
+      },
     },
     registrator: {
       [reduxName]: {
-        form: { ucastnikId: '===id===', validate: false, udaje: { narozeni: {} }, prihlaska: {} }
-      }
-    }
+        form: { ucastnikId: '===id===', validate: false, udaje: { narozeni: {} }, prihlaska: {} },
+      },
+    },
   });
   const request = {
     id: '===id===',
     rok: AKTUALNI_ROK,
     udaje: { narozeni: {} },
     prihlaska: {},
-    vykon: { kategorie: '===kat1===' }
+    vykon: { kategorie: '===kat1===' },
   };
 
   await store.dispatch(saveUcast());
@@ -97,14 +97,14 @@ it('saveUcast() should dispatch four successful actions (existing účastník, e
   expect(actions[1]).toEqual({
     type: `${PRIHLASKY_YYY_SAVE}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[2]).toEqual({
     type: `${PRIHLASKY_YYY_SAVE}_SUCCESS`,
     request,
     response: { code: CODE_OK, id: '===id===' },
     title: 'ukládání formuláře',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[3]).toEqual({ type: `${actionPrefix}_SAVE_SHOW_MODAL` });
 });
@@ -120,17 +120,17 @@ it('saveUcast() should dispatch four successful actions (existing účastník, d
           '===id===': {
             roky: [2017],
             2017: {
-              vykon: { kategorie: '===kat1===' }
-            }
-          }
-        }
-      }
+              vykon: { kategorie: '===kat1===' },
+            },
+          },
+        },
+      },
     },
     registrator: {
       [reduxName]: {
-        form: { ucastnikId: '===id===', validate: false, udaje: { narozeni: {} }, prihlaska: {} }
-      }
-    }
+        form: { ucastnikId: '===id===', validate: false, udaje: { narozeni: {} }, prihlaska: {} },
+      },
+    },
   });
   const request = { id: '===id===', rok: AKTUALNI_ROK, udaje: { narozeni: {} }, prihlaska: {} };
 
@@ -140,14 +140,14 @@ it('saveUcast() should dispatch four successful actions (existing účastník, d
   expect(actions[1]).toEqual({
     type: `${PRIHLASKY_YYY_SAVE}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[2]).toEqual({
     type: `${PRIHLASKY_YYY_SAVE}_SUCCESS`,
     request,
     response: { code: CODE_OK, id: '===id===' },
     title: 'ukládání formuláře',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[3]).toEqual({ type: `${actionPrefix}_SAVE_SHOW_MODAL` });
 });
@@ -157,7 +157,7 @@ it('saveUcast() should dispatch two unsuccessful actions 1/2', async () => {
   const store = mockStore({
     auth: { token: '===token===' },
     entities: { rocniky: { byRoky: {} } },
-    registrator: { [reduxName]: { form: { udaje: { narozeni: {} }, prihlaska: {} } } }
+    registrator: { [reduxName]: { form: { udaje: { narozeni: {} }, prihlaska: {} } } },
   });
   const request = { rok: AKTUALNI_ROK, udaje: { narozeni: {} }, prihlaska: {} };
 
@@ -167,17 +167,17 @@ it('saveUcast() should dispatch two unsuccessful actions 1/2', async () => {
   expect(actions[1]).toEqual({
     type: `${PRIHLASKY_YYY_SAVE}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[2]).toEqual({
     type: `${PRIHLASKY_YYY_SAVE}_ERROR`,
     request,
     response: {
       code: 'unfulfilled request',
-      status: 'A strange error occurred.'
+      status: 'A strange error occurred.',
     },
     title: 'ukládání formuláře',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -187,8 +187,8 @@ it('saveUcast() should dispatch validation error', async () => {
     auth: { token: '===token===' },
     entities: { rocniky: { byRoky: {} } },
     registrator: {
-      [reduxName]: { form: { validate: true, udaje: { narozeni: {} }, prihlaska: {} } }
-    }
+      [reduxName]: { form: { validate: true, udaje: { narozeni: {} }, prihlaska: {} } },
+    },
   });
 
   await store.dispatch(saveUcast());
@@ -206,10 +206,10 @@ it('saveUcast() should dispatch validation error', async () => {
       { name: 'udaje.stat', value: undefined },
       { name: 'prihlaska.datum', value: undefined },
       { name: 'prihlaska.kategorie', value: undefined },
-      { name: 'prihlaska.typ', value: undefined }
+      { name: 'prihlaska.typ', value: undefined },
     ],
     status: 'Přihláška nejde uložit. Povinná pole nejsou vyplněna.',
-    title: 'vyplňování formuláře'
+    title: 'vyplňování formuláře',
   });
 });
 
@@ -219,7 +219,7 @@ it('saveUcast() should dispatch two unsuccessful actions on error', async () => 
   const store = mockStore({
     auth: { token: '===token===' },
     entities: { rocniky: { byRoky: {} } },
-    registrator: { [reduxName]: { form: { udaje: { narozeni: {} }, prihlaska: {} } } }
+    registrator: { [reduxName]: { form: { udaje: { narozeni: {} }, prihlaska: {} } } },
   });
   const request = { rok: AKTUALNI_ROK, udaje: { narozeni: {} }, prihlaska: {} };
 
@@ -229,16 +229,16 @@ it('saveUcast() should dispatch two unsuccessful actions on error', async () => 
   expect(actions[1]).toEqual({
     type: `${PRIHLASKY_YYY_SAVE}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[2]).toEqual({
     type: `${PRIHLASKY_YYY_SAVE}_ERROR`,
     error: 'Error: Parse error!',
     request,
     response: {
-      code: 'internal error'
+      code: 'internal error',
     },
     title: 'ukládání formuláře',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });

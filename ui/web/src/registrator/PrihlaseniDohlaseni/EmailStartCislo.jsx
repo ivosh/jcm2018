@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { AKTUALNI_ROK } from '../../constants';
 import EmailComposerContainer from '../EmailComposer/EmailComposerContainer';
 
-const prechylenaPrihlasena = pohlavi => (pohlavi === 'žena' ? 'přihlášena' : 'přihlášen');
+const prechylenaPrihlasena = (pohlavi) => (pohlavi === 'žena' ? 'přihlášena' : 'přihlášen');
 
 const EmailStartCislo = ({ pohlavi, email, kategorie, startCislo }) => (
   <EmailComposerContainer
@@ -25,13 +25,13 @@ EmailStartCislo.propTypes = {
   pohlavi: PropTypes.oneOf(['muž', 'žena']).isRequired,
   email: PropTypes.string.isRequired,
   kategorie: PropTypes.shape({
-    typ: PropTypes.string.isRequired
+    typ: PropTypes.string.isRequired,
   }).isRequired,
-  startCislo: PropTypes.number
+  startCislo: PropTypes.number,
 };
 
 EmailStartCislo.defaultProps = {
-  startCislo: undefined
+  startCislo: undefined,
 };
 
 export default EmailStartCislo;

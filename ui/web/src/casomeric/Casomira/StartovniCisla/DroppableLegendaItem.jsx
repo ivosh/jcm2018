@@ -6,7 +6,7 @@ import LegendaItem from './LegendaItem';
 
 const collect = (connect, monitor) => ({
   connectDropTarget: connect.dropTarget(),
-  isDropOver: monitor.isOver() && monitor.canDrop()
+  isDropOver: monitor.isOver() && monitor.canDrop(),
 });
 
 class DroppableLegendaItem extends PureComponent {
@@ -18,7 +18,7 @@ class DroppableLegendaItem extends PureComponent {
       drop: (dropProps, monitor) =>
         onDrop({ source: monitor.getItem(), destination: { ...dropProps, typ } }),
       canDrop: (dropProps, monitor) =>
-        canDrop({ source: monitor.getItem(), destination: { ...dropProps, typ } })
+        canDrop({ source: monitor.getItem(), destination: { ...dropProps, typ } }),
     };
   }
 
@@ -32,7 +32,7 @@ class DroppableLegendaItem extends PureComponent {
 DroppableLegendaItem.propTypes = {
   typ: PropTypes.string.isRequired,
   canDrop: PropTypes.func.isRequired,
-  onDrop: PropTypes.func.isRequired
+  onDrop: PropTypes.func.isRequired,
 };
 
 export default DroppableLegendaItem;

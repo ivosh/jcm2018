@@ -17,8 +17,8 @@ const successfulResponse = {
         typ: 'maraton',
         vek: {
           max: 49,
-          min: 40
-        }
+          min: 40,
+        },
       },
       '5a09b1fd371dec1e99b7e1c9': {
         id: '5a09b1fd371dec1e99b7e1c9',
@@ -26,12 +26,12 @@ const successfulResponse = {
         typ: 'maraton',
         vek: {
           max: 59,
-          min: 50
-        }
+          min: 50,
+        },
       },
       '5a71b1fd371dec1e99b7e1bc': {
         id: '5a71b1fd371dec1e99b7e1bc',
-        typ: 'pěší'
+        typ: 'pěší',
       },
       '8799b1fd371dec1e99b7e1c9': {
         id: '8799b1fd371dec1e99b7e1c9',
@@ -39,8 +39,8 @@ const successfulResponse = {
         typ: 'půlmaraton',
         vek: {
           max: 59,
-          min: 50
-        }
+          min: 50,
+        },
       },
       '1609b1fd3748746e99b7e1c9': {
         id: '1609b1fd3748746e99b7e1c9',
@@ -48,8 +48,8 @@ const successfulResponse = {
         typ: 'půlmaraton',
         vek: {
           max: 49,
-          min: 40
-        }
+          min: 40,
+        },
       },
       '3279b1fd371dec1e99b7e1c9': {
         id: '3279b1fd371dec1e99b7e1c9',
@@ -57,9 +57,9 @@ const successfulResponse = {
         typ: 'půlmaraton',
         vek: {
           max: 59,
-          min: 50
-        }
-      }
+          min: 50,
+        },
+      },
     },
     rocniky: {
       2017: {
@@ -70,7 +70,7 @@ const successfulResponse = {
             startCisla: '1-100',
             startovne: {
               naMiste: 200,
-              predem: 150
+              predem: 150,
             },
             žena: [
               {
@@ -79,9 +79,9 @@ const successfulResponse = {
                 typ: 'maraton',
                 vek: {
                   max: 49,
-                  min: 40
+                  min: 40,
                 },
-                zkratka: '1Ž'
+                zkratka: '1Ž',
               },
               {
                 id: '5a09b1fd371dec1e99b7e1c9',
@@ -89,17 +89,17 @@ const successfulResponse = {
                 typ: 'maraton',
                 vek: {
                   max: 59,
-                  min: 50
+                  min: 50,
                 },
-                zkratka: '2Ž'
-              }
-            ]
-          }
+                zkratka: '2Ž',
+              },
+            ],
+          },
         },
         ubytovani: {
           pátek: { poplatek: 50 },
-          sobota: { poplatek: 60 }
-        }
+          sobota: { poplatek: 60 },
+        },
       },
       2018: {
         datum: '2018-06-08T00:00:00.000Z',
@@ -109,7 +109,7 @@ const successfulResponse = {
             startCisla: '5-95',
             startovne: {
               naMiste: 250,
-              predem: 200
+              predem: 200,
             },
             žena: [
               {
@@ -118,9 +118,9 @@ const successfulResponse = {
                 typ: 'maraton',
                 vek: {
                   max: 49,
-                  min: 40
+                  min: 40,
                 },
-                zkratka: '1Ž'
+                zkratka: '1Ž',
               },
               {
                 id: '5a09b1fd371dec1e99b7e1c9',
@@ -128,20 +128,20 @@ const successfulResponse = {
                 typ: 'maraton',
                 vek: {
                   max: 59,
-                  min: 50
+                  min: 50,
                 },
-                zkratka: '2Ž'
-              }
-            ]
+                zkratka: '2Ž',
+              },
+            ],
           },
           pěší: {
             id: '5a71b1fd371dec1e99b7e1bc',
             startovne: {
               naMiste: 25,
-              predem: 25
+              predem: 25,
             },
             typ: 'pěší',
-            zkratka: 'P'
+            zkratka: 'P',
           },
           půlmaraton: {
             muž: [
@@ -151,15 +151,15 @@ const successfulResponse = {
                 typ: 'půlmaraton',
                 vek: {
                   max: 59,
-                  min: 50
+                  min: 50,
                 },
-                zkratka: '1M'
-              }
+                zkratka: '1M',
+              },
             ],
             startCisla: '100-199',
             startovne: {
               naMiste: 250,
-              predem: 200
+              predem: 200,
             },
             žena: [
               {
@@ -168,9 +168,9 @@ const successfulResponse = {
                 typ: 'půlmaraton',
                 vek: {
                   max: 49,
-                  min: 40
+                  min: 40,
                 },
-                zkratka: '1Ž'
+                zkratka: '1Ž',
               },
               {
                 id: '3279b1fd371dec1e99b7e1c9',
@@ -178,30 +178,30 @@ const successfulResponse = {
                 typ: 'půlmaraton',
                 vek: {
                   max: 59,
-                  min: 50
+                  min: 50,
                 },
-                zkratka: '2Ž'
-              }
-            ]
-          }
+                zkratka: '2Ž',
+              },
+            ],
+          },
         },
         ubytovani: {
-          pátek: { poplatek: 60 }
-        }
+          pátek: { poplatek: 60 },
+        },
       },
       2019: {
         id: '6a02c8fd371dec1e99b7e1bc',
         datum: '2019-06-08T00:00:00.000Z',
         uzaverka: {
           prihlasek: '2019-06-03T00:00:00.000Z',
-          platebPrihlasek: '2019-06-05T00:00:00.000Z'
+          platebPrihlasek: '2019-06-05T00:00:00.000Z',
         },
         kategorie: {
           maraton: {
             startCisla: '5-95',
             startovne: {
               naMiste: 250,
-              predem: 200
+              predem: 200,
             },
             žena: [
               {
@@ -210,9 +210,9 @@ const successfulResponse = {
                 typ: 'maraton',
                 vek: {
                   max: 49,
-                  min: 40
+                  min: 40,
                 },
-                zkratka: '1Ž'
+                zkratka: '1Ž',
               },
               {
                 id: '5a09b1fd371dec1e99b7e1c9',
@@ -220,20 +220,20 @@ const successfulResponse = {
                 typ: 'maraton',
                 vek: {
                   max: 59,
-                  min: 50
+                  min: 50,
                 },
-                zkratka: '2Ž'
-              }
-            ]
+                zkratka: '2Ž',
+              },
+            ],
           },
           pěší: {
             id: '5a71b1fd371dec1e99b7e1bc',
             startovne: {
               naMiste: 25,
-              predem: 25
+              predem: 25,
             },
             typ: 'pěší',
-            zkratka: 'P'
+            zkratka: 'P',
           },
           půlmaraton: {
             muž: [
@@ -243,15 +243,15 @@ const successfulResponse = {
                 typ: 'půlmaraton',
                 vek: {
                   max: 59,
-                  min: 50
+                  min: 50,
                 },
-                zkratka: '1M'
-              }
+                zkratka: '1M',
+              },
             ],
             startCisla: '100-199',
             startovne: {
               naMiste: 250,
-              predem: 200
+              predem: 200,
             },
             žena: [
               {
@@ -260,9 +260,9 @@ const successfulResponse = {
                 typ: 'půlmaraton',
                 vek: {
                   max: 49,
-                  min: 40
+                  min: 40,
                 },
-                zkratka: '1Ž'
+                zkratka: '1Ž',
               },
               {
                 id: '3279b1fd371dec1e99b7e1c9',
@@ -270,30 +270,30 @@ const successfulResponse = {
                 typ: 'půlmaraton',
                 vek: {
                   max: 59,
-                  min: 50
+                  min: 50,
                 },
-                zkratka: '2Ž'
-              }
-            ]
-          }
+                zkratka: '2Ž',
+              },
+            ],
+          },
         },
         ubytovani: {
-          pátek: { poplatek: 50 }
-        }
+          pátek: { poplatek: 50 },
+        },
       },
       2020: {
         id: '6a02c8fd371dec1e9a47e1bc',
         datum: '2020-06-06T00:00:00.000Z',
         uzaverka: {
           prihlasek: '2020-05-31T00:00:00.000Z',
-          platebPrihlasek: '2020-06-03T00:00:00.000Z'
+          platebPrihlasek: '2020-06-03T00:00:00.000Z',
         },
         kategorie: {
           maraton: {
             startCisla: '5-95',
             startovne: {
               naMiste: 250,
-              predem: 200
+              predem: 200,
             },
             žena: [
               {
@@ -302,9 +302,9 @@ const successfulResponse = {
                 typ: 'maraton',
                 vek: {
                   max: 49,
-                  min: 40
+                  min: 40,
                 },
-                zkratka: '1Ž'
+                zkratka: '1Ž',
               },
               {
                 id: '5a09b1fd371dec1e99b7e1c9',
@@ -312,20 +312,20 @@ const successfulResponse = {
                 typ: 'maraton',
                 vek: {
                   max: 59,
-                  min: 50
+                  min: 50,
                 },
-                zkratka: '2Ž'
-              }
-            ]
+                zkratka: '2Ž',
+              },
+            ],
           },
           pěší: {
             id: '5a71b1fd371dec1e99b7e1bc',
             startovne: {
               naMiste: 25,
-              predem: 25
+              predem: 25,
             },
             typ: 'pěší',
-            zkratka: 'P'
+            zkratka: 'P',
           },
           půlmaraton: {
             muž: [
@@ -335,15 +335,15 @@ const successfulResponse = {
                 typ: 'půlmaraton',
                 vek: {
                   max: 59,
-                  min: 50
+                  min: 50,
                 },
-                zkratka: '1M'
-              }
+                zkratka: '1M',
+              },
             ],
             startCisla: '100-199',
             startovne: {
               naMiste: 250,
-              predem: 200
+              predem: 200,
             },
             žena: [
               {
@@ -352,9 +352,9 @@ const successfulResponse = {
                 typ: 'půlmaraton',
                 vek: {
                   max: 49,
-                  min: 40
+                  min: 40,
                 },
-                zkratka: '1Ž'
+                zkratka: '1Ž',
               },
               {
                 id: '3279b1fd371dec1e99b7e1c9',
@@ -362,25 +362,25 @@ const successfulResponse = {
                 typ: 'půlmaraton',
                 vek: {
                   max: 59,
-                  min: 50
+                  min: 50,
                 },
-                zkratka: '2Ž'
-              }
-            ]
-          }
+                zkratka: '2Ž',
+              },
+            ],
+          },
         },
         ubytovani: {
-          pátek: { poplatek: 50 }
-        }
-      }
-    }
+          pátek: { poplatek: 50 },
+        },
+      },
+    },
   },
-  requestId: '0.9310306652587377'
+  requestId: '0.9310306652587377',
 };
 
 const unsuccessfulResponse = {
   code: 'unfulfilled request',
-  status: 'A strange error occurred.'
+  status: 'A strange error occurred.',
 };
 
 const middlewares = [wsAPI.withExtraArgument(mockWsClient)];
@@ -405,10 +405,10 @@ it('fetchRocniky() should dispatch two successful actions if rocniky not cached'
     response: {
       code: 'ok',
       kategorie: successfulResponse.response.kategorie,
-      rocniky: { byRoky: successfulResponse.response.rocniky, roky: [2017, 2018, 2019, 2020] }
+      rocniky: { byRoky: successfulResponse.response.rocniky, roky: [2017, 2018, 2019, 2020] },
     },
     title: 'načítání ročníků',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 
   expect(actions[1].getDatumKonani()).toEqual(new Date(AKTUALNI_DATUM_KONANI).toJSON());
@@ -425,10 +425,10 @@ it('fetchRocniky() should dispatch one unsuccessful action if rocniky not cached
     type: `${FETCH_ROCNIKY}_ERROR`,
     response: {
       code: 'unfulfilled request',
-      status: 'A strange error occurred.'
+      status: 'A strange error occurred.',
     },
     title: 'načítání ročníků',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -443,9 +443,9 @@ it('fetchRocniky() should dispatch one unsuccessful action on error', async () =
     type: `${FETCH_ROCNIKY}_ERROR`,
     error: 'Error: Parse error!',
     response: {
-      code: 'internal error'
+      code: 'internal error',
     },
     title: 'načítání ročníků',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });

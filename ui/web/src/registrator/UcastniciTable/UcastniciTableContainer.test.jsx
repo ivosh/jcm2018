@@ -16,9 +16,9 @@ beforeEach(() => {
     registrator: {
       yyyDigest: {
         sortColumn: 'prijmeni',
-        sortDir: SortDirTypes.DESC
-      }
-    }
+        sortDir: SortDirTypes.DESC,
+      },
+    },
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
@@ -45,6 +45,6 @@ it('maps onSortDirChange to dispatch sortDirChange action', () => {
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: 'YYY_DIGEST_SORT_DIR_CHANGE',
-    sortColumn: 'jmeno'
+    sortColumn: 'jmeno',
   });
 });

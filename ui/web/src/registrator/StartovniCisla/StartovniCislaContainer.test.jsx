@@ -13,9 +13,9 @@ beforeEach(() => {
     ...ucastniciTestData,
     registrator: {
       startovniCisla: {
-        odstartovani: false
-      }
-    }
+        odstartovani: false,
+      },
+    },
   };
   store = mockStore(state);
   store.dispatch = jest.fn();

@@ -3,6 +3,6 @@ module.exports = {
   testEnvironment: 'jest-environment-puppeteer',
   testMatch: ['**/*.test.{js,jsx,ts,tsx}'],
   transform: {
-    '^.+\\.js$': 'babel-jest'
-  }
+    '^.+\\.js$': 'babel-jest',
+  },
 };

@@ -22,14 +22,14 @@ const state = {
         udaje: { narozeni: {} },
         prihlaska: {},
         platby: [],
-        ubytovani: {}
+        ubytovani: {},
       },
       platby: {
-        novaPlatbaMinified: true
+        novaPlatbaMinified: true,
       },
-      startCislo: { showing: false }
-    }
-  }
+      startCislo: { showing: false },
+    },
+  },
 };
 const store = mockStore(state);
 

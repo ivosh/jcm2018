@@ -7,20 +7,20 @@ import {
   STARTUJICI_CREATE_VYKON,
   STARTUJICI_DELETE_VYKON,
   createVykon,
-  deleteVykon
+  deleteVykon,
 } from './StartujiciActions';
 
 const successfulResponse = {
   code: 'ok',
   response: {
-    id: '===id==='
+    id: '===id===',
   },
-  requestId: '0.9310306652587377'
+  requestId: '0.9310306652587377',
 };
 
 const unsuccessfulResponse = {
   code: 'unfulfilled request',
-  status: 'A strange error occurred.'
+  status: 'A strange error occurred.',
 };
 
 const mockWsClient = new WsClient();
@@ -39,14 +39,14 @@ it('createVykon() should dispatch two successful actions', async () => {
   expect(actions[0]).toEqual({
     type: `${STARTUJICI_CREATE_VYKON}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${STARTUJICI_CREATE_VYKON}_SUCCESS`,
     request,
     response: { code: 'ok', requestId: expect.any(String), response: { id: '===id===' } },
     title: 'vytváření registrace na start',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -60,14 +60,14 @@ it('deleteVykon() should dispatch two successful actions', async () => {
   expect(actions[0]).toEqual({
     type: `${STARTUJICI_DELETE_VYKON}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${STARTUJICI_DELETE_VYKON}_SUCCESS`,
     request,
     response: { code: 'ok', requestId: expect.any(String), response: { id: '===id===' } },
     title: 'rušení registrace na start',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -83,17 +83,17 @@ it('createVykon() should dispatch two unsuccessful actions', async () => {
   expect(actions[0]).toEqual({
     type: `${STARTUJICI_CREATE_VYKON}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${STARTUJICI_CREATE_VYKON}_ERROR`,
     request,
     response: {
       code: 'unfulfilled request',
-      status: 'A strange error occurred.'
+      status: 'A strange error occurred.',
     },
     title: 'vytváření registrace na start',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -109,16 +109,16 @@ it('deleteVykon() should dispatch two unsuccessful actions', async () => {
   expect(actions[0]).toEqual({
     type: `${STARTUJICI_DELETE_VYKON}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${STARTUJICI_DELETE_VYKON}_ERROR`,
     request,
     response: {
       code: 'unfulfilled request',
-      status: 'A strange error occurred.'
+      status: 'A strange error occurred.',
     },
     title: 'rušení registrace na start',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });

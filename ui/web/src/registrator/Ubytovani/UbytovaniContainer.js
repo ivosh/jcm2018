@@ -13,23 +13,23 @@ const mapStateToProps = ({ entities, registrator: { ubytovani } }) => {
     jenUbytovani,
     reduxName: 'ubytovani',
     textFilter,
-    ubytovani: getUbytovaniSorted({ ...entities, ...ubytovani })
+    ubytovani: getUbytovaniSorted({ ...entities, ...ubytovani }),
   };
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   onAkceSelect: (id, event) => dispatch(modifyUbytovani({ id, modifikace: event.target.value })),
-  onTextFilterChange: text => dispatch(createTextFilterChange('UBYTOVANI')(text)),
-  onUbytovaniChange: () => dispatch(changeUbytovaniFilter())
+  onTextFilterChange: (text) => dispatch(createTextFilterChange('UBYTOVANI')(text)),
+  onUbytovaniChange: () => dispatch(changeUbytovaniFilter()),
 });
 
 const mergeProps = (stateProps, dispatchProps) => {
   const { ubytovani } = stateProps;
   const { onAkceSelect, onTextFilterChange, onUbytovaniChange } = dispatchProps;
 
-  const ubytovaniWithActions = ubytovani.map(jeden => ({
+  const ubytovaniWithActions = ubytovani.map((jeden) => ({
     ...jeden,
-    akce: { ...jeden.akce, onSelect: event => onAkceSelect(jeden.id, event) }
+    akce: { ...jeden.akce, onSelect: (event) => onAkceSelect(jeden.id, event) },
   }));
 
   return { ...stateProps, ubytovani: ubytovaniWithActions, onTextFilterChange, onUbytovaniChange };
@@ -39,7 +39,7 @@ const areStatesEqual = (next, prev) =>
   prev.entities === next.entities && prev.registrator.ubytovani === next.registrator.ubytovani;
 
 const UbytovaniContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps, {
-  areStatesEqual
+  areStatesEqual,
 })(Ubytovani);
 
 export default UbytovaniContainer;

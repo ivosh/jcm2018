@@ -18,15 +18,15 @@ const successfulResponse = {
           narozeni: { rok: 1963 },
           pohlavi: 'žena',
           obec: 'Zlín',
-          stat: 'Česká republika'
+          stat: 'Česká republika',
         },
         vykon: {
           kategorie: '5a71b1fd45754c1e99b7e1bc',
           startCislo: 11,
           dokonceno: true,
-          cas: 'PT3H42M32.6S'
-        }
-      }
+          cas: 'PT3H42M32.6S',
+        },
+      },
     },
     '5a09b1fd371dec1e99b7e1c9': {
       roky: [2018, 2017],
@@ -37,14 +37,14 @@ const successfulResponse = {
           narozeni: { rok: 1956 },
           pohlavi: 'muž',
           obec: 'Ostrava 1',
-          stat: 'Česká republika'
+          stat: 'Česká republika',
         },
         vykon: {
           kategorie: '5a71b1fd371dec1e99b7e1bc',
           startCislo: 34,
           dokonceno: true,
-          cas: 'PT1H25M32.6S'
-        }
+          cas: 'PT1H25M32.6S',
+        },
       },
       2018: {
         udaje: {
@@ -53,34 +53,34 @@ const successfulResponse = {
           narozeni: { rok: 1956 },
           pohlavi: 'muž',
           obec: 'Ostrava 2',
-          stat: 'Česká republika'
+          stat: 'Česká republika',
         },
         vykon: {
           kategorie: '5a71b1fd371dec1e99b7e1bc',
           startCislo: 15,
-          dokonceno: false
-        }
-      }
-    }
+          dokonceno: false,
+        },
+      },
+    },
   },
-  requestId: '0.9310306652587377'
+  requestId: '0.9310306652587377',
 };
 
 const unsuccessfulResponse = {
   code: 'unfulfilled request',
-  status: 'A strange error occurred.'
+  status: 'A strange error occurred.',
 };
 
 const authTokenInvalidResponse = {
   code: 'authentication token invalid',
-  status: 'Neplatný ověřovací token.'
+  status: 'Neplatný ověřovací token.',
 };
 
 const middlewares = [wsAPI.withExtraArgument(mockWsClient)];
 const mockStore = configureStore(middlewares);
 
-const decorate = json => ({
-  getCode: () => json.code
+const decorate = (json) => ({
+  getCode: () => json.code,
 });
 
 const normalize = ({ request, response }) => {
@@ -98,7 +98,7 @@ it('successful wsAPI action should dispatch REQUEST/SUCCESS redux actions', asyn
   mockWsClient.sendRequest = async () => successfulResponse;
   const store = mockStore(state);
   const { code } = await store.dispatch({
-    [WS_API]: { type: 'FETCH_ACTION', decorate, endpoint, normalize, request: apiRequest }
+    [WS_API]: { type: 'FETCH_ACTION', decorate, endpoint, normalize, request: apiRequest },
   });
   expect(code).toEqual(CODE_OK);
 
@@ -106,7 +106,7 @@ it('successful wsAPI action should dispatch REQUEST/SUCCESS redux actions', asyn
   expect(actions[0]).toEqual({
     type: 'FETCH_ACTION_REQUEST',
     request: apiRequest,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: 'FETCH_ACTION_SUCCESS',
@@ -115,9 +115,9 @@ it('successful wsAPI action should dispatch REQUEST/SUCCESS redux actions', asyn
     response: {
       allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
       byIds: successfulResponse.response,
-      code: 'ok'
+      code: 'ok',
     },
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -125,7 +125,7 @@ it('unsuccessful wsAPI action should dispatch REQUEST/ERROR actions', async () =
   mockWsClient.sendRequest = async () => unsuccessfulResponse;
   const store = mockStore(state);
   const { code } = await store.dispatch({
-    [WS_API]: { type: 'FETCH_ACTION', decorate, endpoint, normalize, request: apiRequest }
+    [WS_API]: { type: 'FETCH_ACTION', decorate, endpoint, normalize, request: apiRequest },
   });
   expect(code).toEqual('unfulfilled request');
 
@@ -133,16 +133,16 @@ it('unsuccessful wsAPI action should dispatch REQUEST/ERROR actions', async () =
   expect(actions[0]).toEqual({
     type: 'FETCH_ACTION_REQUEST',
     request: apiRequest,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: 'FETCH_ACTION_ERROR',
     request: apiRequest,
     response: {
       code: 'unfulfilled request',
-      status: 'A strange error occurred.'
+      status: 'A strange error occurred.',
     },
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -150,7 +150,7 @@ it('error wsAPI action should dispatch REQUEST/ERROR actions', async () => {
   mockWsClient.sendRequest = async () => Promise.reject(new Error('Parse error!'));
   const store = mockStore(state);
   const { code } = await store.dispatch({
-    [WS_API]: { type: 'FETCH_ACTION', endpoint, request: apiRequest }
+    [WS_API]: { type: 'FETCH_ACTION', endpoint, request: apiRequest },
   });
   expect(code).toEqual('internal error');
 
@@ -158,14 +158,14 @@ it('error wsAPI action should dispatch REQUEST/ERROR actions', async () => {
   expect(actions[0]).toEqual({
     type: 'FETCH_ACTION_REQUEST',
     request: apiRequest,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: 'FETCH_ACTION_ERROR',
     error: 'Error: Parse error!',
     request: apiRequest,
     response: { code: 'internal error' },
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -177,8 +177,8 @@ it('expired authentication token for wsAPI action should dispatch REQUEST/ERROR 
       type: 'FETCH_ACTION',
       endpoint,
       request: apiRequest,
-      title: '...error, my darling!'
-    }
+      title: '...error, my darling!',
+    },
   });
   expect(code).toEqual(CODE_TOKEN_INVALID);
 
@@ -186,17 +186,17 @@ it('expired authentication token for wsAPI action should dispatch REQUEST/ERROR 
   expect(actions[0]).toEqual({
     type: 'FETCH_ACTION_REQUEST',
     request: apiRequest,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: 'FETCH_ACTION_ERROR',
     request: apiRequest,
     response: {
       code: 'authentication token invalid',
-      status: 'Platnost ověřovacího tokenu pravděpodobně vypršela. Neplatný ověřovací token.'
+      status: 'Platnost ověřovacího tokenu pravděpodobně vypršela. Neplatný ověřovací token.',
     },
     title: '...error, my darling!',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -207,8 +207,8 @@ it('wsAPI should process array of three actions in sequence', async () => {
     [WS_API]: [
       { type: 'FETCH_ACTION_1', endpoint, normalize, request: apiRequest },
       { type: 'FETCH_ACTION_2', endpoint, normalize, request: apiRequest },
-      { type: 'FETCH_ACTION_3', endpoint, normalize, request: apiRequest }
-    ]
+      { type: 'FETCH_ACTION_3', endpoint, normalize, request: apiRequest },
+    ],
   });
   expect(code).toEqual(CODE_OK);
 
@@ -216,7 +216,7 @@ it('wsAPI should process array of three actions in sequence', async () => {
   expect(actions[0]).toEqual({
     type: 'FETCH_ACTION_1_REQUEST',
     request: apiRequest,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: 'FETCH_ACTION_1_SUCCESS',
@@ -224,14 +224,14 @@ it('wsAPI should process array of three actions in sequence', async () => {
     response: {
       allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
       byIds: successfulResponse.response,
-      code: 'ok'
+      code: 'ok',
     },
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[2]).toEqual({
     type: 'FETCH_ACTION_2_REQUEST',
     request: apiRequest,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[3]).toEqual({
     type: 'FETCH_ACTION_2_SUCCESS',
@@ -239,14 +239,14 @@ it('wsAPI should process array of three actions in sequence', async () => {
     response: {
       allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
       byIds: successfulResponse.response,
-      code: 'ok'
+      code: 'ok',
     },
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[4]).toEqual({
     type: 'FETCH_ACTION_3_REQUEST',
     request: apiRequest,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[5]).toEqual({
     type: 'FETCH_ACTION_3_SUCCESS',
@@ -254,9 +254,9 @@ it('wsAPI should process array of three actions in sequence', async () => {
     response: {
       allIds: ['6f09b1fd371dec1e99b7e1c9', '5a09b1fd371dec1e99b7e1c9'],
       byIds: successfulResponse.response,
-      code: 'ok'
+      code: 'ok',
     },
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -264,14 +264,14 @@ const signInRequest = { ...apiRequest, nonce: '===client===' };
 const signInResponse = {
   code: 'ok',
   response: { token: '===token+nonce===', username: 'pavouk' },
-  requestId: 'blablabla'
+  requestId: 'blablabla',
 };
 const normalizeSignInResponse = ({
   request,
   response: {
     check: { client, code, decodedToken, server, status },
-    response: { token, username }
-  }
+    response: { token, username },
+  },
 }) => ({ request, response: { client, code, decodedToken, server, status, token, username } });
 
 it('successful wsAPI action with checkResponse returning CODE_OK', async () => {
@@ -284,8 +284,8 @@ it('successful wsAPI action with checkResponse returning CODE_OK', async () => {
       checkResponse,
       endpoint,
       normalize: normalizeSignInResponse,
-      request: signInRequest
-    }
+      request: signInRequest,
+    },
   });
   expect(code).toEqual(CODE_OK);
 
@@ -293,7 +293,7 @@ it('successful wsAPI action with checkResponse returning CODE_OK', async () => {
   expect(actions[0]).toEqual({
     type: 'FETCH_ACTION_REQUEST',
     request: signInRequest,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: 'FETCH_ACTION_SUCCESS',
@@ -302,9 +302,9 @@ it('successful wsAPI action with checkResponse returning CODE_OK', async () => {
       code: 'ok',
       decodedToken: '===decoded-token===',
       token: '===token+nonce===',
-      username: 'pavouk'
+      username: 'pavouk',
     },
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -314,7 +314,7 @@ it('successful wsAPI action with checkResponse returning CODE_NONCE_MISMATCH', a
     code: CODE_NONCE_MISMATCH,
     status: 'Popisek chybky.',
     client: request.nonce,
-    server: '===server==='
+    server: '===server===',
   });
   const store = mockStore(state);
   const { code } = await store.dispatch({
@@ -323,8 +323,8 @@ it('successful wsAPI action with checkResponse returning CODE_NONCE_MISMATCH', a
       checkResponse,
       endpoint,
       normalize: normalizeSignInResponse,
-      request: signInRequest
-    }
+      request: signInRequest,
+    },
   });
   expect(code).toEqual(CODE_NONCE_MISMATCH);
 
@@ -332,7 +332,7 @@ it('successful wsAPI action with checkResponse returning CODE_NONCE_MISMATCH', a
   expect(actions[0]).toEqual({
     type: 'FETCH_ACTION_REQUEST',
     request: signInRequest,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: 'FETCH_ACTION_ERROR',
@@ -343,8 +343,8 @@ it('successful wsAPI action with checkResponse returning CODE_NONCE_MISMATCH', a
       server: '===server===',
       status: 'Popisek chybky.',
       token: '===token+nonce===',
-      username: 'pavouk'
+      username: 'pavouk',
     },
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });

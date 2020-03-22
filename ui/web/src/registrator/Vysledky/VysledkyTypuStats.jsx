@@ -26,7 +26,7 @@ const VysledkyTypuStats = ({ anchorHref, popisek, stats, typ, zkratky }) => (
     </thead>
     <tbody>
       {zkratky.length > 1 &&
-        zkratky.map(zkratka => (
+        zkratky.map((zkratka) => (
           <tr key={zkratka}>
             <td>{zkratka}</td>
             <td>{stats[zkratka].popisek}</td>
@@ -49,7 +49,7 @@ VysledkyTypuStats.propTypes = {
   popisek: PropTypes.string.isRequired,
   stats: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   typ: PropTypes.string.isRequired,
-  zkratky: PropTypes.arrayOf(PropTypes.string).isRequired
+  zkratky: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default VysledkyTypuStats;

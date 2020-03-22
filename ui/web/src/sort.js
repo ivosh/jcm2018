@@ -2,7 +2,7 @@ import moment from 'moment';
 
 export const SortDirTypes = { NONE: 'none', ASC: 'asc', DESC: 'desc' };
 
-export const reverseSortDirType = sortDirType => {
+export const reverseSortDirType = (sortDirType) => {
   switch (sortDirType) {
     case SortDirTypes.ASC:
       return SortDirTypes.DESC;
@@ -162,7 +162,7 @@ export const sortForColumn = ({ data, sortColumn, sortDir, extraSortMethods = {}
     relPoradi: (a, b) => numberAndUndefinedSortMethod(a.relPoradi, b.relPoradi, desc),
     startCislo: (a, b) => numberAndUndefinedSortMethod(a.startCislo, b.startCislo, desc),
     zaplaceno: (a, b) => a.zaplaceno - b.zaplaceno,
-    ...extraSortMethods
+    ...extraSortMethods,
   };
 
   const sortMethod = sortMethods[sortColumn] || prijmeniJmenoNarozeniSortMethod;

@@ -22,7 +22,7 @@ Timesync.propTypes = {
   stopEnabled: PropTypes.bool.isRequired,
   timeOffset: PropTypes.number.isRequired,
   onStart: PropTypes.func.isRequired,
-  onStop: PropTypes.func.isRequired
+  onStop: PropTypes.func.isRequired,
 };
 
 export default Timesync;

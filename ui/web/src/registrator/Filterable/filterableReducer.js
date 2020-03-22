@@ -1,9 +1,9 @@
 export const initialState = {
   kategorieFilter: '',
-  textFilter: ''
+  textFilter: '',
 };
 
-export const createFilterableReducer = actionPrefix => (state = initialState, action) => {
+export const createFilterableReducer = (actionPrefix) => (state = initialState, action) => {
   switch (action.type) {
     case `${actionPrefix}_KATEGORIE_FILTER_CHANGE`:
       if (state.kategorieFilter === action.typKategorie) {

@@ -5,7 +5,7 @@ import { computePoradiProTyp } from '../poradi';
 
 export const initialState = {
   kategorieFilter: '',
-  kategorieSubFilter: '' // kategorie.id
+  kategorieSubFilter: '', // kategorie.id
 };
 
 const vitezoveReducer = (state = initialState, action) => {
@@ -32,7 +32,7 @@ export const getVitezove = ({
   kategorieSubFilter = '',
   rocniky,
   ucastnici,
-  rok = AKTUALNI_ROK
+  rok = AKTUALNI_ROK,
 }) => {
   if (kategorieFilter === '' || kategorieSubFilter === '') {
     return [];
@@ -41,10 +41,10 @@ export const getVitezove = ({
   const kategorieProRocnik = getKategorie({ rocniky, rok });
 
   const ucasti = getUcastiProRok({ rok, ucastnici });
-  const mapped = ucasti.map(jeden => {
+  const mapped = ucasti.map((jeden) => {
     const {
       id,
-      ucast: { udaje, vykon }
+      ucast: { udaje, vykon },
     } = jeden;
     const { prijmeni, jmeno, narozeni } = udaje;
     if (!vykon) {
@@ -63,15 +63,15 @@ export const getVitezove = ({
       kategorie: kategorieProRocnik.kategorie[kategorieId], // will contain 'zkratka' as well
       startCislo,
       dokonceno, // nutné pro computePoradi
-      cas
+      cas,
     };
   });
-  const filtered = mapped.filter(jeden => jeden);
+  const filtered = mapped.filter((jeden) => jeden);
 
   const sPoradim = computePoradiProTyp({
     data: filtered,
     kategorieProRocnik,
-    typ: kategorieFilter
+    typ: kategorieFilter,
   });
 
   const vJedneKategorii = sPoradim.filter(

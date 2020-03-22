@@ -27,7 +27,7 @@ const commonProps = {
   onDrop: jest.fn(),
   onNarokovaneFilterChange: jest.fn(),
   onNeprevzateFilterChange: jest.fn(),
-  onTextFilterChange: jest.fn()
+  onTextFilterChange: jest.fn(),
 };
 
 const pohary = [
@@ -37,7 +37,7 @@ const pohary = [
     jmeno: 'Roman',
     narozeni: { rok: 1956 },
     pohary: { narok: true, neprevzato: 0, predano: 0 },
-    ucasti: { dokoncene: [2017, 2015, 2014, 2013], prihlaseno: true, odstartovano: false }
+    ucasti: { dokoncene: [2017, 2015, 2014, 2013], prihlaseno: true, odstartovano: false },
   },
   {
     id: '6f09b1fd371dec1e99b7e1c9',
@@ -46,7 +46,7 @@ const pohary = [
     narozeni: { rok: 1963, mesic: 12, den: 7 },
     obec: 'Zlín',
     pohary: { narok: false, neprevzato: 1, predano: 0 },
-    ucasti: { dokoncene: [2016, 2013, 2012, 2011, 2010], prihlaseno: false, odstartovano: false }
+    ucasti: { dokoncene: [2016, 2013, 2012, 2011, 2010], prihlaseno: false, odstartovano: false },
   },
   {
     id: '7a09b1fd371dec1e99b7e142',
@@ -54,8 +54,8 @@ const pohary = [
     jmeno: 'Hana',
     narozeni: { den: 25, mesic: 7, rok: 1999 },
     pohary: { narok: false, neprevzato: 0, predano: 0 },
-    ucasti: { dokoncene: [], prihlaseno: false, odstartovano: false }
-  }
+    ucasti: { dokoncene: [], prihlaseno: false, odstartovano: false },
+  },
 ];
 
 // Render with the test context that uses the test backend.

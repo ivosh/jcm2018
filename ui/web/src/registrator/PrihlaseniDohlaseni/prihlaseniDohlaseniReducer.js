@@ -5,11 +5,11 @@ import { getUcastiProRok } from '../../entities/ucastnici/ucastniciReducer';
 import { predepsaneStartovne, provedenePlatby } from '../platby';
 import {
   createFilterableReducer,
-  initialState as filterableInitialState
+  initialState as filterableInitialState,
 } from '../Filterable/filterableReducer';
 import {
   createUcastniciTableReducer,
-  initialState as ucastniciTableInitialState
+  initialState as ucastniciTableInitialState,
 } from '../UcastniciTable/ucastniciTableReducer';
 
 export const initialState = {
@@ -17,10 +17,10 @@ export const initialState = {
   prihlaseniFilter: false,
   showingAkceMenuFor: undefined /* id účastníka */,
   ...filterableInitialState,
-  ...ucastniciTableInitialState
+  ...ucastniciTableInitialState,
 };
 
-export const createPrihlaseniDohlaseniReducer = actionPrefix => {
+export const createPrihlaseniDohlaseniReducer = (actionPrefix) => {
   const filterableReducer = createFilterableReducer(actionPrefix);
   const ucastniciTableReducer = createUcastniciTableReducer(actionPrefix);
 
@@ -56,18 +56,18 @@ export const getPrihlaseniDohlaseniSorted = ({
   kategorie,
   rocniky,
   ucastnici,
-  rok = AKTUALNI_ROK
+  rok = AKTUALNI_ROK,
 }) => {
   const datumKonani = getDatumKonani({ rocniky, rok });
 
   const ucasti = getUcastiProRok({ rok, ucastnici });
-  const mapped = ucasti.map(jeden => {
+  const mapped = ucasti.map((jeden) => {
     const { id, ucast } = jeden;
     const {
       udaje: { prijmeni, jmeno, narozeni, pohlavi, obec, email },
       prihlaska,
       platby,
-      poznamky
+      poznamky,
     } = ucast;
     const { datum, kategorie: kategorieId, startCislo, kod } = prihlaska;
     const jednaKategorie = kategorie[kategorieId];
@@ -89,7 +89,7 @@ export const getPrihlaseniDohlaseniSorted = ({
       kod,
       predepsano,
       zaplaceno,
-      nejakaPoznamka: (poznamky && poznamky.length > 0) || false
+      nejakaPoznamka: (poznamky && poznamky.length > 0) || false,
     };
   });
 

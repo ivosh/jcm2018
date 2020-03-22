@@ -1,4 +1,4 @@
-const createFetchingReducer = name => (state = 'init', action) => {
+const createFetchingReducer = (name) => (state = 'init', action) => {
   switch (action.type) {
     case `FETCH_${name}_REQUEST`:
       return 'fetching';

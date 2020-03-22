@@ -3,7 +3,7 @@ import { WS_API } from 'ui-common/store/wsAPI';
 
 const normalize = ({ request, response: { response: byTypy } }) => ({
   request,
-  response: { byTypy, typy: Object.keys(byTypy).sort() }
+  response: { byTypy, typy: Object.keys(byTypy).sort() },
 });
 
 // Use cached value if: not connected or not invalidated.
@@ -17,12 +17,12 @@ export const fetchStopky = () => ({
     endpoint: API_FIND_ALL_STOPKY,
     normalize,
     takeFromCache,
-    title: 'načítání stopek'
-  }
+    title: 'načítání stopek',
+  },
 });
 
-export const broadcastStopky = json => ({
+export const broadcastStopky = (json) => ({
   type: 'BROADCAST_STOPKY',
   data: json,
-  receivedAt: Date.now()
+  receivedAt: Date.now(),
 });

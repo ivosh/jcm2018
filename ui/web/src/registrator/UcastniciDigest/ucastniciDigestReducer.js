@@ -1,16 +1,16 @@
 import { sortForColumn } from '../../sort';
 import {
   createFilterableReducer,
-  initialState as filterableInitialState
+  initialState as filterableInitialState,
 } from '../Filterable/filterableReducer';
 import {
   createUcastniciTableReducer,
-  initialState as ucastniciTableInitialState
+  initialState as ucastniciTableInitialState,
 } from '../UcastniciTable/ucastniciTableReducer';
 
 export const initialState = {
   ...filterableInitialState,
-  ...ucastniciTableInitialState
+  ...ucastniciTableInitialState,
 };
 
 const filterableReducer = createFilterableReducer('UCASTNICI_DIGEST');
@@ -27,14 +27,14 @@ export const getVykony = (kategorie, ucastnik) => {
   const vykony = {};
   const typyKategorie = {};
 
-  ucastnik.roky.forEach(rok => {
+  ucastnik.roky.forEach((rok) => {
     const { vykon } = ucastnik[rok];
     if (vykon) {
       const typKategorie = kategorie[vykon.kategorie].typ;
       vykony[rok] = {
         kategorie: typKategorie,
         dokonceno: vykon.dokonceno,
-        cas: vykon.cas
+        cas: vykon.cas,
       };
       // Mark this particular typKategorie in typyKategorie dictionary.
       typyKategorie[typKategorie] = typKategorie;
@@ -50,10 +50,10 @@ export const getUcastniciDigestSorted = ({
   kategorieFilter,
   textFilter,
   sortColumn,
-  sortDir
+  sortDir,
 }) => {
   const result = [];
-  ucastnici.allIds.forEach(id => {
+  ucastnici.allIds.forEach((id) => {
     const ucastnik = ucastnici.byIds[id];
     const posledniUcast = ucastnik[ucastnik.roky[0]];
     const { udaje } = posledniUcast;
@@ -70,7 +70,7 @@ export const getUcastniciDigestSorted = ({
           prijmeni: udaje.prijmeni,
           jmeno: udaje.jmeno,
           narozeni: udaje.narozeni,
-          ...vykony
+          ...vykony,
         });
       }
     }

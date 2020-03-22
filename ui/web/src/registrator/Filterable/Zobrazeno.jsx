@@ -10,7 +10,7 @@ const Zobrazeno = ({ numberOfItems }) => (
 );
 
 Zobrazeno.propTypes = {
-  numberOfItems: PropTypes.number.isRequired
+  numberOfItems: PropTypes.number.isRequired,
 };
 
 export default Zobrazeno;

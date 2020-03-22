@@ -1,7 +1,7 @@
 import { SIGN_IN } from './SignInActions';
 
 export const initialState = {
-  signingIn: false
+  signingIn: false,
 };
 
 const signInReducer = (state = initialState, action) => {

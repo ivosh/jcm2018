@@ -4,7 +4,7 @@ import {
   PORT_DEV_CLIENT,
   PORT_DEV_PUPPETEER_CLIENT,
   PORT_DEV_PUPPETEER_SERVER,
-  PORT_DEV_SERVER
+  PORT_DEV_SERVER,
 } from './common';
 
 const WEBSOCKET_RECONNECT_INTERVAL = 2 * 1000; // 2 seconds
@@ -13,7 +13,7 @@ const WEBSOCKET_REQUEST_TIMEOUT = 20 * 1000; // 20 seconds
 const choosePort = ({ portFromCaller, portFromLocation }) => {
   const ports = {
     [PORT_DEV_CLIENT]: PORT_DEV_SERVER,
-    [PORT_DEV_PUPPETEER_CLIENT]: PORT_DEV_PUPPETEER_SERVER
+    [PORT_DEV_PUPPETEER_CLIENT]: PORT_DEV_PUPPETEER_SERVER,
   };
 
   return portFromCaller || ports[portFromLocation] || portFromLocation;
@@ -34,7 +34,7 @@ class WsClient {
     requestTimeout = WEBSOCKET_REQUEST_TIMEOUT,
     onBroadcast,
     onConnect,
-    onClose
+    onClose,
   } = {}) {
     if (url) {
       this.url = url;
@@ -52,14 +52,14 @@ class WsClient {
     this.channel.mute({ accumulate: true });
   }
 
-  connectPrivate = async request => {
+  connectPrivate = async (request) => {
     const ws = new WebSocketAsPromised(this.url, {
       createWebSocket: () => new WebSocket(this.url, 'jcm2020'),
-      packMessage: data => JSON.stringify(data),
-      unpackMessage: message => JSON.parse(message),
+      packMessage: (data) => JSON.stringify(data),
+      unpackMessage: (message) => JSON.parse(message),
       attachRequestId: (data, requestId) => ({ ...data, requestId }),
-      extractRequestId: data => data && data.requestId,
-      timeout: this.requestTimeout
+      extractRequestId: (data) => data && data.requestId,
+      timeout: this.requestTimeout,
     });
 
     try {
@@ -96,7 +96,7 @@ class WsClient {
     return ws ? ws.isOpened : false;
   };
 
-  retryConnect = request => {
+  retryConnect = (request) => {
     this.ws = null;
     setTimeout(() => this.connectPrivate(request), this.reconnectInterval);
   };
@@ -118,14 +118,14 @@ class WsClient {
     this.onCloseCallback = onClose;
   };
 
-  handleMessage = message => {
+  handleMessage = (message) => {
     const { broadcast, data } = JSON.parse(message);
     if (broadcast && this.onBroadcastCallback) {
       this.onBroadcastCallback({ broadcast, data });
     }
   };
 
-  onRequestAvailable = async request => {
+  onRequestAvailable = async (request) => {
     const { ws } = this;
     if (ws) {
       try {
@@ -140,7 +140,7 @@ class WsClient {
     this.channel.dispatchAsync(request);
   };
 
-  sendRequest = async data => {
+  sendRequest = async (data) => {
     let request = { data };
     const promise = new Promise((resolve, reject) => {
       request = { ...request, resolve, reject };

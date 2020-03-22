@@ -14,14 +14,14 @@ const Pokladna = ({ pokladna: { total, typy } }) => (
     </Panel>
     <Panel bsStyle="info" header="po kategoriích" className="Pokladna__panel">
       <div className="Pokladna__typy">
-        {Object.keys(typy).map(name => (
+        {Object.keys(typy).map((name) => (
           <PokladnaTypu key={name} name={name} {...typy[name]} />
         ))}
       </div>
     </Panel>
     <Panel bsStyle="info" header="po částkách" className="Pokladna__panel">
       <div className="Pokladna__typy">
-        {Object.keys(total.typy).map(name => (
+        {Object.keys(total.typy).map((name) => (
           <PokladnaCastek key={name} name={name} {...total.typy[name]} />
         ))}
         {total.zaloha && <PokladnaCastek name="z toho záloha" {...total.zaloha} />}
@@ -38,12 +38,12 @@ Pokladna.propTypes = {
       ucastniku: PropTypes.number.isRequired,
       zaloha: PropTypes.shape({
         counts: PropTypes.object.isRequired,
-        suma: PropTypes.number.isRequired
+        suma: PropTypes.number.isRequired,
       }),
-      typy: PropTypes.object
+      typy: PropTypes.object,
     }).isRequired,
-    typy: PropTypes.object
-  }).isRequired
+    typy: PropTypes.object,
+  }).isRequired,
 };
 
 export default Pokladna;

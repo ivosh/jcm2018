@@ -21,18 +21,18 @@ const TextFilter = ({ filter, onChange }) => {
       placeholder="Filtr na příjmení a jméno"
       value={filter}
       inputRef={inputRef}
-      onChange={e => onChange(e.target.value)}
+      onChange={(e) => onChange(e.target.value)}
     />
   );
 };
 
 TextFilter.propTypes = {
   filter: PropTypes.string,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
 };
 
 TextFilter.defaultProps = {
-  filter: undefined
+  filter: undefined,
 };
 
 export default TextFilter;

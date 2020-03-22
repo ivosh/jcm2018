@@ -6,14 +6,14 @@ import { getUcastiProRok } from '../../entities/ucastnici/ucastniciReducer';
 export const getPokladna = ({ kategorie, rocniky, ucastnici, rok = AKTUALNI_ROK }) => {
   const ucasti = getUcastiProRok({ rok, ucastnici });
 
-  const populated = ucasti.map(jeden => {
+  const populated = ucasti.map((jeden) => {
     const {
       id,
       ucast: {
         prihlaska: { kategorie: kategorieId, startovnePoSleve },
         vykon,
-        platby: platbyOriginal
-      }
+        platby: platbyOriginal,
+      },
     } = jeden;
     const { typ } = kategorie[kategorieId];
 

@@ -12,7 +12,7 @@ const PopisekKategorie = ({ pohlavi, showTyp, sizePercentage, typ, vek, zkratka 
     renderTextTypu,
     renderPohlavi,
     renderVek,
-    renderZkratka
+    renderZkratka,
   } = usePopisek({ pohlavi, showTyp, vek, zkratka });
 
   return (
@@ -34,9 +34,9 @@ PopisekKategorie.propTypes = {
   typ: PropTypes.oneOf(['cyklo', 'koloběžka', 'maraton', 'pěší', 'půlmaraton']).isRequired,
   vek: PropTypes.shape({
     min: PropTypes.number,
-    max: PropTypes.number
+    max: PropTypes.number,
   }),
-  zkratka: PropTypes.string
+  zkratka: PropTypes.string,
 };
 
 PopisekKategorie.defaultProps = {
@@ -44,7 +44,7 @@ PopisekKategorie.defaultProps = {
   showTyp: true,
   sizePercentage: 100,
   vek: undefined,
-  zkratka: undefined
+  zkratka: undefined,
 };
 
 export default PopisekKategorie;

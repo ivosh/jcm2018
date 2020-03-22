@@ -4,7 +4,7 @@ import { fetchRocniky } from '../rocniky/rocnikyActions';
 
 const normalize = ({ request, response: { response: byIds } }) => ({
   request,
-  response: { allIds: Object.keys(byIds), byIds }
+  response: { allIds: Object.keys(byIds), byIds },
 });
 
 // Use cached value if: not connected or not invalidated.
@@ -23,13 +23,13 @@ export const fetchUcastnici = () => ({
       endpoint: API_FIND_ALL_UCASTNICI,
       normalize,
       takeFromCache,
-      title: 'načítání účastníků'
-    }
-  ]
+      title: 'načítání účastníků',
+    },
+  ],
 });
 
-export const broadcastUcastnik = json => ({
+export const broadcastUcastnik = (json) => ({
   type: 'BROADCAST_UCASTNIK',
   data: json,
-  receivedAt: Date.now()
+  receivedAt: Date.now(),
 });

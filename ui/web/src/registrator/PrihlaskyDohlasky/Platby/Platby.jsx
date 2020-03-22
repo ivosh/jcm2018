@@ -29,7 +29,7 @@ const Platby = ({
   startIndex,
   inputRef,
   onAdd,
-  onExpand
+  onExpand,
 }) => (
   <div>
     <div className="Platby__paragraph">
@@ -88,10 +88,10 @@ Platby.propTypes = {
     polozky: PropTypes.arrayOf(
       PropTypes.shape({
         castka: PropTypes.number.isRequired,
-        duvod: PropTypes.string.isRequired
+        duvod: PropTypes.string.isRequired,
       })
     ).isRequired,
-    suma: PropTypes.number.isRequired
+    suma: PropTypes.number.isRequired,
   }).isRequired,
   provedeno: PropTypes.shape({
     platby: PropTypes.arrayOf(
@@ -100,16 +100,16 @@ Platby.propTypes = {
         datum: PropTypes.string.isRequired,
         typ: PropTypes.string.isRequired,
         poznamka: PropTypes.string,
-        onRemove: PropTypes.func.isRequired
+        onRemove: PropTypes.func.isRequired,
       })
     ).isRequired,
-    suma: PropTypes.number.isRequired
+    suma: PropTypes.number.isRequired,
   }).isRequired,
   reduxName: PropTypes.string.isRequired,
   startIndex: PropTypes.number.isRequired,
   inputRef: PropTypes.func.isRequired,
   onAdd: PropTypes.func.isRequired,
-  onExpand: PropTypes.func.isRequired
+  onExpand: PropTypes.func.isRequired,
 };
 
 export default Platby;

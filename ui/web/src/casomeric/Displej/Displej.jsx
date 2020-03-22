@@ -20,11 +20,11 @@ const Displej = ({ duration }) => {
 };
 
 Displej.propTypes = {
-  duration: momentPropTypes.momentDurationObj
+  duration: momentPropTypes.momentDurationObj,
 };
 
 Displej.defaultProps = {
-  duration: null
+  duration: null,
 };
 
 export default Displej;

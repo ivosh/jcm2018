@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import ucastniciTestData, {
-  AKTUALNI_DATUM_KONANI
+  AKTUALNI_DATUM_KONANI,
 } from '../../../entities/ucastnici/ucastniciTestData';
 import PrihlaskyFormContainer from './PrihlaskyFormContainer';
 
@@ -21,10 +21,10 @@ beforeEach(() => {
           saved: false,
           saving: true,
           ucastnikId: '---id---',
-          validate: false
-        }
-      }
-    }
+          validate: false,
+        },
+      },
+    },
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
@@ -70,17 +70,17 @@ it('maps onLoadId to dispatch loadUcastnik action - existující přihláška', 
       obec: 'Ostrava 2',
       pohlavi: 'muž',
       prijmeni: 'Balabák',
-      stat: 'Česká republika'
+      stat: 'Česká republika',
     },
     prihlaska: {
       datum: AKTUALNI_DATUM_KONANI,
       kategorie: '5a587e1b051c181132cf83d7',
       typ: 'půlmaraton',
       startCislo: 17,
-      kod: '10728864'
+      kod: '10728864',
     },
     platby: [{ castka: 350, datum: AKTUALNI_DATUM_KONANI, typ: 'hotově' }],
-    ubytovani: { pátek: { prihlaseno: true, prespano: true } }
+    ubytovani: { pátek: { prihlaseno: true, prespano: true } },
   });
 });
 
@@ -107,8 +107,8 @@ it('maps onLoadId to dispatch ucastnikSelected action - starší účast', () =>
       narozeni: { rok: 1963, mesic: 12, den: 7 },
       pohlavi: 'žena',
       obec: 'Zlín',
-      stat: 'Česká republika'
-    }
+      stat: 'Česká republika',
+    },
   });
 });
 
@@ -117,7 +117,7 @@ it('maps onReset to dispatch reset action', () => {
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: `${actionPrefix}_RESET`,
-    datumKonani: AKTUALNI_DATUM_KONANI
+    datumKonani: AKTUALNI_DATUM_KONANI,
   });
 });
 

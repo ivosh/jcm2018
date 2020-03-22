@@ -15,7 +15,7 @@ const akceFormat = ({ cellData: { loading, options, onSelect } }) =>
     <LoadingIndicator />
   ) : (
     <FormControl componentClass="select" name="akce" onChange={onSelect}>
-      {options.map(option => (
+      {options.map((option) => (
         <option key={option} value={option}>
           {option}
         </option>
@@ -26,8 +26,8 @@ akceFormat.propTypes = {
   cellData: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
     options: PropTypes.arrayOf(PropTypes.string).isRequired,
-    onSelect: PropTypes.func.isRequired
-  }).isRequired
+    onSelect: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 const datumFormat = ({ cellData }) => moment.utc(cellData).format('D. M. YYYY');
@@ -56,7 +56,7 @@ const prespanoClasses = ({ cellData }) => {
   return ['Ubytovani--nevime'];
 };
 
-const prijmeniFormat = args => (
+const prijmeniFormat = (args) => (
   <Link to={`/prihlasky/${args.data[args.rowIndex].id}`}>{args.cellData}</Link>
 );
 
@@ -67,7 +67,7 @@ const Ubytovani = ({
   textFilter,
   ubytovani,
   onTextFilterChange,
-  onUbytovaniChange
+  onUbytovaniChange,
 }) => {
   const columns = [
     {
@@ -76,14 +76,14 @@ const Ubytovani = ({
       key: 'prijmeni',
       label: 'příjmení',
       sortable: true,
-      width: 100
+      width: 100,
     },
     {
       cellClassNames: () => ['align-left'],
       key: 'jmeno',
       label: 'jméno',
       sortable: true,
-      width: 90
+      width: 90,
     },
     {
       cellClassNames: () => ['align-right'],
@@ -91,7 +91,7 @@ const Ubytovani = ({
       key: 'narozeni',
       label: 'narození',
       sortable: true,
-      width: 100
+      width: 100,
     },
     { cellClassNames: () => ['align-left'], key: 'obec', sortable: true, width: 90 },
     { cellClassNames: () => ['align-left'], key: 'email', sortable: true, width: 200 },
@@ -101,23 +101,23 @@ const Ubytovani = ({
       key: 'datum',
       label: 'přihlášení',
       sortable: true,
-      width: 110
+      width: 110,
     },
     {
       cellDataFormatter: prihlasenoFormat,
       cellClassNames: ({ cellData }) => (cellData === true ? ['Ubytovani--prihlaseno'] : []),
       key: 'prihlaseno',
       label: 'přihlášeno',
-      width: 100
+      width: 100,
     },
     {
       cellDataFormatter: prespanoFormat,
       cellClassNames: prespanoClasses,
       key: 'prespano',
       label: 'přespáno',
-      width: 90
+      width: 90,
     },
-    { cellDataFormatter: akceFormat, key: 'akce', label: 'akce', width: 120 }
+    { cellDataFormatter: akceFormat, key: 'akce', label: 'akce', width: 120 },
   ];
 
   return (
@@ -172,7 +172,7 @@ Ubytovani.propTypes = {
       narozeni: PropTypes.shape({
         den: PropTypes.number,
         mesic: PropTypes.number,
-        rok: PropTypes.number.isRequired
+        rok: PropTypes.number.isRequired,
       }).isRequired,
       obec: PropTypes.string.isRequired,
       email: PropTypes.string,
@@ -182,12 +182,12 @@ Ubytovani.propTypes = {
       akce: PropTypes.shape({
         loading: PropTypes.bool.isRequired,
         options: PropTypes.arrayOf(PropTypes.string.isRequired),
-        onSelect: PropTypes.func.isRequired
-      }).isRequired
+        onSelect: PropTypes.func.isRequired,
+      }).isRequired,
     }).isRequired
   ).isRequired,
   onTextFilterChange: PropTypes.func.isRequired,
-  onUbytovaniChange: PropTypes.func.isRequired
+  onUbytovaniChange: PropTypes.func.isRequired,
 };
 
 export default Ubytovani;

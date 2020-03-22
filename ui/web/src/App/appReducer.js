@@ -17,7 +17,7 @@ const appReducer = combineReducers({
   timesync: timesyncReducer,
   connected: connectedReducer,
   fetchingStopky: createFetchingReducer('STOPKY'),
-  fetchingUcastnici: createFetchingReducer('UCASTNICI')
+  fetchingUcastnici: createFetchingReducer('UCASTNICI'),
 });
 
 export default appReducer;

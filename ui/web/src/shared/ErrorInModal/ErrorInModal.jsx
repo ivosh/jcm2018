@@ -25,11 +25,11 @@ ErrorInModal.propTypes = {
   message: PropTypes.string,
   show: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
-  onHide: PropTypes.func.isRequired
+  onHide: PropTypes.func.isRequired,
 };
 
 ErrorInModal.defaultProps = {
-  message: ''
+  message: '',
 };
 
 export default ErrorInModal;

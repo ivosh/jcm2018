@@ -10,7 +10,7 @@ const testRenderer = ({ startCislo }) => (
   </div>
 );
 testRenderer.propTypes = {
-  startCislo: PropTypes.number.isRequired
+  startCislo: PropTypes.number.isRequired,
 };
 
 it('žádná startovní čísla', () => {
@@ -26,8 +26,8 @@ it('jedno startovní číslo', () => {
       id: '10',
       startCislo: 7,
       dokonceno: true,
-      duration: moment.duration('PT4H15M32.45S')
-    }
+      duration: moment.duration('PT4H15M32.45S'),
+    },
   ];
 
   const component = renderer.create(
@@ -44,20 +44,20 @@ it('třináct startovních čísel', () => {
       id: '10',
       startCislo: 16,
       dokonceno: true,
-      duration: moment.duration('PT4H15M32.45S')
+      duration: moment.duration('PT4H15M32.45S'),
     },
     { id: '2', startCislo: 25, dokonceno: false },
     {
       id: '3',
       startCislo: 9,
       dokonceno: true,
-      duration: moment.duration('PT2H17M29.14S')
+      duration: moment.duration('PT2H17M29.14S'),
     },
     {
       id: '12',
       startCislo: 15,
       dokonceno: true,
-      duration: moment.duration('PT3H59M59.01S')
+      duration: moment.duration('PT3H59M59.01S'),
     },
     { id: '9', startCislo: 1, dokonceno: false },
     { id: '29', startCislo: 8, dokonceno: null },
@@ -68,14 +68,14 @@ it('třináct startovních čísel', () => {
       id: '10',
       startCislo: 33,
       dokonceno: true,
-      duration: moment.duration('PT3H30M22.45S')
+      duration: moment.duration('PT3H30M22.45S'),
     },
     { id: '7', startCislo: 21, dokonceno: false },
     {
       id: '13',
       startCislo: 24,
       dokonceno: true,
-      duration: moment.duration('PT3H33M14.15S')
+      duration: moment.duration('PT3H33M14.15S'),
     },
     { id: '34', startCislo: 27, dokonceno: null },
     { id: '14', startCislo: 22, dokonceno: null },
@@ -84,9 +84,9 @@ it('třináct startovních čísel', () => {
       id: '15',
       startCislo: 23,
       dokonceno: true,
-      duration: moment.duration('PT3H27M42.38S')
+      duration: moment.duration('PT3H27M42.38S'),
     },
-    { id: '59', startCislo: 26, dokonceno: null }
+    { id: '59', startCislo: 26, dokonceno: null },
   ];
 
   const component = renderer.create(

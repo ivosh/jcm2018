@@ -9,21 +9,21 @@ const successfulSignInResponse = {
   code: 'ok',
   response: {
     token: generateTestToken({ username: 'tomáš', nonce: 'abc5656' }),
-    username: 'tomáš'
+    username: 'tomáš',
   },
-  requestId: '0.9310306652587374'
+  requestId: '0.9310306652587374',
 };
 
 const unsuccessfulSignInResponse = {
   code: 'password incorrect',
   status: 'Špatné jméno či heslo. Uživatel může být též zamčený.',
-  requestId: '0.9310306652587374'
+  requestId: '0.9310306652587374',
 };
 
 const unsuccessfulSignOutResponse = {
   code: 'authentication token invalid',
   status: 'Špatný ověřovací token. Zkus se přihlásit znovu.',
-  requestId: '0.9310306652587371'
+  requestId: '0.9310306652587371',
 };
 
 it('na začátku', () => {
@@ -44,8 +44,8 @@ it('signInSuccess()', () => {
       username: 'tomáš',
       nonce: 'abc5656',
       exp: expect.any(Number),
-      iat: expect.any(Number)
-    }
+      iat: expect.any(Number),
+    },
   };
   deepFreeze(stateBefore);
 
@@ -55,7 +55,7 @@ it('signInSuccess()', () => {
       createSuccessFromAction({
         action: signIn({}),
         request: { username: 'tomáš', nonce: 'abc5656' },
-        response: successfulSignInResponse
+        response: successfulSignInResponse,
       })
     )
   ).toEqual(stateAfter);
@@ -67,7 +67,7 @@ it('signInError()', () => {
     authenticated: false,
     decodedToken: null,
     token: null,
-    signIn: { signingIn: false }
+    signIn: { signingIn: false },
   };
   deepFreeze(stateBefore);
 
@@ -84,14 +84,14 @@ it('signOutSuccess()', () => {
     authenticated: true,
     token: '===token===',
     decodedToken: '===decoded===',
-    signIn: { signingIn: false }
+    signIn: { signingIn: false },
   };
   const stateAfter = {
     ...stateBefore,
     authenticated: false,
     token: null,
     decodedToken: null,
-    signIn: { signingIn: false }
+    signIn: { signingIn: false },
   };
   deepFreeze(stateBefore);
 
@@ -105,13 +105,13 @@ it('signOutError()', () => {
     authenticated: true,
     token: '===token===',
     decodedToken: '===decoded===',
-    signIn: { signingIn: false }
+    signIn: { signingIn: false },
   };
   const stateAfter = {
     authenticated: false,
     decodedToken: null,
     token: null,
-    signIn: { signingIn: false }
+    signIn: { signingIn: false },
   };
   deepFreeze(stateBefore);
 

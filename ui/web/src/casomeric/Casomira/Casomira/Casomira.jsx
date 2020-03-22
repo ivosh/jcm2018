@@ -18,7 +18,7 @@ const Casomira = ({
   running,
   typ,
   onRemoveCasomira,
-  onStopkyAddMezicas
+  onStopkyAddMezicas,
 }) => (
   /* Do not use Bootstrap's Panel here. It screws AutoResizer's height. */
   <div className="Casomira__panel">
@@ -64,12 +64,12 @@ Casomira.propTypes = {
   running: PropTypes.bool.isRequired,
   typ: PropTypes.string.isRequired,
   onRemoveCasomira: PropTypes.func.isRequired,
-  onStopkyAddMezicas: PropTypes.func.isRequired
+  onStopkyAddMezicas: PropTypes.func.isRequired,
 };
 
 Casomira.defaultProps = {
   base: undefined,
-  delta: undefined
+  delta: undefined,
 };
 
 export default Casomira;

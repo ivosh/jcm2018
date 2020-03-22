@@ -2,7 +2,7 @@ import {
   UBYTOVANI_ODHLASIT,
   UBYTOVANI_PRIHLASIT,
   UBYTOVANI_PRESPANO,
-  UBYTOVANI_NEPRESPANO
+  UBYTOVANI_NEPRESPANO,
 } from 'ui-common/common';
 import { AKTUALNI_ROK } from '../../constants';
 import { sortForColumn } from '../../sort';
@@ -10,7 +10,7 @@ import { getUcastiProRok } from '../../entities/ucastnici/ucastniciReducer';
 import { createFilterableReducer } from '../Filterable/filterableReducer';
 import {
   createUcastniciTableReducer,
-  initialState as ucastniciTableInitialState
+  initialState as ucastniciTableInitialState,
 } from '../UcastniciTable/ucastniciTableReducer';
 import { MODIFY_UBYTOVANI } from './UbytovaniActions';
 
@@ -18,7 +18,7 @@ export const initialState = {
   loading: {},
   jenUbytovani: true,
   textFilter: '',
-  ...ucastniciTableInitialState
+  ...ucastniciTableInitialState,
 };
 
 const filterableReducer = createFilterableReducer('UBYTOVANI');
@@ -52,14 +52,14 @@ export const getUbytovaniSorted = ({
   rok = AKTUALNI_ROK,
   textFilter,
   sortColumn,
-  sortDir
+  sortDir,
 }) => {
   const ucasti = getUcastiProRok({ rok, ucastnici });
-  const mapped = ucasti.map(jeden => {
+  const mapped = ucasti.map((jeden) => {
     const { id, ucast } = jeden;
     const {
       udaje: { prijmeni, jmeno, narozeni, obec, email },
-      prihlaska: { datum }
+      prihlaska: { datum },
     } = ucast;
     const ubytovani = ucast.ubytovani || {};
 
@@ -90,14 +90,14 @@ export const getUbytovaniSorted = ({
           datum: new Date(datum),
           prihlaseno,
           prespano,
-          akce: { loading: !!loading[id], options: akceOptions }
+          akce: { loading: !!loading[id], options: akceOptions },
         };
       }
     }
 
     return undefined;
   });
-  const filtered = mapped.filter(jeden => jeden !== undefined);
+  const filtered = mapped.filter((jeden) => jeden !== undefined);
 
   return sortForColumn({ data: filtered, sortColumn, sortDir });
 };

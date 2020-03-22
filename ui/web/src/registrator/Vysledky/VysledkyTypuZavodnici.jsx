@@ -27,7 +27,7 @@ const VysledkyTypuZavodnici = ({ popisek, ucastnici, zkratky }) => (
         <th colSpan={zkratky.length}>v kategorii</th>
       </tr>
       <tr>
-        {zkratky.map(zkratka => (
+        {zkratky.map((zkratka) => (
           <th key={zkratka}>{zkratka}</th>
         ))}
       </tr>
@@ -44,7 +44,7 @@ const VysledkyTypuZavodnici = ({ popisek, ucastnici, zkratky }) => (
           cas,
           absPoradi,
           relPoradi,
-          kategorie: { zkratka }
+          kategorie: { zkratka },
         }) => (
           <tr key={id}>
             <td className="VysledkyTypuUcastnici__td--startCislo">{startCislo}</td>
@@ -57,7 +57,7 @@ const VysledkyTypuZavodnici = ({ popisek, ucastnici, zkratky }) => (
             <td className="VysledkyTypuUcastnici__td--poradi">
               {absPoradi ? `${absPoradi}.` : '-'}
             </td>
-            {zkratky.map(jedna => (
+            {zkratky.map((jedna) => (
               <td className="VysledkyTypuUcastnici__td--poradi" key={jedna}>
                 {jedna === zkratka ? (relPoradi ? `${relPoradi}.` : '-') : ' '}
               </td>
@@ -83,11 +83,11 @@ VysledkyTypuZavodnici.propTypes = {
       absPoradi: PropTypes.number,
       relPoradi: PropTypes.number,
       kategorie: PropTypes.shape({
-        zkratka: PropTypes.string.isRequired
-      }).isRequired
+        zkratka: PropTypes.string.isRequired,
+      }).isRequired,
     }).isRequired
   ).isRequired,
-  zkratky: PropTypes.arrayOf(PropTypes.string).isRequired
+  zkratky: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default VysledkyTypuZavodnici;

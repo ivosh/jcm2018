@@ -14,14 +14,14 @@ const store = mockStore({
     authenticated: true,
     decodedToken: null,
     token: null,
-    signIn: { errorCode: '', errorMessage: '', signingIn: false, showError: false }
+    signIn: { errorCode: '', errorMessage: '', signingIn: false, showError: false },
   },
   casomeric: { mezicasy: [], stopky: { base: null, running: false } },
   connected: true,
   entities: {
     kategorie: {},
     rocniky: { byRoky: {}, roky: [] },
-    ucastnici: { allIds: [], byIds: {} }
+    ucastnici: { allIds: [], byIds: {} },
   },
   error: { code: '', message: '', show: false },
   fetchingStopky: 'done',
@@ -31,7 +31,7 @@ const store = mockStore({
       narokovanePrihlaskouFilter: false,
       narokovaneStartemFilter: false,
       neprevzateFilter: false,
-      textFilter: ''
+      textFilter: '',
     },
     [ReduxNames.prihlaseni]: {
       dohlaseniFilter: false,
@@ -40,17 +40,17 @@ const store = mockStore({
       showingPoznamkyFor: undefined,
       sortColumn: undefined,
       sortDir: 'none',
-      textFilter: ''
+      textFilter: '',
     },
     ucastniciDigest: {
       kategorieFilter: '',
       sortColumn: undefined,
       sortDir: 'none',
-      textFilter: ''
-    }
+      textFilter: '',
+    },
   },
   startujici: [],
-  timesync: { offset: 5 }
+  timesync: { offset: 5 },
 });
 
 test('navigates to / by default', () => {

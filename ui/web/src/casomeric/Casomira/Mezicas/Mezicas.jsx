@@ -15,7 +15,7 @@ const Mezicas = ({
   canDrop,
   onDrop,
   onRemove,
-  onEdit
+  onEdit,
 }) => {
   const duration = convertDuration(cas);
 
@@ -55,13 +55,13 @@ Mezicas.propTypes = {
   canDrop: PropTypes.func.isRequired,
   onDrop: PropTypes.func.isRequired,
   onEdit: PropTypes.func.isRequired,
-  onRemove: PropTypes.func.isRequired
+  onRemove: PropTypes.func.isRequired,
 };
 
 Mezicas.defaultProps = {
   cas: undefined,
   dokonceno: undefined,
-  startCislo: undefined
+  startCislo: undefined,
 };
 
 export default Mezicas;

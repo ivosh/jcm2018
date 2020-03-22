@@ -3,11 +3,11 @@ import { AKTUALNI_ROK } from '../../constants';
 import { numberAndUndefinedSortMethod, SortDirTypes, sortForColumn } from '../../sort';
 import {
   createFilterableReducer,
-  initialState as filterableInitialState
+  initialState as filterableInitialState,
 } from '../Filterable/filterableReducer';
 import {
   createUcastniciTableReducer,
-  initialState as ucastniciTableInitialState
+  initialState as ucastniciTableInitialState,
 } from '../UcastniciTable/ucastniciTableReducer';
 
 /* Note: První tři filtry fungují inkluzivně; z vybraných účastníků se udělá union.
@@ -18,10 +18,10 @@ export const initialState = {
   narokovaneStartemFilter: false, // nárok z toho, že přišel na start
   neprevzateFilter: false, // jen nepřevzaté
   ...filterableInitialState,
-  ...ucastniciTableInitialState
+  ...ucastniciTableInitialState,
 };
 
-export const createPoharyReducer = actionPrefix => {
+export const createPoharyReducer = (actionPrefix) => {
   const filterableReducer = createFilterableReducer(actionPrefix);
   const ucastniciTableReducer = createUcastniciTableReducer(actionPrefix);
 
@@ -65,19 +65,19 @@ export const getPoharySorted = ({
   sortColumn,
   sortDir,
   kategorie,
-  ucastnici
+  ucastnici,
 }) => {
   const maratonci = ucastnici.allIds
-    .map(id => {
+    .map((id) => {
       const ucastnik = ucastnici.byIds[id];
       const dokoncene = ucastnik.roky
-        .map(rok => {
+        .map((rok) => {
           const { vykon } = ucastnik[rok];
           return vykon && kategorie[vykon.kategorie].typ === 'maraton' && vykon.dokonceno === true
             ? rok
             : undefined;
         })
-        .filter(rok => rok !== undefined);
+        .filter((rok) => rok !== undefined);
 
       let prihlaseno = false;
       let odstartovano = false;
@@ -103,7 +103,7 @@ export const getPoharySorted = ({
         jmeno,
         narozeni,
         pohary: { narokPrihlaskou, narokStartem, predano, neprevzato },
-        ucasti: { dokoncene, prihlaseno, odstartovano }
+        ucasti: { dokoncene, prihlaseno, odstartovano },
       };
     })
     .filter(
@@ -146,7 +146,7 @@ export const getPoharySorted = ({
       numberAndUndefinedSortMethod(a.pohary.neprevzato, b.pohary.neprevzato, desc),
     predano: (a, b) => numberAndUndefinedSortMethod(a.pohary.predano, b.pohary.predano, desc),
     ucasti: (a, b) =>
-      numberAndUndefinedSortMethod(a.ucasti.dokoncene.length, b.ucasti.dokoncene.length, desc)
+      numberAndUndefinedSortMethod(a.ucasti.dokoncene.length, b.ucasti.dokoncene.length, desc),
   };
 
   return sortForColumn({ data: filteredData, sortColumn, sortDir, extraSortMethods });

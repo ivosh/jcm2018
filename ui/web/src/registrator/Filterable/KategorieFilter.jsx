@@ -19,11 +19,11 @@ const KategorieFilter = ({ active, typKategorie, onClick }) => (
 KategorieFilter.propTypes = {
   active: PropTypes.bool,
   typKategorie: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
 };
 
 KategorieFilter.defaultProps = {
-  active: false
+  active: false,
 };
 
 export default KategorieFilter;

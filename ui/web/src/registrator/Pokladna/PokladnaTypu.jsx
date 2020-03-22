@@ -12,7 +12,7 @@ const SumaTypu = ({ popisek, suma }) => (
 
 SumaTypu.propTypes = {
   popisek: PropTypes.string.isRequired,
-  suma: PropTypes.number.isRequired
+  suma: PropTypes.number.isRequired,
 };
 
 const PokladnaTypu = ({ name, odstartovano, suma, ucastniku, zaloha, typy }) => (
@@ -20,7 +20,7 @@ const PokladnaTypu = ({ name, odstartovano, suma, ucastniku, zaloha, typy }) => 
     <div className="PokladnaTypu--name">{name}:</div>
     <div />
     <div />
-    {Object.keys(typy).map(typ => (
+    {Object.keys(typy).map((typ) => (
       <SumaTypu key={typ} popisek={`zaplaceno ${typ}`} suma={typy[typ].suma} />
     ))}
     <SumaTypu popisek="celkem" suma={suma} />
@@ -44,13 +44,13 @@ PokladnaTypu.propTypes = {
   suma: PropTypes.number.isRequired,
   ucastniku: PropTypes.number.isRequired,
   zaloha: PropTypes.shape({
-    suma: PropTypes.number.isRequired
+    suma: PropTypes.number.isRequired,
   }),
-  typy: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
+  typy: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
 PokladnaTypu.defaultProps = {
-  zaloha: undefined
+  zaloha: undefined,
 };
 
 export default PokladnaTypu;

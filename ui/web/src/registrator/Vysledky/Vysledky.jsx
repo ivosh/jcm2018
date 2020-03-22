@@ -10,7 +10,7 @@ const Vysledky = ({ vysledky }) => (
     <h2 className="Vysledky__subtitle">{vysledky.subtitle}</h2>
     <h3 className="Vysledky__datum">{vysledky.datum}</h3>
     <VysledkyStats {...vysledky} />
-    {Object.values(vysledky.typy).map(typ => (
+    {Object.values(vysledky.typy).map((typ) => (
       <VysledkyTypu key={typ.typ} {...typ} />
     ))}
   </div>
@@ -21,8 +21,8 @@ Vysledky.propTypes = {
     datum: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    typy: PropTypes.object.isRequired
-  }).isRequired
+    typy: PropTypes.object.isRequired,
+  }).isRequired,
 };
 
 export default Vysledky;

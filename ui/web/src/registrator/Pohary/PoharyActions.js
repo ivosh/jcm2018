@@ -6,19 +6,19 @@ export const POHAR_NEPREVZATO = 'nepřevzato';
 export const POHAR_PREDANO = 'předáno';
 export const TYPY_POHARU = [POHAR_NAROK, POHAR_NEPREVZATO, POHAR_PREDANO];
 
-export const createNarokovanePrihlaskouFilterChange = actionPrefix => () => ({
-  type: `${actionPrefix}_NAROKOVANE_PRIHLASKOU_FILTER_CHANGE`
+export const createNarokovanePrihlaskouFilterChange = (actionPrefix) => () => ({
+  type: `${actionPrefix}_NAROKOVANE_PRIHLASKOU_FILTER_CHANGE`,
 });
-export const createNarokovaneStartemFilterChange = actionPrefix => () => ({
-  type: `${actionPrefix}_NAROKOVANE_STARTEM_FILTER_CHANGE`
+export const createNarokovaneStartemFilterChange = (actionPrefix) => () => ({
+  type: `${actionPrefix}_NAROKOVANE_STARTEM_FILTER_CHANGE`,
 });
-export const createNeprevzateFilterChange = actionPrefix => () => ({
-  type: `${actionPrefix}_NEPREVZATE_FILTER_CHANGE`
+export const createNeprevzateFilterChange = (actionPrefix) => () => ({
+  type: `${actionPrefix}_NEPREVZATE_FILTER_CHANGE`,
 });
 
 // :TODO: API podporuje jen nepřevzato -> předáno. Je třeba dodělat i předáno -> nepřevzato.
-export const isTypeDraggable = type => type === POHAR_NEPREVZATO;
-export const isTypeDroppable = type => type === POHAR_PREDANO;
+export const isTypeDraggable = (type) => type === POHAR_NEPREVZATO;
+export const isTypeDroppable = (type) => type === POHAR_PREDANO;
 
 export const canDrop = ({ source, destination }) => {
   if (!isTypeDraggable(source.type)) {
@@ -42,8 +42,8 @@ export const poharPredan = ({ id }) => ({
     endpoint: API_POHAR_PREDAN,
     normalize,
     request: { id },
-    title: 'předávání poháru'
-  }
+    title: 'předávání poháru',
+  },
 });
 
 export const onDrop = ({ source, destination, dispatch }) => {
@@ -55,5 +55,5 @@ export const onDrop = ({ source, destination, dispatch }) => {
   throw new Error('Nečekaný pohár.');
 };
 
-export const createOnDrop = dispatch => ({ source, destination }) =>
+export const createOnDrop = (dispatch) => ({ source, destination }) =>
   onDrop({ source, destination, dispatch });

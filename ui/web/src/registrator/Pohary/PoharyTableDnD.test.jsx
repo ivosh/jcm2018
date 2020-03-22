@@ -22,7 +22,7 @@ const pohary = [
     narozeni: { rok: 1963, mesic: 12, den: 7 },
     obec: 'Zlín',
     pohary: { narok: false, neprevzato: 1, predano: 0 },
-    ucasti: { dokoncene: [2016, 2013, 2012, 2011, 2010], prihlaseno: false, odstartovano: false }
+    ucasti: { dokoncene: [2016, 2013, 2012, 2011, 2010], prihlaseno: false, odstartovano: false },
   },
   {
     id: '7a09b1fd371dec1e99b7e142',
@@ -30,8 +30,8 @@ const pohary = [
     jmeno: 'Hana',
     narozeni: { den: 25, mesic: 7, rok: 1999 },
     pohary: { narok: false, neprevzato: 0, predano: 0 },
-    ucasti: { dokoncene: [], prihlaseno: false, odstartovano: false }
-  }
+    ucasti: { dokoncene: [], prihlaseno: false, odstartovano: false },
+  },
 ];
 
 // Render with the test context that uses the test backend.
@@ -60,11 +60,7 @@ it('can simulate a full drag and drop interaction', () => {
   );
 
   // Obtain a reference to the backend.
-  const backend = wrapper
-    .find(PoharyTableDnD)
-    .instance()
-    .getManager()
-    .getBackend();
+  const backend = wrapper.find(PoharyTableDnD).instance().getManager().getBackend();
 
   // Find the drag source ID and use it to simulate the dragging operation.
   expect(wrapper.find('DragSource(Pohar)')).toHaveLength(1);

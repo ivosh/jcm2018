@@ -24,10 +24,7 @@ it('maps KategorieFilter.onClick to dispatch onKategorieFilterChange action', ()
     />
   );
   expect(wrapper.find('button')).toHaveLength(5);
-  wrapper
-    .find('button')
-    .first()
-    .simulate('click');
+  wrapper.find('button').first().simulate('click');
 
   expect(onKategorieFilterChange).toHaveBeenCalledWith('maraton');
 });

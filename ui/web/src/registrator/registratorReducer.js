@@ -20,7 +20,7 @@ const registratorReducer = combineReducers({
   startovniCisla: startovniCislaReducer,
   ubytovani: ubytovaniReducer,
   ucastniciDigest: ucastniciDigestReducer,
-  vitezove: vitezoveReducer
+  vitezove: vitezoveReducer,
 });
 
 export default registratorReducer;

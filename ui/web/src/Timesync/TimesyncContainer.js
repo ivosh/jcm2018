@@ -5,15 +5,15 @@ import Timesync from './Timesync';
 const mapStateToProps = ({ timesync: { running, offset: timeOffset } }) => ({
   startEnabled: running === false,
   stopEnabled: running === true,
-  timeOffset
+  timeOffset,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   onStart: async () => {
     await dispatch(timesyncStart());
     dispatch(timesyncOperation());
   },
-  onStop: () => dispatch(timesyncStop())
+  onStop: () => dispatch(timesyncStop()),
 });
 
 const TimesyncContainer = connect(mapStateToProps, mapDispatchToProps)(Timesync);

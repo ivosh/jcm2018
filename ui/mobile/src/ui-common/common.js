@@ -75,7 +75,7 @@ const zkontrolujMladistvy = (kategorie, { datum, narozeni, mladistvyPotvrzen }) 
 };
 
 const filtrujPodleVeku = (kategorie, { rok, datum, narozeni }) =>
-  kategorie.filter(item => {
+  kategorie.filter((item) => {
     if (item.vek.presne) {
       const horniHranice = new Date(
         Date.UTC(narozeni.rok + item.vek.max + 1, (narozeni.mesic || 1) - 1, narozeni.den || 0)
@@ -101,7 +101,7 @@ export const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyP
     return {
       kategorie: null,
       code: CODE_NONEXISTING,
-      status: `Kategorie '${typ}' v roce ${rok} neexistuje.`
+      status: `Kategorie '${typ}' v roce ${rok} neexistuje.`,
     };
   }
 
@@ -110,7 +110,7 @@ export const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyP
     return zkontrolujMladistvy(typKategorie, {
       datum: new Date(rocnik.datum),
       narozeni,
-      mladistvyPotvrzen
+      mladistvyPotvrzen,
     });
   }
 
@@ -119,7 +119,7 @@ export const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyP
     return {
       kategorie: null,
       code: CODE_NONEXISTING,
-      status: `Kategorie '${typ}' v roce ${rok} neexistuje pro pohlaví '${pohlavi}'.`
+      status: `Kategorie '${typ}' v roce ${rok} neexistuje pro pohlaví '${pohlavi}'.`,
     };
   }
 
@@ -127,7 +127,7 @@ export const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyP
     return zkontrolujMladistvy(spravnePohlavi[0], {
       datum: new Date(rocnik.datum),
       narozeni,
-      mladistvyPotvrzen
+      mladistvyPotvrzen,
     });
   }
 
@@ -135,7 +135,7 @@ export const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyP
     return {
       kategorie: null,
       code: CODE_NONEXISTING,
-      status: 'Nevyplněné datum narození (je potřeba alespoň rok).'
+      status: 'Nevyplněné datum narození (je potřeba alespoň rok).',
     };
   }
 
@@ -143,7 +143,7 @@ export const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyP
   const spravnyVek = filtrujPodleVeku(spravnePohlavi, {
     rok,
     datum: new Date(rocnik.datum),
-    narozeni
+    narozeni,
   });
   if (spravnyVek.length === 2 && spravnyVek[0].vek.presne) {
     spravnyVek.pop();
@@ -153,7 +153,7 @@ export const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyP
     return zkontrolujMladistvy(spravnyVek[0], {
       datum: new Date(rocnik.datum),
       narozeni,
-      mladistvyPotvrzen
+      mladistvyPotvrzen,
     });
   }
 
@@ -162,7 +162,7 @@ export const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyP
       return zkontrolujMladistvy(spravnePohlavi[0], {
         datum: new Date(rocnik.datum),
         narozeni,
-        mladistvyPotvrzen
+        mladistvyPotvrzen,
       });
     }
     return { kategorie: spravnePohlavi[spravnePohlavi.length - 1], code: CODE_OK };
@@ -171,7 +171,7 @@ export const findKategorie = (rocniky, { rok, typ, pohlavi, narozeni, mladistvyP
   return {
     kategorie: null,
     code: CODE_NONEXISTING,
-    status: `Pro '${pohlavi}' - '${typ}' v roce ${rok} a věk ${vek} let jsem našel více kategorií.`
+    status: `Pro '${pohlavi}' - '${typ}' v roce ${rok} a věk ${vek} let jsem našel více kategorií.`,
   };
 };
 
@@ -192,7 +192,7 @@ export const UBYTOVANI_NEPRESPANO = 'nepřespáno';
 export const ubytovaniModifications = {
   [UBYTOVANI_PRIHLASIT]: ({ den, ubytovani = {} }) => ({
     ...ubytovani,
-    [den]: { ...ubytovani[den], prihlaseno: true }
+    [den]: { ...ubytovani[den], prihlaseno: true },
   }),
   [UBYTOVANI_ODHLASIT]: ({ den, ubytovani = {} }) => {
     const { [den]: remove, ...rest } = ubytovani;
@@ -200,10 +200,10 @@ export const ubytovaniModifications = {
   },
   [UBYTOVANI_PRESPANO]: ({ den, ubytovani = {} }) => ({
     ...ubytovani,
-    [den]: { ...ubytovani[den], prespano: true }
+    [den]: { ...ubytovani[den], prespano: true },
   }),
   [UBYTOVANI_NEPRESPANO]: ({ den, ubytovani = {} }) => ({
     ...ubytovani,
-    [den]: { ...ubytovani[den], prespano: false }
-  })
+    [den]: { ...ubytovani[den], prespano: false },
+  }),
 };

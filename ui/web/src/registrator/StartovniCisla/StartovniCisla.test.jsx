@@ -29,8 +29,8 @@ it('Renderer', () => {
       id: '10',
       startCislo: 7,
       dokonceno: true,
-      duration: moment.duration('PT4H15M32.45S')
-    }
+      duration: moment.duration('PT4H15M32.45S'),
+    },
   ];
 
   const component = renderer.create(

@@ -16,18 +16,18 @@ it('getPokladna() - ucastniciTestData', () => {
         hotově: {
           counts: {
             80: 1,
-            350: 1
+            350: 1,
           },
-          suma: 430
+          suma: 430,
         },
         převodem: {
           counts: {
             100: 1,
-            250: 1
+            250: 1,
           },
-          suma: 350
-        }
-      }
+          suma: 350,
+        },
+      },
     },
     typy: {
       maraton: {
@@ -37,11 +37,11 @@ it('getPokladna() - ucastniciTestData', () => {
         typy: {
           převodem: {
             counts: {
-              250: 1
+              250: 1,
             },
-            suma: 250
-          }
-        }
+            suma: 250,
+          },
+        },
       },
       půlmaraton: {
         odstartovano: 3,
@@ -51,19 +51,19 @@ it('getPokladna() - ucastniciTestData', () => {
           hotově: {
             counts: {
               80: 1,
-              350: 1
+              350: 1,
             },
-            suma: 430
+            suma: 430,
           },
           převodem: {
             counts: {
-              100: 1
+              100: 1,
             },
-            suma: 100
-          }
-        }
-      }
-    }
+            suma: 100,
+          },
+        },
+      },
+    },
   };
 
   expect(pokladna).toEqual(expected);
@@ -76,19 +76,19 @@ it('getPokladna - všechny případy', () => {
   ucastnici.byIds['6f09b1fd371dec1e99b7e1c9'].roky = [AKTUALNI_ROK];
   const {
     byIds: {
-      '6f09b1fd371dec1e99b7e1c9': { 2016: staraUcast }
-    }
+      '6f09b1fd371dec1e99b7e1c9': { 2016: staraUcast },
+    },
   } = ucastnici;
   ucastnici.byIds['6f09b1fd371dec1e99b7e1c9'][AKTUALNI_ROK] = staraUcast;
   ucastnici.byIds['6f09b1fd371dec1e99b7e1c9'][AKTUALNI_ROK].platby = [
     { castka: 300, typ: 'převodem' },
-    { castka: 50, typ: 'hotově' }
+    { castka: 50, typ: 'hotově' },
   ];
 
   const {
     byIds: {
-      '8344bc71dec1e99b7e1d01e': { [AKTUALNI_ROK]: novaPrihlaska }
-    }
+      '8344bc71dec1e99b7e1d01e': { [AKTUALNI_ROK]: novaPrihlaska },
+    },
   } = ucastnici;
   novaPrihlaska.vykon = { kategorie: novaPrihlaska.prihlaska.kategorie, dokonceno: true };
 
@@ -98,11 +98,11 @@ it('getPokladna - všechny případy', () => {
     [AKTUALNI_ROK]: {
       udaje: {},
       prihlaska: {
-        kategorie: '5a587e1a051c181132cf83b3'
+        kategorie: '5a587e1a051c181132cf83b3',
       },
       vykon: { kategorie: '5a587e1a051c181132cf83b3' },
-      platby: [{ castka: 370, typ: 'hotově' }]
-    }
+      platby: [{ castka: 370, typ: 'hotově' }],
+    },
   };
 
   const pokladna = getPokladna({ ...state.entities });
@@ -113,9 +113,9 @@ it('getPokladna - všechny případy', () => {
       ucastniku: 6,
       zaloha: {
         counts: {
-          20: 1
+          20: 1,
         },
-        suma: 20
+        suma: 20,
       },
       typy: {
         hotově: {
@@ -124,19 +124,19 @@ it('getPokladna - všechny případy', () => {
             80: 1,
             50: 1,
             350: 1,
-            370: 1
+            370: 1,
           },
-          suma: 850
+          suma: 850,
         },
         převodem: {
           counts: {
             100: 1,
             250: 1,
-            300: 1
+            300: 1,
           },
-          suma: 650
-        }
-      }
+          suma: 650,
+        },
+      },
     },
     typy: {
       cyklo: {
@@ -146,17 +146,17 @@ it('getPokladna - všechny případy', () => {
         typy: {
           hotově: {
             counts: {
-              370: 1
+              370: 1,
             },
-            suma: 370
-          }
+            suma: 370,
+          },
         },
         zaloha: {
           counts: {
-            20: 1
+            20: 1,
           },
-          suma: 20
-        }
+          suma: 20,
+        },
       },
       maraton: {
         odstartovano: 1,
@@ -165,18 +165,18 @@ it('getPokladna - všechny případy', () => {
         typy: {
           hotově: {
             counts: {
-              50: 1
+              50: 1,
             },
-            suma: 50
+            suma: 50,
           },
           převodem: {
             counts: {
               250: 1,
-              300: 1
+              300: 1,
             },
-            suma: 550
-          }
-        }
+            suma: 550,
+          },
+        },
       },
       půlmaraton: {
         odstartovano: 4,
@@ -187,19 +187,19 @@ it('getPokladna - všechny případy', () => {
             counts: {
               0: 1,
               80: 1,
-              350: 1
+              350: 1,
             },
-            suma: 430
+            suma: 430,
           },
           převodem: {
             counts: {
-              100: 1
+              100: 1,
             },
-            suma: 100
-          }
-        }
-      }
-    }
+            suma: 100,
+          },
+        },
+      },
+    },
   };
 
   expect(pokladna).toEqual(expected);

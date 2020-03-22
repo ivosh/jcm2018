@@ -6,7 +6,7 @@ import StartujiciPanel from './StartujiciPanel';
 
 const collect = (connect, monitor) => ({
   connectDropTarget: connect.dropTarget(),
-  isOver: monitor.isOver()
+  isOver: monitor.isOver(),
 });
 
 class DroppableStartujiciPanel extends PureComponent {
@@ -17,7 +17,7 @@ class DroppableStartujiciPanel extends PureComponent {
     const dropTarget = {
       drop: (dropProps, monitor) => {
         onDrop(monitor.getItem().id);
-      }
+      },
     };
 
     this.Droppable = DropTarget(dropType, dropTarget, collect)(StartujiciPanel);
@@ -34,7 +34,7 @@ class DroppableStartujiciPanel extends PureComponent {
 DroppableStartujiciPanel.propTypes = {
   dropType: PropTypes.oneOf([DragTypes.STARTUJICI_PRIHLASEN, DragTypes.STARTUJICI_ODSTARTOVAN])
     .isRequired,
-  onDrop: PropTypes.func.isRequired
+  onDrop: PropTypes.func.isRequired,
 };
 
 export default DroppableStartujiciPanel;

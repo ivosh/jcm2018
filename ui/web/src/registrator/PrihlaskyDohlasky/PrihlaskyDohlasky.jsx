@@ -5,7 +5,7 @@ import withFetchUcastnici from '../../entities/withFetchUcastnici/withFetchUcast
 import PrihlaskyDohlaskyMain from './PrihlaskyDohlaskyMain';
 import PrihlaskyFormContainer from './PrihlaskyForm/PrihlaskyFormContainer';
 
-const routeOnSelect = ({ history, path }) => id => history.push(`${path}${id}`);
+const routeOnSelect = ({ history, path }) => (id) => history.push(`${path}${id}`);
 
 const MainWithRoute = ({ history, match: { path }, name }) => (
   <PrihlaskyDohlaskyMain name={name} path={path} routeOnSelect={routeOnSelect({ history, path })} />
@@ -13,12 +13,12 @@ const MainWithRoute = ({ history, match: { path }, name }) => (
 
 MainWithRoute.propTypes = {
   history: PropTypes.shape({
-    push: PropTypes.func.isRequired
+    push: PropTypes.func.isRequired,
   }).isRequired,
   match: PropTypes.shape({
-    path: PropTypes.string.isRequired
+    path: PropTypes.string.isRequired,
   }).isRequired,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
 };
 
 const FormWithFetchUcastnici = withFetchUcastnici(PrihlaskyFormContainer);
@@ -34,9 +34,9 @@ const FormWithFetchUcastniciWithId = ({ actionPrefix, match, reduxName }) => (
 FormWithFetchUcastniciWithId.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
   match: PropTypes.shape({
-    params: PropTypes.object.isRequired
+    params: PropTypes.object.isRequired,
   }).isRequired,
-  reduxName: PropTypes.string.isRequired
+  reduxName: PropTypes.string.isRequired,
 };
 
 const FormWithFetchUcastniciWithEdit = ({ actionPrefix, reduxName }) => (
@@ -45,7 +45,7 @@ const FormWithFetchUcastniciWithEdit = ({ actionPrefix, reduxName }) => (
 
 FormWithFetchUcastniciWithEdit.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
-  reduxName: PropTypes.string.isRequired
+  reduxName: PropTypes.string.isRequired,
 };
 
 const FormWithFetchUcastniciWithReset = ({ actionPrefix, reduxName }) => (
@@ -54,7 +54,7 @@ const FormWithFetchUcastniciWithReset = ({ actionPrefix, reduxName }) => (
 
 FormWithFetchUcastniciWithReset.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
-  reduxName: PropTypes.string.isRequired
+  reduxName: PropTypes.string.isRequired,
 };
 
 const PrihlaskyDohlasky = ({ actionPrefix, match, name, reduxName }) => (
@@ -62,7 +62,7 @@ const PrihlaskyDohlasky = ({ actionPrefix, match, name, reduxName }) => (
     <Route
       path={`${match.path}/`}
       exact={true}
-      component={matchProps => <MainWithRoute name={name} {...matchProps} />}
+      component={(matchProps) => <MainWithRoute name={name} {...matchProps} />}
     />
     <Route
       path={`${match.path}/edit`}
@@ -78,7 +78,7 @@ const PrihlaskyDohlasky = ({ actionPrefix, match, name, reduxName }) => (
     />
     <Route
       path={`${match.path}/:id`}
-      component={matchProps => (
+      component={(matchProps) => (
         <FormWithFetchUcastniciWithId
           actionPrefix={actionPrefix}
           reduxName={reduxName}
@@ -92,10 +92,10 @@ const PrihlaskyDohlasky = ({ actionPrefix, match, name, reduxName }) => (
 PrihlaskyDohlasky.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
   match: PropTypes.shape({
-    path: PropTypes.string.isRequired
+    path: PropTypes.string.isRequired,
   }).isRequired,
   name: PropTypes.string.isRequired,
-  reduxName: PropTypes.string.isRequired
+  reduxName: PropTypes.string.isRequired,
 };
 
 export default PrihlaskyDohlasky;

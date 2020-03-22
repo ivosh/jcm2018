@@ -23,7 +23,7 @@ const loadState = () => {
   }
 };
 
-const saveState = state => {
+const saveState = (state) => {
   try {
     const serializedState = JSON.stringify(state);
     localStorage.setItem('state', serializedState);
@@ -52,7 +52,7 @@ const setupWsClient = (wsClient, store) => {
       await store.dispatch(websocketConnected());
       store.dispatch(timesyncOperation());
     },
-    onClose: () => store.dispatch(websocketDisconnected())
+    onClose: () => store.dispatch(websocketDisconnected()),
   });
 
   try {
@@ -83,8 +83,8 @@ const configureStore = (wsClient, initialStateParam = loadState()) => {
       auth: {
         authenticated: state.auth.authenticated,
         decodedToken: state.auth.decodedToken,
-        token: state.auth.token
-      }
+        token: state.auth.token,
+      },
       // :TODO: casomeric.mezicasy
     });
   });

@@ -5,12 +5,12 @@ import { getUcastiProRok } from '../../entities/ucastnici/ucastniciReducer';
 
 export const getPrihlaseni = ({ kategorie, rocniky, ucastnici, rok = AKTUALNI_ROK }) => {
   const ucasti = getUcastiProRok({ rok, ucastnici });
-  const mapped = ucasti.map(jeden => {
+  const mapped = ucasti.map((jeden) => {
     const { id, ucast } = jeden;
     const {
       udaje: { prijmeni, jmeno, narozeni },
       prihlaska,
-      vykon
+      vykon,
     } = ucast;
     if (vykon) {
       return undefined;
@@ -27,21 +27,21 @@ export const getPrihlaseni = ({ kategorie, rocniky, ucastnici, rok = AKTUALNI_RO
       narozeni,
       kategorie: taKategorie,
       startCislo,
-      startCisloRequired: !!typKategorieRocniku.startCisla
+      startCisloRequired: !!typKategorieRocniku.startCisla,
     };
   });
-  const filtered = mapped.filter(jeden => jeden !== undefined);
+  const filtered = mapped.filter((jeden) => jeden !== undefined);
 
   return sortForColumn({ data: filtered, sortColumn: '', sortDir: undefined });
 };
 
 export const getOdstartovani = ({ kategorie, ucastnici, rok = AKTUALNI_ROK }) => {
   const ucasti = getUcastiProRok({ rok, ucastnici });
-  const mapped = ucasti.map(jeden => {
+  const mapped = ucasti.map((jeden) => {
     const { id, ucast } = jeden;
     const {
       udaje: { prijmeni, jmeno, narozeni },
-      vykon
+      vykon,
     } = ucast;
     if (!vykon) {
       return undefined;
@@ -54,10 +54,10 @@ export const getOdstartovani = ({ kategorie, ucastnici, rok = AKTUALNI_ROK }) =>
       jmeno,
       narozeni,
       kategorie: kategorie[kategorieId],
-      startCislo
+      startCislo,
     };
   });
-  const filtered = mapped.filter(jeden => jeden !== undefined);
+  const filtered = mapped.filter((jeden) => jeden !== undefined);
 
   return sortForColumn({ data: filtered, sortColumn: '', sortDir: undefined });
 };

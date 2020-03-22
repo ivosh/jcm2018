@@ -9,11 +9,11 @@ const ObrazekTypu = ({ sizePercentage, typ }) => {
 
 ObrazekTypu.propTypes = {
   sizePercentage: PropTypes.number,
-  typ: PropTypes.oneOf(['cyklo', 'koloběžka', 'maraton', 'pěší', 'půlmaraton']).isRequired
+  typ: PropTypes.oneOf(['cyklo', 'koloběžka', 'maraton', 'pěší', 'půlmaraton']).isRequired,
 };
 
 ObrazekTypu.defaultProps = {
-  sizePercentage: 100
+  sizePercentage: 100,
 };
 
 export default ObrazekTypu;

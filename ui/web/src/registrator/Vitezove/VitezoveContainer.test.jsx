@@ -13,9 +13,9 @@ const defaultState = {
     vitezove: {
       kategorieFilter: '',
       kategorieSubFilter: '',
-      textFilter: ''
-    }
-  }
+      textFilter: '',
+    },
+  },
 };
 
 let store;
@@ -43,9 +43,9 @@ it('maps state and dispatch to props - non-default', () => {
     registrator: {
       vitezove: {
         kategorieFilter: 'maraton',
-        kategorieSubFilter: '5a587e1a051c181132cf83ba'
-      }
-    }
+        kategorieSubFilter: '5a587e1a051c181132cf83ba',
+      },
+    },
   };
   setup(state);
 
@@ -60,7 +60,7 @@ it('maps kategorieFilters[4].onClick() to dispatch kategorieFilterChange action'
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: 'VITEZOVE_KATEGORIE_FILTER_CHANGE',
-    kategorieFilter: 'koloběžka'
+    kategorieFilter: 'koloběžka',
   });
 });
 
@@ -71,15 +71,15 @@ it('maps kategorieSubFilters[1].onClick() to dispatch kategorieSubFilterChange a
       vitezove: {
         kategorieFilter: 'maraton',
         kategorieSubFilter: '',
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   setup(state);
   await component.props.kategorieSubFilters[1].onClick();
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: 'VITEZOVE_KATEGORIE_SUB_FILTER_CHANGE',
-    kategorieSubFilter: '5a587e1a051c181132cf83ba'
+    kategorieSubFilter: '5a587e1a051c181132cf83ba',
   });
 });

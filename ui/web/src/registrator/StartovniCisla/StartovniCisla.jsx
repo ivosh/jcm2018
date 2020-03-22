@@ -26,11 +26,11 @@ Renderer.propTypes = {
   id: PropTypes.string,
   startCislo: PropTypes.number.isRequired,
   dokonceno: PropTypes.bool,
-  odstartovani: PropTypes.bool.isRequired
+  odstartovani: PropTypes.bool.isRequired,
 };
 Renderer.defaultProps = {
   id: undefined,
-  dokonceno: undefined
+  dokonceno: undefined,
 };
 
 const legendaOdstartovani = () => Object.values(dokoncene);
@@ -64,7 +64,7 @@ const StartovniCisla = ({ odstartovani, typy, onOdstartovaniChange }) => (
     <div className="StartovniCisla__legenda">
       <Legenda legenda={odstartovani ? legendaOdstartovani() : legendaPrihlaseni()} />
     </div>
-    {typy.map(typ => (
+    {typy.map((typ) => (
       <div key={typ} className="StartovniCisla__typ">
         <div className="StartovniCisla__popisek">
           <PopisekKategorie typ={typ} />
@@ -83,7 +83,7 @@ const StartovniCisla = ({ odstartovani, typy, onOdstartovaniChange }) => (
 StartovniCisla.propTypes = {
   odstartovani: PropTypes.bool.isRequired,
   typy: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onOdstartovaniChange: PropTypes.func.isRequired
+  onOdstartovaniChange: PropTypes.func.isRequired,
 };
 
 export default StartovniCisla;

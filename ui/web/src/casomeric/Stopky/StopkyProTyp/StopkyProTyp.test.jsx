@@ -21,13 +21,13 @@ const cudly = [
   cudl,
   cudl,
   cudl,
-  cudl
+  cudl,
 ];
 
 const rozdily = [
   { name: 'maraton', rozdil: { hours: '-', mins: '--', secs: '--', subsecs: '--' } },
   { name: 'půlmaraton', rozdil: { hours: '1', mins: '57', secs: '45', subsecs: '40' } },
-  { name: 'koloběžka', rozdil: { hours: '0', mins: '14', secs: '46', subsecs: '80' } }
+  { name: 'koloběžka', rozdil: { hours: '0', mins: '14', secs: '46', subsecs: '80' } },
 ];
 
 it('snapshot před startem', () => {

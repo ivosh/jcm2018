@@ -10,14 +10,14 @@ export const createInputChanged = ({ actionPrefix, rocniky }) => (name, event) =
   return {
     ...action,
     chooseKategorie: ({ narozeni, pohlavi, typ }) =>
-      kategorieInputOptions({ narozeni, pohlavi, rocniky })[typ]
+      kategorieInputOptions({ narozeni, pohlavi, rocniky })[typ],
   };
 };
 
 export const createReset = ({
   actionPrefix,
   jePrihlaskou = actionPrefix === ActionPrefixes.PRIHLASKY,
-  now = new Date()
+  now = new Date(),
 }) => ({ rocniky }) => {
   now.setUTCHours(0, 0, 0, 0);
   const datumKonani = jePrihlaskou ? now.toJSON() : getDatumKonani({ rocniky });
@@ -27,7 +27,7 @@ export const createReset = ({
 
 export const createLoadUcastnik = ({
   actionPrefix,
-  jePrihlaskou = actionPrefix === ActionPrefixes.PRIHLASKY
+  jePrihlaskou = actionPrefix === ActionPrefixes.PRIHLASKY,
 }) => ({ id, kategorie, rocniky, ucastnici }) => {
   const ucastnik = ucastnici.byIds[id];
   const posledniRok = ucastnik.roky[0];
@@ -36,7 +36,7 @@ export const createLoadUcastnik = ({
     type: `${actionPrefix}_UCASTNIK_LOAD`,
     datumKonani: jePrihlaskou ? undefined : getDatumKonani({ rocniky }),
     id,
-    udaje: ucast.udaje
+    udaje: ucast.udaje,
   };
 
   const letosniUcast = ucastnik[AKTUALNI_ROK];
@@ -51,18 +51,22 @@ export const createLoadUcastnik = ({
   return action;
 };
 
-export const createValidate = actionPrefix => () => ({ type: `${actionPrefix}_VALIDATE_FORM` });
+export const createValidate = (actionPrefix) => () => ({ type: `${actionPrefix}_VALIDATE_FORM` });
 
-export const createValidationError = actionPrefix => errors => ({
+export const createValidationError = (actionPrefix) => (errors) => ({
   type: `${actionPrefix}_FORM_INVALID`,
   code: 'nejde uložit',
   errors,
   status: 'Přihláška nejde uložit. Povinná pole nejsou vyplněna.',
-  title: 'vyplňování formuláře'
+  title: 'vyplňování formuláře',
 });
 
-export const createHideModal = actionPrefix => () => ({ type: `${actionPrefix}_SAVE_HIDE_MODAL` });
-export const createShowModal = actionPrefix => () => ({ type: `${actionPrefix}_SAVE_SHOW_MODAL` });
+export const createHideModal = (actionPrefix) => () => ({
+  type: `${actionPrefix}_SAVE_HIDE_MODAL`,
+});
+export const createShowModal = (actionPrefix) => () => ({
+  type: `${actionPrefix}_SAVE_SHOW_MODAL`,
+});
 const showModalWithTimeout = (actionPrefix, dispatch) => {
   dispatch(createShowModal(actionPrefix)());
   setTimeout(() => dispatch(createHideModal(actionPrefix)()), PRIHLASKY_SAVE_MODAL_TIMEOUT);
@@ -73,8 +77,8 @@ const createRequest = ({ reduxName, state }) => {
   const {
     entities: { ucastnici },
     registrator: {
-      [reduxName]: { form }
-    }
+      [reduxName]: { form },
+    },
   } = state;
   const existingUcast = form.ucastnikId ? ucastnici.byIds[form.ucastnikId][rok] || {} : {};
   const { udaje, prihlaska, platby, ubytovani, poznamky } = form;
@@ -87,21 +91,21 @@ const createRequest = ({ reduxName, state }) => {
     prihlaska,
     platby,
     ubytovani,
-    poznamky
+    poznamky,
   };
 };
 
 const normalize = ({
   request,
   response: {
-    response: { id }
-  }
+    response: { id },
+  },
 }) => {
   const { typ, ...jenPrihlaska } = request.prihlaska;
   return { request: { ...request, prihlaska: jenPrihlaska }, response: { id } };
 };
 
-export const CREATE_PRIHLASKY_SAVE = actionPrefix => `${actionPrefix}_SAVE`;
+export const CREATE_PRIHLASKY_SAVE = (actionPrefix) => `${actionPrefix}_SAVE`;
 export const DOHLASKY_SAVE = CREATE_PRIHLASKY_SAVE(ActionPrefixes.DOHLASKY);
 export const PRIHLASKY_SAVE = CREATE_PRIHLASKY_SAVE(ActionPrefixes.PRIHLASKY);
 
@@ -110,9 +114,9 @@ export const createPrihlaskySave = (actionPrefix, reduxName) => () => ({
     type: CREATE_PRIHLASKY_SAVE(actionPrefix),
     endpoint: API_SAVE_UCAST,
     normalize,
-    request: state => createRequest({ reduxName, state }),
-    title: 'ukládání formuláře'
-  }
+    request: (state) => createRequest({ reduxName, state }),
+    title: 'ukládání formuláře',
+  },
 });
 
 export const createSaveUcast = (actionPrefix, reduxName) => {
@@ -127,8 +131,8 @@ export const createSaveUcast = (actionPrefix, reduxName) => {
     const {
       entities: { rocniky },
       registrator: {
-        [reduxName]: { form }
-      }
+        [reduxName]: { form },
+      },
     } = state;
 
     const errors = formErrors({ form, rocniky });

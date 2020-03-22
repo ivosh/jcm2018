@@ -12,7 +12,7 @@ const mockStore = configureStore(middlewares);
 
 const Foo = ({ bar }) => <div>{bar}</div>;
 Foo.propTypes = {
-  bar: PropTypes.node.isRequired
+  bar: PropTypes.node.isRequired,
 };
 const FooWithFetchStopky = withFetchStopky(Foo);
 

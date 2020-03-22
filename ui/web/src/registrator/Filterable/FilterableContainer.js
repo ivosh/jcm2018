@@ -14,9 +14,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { actionPrefix } = ownProps;
 
   return {
-    onTextFilterChange: text => dispatch(createTextFilterChange(actionPrefix)(text)),
-    onKategorieFilterChange: typKategorie =>
-      dispatch(createKategorieFilterChange(actionPrefix)(typKategorie))
+    onTextFilterChange: (text) => dispatch(createTextFilterChange(actionPrefix)(text)),
+    onKategorieFilterChange: (typKategorie) =>
+      dispatch(createKategorieFilterChange(actionPrefix)(typKategorie)),
   };
 };
 
@@ -25,7 +25,7 @@ const FilterableContainer = connect(mapStateToProps, mapDispatchToProps)(Filtera
 FilterableContainer.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
   reduxName: PropTypes.string.isRequired,
-  numberOfItems: PropTypes.number.isRequired
+  numberOfItems: PropTypes.number.isRequired,
 };
 
 export default FilterableContainer;

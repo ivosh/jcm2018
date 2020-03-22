@@ -36,7 +36,7 @@ it('maps onSubmit to dispatch signIn action', async () => {
       endpoint: API_SIGN_IN,
       normalize: expect.any(Function),
       request: expect.any(Function),
-      title: 'přihlašování'
-    }
+      title: 'přihlašování',
+    },
   });
 });

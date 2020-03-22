@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     ...rest,
     sortColumn,
-    sortDir
+    sortDir,
   };
 };
 
@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { actionPrefix } = ownProps;
 
   return {
-    onSortDirChange: sortCol => dispatch(createSortDirChange(actionPrefix)(sortCol))
+    onSortDirChange: (sortCol) => dispatch(createSortDirChange(actionPrefix)(sortCol)),
   };
 };
 
@@ -31,7 +31,7 @@ const UcastniciTableContainer = connect(
 // columns+data+fixedColumnCount+rowHeight are simply passed through to UcastniciTable
 UcastniciTableContainer.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
-  reduxName: PropTypes.string.isRequired
+  reduxName: PropTypes.string.isRequired,
 };
 
 export default UcastniciTableContainer;

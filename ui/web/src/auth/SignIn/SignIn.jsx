@@ -7,15 +7,15 @@ import './SignIn.css';
 class SignIn extends PureComponent {
   state = { username: '', password: '' };
 
-  handleUsernameChange = event => {
+  handleUsernameChange = (event) => {
     this.setState({ username: event.target.value });
   };
 
-  handlePasswordChange = event => {
+  handlePasswordChange = (event) => {
     this.setState({ password: event.target.value });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     this.props.onSubmit(this.state.username, this.state.password);
   };
@@ -70,7 +70,7 @@ class SignIn extends PureComponent {
 
 SignIn.propTypes = {
   signingIn: PropTypes.bool.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default SignIn;

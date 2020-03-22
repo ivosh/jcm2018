@@ -32,7 +32,7 @@ const prihlaseniDohlaseni = [
       id: '5a587e1b051c181132cf83d7',
       pohlavi: 'muž',
       typ: 'půlmaraton',
-      vek: { min: 60, max: 150 }
+      vek: { min: 60, max: 150 },
     },
     startCislo: 17,
     kod: '10728864',
@@ -43,8 +43,8 @@ const prihlaseniDohlaseni = [
       nejakaPoznamka: false,
       showing: false,
       onHide: jest.fn(),
-      onShow: jest.fn()
-    }
+      onShow: jest.fn(),
+    },
   },
   {
     id: '7a09b1fd371dec1e99b7e142',
@@ -58,7 +58,7 @@ const prihlaseniDohlaseni = [
       id: '5a587e1b051c181132cf83d9',
       typ: 'půlmaraton',
       pohlavi: 'žena',
-      vek: { min: 18, max: 39 }
+      vek: { min: 18, max: 39 },
     },
     startCislo: 10,
     kod: 'abc023skd204mvs345',
@@ -69,9 +69,9 @@ const prihlaseniDohlaseni = [
       nejakaPoznamka: true,
       showing: false,
       onHide: jest.fn(),
-      onShow: jest.fn()
-    }
-  }
+      onShow: jest.fn(),
+    },
+  },
 ];
 
 it('žádný přihlášený', () => {

@@ -1,6 +1,6 @@
 import { AKTUALNI_ROK } from '../../constants';
 
-const countLines = text => {
+const countLines = (text) => {
   let lines = text ? 1 : 0;
   let index = -1;
 
@@ -26,6 +26,6 @@ export const getPoznamky = ({ id, rok = AKTUALNI_ROK, ucastnici }) => {
   return poznamky.map(({ datum, text }) => ({
     datum: new Date(datum),
     lines: countLines(text),
-    text
+    text,
   }));
 };

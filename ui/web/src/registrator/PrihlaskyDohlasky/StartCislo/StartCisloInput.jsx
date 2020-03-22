@@ -16,7 +16,7 @@ const StartCisloInput = ({
   onChange,
   onHide,
   onSelect,
-  onShow
+  onShow,
 }) => (
   <>
     <TextInput
@@ -68,13 +68,13 @@ StartCisloInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   onHide: PropTypes.func.isRequired,
   onSelect: PropTypes.func.isRequired,
-  onShow: PropTypes.func.isRequired
+  onShow: PropTypes.func.isRequired,
 };
 
 StartCisloInput.defaultProps = {
   value: undefined,
   vybraneId: undefined,
-  vybraneStartCislo: undefined
+  vybraneStartCislo: undefined,
 };
 
 export default StartCisloInput;

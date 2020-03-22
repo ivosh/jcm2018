@@ -11,8 +11,8 @@ const columns = [
     key: '2012',
     cellDataFormatter: ({ cellData }) => cellData.dokonceno,
     sortable: false,
-    width: 50
-  }
+    width: 50,
+  },
 ];
 
 const data = [
@@ -20,14 +20,14 @@ const data = [
     id: '5a09b1fd371dec1e99b7e1c9',
     prijmeni: 'Balabák',
     jmeno: 'Roman',
-    2012: { dokonceno: false }
+    2012: { dokonceno: false },
   },
   {
     id: '6f09b1fd371dec1e99b7e1c9',
     prijmeni: 'Sukdoláková',
     jmeno: 'Martina',
-    2012: { dokonceno: true, kategorie: 'maraton' }
-  }
+    2012: { dokonceno: true, kategorie: 'maraton' },
+  },
 ];
 
 const commonProps = {
@@ -36,7 +36,7 @@ const commonProps = {
   containerWidth: 500,
   data,
   fixedColumnCount: 2,
-  rowHeight: 35
+  rowHeight: 35,
 };
 
 it('žádná data', () => {
@@ -75,10 +75,7 @@ it('maps onClick to onSortDirChange for jméno', () => {
 
   expect(wrapper.find('button')).toHaveLength(2);
   expect(wrapper.find('button').last()).toHaveLength(1);
-  wrapper
-    .find('button')
-    .last()
-    .simulate('click');
+  wrapper.find('button').last().simulate('click');
 
   expect(onSortDirChange).toHaveBeenCalledWith('jmeno');
 });

@@ -15,15 +15,15 @@ const state = {
           base: new Date().toISOString(),
           delta: 'P0D',
           running: true,
-          typ: 'maraton'
-        }
+          typ: 'maraton',
+        },
       },
-      typy: ['maraton']
-    }
+      typy: ['maraton'],
+    },
   },
   timesync: {
-    offset: -42
-  }
+    offset: -42,
+  },
 };
 const mockStore = configureStore();
 
@@ -53,14 +53,14 @@ it('maps onStart to dispatch modifyStopky/STOPKY_START action', async () => {
       endpoint: API_MODIFY_STOPKY,
       normalize: expect.any(Function),
       request: expect.any(Function),
-      title: 'ukládání stopek'
-    }
+      title: 'ukládání stopek',
+    },
   });
   const { request } = store.dispatch.mock.calls[0][0][WS_API];
   expect(request(state)).toEqual({
     modifikace: STOPKY_START,
     now: expect.any(String),
-    typ: 'maraton'
+    typ: 'maraton',
   });
 });
 
@@ -73,14 +73,14 @@ it('maps onStop to dispatch modifyStopky/STOPKY_STOP action', async () => {
       endpoint: API_MODIFY_STOPKY,
       normalize: expect.any(Function),
       request: expect.any(Function),
-      title: 'ukládání stopek'
-    }
+      title: 'ukládání stopek',
+    },
   });
   const { request } = store.dispatch.mock.calls[0][0][WS_API];
   expect(request(state)).toEqual({
     modifikace: STOPKY_STOP,
     now: expect.any(String),
-    typ: 'maraton'
+    typ: 'maraton',
   });
 });
 
@@ -93,12 +93,12 @@ it('maps onReset to dispatch modifyStopky/STOPKY_RESET action', async () => {
       endpoint: API_MODIFY_STOPKY,
       normalize: expect.any(Function),
       request: expect.any(Function),
-      title: 'ukládání stopek'
-    }
+      title: 'ukládání stopek',
+    },
   });
   const { request } = store.dispatch.mock.calls[0][0][WS_API];
   expect(request(state)).toEqual({
     modifikace: STOPKY_RESET,
-    typ: 'maraton'
+    typ: 'maraton',
   });
 });

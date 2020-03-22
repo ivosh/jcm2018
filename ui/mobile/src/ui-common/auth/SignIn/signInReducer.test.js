@@ -2,7 +2,7 @@ import deepFreeze from 'deep-freeze';
 import {
   createFailureFromAction,
   createRequestFromAction,
-  createSuccessFromAction
+  createSuccessFromAction,
 } from '../../store/wsAPI';
 import { signIn } from './SignInActions';
 import signInReducer from './signInReducer';
@@ -11,15 +11,15 @@ const successfulResponse = {
   code: 'ok',
   response: {
     token: '=======token=========',
-    username: 'tomáš'
+    username: 'tomáš',
   },
-  requestId: '0.9310306652587374'
+  requestId: '0.9310306652587374',
 };
 
 const unsuccessfulResponse = {
   code: 'password incorrect',
   status: 'Špatné jméno či heslo. Uživatel může být též zamčený.',
-  requestId: '0.9310306652587374'
+  requestId: '0.9310306652587374',
 };
 
 it('na začátku', () => {
@@ -63,7 +63,7 @@ it('signInError()', () => {
       createFailureFromAction({
         action: signIn({}),
         request: {},
-        response: unsuccessfulResponse
+        response: unsuccessfulResponse,
       })
     )
   ).toEqual(stateAfter);

@@ -7,7 +7,7 @@ const vysledky = {
   subtitle: 'Jirkovský crossmarathon a Jirkovský půlmarathon 2018',
   summary: {
     dokoncilo: 1,
-    startovalo: 2
+    startovalo: 2,
   },
   title: 'Výsledková listina',
   typy: {
@@ -16,44 +16,44 @@ const vysledky = {
       startCisla: true,
       stats: {
         dokoncilo: 0,
-        startovalo: 0
+        startovalo: 0,
       },
       typ: 'cyklo',
       ucastnici: [],
-      zkratky: []
+      zkratky: [],
     },
     koloběžka: {
       popisek: 'koloběžky',
       startCisla: true,
       stats: {
         dokoncilo: 0,
-        startovalo: 0
+        startovalo: 0,
       },
       typ: 'koloběžka',
       ucastnici: [],
-      zkratky: []
+      zkratky: [],
     },
     maraton: {
       popisek: 'maratonci',
       startCisla: true,
       stats: {
         dokoncilo: 0,
-        startovalo: 0
+        startovalo: 0,
       },
       typ: 'maraton',
       ucastnici: [],
-      zkratky: []
+      zkratky: [],
     },
     pěší: {
       popisek: 'turisté',
       startCisla: false,
       stats: {
         dokoncilo: 0,
-        startovalo: 0
+        startovalo: 0,
       },
       typ: 'pěší',
       ucastnici: [],
-      zkratky: []
+      zkratky: [],
     },
     půlmaraton: {
       popisek: 'půlmaratonci',
@@ -63,16 +63,16 @@ const vysledky = {
           dokoncilo: 1,
           popisek: 'ženy 18-39',
           startovalo: 1,
-          zkratka: '1Ž'
+          zkratka: '1Ž',
         },
         '4M': {
           dokoncilo: 0,
           popisek: 'muži 60 a více',
           startovalo: 1,
-          zkratka: '4M'
+          zkratka: '4M',
         },
         dokoncilo: 1,
-        startovalo: 2
+        startovalo: 2,
       },
       typ: 'půlmaraton',
       ucastnici: [
@@ -88,15 +88,15 @@ const vysledky = {
             typ: 'půlmaraton',
             vek: {
               max: 39,
-              min: 18
+              min: 18,
             },
-            zkratka: '1Ž'
+            zkratka: '1Ž',
           },
           misto: 'SK Nudle',
           narozeni: 1999,
           prijmeni: 'Zralá',
           relPoradi: 1,
-          startCislo: 11
+          startCislo: 11,
         },
         {
           absPoradi: undefined,
@@ -110,20 +110,20 @@ const vysledky = {
             typ: 'půlmaraton',
             vek: {
               max: 150,
-              min: 60
+              min: 60,
             },
-            zkratka: '4M'
+            zkratka: '4M',
           },
           misto: 'Ostrava 2',
           narozeni: 1956,
           prijmeni: 'Balabák',
           relPoradi: undefined,
-          startCislo: 15
-        }
+          startCislo: 15,
+        },
       ],
-      zkratky: ['4M', '1Ž']
-    }
-  }
+      zkratky: ['4M', '1Ž'],
+    },
+  },
 };
 
 it('renders', () => {

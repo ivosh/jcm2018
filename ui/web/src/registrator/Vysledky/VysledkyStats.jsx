@@ -5,7 +5,7 @@ import './VysledkyStats.css';
 
 const VysledkyStats = ({ summary, typy }) => (
   <div>
-    {Object.values(typy).map(typ => (
+    {Object.values(typy).map((typ) => (
       <div className="VysledkyStats__typ" key={typ.typ}>
         <VysledkyTypuStats {...typ} anchorHref={true} />
       </div>
@@ -17,9 +17,9 @@ const VysledkyStats = ({ summary, typy }) => (
 VysledkyStats.propTypes = {
   summary: PropTypes.shape({
     startovalo: PropTypes.number.isRequired,
-    dokoncilo: PropTypes.number.isRequired
+    dokoncilo: PropTypes.number.isRequired,
   }).isRequired,
-  typy: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
+  typy: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
 export default VysledkyStats;

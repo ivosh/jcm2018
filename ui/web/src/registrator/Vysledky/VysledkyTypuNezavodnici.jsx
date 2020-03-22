@@ -38,9 +38,9 @@ VysledkyTypuNezavodnici.propTypes = {
       jmeno: PropTypes.string.isRequired,
       misto: PropTypes.string.isRequired,
       narozeni: PropTypes.number.isRequired,
-      dokonceno: PropTypes.bool.isRequired
+      dokonceno: PropTypes.bool.isRequired,
     }).isRequired
-  ).isRequired
+  ).isRequired,
 };
 
 export default VysledkyTypuNezavodnici;

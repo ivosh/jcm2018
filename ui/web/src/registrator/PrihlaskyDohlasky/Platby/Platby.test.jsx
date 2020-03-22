@@ -16,27 +16,27 @@ const state = {
       form: {
         udaje: {},
         prihlaska: {},
-        platby: []
+        platby: [],
       },
-      platby: {}
-    }
-  }
+      platby: {},
+    },
+  },
 };
 const store = mockStore(state);
 
 const predepsano270 = {
   polozky: [
     { castka: 250, duvod: 'na místě' },
-    { castka: 20, duvod: 'záloha' }
+    { castka: 20, duvod: 'záloha' },
   ],
-  suma: 270
+  suma: 270,
 };
 const predepsano220 = {
   polozky: [
     { castka: 200, duvod: 'předem' },
-    { castka: 20, duvod: 'záloha' }
+    { castka: 20, duvod: 'záloha' },
   ],
-  suma: 220
+  suma: 220,
 };
 const provedeno220 = {
   platby: [
@@ -45,15 +45,15 @@ const provedeno220 = {
       datum: '10. 12. 2017',
       typ: 'převodem',
       poznamka: 'stále visí',
-      onRemove: jest.fn()
+      onRemove: jest.fn(),
     },
-    { castka: 20, datum: '11. 12. 2017', typ: 'hotově', onRemove: jest.fn() }
+    { castka: 20, datum: '11. 12. 2017', typ: 'hotově', onRemove: jest.fn() },
   ],
-  suma: 220
+  suma: 220,
 };
 const provedeno0 = {
   platby: [],
-  suma: 0
+  suma: 0,
 };
 
 it('platby v plusu', () => {

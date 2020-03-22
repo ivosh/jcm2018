@@ -5,7 +5,7 @@ import {
   createDohlaseniFilterChange,
   createPrihlaseniFilterChange,
   createHideAkceMenu,
-  createShowAkceMenu
+  createShowAkceMenu,
 } from './PrihlaseniDohlaseniActions';
 import PrihlaseniDohlaseni from './PrihlaseniDohlaseni';
 
@@ -20,7 +20,7 @@ const mapStateToProps = ({ entities, registrator }, { actionPrefix, reduxName, r
     showingAkceMenuFor,
     actionPrefix,
     reduxName,
-    route
+    route,
   };
 };
 
@@ -28,7 +28,7 @@ const mapDispatchToProps = (dispatch, { actionPrefix }) => ({
   onDohlaseniFilterChange: () => dispatch(createDohlaseniFilterChange(actionPrefix)()),
   onPrihlaseniFilterChange: () => dispatch(createPrihlaseniFilterChange(actionPrefix)()),
   hideAkceMenu: () => dispatch(createHideAkceMenu(actionPrefix)()),
-  showAkceMenu: id => dispatch(createShowAkceMenu(actionPrefix)(id))
+  showAkceMenu: (id) => dispatch(createShowAkceMenu(actionPrefix)(id)),
 });
 
 const mergeProps = (stateProps, dispatchProps) => {
@@ -55,9 +55,9 @@ const mergeProps = (stateProps, dispatchProps) => {
         nejakaPoznamka,
         showing: showingAkceMenuFor === id,
         onHide: hideAkceMenu,
-        onShow: () => showAkceMenu(id)
+        onShow: () => showAkceMenu(id),
       },
-      ...rest
+      ...rest,
     })
   );
 
@@ -65,16 +65,16 @@ const mergeProps = (stateProps, dispatchProps) => {
     dohlaseniFilter: {
       active: dohlaseniFilter,
       name: 'Dohlášeni',
-      onClick: onDohlaseniFilterChange
+      onClick: onDohlaseniFilterChange,
     },
     prihlaseniFilter: {
       active: prihlaseniFilter,
       name: 'Přihlášeni',
-      onClick: onPrihlaseniFilterChange
+      onClick: onPrihlaseniFilterChange,
     },
     prihlaseniDohlaseni: prihlaseniDohlaseniWithActions,
     ...restState,
-    ...restDispatch
+    ...restDispatch,
   };
 };
 
@@ -87,7 +87,7 @@ const PrihlaseniDohlaseniContainer = connect(
 PrihlaseniDohlaseniContainer.propTypes = {
   actionPrefix: PropTypes.string.isRequired,
   reduxName: PropTypes.string.isRequired,
-  route: PropTypes.string.isRequired
+  route: PropTypes.string.isRequired,
 };
 
 export default PrihlaseniDohlaseniContainer;

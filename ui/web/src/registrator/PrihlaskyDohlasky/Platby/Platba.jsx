@@ -21,9 +21,9 @@ Platba.propTypes = {
     castka: PropTypes.number.isRequired,
     datum: PropTypes.string.isRequired,
     typ: PropTypes.string.isRequired,
-    poznamka: PropTypes.string
+    poznamka: PropTypes.string,
   }).isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
 };
 
 export default Platba;

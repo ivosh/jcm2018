@@ -20,13 +20,13 @@ class AuthorizedRoute extends PureComponent {
 
 AuthorizedRoute.propTypes = {
   authenticated: PropTypes.bool,
-  component: PropTypes.any.isRequired // eslint-disable-line react/forbid-prop-types
+  component: PropTypes.any.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
 AuthorizedRoute.defaultProps = {
-  authenticated: false
+  authenticated: false,
 };
 
-const mapStateToProps = state => ({ authenticated: state.auth.authenticated });
+const mapStateToProps = (state) => ({ authenticated: state.auth.authenticated });
 
 export default connect(mapStateToProps, {})(AuthorizedRoute);

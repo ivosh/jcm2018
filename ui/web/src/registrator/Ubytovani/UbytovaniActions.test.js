@@ -11,17 +11,17 @@ const successfulResponse = {
   response: {
     ubytovani: {
       pátek: {
-        prihlaseno: true
-      }
-    }
+        prihlaseno: true,
+      },
+    },
   },
   status: 'uloženo v pořádku',
-  requestId: '0.9310306652587377'
+  requestId: '0.9310306652587377',
 };
 
 const unsuccessfulResponse = {
   code: 'unfulfilled request',
-  status: 'A strange error occurred.'
+  status: 'A strange error occurred.',
 };
 
 const mockWsClient = new WsClient();
@@ -37,21 +37,21 @@ it('modifyUbytovani() should dispatch two successful actions', async () => {
     modifyUbytovani({
       den: 'pátek',
       id: '7a09b1fd371dec1e99b7e142',
-      modifikace: UBYTOVANI_PRIHLASIT
+      modifikace: UBYTOVANI_PRIHLASIT,
     })
   );
   const request = {
     den: 'pátek',
     id: '7a09b1fd371dec1e99b7e142',
     modifikace: 'přihlásit',
-    rok: AKTUALNI_ROK
+    rok: AKTUALNI_ROK,
   };
 
   const actions = store.getActions();
   expect(actions[0]).toEqual({
     type: `${MODIFY_UBYTOVANI}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${MODIFY_UBYTOVANI}_SUCCESS`,
@@ -59,10 +59,10 @@ it('modifyUbytovani() should dispatch two successful actions', async () => {
     response: {
       code: 'ok',
       status: 'uloženo v pořádku',
-      ubytovani: { pátek: { prihlaseno: true } }
+      ubytovani: { pátek: { prihlaseno: true } },
     },
     title: 'ukládání ubytování',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });
 
@@ -75,30 +75,30 @@ it('modifyUbytovani() should dispatch two unsuccessful actions', async () => {
     modifyUbytovani({
       den: 'sobota',
       id: '7a09b1fd371dec1e99b7e142',
-      modifikace: UBYTOVANI_ODHLASIT
+      modifikace: UBYTOVANI_ODHLASIT,
     })
   );
   const request = {
     den: 'sobota',
     id: '7a09b1fd371dec1e99b7e142',
     modifikace: 'odhlásit',
-    rok: AKTUALNI_ROK
+    rok: AKTUALNI_ROK,
   };
 
   const actions = store.getActions();
   expect(actions[0]).toEqual({
     type: `${MODIFY_UBYTOVANI}_REQUEST`,
     request,
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
   expect(actions[1]).toEqual({
     type: `${MODIFY_UBYTOVANI}_ERROR`,
     request,
     response: {
       code: 'unfulfilled request',
-      status: 'A strange error occurred.'
+      status: 'A strange error occurred.',
     },
     title: 'ukládání ubytování',
-    receivedAt: expect.any(Number)
+    receivedAt: expect.any(Number),
   });
 });

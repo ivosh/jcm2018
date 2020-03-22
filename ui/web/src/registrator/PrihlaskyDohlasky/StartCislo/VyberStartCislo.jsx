@@ -28,12 +28,12 @@ Renderer.propTypes = {
   startCislo: PropTypes.number.isRequired,
   vybraneId: PropTypes.string,
   vybraneStartCislo: PropTypes.oneOfType([PropTypes.number, PropTypes.string]), // +invalid input
-  onSelect: PropTypes.func.isRequired
+  onSelect: PropTypes.func.isRequired,
 };
 Renderer.defaultProps = {
   id: undefined,
   vybraneId: undefined,
-  vybraneStartCislo: undefined
+  vybraneStartCislo: undefined,
 };
 
 const VyberStartCislo = ({ typ, vybraneId, vybraneStartCislo, onSelect }) => (
@@ -52,11 +52,11 @@ VyberStartCislo.propTypes = {
   typ: PropTypes.string.isRequired,
   vybraneId: PropTypes.string,
   vybraneStartCislo: PropTypes.oneOfType([PropTypes.number, PropTypes.string]), // +invalid input
-  onSelect: PropTypes.func.isRequired
+  onSelect: PropTypes.func.isRequired,
 };
 VyberStartCislo.defaultProps = {
   vybraneId: undefined,
-  vybraneStartCislo: undefined
+  vybraneStartCislo: undefined,
 };
 
 export default VyberStartCislo;

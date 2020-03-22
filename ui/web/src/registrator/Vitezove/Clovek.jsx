@@ -19,7 +19,7 @@ const Clovek = ({ children }) => (
 );
 
 Clovek.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default Clovek;

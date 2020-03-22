@@ -36,7 +36,7 @@ it('handle submit', async () => {
   expect(onSubmit).toHaveBeenCalledWith({
     mailTo: 's@s.io',
     subject: 'Initial subject',
-    body: 'Tohle je moje <b>zpráva</b>.<br />Pokračuje přes několik řádek.'
+    body: 'Tohle je moje <b>zpráva</b>.<br />Pokračuje přes několik řádek.',
   });
 });
 
@@ -58,7 +58,7 @@ it('handle modify of mailFrom', async () => {
   expect(onSubmit).toHaveBeenCalledWith({
     mailTo: 'zuzana@huntirova.cz',
     subject: 'Initial subject',
-    body: 'Tohle je moje <b>zpráva</b>.<br />Pokračuje přes několik řádek.'
+    body: 'Tohle je moje <b>zpráva</b>.<br />Pokračuje přes několik řádek.',
   });
 });
 
@@ -80,7 +80,7 @@ it('handle modify of subject', async () => {
   expect(onSubmit).toHaveBeenCalledWith({
     mailTo: 's@s.io',
     subject: 'test subject',
-    body: 'Tohle je moje <b>zpráva</b>.<br />Pokračuje přes několik řádek.'
+    body: 'Tohle je moje <b>zpráva</b>.<br />Pokračuje přes několik řádek.',
   });
 });
 
@@ -102,6 +102,6 @@ it('handle modify of email body with sanitization', async () => {
   expect(onSubmit).toHaveBeenCalledWith({
     mailTo: 's@s.io',
     subject: 'Initial subject',
-    body: '<b>Zpráva</b> není  celá.'
+    body: '<b>Zpráva</b> není  celá.',
   });
 });

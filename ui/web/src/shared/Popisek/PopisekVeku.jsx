@@ -6,8 +6,8 @@ const PopisekVeku = ({ vek }) =>
 PopisekVeku.propTypes = {
   vek: PropTypes.shape({
     min: PropTypes.number.isRequired,
-    max: PropTypes.number.isRequired
-  }).isRequired
+    max: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default PopisekVeku;

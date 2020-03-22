@@ -30,9 +30,9 @@ PlatbyTable.propTypes = {
       datum: PropTypes.string.isRequired,
       typ: PropTypes.string.isRequired,
       poznamka: PropTypes.string,
-      onRemove: PropTypes.func.isRequired
+      onRemove: PropTypes.func.isRequired,
     })
-  ).isRequired
+  ).isRequired,
 };
 
 export default PlatbyTable;

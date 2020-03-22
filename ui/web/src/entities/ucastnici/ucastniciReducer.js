@@ -5,15 +5,15 @@ import { POHAR_PREDAN } from '../../registrator/Pohary/PoharyActions';
 import {
   POZNAMKA_ADD,
   POZNAMKA_DELETE,
-  POZNAMKA_MODIFY
+  POZNAMKA_MODIFY,
 } from '../../registrator/Poznamky/PoznamkyActions';
 import {
   DOHLASKY_SAVE,
-  PRIHLASKY_SAVE
+  PRIHLASKY_SAVE,
 } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
 import {
   STARTUJICI_CREATE_VYKON,
-  STARTUJICI_DELETE_VYKON
+  STARTUJICI_DELETE_VYKON,
 } from '../../registrator/Startujici/StartujiciActions';
 import { MODIFY_UBYTOVANI } from '../../registrator/Ubytovani/UbytovaniActions';
 import { FETCH_UCASTNICI } from './ucastniciActions';
@@ -71,7 +71,7 @@ const ucastniciReducer = (state = initialState, action) => {
       const predano = ((pohar && pohar.predano) || 0) + 1;
       return {
         ...state,
-        byIds: { ...state.byIds, [id]: { ...ucastnik, pohar: { ...pohar, predano } } }
+        byIds: { ...state.byIds, [id]: { ...ucastnik, pohar: { ...pohar, predano } } },
       };
     }
     case `${DOHLASKY_SAVE}_SUCCESS`:
@@ -88,14 +88,14 @@ const ucastniciReducer = (state = initialState, action) => {
     case `${POZNAMKA_MODIFY}_SUCCESS`: {
       const {
         request: { id, rok },
-        response: { poznamky }
+        response: { poznamky },
       } = action;
       return updateUcast(state, id, rok, 'poznamky', poznamky);
     }
     case `${MODIFY_UBYTOVANI}_SUCCESS`: {
       const {
         request: { id, rok },
-        response: { ubytovani }
+        response: { ubytovani },
       } = action;
       return updateUcast(state, id, rok, 'ubytovani', ubytovani);
     }
@@ -119,7 +119,7 @@ const ucastniciReducer = (state = initialState, action) => {
 export default ucastniciReducer;
 
 export const getUcastiProRok = ({ ucastnici, rok = AKTUALNI_ROK }) => {
-  const result = ucastnici.allIds.map(id => {
+  const result = ucastnici.allIds.map((id) => {
     const ucastnik = ucastnici.byIds[id];
     if (ucastnik.roky[0] === rok) {
       const ucast = ucastnik[rok];
@@ -128,5 +128,5 @@ export const getUcastiProRok = ({ ucastnici, rok = AKTUALNI_ROK }) => {
     return undefined;
   });
 
-  return result.filter(ucasti => ucasti !== undefined);
+  return result.filter((ucasti) => ucasti !== undefined);
 };

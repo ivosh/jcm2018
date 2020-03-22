@@ -11,7 +11,7 @@ const reduxName = ReduxNames.poradi;
 
 const kategorieFilters = [
   { active: true, typ: 'maraton', onClick: jest.fn() },
-  { typ: 'cyklo', onClick: jest.fn() }
+  { typ: 'cyklo', onClick: jest.fn() },
 ];
 const poradi = [
   {
@@ -24,10 +24,10 @@ const poradi = [
       pohlavi: 'muž',
       typ: 'půlmaraton',
       vek: { min: 60, max: 150 },
-      zkratka: '4M'
+      zkratka: '4M',
     },
     startCislo: 15,
-    dokonceno: false
+    dokonceno: false,
   },
   {
     id: '7a09b1fd371dec1e99b7e142',
@@ -39,13 +39,13 @@ const poradi = [
       typ: 'půlmaraton',
       pohlavi: 'žena',
       vek: { min: 18, max: 39 },
-      zkratka: '1Ž'
+      zkratka: '1Ž',
     },
     startCislo: 11,
     dokonceno: true,
     cas: 'PT2H06M32.6S',
     absPoradi: 1,
-    relPoradi: 1
+    relPoradi: 1,
   },
   {
     id: '8344bc71dec1e99b7e1d01e',
@@ -57,11 +57,11 @@ const poradi = [
       typ: 'půlmaraton',
       pohlavi: 'žena',
       vek: { min: 18, max: 39 },
-      zkratka: '1Ž'
+      zkratka: '1Ž',
     },
     startCislo: 15,
-    dokonceno: undefined
-  }
+    dokonceno: undefined,
+  },
 ];
 
 const state = {
@@ -70,9 +70,9 @@ const state = {
     [reduxName]: {
       kategorieFilter: '',
       kategorieSubFilter: '',
-      textFilter: ''
-    }
-  }
+      textFilter: '',
+    },
+  },
 };
 
 const mockStore = configureStore();

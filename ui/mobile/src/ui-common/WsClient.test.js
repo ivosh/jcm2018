@@ -7,9 +7,9 @@ let mockServer;
 let wsClient;
 const createServer = () => {
   mockServer = new Server(`ws://localhost:${PORT}`);
-  mockServer.on('connection', socket => {
+  mockServer.on('connection', (socket) => {
     // Sends the same message unmodified back to the client.
-    socket.on('message', message => socket.send(message));
+    socket.on('message', (message) => socket.send(message));
   });
 };
 beforeEach(() => createServer());
@@ -26,7 +26,7 @@ it('connects', async () => {
   expect(wsClient.isConnected()).toEqual(true);
 });
 
-it('fires onConnect and onClose', async done => {
+it('fires onConnect and onClose', async (done) => {
   let onConnectCalled = 0;
   const onConnect = () => {
     onConnectCalled += 1;
@@ -42,7 +42,7 @@ it('fires onConnect and onClose', async done => {
   await wsClient.close();
 });
 
-it('reconnects', async done => {
+it('reconnects', async (done) => {
   let onConnectCalled = 0;
   let onCloseCalled = 0;
   const onConnect = () => {
@@ -85,7 +85,7 @@ it('sends a request', async () => {
   expect(response).toBeTruthy();
 });
 
-it('handles request timeout', async done => {
+it('handles request timeout', async (done) => {
   const port = PORT + 1;
   mockServer = new Server(`ws://localhost:${port}`);
   wsClient = new WsClient({ requestTimeout: 500, port });

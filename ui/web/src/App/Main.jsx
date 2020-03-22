@@ -12,7 +12,7 @@ const Item = ({ glyph, name }) => (
 );
 Item.propTypes = {
   glyph: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
 };
 
 const Menu = ({ glyph, menu }) => (
@@ -21,7 +21,7 @@ const Menu = ({ glyph, menu }) => (
       <Item glyph={glyph} name={menu} />
     </span>
     <ul>
-      {navsForMenu({ menu }).map(nav => (
+      {navsForMenu({ menu }).map((nav) => (
         <li className="Main__menu-item" key={nav.key}>
           <Link className="Main__menu-link" to={nav.path}>
             <Item {...nav} />
@@ -33,7 +33,7 @@ const Menu = ({ glyph, menu }) => (
 );
 Menu.propTypes = {
   glyph: PropTypes.string.isRequired,
-  menu: PropTypes.string.isRequired
+  menu: PropTypes.string.isRequired,
 };
 
 const Main = () => (

@@ -6,7 +6,7 @@ import configureStore from 'redux-mock-store';
 import { mount } from 'enzyme';
 import { ActionPrefixes, ReduxNames } from '../../constants';
 import ucastniciTestData, {
-  AKTUALNI_DATUM_KONANI
+  AKTUALNI_DATUM_KONANI,
 } from '../../entities/ucastnici/ucastniciTestData';
 import Dohlasky from './Dohlasky';
 import PrihlaskyDohlaskyMain from './PrihlaskyDohlaskyMain';
@@ -27,14 +27,14 @@ const store = mockStore({
         udaje: { narozeni: {} },
         prihlaska: {},
         platby: [],
-        ubytovani: {}
+        ubytovani: {},
       },
       platby: {
-        novaPlatbaMinified: true
+        novaPlatbaMinified: true,
       },
-      startCislo: { showing: false }
-    }
-  }
+      startCislo: { showing: false },
+    },
+  },
 });
 
 it('renders /dohlasky route', () => {
@@ -79,11 +79,11 @@ it('renders /dohlasky/reset route', () => {
   expect(store.dispatch).toHaveBeenCalledTimes(3); // fetchUcastnici + Form/reset + Platby/reset
   expect(store.dispatch).toHaveBeenCalledWith({
     type: `${actionPrefix}_RESET`,
-    datumKonani: AKTUALNI_DATUM_KONANI
+    datumKonani: AKTUALNI_DATUM_KONANI,
   });
   expect(store.dispatch).toHaveBeenCalledWith({
     type: `${actionPrefix}_NOVA_PLATBA_RESET`,
-    datumKonani: AKTUALNI_DATUM_KONANI
+    datumKonani: AKTUALNI_DATUM_KONANI,
   });
 });
 
@@ -110,7 +110,7 @@ it('renders /dohlasky/:id route', () => {
       obec: 'Zlín',
       pohlavi: 'žena',
       prijmeni: 'Sukdoláková',
-      stat: 'Česká republika'
-    }
+      stat: 'Česká republika',
+    },
   });
 });

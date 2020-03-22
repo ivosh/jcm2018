@@ -19,9 +19,9 @@ beforeEach(() => {
       ubytovani: {
         loading: {},
         jenUbytovani: true,
-        textFilter: ''
-      }
-    }
+        textFilter: '',
+      },
+    },
   };
   store = mockStore(state);
   store.dispatch = jest.fn();
@@ -46,7 +46,7 @@ it('maps onTextFilterChange to dispatch textFilterChange action', () => {
 
   expect(store.dispatch).toHaveBeenCalledWith({
     type: 'UBYTOVANI_TEXT_FILTER_CHANGE',
-    textFilter: 'Kl'
+    textFilter: 'Kl',
   });
 });
 
@@ -62,9 +62,9 @@ it('maps onSelect to dispatch saveUbytovani action', () => {
         den: 'pátek',
         id: expect.any(String),
         modifikace: UBYTOVANI_ODHLASIT,
-        rok: AKTUALNI_ROK
+        rok: AKTUALNI_ROK,
       },
-      title: 'ukládání ubytování'
-    }
+      title: 'ukládání ubytování',
+    },
   });
 });

@@ -29,7 +29,7 @@ VysledkyTypu.propTypes = {
   stats: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   typ: PropTypes.string.isRequired,
   ucastnici: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
-  zkratky: PropTypes.arrayOf(PropTypes.string).isRequired
+  zkratky: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default VysledkyTypu;

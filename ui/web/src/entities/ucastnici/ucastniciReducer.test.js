@@ -7,7 +7,7 @@ import { AKTUALNI_ROK, ActionPrefixes } from '../../constants';
 import {
   addPoznamka,
   deletePoznamka,
-  modifyPoznamka
+  modifyPoznamka,
 } from '../../registrator/Poznamky/PoznamkyActions';
 import { createPrihlaskySave } from '../../registrator/PrihlaskyDohlasky/PrihlaskyForm/PrihlaskyFormActions';
 import { createVykon, deleteVykon } from '../../registrator/Startujici/StartujiciActions';
@@ -47,15 +47,15 @@ it('po načtení účastníků', () => {
             narozeni: { rok: 1963 },
             pohlavi: 'žena',
             obec: 'Zlín',
-            stat: 'Česká republika'
+            stat: 'Česká republika',
           },
           vykon: {
             kategorie: '5a71b1fd45754c1e99b7e1bc',
             startCislo: 11,
             dokonceno: true,
-            cas: 'PT3H42M32.6S'
-          }
-        }
+            cas: 'PT3H42M32.6S',
+          },
+        },
       },
       '5a09b1fd371dec1e99b7e1c9': {
         roky: [2018, 2017],
@@ -66,15 +66,15 @@ it('po načtení účastníků', () => {
             narozeni: { rok: 1956 },
             pohlavi: 'muž',
             obec: 'Ostrava 1',
-            stat: 'Česká republika'
+            stat: 'Česká republika',
           },
           vykon: {
             kategorie: '5a71b1fd371dec1e99b7e1bc',
             startCislo: 34,
             dokonceno: true,
-            cas: 'PT1H25M32.6S'
+            cas: 'PT1H25M32.6S',
           },
-          poznamky: [{ datum: '2017-06-10T00:00:00.000Z', text: 'přihlášen zraněný' }]
+          poznamky: [{ datum: '2017-06-10T00:00:00.000Z', text: 'přihlášen zraněný' }],
         },
         2018: {
           udaje: {
@@ -83,17 +83,17 @@ it('po načtení účastníků', () => {
             narozeni: { rok: 1956 },
             pohlavi: 'muž',
             obec: 'Ostrava 2',
-            stat: 'Česká republika'
+            stat: 'Česká republika',
           },
           vykon: {
             kategorie: '5a71b1fd371dec1e99b7e1bc',
             startCislo: 15,
-            dokonceno: false
-          }
-        }
-      }
+            dokonceno: false,
+          },
+        },
+      },
     },
-    requestId: '0.9310306652587377'
+    requestId: '0.9310306652587377',
   };
 
   const stateBefore = { allIds: [1], byIds: { 1: { 2017: { udaje: null } } }, invalidated: true };
@@ -109,15 +109,15 @@ it('po načtení účastníků', () => {
             narozeni: { rok: 1963 },
             pohlavi: 'žena',
             obec: 'Zlín',
-            stat: 'Česká republika'
+            stat: 'Česká republika',
           },
           vykon: {
             kategorie: '5a71b1fd45754c1e99b7e1bc',
             startCislo: 11,
             dokonceno: true,
-            cas: 'PT3H42M32.6S'
-          }
-        }
+            cas: 'PT3H42M32.6S',
+          },
+        },
       },
       '5a09b1fd371dec1e99b7e1c9': {
         roky: [2018, 2017],
@@ -128,13 +128,13 @@ it('po načtení účastníků', () => {
             narozeni: { rok: 1956 },
             pohlavi: 'muž',
             obec: 'Ostrava 2',
-            stat: 'Česká republika'
+            stat: 'Česká republika',
           },
           vykon: {
             kategorie: '5a71b1fd371dec1e99b7e1bc',
             startCislo: 15,
-            dokonceno: false
-          }
+            dokonceno: false,
+          },
         },
         2017: {
           udaje: {
@@ -143,19 +143,19 @@ it('po načtení účastníků', () => {
             narozeni: { rok: 1956 },
             pohlavi: 'muž',
             obec: 'Ostrava 1',
-            stat: 'Česká republika'
+            stat: 'Česká republika',
           },
           vykon: {
             kategorie: '5a71b1fd371dec1e99b7e1bc',
             startCislo: 34,
             dokonceno: true,
-            cas: 'PT1H25M32.6S'
+            cas: 'PT1H25M32.6S',
           },
-          poznamky: [{ datum: '2017-06-10T00:00:00.000Z', text: 'přihlášen zraněný' }]
-        }
-      }
+          poznamky: [{ datum: '2017-06-10T00:00:00.000Z', text: 'přihlášen zraněný' }],
+        },
+      },
     },
-    invalidated: false
+    invalidated: false,
   };
   deepFreeze(stateBefore);
 
@@ -191,7 +191,7 @@ it('addPoznamka - success()', () => {
   const id = '8344bc71dec1e99b7e1d01e';
   const poznamky = [
     { datum: '2020-05-21T08:53:49.154Z', text: 'jedna poznámka' },
-    { datum: '2020-06-01T15:35:43.543Z', text: 'druhá poznámka' }
+    { datum: '2020-06-01T15:35:43.543Z', text: 'druhá poznámka' },
   ];
 
   expect(
@@ -199,7 +199,7 @@ it('addPoznamka - success()', () => {
       stateBefore,
       createSuccessFromAction({
         action: addPoznamka({ id, poznamka: poznamky[1], rok: AKTUALNI_ROK }),
-        response: { response: { poznamky } }
+        response: { response: { poznamky } },
       })
     )
   ).toMatchSnapshot();
@@ -216,7 +216,7 @@ it('deletePoznamka - success()', () => {
       stateBefore,
       createSuccessFromAction({
         action: deletePoznamka({ id, index: 0, rok: AKTUALNI_ROK }),
-        response: { response: { poznamky } }
+        response: { response: { poznamky } },
       })
     )
   ).toMatchSnapshot();
@@ -228,7 +228,7 @@ it('modifyPoznamka - success()', () => {
   const id = '8344bc71dec1e99b7e1d01e';
   const poznamky = [
     { datum: '2020-05-21T08:53:49.154Z', text: 'první poznámka' },
-    { datum: '2020-06-01T15:35:43.543Z', text: 'druhá poznámka' }
+    { datum: '2020-06-01T15:35:43.543Z', text: 'druhá poznámka' },
   ];
 
   expect(
@@ -236,7 +236,7 @@ it('modifyPoznamka - success()', () => {
       stateBefore,
       createSuccessFromAction({
         action: modifyPoznamka({ id, index: 0, poznamka: poznamky[0], rok: AKTUALNI_ROK }),
-        response: { response: { poznamky } }
+        response: { response: { poznamky } },
       })
     )
   ).toMatchSnapshot();
@@ -249,7 +249,7 @@ it('modifyUbytovani - success()', () => {
   const ucastnik = ucastniciTestData.entities.ucastnici.byIds[id];
   const ubytovani = ubytovaniModifications[UBYTOVANI_NEPRESPANO]({
     den: 'pátek',
-    ubytovani: ucastnik[AKTUALNI_ROK].ubytovani
+    ubytovani: ucastnik[AKTUALNI_ROK].ubytovani,
   });
 
   expect(
@@ -257,7 +257,7 @@ it('modifyUbytovani - success()', () => {
       stateBefore,
       createSuccessFromAction({
         action: modifyUbytovani({ id, modifikace: UBYTOVANI_NEPRESPANO, rok: AKTUALNI_ROK }),
-        response: { response: { ubytovani } }
+        response: { response: { ubytovani } },
       })
     )
   ).toMatchSnapshot();
@@ -288,7 +288,7 @@ it('prihlaskySave() - success - stávající účastník - nový rok', () => {
     typ: 'půlmaraton',
     startCislo: 15,
     kod: '===kod===',
-    mladistvyPotvrzen: undefined
+    mladistvyPotvrzen: undefined,
   };
   const platby = [{ castka: 250, datum: '2020-05-12T00:00:00.000Z', typ: 'převodem' }];
   const ubytovani = { pátek: { prihlaseno: true } };
@@ -330,7 +330,7 @@ it('prihlaskySave() - success - nový účastník', () => {
     narozeni: { den: 4, mesic: 10, rok: 1998 },
     pohlavi: 'žena',
     obec: 'Mieroszow',
-    stat: 'Polsko'
+    stat: 'Polsko',
   };
   const prihlaska = {
     datum: '2020-05-12T00:00:00.000Z',
@@ -338,7 +338,7 @@ it('prihlaskySave() - success - nový účastník', () => {
     typ: 'půlmaraton',
     startCislo: 15,
     kod: '===kod===',
-    mladistvyPotvrzen: undefined
+    mladistvyPotvrzen: undefined,
   };
   const platby = [{ castka: 250, datum: '2020-05-12T00:00:00.000Z', typ: 'složenkou' }];
   const ubytovani = { pátek: { prihlaseno: true, prespano: true } };
@@ -359,7 +359,7 @@ it('createVykon() - success', () => {
   const request = {
     id: '8344bc71dec1e99b7e1d01e',
     rok: AKTUALNI_ROK,
-    vykon: { dokonceno: null, kategorie: '5a587e1b051c181132cf83d9', startCislo: 15 }
+    vykon: { dokonceno: null, kategorie: '5a587e1b051c181132cf83d9', startCislo: 15 },
   };
 
   expect(
@@ -372,7 +372,7 @@ it('deleteVykon() - success', () => {
   deepFreeze(stateBefore);
   const request = {
     id: '7a09b1fd371dec1e99b7e142',
-    rok: AKTUALNI_ROK
+    rok: AKTUALNI_ROK,
   };
 
   expect(
@@ -395,22 +395,22 @@ it('broadcastUcastnik - změna', () => {
         obec: 'Luhačovice',
         stat: 'Česká republika',
         klub: 'SK Nudle',
-        email: 'zrala.kl@s.cz'
+        email: 'zrala.kl@s.cz',
       },
       platby: [{ castka: 100, datum: AKTUALNI_DATUM_KONANI, typ: 'hotově' }],
       prihlaska: {
         datum: AKTUALNI_DATUM_KONANI,
         kategorie: '5a587e1b051c181132cf83d9', // půlmaraton
         startCislo: 9,
-        kod: 'abc023skd204mvs345'
+        kod: 'abc023skd204mvs345',
       },
       vykon: {
         kategorie: '5a587e1b051c181132cf83d9', // půlmaraton
         startCislo: 9,
         dokonceno: true,
-        cas: 'PT2H06M32.6S'
-      }
-    }
+        cas: 'PT2H06M32.6S',
+      },
+    },
   };
 
   expect(

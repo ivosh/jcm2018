@@ -7,11 +7,11 @@ export const getStartovniCislaProTyp = ({
   rok = AKTUALNI_ROK,
   typ,
   kategorie,
-  ucastnici
+  ucastnici,
 }) => {
   const results = [];
 
-  ucastnici.allIds.forEach(id => {
+  ucastnici.allIds.forEach((id) => {
     const ucastnik = ucastnici.byIds[id];
     if (ucastnik[rok]) {
       const { prihlaska, vykon } = ucastnik[rok];
@@ -45,14 +45,14 @@ export const isStartCisloTaken = ({
   startCislo,
   typ,
   kategorie,
-  ucastnici
+  ucastnici,
 }) =>
   !!getStartovniCislaProTyp({ odstartovani, rok, typ, kategorie, ucastnici }).find(
-    startovniCislo => startovniCislo.startCislo === startCislo && startovniCislo.id !== id
+    (startovniCislo) => startovniCislo.startCislo === startCislo && startovniCislo.id !== id
   );
 
 const findStartCislo = (startovniCisla, startCislo) =>
-  startovniCisla.find(element => element.startCislo === startCislo);
+  startovniCisla.find((element) => element.startCislo === startCislo);
 
 const populateRange = (start, end) => {
   if (end >= start) {
@@ -71,7 +71,7 @@ export const getStartovniCislaProTypVsechna = ({
   typ,
   kategorie,
   rocniky,
-  ucastnici
+  ucastnici,
 }) => {
   const typKategorie = getTypKategorie({ rok, typ, rocniky });
   const { startCisla: povolenaStartovniCisla } = typKategorie;
@@ -81,7 +81,7 @@ export const getStartovniCislaProTypVsechna = ({
 
   const startovniCisla = getStartovniCislaProTyp({ odstartovani, rok, typ, kategorie, ucastnici });
   const results = [];
-  povolenaStartovniCisla.rozsahy.forEach(rozsah => {
+  povolenaStartovniCisla.rozsahy.forEach((rozsah) => {
     let range = [];
 
     const parsed = rozsah.match(/(\d+)-(\d+)/);
@@ -91,7 +91,7 @@ export const getStartovniCislaProTypVsechna = ({
       range = [parseInt(rozsah, 10)];
     }
     const result = range.map(
-      cislo => findStartCislo(startovniCisla, cislo) || { startCislo: cislo }
+      (cislo) => findStartCislo(startovniCisla, cislo) || { startCislo: cislo }
     );
     results.push(...result);
   });

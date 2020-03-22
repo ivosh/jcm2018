@@ -6,7 +6,7 @@ import './AkceMenu.css';
 const AkceMenu = ({ akce, onSelect }) => {
   const [vybrana, setVybrana] = useState(-1);
 
-  const handleSelect = index => {
+  const handleSelect = (index) => {
     setVybrana(index);
     onSelect(index);
   };
@@ -39,14 +39,14 @@ AkceMenu.propTypes = {
     PropTypes.shape({
       icon: PropTypes.string,
       nazev: PropTypes.string.isRequired,
-      component: PropTypes.node.isRequired
+      component: PropTypes.node.isRequired,
     })
   ).isRequired,
-  onSelect: PropTypes.func
+  onSelect: PropTypes.func,
 };
 
 AkceMenu.defaultProps = {
-  onSelect: () => {}
+  onSelect: () => {},
 };
 
 export default AkceMenu;

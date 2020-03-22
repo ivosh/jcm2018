@@ -5,7 +5,7 @@ import { API_ADD_POZNAMKA, API_DELETE_POZNAMKA, API_MODIFY_POZNAMKA } from 'ui-c
 import { WS_API } from 'ui-common/store/wsAPI';
 import { AKTUALNI_ROK } from '../../constants';
 import ucastniciTestData, {
-  AKTUALNI_DATUM_KONANI
+  AKTUALNI_DATUM_KONANI,
 } from '../../entities/ucastnici/ucastniciTestData';
 import { POZNAMKA_ADD, POZNAMKA_DELETE, POZNAMKA_MODIFY } from './PoznamkyActions';
 import PoznamkyContainer from './PoznamkyContainer';
@@ -38,12 +38,12 @@ it('maps addPoznamka to dispatch POZNAMKA_ADD action', () => {
         id: '8344bc71dec1e99b7e1d01e',
         poznamka: {
           datum: expect.any(String),
-          text: 'text nějaké poznámky'
+          text: 'text nějaké poznámky',
         },
-        rok: AKTUALNI_ROK
+        rok: AKTUALNI_ROK,
       },
-      title: 'přidávání poznámky'
-    }
+      title: 'přidávání poznámky',
+    },
   });
 });
 
@@ -58,10 +58,10 @@ it('maps deletePoznamka to dispatch POZNAMKA_DELETE action', () => {
       request: {
         id: '8344bc71dec1e99b7e1d01e',
         index: 1,
-        rok: AKTUALNI_ROK
+        rok: AKTUALNI_ROK,
       },
-      title: 'mazání poznámky'
-    }
+      title: 'mazání poznámky',
+    },
   });
 });
 
@@ -78,11 +78,11 @@ it('maps modifyPoznamka to dispatch POZNAMKA_MODIFY action', () => {
         index: 1,
         poznamka: {
           datum: AKTUALNI_DATUM_KONANI,
-          text: 'text nějaké poznámky'
+          text: 'text nějaké poznámky',
         },
-        rok: AKTUALNI_ROK
+        rok: AKTUALNI_ROK,
       },
-      title: 'ukládání poznámky'
-    }
+      title: 'ukládání poznámky',
+    },
   });
 });

@@ -2,10 +2,10 @@ import moment from 'moment';
 import { AKTUALNI_ROK } from '../constants';
 import { getTypKategorie } from '../entities/rocniky/rocnikyReducer';
 
-export const provedenePlatby = platby => {
+export const provedenePlatby = (platby) => {
   const result = platby.map(({ datum, ...platba }) => ({
     datum: moment.utc(datum).format('D. M. YYYY'),
-    ...platba
+    ...platba,
   }));
   const suma = result.reduce((sum, platba) => sum + platba.castka, 0);
 
@@ -33,7 +33,7 @@ const getDatumPosledniDostatecnePlatby = ({ platby, startovnePredem }) => {
 
   let suma = 0;
   let posledniDatum = null;
-  platby.forEach(platba => {
+  platby.forEach((platba) => {
     if (suma < startovnePredem) {
       suma += platba.castka;
     }
@@ -50,7 +50,7 @@ export const predepsaneStartovne = ({
   prihlaska,
   platby,
   rocniky,
-  rok = AKTUALNI_ROK
+  rok = AKTUALNI_ROK,
 }) => {
   const typ = extractTyp({ kategorie, prihlaska });
   if (!typ) {
@@ -72,7 +72,7 @@ export const predepsaneStartovne = ({
     const uzaverkaPlatebPrihlasek = rocnik.uzaverka.platebPrihlasek;
     const datumPosledniDostatecnePlatby = getDatumPosledniDostatecnePlatby({
       platby,
-      startovnePredem: startovne.predem
+      startovnePredem: startovne.predem,
     });
 
     if (

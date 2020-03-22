@@ -7,7 +7,7 @@ it('computePoradiProVsechny()', () => {
   const {
     maraton: { list: maraton },
     cyklo: { list: cyklo },
-    pěší: { list: pěší }
+    pěší: { list: pěší },
   } = kategorieProRocnik.typy;
   const data = [
     { kategorie: cyklo[4], dokonceno: false, cas: undefined },
@@ -22,7 +22,7 @@ it('computePoradiProVsechny()', () => {
     { kategorie: pěší[0], dokonceno: true },
     { kategorie: maraton[0], dokonceno: true, cas: 'PT2H06M32.32S' },
     { kategorie: maraton[3], dokonceno: true, cas: 'PT1H15M21.5S' },
-    { kategorie: maraton[7], dokonceno: true, cas: 'PT3H21M56.23S' }
+    { kategorie: maraton[7], dokonceno: true, cas: 'PT3H21M56.23S' },
   ];
   const expected = [
     { kategorie: maraton[3], dokonceno: true, cas: 'PT1H15M21.5S', absPoradi: 1, relPoradi: 1 },
@@ -37,7 +37,7 @@ it('computePoradiProVsechny()', () => {
     { kategorie: cyklo[1], dokonceno: true, cas: 'PT2H14M21.6S', absPoradi: 2, relPoradi: 1 },
     { kategorie: cyklo[2], dokonceno: true, cas: 'PT2H15M32.5S', absPoradi: 3, relPoradi: 2 },
     { kategorie: cyklo[4], dokonceno: false, cas: undefined },
-    { kategorie: pěší[0], dokonceno: true }
+    { kategorie: pěší[0], dokonceno: true },
   ];
 
   expect(computePoradiProVsechny({ data, kategorieProRocnik })).toEqual(expected);

@@ -6,38 +6,38 @@ const computeSample = ({ clientTime, now, serverTime }) => {
   return { latency, offset: delta + latency / 2 };
 };
 
-const mean = array => array.reduce((prev, cur) => prev + cur) / array.length;
+const mean = (array) => array.reduce((prev, cur) => prev + cur) / array.length;
 
-const median = array => {
+const median = (array) => {
   array.sort((a, b) => a - b);
   const middle = array.length / 2;
   return middle % 1 === 0 ? array[middle] : (array[middle - 0.5] + array[middle + 0.5]) / 2;
 };
 
-const variance = array => {
+const variance = (array) => {
   const prumer = mean(array);
   return array.reduce((prev, cur) => prev + (cur - prumer) ** 2, 0) / array.length;
 };
 
-const standardDeviation = array => Math.sqrt(variance(array));
+const standardDeviation = (array) => Math.sqrt(variance(array));
 
 const computeOffset = (samples = []) => {
   if (samples.length === 1) {
     return Math.round(samples[0].offset);
   }
 
-  const latencies = samples.map(sample => sample.latency);
+  const latencies = samples.map((sample) => sample.latency);
   const limit = median(latencies) + standardDeviation(latencies);
 
-  const filtered = samples.filter(sample => sample.latency < limit);
-  const offsets = filtered.map(sample => sample.offset);
+  const filtered = samples.filter((sample) => sample.latency < limit);
+  const offsets = filtered.map((sample) => sample.offset);
   return offsets.length > 0 ? Math.round(mean(offsets)) : null;
 };
 
 const initialState = {
   offset: 0,
   running: false,
-  samples: []
+  samples: [],
 };
 
 const timesyncReducer = (state = initialState, action) => {
@@ -49,7 +49,7 @@ const timesyncReducer = (state = initialState, action) => {
     case 'TIMESYNC_SUCCESS': {
       const {
         request: { clientTime },
-        response: { now, serverTime }
+        response: { now, serverTime },
       } = action;
       const lastSamples = [...state.samples, computeSample({ clientTime, now, serverTime })];
       const samples = lastSamples.slice(-TIMESYNC_LAST_SAMPLES);
