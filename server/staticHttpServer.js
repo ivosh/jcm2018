@@ -71,7 +71,7 @@ const streamFile = async ({ filename, host, response }) => {
     ? `ws://localhost:${common.PORT_DEV_SERVER}`
     : `wss://${host}`;
   const workboxSrc = 'https://storage.googleapis.com/workbox-cdn/';
-  const inlineRuntimeScript = 'sha256-ZYTd+515YaXoVT1ilPqQrkYFW2DkwBNjxoU0L3kjzrw=';
+  const inlineRuntimeScript = 'sha256-S/rcPN7CLaCTZK8K9gh0H7SnfUEKqC9gTopzwJ+fM98=';
   const inlineStyles =
     "'sha256-/zy+dOBqUDw6PYwgNqu6Puhrs275njSeyyQGuL2MRR4=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-deDIoPlRijnpfbTDYsK+8JmDfUBmpwpnb0L/SUV8NeU='";
   response.writeHead(200, {
